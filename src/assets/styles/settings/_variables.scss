@@ -1,4 +1,0 @@
-$colors: ( primary: #f94c66, accent: #fff, );
-@function color($color-name) {
-    @return map-get($colors, $color-name)
-}
