@@ -44,10 +44,25 @@
 
         <div class="inputs">
           <div class="input">
-            <input type="text" placeholder="Full name">
+            <input
+              type="text"
+              placeholder="Full name"
+            >
           </div>
           <div class="input">
-            <input type="text" placeholder="E-mail">
+            <input
+              type="text"
+              placeholder="E-mail"
+            >
+          </div>
+          <div class="input">
+            <vue-country-code
+              @onSelect="onSelect"
+              :preferredCountries="['vn', 'us', 'gb']"
+              style="width: 100%; height: 100%;"
+            >
+            </vue-country-code>
+            <button @click="manualTrigger">Manual Trigger</button>
           </div>
         </div>
       </div>
@@ -56,12 +71,24 @@
 </template>
 
 <script>
+import VueCountryCode from "vue-country-code-select";
 export default {
   name: 'PageIndex',
+  comsponents: {
+    VueCountryCode
+  },
   data: () => ({
     phone: require("../assets/trust/phone1.png"),
     logo: require("../assets/paddi.png")
-  })
+  }),
+  methods: {
+    onSelect ({ name, iso2, dialCode }) {
+      console.log(name, iso2, dialCode);
+    },
+    manualTrigger() {
+     this.$refs.vcc.manualDropdown();
+   }
+  },
 }
 </script>
 

@@ -6078,6 +6078,11 @@ vue-country-code-select@^1.6.7:
   resolved "https://registry.yarnpkg.com/vue-country-code-select/-/vue-country-code-select-1.6.7.tgz#c9ebd37ad385b2575a0b5cae01ed137493858c98"
   integrity sha512-90GQek/OYAHhwEAtiCklalDZZlfMQyuxro//c03TX2n0JLIOZDWV31qgWjQns9BMtWQ2f4g9gW66ycFkXm0ZYg==
 
+vue-country-code@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/vue-country-code/-/vue-country-code-1.1.2.tgz#80884c2a6c026867902be7472a974eb266108401"
+  integrity sha512-vNPpwZXg5UtOHVhBJS57QNr4t9Pixr5piBazgrSRYDz6GvoJF5kNf6+GMHR4HnaWPOO4vSPDzy1UKL4eqk7rUA==
+
 vue-i18n@^9.0.0-beta.0:
   version "9.1.6"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-9.1.6.tgz#4cf992e2aec5458bc19369973c96ea7d0f560321"
