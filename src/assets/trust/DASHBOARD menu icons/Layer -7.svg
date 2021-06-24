@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6" height="27" viewBox="0 0 6 27">
+  <g id="Layer_2" data-name="Layer 2" transform="translate(0)" opacity="0.5">
+    <g id="Layer_1" data-name="Layer 1" transform="translate(0)">
+      <g id="more_vert" data-name="more vert">
+        <circle id="Ellipse_12" data-name="Ellipse 12" cx="3" cy="3" r="3" transform="translate(-0.001)" fill="#150f3f"/>
+        <circle id="Ellipse_13" data-name="Ellipse 13" cx="3" cy="3" r="3" transform="translate(-0.001 11)" fill="#150f3f"/>
+        <circle id="Ellipse_14" data-name="Ellipse 14" cx="3" cy="3" r="3" transform="translate(-0.001 21)" fill="#150f3f"/>
+      </g>
+    </g>
+  </g>
+</svg>
