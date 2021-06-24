@@ -1,0 +1,163 @@
+.signup {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.hero {
+  width: 50%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero .phone {
+  width: 50%;
+  height: auto;
+}
+
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 4em;
+}
+
+.social p {
+  font-size: 0.875rem;
+  color: #555555;
+  letter-spacing: 0.42px;
+}
+
+.social .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.social .buttons .button {
+  background: #555555 !important;
+  border-radius: 10px;
+  font-size: .8rem;
+  padding: 0 1.3em;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  color: #fff !important;
+}
+
+.form {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.head {
+  width: 100%;
+}
+
+.head .logo {
+  width: 5.1875em;
+  height: auto;
+}
+
+.head .text {
+  font-size: 4rem;
+  letter-spacing: 0.64px;
+  color: #150F3F;
+  font-weight: 300;
+}
+
+.head .small_text {
+  font-size: 0.875rem;
+  letter-spacing: 0.56px;
+  color: #555555;
+}
+
+.head .inputs {
+  width: 64%;
+}
+
+.head .inputs .input {
+  height: 3.5rem;
+  margin-bottom: 1.375rem;
+  background: #EFF0F7;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.head .inputs .input input {
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0 1.0625rem;
+  font-size: 0.875rem;
+  color: #555555;
+}
+
+.head .inputs .input input::-webkit-input-placeholder {
+  color: #4169E2;
+  opacity: 0.5;
+  letter-spacing: 0.56px;
+}
+
+.head .inputs .input input:-ms-input-placeholder {
+  color: #4169E2;
+  opacity: 0.5;
+  letter-spacing: 0.56px;
+}
+
+.head .inputs .input input::-ms-input-placeholder {
+  color: #4169E2;
+  opacity: 0.5;
+  letter-spacing: 0.56px;
+}
+
+.head .inputs .input input::placeholder {
+  color: #4169E2;
+  opacity: 0.5;
+  letter-spacing: 0.56px;
+}
+/*# sourceMappingURL=signup.css.map */
