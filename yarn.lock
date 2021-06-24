@@ -6073,6 +6073,11 @@ vendors@^1.0.3:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
+vue-country-code-select@^1.6.7:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/vue-country-code-select/-/vue-country-code-select-1.6.7.tgz#c9ebd37ad385b2575a0b5cae01ed137493858c98"
+  integrity sha512-90GQek/OYAHhwEAtiCklalDZZlfMQyuxro//c03TX2n0JLIOZDWV31qgWjQns9BMtWQ2f4g9gW66ycFkXm0ZYg==
+
 vue-i18n@^9.0.0-beta.0:
   version "9.1.6"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-9.1.6.tgz#4cf992e2aec5458bc19369973c96ea7d0f560321"

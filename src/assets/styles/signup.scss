@@ -10,6 +10,7 @@
 .hero {
     width: 50%;
     height: 80%;
+    // background: red;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -52,4 +53,50 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    // background: red;
+}
+
+.head {
+    width: 100%;
+    .logo {
+        width: 5.1875em;
+        height: auto;
+    }
+    .text {
+        font-size: 4rem;
+        letter-spacing: 0.64px;
+        color: #150F3F;
+        font-weight: 300;
+    }
+    .small_text {
+        font-size: 0.875rem;
+        letter-spacing: 0.56px;
+        color: #555555;
+    }
+    .inputs {
+        // width: 448px;
+        width: 64%;
+        .input {
+            height: 3.5rem;
+            margin-bottom: 1.375rem;
+            background: #EFF0F7;
+            border-radius: 8px;
+            width: 100%;
+            input {
+                height: 100%;
+                width: 100%;
+                background: none;
+                border: none;
+                outline: none;
+                padding: 0 1.0625rem;
+                font-size: 0.875rem;
+                color: #555555;
+                &::placeholder {
+                    color: #4169E2;
+                    opacity: 0.5;
+                    letter-spacing: 0.56px;
+                }
+            }
+        }
+    }
 }
