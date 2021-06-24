@@ -1,6 +1,6 @@
 .signup {
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    padding: 0 8em;
+    // padding: 0 8em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,18 +9,47 @@
 
 .hero {
     width: 50%;
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     .phone {
-        width: 60%;
+        width: 50%;
         height: auto;
+    }
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4em;
+    p {
+        font-size: 0.875rem;
+        color: #555555;
+        letter-spacing: 0.42px;
+    }
+    .buttons {
+        display: flex;
+        .button {
+            width: 1.6875em;
+            height: 1.6875em;
+            background: #555555 !important;
+            border-radius: 10px;
+            font-size: .8rem;
+            padding: 0 1.3em;
+            transition: .3s ease-in-out;
+        }
     }
 }
 
 .form {
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }

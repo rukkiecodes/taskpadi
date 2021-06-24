@@ -2,7 +2,7 @@
   <div class="signup">
     <div class="hero">
       <q-img
-      :src="src"
+      :src="phone"
       spinner-color="white"
       class="phone"
     />
@@ -11,9 +11,9 @@
       <p>Sign up with</p>
 
       <div class="buttons">
-         <q-btn class="button" color="primary" icon="mdi-linkedin" />
-         <q-btn class="button" color="primary" icon="mdi-facebook" />
-         <q-btn class="button" color="primary" icon="mdi-github" />
+         <q-btn unelevated class="button" color="primary" icon="mdi-linkedin" />
+         <q-btn unelevated class="button q-mx-lg" color="primary" icon="mdi-facebook" />
+         <q-btn unelevated class="button" color="primary" icon="mdi-github" />
       </div>
     </div>
     </div>
@@ -25,7 +25,8 @@
 export default{
   name: 'PageIndex',
   data: () => ({
-    src: require("../assets/trust/phone1.png")
+    phone: require("../assets/trust/phone1.png"),
+    logo: require("../assets/paddi.png")
   })
 }
 </script>
