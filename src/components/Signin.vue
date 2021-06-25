@@ -91,7 +91,7 @@
             depressed
             class="submit_button"
           >
-            Sign Up
+            Sign In
           </v-btn>
 
           <div class="signup_route">

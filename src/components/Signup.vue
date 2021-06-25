@@ -118,7 +118,7 @@
           </v-btn>
 
           <div class="signup_route">
-            <p>Already have an account? <router-link to="/signin">Sign in</router-link>
+            <p>Already have an account? <router-link to="/signin">Sign In</router-link>
             </p>
           </div>
         </div>
