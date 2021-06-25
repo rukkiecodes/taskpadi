@@ -1,6 +1,5 @@
 .signup {
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    // padding: 0 8em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,15 +7,14 @@
 }
 
 .hero {
-    width: 50%;
-    height: 80%;
-    // background: red;
+    width: 40%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    padding-bottom: 2em;
     .phone {
-        width: 50%;
         height: auto;
     }
 }
@@ -51,18 +49,18 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
-    // background: red;
+    align-items: flex-end;
+    padding-bottom: 2em;
 }
 
 .head {
     width: 100%;
     .logo {
-        width: 5.1875em;
+        width: 4em;
         height: auto;
     }
     .text {
-        font-size: 4rem;
+        font-size: 3rem;
         letter-spacing: 0.64px;
         color: #150F3F;
         font-weight: 300;
@@ -73,11 +71,10 @@
         color: #555555;
     }
     .inputs {
-        // width: 448px;
         width: 64%;
         .input {
-            height: 3.5rem;
-            margin-bottom: 1.375rem;
+            height: 2.5em;
+            margin-bottom: 1em;
             background: #EFF0F7;
             border-radius: 8px;
             width: 100%;
@@ -94,6 +91,84 @@
                     color: #4169E2;
                     opacity: 0.5;
                     letter-spacing: 0.56px;
+                }
+            }
+            select {
+                width: 100%;
+                height: 100%;
+                padding: 0 1.0625rem;
+                outline: none;
+            }
+        }
+        .phone_input {
+            position: relative;
+            .country_code {
+                position: absolute;
+                left: 0;
+                height: 100%;
+                border: none;
+                box-shadow: none;
+                border-radius: 8px 0 0 80px;
+                background: #EFF0F7;
+                outline: none;
+            }
+            input {
+                position: absolute;
+                right: 0;
+                padding-left: 0em;
+                width: 80%;
+            }
+        }
+        .password {
+            position: relative;
+            input {
+                position: absolute;
+                padding-right: 4em;
+                outline: none;
+            }
+            .icon {
+                position: absolute;
+                right: 0;
+                height: 100%;
+                border-radius: 8px;
+                font-size: .8rem;
+                padding: 0 1.5em;
+                transition: .2s ease-in-out;
+            }
+        }
+        .other_signup {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 1em;
+            a {
+                text-decoration: none;
+                font-size: 0.875rem;
+                color: #4169E2;
+            }
+        }
+        .submit_button {
+            width: 100%;
+            height: 2.5em !important;
+            background: #4169E2 !important;
+            color: #fff;
+            text-transform: capitalize;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        .signup_route {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            p {
+                font-size: 0.875rem;
+                font-size: #555555;
+                a {
+                    color: #4169E2;
+                    text-decoration: none;
                 }
             }
         }
