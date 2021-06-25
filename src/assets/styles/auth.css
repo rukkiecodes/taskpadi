@@ -593,6 +593,10 @@
   text-align: center;
 }
 
+.head .inputs .input_group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .head .inputs .phone_input {
   position: relative;
   height: 3em;
@@ -736,6 +740,35 @@
   font-size: 1rem;
   font-weight: 400;
   margin-bottom: 1rem;
+}
+
+.head .inputs .button_group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.head .inputs .button_group .button {
+  width: 80%;
+  height: 3em;
+  background: #4169E2;
+  color: #fff;
+  text-transform: capitalize;
+  border-radius: 8px;
+}
+
+.head .inputs .button_group .small_button {
+  width: 10%;
+  height: 3em;
+  background: #EFF0F7;
+  color: #4169E2;
+  border-radius: 8px;
 }
 
 .head .inputs .signup_route {

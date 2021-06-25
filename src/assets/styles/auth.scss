@@ -261,6 +261,9 @@
                 border-radius: 8px;
                 font-size: 2rem;
                 text-align: center;
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                }
             }
         }
         .phone_input {
@@ -360,6 +363,26 @@
             font-size: 1rem;
             font-weight: 400;
             margin-bottom: 1rem;
+        }
+        .button_group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .button {
+                width: 80%;
+                height: 3em;
+                background: #4169E2;
+                color: #fff;
+                text-transform: capitalize;
+                border-radius: 8px;
+            }
+            .small_button {
+                width: 10%;
+                height: 3em;
+                background: #EFF0F7;
+                color: #4169E2;
+                border-radius: 8px;
+            }
         }
         .signup_route {
             width: 100%;

@@ -24,19 +24,37 @@
 
         <div class="inputs">
           <div class="input input_group">
-            <input maxlength="1" type="text">
-            <input maxlength="1" type="text">
-            <input maxlength="1" type="text">
-            <input maxlength="1" type="text">
-            <input maxlength="1" type="text">
+            <input
+              maxlength="1"
+              type="text"
+            >
+            <input
+              maxlength="1"
+              type="text"
+            >
+            <input
+              maxlength="1"
+              type="text"
+            >
+            <input
+              maxlength="1"
+              type="text"
+            >
+            <input
+              maxlength="1"
+              type="text"
+            >
           </div>
 
           <div class="button_group">
             <v-btn
               depressed
-              class="submit_button"
+              class="button"
             >
-              Sign In
+              Verify
+            </v-btn>
+            <v-btn class="small_button" text>
+              <v-icon class="icon">mdi-reload mdi-rotate-225</v-icon>
             </v-btn>
           </div>
         </div>
