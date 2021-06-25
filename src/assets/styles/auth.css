@@ -573,6 +573,26 @@
   letter-spacing: 0.56px;
 }
 
+.head .inputs .input_group {
+  height: 3em;
+  width: 100%;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.head .inputs .input_group input {
+  width: 1.8em;
+  background: #EFF0F7;
+  border-radius: 8px;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .head .inputs .phone_input {
   position: relative;
   height: 3em;

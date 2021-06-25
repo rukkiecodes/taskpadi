@@ -249,6 +249,20 @@
                 letter-spacing: 0.56px;
             }
         }
+        .input_group {
+            height: 3em;
+            width: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            input {
+                width: 1.8em;
+                background: #EFF0F7;
+                border-radius: 8px;
+                font-size: 2rem;
+                text-align: center;
+            }
+        }
         .phone_input {
             position: relative;
             height: 3em;

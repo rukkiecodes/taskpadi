@@ -1,13 +1,13 @@
 <template>
-  <Signin />
+  <Otp />
 </template>
 
 <script>
-  import Signin from '../components/Signin'
+  import Otp from '../components/Otp'
 
   export default {
     components: {
-      Signin,
+      Otp,
     },
   }
 </script>

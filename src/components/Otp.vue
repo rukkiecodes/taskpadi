@@ -6,37 +6,6 @@
         class="phone"
         ref="phone"
       >
-
-      <div
-        ref="social"
-        class="social"
-      >
-        <p>Follow us</p>
-
-        <div class="buttons">
-          <v-btn
-            icon
-            depressed
-            class="button"
-          >
-            <v-icon>mdi-linkedin</v-icon>
-          </v-btn>
-          <v-btn
-            icon
-            depressed
-            class="button mx-5"
-          >
-            <v-icon>mdi-facebook</v-icon>
-          </v-btn>
-          <v-btn
-            icon
-            depressed
-            class="button"
-          >
-            <v-icon>mdi-github</v-icon>
-          </v-btn>
-        </div>
-      </div>
     </div>
 
     <!-- Form -->
@@ -50,53 +19,25 @@
           :src="logo"
           class="logo"
         ></v-img>
-        <p class="text">Sign in</p>
-        <p class="small_text">Enter E-mail and password to continue</p>
+        <p class="text">OTP</p>
+        <p class="small_text">Enter OTP to continue</p>
 
         <div class="inputs">
-          <div class="input">
-            <input
-              class="phone_number"
-              type="number"
-              placeholder="Phone number"
-            >
+          <div class="input input_group">
+            <input maxlength="1" type="text">
+            <input maxlength="1" type="text">
+            <input maxlength="1" type="text">
+            <input maxlength="1" type="text">
+            <input maxlength="1" type="text">
           </div>
-          <div class="input password">
-            <input
-              :type="password_type"
-              placeholder="Password"
-              @focus="raise_password_visibility"
-              @blur="drop_password_visibility"
-            >
+
+          <div class="button_group">
             <v-btn
-              class="icon"
-              :class="{ 'raise_button': password_visibility }"
-              icon
-              @click="toggle_password_type"
+              depressed
+              class="submit_button"
             >
-              <v-icon v-show="password_type == 'password'">mdi-eye-outline</v-icon>
-              <v-icon v-show="password_type !== 'password'">mdi-eye-off-outline</v-icon>
+              Sign In
             </v-btn>
-          </div>
-
-          <div class="other_signup_signin">
-            <v-checkbox
-              v-model="checkbox"
-              label="Remember me"
-            ></v-checkbox>
-            <router-link to="/signup_buyer">Forgot password?</router-link>
-          </div>
-
-          <v-btn
-            depressed
-            class="submit_button"
-          >
-            Sign In
-          </v-btn>
-
-          <div class="signup_route">
-            <p>Don't have an account? <router-link to="/">Sign Up</router-link>
-            </p>
           </div>
         </div>
       </div>
@@ -142,18 +83,11 @@ export default {
     this.$nextTick(() => {
       const tl = gsap.timeline();
       const phone = this.$refs.phone
-      const social = this.$refs.social
       const form = this.$refs.form
       tl.to(phone, {
         delay: 1,
         duration: .5,
         x: 10,
-        opacity: 1
-      })
-      tl.to(social, {
-        delay: 0,
-        duration: .5,
-        y: -10,
         opacity: 1
       })
       tl.to(form, {
