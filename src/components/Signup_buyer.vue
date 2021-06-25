@@ -107,7 +107,7 @@
           </div>
 
           <div class="other_signup">
-            <router-link to="/signup_buyer">Register as a buyer</router-link>
+            <router-link to="/">Register as a seller</router-link>
           </div>
 
           <v-btn
@@ -118,7 +118,7 @@
           </v-btn>
 
           <div class="signup_route">
-            <p>Already have an account? <router-link to="/">Sign in</router-link>
+            <p>Already have an account? <router-link to="/">Sign up</router-link>
             </p>
           </div>
         </div>
