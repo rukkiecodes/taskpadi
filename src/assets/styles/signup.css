@@ -112,6 +112,13 @@
   height: 100vh;
 }
 
+@media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
+  .signup {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
 @media (max-width: 768px) {
   .signup {
     -webkit-box-orient: vertical;
@@ -119,6 +126,28 @@
         -ms-flex-direction: column;
             flex-direction: column;
     height: initial;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .signup {
+    padding: 0 !important;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  .signup {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -166,8 +195,34 @@
   }
 }
 
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .hero {
+    width: 50%;
+    position: relative;
+  }
+}
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  .hero {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
+  .hero {
+    margin-top: -2em;
+  }
+}
+
 .hero .phone {
   height: auto;
+  width: 90%;
 }
 
 @media (max-width: 768px) {
@@ -179,6 +234,30 @@
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   .hero .phone {
     width: 80%;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .hero .phone {
+    width: 100%;
+  }
+}
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  .hero .phone {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
+  .hero .phone {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .hero .phone {
+    width: 60%;
   }
 }
 
@@ -199,6 +278,12 @@
   margin-top: 4em;
 }
 
+@media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
+  .social {
+    margin-top: 1em;
+  }
+}
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   .social {
     position: fixed;
@@ -210,6 +295,18 @@
     background: #ffffff;
     -webkit-box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
             box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .social {
+    position: initial;
+    -webkit-transform: initial;
+            transform: initial;
+    border-radius: initial;
+    -webkit-box-shadow: initial;
+            box-shadow: initial;
+    background: inherit;
   }
 }
 
@@ -225,6 +322,12 @@
   }
 }
 
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .social p {
+    display: initial;
+  }
+}
+
 .social .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -237,6 +340,15 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .social .buttons {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 
@@ -289,6 +401,28 @@
   }
 }
 
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .form {
+    width: 50% !important;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+}
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  .form {
+    width: 80%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 4em;
+  }
+}
+
 .head {
   width: 70%;
 }
@@ -311,9 +445,32 @@
   }
 }
 
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .head {
+    width: 90%;
+  }
+}
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  .head {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .head .logo {
   width: 4em;
   height: auto;
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .head .logo {
+    width: 6em;
+  }
 }
 
 .head .text {
@@ -323,10 +480,22 @@
   font-weight: 300;
 }
 
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .head .text {
+    font-size: 3.5rem;
+  }
+}
+
 .head .small_text {
   font-size: 0.875rem;
   letter-spacing: 0.56px;
   color: #555555;
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .head .small_text {
+    font-size: 1rem;
+  }
 }
 
 .head .inputs {
@@ -448,6 +617,12 @@
   }
 }
 
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .head .inputs .phone_input input {
+    width: 79%;
+  }
+}
+
 .head .inputs .password {
   position: relative;
 }
@@ -476,6 +651,12 @@
 }
 
 @media (max-width: 768px) {
+  .head .inputs .password .icon {
+    padding: 0 2em;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
   .head .inputs .password .icon {
     padding: 0 2em;
   }

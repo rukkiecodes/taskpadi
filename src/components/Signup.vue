@@ -1,7 +1,5 @@
 <template>
-  <v-container
-    class="signup"
-  >
+  <v-container class="signup">
     <div class="hero">
       <img
         :src="phone"
@@ -119,6 +117,7 @@
         </div>
       </div>
     </div>
+    </div>
   </v-container>
 </template>
 
@@ -152,6 +151,11 @@ export default {
       this.password_visibility = false
     }
   },
+
+  mounted() {
+    console.log("Width: ", window.innerWidth)
+    console.log("Height: ", window.innerHeight)
+  }
 }
 </script>
 

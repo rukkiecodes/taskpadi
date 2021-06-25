@@ -5,9 +5,20 @@
     justify-content: space-between;
     align-items: center;
     height: 100vh;
+    @media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
+        justify-content: space-around;
+    }
     @include mobile {
         flex-direction: column;
         height: initial;
+    }
+    @include iPad_pro_12point9_both {
+        padding: 0 !important;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    @include galaxy_tab_2_both {
+        flex-direction: column;
     }
 }
 
@@ -30,13 +41,38 @@
         justify-content: center;
         align-items: center;
     }
+    @include iPad_pro_12point9_both {
+        width: 50%;
+        position: relative;
+    }
+    @include galaxy_tab_2_both {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    @media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
+        margin-top: -2em;
+    }
     .phone {
         height: auto;
+        width: 90%;
         @include mobile {
             width: 90%;
         }
         @include iPad_1_2_mini_air_both {
             width: 80%;
+        }
+        @include iPad_pro_12point9_both {
+            width: 100%;
+        }
+        @include galaxy_tab_2_both {
+            width: 80%;
+        }
+        @media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
+            width: 60%;
+        }
+        @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+            width: 60%;
         }
     }
 }
@@ -47,6 +83,9 @@
     justify-content: center;
     align-items: center;
     margin-top: 4em;
+    @media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
+        margin-top: 1em;
+    }
     @include iPad_1_2_mini_air_both {
         position: fixed;
         right: 0;
@@ -56,6 +95,13 @@
         background: #ffffff;
         box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
     }
+    @include iPad_pro_12point9_both {
+        position: initial;
+        transform: initial;
+        border-radius: initial;
+        box-shadow: initial;
+        background: inherit;
+    }
     p {
         font-size: 0.875rem;
         color: #555555;
@@ -63,12 +109,18 @@
         @include iPad_1_2_mini_air_both {
             display: none;
         }
+        @include iPad_pro_12point9_both {
+            display: initial;
+        }
     }
     .buttons {
         display: flex;
         @include iPad_1_2_mini_air_both {
             flex-direction: column;
             // padding: 1em;
+        }
+        @include iPad_pro_12point9_both {
+            flex-direction: row;
         }
         .button {
             background: #555555 !important;
@@ -100,6 +152,16 @@
     @include iPad_1_2_mini_air_both {
         width: 80%;
     }
+    @include iPad_pro_12point9_both {
+        width: 50% !important;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    @include galaxy_tab_2_both {
+        width: 80%;
+        align-items: center;
+        margin-top: 4em;
+    }
 }
 
 .head {
@@ -111,20 +173,36 @@
             flex-direction: column;
         }
     }
+    @include iPad_pro_12point9_both {
+        width: 90%;
+    }
+    @include galaxy_tab_2_both {
+        justify-content: center;
+        align-items: center;
+    }
     .logo {
         width: 4em;
         height: auto;
+        @include iPad_pro_12point9_both {
+            width: 6em;
+        }
     }
     .text {
         font-size: 3rem;
         letter-spacing: 0.64px;
         color: #150F3F;
         font-weight: 300;
+        @include iPad_pro_12point9_both {
+            font-size: 3.5rem;
+        }
     }
     .small_text {
         font-size: 0.875rem;
         letter-spacing: 0.56px;
         color: #555555;
+        @include iPad_pro_12point9_both {
+            font-size: 1rem;
+        }
     }
     .inputs {
         width: 100%;
@@ -197,6 +275,9 @@
                 @include iPad_1_2_mini_air_both {
                     width: 85%;
                 }
+                @include iPad_pro_12point9_both {
+                    width: 79%;
+                }
             }
         }
         .password {
@@ -219,6 +300,9 @@
                 padding: 0 1.5em;
                 transition: .2s ease-in-out;
                 @include mobile {
+                    padding: 0 2em;
+                }
+                @include iPad_pro_12point9_both {
                     padding: 0 2em;
                 }
             }
