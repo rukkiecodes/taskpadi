@@ -1,3 +1,103 @@
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone X ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S3 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S6 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Google Pixel ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Google Pixel XL ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- HTC One ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Windows Phone ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad 1, 2, Mini and Air ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad Pro 10.5" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* ----------- iPad Pro 12.9" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* ----------- Galaxy Tab 2 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy Tab S ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Nexus 7 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Nexus 9 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Kindle Fire HD 7" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Kindle Fire HD 8.9" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Non-Retina Screens ----------- */
+/* ----------- Retina Screens ----------- */
+/* ----------- Apple Watch ----------- */
+/* ----------- Moto 360 Watch ----------- */
 .signup {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   display: -webkit-box;
@@ -10,6 +110,16 @@
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .signup {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: initial;
+  }
 }
 
 .hero {
@@ -29,6 +139,13 @@
       -ms-flex-align: center;
           align-items: center;
   padding-bottom: 2em;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    width: 100%;
+    height: 100vh;
+  }
 }
 
 .hero .phone {
@@ -93,8 +210,34 @@
   padding-bottom: 2em;
 }
 
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+    padding-bottom: 0;
+    margin-top: 3em;
+  }
+}
+
 .head {
-  width: 100%;
+  width: 70%;
+}
+
+@media (max-width: 768px) {
+  .head {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 768px) {
+  .head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .head .logo {
@@ -116,7 +259,7 @@
 }
 
 .head .inputs {
-  width: 64%;
+  width: 100%;
 }
 
 .head .inputs .input {
@@ -125,6 +268,12 @@
   background: #EFF0F7;
   border-radius: 8px;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .head .inputs .input {
+    height: 3em;
+  }
 }
 
 .head .inputs .input input {
@@ -167,10 +316,14 @@
   height: 100%;
   padding: 0 1.0625rem;
   outline: none;
+  color: #4169E2;
+  opacity: 0.5;
+  letter-spacing: 0.56px;
 }
 
 .head .inputs .phone_input {
   position: relative;
+  height: 3em;
 }
 
 .head .inputs .phone_input .country_code {
@@ -180,9 +333,15 @@
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border-radius: 8px 0 0 80px;
+  border-radius: 8px 0 0 8px;
   background: #EFF0F7;
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .head .inputs .phone_input .country_code {
+    z-index: 1;
+  }
 }
 
 .head .inputs .phone_input input {
@@ -190,6 +349,14 @@
   right: 0;
   padding-left: 0em;
   width: 80%;
+}
+
+@media (max-width: 768px) {
+  .head .inputs .phone_input input {
+    width: 75%;
+    padding-left: .5em;
+    border-radius: 0 8px 8px 0;
+  }
 }
 
 .head .inputs .password {
@@ -202,6 +369,12 @@
   outline: none;
 }
 
+@media (max-width: 768px) {
+  .head .inputs .password input {
+    border-radius: 8px;
+  }
+}
+
 .head .inputs .password .icon {
   position: absolute;
   right: 0;
@@ -211,6 +384,12 @@
   padding: 0 1.5em;
   -webkit-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .head .inputs .password .icon {
+    padding: 0 2em;
+  }
 }
 
 .head .inputs .other_signup {
@@ -235,7 +414,7 @@
 
 .head .inputs .submit_button {
   width: 100%;
-  height: 2.5em !important;
+  height: 3em !important;
   background: #4169E2 !important;
   color: #fff;
   text-transform: capitalize;

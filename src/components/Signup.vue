@@ -1,6 +1,5 @@
 <template>
   <v-container
-    flid
     class="signup"
   >
     <div class="hero">
