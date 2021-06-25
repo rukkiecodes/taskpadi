@@ -50,29 +50,11 @@
           :src="logo"
           class="logo"
         ></v-img>
-        <p class="text">Sign up</p>
-        <p class="small_text">Enter details to sign up</p>
+        <p class="text">Sign in</p>
+        <p class="small_text">Enter E-mail and password to continue</p>
 
         <div class="inputs">
           <div class="input">
-            <input
-              type="text"
-              placeholder="Full name"
-            >
-          </div>
-          <div class="input">
-            <input
-              type="email"
-              placeholder="E-mail"
-            >
-          </div>
-          <div class="input phone_input">
-            <vue-country-code
-              @onSelect="onSelect"
-              :preferredCountries="['vn', 'us', 'gb']"
-              :enabledCountryCode="true"
-              class="country_code"
-            />
             <input
               class="phone_number"
               type="number"
@@ -96,18 +78,13 @@
               <v-icon v-show="password_type !== 'password'">mdi-eye-off-outline</v-icon>
             </v-btn>
           </div>
-          <div class="input">
-            <select>
-              <option
-                v-for="(item, index) in items"
-                :key="index"
-                :value="item"
-              >{{ item }}</option>
-            </select>
-          </div>
 
-          <div class="other_signup">
-            <router-link to="/signup_buyer">Register as a buyer</router-link>
+          <div class="other_signup_signin">
+            <v-checkbox
+              v-model="checkbox"
+              label="Remember me"
+            ></v-checkbox>
+            <router-link to="/signup_buyer">Forgot password?</router-link>
           </div>
 
           <v-btn
@@ -118,7 +95,7 @@
           </v-btn>
 
           <div class="signup_route">
-            <p>Already have an account? <router-link to="/signin">Sign in</router-link>
+            <p>Don't have an account? <router-link to="/">Sign Up</router-link>
             </p>
           </div>
         </div>
@@ -136,7 +113,8 @@ export default {
     logo: require("../assets/paddi.png"),
     items: ['I am a business seller', 'I am a business buyer'],
     password_type: "password",
-    password_visibility: false
+    password_visibility: false,
+    checkbox: true,
   }),
   methods: {
     onSelect ({ name, iso2, dialCode }) {
