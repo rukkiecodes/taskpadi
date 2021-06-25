@@ -4,9 +4,13 @@
       <img
         :src="phone"
         class="phone"
+        ref="phone"
       >
 
-      <div class="social">
+      <div
+        ref="social"
+        class="social"
+      >
         <p>Sign up with</p>
 
         <div class="buttons">
@@ -36,7 +40,10 @@
     </div>
 
     <!-- Form -->
-    <div class="form">
+    <div
+      ref="form"
+      class="form"
+    >
       <div class="head">
         <v-img
           :lazy-src="logo"
@@ -55,7 +62,7 @@
           </div>
           <div class="input">
             <input
-              type="text"
+              type="email"
               placeholder="E-mail"
             >
           </div>
@@ -68,7 +75,7 @@
             />
             <input
               class="phone_number"
-              type="text"
+              type="number"
               placeholder="Phone number"
             >
           </div>
@@ -122,6 +129,7 @@
 </template>
 
 <script>
+import gsap from "gsap"
 export default {
   data: () => ({
     phone: require("../assets/trust/phone1.png"),
@@ -152,9 +160,31 @@ export default {
     }
   },
 
-  mounted() {
-    console.log("Width: ", window.innerWidth)
-    console.log("Height: ", window.innerHeight)
+  mounted () {
+    this.$nextTick(() => {
+      const tl = gsap.timeline();
+      const phone = this.$refs.phone
+      const social = this.$refs.social
+      const form = this.$refs.form
+      tl.to(phone, {
+        delay: 1,
+        duration: .5,
+        x: 10,
+        opacity: 1
+      })
+      tl.to(social, {
+        delay: 0,
+        duration: .5,
+        y: -10,
+        opacity: 1
+      })
+      tl.to(form, {
+        delay: 0,
+        duration: .5,
+        x: 10,
+        opacity: 1
+      })
+    })
   }
 }
 </script>

@@ -223,6 +223,8 @@
 .hero .phone {
   height: auto;
   width: 90%;
+  margin-left: -10px;
+  opacity: 0;
 }
 
 @media (max-width: 768px) {
@@ -276,6 +278,8 @@
       -ms-flex-align: center;
           align-items: center;
   margin-top: 4em;
+  margin-bottom: -10px;
+  opacity: 0;
 }
 
 @media only screen and (min-device-width: 1904px) and (max-device-width: 2652px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -385,6 +389,8 @@
       -ms-flex-align: end;
           align-items: flex-end;
   padding-bottom: 2em;
+  opacity: 0;
+  margin-right: 10px;
 }
 
 @media (max-width: 768px) {
