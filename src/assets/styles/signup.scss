@@ -22,9 +22,22 @@
     @include mobile {
         width: 100%;
         height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    @include iPad_1_2_mini_air_both {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
     .phone {
         height: auto;
+        @include mobile {
+            width: 90%;
+        }
+        @include iPad_1_2_mini_air_both {
+            width: 80%;
+        }
     }
 }
 
@@ -34,13 +47,29 @@
     justify-content: center;
     align-items: center;
     margin-top: 4em;
+    @include iPad_1_2_mini_air_both {
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -100%);
+        border-radius: 20px 0 0 20px;
+        background: #ffffff;
+        box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    }
     p {
         font-size: 0.875rem;
         color: #555555;
         letter-spacing: 0.42px;
+        @include iPad_1_2_mini_air_both {
+            display: none;
+        }
     }
     .buttons {
         display: flex;
+        @include iPad_1_2_mini_air_both {
+            flex-direction: column;
+            // padding: 1em;
+        }
         .button {
             background: #555555 !important;
             border-radius: 10px;
@@ -48,6 +77,9 @@
             padding: 0 1.3em;
             transition: .3s ease-in-out;
             color: #fff !important;
+            @include iPad_1_2_mini_air_both {
+                margin: 1em !important;
+            }
         }
     }
 }
@@ -60,18 +92,18 @@
     justify-content: flex-end;
     align-items: flex-end;
     padding-bottom: 2em;
-    // background: red;
     @include mobile {
         width: 100%;
-        // height: 100vh;
         padding-bottom: 0;
         margin-top: 3em;
+    }
+    @include iPad_1_2_mini_air_both {
+        width: 80%;
     }
 }
 
 .head {
     width: 70%;
-    // background: blue;
     @include mobile {
         width: 100%;
         @include mobile {
@@ -104,6 +136,9 @@
             width: 100%;
             @include mobile {
                 height: 3em;
+            }
+            @include iPad_1_2_mini_air_both {
+                height: 3.4em;
             }
             input {
                 height: 100%;
@@ -145,6 +180,9 @@
                 @include mobile {
                     z-index: 1;
                 }
+                @include iPad_1_2_mini_air_both {
+                    height: 100% !important;
+                }
             }
             input {
                 position: absolute;
@@ -155,6 +193,9 @@
                     width: 75%;
                     padding-left: .5em;
                     border-radius: 0 8px 8px 0;
+                }
+                @include iPad_1_2_mini_air_both {
+                    width: 85%;
                 }
             }
         }

@@ -3,11 +3,10 @@
     class="signup"
   >
     <div class="hero">
-      <v-img
-        :lazy-src="phone"
+      <img
         :src="phone"
         class="phone"
-      ></v-img>
+      >
 
       <div class="social">
         <p>Sign up with</p>
