@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Signup from '../views/Signup.vue'
 import Signup_buyer from '../views/Signup_buyer.vue'
 import Signin from '../views/Signin.vue'
+import Otp from '../views/Otp.vue'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,11 @@ const routes = [{
         path: '/Signin',
         name: 'Signin',
         component: Signin
+    },
+    {
+        path: '/otp',
+        name: 'Otp',
+        component: Otp
     },
     {
         path: '/about',
