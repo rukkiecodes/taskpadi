@@ -107,7 +107,7 @@
           </div>
 
           <div class="other_signup">
-            <router-link to="/">Register as a seller</router-link>
+            <router-link to="/signup">Register as a seller</router-link>
           </div>
 
           <v-btn
@@ -190,7 +190,7 @@ export default {
 </script>
 
 <style scoped>
-@import url(../assets/styles/auth.css);
+/* @import url(../assets/styles/auth.css); */
 @import url(../assets/icon/css/materialdesignicons.min.css);
 
 .raise_button {

@@ -95,7 +95,7 @@
           </v-btn>
 
           <div class="signup_route">
-            <p>Don't have an account? <router-link to="/">Sign Up</router-link>
+            <p>Don't have an account? <router-link to="/signup">Sign Up</router-link>
             </p>
           </div>
         </div>
@@ -168,7 +168,7 @@ export default {
 </script>
 
 <style scoped>
-@import url(../assets/styles/auth.css);
+/* @import url(../assets/styles/auth.css); */
 @import url(../assets/icon/css/materialdesignicons.min.css);
 
 .raise_button {
