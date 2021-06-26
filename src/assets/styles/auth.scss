@@ -24,10 +24,11 @@
         width: 100%;
         height: 100vh;
     }
-    @media only screen and (min-device-width: 600px) and (max-device-height: 1024px) {
-        height: 60vh;
-        margin-bottom: 2em;
-    }
+    // @media only screen and (min-device-width: 600px) and (max-device-height: 1024px) {
+    //     // height: 60vh;
+    //     // margin-bottom: 2em;
+    //     // background: red;
+    // }
 }
 
 .phone {
@@ -78,6 +79,7 @@
         }
         @include desktop {
             display: initial;
+            margin-top: 5em;
         }
     }
     .buttons {
@@ -105,6 +107,15 @@
                 background: #fff !important;
                 color: #4169E2 !important;
             }
+            @include desktop {
+                background: #555555 !important;
+                border-radius: 10px;
+                font-size: .8rem;
+                padding: 0 1.3em;
+                transition: .3s ease-in-out;
+                color: #fff !important;
+                transition: .2s ease-in-out;
+            }
         }
     }
 }
@@ -130,9 +141,9 @@
     @media only screen and (min-device-width: 412px) and (max-device-height: 732px) {
         width: 80%;
     }
-    @media only screen and (min-device-width: 768px) and (max-device-height: 1024px) {
-        margin-top: 3em;
-    }
+    // @media only screen and (min-device-width: 768px) and (max-device-height: 1024px) {
+    //     margin-top: 3em;
+    // }
     @include desktop {
         width: 50%;
     }
@@ -142,9 +153,6 @@
     width: 60%;
     @include mobile {
         width: 100%;
-    }
-    @media only screen and (min-device-width: 800px) and (max-device-height: 1280px) {
-        width: 80%;
     }
     .logo {
         width: 18%;
@@ -228,12 +236,13 @@
         }
     }
     .phone_input {
-        position: relative;
         height: 2.5em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         .country_code {
-            position: absolute;
-            left: 0;
-            top: 0;
+            width: 25%;
             height: 100%;
             border: none;
             box-shadow: none;
@@ -243,26 +252,11 @@
             z-index: 1;
         }
         input {
-            position: absolute;
-            right: 0;
-            width: 80%;
+            width: 75%;
+            height: 100%;
+            border-radius: 0 8px 8px 0;
             &::-webkit-inner-spin-button {
                 -webkit-appearance: none;
-            }
-            @include galaxy_s3_both {
-                width: 78%;
-            }
-            @media only screen and (min-device-width: 360px) and (max-device-height: 640px) {
-                width: 77%;
-            }
-            @media only screen and (min-device-width: 800px) and (max-device-height: 1280px) {
-                width: 77%;
-            }
-            @media only screen and (min-device-width: 412px) and (max-device-height: 732px) {
-                width: 77%;
-            }
-            @media only screen and (min-device-width: 320px) and (max-device-height: 533px) {
-                width: 77%;
             }
         }
     }

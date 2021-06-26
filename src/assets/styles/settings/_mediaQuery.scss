@@ -1,7 +1,7 @@
 $desktop: 769px;
 $mobile: 768px;
 @mixin desktop {
-    @media only screen and (min-device-width: 769px) and (max-device-width: 2652px) {
+    @media only screen and (min-device-width: 769px) and (max-device-width: 5000px) {
         @content;
     }
 }

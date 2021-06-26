@@ -153,13 +153,6 @@
   }
 }
 
-@media only screen and (min-device-width: 600px) and (max-device-height: 1024px) {
-  .hero {
-    height: 60vh;
-    margin-bottom: 2em;
-  }
-}
-
 .phone {
   width: 70%;
   height: auto;
@@ -207,7 +200,7 @@
   }
 }
 
-@media only screen and (min-device-width: 769px) and (max-device-width: 2652px) {
+@media only screen and (min-device-width: 769px) and (max-device-width: 5000px) {
   .social {
     position: initial;
     top: initial;
@@ -233,9 +226,10 @@
   }
 }
 
-@media only screen and (min-device-width: 769px) and (max-device-width: 2652px) {
+@media only screen and (min-device-width: 769px) and (max-device-width: 5000px) {
   .social p {
     display: initial;
+    margin-top: 5em;
   }
 }
 
@@ -254,7 +248,7 @@
   }
 }
 
-@media only screen and (min-device-width: 769px) and (max-device-width: 2652px) {
+@media only screen and (min-device-width: 769px) and (max-device-width: 5000px) {
   .social .buttons {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -287,6 +281,20 @@
     margin: 1em !important;
     background: #fff !important;
     color: #4169E2 !important;
+  }
+}
+
+@media only screen and (min-device-width: 769px) and (max-device-width: 5000px) {
+  .social .buttons .button {
+    background: #555555 !important;
+    border-radius: 10px;
+    font-size: .8rem;
+    padding: 0 1.3em;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    color: #fff !important;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
   }
 }
 
@@ -334,13 +342,7 @@
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-height: 1024px) {
-  .form {
-    margin-top: 3em;
-  }
-}
-
-@media only screen and (min-device-width: 769px) and (max-device-width: 2652px) {
+@media only screen and (min-device-width: 769px) and (max-device-width: 5000px) {
   .form {
     width: 50%;
   }
@@ -353,12 +355,6 @@
 @media (max-width: 768px) {
   .head {
     width: 100%;
-  }
-}
-
-@media only screen and (min-device-width: 800px) and (max-device-height: 1280px) {
-  .head {
-    width: 80%;
   }
 }
 
@@ -483,14 +479,24 @@
 }
 
 .inputs .phone_input {
-  position: relative;
   height: 2.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .inputs .phone_input .country_code {
-  position: absolute;
-  left: 0;
-  top: 0;
+  width: 25%;
   height: 100%;
   border: none;
   -webkit-box-shadow: none;
@@ -502,43 +508,13 @@
 }
 
 .inputs .phone_input input {
-  position: absolute;
-  right: 0;
-  width: 80%;
+  width: 75%;
+  height: 100%;
+  border-radius: 0 8px 8px 0;
 }
 
 .inputs .phone_input input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-}
-
-@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
-  .inputs .phone_input input {
-    width: 78%;
-  }
-}
-
-@media only screen and (min-device-width: 360px) and (max-device-height: 640px) {
-  .inputs .phone_input input {
-    width: 77%;
-  }
-}
-
-@media only screen and (min-device-width: 800px) and (max-device-height: 1280px) {
-  .inputs .phone_input input {
-    width: 77%;
-  }
-}
-
-@media only screen and (min-device-width: 412px) and (max-device-height: 732px) {
-  .inputs .phone_input input {
-    width: 77%;
-  }
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-height: 533px) {
-  .inputs .phone_input input {
-    width: 77%;
-  }
 }
 
 .inputs .password {
