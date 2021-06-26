@@ -4,15 +4,20 @@
     absolute
     temporary
   >
-    <v-list dense>
+    <v-list nav dense>
       <v-list-item
         v-for="item in drawer_routs"
         :key="item.title"
         :to="item.to"
         link
+        class="rounded-xl"
+        active-class="blue lighten-5"
       >
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
+        <v-list-item-icon class="blue darken-2 px-2 py-4 rounded-lg">
+          <v-icon
+            size="17"
+            class="white--text"
+          >{{ item.icon }}</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -27,7 +32,7 @@
 import { mapGetters, mapState } from 'vuex'
 export default {
   data: () => ({
-    
+
   }),
   computed: {
     ...mapState(["drawer"]),

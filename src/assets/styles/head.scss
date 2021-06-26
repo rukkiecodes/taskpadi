@@ -1,0 +1,43 @@
+.head_component {
+    height: 70vh;
+}
+
+.input_one,
+.input_two {
+    height: 3em;
+    border: 1px solid rgba(21, 15, 63, .5);
+    .text {
+        height: 85%;
+        p {
+            margin-top: -.2em;
+        }
+    }
+}
+
+.input_two {
+    input {
+        height: 85%;
+        outline: none;
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    }
+    .country_code {
+        height: 85%;
+        height: 85%;
+        .dropdown {
+            background: none !important;
+        }
+        .country-code {
+            color: #fff;
+        }
+        .dropdown-arrow {
+            display: none;
+        }
+    }
+}
+
+.get_started {
+    height: 3em !important;
+    text-transform: initial;
+}

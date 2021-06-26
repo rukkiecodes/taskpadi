@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="red pa-0">
     <v-app-bar
       flat
       color="#ffffff"

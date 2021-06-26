@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         app_nav_title: "",
-        drawer: true,
+        drawer: false,
         drawer_routs: [
             { title: 'Home', icon: 'mdi-view-dashboard', to: '/' },
             { title: 'About Us', icon: 'mdi-forum', to: '/about' },

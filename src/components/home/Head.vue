@@ -1,0 +1,116 @@
+<template>
+  <v-container class="head_component d-flex justify-space-between">
+    <div class="col-5 d-flex flex-column justify-center">
+      <p class="text-h4 font-weight-medium grey--text text--darken-3">We make online buying and selling much safer</p>
+      <p class="text-body-2 font-weight-normal grey--text text--darken-2">With TrustPadi you can buy and sell anything online without worries, knowing we've got you covered.</p>
+      <div>
+        <div class="input_one rounded-lg d-flex justify-space-between  align-center">
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                color="grey darken-2"
+                dark
+                depressed
+                v-bind="attrs"
+                v-on="on"
+                text
+                style="text-transform: initial"
+              >
+                I am selling
+                <v-icon right>mdi-chevron-down</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in items"
+                :key="index"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                color="grey darken-2"
+                dark
+                depressed
+                v-bind="attrs"
+                v-on="on"
+                text
+                style="text-transform: initial"
+              >
+                Accessories
+                <v-icon right>mdi-chevron-down</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in items"
+                :key="index"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </div>
+
+        <div class="input_two mt-3 rounded-lg d-flex justify-space-between  align-center px-1">
+          <div class="text col-2">
+            <p class="text-body-2 font-weight-bold grey--text text--darken-3">For</p>
+          </div>
+          <input
+            type="number"
+            placeholder="2,000,000"
+            class="col-7"
+          >
+          <vue-country-code
+            @onSelect="onSelect"
+            :preferredCountries="['vn', 'us', 'gb']"
+            :enabledCountryCode="true"
+            class="country_code col-3 rounded-lg blue darken-2"
+          />
+        </div>
+
+        <v-btn
+          block
+          depressed
+          color="#4169E2"
+          class="get_started mt-3 white--text rounded-lg"
+        >
+          Get started now
+        </v-btn>
+      </div>
+    </div>
+
+    <div class="col-5 d-flex flex-column justify-center">
+      <img src="../../assets/trust/home_phone.png" alt="">
+    </div>
+  </v-container>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    items: [
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me 2' },
+    ],
+  }),
+  methods: {
+    onSelect ({ name, iso2, dialCode }) {
+      console.log(name, iso2, dialCode);
+    },
+  }
+}
+</script>
+
+
+<style scoped>
+@import url(../../assets/styles/head.css);
+.active_route {
+  color: #4169e2 !important;
+}
+</style>
