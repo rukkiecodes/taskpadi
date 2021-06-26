@@ -1,15 +1,63 @@
+@import "./settings/mediaQuery";
 .head_component {
     height: 70vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include mobile {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: initial;
+    }
+}
+
+.head_component_left {
+    width: 40%;
+    @include mobile {
+        width: 100%;
+        .main_text {
+            font-size: 2rem !important;
+            font-weight: 300 !important;
+        }
+    }
+}
+
+.head_component_right {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    @include mobile {
+        width: 100%;
+        display: initial;
+        margin: 5em;
+    }
+    img {
+        width: 100%;
+        @include mobile {
+            width: 100%;
+        }
+    }
 }
 
 .input_one,
 .input_two {
     height: 3em;
     border: 1px solid rgba(21, 15, 63, .5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .text {
         height: 85%;
+        width: 10%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 .2em;
         p {
-            margin-top: -.2em;
+            margin-top: 1em;
         }
     }
 }
@@ -17,14 +65,22 @@
 .input_two {
     input {
         height: 85%;
+        width: 70%;
         outline: none;
+        padding: 0 1em;
         &::-webkit-inner-spin-button {
             -webkit-appearance: none;
+        }
+        @include mobile {
+            width: 65%;
         }
     }
     .country_code {
         height: 85%;
-        height: 85%;
+        width: 20%;
+        @include mobile {
+            width: 25%;
+        }
         .dropdown {
             background: none !important;
         }

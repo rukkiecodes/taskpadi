@@ -1,10 +1,10 @@
 <template>
-  <v-container class="head_component d-flex justify-space-between">
-    <div class="col-5 d-flex flex-column justify-center">
-      <p class="text-h4 font-weight-medium grey--text text--darken-3">We make online buying and selling much safer</p>
+  <v-container class="head_component">
+    <div class="head_component_left">
+      <p class="main_text text-h4 font-weight-medium grey--text text--darken-3">We make online buying and selling much safer</p>
       <p class="text-body-2 font-weight-normal grey--text text--darken-2">With TrustPadi you can buy and sell anything online without worries, knowing we've got you covered.</p>
       <div>
-        <div class="input_one rounded-lg d-flex justify-space-between  align-center">
+        <div class="input_one rounded-lg">
           <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
@@ -55,20 +55,19 @@
           </v-menu>
         </div>
 
-        <div class="input_two mt-3 rounded-lg d-flex justify-space-between  align-center px-1">
-          <div class="text col-2">
+        <div class="input_two mt-3 rounded-lg px-1">
+          <div class="text">
             <p class="text-body-2 font-weight-bold grey--text text--darken-3">For</p>
           </div>
           <input
             type="number"
             placeholder="2,000,000"
-            class="col-7"
           >
           <vue-country-code
             @onSelect="onSelect"
             :preferredCountries="['vn', 'us', 'gb']"
             :enabledCountryCode="true"
-            class="country_code col-3 rounded-lg blue darken-2"
+            class="country_code rounded-lg blue darken-2"
           />
         </div>
 
@@ -83,7 +82,7 @@
       </div>
     </div>
 
-    <div class="col-5 d-flex flex-column justify-center">
+    <div class="head_component_right">
       <img src="../../assets/trust/home_phone.png" alt="">
     </div>
   </v-container>
