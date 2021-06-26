@@ -1,7 +1,5 @@
 <template>
-  <v-app-bar
-    class="px-15"
-  >
+  <v-app-bar class="px-15 app_bar">
     <v-avatar class="logo_avatar">
       <img
         :src="logo"
@@ -10,11 +8,11 @@
     </v-avatar>
     <v-spacer />
     <div class="links">
-      <router-link to="/">Home</router-link>
-      <router-link to="/">About Us</router-link>
-      <router-link to="/">FAQ</router-link>
-      <router-link to="/">Contact us</router-link>
-      <router-link to="/">Pricing</router-link>
+      <router-link :class="{ 'active_route': app_nav_title == '/'}" to="/">Home</router-link>
+      <router-link :class="{ 'active_route': app_nav_title == '/about'}" to="/about">About Us</router-link>
+      <router-link :class="{ 'active_route': app_nav_title == '/faq'}" to="/">FAQ</router-link>
+      <router-link :class="{ 'active_route': app_nav_title == '/contact'}" to="/">Contact Us</router-link>
+      <router-link :class="{ 'active_route': app_nav_title == '/priceing'}" to="/">Pricing</router-link>
     </div>
     <v-spacer />
     <v-menu offset-y>
@@ -24,17 +22,19 @@
           dark
           v-bind="attrs"
           v-on="on"
+          class="text-capitalize"
         >
-          Dropdown
+          Get started
+          <v-icon right>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
       <v-list>
         <v-list-item
-          v-for="(item, index) in items"
+          v-for="(menu, index) in menu_links"
           :key="index"
-          :to="item.to"
+          :to="menu.to"
         >
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-title>{{ menu.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -42,13 +42,41 @@
 </template>
 
 <script>
+import { mapActions, mapState } from"vuex"
 export default {
   data: () => ({
     logo: require("../../assets/paddi.png"),
-    items: [
-        { title: 'Sign In', to: '/signin' },
-        { title: 'Sign Up', to: '/signup' },
-      ],
+    menu_links: [
+      { title: 'Sign In', to: '/signin' },
+      { title: 'Sign Up', to: '/signup' },
+    ]
   }),
+
+  created(){
+    this.app_bar_route()
+  },
+
+  methods: {
+    ...mapActions(["app_bar_route"])
+  },
+
+  computed: {
+    ...mapState(["app_nav_title"]),
+    app_nav_title: {
+      get() {
+        return this.$store.state.app_nav_title;
+      },
+      set(new_value) {
+        this.$store.state.app_nav_title = new_value;
+      },
+    },
+  }
 }
 </script>
+
+<style scoped>
+@import url(../../assets/styles/app_bar.css);
+.active_route {
+  color: #4169E2 !important;
+}
+</style>
