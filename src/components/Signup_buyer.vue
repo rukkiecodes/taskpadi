@@ -190,7 +190,7 @@ export default {
 </script>
 
 <style scoped>
-/* @import url(../assets/styles/auth.css); */
+@import url(../assets/styles/auth.css);
 @import url(../assets/icon/css/materialdesignicons.min.css);
 
 .raise_button {

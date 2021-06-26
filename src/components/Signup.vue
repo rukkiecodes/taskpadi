@@ -45,11 +45,10 @@
       class="form"
     >
       <div class="head">
-        <v-img
-          :lazy-src="logo"
+        <img
           :src="logo"
           class="logo"
-        ></v-img>
+        />
         <p class="text">Sign up</p>
         <p class="small_text">Enter details to sign up</p>
 
