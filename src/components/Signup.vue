@@ -159,32 +159,34 @@ export default {
     }
   },
 
-  // mounted () {
-  //   this.$nextTick(() => {
-  //     const tl = gsap.timeline();
-  //     const phone = this.$refs.phone
-  //     const social = this.$refs.social
-  //     const form = this.$refs.form
-  //     tl.to(phone, {
-  //       delay: 1,
-  //       duration: .5,
-  //       x: 10,
-  //       opacity: 1
-  //     })
-  //     tl.to(social, {
-  //       delay: 0,
-  //       duration: .5,
-  //       y: -10,
-  //       opacity: 1
-  //     })
-  //     tl.to(form, {
-  //       delay: 0,
-  //       duration: .5,
-  //       x: 10,
-  //       opacity: 1
-  //     })
-  //   })
-  // }
+  mounted () {
+    this.$nextTick(() => {
+      const tl = gsap.timeline();
+      const phone = this.$refs.phone
+      const social = this.$refs.social
+      const form = this.$refs.form
+      tl.to(phone, {
+        delay: 1,
+        duration: .5,
+        x: 10,
+        opacity: 1
+      })
+      tl.to(social, {
+        delay: 0,
+        duration: .5,
+        y: -10,
+        opacity: 1
+      })
+      tl.to(form, {
+        delay: 0,
+        duration: .5,
+        x: 10,
+        opacity: 1
+      })
+    })
+    console.log("width: ",window.innerWidth)
+    console.log("height: ",window.innerHeight)
+  }
 }
 </script>
 
