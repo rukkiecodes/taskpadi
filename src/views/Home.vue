@@ -8,6 +8,7 @@
     <What_escrow />
     <How_it_works />
     <Who_can_use />
+    <Testimonials />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import About from "../components/home/About.vue"
 import What_escrow from "../components/home/What_escrow.vue"
 import How_it_works from "../components/home/How_it_works.vue"
 import Who_can_use from "../components/home/Who_can_use.vue"
+import Testimonials from "../components/home/Testimonials.vue"
 export default {
   components: {
     App_bar,
@@ -30,6 +32,7 @@ export default {
     What_escrow,
     How_it_works,
     Who_can_use,
+    Testimonials
   }
 }
 </script>
