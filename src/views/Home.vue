@@ -6,6 +6,7 @@
     <Section2 />
     <About />
     <What_escrow />
+    <How_it_works />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import Head from "../components/home/Head.vue"
 import Section2 from "../components/home/Section2.vue"
 import About from "../components/home/About.vue"
 import What_escrow from "../components/home/What_escrow.vue"
+import How_it_works from "../components/home/How_it_works.vue"
 export default {
   components: {
     App_bar,
@@ -23,7 +25,8 @@ export default {
     Head,
     Section2,
     About,
-    What_escrow
+    What_escrow,
+    How_it_works
   }
 }
 </script>
