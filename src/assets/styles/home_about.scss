@@ -1,9 +1,10 @@
-.section_two {
+.home_about {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 60vh;
+    margin-top: 8em;
 }
 
 .head_text {
@@ -23,4 +24,24 @@
             z-index: 1;
         }
     }
+}
+
+.home_about_sides {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.home_about_card {
+    background: rgba(65, 105, 226, .10);
+    padding: 2em;
+    width: 50%;
+    p {
+        color: #150F3F;
+    }
+}
+
+.home_about_sides_img {
+    width: 40%;
 }

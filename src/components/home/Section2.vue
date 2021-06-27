@@ -6,33 +6,24 @@
     <div class="cards">
       <div class="card card_one">
         <div class="head">
-          <img
-            src="../../assets/trust/homepage icons/Group 129.svg"
-            alt=""
-          >
+          <img src="../../assets/trust/homepage icons/Group 129.svg" alt="" />
           <p>Safe</p>
         </div>
-        <p>Lorem ipsum dolor amet consectrur disciping sit amet consectrur.</p>
+        <p class="text-body-2">Lorem ipsum dolor amet consectrur disciping sit amet consectrur.</p>
       </div>
       <div class="card card_two">
         <div class="head">
-          <img
-            src="../../assets/trust/homepage icons/Group 130.svg"
-            alt=""
-          >
+          <img src="../../assets/trust/homepage icons/Group 130.svg" alt="" />
           <p>Secure</p>
         </div>
-        <p>Lorem ipsum dolor amet consectrur disciping sit amet consectrur.</p>
+        <p class="text-body-2">Lorem ipsum dolor amet consectrur disciping sit amet consectrur.</p>
       </div>
       <div class="card card_three">
         <div class="head">
-          <img
-            src="../../assets/trust/homepage icons/Group 131.svg"
-            alt=""
-          >
+          <img src="../../assets/trust/homepage icons/Group 131.svg" alt="" />
           <p>Fast</p>
         </div>
-        <p>Lorem ipsum dolor amet consectrur disciping sit amet consectrur.</p>
+        <p class="text-body-2">Lorem ipsum dolor amet consectrur disciping sit amet consectrur.</p>
       </div>
     </div>
   </v-container>

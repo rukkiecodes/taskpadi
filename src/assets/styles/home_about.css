@@ -1,4 +1,4 @@
-.section_two {
+.home_about {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,6 +13,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   height: 60vh;
+  margin-top: 8em;
 }
 
 .head_text p {
@@ -31,5 +32,32 @@
   width: 80px;
   background: #150F3F;
   z-index: 1;
+}
+
+.home_about_sides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 3em;
+}
+
+.home_about_card {
+  background: rgba(65, 105, 226, 0.1);
+  padding: 2em;
+  width: 50%;
+}
+
+.home_about_card p {
+  color: #150F3F;
+}
+
+.home_about_sides_img {
+  width: 40%;
 }
 /*# sourceMappingURL=home_about.css.map */
