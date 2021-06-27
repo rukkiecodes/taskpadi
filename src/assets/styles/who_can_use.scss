@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.head_text {
+.who_can_use_head_text {
     .p1 {
         font-size: 2.5rem;
         font-weight: 600;
@@ -21,6 +21,46 @@
             width: 80px;
             background: #150F3F;
             z-index: 1;
+        }
+    }
+}
+
+.who_can_use_cards {
+    width: 100%;
+    margin-top: 3em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.who_can_use_cards_card {
+    width: 25%;
+    padding: 3em 1.5em;
+    background: rgba(65, 105, 226, .10);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    .img {
+        width: 100%;
+        padding: 1em 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 60%;
+        }
+    }
+    .texts {
+        margin-top: 2em;
+        .p1 {
+            font-weight: bold;
+            color: #150F3F;
+        }
+        .p2 {
+            font-weight: lighter;
+            color: #150F3F;
         }
     }
 }

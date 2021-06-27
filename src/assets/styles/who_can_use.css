@@ -15,14 +15,14 @@
           justify-content: center;
 }
 
-.head_text .p1 {
+.who_can_use_head_text .p1 {
   font-size: 2.5rem;
   font-weight: 600;
   color: #150F3F;
   position: relative;
 }
 
-.head_text .p1::after {
+.who_can_use_head_text .p1::after {
   content: "";
   position: absolute;
   bottom: -2%;
@@ -31,5 +31,72 @@
   width: 80px;
   background: #150F3F;
   z-index: 1;
+}
+
+.who_can_use_cards {
+  width: 100%;
+  margin-top: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.who_can_use_cards_card {
+  width: 25%;
+  padding: 3em 1.5em;
+  background: rgba(65, 105, 226, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.who_can_use_cards_card .img {
+  width: 100%;
+  padding: 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.who_can_use_cards_card .img img {
+  width: 60%;
+}
+
+.who_can_use_cards_card .texts {
+  margin-top: 2em;
+}
+
+.who_can_use_cards_card .texts .p1 {
+  font-weight: bold;
+  color: #150F3F;
+}
+
+.who_can_use_cards_card .texts .p2 {
+  font-weight: lighter;
+  color: #150F3F;
 }
 /*# sourceMappingURL=who_can_use.css.map */
