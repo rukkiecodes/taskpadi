@@ -1,1 +1,106 @@
-/* No CSS *//*# sourceMappingURL=section2.css.map */
+.section_two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60vh;
+}
+
+.head_text p {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #150F3F;
+  position: relative;
+}
+
+.head_text p::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: .2em;
+  width: 80px;
+  background: #150F3F;
+  z-index: 1;
+}
+
+.cards {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2em;
+}
+
+.cards .card {
+  width: 27%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em;
+  text-align: center;
+}
+
+.cards .card .head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cards .card .head img {
+  width: 7em;
+  margin-bottom: 1em;
+}
+
+.cards .card .head p {
+  color: #02BC77;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.cards .card p {
+  letter-spacing: 0.48px;
+  color: #150F3F;
+}
+
+.cards .card_two .head p {
+  color: #4169E2;
+}
+
+.cards .card_three .head p {
+  color: #FEBA4F;
+}
+/*# sourceMappingURL=section2.css.map */
