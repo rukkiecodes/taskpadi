@@ -5,6 +5,7 @@
     <Head />
     <Section2 />
     <About />
+    <What_escrow />
   </div>
 </template>
 
@@ -14,13 +15,15 @@ import Drawer from "../components/nav/Drawer.vue"
 import Head from "../components/home/Head.vue"
 import Section2 from "../components/home/Section2.vue"
 import About from "../components/home/About.vue"
+import What_escrow from "../components/home/What_escrow.vue"
 export default {
   components: {
     App_bar,
     Drawer,
     Head,
     Section2,
-    About
+    About,
+    What_escrow
   }
 }
 </script>
