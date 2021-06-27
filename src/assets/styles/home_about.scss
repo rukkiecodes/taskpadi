@@ -1,0 +1,26 @@
+.section_two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+.head_text {
+    p {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #150F3F;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -2%;
+            left: 0;
+            height: 6px;
+            width: 80px;
+            background: #150F3F;
+            z-index: 1;
+        }
+    }
+}
