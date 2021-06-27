@@ -1,0 +1,26 @@
+.who_can_use {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.head_text {
+    .p1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #150F3F;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -2%;
+            left: 0;
+            height: 6px;
+            width: 80px;
+            background: #150F3F;
+            z-index: 1;
+        }
+    }
+}
