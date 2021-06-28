@@ -11,6 +11,13 @@
         width: 100%;
         height: initial;
     }
+    @include galaxy_s3_both {
+        padding: 0 1em;
+    }
+    @media only screen and (device-width: 1024px) and (device-height: 1366px) {
+        height: initial;
+        padding-top: 10em;
+    }
 }
 
 .head_component_left {
@@ -21,6 +28,21 @@
             font-size: 2rem !important;
             font-weight: 300 !important;
         }
+    }
+    @include iPad_1_2_mini_air_both {
+        width: 70%;
+    }
+    @include galaxy_tab_2_both {
+        width: 47%;
+    }
+    @media only screen and (device-width: 600px) and (device-height: 960px) {
+        width: 80%;
+    }
+    @media only screen and (device-width: 240px) and (device-height: 320px) {
+        width: 100%;
+    }
+    @media only screen and (min-device-width: 1903px) and (max-device-width: 10000px) {
+        width: 40%;
     }
 }
 
@@ -34,10 +56,31 @@
         display: initial;
         margin: 5em;
     }
+    @include galaxy_s3_both {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    @include iPad_1_2_mini_air_both {
+        width: 70%;
+    }
+    @include galaxy_tab_2_both {
+        width: 47%;
+    }
+    @media only screen and (device-width: 600px) and (device-height: 960px) {
+        width: 80%;
+    }
+    @media only screen and (device-width: 240px) and (device-height: 320px) {
+        width: 100%;
+    }
     img {
         width: 100%;
         @include mobile {
             width: 100%;
+        }
+        @include galaxy_s3_both {
+            width: 80%;
+            height: auto;
         }
     }
 }
