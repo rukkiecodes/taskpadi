@@ -1,3 +1,21 @@
+.testimonials {
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 8em;
+}
+
 .testimonials_head_text {
   width: 50%;
 }
@@ -31,6 +49,7 @@
 .slide {
   position: relative;
   width: 100%;
+  margin-top: 2em;
 }
 
 .slide .sheet {
@@ -98,35 +117,5 @@
 .slide .sheet .sheet_card .texts .p2 {
   text-align: initial;
   color: #150F3F;
-}
-
-h3 {
-  background: #fff;
-  color: #3498db;
-  font-size: 36px;
-  line-height: 100px;
-  margin: 10px;
-  padding: 2%;
-  position: relative;
-  text-align: center;
-}
-
-.action {
-  display: block;
-  margin: 100px auto;
-  width: 100%;
-  text-align: center;
-}
-
-.action a {
-  display: inline-block;
-  padding: 5px 10px;
-  background: #f30;
-  color: #fff;
-  text-decoration: none;
-}
-
-.action a:hover {
-  background: #000;
 }
 /*# sourceMappingURL=testimonials.css.map */

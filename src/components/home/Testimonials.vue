@@ -1,5 +1,8 @@
 <template>
   <v-container class="testimonials">
+    <div class="head_text">
+      <p>Why use Trustpaddi</p>
+    </div>
     <div class="slide">
       <v-sheet class="mx-auto sheet" elevation="0">
         <v-slide-group
