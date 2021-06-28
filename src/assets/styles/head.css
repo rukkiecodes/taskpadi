@@ -141,6 +141,13 @@
   }
 }
 
+@media only screen and (device-width: 800px) and (device-height: 1280px) {
+  .head_component {
+    height: initial;
+    padding-top: 10em;
+  }
+}
+
 .head_component_left {
   width: 40%;
 }

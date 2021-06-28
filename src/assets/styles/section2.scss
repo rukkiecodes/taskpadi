@@ -1,3 +1,4 @@
+@import "./settings/mediaQuery";
 .section_two {
     display: flex;
     flex-direction: column;
@@ -5,6 +6,13 @@
     justify-content: center;
     height: 60vh;
     margin-top: 4em;
+    @include mobile {
+        height: initial;
+    }
+    @media only screen and (device-width: 800px) and (device-height: 1280px) {
+        height: initial;
+        margin-top: 6em;
+    }
 }
 
 .head_text {
@@ -13,6 +21,9 @@
         font-weight: 600;
         color: #150F3F;
         position: relative;
+        @include mobile {
+            font-size: 2em;
+        }
         &::after {
             content: "";
             position: absolute;
@@ -31,6 +42,22 @@
     display: flex;
     justify-content: space-between;
     margin-top: 2em;
+    @include mobile {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    @media only screen and (device-width: 600px) and (device-height: 1024px) {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    @media only screen and (device-width: 768px) and (device-height: 1024px) {
+        width: 70%;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
     .card {
         width: 27%;
         display: flex;
@@ -39,6 +66,27 @@
         align-items: center;
         padding: 1em;
         text-align: center;
+        @include mobile {
+            width: 90%;
+            margin-bottom: 2em;
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+        }
+        @media only screen and (device-width: 600px) and (device-height: 1024px) {
+            width: 32%;
+            background: #ffffff;
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+        }
+        @media only screen and (device-width: 800px) and (device-height: 1280px) {
+            width: 32%;
+            background: #ffffff;
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+        }
+        @media only screen and (device-width: 600px) and (device-height: 960px) {
+            padding: 2em 0;
+        }
+        @media only screen and (device-width: 768px) and (device-height: 1024px) {
+            width: 100%;
+        }
         .head {
             display: flex;
             flex-direction: column;
