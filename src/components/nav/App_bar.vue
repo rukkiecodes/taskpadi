@@ -2,6 +2,7 @@
   <v-container class="red pa-0">
     <v-app-bar
       flat
+      fixed
       color="#ffffff"
       class="app_bar"
     >
