@@ -1,17 +1,3 @@
-.testimonials {
-  height: 60vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 8em;
-}
-
 .testimonials_head_text {
   width: 50%;
 }
@@ -43,31 +29,75 @@
 }
 
 .slide {
-  font-family: Arial;
+  position: relative;
   width: 100%;
-  background: red;
-  display: block;
-  margin: 0 auto;
 }
 
-.slide .slide_slick {
-  background: blue;
+.slide .sheet {
+  position: absolute;
+  max-width: 100% !important;
+}
+
+.slide .sheet .sheet_card {
+  background: rgba(65, 105, 226, 0.1);
+}
+
+.slide .sheet .sheet_card .head {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.slide .sheet .sheet_card .head .icon {
+  background: #B5B6BB;
+  width: 6em;
+  height: 6em;
+  border-radius: 50px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
 }
 
-.slide .slide_slick .card {
-  background: gold;
-  width: 80% !important;
-  padding: 1.5em;
+.slide .sheet .sheet_card .head .icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 8px solid #B5B6BB;
+  border-radius: 50px;
+}
+
+.slide .sheet .sheet_card .head .icon i {
+  margin-bottom: -15px;
+  color: #EBF0FC;
+}
+
+.slide .sheet .sheet_card .texts {
+  text-align: center;
+}
+
+.slide .sheet .sheet_card .texts .p1 {
+  color: #4169E2;
+}
+
+.slide .sheet .sheet_card .texts .p2 {
+  text-align: initial;
+  color: #150F3F;
 }
 
 h3 {
