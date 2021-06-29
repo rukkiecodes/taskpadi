@@ -6,7 +6,7 @@
     <div class="how_it_works_cards">
       <div v-for="(card, index) in cards" :key="index" class="how_it_works_card">
         <img :src="card.image" alt="">
-        <span v-text="card.text" />
+        <span class="text-body-2" v-text="card.text" />
       </div>
     </div>
   </v-container>

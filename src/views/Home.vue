@@ -7,7 +7,7 @@
     <About />
     <What_escrow />
     <How_it_works />
-    <!-- <Who_can_use /> -->
+    <Who_can_use />
     <!-- <Testimonials /> -->
     <!-- <Footer /> -->
   </div>
@@ -21,7 +21,7 @@ import Section2 from "../components/home/Section2.vue"
 import About from "../components/home/About.vue"
 import What_escrow from "../components/home/What_escrow.vue"
 import How_it_works from "../components/home/How_it_works.vue"
-// import Who_can_use from "../components/home/Who_can_use.vue"
+import Who_can_use from "../components/home/Who_can_use.vue"
 // import Testimonials from "../components/home/Testimonials.vue"
 // import Footer from "../components/Footer.vue"
 export default {
@@ -33,7 +33,7 @@ export default {
     About,
     What_escrow,
     How_it_works,
-    // Who_can_use,
+    Who_can_use,
     // Testimonials,
     // Footer
   }
