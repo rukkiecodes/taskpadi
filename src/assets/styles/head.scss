@@ -22,6 +22,11 @@
         height: initial;
         padding-top: 10em;
     }
+    @media only screen and (min-device-width: 1903px) and (max-device-width: 5000px) {
+        height: initial;
+        padding: 10em 0;
+        background: red;
+    }
 }
 
 .head_component_left {
@@ -45,7 +50,7 @@
     @media only screen and (device-width: 240px) and (device-height: 320px) {
         width: 100%;
     }
-    @media only screen and (min-device-width: 1903px) and (max-device-width: 10000px) {
+    @media only screen and (min-device-width: 1903px) and (max-device-width: 5000px) {
         width: 40%;
     }
 }

@@ -148,6 +148,14 @@
   }
 }
 
+@media only screen and (min-device-width: 1903px) and (max-device-width: 5000px) {
+  .head_component {
+    height: initial;
+    padding: 10em 0;
+    background: red;
+  }
+}
+
 .head_component_left {
   width: 40%;
 }
@@ -186,7 +194,7 @@
   }
 }
 
-@media only screen and (min-device-width: 1903px) and (max-device-width: 10000px) {
+@media only screen and (min-device-width: 1903px) and (max-device-width: 5000px) {
   .head_component_left {
     width: 40%;
   }
