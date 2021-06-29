@@ -1,7 +1,7 @@
 <template>
   <v-container class="how_it_works">
     <div class="head_text">
-      <p>Why use Trustpaddi</p>
+      <p>How it works</p>
     </div>
     <div class="how_it_works_cards">
       <div v-for="(card, index) in cards" :key="index" class="how_it_works_card">

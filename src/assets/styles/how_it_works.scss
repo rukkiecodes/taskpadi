@@ -1,9 +1,25 @@
+@import "./settings/_mediaQuery.scss";
 .how_it_works {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include mobile {
+        height: initial;
+        background: red;
+        margin-top: 3em;
+    }
+    @media only screen and (device-width: 800px) and (device-height: 1280px) {
+        background: red;
+        height: initial;
+        margin-top: 3em;
+    }
+    @media only screen and (device-width: 1024px) and (device-height: 1366px) {
+        background: red;
+        height: initial;
+        margin-top: 3em;
+    }
 }
 
 .what_escrow_head_text {
@@ -12,6 +28,9 @@
         font-weight: 600;
         color: #150F3F;
         position: relative;
+        @include mobile {
+            font-size: 2rem;
+        }
         &::after {
             content: "";
             position: absolute;
@@ -30,8 +49,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 2em;
+    @media only screen and (device-width: 768px) and (device-height: 1024px) {
+        // background: red;
+        // height: initial;
+        // margin-top: 3em;
+        width: 70%;
+        background: blue;
+    }
     .how_it_works_card {
         width: 50%;
         padding: 1em;
@@ -39,6 +66,14 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1em;
+        @include mobile {
+            align-items: flex-start;
+            width: 100%;
+        }
+        @media only screen and (device-width: 768px) and (device-height: 1024px) {
+            align-items: flex-start;
+            // width: 50%;
+        }
         img {
             width: 18%;
             height: auto;
