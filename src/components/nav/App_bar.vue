@@ -23,7 +23,7 @@
       <v-spacer />
       <div class="links hidden-sm-and-down">
         <router-link
-          :class="{ 'active_route': app_nav_title == '/'}"
+          :class="{ 'active_route font-weight-bold': app_nav_title == '/'}"
           to="/"
         >Home</router-link>
         <router-link

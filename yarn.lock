@@ -944,6 +944,13 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@morioh/v-perfect-scrollbar@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@morioh/v-perfect-scrollbar/-/v-perfect-scrollbar-1.0.1.tgz#be791aa4de152e6bedd51da2af457ce44eed6b50"
+  integrity sha512-uGswCbzokFMM0Iig1nMBkYQYYYW9394qQJPXlDd2Hf6Eg32FwGFxn+t5AqLnOqFrLO1DEX0gzBJwjo+r2pXypw==
+  dependencies:
+    perfect-scrollbar "^1.5.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz"
@@ -5845,6 +5852,11 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+perfect-scrollbar@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.1.tgz#8ee5b3ca06ce9c3f7338fd4ab67a55248a6cf3be"
+  integrity sha512-MrSImINnIh3Tm1hdPT6bji6fmIeRorVEegQvyUnhqko2hDGTHhmjPefHXfxG/Jb8xVbfCwgmUIlIajERGXjVXQ==
 
 performance-now@^2.1.0:
   version "2.1.0"

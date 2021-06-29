@@ -1,6 +1,6 @@
     @import "./settings/mediaQuery";
     .testimonials {
-        height: 90vh;
+        // height: 90vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -90,10 +90,25 @@
                         color: #4169E2;
                     }
                     .p2 {
+                        color: #150F3F;
+                    }
+                    .p3 {
                         text-align: initial;
                         color: #150F3F;
                     }
                 }
             }
+        }
+    }
+    
+    .testimonials_button {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #150F3F;
+        .button {
+            height: 3em !important;
         }
     }

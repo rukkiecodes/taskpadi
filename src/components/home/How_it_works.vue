@@ -4,8 +4,12 @@
       <p>How it works</p>
     </div>
     <div class="how_it_works_cards">
-      <div v-for="(card, index) in cards" :key="index" class="how_it_works_card">
-        <img :src="card.image" alt="">
+      <div
+        v-for="(card, index) in cards"
+        :key="index"
+        class="how_it_works_card"
+      >
+        <img :src="card.image" alt="" />
         <span class="text-body-2" v-text="card.text" />
       </div>
     </div>
@@ -19,27 +23,26 @@ export default {
       {
         image: require("../../assets/trust/homepage icons/Group 112.svg"),
         text:
-          "Lorem ipsum dolor sit amet consectrur disciping Lorem ipsum dolor sit amet consectrur. Lorem ipsum dolor sit amet consectrur.",
+          "Buyer and seller agree on the terms of the transaction: Eg Price, duration, proposed delivery date etc.",
       },
       {
         image: require("../../assets/trust/homepage icons/Group 113.svg"),
         text:
-          "Lorem ipsum dolor sit amet consectrur disciping Lorem ipsum dolor sit amet consectrur. Lorem ipsum dolor sit amet consectrur.",
+          "Buyer Initiates (Begins) the escrow: either parties can creates an escrow transaction",
       },
       {
         image: require("../../assets/trust/homepage icons/Group 115.svg"),
         text:
-          "Lorem ipsum dolor sit amet consectrur disciping Lorem ipsum dolor sit amet consectrur. Lorem ipsum dolor sit amet consectrur.",
+          "Merchandise is shipped to the buyer: Seller ships the merchandise to you or we help you retrieve the merchandise and deliver it to you",
       },
       {
         image: require("../../assets/trust/homepage icons/Group 117.svg"),
-        text:
-          "Lorem ipsum dolor sit amet consectrur disciping Lorem ipsum dolor sit amet consectrur. Lorem ipsum dolor sit amet consectrur.",
+        text: "Buyer pays to TrustPaddi: TrustPaddi holds on to the payment",
       },
       {
         image: require("../../assets/trust/homepage icons/Group 118.svg"),
         text:
-          "Lorem ipsum dolor sit amet consectrur disciping Lorem ipsum dolor sit amet consectrur. Lorem ipsum dolor sit amet consectrur.",
+          "Buyer confirms the merchandise : He/she verifies the product to see if its exactly what he ordered.",
       },
     ],
   }),

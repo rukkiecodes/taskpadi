@@ -1,15 +1,17 @@
 <template>
   <v-container class="testimonials">
     <div class="head_text">
-      <p>Why use Trustpaddi</p>
+      <p>Testimonials</p>
     </div>
     <div class="slide">
       <v-sheet class="mx-auto sheet" elevation="0">
-        <v-slide-group
-          v-model="model"
-        >
+        <v-slide-group v-model="model">
           <v-slide-item v-for="(card, index) in cards" :key="index">
-            <v-card width="320" flat class="ma-4 sheet_card rounded-xl px-6 py-12">
+            <v-card
+              width="320"
+              flat
+              class="ma-4 sheet_card rounded-xl px-6 py-12"
+            >
               <v-card-text class="ma-0 pa-0">
                 <div class="head mb-5">
                   <div class="icon">
@@ -19,12 +21,21 @@
               </v-card-text>
               <v-card-text class="ma-0 pa-0 texts">
                 <p class="p1 text-h6 font-weight-bold">{{ card.title }}</p>
-                <p class="p2 text-body-2">{{ card.text }}</p>
+                <p class="p2 text-body-1 font-weight-bold mt-n5">
+                  {{ card.position }}
+                </p>
+                <p class="p3 text-body-2">{{ card.text }}</p>
               </v-card-text>
             </v-card>
           </v-slide-item>
         </v-slide-group>
       </v-sheet>
+    </div>
+    <div class="testimonials_button mt-10">
+      <p class="text-body-1">It's better safe than than sorry</p>
+      <v-btn depressed color="#4169E2" class="button rounded-lg text-capitalize white--text"
+        >Get started Now</v-btn
+      >
     </div>
   </v-container>
 </template>
@@ -35,30 +46,21 @@ export default {
     cards: [
       {
         icon: "mdi-account",
-        title: "Victory Roberts",
-        text: `Lorem ipsum dolor sit amet lorem consectrur disciping Lorem ipsum
-              dolor sit amet consectrur. Lorem ipsum dolor sit amet lorem
-              consectrur disciping Lorem ipsum dolor sit amet consectrur.Lorem
-              ipsum dolor sit amet lorem consectrur disciping Lorem ipsum dolor
-              sit amet consectrur.`,
+        title: "Mrs Chidinma Okere",
+        position: "CEO Chi's apperel (Seller)",
+        text: `Anytime my potential customers dobt the genuinity of my business but really want to need the product, we use TrustPaddi and they are very reliable.`,
       },
       {
         icon: "mdi-account",
-        title: "Victory Roberts",
-        text: `Lorem ipsum dolor sit amet lorem consectrur disciping Lorem ipsum
-              dolor sit amet consectrur. Lorem ipsum dolor sit amet lorem
-              consectrur disciping Lorem ipsum dolor sit amet consectrur.Lorem
-              ipsum dolor sit amet lorem consectrur disciping Lorem ipsum dolor
-              sit amet consectrur.`,
+        title: "Mr David Elendu",
+        position: "Crypto Trader & Buyer",
+        text: `For all my Crypto transactions with any Crypto trader, I use TrustPaddi. I pay to TrustPaddi, I get my Crypto and then I approve payment instantly, so simple and reliable.`,
       },
       {
         icon: "mdi-account",
-        title: "Victory Roberts",
-        text: `Lorem ipsum dolor sit amet lorem consectrur disciping Lorem ipsum
-              dolor sit amet consectrur. Lorem ipsum dolor sit amet lorem
-              consectrur disciping Lorem ipsum dolor sit amet consectrur.Lorem
-              ipsum dolor sit amet lorem consectrur disciping Lorem ipsum dolor
-              sit amet consectrur.`,
+        title: "Mr Celestine Obinna",
+        position: "Online buyer",
+        text: `TrustPaddi givese total control over my transaction with unknown sellers, now I can comfortably buy any product I ant online without fear.`,
       },
       {
         icon: "mdi-account",

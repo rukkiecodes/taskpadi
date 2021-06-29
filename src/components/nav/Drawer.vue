@@ -1,23 +1,15 @@
 <template>
-  <v-navigation-drawer
-    v-model="drawer"
-    fixed
-    temporary
-  >
-    <v-list nav dense>
+  <v-navigation-drawer v-model="drawer" temporary fixed hide-overlay>
+    <v-list class="rounded-lg" nav dense>
       <v-list-item
         v-for="item in drawer_routs"
         :key="item.title"
         :to="item.to"
         link
-        class="rounded-xl"
         active-class="blue lighten-5"
       >
         <v-list-item-icon class="blue darken-2 px-2 py-4 rounded-lg">
-          <v-icon
-            size="17"
-            class="white--text"
-          >{{ item.icon }}</v-icon>
+          <v-icon size="17" class="white--text">{{ item.icon }}</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -29,22 +21,19 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState } from "vuex";
 export default {
-  data: () => ({
-
-  }),
   computed: {
     ...mapState(["drawer"]),
-    ...mapGetters(['drawer_routs']),
+    ...mapGetters(["drawer_routs"]),
     drawer: {
-      get () {
+      get() {
         return this.$store.state.drawer;
       },
-      set (new_value) {
+      set(new_value) {
         this.$store.state.drawer = new_value;
       },
     },
-  }
-}
+  },
+};
 </script>
