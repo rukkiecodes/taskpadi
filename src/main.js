@@ -5,10 +5,10 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import VueCountryCode from 'vue-country-code'
-import VueSmoothScroll from 'vue2-smooth-scroll'
+import SmoothScrollbar from 'vue-smooth-scrollbar'
 
 Vue.use(VueCountryCode);
-Vue.use(VueSmoothScroll)
+Vue.use(SmoothScrollbar);
 
 Vue.config.productionTip = false
 

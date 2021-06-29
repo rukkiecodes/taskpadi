@@ -1,8 +1,13 @@
 <template>
   <v-container class="head_component">
     <div class="head_component_left">
-      <p class="main_text text-h4 font-weight-medium grey--text text--darken-3">We make online buying and selling much safer</p>
-      <p class="text-body-2 font-weight-normal grey--text text--darken-2">With TrustPadi you can buy and sell anything online without worries, knowing we've got you covered.</p>
+      <p class="main_text text-h4 font-weight-medium grey--text text--darken-3">
+        Safe Transactions, Happy People
+      </p>
+      <p class="text-body-2 font-weight-normal grey--text text--darken-2">
+        Transact Securely with online vendors & marketplaces, gain customers
+        trust with TrustPaddi
+      </p>
       <div>
         <div class="input_one rounded-lg">
           <v-menu offset-y>
@@ -21,10 +26,7 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item
-                v-for="(item, index) in items"
-                :key="index"
-              >
+              <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -45,10 +47,7 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item
-                v-for="(item, index) in items"
-                :key="index"
-              >
+              <v-list-item v-for="(item, index) in items" :key="index">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -57,12 +56,11 @@
 
         <div class="input_two mt-3 rounded-lg px-1">
           <div class="text">
-            <p class="text-body-2 font-weight-bold grey--text text--darken-3">For</p>
+            <p class="text-body-2 font-weight-bold grey--text text--darken-3">
+              For
+            </p>
           </div>
-          <input
-            type="number"
-            placeholder="2,000,000"
-          >
+          <input type="number" placeholder="2,000,000" />
           <vue-country-code
             @onSelect="onSelect"
             :preferredCountries="['vn', 'us', 'gb']"
@@ -83,7 +81,7 @@
     </div>
 
     <div class="head_component_right">
-      <img src="../../assets/trust/home_phone.png" alt="">
+      <img src="../../assets/trust/home_phone.png" alt="" />
     </div>
   </v-container>
 </template>
@@ -92,20 +90,19 @@
 export default {
   data: () => ({
     items: [
-      { title: 'Click Me' },
-      { title: 'Click Me' },
-      { title: 'Click Me' },
-      { title: 'Click Me 2' },
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me 2" },
     ],
   }),
   methods: {
-    onSelect ({ name, iso2, dialCode }) {
+    onSelect({ name, iso2, dialCode }) {
       console.log(name, iso2, dialCode);
     },
-  }
-}
+  },
+};
 </script>
-
 
 <style scoped>
 @import url(../../assets/styles/head.css);
