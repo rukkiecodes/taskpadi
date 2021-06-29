@@ -5,6 +5,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include mobile {
+        height: initial;
+        margin-top: 2em;
+    }
+    @media only screen and (device-width: 800px) and (device-height: 1280px) {
+        height: initial;
+        margin-top: 2em;
+    }
+    @media only screen and (device-width: 1024px) and (device-height: 1366px) {
+        height: initial;
+        margin-top: 2em;
+    }
 }
 
 .who_can_use_head_text {
@@ -13,6 +25,9 @@
         font-weight: 600;
         color: #150F3F;
         position: relative;
+        @include mobile {
+            font-size: 2rem;
+        }
         &::after {
             content: "";
             position: absolute;
@@ -33,6 +48,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    @include mobile {
+        flex-direction: column;
+    }
+    @media only screen and (device-width: 768px) and (device-height: 1024px) {
+        width: 70%;
+    }
 }
 
 .who_can_use_cards_card {
@@ -43,14 +64,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    @include mobile {
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+        margin-bottom: 2em;
+        padding: 1.5em;
+    }
+    @media only screen and (device-width: 800px) and (device-height: 1280px) {
+        width: 32%;
+        padding: 1.5em;
+    }
+    @media only screen and (device-width: 1024px) and (device-height: 1366px) {
+        width: 32%;
+        padding: 1.5em;
+    }
     .img {
         width: 100%;
         padding: 1em 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        @include mobile {
+            width: 100%;
+            padding: 0;
+        }
         img {
             width: 60%;
+            @include mobile {
+                width: 40%;
+            }
         }
     }
     .texts {

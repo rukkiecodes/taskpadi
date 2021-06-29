@@ -115,11 +115,38 @@
           justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .who_can_use {
+    height: initial;
+    margin-top: 2em;
+  }
+}
+
+@media only screen and (device-width: 800px) and (device-height: 1280px) {
+  .who_can_use {
+    height: initial;
+    margin-top: 2em;
+  }
+}
+
+@media only screen and (device-width: 1024px) and (device-height: 1366px) {
+  .who_can_use {
+    height: initial;
+    margin-top: 2em;
+  }
+}
+
 .who_can_use_head_text .p1 {
   font-size: 2.5rem;
   font-weight: 600;
   color: #150F3F;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .who_can_use_head_text .p1 {
+    font-size: 2rem;
+  }
 }
 
 .who_can_use_head_text .p1::after {
@@ -149,6 +176,21 @@
           align-items: center;
 }
 
+@media (max-width: 768px) {
+  .who_can_use_cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+  .who_can_use_cards {
+    width: 70%;
+  }
+}
+
 .who_can_use_cards_card {
   width: 25%;
   padding: 3em 1.5em;
@@ -168,6 +210,31 @@
           align-items: flex-start;
 }
 
+@media (max-width: 768px) {
+  .who_can_use_cards_card {
+    width: 100%;
+    background: #ffffff;
+    -webkit-box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    margin-bottom: 2em;
+    padding: 1.5em;
+  }
+}
+
+@media only screen and (device-width: 800px) and (device-height: 1280px) {
+  .who_can_use_cards_card {
+    width: 32%;
+    padding: 1.5em;
+  }
+}
+
+@media only screen and (device-width: 1024px) and (device-height: 1366px) {
+  .who_can_use_cards_card {
+    width: 32%;
+    padding: 1.5em;
+  }
+}
+
 .who_can_use_cards_card .img {
   width: 100%;
   padding: 1em 0;
@@ -182,8 +249,21 @@
           align-items: center;
 }
 
+@media (max-width: 768px) {
+  .who_can_use_cards_card .img {
+    width: 100%;
+    padding: 0;
+  }
+}
+
 .who_can_use_cards_card .img img {
   width: 60%;
+}
+
+@media (max-width: 768px) {
+  .who_can_use_cards_card .img img {
+    width: 40%;
+  }
 }
 
 .who_can_use_cards_card .texts {

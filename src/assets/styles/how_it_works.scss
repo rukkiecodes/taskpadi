@@ -7,16 +7,13 @@
     justify-content: center;
     @include mobile {
         height: initial;
-        background: red;
         margin-top: 3em;
     }
     @media only screen and (device-width: 800px) and (device-height: 1280px) {
-        background: red;
         height: initial;
         margin-top: 3em;
     }
     @media only screen and (device-width: 1024px) and (device-height: 1366px) {
-        background: red;
         height: initial;
         margin-top: 3em;
     }
@@ -53,11 +50,7 @@
     align-items: center;
     margin-top: 2em;
     @media only screen and (device-width: 768px) and (device-height: 1024px) {
-        // background: red;
-        // height: initial;
-        // margin-top: 3em;
         width: 70%;
-        background: blue;
     }
     .how_it_works_card {
         width: 50%;

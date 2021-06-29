@@ -131,7 +131,6 @@
 
 @media only screen and (device-width: 1024px) and (device-height: 1366px) {
   .section_two {
-    background: red;
     height: initial;
   }
 }
@@ -139,7 +138,6 @@
 @media only screen and (min-device-width: 1903px) and (max-device-width: 5000px) {
   .section_two {
     height: initial;
-    background: red;
     margin-top: 0;
   }
 }

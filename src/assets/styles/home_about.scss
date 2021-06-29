@@ -11,14 +11,12 @@
         height: initial;
     }
     @media only screen and (device-width: 1024px) and (device-height: 1366px) {
-        background: red;
         margin-top: 4em;
         height: initial;
     }
     @media only screen and (min-device-width: 1903px) and (max-device-width: 5000px) {
         height: initial;
         margin-top: 4em;
-        background: red;
     }
 }
 

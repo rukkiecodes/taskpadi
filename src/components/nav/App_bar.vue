@@ -1,5 +1,5 @@
 <template>
-  <v-container class="red pa-0">
+  <v-container>
     <v-app-bar
       flat
       fixed
@@ -7,7 +7,7 @@
       class="app_bar"
     >
       <v-btn
-        class="hidden-md-and-up mr-5"
+        class="hidden-md-and-up mr-3"
         icon
         depressed
         @click="toggle_drawer"
@@ -109,7 +109,4 @@ export default {
 
 <style scoped>
 @import url(../../assets/styles/app_bar.css);
-.active_route {
-  color: #4169e2 !important;
-}
 </style>

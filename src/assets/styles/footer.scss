@@ -1,5 +1,10 @@
+@import "./settings/mediaQuery";
 .footer {
     background: #150F3F;
+    margin-top: 3em;
+    @include mobile {
+        height: initial;
+    }
 }
 
 .footer_container {
@@ -7,6 +12,12 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    @include mobile {
+        flex-direction: column;
+    }
+    @media only screen and (device-width: 768px) and (device-height: 1024px) {
+        flex-direction: row;
+    }
 }
 
 .footer_container_row {
@@ -15,6 +26,16 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    position: relative;
+    @include mobile {
+        width: 100%;
+        margin-bottom: 3em;
+    }
+    &:last-child {
+        @include mobile {
+            margin-bottom: 0;
+        }
+    }
     .head {
         color: #EBF0FC;
     }

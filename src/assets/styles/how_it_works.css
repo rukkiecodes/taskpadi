@@ -118,14 +118,12 @@
 @media (max-width: 768px) {
   .how_it_works {
     height: initial;
-    background: red;
     margin-top: 3em;
   }
 }
 
 @media only screen and (device-width: 800px) and (device-height: 1280px) {
   .how_it_works {
-    background: red;
     height: initial;
     margin-top: 3em;
   }
@@ -133,7 +131,6 @@
 
 @media only screen and (device-width: 1024px) and (device-height: 1366px) {
   .how_it_works {
-    background: red;
     height: initial;
     margin-top: 3em;
   }
@@ -183,7 +180,6 @@
 @media only screen and (device-width: 768px) and (device-height: 1024px) {
   .how_it_works_cards {
     width: 70%;
-    background: blue;
   }
 }
 

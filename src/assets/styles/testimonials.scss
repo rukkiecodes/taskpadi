@@ -1,4 +1,4 @@
-    // @import "./settings/mediaQuery";
+    @import "./settings/mediaQuery";
     .testimonials {
         height: 90vh;
         display: flex;
@@ -6,6 +6,16 @@
         justify-content: flex-start;
         align-items: center;
         margin-top: 8em;
+        @include mobile {
+            height: initial;
+            margin-top: 4em;
+        }
+        @media only screen and (device-width: 800px) and (device-height: 1280px) {
+            height: initial;
+        }
+        @media only screen and (device-width: 1024px) and (device-height: 1366px) {
+            height: initial;
+        }
     }
     
     .testimonials_head_text {
@@ -35,11 +45,12 @@
     }
     
     .slide {
-        position: relative;
         width: 100%;
         margin-top: 2em;
+        @media only screen and (device-width: 768px) and (device-height: 1024px) {
+            width: 70%;
+        }
         .sheet {
-            position: absolute;
             max-width: 100% !important;
             .sheet_card {
                 background: rgba(65, 105, 226, .10);
