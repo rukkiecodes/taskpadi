@@ -3,7 +3,9 @@
     <div class="head_text">
       <p>How it works</p>
     </div>
-    <p class="text-body-1 grey--text text--darken-4 text-center">The whole process is Simple, transparent and automated </p>
+    <p class="text-body-1 grey--text text--darken-4 text-center">
+      The whole process is Simple, transparent and automated
+    </p>
     <div class="tab_button mt-5">
       <v-btn
         @click="tab = 'buyer'"
@@ -44,7 +46,7 @@ export default {
   }),
   components: {
     Buyer_tab,
-    Seller_tab
+    Seller_tab,
   },
 };
 </script>

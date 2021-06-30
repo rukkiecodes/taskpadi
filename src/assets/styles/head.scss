@@ -83,15 +83,6 @@
     }
     img {
         width: 100%;
-        animation: bounce 2s infinite alternate;
-        @keyframes bounce {
-            from {
-                transform: translateY(0px);
-            }
-            to {
-                transform: translateY(-10px);
-            }
-        }
         @include mobile {
             width: 100%;
         }
