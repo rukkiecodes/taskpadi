@@ -4,8 +4,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60vh;
-    margin-top: 8em;
+    // height: 60vh;
+    margin-top: 4em;
     @include mobile {
         margin-top: 4em;
         height: initial;

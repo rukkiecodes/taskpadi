@@ -4,7 +4,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 8em;
+    // margin-top: 8em;
+    margin-top: 4em;
     @include mobile {
         height: initial;
         margin-top: 4em;
@@ -20,7 +21,7 @@
     }
     @media only screen and (device-width: 1024px) and (device-height: 1366px) {
         height: initial;
-        margin-top: 2em;
+        margin-top: 4em;
     }
 }
 
@@ -58,7 +59,7 @@
 }
 
 .what_escrow_head_image {
-    width: 30%;
+    width: 28%;
     @include mobile {
         width: 60%;
     }
