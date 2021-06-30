@@ -183,7 +183,25 @@
   }
 }
 
-.how_it_works_cards .how_it_works_card {
+.how_it_works_cards .buyer_tab,
+.how_it_works_cards .seller_tab {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.how_it_works_cards .buyer_tab .how_it_works_card,
+.how_it_works_cards .seller_tab .how_it_works_card {
   width: 50%;
   padding: 1em;
   display: -webkit-box;
@@ -199,7 +217,8 @@
 }
 
 @media (max-width: 768px) {
-  .how_it_works_cards .how_it_works_card {
+  .how_it_works_cards .buyer_tab .how_it_works_card,
+  .how_it_works_cards .seller_tab .how_it_works_card {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -208,20 +227,46 @@
 }
 
 @media only screen and (device-width: 768px) and (device-height: 1024px) {
-  .how_it_works_cards .how_it_works_card {
+  .how_it_works_cards .buyer_tab .how_it_works_card,
+  .how_it_works_cards .seller_tab .how_it_works_card {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
   }
 }
 
-.how_it_works_cards .how_it_works_card img {
+.how_it_works_cards .buyer_tab .how_it_works_card img,
+.how_it_works_cards .seller_tab .how_it_works_card img {
   width: 18%;
   height: auto;
 }
 
-.how_it_works_cards .how_it_works_card span {
+.how_it_works_cards .buyer_tab .how_it_works_card .icon,
+.how_it_works_cards .seller_tab .how_it_works_card .icon {
+  background: red;
+  width: 18%;
+}
+
+.how_it_works_cards .buyer_tab .how_it_works_card .how_it_works_card_text,
+.how_it_works_cards .seller_tab .how_it_works_card .how_it_works_card_text {
   width: 76%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.how_it_works_cards .buyer_tab .how_it_works_card .how_it_works_card_text span,
+.how_it_works_cards .seller_tab .how_it_works_card .how_it_works_card_text span {
   color: #150F3F;
 }
 /*# sourceMappingURL=how_it_works.css.map */

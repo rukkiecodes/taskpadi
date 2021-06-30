@@ -3,49 +3,49 @@
     <div class="head_text">
       <p>How it works</p>
     </div>
-    <div class="how_it_works_cards">
-      <div
-        v-for="(card, index) in cards"
-        :key="index"
-        class="how_it_works_card"
+    <p class="text-body-1 grey--text text--darken-4 text-center">The whole process is Simple, transparent and automated </p>
+    <div class="tab_button mt-5">
+      <v-btn
+        @click="tab = 'buyer'"
+        :class="{
+          'blue darken-3 white--text': tab == 'buyer',
+          'blue--text text--darken-3': tab == 'seller',
+        }"
+        class="rounded-lg mr-3"
+        depressed
       >
-        <img :src="card.image" alt="" />
-        <span class="text-body-2" v-text="card.text" />
-      </div>
+        Buyer
+      </v-btn>
+      <v-btn
+        @click="tab = 'seller'"
+        :class="{
+          'blue darken-3 white--text': tab == 'seller',
+          'blue--text text--darken-3': tab == 'buyer',
+        }"
+        class="rounded-lg"
+        depressed
+      >
+        Seller
+      </v-btn>
+    </div>
+    <div class="how_it_works_cards">
+      <Buyer_tab v-show="tab == 'buyer'" />
+      <Seller_tab v-show="tab == 'seller'" />
     </div>
   </v-container>
 </template>
 
 <script>
+import Buyer_tab from "./components/Buyer_tab.vue";
+import Seller_tab from "./components/Seller_tab.vue";
 export default {
   data: () => ({
-    cards: [
-      {
-        image: require("../../assets/trust/homepage icons/Group 112.svg"),
-        text:
-          "Buyer and seller agree on the terms of the transaction: Eg Price, duration, proposed delivery date etc.",
-      },
-      {
-        image: require("../../assets/trust/homepage icons/Group 113.svg"),
-        text:
-          "Buyer Initiates (Begins) the escrow: either parties can creates an escrow transaction",
-      },
-      {
-        image: require("../../assets/trust/homepage icons/Group 115.svg"),
-        text:
-          "Merchandise is shipped to the buyer: Seller ships the merchandise to you or we help you retrieve the merchandise and deliver it to you",
-      },
-      {
-        image: require("../../assets/trust/homepage icons/Group 117.svg"),
-        text: "Buyer pays to TrustPaddi: TrustPaddi holds on to the payment",
-      },
-      {
-        image: require("../../assets/trust/homepage icons/Group 118.svg"),
-        text:
-          "Buyer confirms the merchandise : He/she verifies the product to see if its exactly what he ordered.",
-      },
-    ],
+    tab: "buyer",
   }),
+  components: {
+    Buyer_tab,
+    Seller_tab
+  },
 };
 </script>
 

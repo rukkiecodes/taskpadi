@@ -1,101 +1,48 @@
 <template>
-  <v-card color="basil" flat>
-    <div class="input_one rounded-lg">
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            color="grey darken-2"
-            dark
-            depressed
-            v-bind="attrs"
-            v-on="on"
-            text
-            style="text-transform: initial"
-          >
-            I am selling
-            <v-icon right>mdi-chevron-down</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item v-for="(sell, index) in selling" :key="index">
-            <v-list-item-title>{{ sell.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            color="grey darken-2"
-            dark
-            depressed
-            v-bind="attrs"
-            v-on="on"
-            text
-            style="text-transform: initial"
-          >
-            Accessories
-            <v-icon right>mdi-chevron-down</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item v-for="(item, index) in items" :key="index">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </div>
-
-    <div class="input_two mt-3 rounded-lg px-1">
-      <div class="text">
-        <p class="text-body-2 font-weight-bold grey--text text--darken-3">
-          For
-        </p>
+  <div class="seller_tab">
+    <div v-for="(card, index) in cards" :key="index" class="how_it_works_card">
+      <img :src="card.image" alt="" />
+      <div class="how_it_works_card_text">
+        <span class="text-body-2" v-text="card.text" />
       </div>
-      <input type="number" placeholder="2,000,000" />
-      <vue-country-code
-        @onSelect="onSelect"
-        :preferredCountries="['vn', 'us', 'gb']"
-        :enabledCountryCode="true"
-        class="country_code rounded-lg blue darken-2"
-      />
     </div>
-
-    <v-btn
-      block
-      depressed
-      color="#4169E2"
-      class="get_started mt-3 white--text rounded-lg"
-    >
-      Get started now
-    </v-btn>
-  </v-card>
+  </div>
 </template>
-
 
 <script>
 export default {
   data: () => ({
-    items: [
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" },
+    cards: [
+      {
+        image: require("../../../assets/trust/homepage icons/Group 112.svg"),
+        text:
+          "Buyer and seller agree on the terms of the transaction: Eg Price, duration, proposed delivery date etc",
+      },
+      {
+        image: require("../../../assets/trust/homepage icons/Group 117.svg"),
+        text:
+          "Seller Initiates (Begins) the escrow: either parties can creates an escrow transaction",
+      },
+      {
+        image: require("../../../assets/trust/homepage icons/Group 113.svg"),
+        text:
+          "Buyer accepts the transaction & pays to TrustPaddi: TrustPaddi holds on to the payment",
+      },
+      {
+        image: require("../../../assets/trust/homepage icons/Group 115.svg"),
+        text:
+          "Merchandise is shipped to the buyer: Seller ships the merchandise or we can help retrieve the merchandise from you (The Seller) & deliver it to the buyer",
+      },
+      {
+        image: require("../../../assets/trust/homepage icons/Group 130.svg"),
+        text:
+          "Buyer confirms the merchandise : He/she verifies the product to see if its exactly what he ordered",
+      },
+      {
+        image: require("../../../assets/trust/homepage icons/Group 118.svg"),
+        text: "TrustPaddi Pays You the Seller after confirmation",
+      },
     ],
-    selling: [
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" },
-    ],
-    tab: null
   }),
-  methods: {
-    onSelect({ name, iso2, dialCode }) {
-      console.log(name, iso2, dialCode);
-    },
-  },
-  mounted() {
-    this.$nextTick(() => {});
-  },
 };
 </script>
