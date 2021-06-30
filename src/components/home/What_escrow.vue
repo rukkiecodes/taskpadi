@@ -10,7 +10,7 @@
           <template v-slot:activator="{ on, attrs }">
             <span v-bind="attrs" v-on="on" class="font-weight-bold">more</span>
           </template>
-          <v-card width="350">
+          <v-card class="menu_card" width="350">
             <v-card-text>
               "Escrow" is a financial agreement in which a third party controls
               payments between two transacting parties and only releases the

@@ -6,7 +6,9 @@
       </p>
       <p class="text-body-2 font-weight-normal grey--text text--darken-2">
         Transact Securely with online vendors & marketplaces, gain customers
-        trust with TrustPaddi...
+        trust with TrustPaddi <br />We know how Devastating it can be losing
+        money to an online fraudster, and if not Cash On Delivery, we're sure
+        you won't make any purchases....
         <Read_more />
       </p>
       <div>
@@ -88,7 +90,7 @@
 </template>
 
 <script>
-import Read_more from "./components/Read_more.vue"
+import Read_more from "./components/Read_more.vue";
 export default {
   data: () => ({
     items: [
@@ -105,7 +107,7 @@ export default {
     ],
   }),
   components: {
-    Read_more
+    Read_more,
   },
   methods: {
     onSelect({ name, iso2, dialCode }) {

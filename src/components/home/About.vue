@@ -1,7 +1,7 @@
 <template>
   <v-container class="home_about">
     <div class="head_text">
-      <p>Why use Trustpaddi</p>
+      <p>About Trustpaddi</p>
     </div>
     <div class="home_about_sides">
       <div class="home_about_card rounded-xl">

@@ -83,6 +83,15 @@
     }
     img {
         width: 100%;
+        animation: bounce 2s infinite alternate;
+        @keyframes bounce {
+            from {
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
         @include mobile {
             width: 100%;
         }
@@ -147,4 +156,10 @@
 .get_started {
     height: 3em !important;
     text-transform: initial;
+}
+
+.menu_card {
+    background: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
 }

@@ -192,8 +192,8 @@
 }
 
 .who_can_use_cards_card {
-  width: 25%;
-  padding: 3em 1.5em;
+  width: 28%;
+  padding: 1.5em;
   background: rgba(65, 105, 226, 0.1);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -257,7 +257,7 @@
 }
 
 .who_can_use_cards_card .img img {
-  width: 60%;
+  width: 50%;
 }
 
 @media (max-width: 768px) {
@@ -277,5 +277,13 @@
 
 .who_can_use_cards_card .texts .p2 {
   color: #150F3F;
+}
+
+.menu_card {
+  background: rgba(255, 255, 255, 0.25) !important;
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 /*# sourceMappingURL=who_can_use.css.map */

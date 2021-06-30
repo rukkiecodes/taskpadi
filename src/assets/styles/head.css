@@ -258,6 +258,30 @@
 
 .head_component_right img {
   width: 100%;
+  -webkit-animation: bounce 2s infinite alternate;
+          animation: bounce 2s infinite alternate;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  to {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  from {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  to {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -352,5 +376,13 @@
 .get_started {
   height: 3em !important;
   text-transform: initial;
+}
+
+.menu_card {
+  background: rgba(255, 255, 255, 0.25) !important;
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 /*# sourceMappingURL=head.css.map */

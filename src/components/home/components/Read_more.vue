@@ -1,31 +1,117 @@
 <template>
-  <v-menu offset-y>
-    <template v-slot:activator="{ on, attrs }">
-      <span
-        class="blue--text text--darken-3 font-weight-bold"
-        v-bind="attrs"
-        v-on="on"
-      >
-        Read more
-      </span>
-    </template>
-    <v-card width="350">
-      <v-card-text>
-        We know how Devastating it can be losing money to an online fraudster,
-        and if not Cash On Delivery, we're sure you won't make any purchases.
-      </v-card-text>
-      <v-card-text>
-        For business owners and service providers, We also know how hard it can
-        be getting potential customers to trust the genuineness of your upcoming
-        brand online, on the other hand Cash on delivery isn't always a
-        convenient option for you.
-      </v-card-text>
-      <v-card-text>
-        Therefore, It all boils down to the issue of "trust" and this is what
-        TrustPaddi is all about, bridging the trust gap between potential
-        customers, service providers & businesses online while protecting there
-        various interest.
-      </v-card-text>
-    </v-card>
-  </v-menu>
+  <div>
+    <v-dialog v-model="dialog" scrollable max-width="500px">
+      <template v-slot:activator="{ on, attrs }">
+        <span
+          class="blue--text text--darken-3 font-weight-bold"
+          v-bind="attrs"
+          v-on="on"
+        >
+          Read more
+        </span>
+      </template>
+
+      <v-card>
+        <v-toolbar flat dense>
+          <v-avatar size="30">
+            <img src="../../../assets/paddi.png" alt="" />
+          </v-avatar>
+          <v-toolbar-title class="grey--text text--darken-4 ml-3">
+            TrustPaddi
+          </v-toolbar-title>
+          <v-spacer />
+          <v-btn @click="dialog = false" icon>
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-toolbar>
+
+        <v-card-text>
+          <v-card-text class="mt-3 text-body-2">
+            Transact Securely with online vendors & marketplaces, gain customers
+            trust with TrustPaddi
+          </v-card-text>
+          <v-card-text class="text-body-2">
+            We know how Devastating it can be losing money to an online
+            fraudster, and if not Cash On Delivery, we're sure you won't make
+            any purchases.
+          </v-card-text>
+          <v-card-text class="text-body-2">
+            For business owners and service providers, We also know how hard it
+            can be getting potential customers to trust the genuineness of your
+            upcoming brand online, on the other hand Cash on delivery isn't
+            always a convenient option for you.
+          </v-card-text>
+          <v-card-text class="text-body-2">
+            Therefore, It all boils down to the issue of "trust" and this is
+            what TrustPaddi is all about, bridging the trust gap between
+            potential customers, service providers & businesses online while
+            protecting there various interest.
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-text class="text-h6 grey--text text--darken-4">
+            Introducing TrustPaddi
+          </v-card-text>
+          <v-card-text class="text-body-2 font-weight-bold mt-n5">
+            The safest & surest way to transact online
+          </v-card-text>
+          <v-card-text
+            v-for="(feature, index) in features"
+            :key="index"
+            class="text-body-2 mt-n2"
+          >
+            <v-icon class="mr-3 green--text text--accent-3">mdi-check</v-icon>
+            <span class="font-weight-bold">{{ feature.title }}:</span>
+            {{ feature.body }}
+          </v-card-text>
+          <v-card-text class="text-body-2 mt-n2">
+            TrustPaddi is Nigerians most trusted escrow/middleman platform built
+            with the latest technology which enables safer transactions between
+            online vendors (marketplaces, businesses etc) & individuals whether
+            online or offline. Know More
+            <v-btn
+              depressed
+              to="/about"
+              color="blue darken-3"
+              class="white--text text-capitalize rounded-pill"
+              x-small
+              >About Us</v-btn
+            >
+          </v-card-text>
+          <v-card-text class="text-body-2 mt-n2">
+            With TrustPaddi Cash on delivery just got better cause we provide
+            full escrow protection for both parties and stress-free delivery
+            options for online business owners
+          </v-card-text>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    dialog: false,
+    features: [
+      {
+        title: "Convenient",
+        body: "TrustPaddi is convenient for both buyer and the seller",
+      },
+      {
+        title: "Secure",
+        body:
+          "TrustPaddi ensures buyer and seller protection, and protects the interest of both parties",
+      },
+      {
+        title: "Trusted",
+        body: "Our platform has been used by many and it's trusted by all",
+      },
+      {
+        title: "Timely Deliveries",
+        body:
+          "We help deliver goods on time to customers with our network of trusted logistics partners",
+      },
+    ],
+  }),
+};
+</script>

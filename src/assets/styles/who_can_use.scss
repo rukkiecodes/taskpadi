@@ -57,8 +57,8 @@
 }
 
 .who_can_use_cards_card {
-    width: 25%;
-    padding: 3em 1.5em;
+    width: 28%;
+    padding: 1.5em;
     background: rgba(65, 105, 226, .10);
     display: flex;
     flex-direction: column;
@@ -90,7 +90,7 @@
             padding: 0;
         }
         img {
-            width: 60%;
+            width: 50%;
             @include mobile {
                 width: 40%;
             }
@@ -106,4 +106,10 @@
             color: #150F3F;
         }
     }
+}
+
+.menu_card {
+    background: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
 }
