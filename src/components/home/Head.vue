@@ -6,87 +6,41 @@
       </p>
       <p class="text-body-2 font-weight-normal grey--text text--darken-2">
         Transact Securely with online vendors & marketplaces, gain customers
-        trust with TrustPaddi
+        trust with TrustPaddi...
+        <Read_more/>
       </p>
-      <div>
-        <div class="input_one rounded-lg">
-          <v-menu offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                color="grey darken-2"
-                dark
-                depressed
-                v-bind="attrs"
-                v-on="on"
-                text
-                style="text-transform: initial"
-              >
-                I am selling
-                <v-icon right>mdi-chevron-down</v-icon>
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-          <v-menu offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                color="grey darken-2"
-                dark
-                depressed
-                v-bind="attrs"
-                v-on="on"
-                text
-                style="text-transform: initial"
-              >
-                Accessories
-                <v-icon right>mdi-chevron-down</v-icon>
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item v-for="(item, index) in items" :key="index">
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </div>
+      <v-card flat>
+        <v-tabs slider-color="blue darken-3" v-model="tab" grow>
+          <v-tab active-class="blue--text text--darken-3">
+            Seller
+          </v-tab>
+          <v-tab active-class="blue--text text--darken-3">
+            Buyer
+          </v-tab>
+        </v-tabs>
 
-        <div class="input_two mt-3 rounded-lg px-1">
-          <div class="text">
-            <p class="text-body-2 font-weight-bold grey--text text--darken-3">
-              For
-            </p>
-          </div>
-          <input type="number" placeholder="2,000,000" />
-          <vue-country-code
-            @onSelect="onSelect"
-            :preferredCountries="['vn', 'us', 'gb']"
-            :enabledCountryCode="true"
-            class="country_code rounded-lg blue darken-2"
-          />
-        </div>
-
-        <v-btn
-          block
-          depressed
-          color="#4169E2"
-          class="get_started mt-3 white--text rounded-lg"
-        >
-          Get started now
-        </v-btn>
-      </div>
+        <v-tabs-items class="mt-4" v-model="tab">
+          <v-tab-item>
+            <Seller_tab />
+          </v-tab-item>
+          <v-tab-item>
+            <Buyer_tab />
+          </v-tab-item>
+        </v-tabs-items>
+      </v-card>
+      <div></div>
     </div>
 
     <div class="head_component_right">
-      <img src="../../assets/trust/home_phone.png" alt="" />
+      <img class="head_img" src="../../assets/trust/home_phone.png" alt="" />
     </div>
   </v-container>
 </template>
 
 <script>
+import Seller_tab from "./components/Seller_tab.vue";
+import Buyer_tab from "./components/Buyer_tab.vue";
+import Read_more from "./components/Read_more.vue"
 export default {
   data: () => ({
     items: [
@@ -95,11 +49,26 @@ export default {
       { title: "Click Me" },
       { title: "Click Me 2" },
     ],
+    selling: [
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me 2" },
+    ],
+    tab: null,
   }),
+  components: {
+    Seller_tab,
+    Buyer_tab,
+    Read_more
+  },
   methods: {
     onSelect({ name, iso2, dialCode }) {
       console.log(name, iso2, dialCode);
     },
+  },
+  mounted() {
+    this.$nextTick(() => {});
   },
 };
 </script>
