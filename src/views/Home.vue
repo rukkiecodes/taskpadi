@@ -1,15 +1,17 @@
 <template>
-  <div>
+  <div id="scroll-area">
     <App_bar />
     <Drawer />
-    <Head />
-    <Section2 />
-    <About />
-    <What_escrow />
-    <How_it_works />
-    <Who_can_use />
-    <Testimonials />
-    <Footer />
+    <smooth-scrollbar>
+      <Head />
+      <Section2 />
+      <About />
+      <What_escrow />
+      <How_it_works />
+      <Who_can_use />
+      <Testimonials />
+      <Footer />
+    </smooth-scrollbar>
   </div>
 </template>
 Footer
@@ -39,3 +41,11 @@ export default {
   },
 };
 </script>
+
+<style>
+#scroll-area {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+</style>

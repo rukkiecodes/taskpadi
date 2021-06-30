@@ -61,16 +61,7 @@ export default {
         title: "Mr Celestine Obinna",
         position: "Online buyer",
         text: `TrustPaddi givese total control over my transaction with unknown sellers, now I can comfortably buy any product I ant online without fear.`,
-      },
-      {
-        icon: "mdi-account",
-        title: "Victory Roberts",
-        text: `Lorem ipsum dolor sit amet lorem consectrur disciping Lorem ipsum
-              dolor sit amet consectrur. Lorem ipsum dolor sit amet lorem
-              consectrur disciping Lorem ipsum dolor sit amet consectrur.Lorem
-              ipsum dolor sit amet lorem consectrur disciping Lorem ipsum dolor
-              sit amet consectrur.`,
-      },
+      }
     ],
     model: null,
   }),

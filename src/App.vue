@@ -1,9 +1,7 @@
 <template>
   <v-app>
-    <v-main id="scroll-area">
-      <smooth-scrollbar>
-        <router-view />
-      </smooth-scrollbar>
+    <v-main>
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -19,11 +17,6 @@ export default {
 </script>
 
 <style>
-#scroll-area {
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
-}
 .hide {
 }
 /* width */

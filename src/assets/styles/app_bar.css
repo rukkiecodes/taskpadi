@@ -4,6 +4,8 @@
           box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
   -webkit-backdrop-filter: blur(10px) !important;
           backdrop-filter: blur(10px) !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 .app_bar .links a {
