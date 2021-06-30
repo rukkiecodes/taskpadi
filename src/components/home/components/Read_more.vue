@@ -2,13 +2,16 @@
   <div>
     <v-dialog v-model="dialog" scrollable max-width="500px">
       <template v-slot:activator="{ on, attrs }">
-        <span
-          class="blue--text text--darken-3 font-weight-bold"
+        <v-btn
+          class="white--text rounded-lg text-capitalize"
+          color="blue darken-3"
+          depressed
+          small
           v-bind="attrs"
           v-on="on"
         >
           Read more
-        </span>
+        </v-btn>
       </template>
 
       <v-card>
