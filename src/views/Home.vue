@@ -25,8 +25,8 @@ import About from "../components/home/About.vue";
 import What_escrow from "../components/home/What_escrow.vue";
 import How_it_works from "../components/home/How_it_works.vue";
 import Who_can_use from "../components/home/Who_can_use.vue";
-import Testimonials from "../components/home/Testimonials.vue";
 import Why_trustpaddy from "../components/home/Why_trustpaddi.vue";
+import Testimonials from "../components/home/Testimonials.vue";
 import Footer from "../components/Footer.vue";
 export default {
   components: {
