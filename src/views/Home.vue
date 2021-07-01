@@ -2,7 +2,7 @@
   <div id="scroll-area">
     <App_bar />
     <Drawer />
-    <smooth-scrollbar>
+    <smooth-scrollbar :options="{ damping: 0.08 }">
       <Head />
       <Section2 />
       <About />

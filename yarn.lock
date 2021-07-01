@@ -946,7 +946,7 @@
 
 "@morioh/v-perfect-scrollbar@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@morioh/v-perfect-scrollbar/-/v-perfect-scrollbar-1.0.1.tgz#be791aa4de152e6bedd51da2af457ce44eed6b50"
+  resolved "https://registry.npmjs.org/@morioh/v-perfect-scrollbar/-/v-perfect-scrollbar-1.0.1.tgz"
   integrity sha512-uGswCbzokFMM0Iig1nMBkYQYYYW9394qQJPXlDd2Hf6Eg32FwGFxn+t5AqLnOqFrLO1DEX0gzBJwjo+r2pXypw==
   dependencies:
     perfect-scrollbar "^1.5.0"
@@ -2686,12 +2686,7 @@ core-js@^2.4.0:
   resolved "https://registry.nlark.com/core-js/download/core-js-2.6.12.tgz"
   integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
-core-js@^3.6.4:
-  version "3.15.2"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.15.2.tgz#740660d2ff55ef34ce664d7e2455119c5bdd3d61"
-  integrity sha512-tKs41J7NJVuaya8DxIOCnl8QuPHx5/ZVbFo1oKgVl1qHFBBrDctzQGtuLjPpRdNTWmKPH6oEvgN/MUID+l485Q==
-
-core-js@^3.6.5:
+core-js@^3.6.4, core-js@^3.6.5:
   version "3.15.1"
   resolved "https://registry.nlark.com/core-js/download/core-js-3.15.1.tgz"
   integrity sha1-bAiriKvfVlRQRcz1/YH0f0B+fxo=
@@ -4718,7 +4713,7 @@ javascript-stringify@^2.0.1:
 
 jquery@^3.6.0:
   version "3.6.0"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
 
 js-message@1.0.7:
@@ -4943,7 +4938,7 @@ locate-path@^5.0.0:
 
 lodash-es@^4.17.21:
   version "4.17.21"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash._reinterpolate@^3.0.0:
@@ -5855,7 +5850,7 @@ pbkdf2@^3.0.3:
 
 perfect-scrollbar@^1.5.0:
   version "1.5.1"
-  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.1.tgz#8ee5b3ca06ce9c3f7338fd4ab67a55248a6cf3be"
+  resolved "https://registry.npmjs.org/perfect-scrollbar/-/perfect-scrollbar-1.5.1.tgz"
   integrity sha512-MrSImINnIh3Tm1hdPT6bji6fmIeRorVEegQvyUnhqko2hDGTHhmjPefHXfxG/Jb8xVbfCwgmUIlIajERGXjVXQ==
 
 performance-now@^2.1.0:
@@ -6794,7 +6789,7 @@ schema-utils@^3.0.0:
 
 scrollmagic@^2.0.8:
   version "2.0.8"
-  resolved "https://registry.yarnpkg.com/scrollmagic/-/scrollmagic-2.0.8.tgz#e0d7aff804c393c022fdc0c566f1edce3b4e9ed7"
+  resolved "https://registry.npmjs.org/scrollmagic/-/scrollmagic-2.0.8.tgz"
   integrity sha512-UYXEGBPVLziovXl3FjHGkY9c4UXKUKopIdXwWR2JapWxCo0U345wYegi7rcsv5vHf/ktc1bSNWy4QRFiV+Yccw==
 
 select-hose@^2.0.0:
@@ -6980,17 +6975,24 @@ slash@^2.0.0:
 
 slick-carousel@^1.8.1:
   version "1.8.1"
-  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
+  resolved "https://registry.npmjs.org/slick-carousel/-/slick-carousel-1.8.1.tgz"
   integrity sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
 
-smooth-scrollbar@^8.3.1:
+smooth-scrollbar@^8.3.1, smooth-scrollbar@^8.4.0:
   version "8.6.2"
-  resolved "https://registry.yarnpkg.com/smooth-scrollbar/-/smooth-scrollbar-8.6.2.tgz#96e6214ce11983837b86541c0c8cfff9b7ed9893"
+  resolved "https://registry.npmjs.org/smooth-scrollbar/-/smooth-scrollbar-8.6.2.tgz"
   integrity sha512-ld0jfRM9ytP3ofjTUEwtURht6qjsTpsEK0/4a7Or+RMdPsMkpGrccZxWsJ1ycKW0rgkwdhKQPTyec6v3ElD9aA==
   dependencies:
     core-js "^3.6.4"
     lodash-es "^4.17.21"
     tslib "^1.10.0"
+
+smooth-vuebar@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/smooth-vuebar/-/smooth-vuebar-1.4.0.tgz#6a5574f511b7209ef67c46b797bd7fe0ec128d30"
+  integrity sha512-JtTVqADxvh4++OOmAKA67iwZtImikxfjB8kr0johE9MNJR9WATLdVy/Qw8kmKA1zN0wSrRRZFIicXTiN2ADvHQ==
+  dependencies:
+    smooth-scrollbar "^8.4.0"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -7551,7 +7553,7 @@ ts-pnp@^1.1.6:
 
 tslib@^1.10.0:
   version "1.14.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
 tty-browserify@0.0.0:
@@ -7859,14 +7861,14 @@ vue-router@^3.2.0:
 
 vue-slick@^1.1.16:
   version "1.1.16"
-  resolved "https://registry.yarnpkg.com/vue-slick/-/vue-slick-1.1.16.tgz#ff063487f7bd63c45767afe9806e4ade880904bb"
+  resolved "https://registry.npmjs.org/vue-slick/-/vue-slick-1.1.16.tgz"
   integrity sha512-nHR4XKHfWSRnsJQG9kDCun8Mgj7UzR0JRzlcStCpLct3gPJl/WJ2hTEZUKZPuAh3J67c+AKQHM6jpQwqIiWbAg==
   dependencies:
     slick-carousel "^1.8.1"
 
 vue-smooth-scrollbar@^0.1.2:
   version "0.1.2"
-  resolved "https://registry.yarnpkg.com/vue-smooth-scrollbar/-/vue-smooth-scrollbar-0.1.2.tgz#0fed8510285be0348d6b94ef70266dc8294a3d6b"
+  resolved "https://registry.npmjs.org/vue-smooth-scrollbar/-/vue-smooth-scrollbar-0.1.2.tgz"
   integrity sha512-EF9J3RvCKf+CVK41pvTQpk+xlFBYaWiddjxPfioxqvWhhIV5SdmMmhggpa25/kWgm14PwEBBqpAFEW7/7LsjSw==
   dependencies:
     smooth-scrollbar "^8.3.1"
@@ -7894,7 +7896,7 @@ vue-template-es2015-compiler@^1.9.0:
 
 vue2-smooth-scroll@^1.5.0:
   version "1.5.0"
-  resolved "https://registry.yarnpkg.com/vue2-smooth-scroll/-/vue2-smooth-scroll-1.5.0.tgz#732bb7496e37da1c41c8c0ee9c27347374b9c411"
+  resolved "https://registry.npmjs.org/vue2-smooth-scroll/-/vue2-smooth-scroll-1.5.0.tgz"
   integrity sha512-/htFv6TiXmxnnqSw/oslDodfsZ41so1mFt9s4dXE80RBTcyZH8P1R9SHNvWx5C+FQQ6pbfQdimf3OuS5KnHvCw==
 
 vue@^2.6.11:
