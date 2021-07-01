@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" scrollable max-width="500px">
+    <v-dialog
+      :fullscreen="$vuetify.breakpoint.mobile"
+      v-model="dialog"
+      scrollable
+      max-width="500px"
+    >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           class="white--text rounded-lg text-capitalize"
@@ -33,24 +38,51 @@
             Transact Securely with online vendors & marketplaces, gain customers
             trust with TrustPaddi
           </v-card-text>
-          <v-card-text class="text-body-2">
+          <v-card-text class="text-body-2 mt-5">
+            <v-avatar class="dialog_avatar" size="70" color="#D9E1F9">
+              <img
+                src="../../../assets/trust/sad-emoticon-square-face.png"
+                alt=""
+                style="width: 70%; height: auto"
+              />
+            </v-avatar>
+          </v-card-text>
+          <v-card-text class="text-body-2 mt-n5">
             We know how Devastating it can be losing money to an online
             fraudster, and if not Cash On Delivery, we're sure you won't make
             any purchases.
           </v-card-text>
-          <v-card-text class="text-body-2">
+          <v-card-text class="text-body-2 mt-5">
+            <v-avatar class="dialog_avatar" size="70" color="#D9E1F9">
+              <img
+                src="../../../assets/trust/tap.png"
+                alt=""
+                style="width: 70%; height: auto"
+              />
+            </v-avatar>
+          </v-card-text>
+          <v-card-text class="text-body-2 mt-n5">
             For business owners and service providers, We also know how hard it
             can be getting potential customers to trust the genuineness of your
             upcoming brand online, on the other hand Cash on delivery isn't
             always a convenient option for you.
           </v-card-text>
-          <v-card-text class="text-body-2">
+          <v-card-text class="text-body-2 mt-5">
+            <v-avatar class="dialog_avatar" size="70" color="#D9E1F9">
+              <img
+                src="../../../assets/trust/cooperation.png"
+                alt=""
+                style="width: 70%; height: auto"
+              />
+            </v-avatar>
+          </v-card-text>
+          <v-card-text class="text-body-2 mt-n5">
             Therefore, It all boils down to the issue of "trust" and this is
             what TrustPaddi is all about, bridging the trust gap between
             potential customers, service providers & businesses online while
             protecting there various interest.
           </v-card-text>
-          <v-divider></v-divider>
+          <v-divider class="my-5" />
           <v-card-text class="text-h6 grey--text text--darken-4">
             Introducing TrustPaddi
           </v-card-text>
@@ -95,6 +127,7 @@
 export default {
   data: () => ({
     dialog: false,
+    isMobile: false,
     features: [
       {
         title: "Convenient",
@@ -116,5 +149,21 @@ export default {
       },
     ],
   }),
+  beforeDestroy() {
+    if (typeof window === "undefined") return;
+
+    window.removeEventListener("resize", this.onResize, { passive: true });
+  },
+
+  mounted() {
+    this.onResize();
+
+    window.addEventListener("resize", this.onResize, { passive: true });
+  },
+  methods: {
+    onResize() {
+      this.isMobile = window.innerWidth < 600;
+    },
+  },
 };
 </script>

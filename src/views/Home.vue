@@ -9,8 +9,9 @@
       <What_escrow />
       <How_it_works />
       <Who_can_use />
-      <Testimonials />
       <Why_trustpaddy />
+      <Testimonials />
+      <Better_safe />
       <Footer />
     </smooth-scrollbar>
   </div>
@@ -27,6 +28,7 @@ import How_it_works from "../components/home/How_it_works.vue";
 import Who_can_use from "../components/home/Who_can_use.vue";
 import Why_trustpaddy from "../components/home/Why_trustpaddi.vue";
 import Testimonials from "../components/home/Testimonials.vue";
+import Better_safe from "../components/home/Better_safe.vue";
 import Footer from "../components/Footer.vue";
 export default {
   components: {
@@ -38,8 +40,9 @@ export default {
     What_escrow,
     How_it_works,
     Who_can_use,
-    Testimonials,
     Why_trustpaddy,
+    Testimonials,
+    Better_safe,
     Footer,
   },
 };

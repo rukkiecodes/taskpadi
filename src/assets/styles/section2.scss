@@ -23,7 +23,7 @@
 }
 
 .head_text {
-    p {
+    .p1 {
         font-size: 2.5rem;
         font-weight: 600;
         color: #150F3F;
@@ -41,6 +41,10 @@
             background: #150F3F;
             z-index: 1;
         }
+    }
+    .p2 {
+        font-size: initial;
+        color: #150F3F;
     }
 }
 
