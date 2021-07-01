@@ -1,5 +1,5 @@
 <template>
-  <v-container class="signup">
+  <v-container class="signup pa-0">
     <div class="hero">
       <img
         :src="phone"
@@ -13,7 +13,54 @@
       ref="form"
       class="form"
     >
-      <div class="head">
+    <div class="head">
+        <img :src="logo" class="logo mb-10" />
+        <p class="text text-h3">Sign up</p>
+        <p class="small_text text-body-2 mt-n2">Enter details to sign up</p>
+
+        <div class="inputs">
+          <div class="input input_group">
+            <input
+              maxlength="1"
+              type="text"
+              placeholder="0"
+            >
+            <input
+              maxlength="1"
+              type="text"
+              placeholder="0"
+            >
+            <input
+              maxlength="1"
+              type="text"
+              placeholder="0"
+            >
+            <input
+              maxlength="1"
+              type="text"
+              placeholder="0"
+            >
+            <input
+              maxlength="1"
+              type="text"
+              placeholder="0"
+            >
+          </div>
+
+          <div class="button_group mt-3">
+            <v-btn
+              depressed
+              class="button text-button"
+            >
+              Verify
+            </v-btn>
+            <v-btn class="small_button" text>
+              <v-icon class="icon">mdi-reload mdi-rotate-225</v-icon>
+            </v-btn>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="head">
         <v-img
           :lazy-src="logo"
           :src="logo"
@@ -58,21 +105,19 @@
             </v-btn>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     </div>
   </v-container>
 </template>
 
 <script>
-import gsap from "gsap"
 export default {
   data: () => ({
     phone: require("../assets/trust/phone1.png"),
     logo: require("../assets/paddi.png"),
     items: ['I am a business seller', 'I am a business buyer'],
     password_type: "password",
-    password_visibility: false,
     checkbox: true,
   }),
   methods: {
@@ -86,36 +131,10 @@ export default {
       } else {
         this.password_type = "password"
       }
-    },
-
-    raise_password_visibility () {
-      this.password_visibility = true
-    },
-
-    drop_password_visibility () {
-      this.password_visibility = false
     }
   },
 
-  mounted () {
-    this.$nextTick(() => {
-      const tl = gsap.timeline();
-      const phone = this.$refs.phone
-      const form = this.$refs.form
-      tl.to(phone, {
-        delay: 1,
-        duration: .5,
-        x: 10,
-        opacity: 1
-      })
-      tl.to(form, {
-        delay: 0,
-        duration: .5,
-        x: 10,
-        opacity: 1
-      })
-    })
-  }
+  mounted () {}
 }
 </script>
 

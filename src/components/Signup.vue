@@ -1,5 +1,5 @@
 <template>
-  <v-container class="signup">
+  <v-container class="signup pa-0">
     <div class="hero">
       <img
         :src="phone"
@@ -47,25 +47,27 @@
       <div class="head">
         <img
           :src="logo"
-          class="logo"
+          class="logo mb-10"
         />
-        <p class="text">Sign up</p>
-        <p class="small_text">Enter details to sign up</p>
+        <p class="text text-h3">Sign up</p>
+        <p class="small_text text-body-2 mt-n2">Enter details to sign up</p>
 
         <div class="inputs">
-          <div class="input">
+          <div class="input mb-3 rounded-lg">
             <input
               type="text"
+              class="rounded-lg"
               placeholder="Full name"
             >
           </div>
-          <div class="input">
+          <div class="input mb-3 rounded-lg">
             <input
               type="email"
+              class="rounded-lg"
               placeholder="E-mail"
             >
           </div>
-          <div class="input phone_input">
+          <div class="input phone_input mb-3 rounded-lg">
             <vue-country-code
               @onSelect="onSelect"
               :preferredCountries="['vn', 'us', 'gb']"
@@ -78,16 +80,14 @@
               placeholder="Phone number"
             >
           </div>
-          <div class="input password">
+          <div class="input password mb-3 rounded-lg">
             <input
               :type="password_type"
               placeholder="Password"
-              @focus="raise_password_visibility"
-              @blur="drop_password_visibility"
+              class="rounded-lg"
             >
             <v-btn
               class="icon"
-              :class="{ 'raise_button': password_visibility }"
               icon
               @click="toggle_password_type"
             >
@@ -95,47 +95,36 @@
               <v-icon v-show="password_type !== 'password'">mdi-eye-off-outline</v-icon>
             </v-btn>
           </div>
-          <div class="input">
-            <select>
-              <option
-                v-for="(item, index) in items"
-                :key="index"
-                :value="item"
-              >{{ item }}</option>
-            </select>
-          </div>
 
-          <div class="other_signup">
-            <router-link to="/signup_buyer">Register as a buyer</router-link>
+          <div class="other_signup mb-3">
+            <router-link class="text-caption" to="/signup_buyer">Register as a seller</router-link>
           </div>
 
           <v-btn
             depressed
-            class="submit_button"
+            class="submit_button rounded-lg mb-3 text-button"
+            block
           >
             Sign Up
           </v-btn>
 
-          <div class="signup_route">
-            <p>Already have an account? <router-link to="/signin">Sign In</router-link>
+          <div class="signup_route mb-0">
+            <p class="text-caption">Already have an account? <router-link to="/signin">Sign In</router-link>
             </p>
           </div>
         </div>
       </div>
     </div>
-    </div>
   </v-container>
 </template>
 
 <script>
-import gsap from "gsap"
 export default {
   data: () => ({
     phone: require("../assets/trust/phone1.png"),
     logo: require("../assets/paddi.png"),
     items: ['I am a business seller', 'I am a business buyer'],
-    password_type: "password",
-    password_visibility: false
+    password_type: "password"
   }),
   methods: {
     onSelect ({ name, iso2, dialCode }) {
@@ -149,41 +138,9 @@ export default {
         this.password_type = "password"
       }
     },
-
-    raise_password_visibility () {
-      this.password_visibility = true
-    },
-
-    drop_password_visibility () {
-      this.password_visibility = false
-    }
   },
 
   mounted () {
-    this.$nextTick(() => {
-      const tl = gsap.timeline();
-      const phone = this.$refs.phone
-      const social = this.$refs.social
-      const form = this.$refs.form
-      tl.to(phone, {
-        delay: 1,
-        duration: .5,
-        x: 10,
-        opacity: 1
-      })
-      tl.to(social, {
-        delay: 0,
-        duration: .5,
-        y: -10,
-        opacity: 1
-      })
-      tl.to(form, {
-        delay: 0,
-        duration: .5,
-        x: 10,
-        opacity: 1
-      })
-    })
     console.log("width: ",window.innerWidth)
     console.log("height: ",window.innerHeight)
   }
