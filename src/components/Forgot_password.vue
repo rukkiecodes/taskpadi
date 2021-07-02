@@ -24,38 +24,12 @@
     <div ref="form" class="form">
       <div class="head">
         <img :src="logo" class="logo mb-10" />
-        <p class="text text-h3">Sign in</p>
+        <p class="text text-h4">Forgot password</p>
         <p class="small_text text-body-2 mt-n2">Enter details to sign up</p>
 
         <div class="inputs">
           <div class="input mb-3 rounded-lg">
-            <input type="number" class="rounded-lg" placeholder="Phone number" />
-          </div>
-          <div class="input password mb-3 rounded-lg">
-            <input
-              :type="password_type"
-              placeholder="Password"
-              class="rounded-lg"
-            />
-            <v-btn class="icon" icon @click="toggle_password_type">
-              <v-icon v-show="password_type == 'password'"
-                >mdi-eye-outline</v-icon
-              >
-              <v-icon v-show="password_type !== 'password'"
-                >mdi-eye-off-outline</v-icon
-              >
-            </v-btn>
-          </div>
-
-          <div class="other_signup_signin mb-3">
-            <v-checkbox
-              v-model="checkbox"
-              :ripple="false"
-              label="Remember me"
-              class="checkbox"
-              color="#4169E2"
-            ></v-checkbox>
-            <router-link class="text-caption" to="/forgot_password">Forgot password?</router-link>
+            <input type="email" class="rounded-lg" placeholder="Email" />
           </div>
 
           <v-btn
@@ -63,7 +37,7 @@
             class="submit_button rounded-lg mb-3 text-button"
             block
           >
-            Sign In
+            Reset password
           </v-btn>
 
           <div class="signup_route mb-0">
