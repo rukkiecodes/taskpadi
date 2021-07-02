@@ -114,6 +114,12 @@
           align-items: center;
 }
 
+@media (max-width: 768px) {
+  .read_more {
+    margin-top: 2em;
+  }
+}
+
 .read_more_section_one {
   width: 100%;
 }
@@ -134,7 +140,7 @@
 }
 
 .read_more_section_one .read_more_left_head p {
-  color: #150F3F;
+  color: #150f3f;
   width: 50%;
 }
 
@@ -226,7 +232,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: .8em solid #fff;
+  border: 0.8em solid #fff;
   background: transparent;
 }
 
