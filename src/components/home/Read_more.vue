@@ -52,34 +52,6 @@
         </div>
       </div>
     </div>
-    <!-- section two -->
-    <div class="read_more_section_two">
-      <div class="section_two_sides">
-        <div class="section_two_left">
-          <div class="read_more_left_head">
-            <p class="text-h6 font-weight-bold">
-              The safest & surest way to transact online
-            </p>
-          </div>
-          <blockquote class="mt-3">
-            <p class="text-body-2">
-              TrustPaddi is Nigerians most trusted escrow/middleman platform
-              built with the latest technology which enables safer transactions
-              between online vendors (marketplaces, businesses etc) &
-              individuals whether online or offline. Know More
-            </p>
-            <p class="text-body-2">
-              With TrustPaddi Cash on delivery just got better cause we provide
-              full escrow protection for both parties and stress-free delivery
-              options for online business owners
-            </p>
-          </blockquote>
-        </div>
-        <div class="section_two_right">
-          <img src="../../assets/trust/undraw_voice_control_ofo1.svg" alt="" />
-        </div>
-      </div>
-    </div>
   </v-container>
 </template>
 
