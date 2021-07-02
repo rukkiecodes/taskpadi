@@ -1,20 +1,25 @@
-import Vue from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import vuetify from './plugins/vuetify'
-import VueCountryCode from 'vue-country-code'
-import SmoothScrollbar from 'vue-smooth-scrollbar'
+import Vue from "vue";
+import App from "./App.vue";
+import "./registerServiceWorker";
+import router from "./router";
+import store from "./store";
+import vuetify from "./plugins/vuetify";
+import VueCountryCode from "vue-country-code";
+import SmoothScrollbar from "vue-smooth-scrollbar";
+import VueMeta from "vue-meta";
 
 Vue.use(VueCountryCode);
 Vue.use(SmoothScrollbar);
+Vue.use(VueMeta, {
+  // optional pluginOptions
+  refreshOnceOnNavigation: true,
+});
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
-    router,
-    store,
-    vuetify,
-    render: h => h(App)
-}).$mount('#app')
+  router,
+  store,
+  vuetify,
+  render: (h) => h(App),
+}).$mount("#app");
