@@ -8,9 +8,8 @@
         Transact Securely with online vendors & marketplaces, gain customers
         trust with TrustPaddi
         <br />
-        We know how Devastating it can be losing
-        money to an online fraudster, and if not Cash On Delivery, we're sure
-        you won't make any purchases.
+        We know how Devastating it can be losing money to an online fraudster,
+        and if not Cash On Delivery, we're sure you won't make any purchases.
       </p>
       <div>
         <div class="input_one rounded-lg">
@@ -60,7 +59,15 @@
 
         <div class="input_two mt-3 rounded-lg px-1">
           <div class="text">
-            <p class="text-body-2 font-weight-bold grey--text text--darken-2 ml-3">
+            <p
+              class="
+                text-body-2
+                font-weight-bold
+                grey--text
+                text--darken-2
+                ml-3
+              "
+            >
               For
             </p>
           </div>
@@ -85,7 +92,12 @@
     </div>
 
     <div class="head_component_right">
-      <img class="head_img" src="../../assets/trust/home_phone.png" alt="" />
+      <v-img
+        class="head_img"
+        lazy-src="../../assets/trust/home_phone.png"
+        src="../../assets/trust/home_phone.png"
+        alt=""
+      ></v-img>
     </div>
   </v-container>
 </template>
