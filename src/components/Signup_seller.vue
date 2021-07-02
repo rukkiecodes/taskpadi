@@ -1,38 +1,19 @@
 <template>
   <v-container class="signup pa-0">
     <div class="hero">
-      <img
-        :src="phone"
-        class="phone"
-        ref="phone"
-      >
+      <img :src="phone" class="phone" ref="phone" />
 
-      <div
-        ref="social"
-        class="social"
-      >
+      <div ref="social" class="social">
         <p>Follow us</p>
 
         <div class="buttons">
-          <v-btn
-            icon
-            depressed
-            class="button"
-          >
+          <v-btn icon depressed class="button">
             <v-icon>mdi-linkedin</v-icon>
           </v-btn>
-          <v-btn
-            icon
-            depressed
-            class="button mx-5"
-          >
+          <v-btn icon depressed class="button mx-5">
             <v-icon>mdi-facebook</v-icon>
           </v-btn>
-          <v-btn
-            icon
-            depressed
-            class="button"
-          >
+          <v-btn icon depressed class="button">
             <v-icon>mdi-github</v-icon>
           </v-btn>
         </div>
@@ -40,32 +21,18 @@
     </div>
 
     <!-- Form -->
-    <div
-      ref="form"
-      class="form"
-    >
+    <div ref="form" class="form">
       <div class="head">
-        <img
-          :src="logo"
-          class="logo mb-10"
-        />
+        <img :src="logo" class="logo mb-10" />
         <p class="text text-h3">Sign up</p>
         <p class="small_text text-body-2 mt-n2">Enter details to sign up</p>
 
         <div class="inputs">
           <div class="input mb-3 rounded-lg">
-            <input
-              type="text"
-              class="rounded-lg"
-              placeholder="Full name"
-            >
+            <input type="text" class="rounded-lg" placeholder="Full name" />
           </div>
           <div class="input mb-3 rounded-lg">
-            <input
-              type="email"
-              class="rounded-lg"
-              placeholder="E-mail"
-            >
+            <input type="email" class="rounded-lg" placeholder="E-mail" />
           </div>
           <div class="input phone_input mb-3 rounded-lg">
             <vue-country-code
@@ -78,26 +45,40 @@
               class="phone_number"
               type="number"
               placeholder="Phone number"
-            >
+            />
           </div>
           <div class="input password mb-3 rounded-lg">
             <input
               :type="password_type"
               placeholder="Password"
               class="rounded-lg"
-            >
-            <v-btn
-              class="icon"
-              icon
-              @click="toggle_password_type"
-            >
-              <v-icon v-show="password_type == 'password'">mdi-eye-outline</v-icon>
-              <v-icon v-show="password_type !== 'password'">mdi-eye-off-outline</v-icon>
+            />
+            <v-btn class="icon" icon @click="toggle_password_type">
+              <v-icon v-show="password_type == 'password'"
+                >mdi-eye-outline</v-icon
+              >
+              <v-icon v-show="password_type !== 'password'"
+                >mdi-eye-off-outline</v-icon
+              >
             </v-btn>
+          </div>
+          <div class="input mb-5">
+            <v-select
+              dense
+              flat
+              :items="items"
+              :label="items[0]"
+              filled
+              background-color="#EFF0F7"
+              solo
+              class="ma-0 pa-0"
+            ></v-select>
           </div>
 
           <div class="other_signup mb-3">
-            <router-link class="text-caption" to="/signup_buyer">Register as a seller</router-link>
+            <router-link class="text-caption" to="/signup_buyer"
+              >Register as a buyer</router-link
+            >
           </div>
 
           <v-btn
@@ -109,7 +90,9 @@
           </v-btn>
 
           <div class="signup_route mb-0">
-            <p class="text-caption">Already have an account? <router-link to="/signin">Sign In</router-link>
+            <p class="text-caption">
+              Already have an account?
+              <router-link to="/signin">Sign In</router-link>
             </p>
           </div>
         </div>
@@ -123,28 +106,28 @@ export default {
   data: () => ({
     phone: require("../assets/trust/phone1.png"),
     logo: require("../assets/paddi.png"),
-    items: ['I am a business seller', 'I am a business buyer'],
-    password_type: "password"
+    items: ["I am a business seller", "I am a business buyer"],
+    password_type: "password",
   }),
   methods: {
-    onSelect ({ name, iso2, dialCode }) {
+    onSelect({ name, iso2, dialCode }) {
       console.log(name, iso2, dialCode);
     },
 
-    toggle_password_type () {
+    toggle_password_type() {
       if (this.password_type == "password") {
-        this.password_type = "text"
+        this.password_type = "text";
       } else {
-        this.password_type = "password"
+        this.password_type = "password";
       }
     },
   },
 
-  mounted () {
-    console.log("width: ",window.innerWidth)
-    console.log("height: ",window.innerHeight)
-  }
-}
+  mounted() {
+    console.log("width: ", window.innerWidth);
+    console.log("height: ", window.innerHeight);
+  },
+};
 </script>
 
 <style scoped>

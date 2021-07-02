@@ -199,6 +199,14 @@
   }
 }
 
+.head_component_left p:nth-child(1) {
+  color: #150F3F;
+}
+
+.head_component_left p:nth-child(2) {
+  color: #555555;
+}
+
 .head_component_right {
   width: 40%;
   display: -webkit-box;

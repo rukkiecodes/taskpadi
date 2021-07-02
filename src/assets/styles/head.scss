@@ -52,6 +52,15 @@
     @media only screen and (min-device-width: 1903px) and (max-device-width: 5000px) {
         width: 40%;
     }
+
+    p {
+        &:nth-child(1) {
+            color: #150F3F;
+        }
+        &:nth-child(2) {
+            color: #555555;
+        }
+    }
 }
 
 .head_component_right {

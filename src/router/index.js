@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Signup from '../views/Signup.vue'
+import Signup_seller from '../views/Signup_seller.vue'
 import Signup_buyer from '../views/Signup_buyer.vue'
 import Signin from '../views/Signin.vue'
 import Otp from '../views/Otp.vue'
+import About from '../views/About.vue'
+import Faq from '../views/Faq.vue'
 
 Vue.use(VueRouter)
 
@@ -13,9 +15,9 @@ const routes = [{
         name: 'Home',
         component: Home
     }, {
-        path: '/signup',
-        name: 'Signup',
-        component: Signup
+        path: '/signup_seller',
+        name: 'signup_seller',
+        component: Signup_seller
     }, {
         path: '/signup_buyer',
         name: 'Signup_buyer',
@@ -32,10 +34,14 @@ const routes = [{
         component: Otp
     },
     {
+        path: '/faq',
+        name: 'faq',
+        component: Faq
+    },
+    {
         path: '/about',
         name: 'About',
-        component: () =>
-            import ('../views/About.vue')
+        component: About
     }
 ]
 

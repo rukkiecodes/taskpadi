@@ -1,8 +1,5 @@
 <template>
   <v-app-bar flat color="#ffffff" class="app_bar" fixed>
-    <v-btn class="hidden-md-and-up mr-3" icon depressed @click="toggle_drawer">
-      <v-icon class="white--grey ">mdi-menu</v-icon>
-    </v-btn>
     <v-avatar class="logo_avatar">
       <img :src="logo" :alt="logo" />
     </v-avatar>
@@ -14,17 +11,17 @@
         >Home</router-link
       >
       <router-link
-        :class="{ active_route: app_nav_title == '/about' }"
+        :class="{ 'active_route font-weight-bold': app_nav_title == '/about' }"
         to="/about"
         >About Us</router-link
       >
-      <router-link :class="{ active_route: app_nav_title == '/faq' }" to="/"
+      <router-link :class="{ 'active_route font-weight-bold': app_nav_title == '/faq' }" to="/faq"
         >FAQ</router-link
       >
-      <router-link :class="{ active_route: app_nav_title == '/contact' }" to="/"
+      <router-link :class="{ 'active_route font-weight-bold': app_nav_title == '/contact' }" to="/"
         >Contact Us</router-link
       >
-      <router-link :class="{ active_route: app_nav_title == '/pricing' }" to="/"
+      <router-link :class="{ 'active_route font-weight-bold': app_nav_title == '/pricing' }" to="/"
         >Pricing</router-link
       >
     </div>
@@ -53,6 +50,9 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-btn class="hidden-md-and-up ml-2" icon depressed @click="toggle_drawer">
+      <v-icon class="white--grey ">mdi-menu</v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" temporary fixed hide-overlay>
+  <v-navigation-drawer right v-model="drawer" temporary fixed hide-overlay>
     <v-list class="rounded-lg" nav dense>
       <v-list-item
         v-for="item in drawer_routs"

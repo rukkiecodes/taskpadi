@@ -1,15 +1,16 @@
 <template>
   <v-container class="head_component">
     <div class="head_component_left">
-      <p class="main_text text-h4 font-weight-medium grey--text text--darken-3">
+      <p class="main_text text-h4 font-weight-medium">
         Safe Transactions, Happy People
       </p>
-      <p class="text-body-2 font-weight-normal grey--text text--darken-2">
+      <p class="text-body-2 font-weight-normal">
         Transact Securely with online vendors & marketplaces, gain customers
-        trust with TrustPaddi <br />We know how Devastating it can be losing
+        trust with TrustPaddi
+        <br />
+        We know how Devastating it can be losing
         money to an online fraudster, and if not Cash On Delivery, we're sure
-        you won't make any purchases....
-        <Read_more />
+        you won't make any purchases.
       </p>
       <div>
         <div class="input_one rounded-lg">
@@ -59,7 +60,7 @@
 
         <div class="input_two mt-3 rounded-lg px-1">
           <div class="text">
-            <p class="text-body-2 font-weight-bold grey--text text--darken-3">
+            <p class="text-body-2 font-weight-bold grey--text text--darken-2 ml-3">
               For
             </p>
           </div>
@@ -90,7 +91,6 @@
 </template>
 
 <script>
-import Read_more from "./components/Read_more.vue";
 export default {
   data: () => ({
     items: [
@@ -106,9 +106,6 @@ export default {
       { title: "Click Me 2" },
     ],
   }),
-  components: {
-    Read_more,
-  },
   methods: {
     onSelect({ name, iso2, dialCode }) {
       console.log(name, iso2, dialCode);

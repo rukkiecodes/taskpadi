@@ -97,7 +97,7 @@
           </div>
 
           <div class="other_signup mb-3">
-            <router-link class="text-caption" to="/signup">Register as a buyer</router-link>
+            <router-link class="text-caption" to="/signup_seller">Register as a seller</router-link>
           </div>
 
           <v-btn
