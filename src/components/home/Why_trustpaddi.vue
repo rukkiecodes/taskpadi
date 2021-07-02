@@ -5,7 +5,7 @@
     </div>
     <div class="sides">
       <div class="left">
-        <p class="text-body-2" v-for="(list, index) in lists" :key="index">
+        <p class="text-body-1" v-for="(list, index) in lists" :key="index">
           <span class="font-weight-bold">{{ list.title }}:</span> {{ list.body }}
         </p>
       </div>

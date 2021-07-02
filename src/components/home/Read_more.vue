@@ -1,12 +1,12 @@
 <template>
   <v-container class="read_more">
     <div class="read_more_section_one">
-      <div class="read_more_left_head">
+      <!-- <div class="read_more_left_head">
         <p class="text-h6 font-weight-bold">
           Transact Securely with online vendors & marketplaces, gain customers
           trust with TrustPaddi
         </p>
-      </div>
+      </div> -->
 
       <div class="read_more_cards">
         <div

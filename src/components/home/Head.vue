@@ -7,9 +7,6 @@
       <p class="text-body-2 font-weight-normal">
         Transact Securely with online vendors & marketplaces, gain customers
         trust with TrustPaddi
-        <br />
-        We know how Devastating it can be losing money to an online fraudster,
-        and if not Cash On Delivery, we're sure you won't make any purchases.
       </p>
       <div>
         <div class="input_one rounded-lg">
