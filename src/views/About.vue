@@ -1,5 +1,18 @@
 <template>
-  <div class="about">
+  <v-container class="about">
+    <App_bar />
+    <Drawer />
     <h1>This is an about page</h1>
-  </div>
+  </v-container>
 </template>
+
+<script>
+import App_bar from "../components/nav/App_bar.vue";
+import Drawer from "../components/nav/Drawer.vue";
+export default {
+  components: {
+    App_bar,
+    Drawer
+  }
+}
+</script>
