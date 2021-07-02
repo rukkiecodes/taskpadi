@@ -18,6 +18,14 @@
         height: initial;
         margin-top: 4em;
     }
+    .head_text {
+        p {
+            font-size: 3rem !important;
+            @include mobile {
+                font-size: 2.5rem !important;
+            }
+        }
+    }
 }
 
 .head_text {

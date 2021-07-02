@@ -2,7 +2,7 @@
   <div style="background: #EBF0FC" class="py-15 mt-10">
     <v-container class="testimonials_button">
       <p style="color: #150f3f" class="text-h4 font-weight-bold text-center">
-        It's better safe than than sorry
+        It's better safe than sorry
       </p>
       <v-btn
         depressed

@@ -9,7 +9,7 @@
           TrustPaddi is Nigerians most trusted escrow/middleman platform built
           with the latest technology which enables safer transactions between
           online vendors (marketplaces, businesses etc) & individuals whether
-          online or offline. Know More
+          online or offline.
         </p>
         <v-btn
           to="/about"

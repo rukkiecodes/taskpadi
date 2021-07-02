@@ -5,6 +5,15 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
+    .head_text {
+        p {
+            font-size: 3rem !important;
+            @include mobile {
+                font-size: 2.5rem !important;
+            }
+        }
+    }
 }
 
 .sides {

@@ -115,6 +115,16 @@
           align-items: center;
 }
 
+.why_trustpaddy .head_text p {
+  font-size: 3rem !important;
+}
+
+@media (max-width: 768px) {
+  .why_trustpaddy .head_text p {
+    font-size: 2.5rem !important;
+  }
+}
+
 .sides {
   width: 100%;
   display: -webkit-box;
