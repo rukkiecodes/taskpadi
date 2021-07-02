@@ -63,7 +63,7 @@ export default {
     logo: require("../../assets/paddi.png"),
     menu_links: [
       { title: "Sign In", to: "/signin" },
-      { title: "Sign Up", to: "/signup" },
+      { title: "Sign Up", to: "/signup_buyer" },
     ],
   }),
 
