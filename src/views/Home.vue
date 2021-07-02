@@ -32,6 +32,14 @@ import Testimonials from "../components/home/Testimonials.vue";
 import Better_safe from "../components/home/Better_safe.vue";
 import Footer from "../components/Footer.vue";
 export default {
+  metaInfo: {
+    title: "Trustpaddi",
+    titleTemplate: "%s - Home",
+    htmlAttrs: {
+      lang: "en",
+      amp: true,
+    },
+  },
   components: {
     App_bar,
     Drawer,
