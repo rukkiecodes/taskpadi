@@ -16,22 +16,7 @@
         <div class="texts">
           <p class="p1 text-h6">{{ card.head }}</p>
           <p class="p2 text-body-2">
-            {{ card.body.slice(0, 100) }}...
-            <v-menu offset-y>
-              <template v-slot:activator="{ on, attrs }">
-                <span
-                  v-bind="attrs"
-                  v-on="on"
-                  class="blue--text text--darken-3 font-weight-bold"
-                  >Read More</span
-                >
-              </template>
-              <v-card flat width="350" class="menu_card">
-                <v-card-text>
-                  {{ card.body }}
-                </v-card-text>
-              </v-card>
-            </v-menu>
+            {{ card.body }}
           </p>
           <v-btn
             small
