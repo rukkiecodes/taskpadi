@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Signup_seller from '../views/Signup_seller.vue'
 import Signup_buyer from '../views/Signup_buyer.vue'
 import Signin from '../views/Signin.vue'
+import Forgot_password from '../views/Forgot_password.vue'
 import Otp from '../views/Otp.vue'
 import About from '../views/About.vue'
 import Faq from '../views/Faq.vue'
@@ -24,9 +25,14 @@ const routes = [{
         component: Signup_buyer
     },
     {
-        path: '/Signin',
-        name: 'Signin',
+        path: '/signin',
+        name: 'signin',
         component: Signin
+    },
+    {
+        path: '/forgot_password',
+        name: 'forgot_password',
+        component: Forgot_password
     },
     {
         path: '/otp',
