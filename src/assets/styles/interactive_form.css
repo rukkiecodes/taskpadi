@@ -174,12 +174,6 @@
   background: #4169e2 !important;
 }
 
-@media (max-width: 768px) {
-  .interactive_form .interactive_form_sides .interactive_form_sides_button_active {
-    display: none;
-  }
-}
-
 .interactive_form .interactive_form_sides .interactive_form_sides_card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -262,5 +256,23 @@
   height: 6.5em;
   background: rgba(254, 186, 79, 0.2);
   border-radius: 50px;
+}
+
+.interactive_form .interactive_form_mobile_buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.interactive_form .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button {
+  height: 4em;
+  background: rgba(85, 85, 85, 0.2);
+}
+
+.interactive_form .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button_active {
+  background: #4169e2;
 }
 /*# sourceMappingURL=interactive_form.css.map */

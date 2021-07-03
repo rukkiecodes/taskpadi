@@ -30,18 +30,43 @@
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
     </div>
+    <div class="interactive_form_mobile_buttons mt-5">
+      <v-btn
+        depressed
+        class="
+          interactive_form_mobile_buttons_button
+          mx-2
+          rounded-lg
+          white--text
+        "
+      >
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
+      <v-btn
+        class="
+          interactive_form_mobile_buttons_button
+          interactive_form_mobile_buttons_button_active
+          mx-2
+          white--text
+          rounded-lg
+        "
+        depressed
+      >
+        <v-icon>mdi-arrow-right</v-icon>
+      </v-btn>
+    </div>
   </v-container>
 </template>
 
 <script>
-import What_are_you_selling from "./components/What_are_you_selling.vue"
+import What_are_you_selling from "./components/What_are_you_selling.vue";
 export default {
   data: () => ({
     items: ["Accessories", "Bar", "Fizz", "Buzz"],
   }),
   components: {
-      What_are_you_selling
-  }
+    What_are_you_selling,
+  },
 };
 </script>
 

@@ -45,9 +45,6 @@
 
     .interactive_form_sides_button_active {
       background: #4169e2 !important;
-      @include mobile {
-        display: none;
-      }
     }
 
     .interactive_form_sides_card {
@@ -101,6 +98,19 @@
           border-radius: 50px;
         }
       }
+    }
+  }
+
+  .interactive_form_mobile_buttons {
+    display: flex;
+    justify-content: center;
+
+    .interactive_form_mobile_buttons_button {
+      height: 4em;
+      background: rgba(85, 85, 85, 0.2);
+    }
+    .interactive_form_mobile_buttons_button_active {
+      background: #4169e2;
     }
   }
 }
