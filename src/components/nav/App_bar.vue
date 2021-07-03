@@ -15,13 +15,23 @@
         to="/about"
         >About Us</router-link
       >
-      <router-link :class="{ 'active_route font-weight-bold': app_nav_title == '/faq' }" to="/faq"
+      <router-link
+        :class="{ 'active_route font-weight-bold': app_nav_title == '/faq' }"
+        to="/faq"
         >FAQ</router-link
       >
-      <router-link :class="{ 'active_route font-weight-bold': app_nav_title == '/contact' }" to="/"
+      <router-link
+        :class="{
+          'active_route font-weight-bold': app_nav_title == '/contact',
+        }"
+        to="/"
         >Contact Us</router-link
       >
-      <router-link :class="{ 'active_route font-weight-bold': app_nav_title == '/pricing' }" to="/"
+      <router-link
+        :class="{
+          'active_route font-weight-bold': app_nav_title == '/pricing',
+        }"
+        to="/"
         >Pricing</router-link
       >
     </div>
@@ -40,18 +50,24 @@
           <v-icon right>mdi-chevron-down</v-icon>
         </v-btn>
       </template>
-      <v-list>
+      <v-list dense width="200" class="pa-0">
         <v-list-item
           v-for="(menu, index) in menu_links"
           :key="index"
           :to="menu.to"
+          dense
         >
-          <v-list-item-title>{{ menu.title }}</v-list-item-title>
+          <v-list-item-avatar>
+            <v-avatar size="30">
+              <img :src="menu.image" alt="">
+            </v-avatar>
+          </v-list-item-avatar>
+          <v-list-item-title class="text-body-2 grey--text text--darken-4">{{ menu.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
     <v-btn class="hidden-md-and-up ml-2" icon depressed @click="toggle_drawer">
-      <v-icon class="white--grey ">mdi-menu</v-icon>
+      <v-icon class="white--grey">mdi-menu</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
@@ -62,8 +78,8 @@ export default {
   data: () => ({
     logo: require("../../assets/paddi.png"),
     menu_links: [
-      { title: "Sign In", to: "/signin" },
-      { title: "Sign Up", to: "/signup_buyer" },
+      { title: "Sign In", to: "/signin", image: require("../../assets/trust/password.png") },
+      { title: "Sign Up", to: "/signup_buyer", image: require("../../assets/trust/add-user.png") },
     ],
   }),
 

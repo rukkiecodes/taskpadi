@@ -1,3 +1,4 @@
+@import "./settings/mediaQuery";
 .interactive_form {
   height: 100vh;
   display: flex;
@@ -15,6 +16,11 @@
       border-radius: 21px;
       cursor: pointer;
       position: relative;
+
+      @include mobile {
+        width: 2em;
+        height: 0.3em;
+      }
     }
     .active_track {
       background: #4169e2;
@@ -26,15 +32,75 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 2em;
 
     .interactive_form_sides_button {
       background: rgba(85, 85, 85, 0.2) !important;
       color: #fff;
       height: 4em;
+      @include mobile {
+        display: none;
+      }
     }
 
     .interactive_form_sides_button_active {
-        background: #4169e2 !important;
+      background: #4169e2 !important;
+      @include mobile {
+        display: none;
+      }
+    }
+
+    .interactive_form_sides_card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(65, 105, 226, 0.1);
+      width: 60%;
+      @include mobile {
+        width: 100%;
+      }
+
+      .texts {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+          &:nth-child(1) {
+            color: #150f3f;
+          }
+          color: rgba(21, 15, 63, 0.5);
+          &:nth-child(2) {
+            width: 80%;
+          }
+        }
+      }
+
+      .icon {
+        background: #feba4f;
+        width: 5em;
+        height: 5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 6.5em;
+          height: 6.5em;
+          background: rgba(254, 186, 79, 0.2);
+          border-radius: 50px;
+        }
+      }
     }
   }
 }
