@@ -9,10 +9,6 @@ export default {
   metaInfo: {
     title: "Trustpaddi",
     titleTemplate: "%s - sign up",
-    htmlAttrs: {
-      lang: "en",
-      amp: true,
-    },
   },
   components: {
     Signup_seller,

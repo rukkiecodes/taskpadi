@@ -35,10 +35,6 @@ export default {
   metaInfo: {
     title: "Trustpaddi",
     titleTemplate: "%s - Home",
-    htmlAttrs: {
-      lang: "en",
-      amp: true,
-    },
   },
   components: {
     App_bar,

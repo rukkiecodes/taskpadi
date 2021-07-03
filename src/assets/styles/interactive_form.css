@@ -1,0 +1,62 @@
+.interactive_form {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.interactive_form .tracks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.interactive_form .tracks .track {
+  background: rgba(85, 85, 85, 0.2);
+  height: 0.5em;
+  width: 3.5em;
+  border-radius: 21px;
+  cursor: pointer;
+  position: relative;
+}
+
+.interactive_form .tracks .active_track {
+  background: #4169e2;
+}
+
+.interactive_form .interactive_form_sides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.interactive_form .interactive_form_sides .interactive_form_sides_button {
+  background: rgba(85, 85, 85, 0.2) !important;
+  color: #fff;
+  height: 4em;
+}
+
+.interactive_form .interactive_form_sides .interactive_form_sides_button_active {
+  background: #4169e2 !important;
+}
+/*# sourceMappingURL=interactive_form.css.map */

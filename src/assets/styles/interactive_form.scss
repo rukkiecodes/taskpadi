@@ -1,0 +1,40 @@
+.interactive_form {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .tracks {
+    display: flex;
+
+    .track {
+      background: rgba(85, 85, 85, 0.2);
+      height: 0.5em;
+      width: 3.5em;
+      border-radius: 21px;
+      cursor: pointer;
+      position: relative;
+    }
+    .active_track {
+      background: #4169e2;
+    }
+  }
+
+  .interactive_form_sides {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .interactive_form_sides_button {
+      background: rgba(85, 85, 85, 0.2) !important;
+      color: #fff;
+      height: 4em;
+    }
+
+    .interactive_form_sides_button_active {
+        background: #4169e2 !important;
+    }
+  }
+}

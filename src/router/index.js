@@ -8,6 +8,7 @@ import Forgot_password from '../views/Forgot_password.vue'
 import Otp from '../views/Otp.vue'
 import About from '../views/About.vue'
 import Faq from '../views/Faq.vue'
+import Interactive_form from '../views/Interactive_form.vue'
 
 Vue.use(VueRouter)
 
@@ -43,6 +44,11 @@ const routes = [{
         path: '/faq',
         name: 'faq',
         component: Faq
+    },
+    {
+        path: '/interactive_form',
+        name: 'interactive_form',
+        component: Interactive_form
     },
     {
         path: '/about',

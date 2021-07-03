@@ -9,10 +9,6 @@
     metaInfo: {
     title: "Trustpaddi",
     titleTemplate: "%s - Forgot password",
-    htmlAttrs: {
-      lang: "en",
-      amp: true,
-    },
   },
     components: {
       Forgot_password,

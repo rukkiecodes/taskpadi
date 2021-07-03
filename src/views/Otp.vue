@@ -9,10 +9,6 @@ export default {
   metaInfo: {
     title: "Trustpaddi",
     titleTemplate: "%s - OTP",
-    htmlAttrs: {
-      lang: "en",
-      amp: true,
-    },
   },
   components: {
     Otp,
