@@ -21,6 +21,9 @@
         width: 2em;
         height: 0.3em;
       }
+      @include kindle_fire_hd_7_both {
+        width: 2em;
+      }
     }
     .active_track {
       background: #4169e2;
@@ -40,6 +43,9 @@
       height: 4em;
       @include mobile {
         display: none;
+      }
+      @media only screen and (device-width: 768px) and (device-height: 1024px) {
+        display: initial;
       }
     }
 
@@ -104,6 +110,18 @@
   .interactive_form_mobile_buttons {
     display: flex;
     justify-content: center;
+    display: none;
+
+    @include mobile {
+        display: initial;
+    }
+
+    @include kindle_fire_hd_7_both {
+      display: none;
+    }
+    @media only screen and (device-width: 768px) and (device-height: 1024px) {
+      display: none;
+    }
 
     .interactive_form_mobile_buttons_button {
       height: 4em;

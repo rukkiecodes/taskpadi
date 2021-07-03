@@ -137,6 +137,12 @@
   }
 }
 
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  .interactive_form .tracks .track {
+    width: 2em;
+  }
+}
+
 .interactive_form .tracks .active_track {
   background: #4169e2;
 }
@@ -167,6 +173,12 @@
 @media (max-width: 768px) {
   .interactive_form .interactive_form_sides .interactive_form_sides_button {
     display: none;
+  }
+}
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+  .interactive_form .interactive_form_sides .interactive_form_sides_button {
+    display: initial;
   }
 }
 
@@ -265,6 +277,25 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .interactive_form .interactive_form_mobile_buttons {
+    display: initial;
+  }
+}
+
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  .interactive_form .interactive_form_mobile_buttons {
+    display: none;
+  }
+}
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+  .interactive_form .interactive_form_mobile_buttons {
+    display: none;
+  }
 }
 
 .interactive_form .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button {
