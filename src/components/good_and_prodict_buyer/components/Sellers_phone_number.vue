@@ -15,26 +15,26 @@
       label="Sellers phone number"
       type="number"
       background-color="#fff"
+      v-model="good_and_product.seller_phone_input"
       solo
       flat
     ></v-text-field>
-
-    <!-- <v-select
-      style="width: 100%"
-      append-icon="mdi-chevron-down"
-      dense
-      flat
-      :items="stocks"
-      :label="stocks[0]"
-      color="#4169E2"
-      solo
-      filled
-      background-color="#fff"
-      class="mt-10 rounded-lg"
-    ></v-select> -->
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState(["good_and_product"]),
+    good_and_product: {
+      get() {
+        return this.$store.state.good_and_product;
+      },
+      set(new_value) {
+        this.$store.state.good_and_product = new_value;
+      },
+    },
+  },
+};
 </script>

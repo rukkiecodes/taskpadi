@@ -1,21 +1,47 @@
 <template>
   <v-container class="interactive_form">
     <div class="tracks">
-      <div class="track active_track mx-2"></div>
-      <div class="track mx-2"></div>
-      <div class="track mx-2"></div>
-      <div class="track mx-2"></div>
-      <div class="track mx-2"></div>
-      <div class="track mx-2"></div>
-      <div class="track mx-2"></div>
+      <div
+        class="track mx-2"
+        :class="{ active_track: good_and_product.seller_email_input != '' }"
+      ></div>
+      <div
+        class="track mx-2"
+        :class="{ active_track: good_and_product.seller_phone_input != '' }"
+      ></div>
+      <div
+        class="track mx-2"
+        :class="{ active_track: good_and_product.step_three == true }"
+      ></div>
+      <div
+        class="track mx-2"
+        :class="{ active_track: good_and_product.step_four == true }"
+      ></div>
+      <div
+        class="track mx-2"
+        :class="{ active_track: good_and_product.step_five == true }"
+      ></div>
+      <div
+        class="track mx-2"
+        :class="{ active_track: good_and_product.step_six == true }"
+      ></div>
+      <div
+        class="track mx-2"
+        :class="{ active_track: good_and_product.step_seven == true }"
+      ></div>
     </div>
 
     <div class="interactive_form_sides">
       <v-btn
         depressed
         class="rounded-lg interactive_form_sides_button"
+        :class="{
+          interactive_form_sides_button_active:
+            good_and_product.activate_back_button == true,
+        }"
         color="#4169E2"
         small
+        @click="prev_form"
       >
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
@@ -34,10 +60,11 @@
       />
       <v-btn
         depressed
-        class="
-          rounded-lg
-          interactive_form_sides_button interactive_form_sides_button_active
-        "
+        class="rounded-lg interactive_form_sides_button"
+        :class="{
+          interactive_form_sides_button_active:
+            good_and_product.activate_next_button == true,
+        }"
         color="#4169E2"
         small
         @click="next_form"
@@ -54,17 +81,25 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product.activate_back_button == true,
+        }"
+        @click="prev_form"
       >
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
       <v-btn
         class="
           interactive_form_mobile_buttons_button
-          interactive_form_mobile_buttons_button_active
           mx-2
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product.activate_next_button == true,
+        }"
         depressed
         @click="next_form"
       >
@@ -94,7 +129,7 @@ export default {
     Who_should_handle_delivery,
   },
   methods: {
-    ...mapActions(["next_form"]),
+    ...mapActions(["next_form", "prev_form"]),
   },
   computed: {
     ...mapState(["good_and_product"]),

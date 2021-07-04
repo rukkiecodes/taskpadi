@@ -15,6 +15,7 @@
       label="Seller email"
       background-color="#fff"
       v-model="good_and_product.seller_email_input"
+      @keypress.enter="next_form"
       solo
       flat
     ></v-text-field>
@@ -22,8 +23,11 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapMutations, mapState } from "vuex";
 export default {
+  methods: {
+    ...mapMutations(["next_form"])
+  },
   computed: {
     ...mapState(["good_and_product"]),
     good_and_product: {
