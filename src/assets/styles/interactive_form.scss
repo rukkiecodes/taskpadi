@@ -11,8 +11,8 @@
 
     .track {
       background: rgba(85, 85, 85, 0.2);
-      height: 0.5em;
-      width: 3.5em;
+      height: 0.4em;
+      width: 2em;
       border-radius: 21px;
       cursor: pointer;
       position: relative;
@@ -81,7 +81,6 @@
           }
         }
       }
-
       .icon {
         background: #feba4f;
         width: 5em;
@@ -91,7 +90,7 @@
         align-items: center;
         border-radius: 50px;
         position: relative;
-
+    
         &::before {
           content: "";
           position: absolute;
@@ -113,7 +112,7 @@
     display: none;
 
     @include mobile {
-        display: initial;
+      display: initial;
     }
 
     @include kindle_fire_hd_7_both {

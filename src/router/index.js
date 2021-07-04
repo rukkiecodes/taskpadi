@@ -8,7 +8,7 @@ import Forgot_password from '../views/Forgot_password.vue'
 import Otp from '../views/Otp.vue'
 import About from '../views/About.vue'
 import Faq from '../views/Faq.vue'
-import Interactive_form from '../views/Interactive_form.vue'
+import Good_and_prodict_buyer from '../views/Good_and_prodict_buyer.vue'
 
 Vue.use(VueRouter)
 
@@ -46,9 +46,9 @@ const routes = [{
         component: Faq
     },
     {
-        path: '/interactive_form',
-        name: 'interactive_form',
-        component: Interactive_form
+        path: '/good_and_prodict_buyer',
+        name: 'good_and_prodict_buyer',
+        component: Good_and_prodict_buyer
     },
     {
         path: '/about',

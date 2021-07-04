@@ -1,15 +1,15 @@
 <template>
-  <div class="interactive_form">
+  <div class="Good_and_prodict_buyer">
     <App_bar />
     <Drawer />
-    <Interactive_form />
+    <Good_and_prodict_buyer />
   </div>
 </template>
 
 <script>
 import App_bar from "../components/nav/App_bar.vue";
 import Drawer from "../components/nav/Drawer.vue";
-import Interactive_form from "../components/interactive_form/Interactive_form.vue";
+import Good_and_prodict_buyer from "../components/good_and_prodict_buyer/Good_and_prodict_buyer.vue";
 export default {
   metaInfo: {
     title: "Trustpaddi",
@@ -18,7 +18,7 @@ export default {
   components: {
     App_bar,
     Drawer,
-    Interactive_form,
+    Good_and_prodict_buyer,
   },
 };
 </script>

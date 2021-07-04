@@ -1,32 +1,41 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import app_drawer from "./modules/app_drawer";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        app_nav_title: "",
-        drawer: false,
-        drawer_routs: [
-            { title: 'Home', icon: 'mdi-view-dashboard', to: '/' },
-            { title: 'About Us', icon: 'mdi-forum', to: '/about' },
-            { title: 'FAQ', icon: 'mdi-forum', to: '/faq' },
-            { title: 'Contact Us', icon: 'mdi-forum', to: '/contact' },
-            { title: 'Pricing', icon: 'mdi-forum', to: '/pricing' },
-        ],
+  state: {
+    drawer: false,
+    app_nav_title: "",
+    good_and_product: {
+      seller_email: true,
+      seller_phone_number: false,
+      product_name: false,
+      agreed_price: false,
+      product_description: false,
+      product_condition: false,
+      who_handles_delivery: false,
     },
-    getters: {
-        drawer_routs: state => state.drawer_routs
+  },
+  mutations: {
+    toggle_drawer: (state) => {
+      state.drawer = true;
     },
-    mutations: {
-        toggle_drawer: (state) => {
-            state.drawer = true
-        }
+    next_form: (state) => {
+      console.log(state);
     },
-    actions: {
-        app_bar_route() {
-            this.state.app_nav_title = location.pathname
-        }
+  },
+  actions: {
+    app_bar_route() {
+      this.state.app_nav_title = location.pathname;
     },
-    modules: {}
-})
+
+    next_form({ commit }) {
+      commit("next_form");
+    },
+  },
+  modules: {
+    app_drawer,
+  },
+});

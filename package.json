@@ -11,7 +11,6 @@
     "animate.css": "^4.1.1",
     "core-js": "^3.6.5",
     "gsap": "^3.7.0",
-    "jquery": "^3.6.0",
     "register-service-worker": "^1.7.1",
     "scrollmagic": "^2.0.8",
     "smooth-vuebar": "^1.4.0",

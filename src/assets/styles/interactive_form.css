@@ -123,8 +123,8 @@
 
 .interactive_form .tracks .track {
   background: rgba(85, 85, 85, 0.2);
-  height: 0.5em;
-  width: 3.5em;
+  height: 0.4em;
+  width: 2em;
   border-radius: 21px;
   cursor: pointer;
   position: relative;
