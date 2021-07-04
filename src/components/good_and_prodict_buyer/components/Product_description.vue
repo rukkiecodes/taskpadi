@@ -17,10 +17,28 @@
       name="input-7-4"
       label="Product description"
       background-color="#fff"
+      v-model="good_and_product.product_description_input"
+      @keypress.enter="next_form"
     ></v-textarea>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapActions, mapState } from "vuex";
+export default {
+  methods: {
+    ...mapActions(['next_form'])
+  },
+  computed: {
+    ...mapState(["good_and_product"]),
+    good_and_product: {
+      get() {
+        return this.$store.state.good_and_product;
+      },
+      set(new_value) {
+        this.$store.state.good_and_product = new_value;
+      },
+    },
+  },
+};
 </script>

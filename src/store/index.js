@@ -27,6 +27,11 @@ export default new Vuex.Store({
       who_handles_delivery: false,
       seller_email_input: "",
       seller_phone_input: "",
+      product_name_input: "",
+      agreed_price_input: "",
+      product_description_input: "",
+      product_condition_input: "",
+      who_can_handle_delivery_input: ""
     },
     snackbar: {
       snackbar_state: false,
@@ -46,32 +51,64 @@ export default new Vuex.Store({
         state.good_and_product.seller_email = false;
         state.good_and_product.seller_phone_number = true;
         state.good_and_product.activate_back_button = true;
-      } else {
-        state.snackbar.snackbar_state = true;
-        state.snackbar.text = `Please input seller email`;
-        state.snackbar.snackbar_color = `red`;
-        state.snackbar.snackbar_button_color = `white`;
-        state.snackbar.snackbar_text_color = `white--text`;
+      }
+      if (state.good_and_product.seller_phone_input != "") {
+        state.good_and_product.seller_phone_number = false;
+        state.good_and_product.product_name = true;
+      }
+      if (state.good_and_product.product_name_input != "") {
+        state.good_and_product.agreed_price = true;
+        state.good_and_product.product_name = false;
+      }
+      if (state.good_and_product.agreed_price_input != "") {
+        state.good_and_product.product_description = true;
+        state.good_and_product.agreed_price = false;
+      }
+      if (state.good_and_product.product_description_input != "") {
+        state.good_and_product.product_condition = true;
+        state.good_and_product.product_description = false;
+      }
+      if (state.good_and_product.product_condition_input != "") {
+        state.good_and_product.who_handles_delivery = true;
+        state.good_and_product.product_condition = false;
       }
     },
-    prev_form: state => {
+    prev_form: (state) => {
       if (state.good_and_product.seller_email == true) {
         state.good_and_product.activate_back_button = false;
-        console.log(state.good_and_product.seller_email)
       }
       if (state.good_and_product.seller_phone_number == true) {
-        state.good_and_product.seller_email = true
-        state.good_and_product.product_name = false
-        state.good_and_product.agreed_price = false
-        state.good_and_product.product_description = false
-        state.good_and_product.product_condition = false
-        state.good_and_product.who_handles_delivery = false
-        state.good_and_product.seller_phone_number = false
-        state.good_and_product.activate_back_button = false;
+        state.good_and_product.seller_email = true;
+        state.good_and_product.seller_phone_number = false;
         state.good_and_product.seller_phone_input = "";
-        console.log(state.good_and_product.seller_phone_number)
+        state.good_and_product.activate_back_button = false;
       }
-    }
+      if (state.good_and_product.product_name == true) {
+        state.good_and_product.seller_phone_number = true;
+        state.good_and_product.product_name = false;
+        state.good_and_product.product_name_input = "";
+      }
+      if (state.good_and_product.agreed_price == true) {
+        state.good_and_product.product_name = true;
+        state.good_and_product.agreed_price = false;
+        state.good_and_product.agreed_price_input = "";
+      }
+      if (state.good_and_product.product_description == true) {
+        state.good_and_product.product_description = false;
+        state.good_and_product.agreed_price = true;
+        state.good_and_product.product_description_input = "";
+      }
+      if (state.good_and_product.product_condition == true) {
+        state.good_and_product.product_description = true;
+        state.good_and_product.product_condition = false;
+        state.good_and_product.product_condition_input = "";
+      }
+      if (state.good_and_product.who_handles_delivery == true) {
+        state.good_and_product.who_handles_delivery = false;
+        state.good_and_product.product_condition = true;
+        state.good_and_product.who_can_handle_delivery_input = "";
+      }
+    },
   },
   actions: {
     app_bar_route() {
@@ -83,7 +120,7 @@ export default new Vuex.Store({
     },
     prev_form({ commit }) {
       commit("prev_form");
-    },
+    }
   },
   modules: {
     app_drawer,

@@ -12,8 +12,9 @@
     <v-text-field
       style="width: 100%"
       class="mt-10 rounded-lg"
-      label="Agreed price"
+      label="Who can handle delivery"
       background-color="#fff"
+      v-model="good_and_product.who_can_handle_delivery_input"
       solo
       flat
     ></v-text-field>
@@ -21,5 +22,21 @@
 </template>
 
 <script>
-export default {};
+import { mapActions, mapState } from "vuex";
+export default {
+  methods: {
+    ...mapActions(["next_form"]),
+  },
+  computed: {
+    ...mapState(["good_and_product"]),
+    good_and_product: {
+      get() {
+        return this.$store.state.good_and_product;
+      },
+      set(new_value) {
+        this.$store.state.good_and_product = new_value;
+      },
+    },
+  },
+};
 </script>

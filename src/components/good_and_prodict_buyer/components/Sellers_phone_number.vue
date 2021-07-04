@@ -16,6 +16,7 @@
       type="number"
       background-color="#fff"
       v-model="good_and_product.seller_phone_input"
+      @keypress="next_form"
       solo
       flat
     ></v-text-field>
@@ -23,8 +24,11 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
+  methods: {
+    ...mapActions(["next_form"])
+  },
   computed: {
     ...mapState(["good_and_product"]),
     good_and_product: {

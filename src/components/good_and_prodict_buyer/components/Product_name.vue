@@ -14,26 +14,30 @@
       class="mt-10 rounded-lg"
       label="Product title"
       background-color="#fff"
+      v-model="good_and_product.product_name_input"
+      @click="next_form"
       solo
       flat
     ></v-text-field>
-
-    <!-- <v-select
-      style="width: 100%"
-      append-icon="mdi-chevron-down"
-      dense
-      flat
-      :items="stocks"
-      :label="stocks[0]"
-      color="#4169E2"
-      solo
-      filled
-      background-color="#fff"
-      class="mt-10 rounded-lg"
-    ></v-select> -->
   </div>
 </template>
 
 <script>
-export default {};
+import { mapActions, mapState } from "vuex";
+export default {
+  methods: {
+    ...mapActions(['next_form'])
+  },
+  computed: {
+    ...mapState(["good_and_product"]),
+    good_and_product: {
+      get() {
+        return this.$store.state.good_and_product;
+      },
+      set(new_value) {
+        this.$store.state.good_and_product = new_value;
+      },
+    },
+  },
+};
 </script>

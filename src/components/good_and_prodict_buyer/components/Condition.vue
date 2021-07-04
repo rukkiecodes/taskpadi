@@ -9,26 +9,35 @@
     <div class="icon mt-5">
       <v-icon size="45" class="white--text">mdi-package-variant</v-icon>
     </div>
-    <v-select
+    <v-text-field
       style="width: 100%"
-      append-icon="mdi-chevron-down"
-      dense
-      flat
-      :items="condition"
-      :label="condition[0]"
-      color="#4169E2"
-      solo
-      filled
-      background-color="#fff"
       class="mt-10 rounded-lg"
-    ></v-select>
+      label="Product title"
+      background-color="#fff"
+      v-model="good_and_product.product_condition_input"
+      @click="next_form"
+      solo
+      flat
+    ></v-text-field>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 export default {
-  data: () => ({
-    condition: ["New", "Fairly Used"]
-  })
+  methods: {
+    ...mapActions(["next_form"])
+  },
+  computed: {
+    ...mapState(["good_and_product"]),
+    good_and_product: {
+      get() {
+        return this.$store.state.good_and_product;
+      },
+      set(new_value) {
+        this.$store.state.good_and_product = new_value;
+      },
+    },
+  }
 };
 </script>

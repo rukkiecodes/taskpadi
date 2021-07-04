@@ -11,23 +11,23 @@
       ></div>
       <div
         class="track mx-2"
-        :class="{ active_track: good_and_product.step_three == true }"
+        :class="{ active_track: good_and_product.product_name_input != '' }"
       ></div>
       <div
         class="track mx-2"
-        :class="{ active_track: good_and_product.step_four == true }"
+        :class="{ active_track: good_and_product.agreed_price_input != '' }"
       ></div>
       <div
         class="track mx-2"
-        :class="{ active_track: good_and_product.step_five == true }"
+        :class="{ active_track: good_and_product.product_description_input != '' }"
       ></div>
       <div
         class="track mx-2"
-        :class="{ active_track: good_and_product.step_six == true }"
+        :class="{ active_track: good_and_product.product_condition_input != '' }"
       ></div>
       <div
         class="track mx-2"
-        :class="{ active_track: good_and_product.step_seven == true }"
+        :class="{ active_track: good_and_product.who_can_handle_delivery_input != '' }"
       ></div>
     </div>
 
