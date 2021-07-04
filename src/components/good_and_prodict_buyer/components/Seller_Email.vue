@@ -14,6 +14,7 @@
       class="mt-10 rounded-lg"
       label="Seller email"
       background-color="#fff"
+      v-model="good_and_product.seller_email_input"
       solo
       flat
     ></v-text-field>
@@ -21,5 +22,18 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState(["good_and_product"]),
+    good_and_product: {
+      get() {
+        return this.$store.state.good_and_product;
+      },
+      set(new_value) {
+        this.$store.state.good_and_product = new_value;
+      },
+    },
+  },
+};
 </script>

@@ -20,12 +20,18 @@
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
       <Seller_Email v-show="good_and_product.seller_email == true" />
-      <Sellers_phone_number v-show="good_and_product.seller_phone_number == true" />
+      <Sellers_phone_number
+        v-show="good_and_product.seller_phone_number == true"
+      />
       <Product_name v-show="good_and_product.product_name == true" />
       <Agreed_price v-show="good_and_product.agreed_price == true" />
-      <Product_description v-show="good_and_product.product_description == true" />
+      <Product_description
+        v-show="good_and_product.product_description == true"
+      />
       <Condition v-show="good_and_product.product_condition == true" />
-      <Who_should_handle_delivery v-show="good_and_product.who_handles_delivery == true" />
+      <Who_should_handle_delivery
+        v-show="good_and_product.who_handles_delivery == true"
+      />
       <v-btn
         depressed
         class="
@@ -85,22 +91,13 @@ export default {
     Agreed_price,
     Product_description,
     Condition,
-    Who_should_handle_delivery
+    Who_should_handle_delivery,
   },
   methods: {
     ...mapActions(["next_form"]),
   },
   computed: {
-    ...mapState([
-      "good_and_product"
-      // "seller_email",
-      // "seller_phone_number",
-      // "product_name",
-      // "agreed_price",
-      // "product_description",
-      // "product_condition",
-      // "who_handles_delivery"
-    ]),
+    ...mapState(["good_and_product"]),
     good_and_product: {
       get() {
         return this.$store.state.good_and_product;
@@ -109,62 +106,6 @@ export default {
         this.$store.state.good_and_product = new_value;
       },
     },
-    // seller_email: {
-    //   get() {
-    //     return this.$store.state.seller_email;
-    //   },
-    //   set(new_value) {
-    //     this.$store.state.seller_email = new_value;
-    //   },
-    // },
-    // seller_phone_number: {
-    //   get() {
-    //     return this.$store.state.seller_phone_number;
-    //   },
-    //   set(new_value) {
-    //     this.$store.state.seller_phone_number = new_value;
-    //   },
-    // },
-    // product_name: {
-    //   get() {
-    //     return this.$store.state.product_name;
-    //   },
-    //   set(new_value) {
-    //     this.$store.state.product_name = new_value;
-    //   },
-    // },
-    // agreed_price: {
-    //   get() {
-    //     return this.$store.state.agreed_price;
-    //   },
-    //   set(new_value) {
-    //     this.$store.state.agreed_price = new_value;
-    //   },
-    // },
-    // product_description: {
-    //   get() {
-    //     return this.$store.state.product_description;
-    //   },
-    //   set(new_value) {
-    //     this.$store.state.product_description = new_value;
-    //   },
-    // },
-    // product_condition: {
-    //   get() {
-    //     return this.$store.state.product_condition;
-    //   },
-    //   set(new_value) {
-    //     this.$store.state.product_condition = new_value;
-    //   },
-    // },
-    // who_handles_delivery: {
-    //   get() {
-    //     return this.$store.state.who_handles_delivery;
-    //   },
-    //   set(new_value) {
-    //     this.$store.state.who_handles_delivery = new_value;
-    //   },
-    // },
   },
 };
 </script>

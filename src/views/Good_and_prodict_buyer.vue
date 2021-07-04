@@ -3,6 +3,7 @@
     <App_bar />
     <Drawer />
     <Good_and_prodict_buyer />
+    <Snackbar/>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import App_bar from "../components/nav/App_bar.vue";
 import Drawer from "../components/nav/Drawer.vue";
 import Good_and_prodict_buyer from "../components/good_and_prodict_buyer/Good_and_prodict_buyer.vue";
+import Snackbar from "../components/Snackbar.vue"
 export default {
   metaInfo: {
     title: "Trustpaddi",
@@ -19,6 +21,7 @@ export default {
     App_bar,
     Drawer,
     Good_and_prodict_buyer,
+    Snackbar
   },
 };
 </script>

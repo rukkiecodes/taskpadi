@@ -18,11 +18,11 @@
       position: relative;
 
       @include mobile {
-        width: 2em;
+        width: 1.5em;
         height: 0.3em;
       }
       @include kindle_fire_hd_7_both {
-        width: 2em;
+        width: 1.5em;
       }
     }
     .active_track {
