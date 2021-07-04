@@ -8,10 +8,6 @@ export default new Vuex.Store({
   state: {
     drawer: false,
     app_nav_title: "",
-    snackbar: {
-      snackbar_state: true,
-      text: `Hello, I'm a snackbar`,
-    },
     good_and_product: {
       seller_email: true,
       seller_phone_number: false,
@@ -21,6 +17,13 @@ export default new Vuex.Store({
       product_condition: false,
       who_handles_delivery: false,
       seller_email_input: ""
+    },
+    snackbar: {
+      snackbar_state: false,
+      text: `Hello, I'm a snackbar`,
+      snackbar_color: "",
+      snackbar_button_color: "",
+      snackbar_text_color: ""
     },
   },
   mutations: {
@@ -34,6 +37,10 @@ export default new Vuex.Store({
       }
       else if (state.good_and_product.seller_email_input == "") {
         state.snackbar.snackbar_state = true
+        state.snackbar.text = `Please input seller email`
+        state.snackbar.snackbar_color = `red`
+        state.snackbar.snackbar_button_color = `white`
+        state.snackbar.snackbar_text_color = `white--text`
       }
     },
   },

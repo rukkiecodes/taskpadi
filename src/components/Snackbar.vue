@@ -1,12 +1,16 @@
 <template>
   <div class="text-center ma-2">
-    <v-btn dark @click="snackbar.snackbar_state = true"> Open Snackbar </v-btn>
-    <v-snackbar v-model="snackbar.snackbar_state">
-      {{ snackbar.text }}
+    <v-snackbar top right :color="snackbar.snackbar_color" v-model="snackbar.snackbar_state">
+      <span :class="snackbar.snackbar_text_color">{{ snackbar.text }}</span>
 
       <template v-slot:action="{ attrs }">
-        <v-btn color="pink" text v-bind="attrs" @click="snackbar.snackbar_state = false">
-          Close
+        <v-btn
+          :color="snackbar.snackbar_button_color"
+          text
+          v-bind="attrs"
+          @click="snackbar.snackbar_state = false"
+        >
+          <v-icon>mdi-close</v-icon>
         </v-btn>
       </template>
     </v-snackbar>
