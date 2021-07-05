@@ -99,14 +99,10 @@
 /* ----------- Apple Watch ----------- */
 /* ----------- Moto 360 Watch ----------- */
 .interactive_form {
-  height: 100vh;
+  height: 95vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -115,78 +111,44 @@
           align-items: center;
 }
 
-.interactive_form .tracks {
+.interactive_form .interactive_form_sides .seller_email {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.interactive_form .tracks .track {
-  background: rgba(85, 85, 85, 0.2);
-  height: 0.4em;
-  width: 2em;
-  border-radius: 21px;
-  cursor: pointer;
-  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (max-width: 768px) {
-  .interactive_form .tracks .track {
-    width: 1.5em;
-    height: 0.3em;
+  .interactive_form .interactive_form_sides .seller_email {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
-@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
-  .interactive_form .tracks .track {
-    width: 1.5em;
-  }
-}
-
-.interactive_form .tracks .active_track {
-  background: #4169e2;
-}
-
-.interactive_form .interactive_form_sides {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 2em;
-}
-
-.interactive_form .interactive_form_sides .interactive_form_sides_button {
+.interactive_form .interactive_form_sides .seller_email .interactive_form_sides_button {
   background: rgba(85, 85, 85, 0.2) !important;
   color: #fff;
   height: 4em;
 }
 
 @media (max-width: 768px) {
-  .interactive_form .interactive_form_sides .interactive_form_sides_button {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_button {
     display: none;
   }
 }
 
-@media only screen and (device-width: 768px) and (device-height: 1024px) {
-  .interactive_form .interactive_form_sides .interactive_form_sides_button {
-    display: initial;
-  }
-}
-
-.interactive_form .interactive_form_sides .interactive_form_sides_button_active {
+.interactive_form .interactive_form_sides .seller_email .interactive_form_sides_button_active {
   background: #4169e2 !important;
 }
 
-.interactive_form .interactive_form_sides .interactive_form_sides_card {
+.interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,44 +168,15 @@
 }
 
 @media (max-width: 768px) {
-  .interactive_form .interactive_form_sides .interactive_form_sides_card {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
     width: 100%;
   }
 }
 
-.interactive_form .interactive_form_sides .interactive_form_sides_card .texts {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.interactive_form .interactive_form_sides .interactive_form_sides_card .texts p {
-  color: rgba(21, 15, 63, 0.5);
-}
-
-.interactive_form .interactive_form_sides .interactive_form_sides_card .texts p:nth-child(1) {
-  color: #150f3f;
-}
-
-.interactive_form .interactive_form_sides .interactive_form_sides_card .texts p:nth-child(2) {
-  width: 80%;
-}
-
-.interactive_form .interactive_form_sides .interactive_form_sides_card .icon {
+.interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card .icon {
   background: #feba4f;
-  width: 5em;
-  height: 5em;
+  width: 6em;
+  height: 6em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,20 +190,20 @@
   position: relative;
 }
 
-.interactive_form .interactive_form_sides .interactive_form_sides_card .icon::before {
+.interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card .icon::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 6.5em;
-  height: 6.5em;
+  width: 6.8em;
+  height: 6.8em;
   background: rgba(254, 186, 79, 0.2);
   border-radius: 50px;
 }
 
-.interactive_form .interactive_form_mobile_buttons {
+.interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -281,29 +214,29 @@
 }
 
 @media (max-width: 768px) {
-  .interactive_form .interactive_form_mobile_buttons {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons {
     display: initial;
   }
 }
 
 @media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
-  .interactive_form .interactive_form_mobile_buttons {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons {
     display: none;
   }
 }
 
 @media only screen and (device-width: 768px) and (device-height: 1024px) {
-  .interactive_form .interactive_form_mobile_buttons {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons {
     display: none;
   }
 }
 
-.interactive_form .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button {
+.interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button {
   height: 4em;
   background: rgba(85, 85, 85, 0.2);
 }
 
-.interactive_form .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button_active {
+.interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button_active {
   background: #4169e2;
 }
 /*# sourceMappingURL=interactive_form.css.map */

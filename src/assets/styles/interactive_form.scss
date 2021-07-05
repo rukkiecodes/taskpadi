@@ -1,133 +1,94 @@
 @import "./settings/mediaQuery";
 .interactive_form {
-  height: 100vh;
+  height: 95vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .tracks {
-    display: flex;
-
-    .track {
-      background: rgba(85, 85, 85, 0.2);
-      height: 0.4em;
-      width: 2em;
-      border-radius: 21px;
-      cursor: pointer;
-      position: relative;
-
-      @include mobile {
-        width: 1.5em;
-        height: 0.3em;
-      }
-      @include kindle_fire_hd_7_both {
-        width: 1.5em;
-      }
-    }
-    .active_track {
-      background: #4169e2;
-    }
-  }
-
   .interactive_form_sides {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2em;
-
-    .interactive_form_sides_button {
-      background: rgba(85, 85, 85, 0.2) !important;
-      color: #fff;
-      height: 4em;
-      @include mobile {
-        display: none;
-      }
-      @media only screen and (device-width: 768px) and (device-height: 1024px) {
-        display: initial;
-      }
-    }
-
-    .interactive_form_sides_button_active {
-      background: #4169e2 !important;
-    }
-
-    .interactive_form_sides_card {
+    .seller_email {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      background: rgba(65, 105, 226, 0.1);
-      width: 60%;
+
       @include mobile {
-        width: 100%;
+        flex-direction: column;
       }
 
-      .texts {
-        width: 100%;
+      .interactive_form_sides_button {
+        background: rgba(85, 85, 85, 0.2) !important;
+        color: #fff;
+        height: 4em;
+        @include mobile {
+          display: none;
+        }
+      }
+
+      .interactive_form_sides_button_active {
+        background: #4169e2 !important;
+      }
+
+      .interactive_form_sides_card {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        p {
-          &:nth-child(1) {
-            color: #150f3f;
-          }
-          color: rgba(21, 15, 63, 0.5);
-          &:nth-child(2) {
-            width: 80%;
+        text-align: center;
+        background: rgba(65, 105, 226, 0.1);
+        width: 60%;
+
+        @include mobile {
+          width: 100%;
+        }
+
+        .icon {
+          background: #feba4f;
+          width: 6em;
+          height: 6em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50px;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6.8em;
+            height: 6.8em;
+            background: rgba(254, 186, 79, 0.2);
+            border-radius: 50px;
           }
         }
       }
-      .icon {
-        background: #feba4f;
-        width: 5em;
-        height: 5em;
+
+      .interactive_form_mobile_buttons {
         display: flex;
         justify-content: center;
-        align-items: center;
-        border-radius: 50px;
-        position: relative;
-    
-        &::before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 6.5em;
-          height: 6.5em;
-          background: rgba(254, 186, 79, 0.2);
-          border-radius: 50px;
+        display: none;
+
+        @include mobile {
+          display: initial;
+        }
+
+        @include kindle_fire_hd_7_both {
+          display: none;
+        }
+        @media only screen and (device-width: 768px) and (device-height: 1024px) {
+          display: none;
+        }
+
+        .interactive_form_mobile_buttons_button {
+          height: 4em;
+          background: rgba(85, 85, 85, 0.2);
+        }
+        .interactive_form_mobile_buttons_button_active {
+          background: #4169e2;
         }
       }
-    }
-  }
-
-  .interactive_form_mobile_buttons {
-    display: flex;
-    justify-content: center;
-    display: none;
-
-    @include mobile {
-      display: initial;
-    }
-
-    @include kindle_fire_hd_7_both {
-      display: none;
-    }
-    @media only screen and (device-width: 768px) and (device-height: 1024px) {
-      display: none;
-    }
-
-    .interactive_form_mobile_buttons_button {
-      height: 4em;
-      background: rgba(85, 85, 85, 0.2);
-    }
-    .interactive_form_mobile_buttons_button_active {
-      background: #4169e2;
     }
   }
 }
