@@ -21,7 +21,7 @@
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-phone</v-icon>
+        <v-icon size="50" class="white--text">mdi-shopping-outline</v-icon>
       </div>
       <v-text-field
         style="width: 100%"
@@ -29,6 +29,7 @@
         label="Product name"
         background-color="#fff"
         v-model="good_and_product.product_name_input"
+        @keypress.enter="goto_product_price"
         solo
         flat
       ></v-text-field>
@@ -40,8 +41,8 @@
         interactive_form_sides_button_active:
           good_and_product.activate_next_button == true,
       }"
-      color="#4169E2"
       @click="goto_product_price"
+      color="#4169E2"
       small
     >
       <v-icon>mdi-arrow-right</v-icon>

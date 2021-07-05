@@ -14,7 +14,9 @@ export default new Vuex.Store({
       activate_next_button: true,
       seller_email_input: "",
       seller_phone_input: "",
-      product_name_input: ""
+      product_name_input: "",
+      product_price_input: "",
+      product_description_input: ""
     },
     snackbar: {
       snackbar_state: false,
@@ -57,14 +59,27 @@ export default new Vuex.Store({
       }
     },
     goto_product_price: (state) => {
-      console.log(state);
       if (state.good_and_product.product_name_input != "") {
         router.push("product_price");
       }
       else {
         state.snackbar = {
           snackbar_state: true,
-          text: `Please enter product price`,
+          text: `Please enter product name`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    go_to_product_description: (state) => {
+      if (state.good_and_product.product_price_input != "") {
+        router.push("product_description");
+      }
+      else {
+        state.snackbar = {
+          snackbar_state: true,
+          text: `Product price can not be empty`,
           snackbar_color: "red",
           snackbar_button_color: "white",
           snackbar_text_color: "white--text",
@@ -86,6 +101,9 @@ export default new Vuex.Store({
     goto_product_price({ commit }) {
       commit("goto_product_price");
     },
+    go_to_product_description({ commit }) {
+      commit("go_to_product_description");
+    },
 
     sellers_phone_email() {
       this.state.good_and_product.activate_back_button = false;
@@ -94,7 +112,8 @@ export default new Vuex.Store({
       this.state.good_and_product.activate_back_button = true;
     },
     go_back_to_seller_email: () =>  router.push("/good_and_product_buyer"),
-    go_back_to_seller_phone: () => router.push("seller_phone_number")
+    go_back_to_seller_phone: () => router.push("seller_phone_number"),
+    go_back_to_product_name: () => router.push("product_name")
   },
   modules: {
     app_drawer,
