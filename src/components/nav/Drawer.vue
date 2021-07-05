@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer right v-model="drawer" temporary fixed>
+  <v-navigation-drawer right v-model="app_drawer.drawer" temporary fixed>
     <v-list class="rounded-lg" nav dense>
       <v-list-item
         v-for="item in drawer_routs"
@@ -24,16 +24,16 @@
 import { mapGetters, mapState } from "vuex";
 export default {
   computed: {
-    ...mapState(["drawer"]),
+    ...mapState(["app_drawer"]),
     ...mapGetters(["drawer_routs"]),
-    drawer: {
-      get() {
-        return this.$store.state.drawer;
-      },
-      set(new_value) {
-        this.$store.state.drawer = new_value;
-      },
-    },
+    // drawer: {
+    //   get() {
+    //     return this.$store.state.drawer;
+    //   },
+    //   set(new_value) {
+    //     this.$store.state.drawer = new_value;
+    //   },
+    // },
   },
 };
 </script>

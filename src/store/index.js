@@ -1,13 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import app_drawer from "./modules/app_drawer";
+import good_and_product_buyer from "./modules/good_and_product_buyer";
 import router from "../router/index";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
-    drawer: false,
     app_nav_title: "",
     good_and_product: {
       activate_back_button: false,
@@ -29,9 +29,6 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    toggle_drawer: (state) => {
-      state.drawer = true;
-    },
     goto_sellers_phone_number: (state) => {
       const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (state.good_and_product.seller_email_input.match(email_regex)) {
@@ -156,5 +153,8 @@ export default new Vuex.Store({
   },
   modules: {
     app_drawer,
+    good_and_product_buyer
   },
 });
+
+export default store
