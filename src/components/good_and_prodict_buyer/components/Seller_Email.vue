@@ -27,6 +27,8 @@
         class="mt-10 rounded-lg"
         label="Seller email"
         background-color="#fff"
+        v-model="good_and_product.seller_email_input"
+        @keypress.enter="goto_sellers_phone_number"
         solo
         flat
       ></v-text-field>
@@ -38,6 +40,7 @@
         interactive_form_sides_button_active:
           good_and_product.activate_next_button == true,
       }"
+      @click="goto_sellers_phone_number"
       color="#4169E2"
       small
     >
@@ -74,6 +77,7 @@
         }"
         small
         depressed
+        @click="goto_sellers_phone_number"
       >
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
@@ -82,8 +86,17 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
+  created() {
+    this.sellers_phone_email();
+  },
+  mounted() {
+    this.sellers_phone_email();
+  },
+  methods: {
+    ...mapActions(["goto_sellers_phone_number", "sellers_phone_email"]),
+  },
   computed: {
     ...mapState(["good_and_product"]),
     good_and_product: {

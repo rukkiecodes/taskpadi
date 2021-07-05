@@ -27,6 +27,8 @@
         class="mt-10 rounded-lg"
         label="Seller phone number"
         background-color="#fff"
+        v-model="good_and_product.seller_phone_input"
+        @keypress.enter="goto_product_name"
         solo
         flat
       ></v-text-field>
@@ -82,8 +84,17 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
+  created() {
+    this.sellers_phone_number()
+  },
+  mounted() {
+    this.sellers_phone_number()
+  },
+  methods: {
+    ...mapActions(["sellers_phone_number", "goto_product_name"])
+  },
   computed: {
     ...mapState(["good_and_product"]),
     good_and_product: {

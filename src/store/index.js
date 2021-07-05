@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import app_drawer from "./modules/app_drawer";
+import router from "../router/index";
 
 Vue.use(Vuex);
 
@@ -11,20 +12,8 @@ export default new Vuex.Store({
     good_and_product: {
       activate_back_button: false,
       activate_next_button: true,
-      // seller_email: true,
-      // seller_phone_number: false,
-      // product_name: false,
-      // agreed_price: false,
-      // product_description: false,
-      // product_condition: false,
-      // who_handles_delivery: false,
-      // seller_email_input: "",
-      // seller_phone_input: "",
-      // product_name_input: "",
-      // agreed_price_input: "",
-      // product_description_input: "",
-      // product_condition_input: "",
-      // who_can_handle_delivery_input: ""
+      seller_email_input: "",
+      seller_phone_input: "",
     },
     snackbar: {
       snackbar_state: false,
@@ -38,84 +27,52 @@ export default new Vuex.Store({
     toggle_drawer: (state) => {
       state.drawer = true;
     },
-    // next_form: (state) => {
-    //   const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    //   if (state.good_and_product.seller_email_input.match(email_regex)) {
-    //     state.good_and_product.seller_email = false;
-    //     state.good_and_product.seller_phone_number = true;
-    //     state.good_and_product.activate_back_button = true;
-    //   }
-    //   if (state.good_and_product.seller_phone_input != "") {
-    //     state.good_and_product.seller_phone_number = false;
-    //     state.good_and_product.product_name = true;
-    //   }
-    //   if (state.good_and_product.product_name_input != "") {
-    //     state.good_and_product.agreed_price = true;
-    //     state.good_and_product.product_name = false;
-    //   }
-    //   if (state.good_and_product.agreed_price_input != "") {
-    //     state.good_and_product.product_description = true;
-    //     state.good_and_product.agreed_price = false;
-    //   }
-    //   if (state.good_and_product.product_description_input != "") {
-    //     state.good_and_product.product_condition = true;
-    //     state.good_and_product.product_description = false;
-    //   }
-    //   if (state.good_and_product.product_condition_input != "") {
-    //     state.good_and_product.who_handles_delivery = true;
-    //     state.good_and_product.product_condition = false;
-    //     state.good_and_product.activate_next_button = false;
-    //     state.good_and_product.activate_back_button = true;
-    //   }
-    // },
-    // prev_form: (state) => {
-    //   if (state.good_and_product.seller_email == true) {
-    //     state.good_and_product.activate_back_button = false;
-    //   }
-    //   if (state.good_and_product.seller_phone_number == true) {
-    //     state.good_and_product.seller_email = true;
-    //     state.good_and_product.seller_phone_number = false;
-    //     state.good_and_product.seller_phone_input = "";
-    //     state.good_and_product.activate_back_button = false;
-    //   }
-    //   if (state.good_and_product.product_name == true) {
-    //     state.good_and_product.seller_phone_number = true;
-    //     state.good_and_product.product_name = false;
-    //     state.good_and_product.product_name_input = "";
-    //   }
-    //   if (state.good_and_product.agreed_price == true) {
-    //     state.good_and_product.product_name = true;
-    //     state.good_and_product.agreed_price = false;
-    //     state.good_and_product.agreed_price_input = "";
-    //   }
-    //   if (state.good_and_product.product_description == true) {
-    //     state.good_and_product.product_description = false;
-    //     state.good_and_product.agreed_price = true;
-    //     state.good_and_product.product_description_input = "";
-    //   }
-    //   if (state.good_and_product.product_condition == true) {
-    //     state.good_and_product.product_description = true;
-    //     state.good_and_product.product_condition = false;
-    //     state.good_and_product.product_condition_input = "";
-    //   }
-    //   if (state.good_and_product.who_handles_delivery == true) {
-    //     state.good_and_product.who_handles_delivery = false;
-    //     state.good_and_product.product_condition = true;
-    //     state.good_and_product.who_can_handle_delivery_input = "";
-    //   }
-    // },
+    goto_sellers_phone_number: (state) => {
+      const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (state.good_and_product.seller_email_input.match(email_regex)) {
+        router.push("good_and_product_buyer/seller_phone_number");
+      } else {
+        state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter a valid email address`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    goto_product_name: (state) => {
+      if (state.good_and_product.seller_phone_input != "") {
+        router.push("good_and_product_buyer/product_name");
+      } else {
+        state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter a valid phone number`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
   },
   actions: {
     app_bar_route() {
       this.state.app_nav_title = location.pathname;
     },
 
-    // next_form({ commit }) {
-    //   commit("next_form");
-    // },
-    // prev_form({ commit }) {
-    //   commit("prev_form");
-    // }
+    goto_sellers_phone_number({ commit }) {
+      commit("goto_sellers_phone_number");
+    },
+    goto_product_name({ commit }) {
+      commit("goto_product_name");
+    },
+
+    sellers_phone_email() {
+      this.state.good_and_product.activate_back_button = false;
+    },
+    sellers_phone_number() {
+      this.state.good_and_product.activate_back_button = true;
+    },
   },
   modules: {
     app_drawer,
