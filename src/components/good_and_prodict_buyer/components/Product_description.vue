@@ -8,6 +8,7 @@
           good_and_product.activate_back_button == true,
       }"
       color="#4169E2"
+      @click="go_back_to_product_price"
       small
     >
       <v-icon>mdi-arrow-left</v-icon>
@@ -27,6 +28,7 @@
         class="mt-10 rounded-lg"
         label="Product description"
         background-color="#fff"
+        v-model="good_and_product.product_description_input"
         solo
         flat
       ></v-textarea>
@@ -40,6 +42,7 @@
       }"
       color="#4169E2"
       small
+      @click="go_to_product_condition"
     >
       <v-icon>mdi-arrow-right</v-icon>
     </v-btn>
@@ -57,6 +60,7 @@
           interactive_form_sides_button_active:
             good_and_product.activate_back_button == true,
         }"
+        @click="go_back_to_product_price"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -72,6 +76,7 @@
           interactive_form_sides_button_active:
             good_and_product.activate_next_button == true,
         }"
+        @click="go_to_product_condition"
         small
         depressed
       >
@@ -82,8 +87,22 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
+  created() {
+    this.activate_back_button();
+  },
+  mounted() {
+    this.activate_back_button();
+    this.$store.state.good_and_product.activate_next_button = true
+  },
+  methods: {
+    ...mapActions([
+      "go_back_to_product_price",
+      "activate_back_button",
+      "go_to_product_condition",
+    ]),
+  },
   computed: {
     ...mapState(["good_and_product"]),
     good_and_product: {

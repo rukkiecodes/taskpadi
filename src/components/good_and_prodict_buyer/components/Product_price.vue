@@ -95,6 +95,7 @@ export default {
   },
   mounted() {
     this.activate_back_button();
+    this.$store.state.good_and_product.activate_next_button = true
   },
   methods: {
     ...mapActions([

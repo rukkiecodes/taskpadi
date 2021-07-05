@@ -16,7 +16,9 @@ export default new Vuex.Store({
       seller_phone_input: "",
       product_name_input: "",
       product_price_input: "",
-      product_description_input: ""
+      product_description_input: "",
+      handle_delivery_input: "",
+      product_condition_input: ""
     },
     snackbar: {
       snackbar_state: false,
@@ -86,6 +88,34 @@ export default new Vuex.Store({
         };
       }
     },
+    go_to_product_condition: (state) => {
+      if (state.good_and_product.product_description_input != "") {
+        router.push("condition");
+      }
+      else {
+        state.snackbar = {
+          snackbar_state: true,
+          text: `Product description can not be empty`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    go_to_handle_delivery: (state) => {
+      if (state.good_and_product.product_condition_input != "") {
+        router.push("handle_delivery");
+      }
+      else {
+        state.snackbar = {
+          snackbar_state: true,
+          text: `Product condition can not be empty`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
   },
   actions: {
     app_bar_route() {
@@ -104,6 +134,12 @@ export default new Vuex.Store({
     go_to_product_description({ commit }) {
       commit("go_to_product_description");
     },
+    go_to_product_condition({ commit }) {
+      commit("go_to_product_condition");
+    },
+    go_to_handle_delivery({ commit }) {
+      commit("go_to_handle_delivery");
+    },
 
     sellers_phone_email() {
       this.state.good_and_product.activate_back_button = false;
@@ -113,7 +149,10 @@ export default new Vuex.Store({
     },
     go_back_to_seller_email: () =>  router.push("/good_and_product_buyer"),
     go_back_to_seller_phone: () => router.push("seller_phone_number"),
-    go_back_to_product_name: () => router.push("product_name")
+    go_back_to_product_name: () => router.push("product_name"),
+    go_back_to_product_price: () => router.push("product_price"),
+    go_back_to_product_description: () => router.push("product_description"),
+    go_back_to_product_condition: () => router.push("condition")
   },
   modules: {
     app_drawer,

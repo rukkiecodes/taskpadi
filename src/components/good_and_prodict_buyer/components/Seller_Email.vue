@@ -93,6 +93,7 @@ export default {
   },
   mounted() {
     this.sellers_phone_email();
+    this.$store.state.good_and_product.activate_next_button = true
   },
   methods: {
     ...mapActions(["goto_sellers_phone_number", "sellers_phone_email"]),

@@ -91,13 +91,18 @@
 import { mapActions, mapState } from "vuex";
 export default {
   created() {
-    this.activate_back_button()
+    this.activate_back_button();
   },
   mounted() {
-    this.activate_back_button()
+    this.activate_back_button();
+    this.$store.state.good_and_product.activate_next_button = true
   },
   methods: {
-    ...mapActions(["activate_back_button", "goto_product_name", "go_back_to_seller_email"])
+    ...mapActions([
+      "activate_back_button",
+      "goto_product_name",
+      "go_back_to_seller_email",
+    ]),
   },
   computed: {
     ...mapState(["good_and_product"]),
