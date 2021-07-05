@@ -2,20 +2,13 @@ import Vue from "vue";
 import Vuex from "vuex";
 import app_drawer from "./modules/app_drawer";
 import good_and_product_buyer from "./modules/good_and_product_buyer";
-import router from "../router/index";
+import snackbar_state from "./modules/snackbar_state";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
     app_nav_title: "",
-    snackbar: {
-      snackbar_state: false,
-      text: `Hello, I'm a snackbar`,
-      snackbar_color: "",
-      snackbar_button_color: "",
-      snackbar_text_color: "",
-    },
   },
   mutations: {},
   actions: {
@@ -25,7 +18,8 @@ const store = new Vuex.Store({
   },
   modules: {
     app_drawer,
-    good_and_product_buyer
+    good_and_product_buyer,
+    snackbar_state
   },
 });
 

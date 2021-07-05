@@ -1,6 +1,7 @@
 import router from "../../router/index";
+import snackbar_state from "./snackbar_state";
 export default {
-  state: () => ({
+  state: {
     good_and_product: {
       activate_back_button: false,
       activate_next_button: true,
@@ -12,85 +13,85 @@ export default {
       handle_delivery_input: "",
       product_condition_input: "",
     },
-  }),
+  },
   mutations: {
     goto_sellers_phone_number: (state) => {
       const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (state.good_and_product.seller_email_input.match(email_regex)) {
         router.push("good_and_product_buyer/seller_phone_number");
       } else {
-        // state.snackbar = {
-        //   snackbar_state: true,
-        //   text: `Please enter a valid email address`,
-        //   snackbar_color: "red",
-        //   snackbar_button_color: "white",
-        //   snackbar_text_color: "white--text",
-        // };
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter a valid email address`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
       }
     },
     goto_product_name: (state) => {
       if (state.good_and_product.seller_phone_input != "") {
         router.push("product_name");
       } else {
-        // state.snackbar = {
-        //   snackbar_state: true,
-        //   text: `Please enter a valid phone number`,
-        //   snackbar_color: "red",
-        //   snackbar_button_color: "white",
-        //   snackbar_text_color: "white--text",
-        // };
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter a valid phone number`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
       }
     },
     goto_product_price: (state) => {
       if (state.good_and_product.product_name_input != "") {
         router.push("product_price");
       } else {
-        // state.snackbar = {
-        //   snackbar_state: true,
-        //   text: `Please enter product name`,
-        //   snackbar_color: "red",
-        //   snackbar_button_color: "white",
-        //   snackbar_text_color: "white--text",
-        // };
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter product name`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
       }
     },
     go_to_product_description: (state) => {
       if (state.good_and_product.product_price_input != "") {
         router.push("product_description");
       } else {
-        // state.snackbar = {
-        //   snackbar_state: true,
-        //   text: `Product price can not be empty`,
-        //   snackbar_color: "red",
-        //   snackbar_button_color: "white",
-        //   snackbar_text_color: "white--text",
-        // };
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Product price can not be empty`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
       }
     },
     go_to_product_condition: (state) => {
       if (state.good_and_product.product_description_input != "") {
         router.push("condition");
       } else {
-        // state.snackbar = {
-        //   snackbar_state: true,
-        //   text: `Product description can not be empty`,
-        //   snackbar_color: "red",
-        //   snackbar_button_color: "white",
-        //   snackbar_text_color: "white--text",
-        // };
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Product description can not be empty`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
       }
     },
     go_to_handle_delivery: (state) => {
       if (state.good_and_product.product_condition_input != "") {
         router.push("handle_delivery");
       } else {
-        // state.snackbar = {
-        //   snackbar_state: true,
-        //   text: `Product condition can not be empty`,
-        //   snackbar_color: "red",
-        //   snackbar_button_color: "white",
-        //   snackbar_text_color: "white--text",
-        // };
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Product condition can not be empty`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
       }
     },
   },
