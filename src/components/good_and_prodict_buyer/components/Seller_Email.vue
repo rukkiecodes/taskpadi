@@ -5,7 +5,7 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product.activate_back_button == true,
+          good_and_product_buyer.good_and_product.activate_back_button == true,
       }"
       color="#4169E2"
       small
@@ -27,7 +27,7 @@
         class="mt-10 rounded-lg"
         label="Seller email"
         background-color="#fff"
-        v-model="good_and_product.seller_email_input"
+        v-model="good_and_product_buyer.good_and_product.seller_email_input"
         @keypress.enter="goto_sellers_phone_number"
         solo
         flat
@@ -38,7 +38,7 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product.activate_next_button == true,
+          good_and_product_buyer.good_and_product.activate_next_button == true,
       }"
       @click="goto_sellers_phone_number"
       color="#4169E2"
@@ -58,7 +58,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button ==
+            true,
         }"
         small
       >
@@ -73,7 +74,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button ==
+            true,
         }"
         small
         depressed
@@ -90,24 +92,21 @@ import { mapActions, mapState } from "vuex";
 export default {
   created() {
     this.sellers_phone_email();
+    this.activate_next_button();
   },
   mounted() {
     this.sellers_phone_email();
-    this.$store.state.good_and_product.activate_next_button = true
+    this.activate_next_button();
   },
   methods: {
-    ...mapActions(["goto_sellers_phone_number", "sellers_phone_email"]),
+    ...mapActions([
+      "goto_sellers_phone_number",
+      "sellers_phone_email",
+      "activate_next_button",
+    ]),
   },
   computed: {
-    ...mapState(["good_and_product"]),
-    good_and_product: {
-      get() {
-        return this.$store.state.good_and_product;
-      },
-      set(new_value) {
-        this.$store.state.good_and_product = new_value;
-      },
-    },
+    ...mapState(["good_and_product_buyer"]),
   },
 };
 </script>

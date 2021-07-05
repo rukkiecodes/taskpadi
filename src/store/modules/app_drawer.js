@@ -16,6 +16,5 @@ export default {
     toggle_drawer: (state) => {
       state.drawer = true;
     },
-  },
-  actions: {},
+  }
 };

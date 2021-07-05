@@ -5,7 +5,7 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product.activate_back_button == true,
+          good_and_product_buyer.good_and_product.activate_back_button == true,
       }"
       @click="go_back_to_product_condition"
       color="#4169E2"
@@ -28,7 +28,7 @@
         class="mt-10 rounded-lg"
         label="Who should handle delivery"
         background-color="#fff"
-        v-model="good_and_product.handle_delivery_input"
+        v-model="good_and_product_buyer.good_and_product.handle_delivery_input"
         solo
         flat
       ></v-text-field>
@@ -38,7 +38,7 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product.activate_next_button == true,
+          good_and_product_buyer.good_and_product.activate_next_button == true,
       }"
       color="#4169E2"
       small
@@ -57,7 +57,7 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button == true,
         }"
         @click="go_back_to_product_condition"
         small
@@ -73,7 +73,7 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button == true,
         }"
         small
         depressed
@@ -89,27 +89,21 @@ import { mapActions, mapState } from "vuex";
 export default {
   created() {
     this.activate_back_button();
+    this.deactivate_next_button();
   },
   mounted() {
     this.activate_back_button();
-    this.$store.state.good_and_product.activate_next_button = false
+    this.deactivate_next_button();
   },
   methods: {
     ...mapActions([
       "go_back_to_product_condition",
       "activate_back_button",
+      "deactivate_next_button",
     ]),
   },
   computed: {
-    ...mapState(["good_and_product"]),
-    good_and_product: {
-      get() {
-        return this.$store.state.good_and_product;
-      },
-      set(new_value) {
-        this.$store.state.good_and_product = new_value;
-      },
-    },
+    ...mapState(["good_and_product_buyer"]),
   },
 };
 </script>

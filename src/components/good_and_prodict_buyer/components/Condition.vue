@@ -5,7 +5,7 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product.activate_back_button == true,
+          good_and_product_buyer.good_and_product.activate_back_button == true,
       }"
       @click="go_back_to_product_description"
       color="#4169E2"
@@ -28,7 +28,7 @@
         class="mt-10 rounded-lg"
         label="Product condition"
         background-color="#fff"
-        v-model="good_and_product.product_condition_input"
+        v-model="good_and_product_buyer.good_and_product.product_condition_input"
         @keypress.enter="go_to_handle_delivery"
         solo
         flat
@@ -39,7 +39,7 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product.activate_next_button == true,
+          good_and_product_buyer.good_and_product.activate_next_button == true,
       }"
       @click="go_to_handle_delivery"
       color="#4169E2"
@@ -59,7 +59,7 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button == true,
         }"
         @click="go_back_to_product_description"
         small
@@ -75,7 +75,7 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button == true,
         }"
         @click="go_to_handle_delivery"
         small
@@ -92,28 +92,30 @@ import { mapActions, mapState } from "vuex";
 export default {
   created() {
     this.activate_back_button();
+    this.activate_next_button();
   },
   mounted() {
     this.activate_back_button();
-    this.$store.state.good_and_product.activate_next_button = true
+    this.activate_next_button();
   },
   methods: {
     ...mapActions([
       "activate_back_button",
+      "activate_next_button",
       "go_back_to_product_description",
       "go_to_handle_delivery",
     ]),
   },
   computed: {
-    ...mapState(["good_and_product"]),
-    good_and_product: {
-      get() {
-        return this.$store.state.good_and_product;
-      },
-      set(new_value) {
-        this.$store.state.good_and_product = new_value;
-      },
-    },
+    ...mapState(["good_and_product_buyer"]),
+    // good_and_product: {
+    //   get() {
+    //     return this.$store.state.good_and_product;
+    //   },
+    //   set(new_value) {
+    //     this.$store.state.good_and_product = new_value;
+    //   },
+    // },
   },
 };
 </script>

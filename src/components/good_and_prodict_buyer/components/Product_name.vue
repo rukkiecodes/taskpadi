@@ -5,7 +5,7 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product.activate_back_button == true,
+          good_and_product_buyer.good_and_product.activate_back_button == true,
       }"
       color="#4169E2"
       @click="go_back_to_seller_phone"
@@ -28,7 +28,7 @@
         class="mt-10 rounded-lg"
         label="Product name"
         background-color="#fff"
-        v-model="good_and_product.product_name_input"
+        v-model="good_and_product_buyer.good_and_product.product_name_input"
         @keypress.enter="goto_product_price"
         solo
         flat
@@ -39,7 +39,7 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product.activate_next_button == true,
+          good_and_product_buyer.good_and_product.activate_next_button == true,
       }"
       @click="goto_product_price"
       color="#4169E2"
@@ -59,7 +59,7 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button == true,
         }"
         @click="go_back_to_seller_phone"
         small
@@ -75,7 +75,7 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button == true,
         }"
         @click="goto_product_price"
         small
@@ -92,28 +92,22 @@ import { mapActions, mapState } from "vuex";
 export default {
   created() {
     this.activate_back_button();
+    this.activate_next_button();
   },
   mounted() {
     this.activate_back_button();
-    this.$store.state.good_and_product.activate_next_button = true
+    this.activate_next_button();
   },
   methods: {
     ...mapActions([
       "go_back_to_seller_phone",
       "activate_back_button",
+      "activate_next_button",
       "goto_product_price",
     ]),
   },
   computed: {
-    ...mapState(["good_and_product"]),
-    good_and_product: {
-      get() {
-        return this.$store.state.good_and_product;
-      },
-      set(new_value) {
-        this.$store.state.good_and_product = new_value;
-      },
-    },
+    ...mapState(["good_and_product_buyer"]),
   },
 };
 </script>
