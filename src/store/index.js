@@ -6,7 +6,7 @@ import snackbar_state from "./modules/snackbar_state";
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   state: {
     app_nav_title: "",
   },
@@ -22,5 +22,3 @@ const store = new Vuex.Store({
     snackbar_state
   },
 });
-
-export default store

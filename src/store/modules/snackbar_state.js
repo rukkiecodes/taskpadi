@@ -8,7 +8,4 @@ export default {
       snackbar_text_color: "",
     },
   },
-  mutations: {},
-  actions: {},
-  getters: {},
 };

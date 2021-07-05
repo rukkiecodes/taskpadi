@@ -6,6 +6,24 @@
   align-items: center;
 
   .interactive_form_sides {
+    .tracks {
+      // width: 2em;
+      // height: .3em;
+      // background: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2em;
+      .track {
+        width: 2em;
+        height: .4em;
+        border-radius: 20px;
+        background: rgba(85, 85, 85, .2);
+      }
+      .active_track {
+        background: #4169E2;
+      }
+    }
     .seller_email {
       display: flex;
       justify-content: center;
@@ -35,7 +53,7 @@
         align-items: center;
         text-align: center;
         background: rgba(65, 105, 226, 0.1);
-        width: 60%;
+        width: 70%;
 
         @include mobile {
           width: 100%;

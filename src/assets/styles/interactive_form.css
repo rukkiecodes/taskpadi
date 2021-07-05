@@ -111,6 +111,30 @@
           align-items: center;
 }
 
+.interactive_form .interactive_form_sides .tracks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2em;
+}
+
+.interactive_form .interactive_form_sides .tracks .track {
+  width: 2em;
+  height: .4em;
+  border-radius: 20px;
+  background: rgba(85, 85, 85, 0.2);
+}
+
+.interactive_form .interactive_form_sides .tracks .active_track {
+  background: #4169E2;
+}
+
 .interactive_form .interactive_form_sides .seller_email {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -164,7 +188,7 @@
           align-items: center;
   text-align: center;
   background: rgba(65, 105, 226, 0.1);
-  width: 60%;
+  width: 70%;
 }
 
 @media (max-width: 768px) {
