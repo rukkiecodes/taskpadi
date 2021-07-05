@@ -9,6 +9,7 @@
       }"
       color="#4169E2"
       small
+      @click="go_back_to_seller_email"
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
@@ -41,6 +42,7 @@
           good_and_product.activate_next_button == true,
       }"
       color="#4169E2"
+      @click="goto_product_name"
       small
     >
       <v-icon>mdi-arrow-right</v-icon>
@@ -59,6 +61,7 @@
           interactive_form_sides_button_active:
             good_and_product.activate_back_button == true,
         }"
+        @click="go_back_to_seller_email"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -74,6 +77,7 @@
           interactive_form_sides_button_active:
             good_and_product.activate_next_button == true,
         }"
+        @click="goto_product_name"
         small
         depressed
       >
@@ -87,13 +91,13 @@
 import { mapActions, mapState } from "vuex";
 export default {
   created() {
-    this.sellers_phone_number()
+    this.activate_back_button()
   },
   mounted() {
-    this.sellers_phone_number()
+    this.activate_back_button()
   },
   methods: {
-    ...mapActions(["sellers_phone_number", "goto_product_name"])
+    ...mapActions(["activate_back_button", "goto_product_name", "go_back_to_seller_email"])
   },
   computed: {
     ...mapState(["good_and_product"]),

@@ -14,6 +14,7 @@ export default new Vuex.Store({
       activate_next_button: true,
       seller_email_input: "",
       seller_phone_input: "",
+      product_name_input: ""
     },
     snackbar: {
       snackbar_state: false,
@@ -43,11 +44,27 @@ export default new Vuex.Store({
     },
     goto_product_name: (state) => {
       if (state.good_and_product.seller_phone_input != "") {
-        router.push("good_and_product_buyer/product_name");
-      } else {
+        router.push("product_name");
+      }
+      else {
         state.snackbar = {
           snackbar_state: true,
           text: `Please enter a valid phone number`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    goto_product_price: (state) => {
+      console.log(state);
+      if (state.good_and_product.product_name_input != "") {
+        router.push("product_price");
+      }
+      else {
+        state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter product price`,
           snackbar_color: "red",
           snackbar_button_color: "white",
           snackbar_text_color: "white--text",
@@ -66,13 +83,18 @@ export default new Vuex.Store({
     goto_product_name({ commit }) {
       commit("goto_product_name");
     },
+    goto_product_price({ commit }) {
+      commit("goto_product_price");
+    },
 
     sellers_phone_email() {
       this.state.good_and_product.activate_back_button = false;
     },
-    sellers_phone_number() {
+    activate_back_button() {
       this.state.good_and_product.activate_back_button = true;
     },
+    go_back_to_seller_email: () =>  router.push("/good_and_product_buyer"),
+    go_back_to_seller_phone: () => router.push("seller_phone_number")
   },
   modules: {
     app_drawer,

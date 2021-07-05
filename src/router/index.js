@@ -12,7 +12,7 @@ import Good_and_prodict_buyer from "../views/Good_and_prodict_buyer.vue";
 import Seller_Email from "../components/good_and_prodict_buyer/components/Seller_Email.vue";
 import Seller_phone_number from "../components/good_and_prodict_buyer/components/Sellers_phone_number.vue"
 import Product_name from "../components/good_and_prodict_buyer/components/Product_name.vue"
-import Agree_price from "../components/good_and_prodict_buyer/components/Agreed_price.vue"
+import Product_price from "../components/good_and_prodict_buyer/components/Product_price.vue"
 import Product_description from "../components/good_and_prodict_buyer/components/Product_description.vue"
 import Condition from "../components/good_and_prodict_buyer/components/Condition.vue"
 import Handle_delivery from "../components/good_and_prodict_buyer/components/Handle_delivery.vue"
@@ -76,9 +76,9 @@ const routes = [
         component: Product_name
       },
       {
-        path: "agree_price",
-        name: "agree price",
-        component: Agree_price
+        path: "product_price",
+        name: "product price",
+        component: Product_price
       },
       {
         path: "product_description",
