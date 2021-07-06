@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import Tracks from "./components/Tracks.vue"
+import Tracks from "./components/Tracks.vue";
 export default {
   components: {
-    Tracks
-  }
-}
+    Tracks,
+  },
+};
 </script>
 
 <style scoped>

@@ -11,37 +11,50 @@
     <div
       class="track mx-2"
       :class="{
-        active_track: good_and_product_buyer.good_and_product.track_2 == true,
+        active_track:
+          good_and_product_buyer.good_and_product.track_2 == true ||
+          good_and_product_buyer.good_and_product.seller_phone_input != '',
       }"
     ></div>
     <div
       class="track mx-2"
       :class="{
-        active_track: good_and_product_buyer.good_and_product.track_3 == true,
+        active_track:
+          good_and_product_buyer.good_and_product.track_3 == true ||
+          good_and_product_buyer.good_and_product.product_name_input != '',
       }"
     ></div>
     <div
       class="track mx-2"
       :class="{
-        active_track: good_and_product_buyer.good_and_product.track_4 == true,
+        active_track:
+          good_and_product_buyer.good_and_product.track_4 == true ||
+          good_and_product_buyer.good_and_product.product_price_input != '',
       }"
     ></div>
     <div
       class="track mx-2"
       :class="{
-        active_track: good_and_product_buyer.good_and_product.track_5 == true,
+        active_track:
+          good_and_product_buyer.good_and_product.track_5 == true ||
+          good_and_product_buyer.good_and_product.product_description_input !=
+            '',
       }"
     ></div>
     <div
       class="track mx-2"
       :class="{
-        active_track: good_and_product_buyer.good_and_product.track_6 == true,
+        active_track:
+          good_and_product_buyer.good_and_product.track_6 == true ||
+          good_and_product_buyer.good_and_product.product_condition_input != '',
       }"
     ></div>
     <div
       class="track mx-2"
       :class="{
-        active_track: good_and_product_buyer.good_and_product.track_7 == true,
+        active_track:
+          good_and_product_buyer.good_and_product.track_7 == true ||
+          good_and_product_buyer.good_and_product.handle_delivery_input != '',
       }"
     ></div>
   </div>

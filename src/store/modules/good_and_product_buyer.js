@@ -10,8 +10,8 @@ export default {
       product_name_input: "",
       product_price_input: "",
       product_description_input: "",
-      handle_delivery_input: "",
       product_condition_input: "",
+      handle_delivery_input: "",
       track_1: false,
       track_2: false,
       track_3: false,
@@ -40,6 +40,7 @@ export default {
     goto_product_name: (state) => {
       if (state.good_and_product.seller_phone_input != "") {
         router.push("product_name");
+        state.good_and_product.track_2 = true;
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -53,6 +54,7 @@ export default {
     goto_product_price: (state) => {
       if (state.good_and_product.product_name_input != "") {
         router.push("product_price");
+        state.good_and_product.track_3 = true;
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -66,6 +68,7 @@ export default {
     go_to_product_description: (state) => {
       if (state.good_and_product.product_price_input != "") {
         router.push("product_description");
+        state.good_and_product.track_4 = true;
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -79,6 +82,7 @@ export default {
     go_to_product_condition: (state) => {
       if (state.good_and_product.product_description_input != "") {
         router.push("condition");
+        state.good_and_product.track_5 = true;
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -92,6 +96,7 @@ export default {
     go_to_handle_delivery: (state) => {
       if (state.good_and_product.product_condition_input != "") {
         router.push("handle_delivery");
+        state.good_and_product.track_6 = true;
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -137,15 +142,42 @@ export default {
     },
     go_back_to_seller_email() {
       router.push("/good_and_product_buyer");
-      this.state.good_and_product_buyer.good_and_product.track_1 = false;
+      this.state.good_and_product_buyer.good_and_product.track_2 = false;
     },
-    go_back_to_seller_phone: () => router.push("seller_phone_number"),
-    go_back_to_product_name: () => router.push("product_name"),
-    go_back_to_product_price: () => router.push("product_price"),
-    go_back_to_product_description: () => router.push("product_description"),
+    go_back_to_seller_phone() {
+      router.push("seller_phone_number");
+      this.state.good_and_product_buyer.good_and_product.track_3 = false;
+    },
+    go_back_to_product_name() {
+      router.push("product_name");
+      this.state.good_and_product_buyer.good_and_product.track_4 = false;
+    },
+    go_back_to_product_price() {
+      router.push("product_price");
+      this.state.good_and_product_buyer.good_and_product.track_5 = false;
+    },
+    go_back_to_product_description() {
+      router.push("product_description");
+      this.state.good_and_product_buyer.good_and_product.track_6 = false;
+    },
     go_back_to_product_condition: () => router.push("condition"),
     activate_track_1() {
       this.state.good_and_product_buyer.good_and_product.track_1 = true;
+    },
+    activate_track_2() {
+      this.state.good_and_product_buyer.good_and_product.track_2 = true;
+    },
+    activate_track_3() {
+      this.state.good_and_product_buyer.good_and_product.track_3 = true;
+    },
+    activate_track_4() {
+      this.state.good_and_product_buyer.good_and_product.track_4 = true;
+    },
+    activate_track_5() {
+      this.state.good_and_product_buyer.good_and_product.track_5 = true;
+    },
+    activate_track_6() {
+      this.state.good_and_product_buyer.good_and_product.track_6 = true;
     },
   },
   getters: {},

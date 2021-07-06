@@ -97,6 +97,12 @@ export default {
   mounted() {
     this.activate_back_button();
     this.activate_next_button();
+    this.activate_track_1();
+    this.activate_track_2();
+    this.activate_track_3();
+    this.activate_track_4();
+    this.activate_track_5();
+    this.activate_track_6();
   },
   methods: {
     ...mapActions([
@@ -104,6 +110,12 @@ export default {
       "activate_next_button",
       "go_back_to_product_description",
       "go_to_handle_delivery",
+      "activate_track_1",
+      "activate_track_2",
+      "activate_track_3",
+      "activate_track_4",
+      "activate_track_5",
+      "activate_track_6",
     ]),
   },
   computed: {
