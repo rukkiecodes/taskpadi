@@ -10,7 +10,6 @@ export default new Vuex.Store({
   state: {
     app_nav_title: "",
   },
-  mutations: {},
   actions: {
     app_bar_route() {
       this.state.app_nav_title = location.pathname;

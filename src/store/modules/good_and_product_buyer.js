@@ -12,6 +12,13 @@ export default {
       product_description_input: "",
       handle_delivery_input: "",
       product_condition_input: "",
+      track_1: false,
+      track_2: false,
+      track_3: false,
+      track_4: false,
+      track_5: false,
+      track_6: false,
+      track_7: false,
     },
   },
   mutations: {
@@ -19,6 +26,7 @@ export default {
       const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (state.good_and_product.seller_email_input.match(email_regex)) {
         router.push("good_and_product_buyer/seller_phone_number");
+        state.good_and_product.track_1 = true;
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -116,23 +124,29 @@ export default {
     },
 
     sellers_phone_email() {
-        this.state.good_and_product_buyer.good_and_product.activate_back_button = false;
+      this.state.good_and_product_buyer.good_and_product.activate_back_button = false;
     },
     activate_back_button() {
-        this.state.good_and_product_buyer.good_and_product.activate_back_button = true;
+      this.state.good_and_product_buyer.good_and_product.activate_back_button = true;
     },
     activate_next_button() {
-        this.state.good_and_product_buyer.good_and_product.activate_next_button = true;
+      this.state.good_and_product_buyer.good_and_product.activate_next_button = true;
     },
     deactivate_next_button() {
-        this.state.good_and_product_buyer.good_and_product.activate_next_button = false;
+      this.state.good_and_product_buyer.good_and_product.activate_next_button = false;
     },
-    go_back_to_seller_email: () => router.push("/good_and_product_buyer"),
+    go_back_to_seller_email() {
+      router.push("/good_and_product_buyer");
+      this.state.good_and_product_buyer.good_and_product.track_1 = false;
+    },
     go_back_to_seller_phone: () => router.push("seller_phone_number"),
     go_back_to_product_name: () => router.push("product_name"),
     go_back_to_product_price: () => router.push("product_price"),
     go_back_to_product_description: () => router.push("product_description"),
     go_back_to_product_condition: () => router.push("condition"),
+    activate_track_1() {
+      this.state.good_and_product_buyer.good_and_product.track_1 = true;
+    },
   },
   getters: {},
 };

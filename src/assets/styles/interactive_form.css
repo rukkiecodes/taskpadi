@@ -131,6 +131,13 @@
   background: rgba(85, 85, 85, 0.2);
 }
 
+@media (max-width: 768px) {
+  .interactive_form .interactive_form_sides .tracks .track {
+    width: 1.8em;
+    height: .3em;
+  }
+}
+
 .interactive_form .interactive_form_sides .tracks .active_track {
   background: #4169E2;
 }

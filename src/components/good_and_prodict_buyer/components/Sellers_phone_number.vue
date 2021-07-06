@@ -97,6 +97,7 @@ export default {
   mounted() {
     this.activate_back_button();
     this.activate_next_button();
+    this.activate_track_1()
   },
   methods: {
     ...mapActions([
@@ -104,6 +105,7 @@ export default {
       "goto_product_name",
       "activate_next_button",
       "go_back_to_seller_email",
+      "activate_track_1"
     ]),
   },
   computed: {

@@ -97,12 +97,14 @@ export default {
   mounted() {
     this.sellers_phone_email();
     this.activate_next_button();
+    this.app_bar_route();
   },
   methods: {
     ...mapActions([
       "goto_sellers_phone_number",
       "sellers_phone_email",
       "activate_next_button",
+      "app_bar_route"
     ]),
   },
   computed: {
