@@ -23,16 +23,17 @@
       <div class="icon mt-5">
         <v-icon size="50" class="white--text">mdi-flash-circle</v-icon>
       </div>
-      <v-text-field
+      <v-select
         style="width: 100%"
         class="mt-10 rounded-lg"
+        :items="items"
         label="Product condition"
-        background-color="#fff"
-        v-model="good_and_product_buyer.good_and_product.product_condition_input"
-        @keypress.enter="go_to_handle_delivery"
+        append-icon="mdi-chevron-down"
+        color="#4468E2"
+        @change="select_value"
         solo
         flat
-      ></v-text-field>
+      ></v-select>
     </div>
     <v-btn
       depressed
@@ -59,7 +60,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button ==
+            true,
         }"
         @click="go_back_to_product_description"
         small
@@ -75,7 +77,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button ==
+            true,
         }"
         @click="go_to_handle_delivery"
         small
@@ -90,6 +93,9 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
+  data: () => ({
+    items: ["Brand New", "Fairly used", "Old"],
+  }),
   created() {
     this.activate_back_button();
     this.activate_next_button();
@@ -117,6 +123,9 @@ export default {
       "activate_track_5",
       "activate_track_6",
     ]),
+    select_value(e) {
+      this.good_and_product_buyer.good_and_product.product_condition_input = e
+    },
   },
   computed: {
     ...mapState(["good_and_product_buyer"]),
