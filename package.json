@@ -15,6 +15,7 @@
     "scrollmagic": "^2.0.8",
     "smooth-vuebar": "^1.4.0",
     "vue": "^2.6.11",
+    "vue-cookies": "^1.7.4",
     "vue-country-code": "^1.1.2",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.2.0",

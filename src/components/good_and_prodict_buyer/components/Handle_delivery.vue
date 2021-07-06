@@ -38,7 +38,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          good_and_product_buyer.good_and_product.activate_next_button == true,
+          good_and_product_buyer.good_and_product.activate_next_button ==
+            true ||
+          good_and_product_buyer.good_and_product.handle_delivery_input != '',
       }"
       color="#4169E2"
       small
@@ -57,7 +59,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button ==
+            true,
         }"
         @click="go_back_to_product_condition"
         small
@@ -73,7 +76,9 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button ==
+              true ||
+            good_and_product_buyer.good_and_product.handle_delivery_input != '',
         }"
         small
         depressed
@@ -94,12 +99,24 @@ export default {
   mounted() {
     this.activate_back_button();
     this.deactivate_next_button();
+    this.activate_track_1();
+    this.activate_track_2();
+    this.activate_track_3();
+    this.activate_track_4();
+    this.activate_track_5();
+    this.activate_track_6();
   },
   methods: {
     ...mapActions([
       "go_back_to_product_condition",
       "activate_back_button",
       "deactivate_next_button",
+      "activate_track_1",
+      "activate_track_2",
+      "activate_track_3",
+      "activate_track_4",
+      "activate_track_5",
+      "activate_track_6",
     ]),
   },
   computed: {

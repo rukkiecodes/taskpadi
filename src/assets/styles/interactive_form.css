@@ -99,7 +99,7 @@
 /* ----------- Apple Watch ----------- */
 /* ----------- Moto 360 Watch ----------- */
 .interactive_form {
-  height: 95vh;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,6 +109,19 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (max-width: 768px) {
+  .interactive_form {
+    height: initial;
+    margin-top: 6em;
+  }
+}
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+  .interactive_form {
+    margin-top: 20em;
+  }
 }
 
 .interactive_form .interactive_form_sides .tracks {
@@ -121,24 +134,39 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 2em;
 }
 
 .interactive_form .interactive_form_sides .tracks .track {
   width: 2em;
-  height: .4em;
+  height: 0.4em;
   border-radius: 20px;
   background: rgba(85, 85, 85, 0.2);
 }
 
 @media (max-width: 768px) {
   .interactive_form .interactive_form_sides .tracks .track {
-    width: 1.8em;
-    height: .3em;
+    width: 0.5em;
+    height: 0.5em;
+  }
+}
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+  .interactive_form .interactive_form_sides .tracks .track {
+    width: 2em;
+    height: 0.4em;
+  }
+}
+
+@media only screen and (device-width: 800px) and (device-height: 1280px) {
+  .interactive_form .interactive_form_sides .tracks .track {
+    width: 1.5em;
+    height: 0.5em;
   }
 }
 
 .interactive_form .interactive_form_sides .tracks .active_track {
-  background: #4169E2;
+  background: #4169e2;
 }
 
 .interactive_form .interactive_form_sides .seller_email {
@@ -162,6 +190,15 @@
   }
 }
 
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+  .interactive_form .interactive_form_sides .seller_email {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_button {
   background: rgba(85, 85, 85, 0.2) !important;
   color: #fff;
@@ -171,6 +208,12 @@
 @media (max-width: 768px) {
   .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_button {
     display: none;
+  }
+}
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_button {
+    display: initial;
   }
 }
 
@@ -198,6 +241,36 @@
 }
 
 @media (max-width: 768px) {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
+    width: 95%;
+  }
+}
+
+@media only screen and (device-width: 320px) and (device-height: 568px) {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
+    width: 100%;
+  }
+}
+
+@media only screen and (device-width: 375px) and (device-height: 667px) {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
+    width: 100%;
+  }
+}
+
+@media only screen and (device-width: 414px) and (device-height: 736px) {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
+    width: 100%;
+  }
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) {
+  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
+    width: 100%;
+  }
+}
+
+@media only screen and (device-width: 280px) and (device-height: 653px) {
   .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
     width: 100%;
   }
@@ -268,5 +341,14 @@
 
 .interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button_active {
   background: #4169e2;
+}
+
+@media (max-width: 768px) {
+  .interactive_form .interactive_form_sides .product_description {
+    margin-bottom: -5em !important;
+  }
+  .interactive_form .interactive_form_sides .product_description .interactive_form_mobile_buttons {
+    margin-top: 5em !important;
+  }
 }
 /*# sourceMappingURL=interactive_form.css.map */

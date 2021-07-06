@@ -1,29 +1,45 @@
 @import "./settings/mediaQuery";
 .interactive_form {
-  height: 95vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include mobile {
+    height: initial;
+    margin-top: 6em;
+  }
+  @media only screen and (device-width: 768px) and (device-height: 1024px) {
+    margin-top: 20em;
+  }
 
   .interactive_form_sides {
     .tracks {
       display: flex;
       justify-content: center;
       align-items: center;
-      // margin-bottom: 2em;
+      margin-bottom: 2em;
       .track {
         width: 2em;
-        height: .4em;
+        height: 0.4em;
         border-radius: 20px;
-        background: rgba(85, 85, 85, .2);
+        background: rgba(85, 85, 85, 0.2);
 
         @include mobile {
-          width: 1.8em;
-          height: .3em;
+          width: 0.5em;
+          height: 0.5em;
+        }
+        @media only screen and (device-width: 768px) and (device-height: 1024px) {
+          width: 2em;
+          height: 0.4em;
+        }
+        @media only screen and (device-width: 800px) and (device-height: 1280px) {
+          width: 1.5em;
+          height: 0.5em;
         }
       }
       .active_track {
-        background: #4169E2;
+        background: #4169e2;
       }
     }
     .seller_email {
@@ -34,6 +50,9 @@
       @include mobile {
         flex-direction: column;
       }
+      @media only screen and (device-width: 768px) and (device-height: 1024px) {
+        flex-direction: row;
+      }
 
       .interactive_form_sides_button {
         background: rgba(85, 85, 85, 0.2) !important;
@@ -41,6 +60,9 @@
         height: 4em;
         @include mobile {
           display: none;
+        }
+        @media only screen and (device-width: 768px) and (device-height: 1024px) {
+          display: initial;
         }
       }
 
@@ -58,6 +80,21 @@
         width: 70%;
 
         @include mobile {
+          width: 95%;
+        }
+        @media only screen and (device-width: 320px) and (device-height: 568px) {
+          width: 100%;
+        }
+        @media only screen and (device-width: 375px) and (device-height: 667px) {
+          width: 100%;
+        }
+        @media only screen and (device-width: 414px) and (device-height: 736px) {
+          width: 100%;
+        }
+        @media only screen and (device-width: 375px) and (device-height: 812px) {
+          width: 100%;
+        }
+        @media only screen and (device-width: 280px) and (device-height: 653px) {
           width: 100%;
         }
 
@@ -107,6 +144,16 @@
         }
         .interactive_form_mobile_buttons_button_active {
           background: #4169e2;
+        }
+      }
+    }
+
+    .product_description {
+      @include mobile {
+        margin-bottom: -5em !important;
+
+        .interactive_form_mobile_buttons {
+          margin-top: 5em !important;
         }
       }
     }

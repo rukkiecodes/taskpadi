@@ -1,5 +1,5 @@
 <template>
-  <div class="seller_email">
+  <div class="seller_email product_description">
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -13,7 +13,7 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0 mb-n12">
       <div class="texts">
         <p class="text-h6">Product description</p>
         <p class="text-caption mt-n3">
