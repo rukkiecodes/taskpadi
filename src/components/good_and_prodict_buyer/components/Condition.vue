@@ -26,8 +26,8 @@
       <v-select
         style="width: 100%"
         class="mt-10 rounded-lg"
-        :items="items"
-        label="Product condition"
+        :items="product_condition"
+        :label="product_condition[0]"
         append-icon="mdi-chevron-down"
         color="#4468E2"
         @change="select_value"
@@ -94,7 +94,7 @@
 import { mapActions, mapState } from "vuex";
 export default {
   data: () => ({
-    items: ["Brand New", "Fairly used", "Old"],
+    product_condition: ["Brand New", "Fairly used", "Old"],
   }),
   created() {
     this.activate_back_button();
