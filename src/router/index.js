@@ -19,6 +19,7 @@ import Handle_delivery from "../components/good_and_prodict_buyer/components/Han
 import Delivery_info from "../components/delivery_info/Delivery_info.vue"
 import Delivery_info_product_name from "../components/delivery_info/components/Product_name.vue"
 import Product_size from "../components/delivery_info/components/Product_size.vue"
+import Product_image from "../components/delivery_info/components/Product_image.vue"
 
 Vue.use(VueRouter);
 
@@ -114,6 +115,11 @@ const routes = [
         path: "product_size",
         name: "product size",
         component: Product_size,
+      },
+      {
+        path: "product_image",
+        name: "product image",
+        component: Product_image,
       },
     ]
   },
