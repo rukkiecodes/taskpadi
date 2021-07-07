@@ -51,7 +51,10 @@
         dense
       ></v-slider>
       <v-btn
-        @click="delivery_info.delivery.mesurment_unit_visibility = true"
+        @click="
+          delivery_info.delivery.mesurment_unit_visibility =
+            !delivery_info.delivery.mesurment_unit_visibility
+        "
         depressed
         class="white--text text-capitalize mb-5 rounded-lg"
         block
