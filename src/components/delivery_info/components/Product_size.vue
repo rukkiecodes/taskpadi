@@ -31,8 +31,11 @@
 
       <div class="mt-5">
         <p class="text-h6">Size</p>
-        <p class="mt-n3 text-body-2">
-          {{ delivery_info.delivery.product_size }}: 
+        <p
+          @click="delivery_info.delivery.mesurment_unit_visibility = true"
+          class="mt-n3 text-body-2"
+        >
+          {{ delivery_info.delivery.product_size }}:
           {{ delivery_info.delivery.mesurment_unit }}
         </p>
       </div>
