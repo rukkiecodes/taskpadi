@@ -18,6 +18,7 @@ import Condition from "../components/good_and_prodict_buyer/components/Condition
 import Handle_delivery from "../components/good_and_prodict_buyer/components/Handle_delivery.vue"
 import Delivery_info from "../components/delivery_info/Delivery_info.vue"
 import Delivery_info_product_name from "../components/delivery_info/components/Product_name.vue"
+import Product_size from "../components/delivery_info/components/Product_size.vue"
 
 Vue.use(VueRouter);
 
@@ -108,7 +109,12 @@ const routes = [
         path: "",
         name: "delivery info product name",
         component: Delivery_info_product_name,
-      }
+      },
+      {
+        path: "product_size",
+        name: "product size",
+        component: Product_size,
+      },
     ]
   },
   {

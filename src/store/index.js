@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import app_drawer from "./modules/app_drawer";
 import good_and_product_buyer from "./modules/good_and_product_buyer";
 import snackbar_state from "./modules/snackbar_state";
+import delivery_info from "./modules/delivery_info"
 
 Vue.use(Vuex);
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   modules: {
     app_drawer,
     good_and_product_buyer,
-    snackbar_state
+    snackbar_state,
+    delivery_info
   },
 });

@@ -23,6 +23,7 @@
         class="mt-10 rounded-lg"
         label="Product name"
         background-color="#fff"
+        v-model="delivery_info.delivery.product_name_input"
         solo
         flat
       ></v-text-field>
@@ -67,6 +68,10 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
+  computed: {
+    ...mapState(["delivery_info"])
+  }
 };
 </script>
