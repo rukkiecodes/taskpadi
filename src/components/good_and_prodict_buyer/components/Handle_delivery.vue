@@ -43,6 +43,7 @@
           good_and_product_buyer.good_and_product.handle_delivery_input != '',
       }"
       color="#4169E2"
+      @click="proceed_to_delivery_info"
       small
     >
       <v-icon>mdi-arrow-right</v-icon>
@@ -80,6 +81,7 @@
               true ||
             good_and_product_buyer.good_and_product.handle_delivery_input != '',
         }"
+        @click="proceed_to_delivery_info"
         small
         depressed
       >
@@ -117,6 +119,7 @@ export default {
       "activate_track_4",
       "activate_track_5",
       "activate_track_6",
+      "proceed_to_delivery_info"
     ]),
   },
   computed: {

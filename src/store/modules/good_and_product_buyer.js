@@ -107,6 +107,19 @@ export default {
         };
       }
     },
+    proceed_to_delivery_info: state => {
+      if(state.good_and_product.handle_delivery_input != '') {
+        router.push("/delivery_info")
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Handle delivery can not be empty`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    }
   },
   actions: {
     goto_sellers_phone_number({ commit }) {
@@ -179,6 +192,9 @@ export default {
     activate_track_6() {
       this.state.good_and_product_buyer.good_and_product.track_6 = true;
     },
+    proceed_to_delivery_info({ commit }) {
+      commit("proceed_to_delivery_info")
+    }
   },
   getters: {},
 };
