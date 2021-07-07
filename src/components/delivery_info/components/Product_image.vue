@@ -1,5 +1,5 @@
 <template>
-  <div class="seller_email product_name">
+  <div class="seller_email">
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -8,7 +8,7 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card green accent-1 rounded-xl mx-4 pa-5 pb-0">
+    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
         <p class="text-h6">Product name</p>
         <p class="text-caption mt-n3">
@@ -16,21 +16,28 @@
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-shopping-outline</v-icon>
+        <v-icon size="50" class="white--text">mdi-image-outline</v-icon>
       </div>
-      <v-text-field
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Product name"
-        background-color="#fff"
-        v-model="delivery_info.delivery.product_name_input"
+      <v-file-input
+        show-size
+        counter
+        multiple
         solo
+        dense
         flat
-      ></v-text-field>
+        prepend-icon="mdi-image-multiple"
+        label="Select product image"
+        style="width: 100%"
+        class="mt-15 mb-5 rounded-lg"
+        @change="emage_event"
+      ></v-file-input>
     </div>
     <v-btn
       depressed
-      class="rounded-lg interactive_form_sides_button interactive_form_sides_button_active"
+      class="
+        rounded-lg
+        interactive_form_sides_button interactive_form_sides_button_active
+      "
       color="#4169E2"
       small
     >
@@ -68,10 +75,15 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 export default {
+  methods: {
+    emage_event(e) {
+      console.log(e);
+    },
+  },
   computed: {
-    ...mapState(["delivery_info"])
-  }
+    ...mapState(["delivery_info"]),
+  },
 };
 </script>

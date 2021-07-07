@@ -20,6 +20,7 @@ import Delivery_info from "../components/delivery_info/Delivery_info.vue"
 import Delivery_info_product_name from "../components/delivery_info/components/Product_name.vue"
 import Product_size from "../components/delivery_info/components/Product_size.vue"
 import Product_image from "../components/delivery_info/components/Product_image.vue"
+import Residential_address from "../components/delivery_info/components/Residential_address.vue"
 
 Vue.use(VueRouter);
 
@@ -120,6 +121,11 @@ const routes = [
         path: "product_image",
         name: "product image",
         component: Product_image,
+      },
+      {
+        path: "residential_address",
+        name: "residential address",
+        component: Residential_address,
       },
     ]
   },
