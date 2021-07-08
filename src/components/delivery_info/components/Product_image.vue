@@ -7,14 +7,15 @@
       small
       :class="{
         interactive_form_sides_button_active:
-          delivery_info.delivery.product_size != '',
+          delivery_info.delivery.activate_back_button == true,
       }"
+      @click="go_back_to_di_product_size"
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Product name</p>
+        <p class="text-h6">Product image</p>
         <p class="text-caption mt-n3">
           Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
         </p>
@@ -60,8 +61,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            delivery_info.delivery.product_size != '',
+            delivery_info.delivery.activate_back_button == true,
         }"
+        @click="go_back_to_di_product_size"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -87,13 +89,15 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
+  mounted() {
+    this.delivery_info.delivery.activate_back_button = true
+  },
   methods: {
     emage_event(e) {
-      console.log(e);
-      this.delivery_info.delivery.product_image.push(e)
+      this.delivery_info.delivery.product_image.push(e);
     },
 
-    ...mapActions(["go_to_residential_address"]),
+    ...mapActions(["go_to_residential_address", "go_back_to_di_product_size"]),
   },
   computed: {
     ...mapState(["delivery_info"]),

@@ -5,9 +5,10 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          delivery_info.delivery.product_size != '',
+          delivery_info.delivery.activate_back_button != false,
       }"
       color="#4169E2"
+      @click="go_back_to_di_product_name"
       small
     >
       <v-icon>mdi-arrow-left</v-icon>
@@ -100,6 +101,7 @@
           interactive_form_mobile_buttons_button_active:
             delivery_info.delivery.product_size != '',
         }"
+        @click="go_back_to_di_product_name"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -125,11 +127,11 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
-  data: () => ({
-    product_size: 4,
-  }),
+  mounted() {
+    this.delivery_info.delivery.activate_back_button = true
+  },
   methods: {
-    ...mapActions(["go_to_product_image"])
+    ...mapActions(["go_to_product_image", "go_back_to_di_product_name"])
   },
   computed: {
     ...mapState(["delivery_info"]),

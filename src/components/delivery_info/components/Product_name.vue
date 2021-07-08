@@ -31,10 +31,11 @@
     </div>
     <v-btn
       depressed
-      class="
-        rounded-lg
-        interactive_form_sides_button interactive_form_sides_button_active
-      "
+      class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          delivery_info.delivery.activate_next_button == true,
+      }"
       @click="go_to_product_size"
       color="#4169E2"
       small
@@ -58,11 +59,14 @@
       <v-btn
         class="
           interactive_form_mobile_buttons_button
-          interactive_form_mobile_buttons_button_active
           mx-2
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            delivery_info.delivery.activate_next_button == true,
+        }"
         @click="go_to_product_size"
         small
         depressed
@@ -77,7 +81,7 @@
 import { mapActions, mapState } from "vuex";
 export default {
   methods: {
-    ...mapActions(["go_to_product_size"])
+    ...mapActions(["go_to_product_size"]),
   },
   computed: {
     ...mapState(["delivery_info"]),

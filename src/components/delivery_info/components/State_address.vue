@@ -4,6 +4,10 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       color="#4169E2"
+      :class="{
+        interactive_form_sides_button_active:
+          this.delivery_info.delivery.activate_back_button == true,
+      }"
       small
     >
       <v-icon>mdi-arrow-left</v-icon>
@@ -30,11 +34,12 @@
     </div>
     <v-btn
       depressed
-      class="
-        rounded-lg
-        interactive_form_sides_button interactive_form_sides_button_active
-      "
+      class="rounded-lg interactive_form_sides_button"
       color="#4169E2"
+      :class="{
+        interactive_form_sides_button_active:
+          this.delivery_info.delivery.activate_next_button == true,
+      }"
       small
     >
       <v-icon>mdi-arrow-right</v-icon>
@@ -49,6 +54,10 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            this.delivery_info.delivery.activate_back_button == true,
+        }"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -56,11 +65,14 @@
       <v-btn
         class="
           interactive_form_mobile_buttons_button
-          interactive_form_mobile_buttons_button_active
           mx-2
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            this.delivery_info.delivery.activate_next_button == true,
+        }"
         small
         depressed
       >
@@ -73,6 +85,10 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  mounted() {
+    this.delivery_info.delivery.activate_back_button = true;
+    this.delivery_info.delivery.activate_next_button = false;
+  },
   computed: {
     ...mapState(["delivery_info"]),
   },

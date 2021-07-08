@@ -5,6 +5,11 @@
       class="rounded-lg interactive_form_sides_button"
       color="#4169E2"
       small
+      :class="{
+        interactive_form_sides_button_active:
+          delivery_info.delivery.activate_back_button == true
+      }"
+      @click="go_back_to_di_product_image"
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
@@ -36,6 +41,7 @@
       "
       color="#4169E2"
       small
+      @click="go_to_state_residence"
     >
       <v-icon>mdi-arrow-right</v-icon>
     </v-btn>
@@ -49,6 +55,11 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            delivery_info.delivery.activate_back_button == true
+        }"
+        @click="go_back_to_di_product_image"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -61,6 +72,7 @@
           white--text
           rounded-lg
         "
+        @click="go_to_state_residence"
         small
         depressed
       >
@@ -71,8 +83,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
+  mounted() {
+    this.delivery_info.delivery.activate_back_button = true
+  },
+  methods: {
+    ...mapActions(["go_to_state_residence", "go_back_to_di_product_image"])
+  },
   computed: {
     ...mapState(["delivery_info"]),
   },
