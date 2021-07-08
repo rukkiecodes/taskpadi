@@ -88,6 +88,11 @@ export default {
   mounted() {
     this.delivery_info.delivery.activate_back_button = true;
     this.delivery_info.delivery.activate_next_button = false;
+    this.delivery_info.delivery.track_1 = true
+    this.delivery_info.delivery.track_2 = true
+    this.delivery_info.delivery.track_3 = true
+    this.delivery_info.delivery.track_4 = true
+    this.delivery_info.delivery.track_5 = true
   },
   computed: {
     ...mapState(["delivery_info"]),

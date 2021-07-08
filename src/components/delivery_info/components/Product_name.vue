@@ -80,6 +80,9 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
+  mounted() {
+    this.delivery_info.delivery.track_1 = true
+  },
   methods: {
     ...mapActions(["go_to_product_size"]),
   },

@@ -129,6 +129,8 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.delivery_info.delivery.activate_back_button = true
+    this.delivery_info.delivery.track_1 = true
+    this.delivery_info.delivery.track_2 = true
   },
   methods: {
     ...mapActions(["go_to_product_image", "go_back_to_di_product_name"])

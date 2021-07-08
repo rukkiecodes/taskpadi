@@ -91,6 +91,9 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.delivery_info.delivery.activate_back_button = true
+    this.delivery_info.delivery.track_1 = true
+    this.delivery_info.delivery.track_2 = true
+    this.delivery_info.delivery.track_3 = true
   },
   methods: {
     emage_event(e) {
