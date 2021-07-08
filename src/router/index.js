@@ -16,11 +16,12 @@ import Product_price from "../components/good_and_prodict_buyer/components/Produ
 import Product_description from "../components/good_and_prodict_buyer/components/Product_description.vue"
 import Condition from "../components/good_and_prodict_buyer/components/Condition.vue"
 import Handle_delivery from "../components/good_and_prodict_buyer/components/Handle_delivery.vue"
-import Delivery_info from "../components/delivery_info/Delivery_info.vue"
+import Delivery_info from "../views/Delivery_info.vue"
 import Delivery_info_product_name from "../components/delivery_info/components/Product_name.vue"
 import Product_size from "../components/delivery_info/components/Product_size.vue"
 import Product_image from "../components/delivery_info/components/Product_image.vue"
 import Residential_address from "../components/delivery_info/components/Residential_address.vue"
+import State_address from "../components/delivery_info/components/State_address.vue"
 
 Vue.use(VueRouter);
 
@@ -126,6 +127,11 @@ const routes = [
         path: "residential_address",
         name: "residential address",
         component: Residential_address,
+      },
+      {
+        path: "state_address",
+        name: "state address",
+        component: State_address,
       },
     ]
   },

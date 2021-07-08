@@ -21,9 +21,10 @@
       <v-text-field
         style="width: 100%"
         class="mt-10 rounded-lg"
-        label="Product name"
+        placeholder="Product name"
         background-color="#fff"
         v-model="delivery_info.delivery.product_name_input"
+        @keypress.enter="go_to_product_size"
         solo
         flat
       ></v-text-field>
@@ -34,6 +35,7 @@
         rounded-lg
         interactive_form_sides_button interactive_form_sides_button_active
       "
+      @click="go_to_product_size"
       color="#4169E2"
       small
     >
@@ -61,6 +63,7 @@
           white--text
           rounded-lg
         "
+        @click="go_to_product_size"
         small
         depressed
       >
@@ -71,8 +74,11 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
+  methods: {
+    ...mapActions(["go_to_product_size"])
+  },
   computed: {
     ...mapState(["delivery_info"]),
   },

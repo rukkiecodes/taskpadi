@@ -10,23 +10,23 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Residential address</p>
+        <p class="text-h6">State of residence</p>
         <p class="text-caption mt-n3">
           Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-google-maps</v-icon>
+        <v-icon size="50" class="white--text">mdi-home-map-marker</v-icon>
       </div>
-      <v-textarea
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Residential address"
-        background-color="#fff"
-        v-model="delivery_info.delivery.delivery_address"
-        solo
+      <v-text-field
         flat
-      ></v-textarea>
+        solo
+        style="width: 100%"
+        background-color="#fff"
+        class="mt-10 rounded-lg"
+        label="State of residence"
+        v-model="delivery_info.delivery.state_of_residence"
+      ></v-text-field>
     </div>
     <v-btn
       depressed
