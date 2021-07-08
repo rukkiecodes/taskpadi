@@ -22,6 +22,7 @@ import Product_size from "../components/delivery_info/components/Product_size.vu
 import Product_image from "../components/delivery_info/components/Product_image.vue"
 import Residential_address from "../components/delivery_info/components/Residential_address.vue"
 import State_address from "../components/delivery_info/components/State_address.vue"
+import Good_and_prodict_seller from "../views/Good_and_prodict_seller.vue"
 
 Vue.use(VueRouter);
 
@@ -134,6 +135,11 @@ const routes = [
         component: State_address,
       },
     ]
+  },
+  {
+    path: "/good_and_prodict_seller",
+    name: "good and prodict seller",
+    component: Good_and_prodict_seller,
   },
   {
     path: "/about",
