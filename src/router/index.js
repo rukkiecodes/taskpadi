@@ -10,19 +10,27 @@ import About from "../views/About.vue";
 import Faq from "../views/Faq.vue";
 import Good_and_prodict_buyer from "../views/Good_and_prodict_buyer.vue";
 import Seller_Email from "../components/good_and_prodict_buyer/components/Seller_Email.vue";
-import Seller_phone_number from "../components/good_and_prodict_buyer/components/Sellers_phone_number.vue"
-import Product_name from "../components/good_and_prodict_buyer/components/Product_name.vue"
-import Product_price from "../components/good_and_prodict_buyer/components/Product_price.vue"
-import Product_description from "../components/good_and_prodict_buyer/components/Product_description.vue"
-import Condition from "../components/good_and_prodict_buyer/components/Condition.vue"
-import Handle_delivery from "../components/good_and_prodict_buyer/components/Handle_delivery.vue"
-import Delivery_info from "../views/Delivery_info.vue"
-import Delivery_info_product_name from "../components/delivery_info/components/Product_name.vue"
-import Product_size from "../components/delivery_info/components/Product_size.vue"
-import Product_image from "../components/delivery_info/components/Product_image.vue"
-import Residential_address from "../components/delivery_info/components/Residential_address.vue"
-import State_address from "../components/delivery_info/components/State_address.vue"
-import Good_and_prodict_seller from "../views/Good_and_prodict_seller.vue"
+import Seller_phone_number from "../components/good_and_prodict_buyer/components/Sellers_phone_number.vue";
+import Product_name from "../components/good_and_prodict_buyer/components/Product_name.vue";
+import Product_price from "../components/good_and_prodict_buyer/components/Product_price.vue";
+import Product_description from "../components/good_and_prodict_buyer/components/Product_description.vue";
+import Condition from "../components/good_and_prodict_buyer/components/Condition.vue";
+import Handle_delivery from "../components/good_and_prodict_buyer/components/Handle_delivery.vue";
+import Delivery_info from "../views/Delivery_info.vue";
+import Delivery_info_product_name from "../components/delivery_info/components/Product_name.vue";
+import Product_size from "../components/delivery_info/components/Product_size.vue";
+import Product_image from "../components/delivery_info/components/Product_image.vue";
+import Residential_address from "../components/delivery_info/components/Residential_address.vue";
+import State_address from "../components/delivery_info/components/State_address.vue";
+import Good_and_prodict_seller from "../views/Good_and_prodict_seller.vue";
+import Buyers_email from "../components/good_and_prodict_seller/components/Buyers_email.vue";
+import Buyers_phone from "../components/good_and_prodict_seller/components/Buyers_phone.vue"
+import Buyers_transaction_title from "../components/good_and_prodict_seller/components/Transction_title.vue"
+import Buyers_product_description from "../components/good_and_prodict_seller/components/Buyers_product_description.vue"
+import Buyers_agreed_price from "../components/good_and_prodict_seller/components/Agreed_price.vue"
+import Buyers_product_photo from "../components/good_and_prodict_seller/components/Buyers_product_photo.vue"
+import Buyers_product_condition from "../components/good_and_prodict_seller/components/Buyers_product_condition.vue"
+import Buyers_product_image from "../components/good_and_prodict_seller/components/Buyers_product_image.vue"
 
 Vue.use(VueRouter);
 
@@ -70,37 +78,37 @@ const routes = [
       {
         path: "",
         name: "seller email",
-        component: Seller_Email
+        component: Seller_Email,
       },
       {
         path: "seller_phone_number",
         name: "seller phone number",
-        component: Seller_phone_number
+        component: Seller_phone_number,
       },
       {
         path: "product_name",
         name: "seller phone number",
-        component: Product_name
+        component: Product_name,
       },
       {
         path: "product_price",
         name: "product price",
-        component: Product_price
+        component: Product_price,
       },
       {
         path: "product_description",
         name: "product description",
-        component: Product_description
+        component: Product_description,
       },
       {
         path: "condition",
         name: "product condition",
-        component: Condition
+        component: Condition,
       },
       {
         path: "handle_delivery",
         name: "handle delivery",
-        component: Handle_delivery
+        component: Handle_delivery,
       },
     ],
   },
@@ -134,12 +142,54 @@ const routes = [
         name: "state address",
         component: State_address,
       },
-    ]
+    ],
   },
   {
     path: "/good_and_prodict_seller",
     name: "good and prodict seller",
     component: Good_and_prodict_seller,
+    children: [
+      {
+        path: "",
+        name: "buyers email",
+        component: Buyers_email,
+      },
+      {
+        path: "buyers_phone",
+        name: "buyers phone",
+        component: Buyers_phone,
+      },
+      {
+        path: "transaction_title",
+        name: "buyers transaction title",
+        component: Buyers_transaction_title,
+      },
+      {
+        path: "buyers_product_description",
+        name: "buyers product description",
+        component: Buyers_product_description,
+      },
+      {
+        path: "buyers_agreed_price",
+        name: "buyers agreed price",
+        component: Buyers_agreed_price,
+      },
+      {
+        path: "buyers_product_photo",
+        name: "buyers product photo",
+        component: Buyers_product_photo,
+      },
+      {
+        path: "buyers_product_condition",
+        name: "buyers product condition",
+        component: Buyers_product_condition,
+      },
+      {
+        path: "buyers_product_image",
+        name: "buyers product image",
+        component: Buyers_product_image,
+      },
+    ],
   },
   {
     path: "/about",
