@@ -3,6 +3,10 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          delivery_info.delivery.product_size != '',
+      }"
       color="#4169E2"
       small
     >
@@ -22,8 +26,12 @@
       <div class="mt-5">
         <p class="text-h6">Size</p>
         <p
-          @click="delivery_info.delivery.mesurment_unit_visibility = true"
+          @click="
+            delivery_info.delivery.mesurment_unit_visibility =
+              !delivery_info.delivery.mesurment_unit_visibility
+          "
           class="mt-n3 text-body-2"
+          style="cursor: pointer"
         >
           {{ delivery_info.delivery.product_size }}:
           {{ delivery_info.delivery.mesurment_unit }}
@@ -73,6 +81,7 @@
         interactive_form_sides_button interactive_form_sides_button_active
       "
       color="#4169E2"
+      @click="go_to_product_image"
       small
     >
       <v-icon>mdi-arrow-right</v-icon>
@@ -87,6 +96,10 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            delivery_info.delivery.product_size != '',
+        }"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -101,6 +114,7 @@
         "
         small
         depressed
+        @click="go_to_product_image"
       >
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
@@ -109,11 +123,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   data: () => ({
     product_size: 4,
   }),
+  methods: {
+    ...mapActions(["go_to_product_image"])
+  },
   computed: {
     ...mapState(["delivery_info"]),
   },

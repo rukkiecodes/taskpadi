@@ -5,6 +5,10 @@
       class="rounded-lg interactive_form_sides_button"
       color="#4169E2"
       small
+      :class="{
+        interactive_form_sides_button_active:
+          delivery_info.delivery.product_size != '',
+      }"
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
@@ -26,9 +30,9 @@
         dense
         flat
         prepend-icon="mdi-image-multiple"
-        label="Select product image"
         style="width: 100%"
         class="mt-15 mb-5 rounded-lg"
+        label="Select product image"
         @change="emage_event"
       ></v-file-input>
     </div>
@@ -40,6 +44,7 @@
       "
       color="#4169E2"
       small
+      @click="go_to_residential_address"
     >
       <v-icon>mdi-arrow-right</v-icon>
     </v-btn>
@@ -53,6 +58,10 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            delivery_info.delivery.product_size != '',
+        }"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -65,6 +74,7 @@
           white--text
           rounded-lg
         "
+        @click="go_to_residential_address"
         small
         depressed
       >
@@ -75,12 +85,15 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   methods: {
     emage_event(e) {
       console.log(e);
+      this.delivery_info.delivery.product_image.push(e)
     },
+
+    ...mapActions(["go_to_residential_address"]),
   },
   computed: {
     ...mapState(["delivery_info"]),
