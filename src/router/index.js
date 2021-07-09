@@ -198,6 +198,10 @@ const routes = [{
             path: "",
             name: "traders email",
             component: Traders_email
+        }, {
+            path: "traders_phone",
+            name: "traders phone",
+            component: Traders_phone
         }]
     },
     {

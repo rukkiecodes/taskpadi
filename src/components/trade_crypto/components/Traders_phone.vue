@@ -10,13 +10,13 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Traders Email</p>
+        <p class="text-h6">Traders Phone</p>
         <p class="text-caption mt-n3">
           Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-email-variant</v-icon>
+        <v-icon size="50" class="white--text">mdi-phone</v-icon>
       </div>
       <v-text-field
         style="width: 100%"
