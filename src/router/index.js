@@ -31,177 +31,186 @@ import Buyers_agreed_price from "../components/good_and_prodict_seller/component
 import Buyers_product_photo from "../components/good_and_prodict_seller/components/Buyers_product_photo.vue"
 import Buyers_product_condition from "../components/good_and_prodict_seller/components/Buyers_product_condition.vue"
 import Buyers_product_image from "../components/good_and_prodict_seller/components/Buyers_product_image.vue"
+import Trade_crypto from "../views/Trade_crypto.vue"
+import Traders_email from "../components/trade_crypto/components/Traders_email.vue"
+import Traders_phone from "../components/trade_crypto/components/Traders_phone.vue"
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/signup_seller",
-    name: "signup_seller",
-    component: Signup_seller,
-  },
-  {
-    path: "/signup_buyer",
-    name: "Signup_buyer",
-    component: Signup_buyer,
-  },
-  {
-    path: "/signin",
-    name: "signin",
-    component: Signin,
-  },
-  {
-    path: "/forgot_password",
-    name: "forgot_password",
-    component: Forgot_password,
-  },
-  {
-    path: "/otp",
-    name: "Otp",
-    component: Otp,
-  },
-  {
-    path: "/faq",
-    name: "faq",
-    component: Faq,
-  },
-  {
-    path: "/good_and_product_buyer",
-    name: "good_and_prodict_buyer",
-    component: Good_and_prodict_buyer,
-    children: [
-      {
-        path: "",
-        name: "seller email",
-        component: Seller_Email,
-      },
-      {
-        path: "seller_phone_number",
-        name: "seller phone number",
-        component: Seller_phone_number,
-      },
-      {
-        path: "product_name",
-        name: "seller phone number",
-        component: Product_name,
-      },
-      {
-        path: "product_price",
-        name: "product price",
-        component: Product_price,
-      },
-      {
-        path: "product_description",
-        name: "product description",
-        component: Product_description,
-      },
-      {
-        path: "condition",
-        name: "product condition",
-        component: Condition,
-      },
-      {
-        path: "handle_delivery",
-        name: "handle delivery",
-        component: Handle_delivery,
-      },
-    ],
-  },
-  {
-    path: "/delivery_info",
-    name: "delivery_info",
-    component: Delivery_info,
-    children: [
-      {
-        path: "",
-        name: "delivery info product name",
-        component: Delivery_info_product_name,
-      },
-      {
-        path: "product_size",
-        name: "product size",
-        component: Product_size,
-      },
-      {
-        path: "product_image",
-        name: "product image",
-        component: Product_image,
-      },
-      {
-        path: "residential_address",
-        name: "residential address",
-        component: Residential_address,
-      },
-      {
-        path: "state_address",
-        name: "state address",
-        component: State_address,
-      },
-    ],
-  },
-  {
-    path: "/good_and_prodict_seller",
-    name: "good and prodict seller",
-    component: Good_and_prodict_seller,
-    children: [
-      {
-        path: "",
-        name: "buyers email",
-        component: Buyers_email,
-      },
-      {
-        path: "buyers_phone",
-        name: "buyers phone",
-        component: Buyers_phone,
-      },
-      {
-        path: "transaction_title",
-        name: "buyers transaction title",
-        component: Buyers_transaction_title,
-      },
-      {
-        path: "buyers_product_description",
-        name: "buyers product description",
-        component: Buyers_product_description,
-      },
-      {
-        path: "buyers_agreed_price",
-        name: "buyers agreed price",
-        component: Buyers_agreed_price,
-      },
-      {
-        path: "buyers_product_photo",
-        name: "buyers product photo",
-        component: Buyers_product_photo,
-      },
-      {
-        path: "buyers_product_condition",
-        name: "buyers product condition",
-        component: Buyers_product_condition,
-      },
-      {
-        path: "buyers_product_image",
-        name: "buyers product image",
-        component: Buyers_product_image,
-      },
-    ],
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: About,
-  },
+const routes = [{
+        path: "/",
+        name: "Home",
+        component: Home,
+    },
+    {
+        path: "/signup_seller",
+        name: "signup_seller",
+        component: Signup_seller,
+    },
+    {
+        path: "/signup_buyer",
+        name: "Signup_buyer",
+        component: Signup_buyer,
+    },
+    {
+        path: "/signin",
+        name: "signin",
+        component: Signin,
+    },
+    {
+        path: "/forgot_password",
+        name: "forgot_password",
+        component: Forgot_password,
+    },
+    {
+        path: "/otp",
+        name: "Otp",
+        component: Otp,
+    },
+    {
+        path: "/faq",
+        name: "faq",
+        component: Faq,
+    },
+    {
+        path: "/good_and_product_buyer",
+        name: "good_and_prodict_buyer",
+        component: Good_and_prodict_buyer,
+        children: [{
+                path: "",
+                name: "seller email",
+                component: Seller_Email,
+            },
+            {
+                path: "seller_phone_number",
+                name: "seller phone number",
+                component: Seller_phone_number,
+            },
+            {
+                path: "product_name",
+                name: "seller phone number",
+                component: Product_name,
+            },
+            {
+                path: "product_price",
+                name: "product price",
+                component: Product_price,
+            },
+            {
+                path: "product_description",
+                name: "product description",
+                component: Product_description,
+            },
+            {
+                path: "condition",
+                name: "product condition",
+                component: Condition,
+            },
+            {
+                path: "handle_delivery",
+                name: "handle delivery",
+                component: Handle_delivery,
+            },
+        ],
+    },
+    {
+        path: "/delivery_info",
+        name: "delivery_info",
+        component: Delivery_info,
+        children: [{
+                path: "",
+                name: "delivery info product name",
+                component: Delivery_info_product_name,
+            },
+            {
+                path: "product_size",
+                name: "product size",
+                component: Product_size,
+            },
+            {
+                path: "product_image",
+                name: "product image",
+                component: Product_image,
+            },
+            {
+                path: "residential_address",
+                name: "residential address",
+                component: Residential_address,
+            },
+            {
+                path: "state_address",
+                name: "state address",
+                component: State_address,
+            },
+        ],
+    },
+    {
+        path: "/good_and_prodict_seller",
+        name: "good and prodict seller",
+        component: Good_and_prodict_seller,
+        children: [{
+                path: "",
+                name: "buyers email",
+                component: Buyers_email,
+            },
+            {
+                path: "buyers_phone",
+                name: "buyers phone",
+                component: Buyers_phone,
+            },
+            {
+                path: "transaction_title",
+                name: "buyers transaction title",
+                component: Buyers_transaction_title,
+            },
+            {
+                path: "buyers_product_description",
+                name: "buyers product description",
+                component: Buyers_product_description,
+            },
+            {
+                path: "buyers_agreed_price",
+                name: "buyers agreed price",
+                component: Buyers_agreed_price,
+            },
+            {
+                path: "buyers_product_photo",
+                name: "buyers product photo",
+                component: Buyers_product_photo,
+            },
+            {
+                path: "buyers_product_condition",
+                name: "buyers product condition",
+                component: Buyers_product_condition,
+            },
+            {
+                path: "buyers_product_image",
+                name: "buyers product image",
+                component: Buyers_product_image,
+            },
+        ],
+    },
+    {
+        path: "/trade_crypto",
+        name: "trade crypto",
+        component: Trade_crypto,
+        children: [{
+            path: "",
+            name: "traders email",
+            component: Traders_email
+        }]
+    },
+    {
+        path: "/about",
+        name: "About",
+        component: About,
+    },
 ];
 
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes,
+    mode: "history",
+    base: process.env.BASE_URL,
+    routes,
 });
 
 export default router;

@@ -57,12 +57,7 @@
           :to="menu.to"
           dense
         >
-          <v-list-item-avatar>
-            <v-avatar size="30">
-              <img :src="menu.image" alt="">
-            </v-avatar>
-          </v-list-item-avatar>
-          <v-list-item-title class="text-body-2 grey--text text--darken-4">{{ menu.title }}</v-list-item-title>
+          <v-list-item-title class="text-body-2 grey--text text--darken-4" v-text="menu.title" />
         </v-list-item>
       </v-list>
     </v-menu>
@@ -78,8 +73,8 @@ export default {
   data: () => ({
     logo: require("../../assets/paddi.png"),
     menu_links: [
-      { title: "Sign In", to: "/signin", image: require("../../assets/trust/password.png") },
-      { title: "Sign Up", to: "/signup_buyer", image: require("../../assets/trust/add-user.png") },
+      { title: "Sign In", to: "/signin" },
+      { title: "Sign Up", to: "/signup_buyer" },
     ],
   }),
 
