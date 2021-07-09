@@ -3,6 +3,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_back_button == true,
+      }"
+      @click="go_back_to_gaps_product_condition"
       color="#4169E2"
       small
     >
@@ -30,21 +35,17 @@
         class="mt-15 mb-5 rounded-lg"
         label="Select product image"
       ></v-file-input>
-      <!-- <v-select
-        :items="items"
-        style="width: 100%"
-        class="mt-15 mb-5 rounded-lg"
-        :label="items[0]"
-        dense
-        solo
-        flat
-      ></v-select> -->
     </div>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_next_button == true,
+      }"
       color="#4169E2"
       small
+      disabled
     >
       <v-icon>mdi-arrow-right</v-icon>
     </v-btn>
@@ -58,6 +59,12 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_back_button ==
+            true,
+        }"
+        @click="go_back_to_gaps_product_condition"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -69,8 +76,14 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_next_button ==
+            true,
+        }"
         small
         depressed
+        disabled
       >
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
@@ -79,5 +92,25 @@
 </template>
 
 <script>
-export default {};
+import { mapActions, mapState } from "vuex";
+export default {
+  mounted() {
+    this.good_and_product_seller.good_and_product.track_1 = true;
+    this.good_and_product_seller.good_and_product.track_2 = true;
+    this.good_and_product_seller.good_and_product.track_3 = true;
+    this.good_and_product_seller.good_and_product.track_4 = true;
+    this.good_and_product_seller.good_and_product.track_5 = true;
+    this.good_and_product_seller.good_and_product.track_6 = true;
+    this.good_and_product_seller.good_and_product.track_7 = true;
+    this.good_and_product_seller.good_and_product.track_8 = true;
+    this.good_and_product_seller.good_and_product.activate_next_button = false;
+    this.good_and_product_seller.good_and_product.activate_back_button = true;
+  },
+  methods: {
+    ...mapActions(["go_back_to_gaps_product_condition"])
+  },
+  computed: {
+    ...mapState(["good_and_product_seller"]),
+  },
+};
 </script>

@@ -38,10 +38,11 @@ export default {
         };
       }
     },
-    go_back_to_gaps_email() {
+    go_back_to_gaps_email(state) {
       router.push("/good_and_prodict_seller");
+      state.good_and_product.track_2 = false
     },
-    go_to_transaction_title: (state) => {
+    go_to_transaction_title(state) {
       if (state.good_and_product.buyer_phone_number != "") {
         router.push("transaction_title");
       } else {
@@ -54,10 +55,11 @@ export default {
         };
       }
     },
-    go_back_to_buyers_phone() {
+    go_back_to_buyers_phone(state) {
       router.push("buyers_phone");
+      state.good_and_product.track_3 = false
     },
-    go_to_gaps_product_description: (state) => {
+    go_to_gaps_product_description(state) {
       if (state.good_and_product.buyer_transaction_title != "") {
         router.push("buyers_product_description");
       } else {
@@ -70,10 +72,11 @@ export default {
         };
       }
     },
-    go_back_to_gaps_transaction_title() {
+    go_back_to_gaps_transaction_title(state) {
       router.push("transaction_title");
+      state.good_and_product.track_4 = false
     },
-    go_to_gaps_agreed_price: (state) => {
+    go_to_gaps_agreed_price(state) {
       if (state.good_and_product.buyer_product_description != "") {
         router.push("buyers_agreed_price");
       } else {
@@ -86,8 +89,9 @@ export default {
         };
       }
     },
-    go_back_to_gaps_product_description() {
+    go_back_to_gaps_product_description(state) {
       router.push("buyers_product_description");
+      state.good_and_product.track_5 = false
     },
     go_to_gaps_product_image: (state) => {
       if (state.good_and_product.buyer_agreed_price != "") {
@@ -102,10 +106,11 @@ export default {
         };
       }
     },
-    go_back_to_gaps_agreed_price() {
+    go_back_to_gaps_agreed_price(state) {
       router.push("buyers_agreed_price");
+      state.good_and_product.track_6 = false
     },
-    go_to_gaps_product_condition: (state) => {
+    go_to_gaps_product_condition(state) {
       if (state.good_and_product.buyer_product_photo.length != 0) {
         router.push("buyers_product_condition");
       } else {
@@ -118,10 +123,11 @@ export default {
         };
       }
     },
-    go_back_to_gaps_product_photo() {
+    go_back_to_gaps_product_photo(state) {
       router.push("buyers_product_photo");
+      state.good_and_product.track_7 = false
     },
-    go_to_upload_product_image: (state) => {
+    go_to_upload_product_image(state) {
       if (state.good_and_product.buyer_product_condition != "") {
         router.push("buyers_product_image");
       } else {
@@ -133,6 +139,10 @@ export default {
           snackbar_text_color: "white--text",
         };
       }
+    },
+    go_back_to_gaps_product_condition(state) {
+      router.push("buyers_product_condition");
+      state.good_and_product.track_8 = false
     },
   },
   actions: {
@@ -174,6 +184,9 @@ export default {
     },
     go_to_upload_product_image({ commit }) {
       commit("go_to_upload_product_image");
+    },
+    go_back_to_gaps_product_condition({ commit }) {
+      commit("go_back_to_gaps_product_condition");
     },
   },
   getters: {},
