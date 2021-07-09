@@ -101,6 +101,22 @@ export default {
         };
       }
     },
+    go_back_to_gaps_agreed_price() {
+      router.push("buyers_agreed_price");
+    },
+    go_to_gaps_product_condition: (state) => {
+      if (state.good_and_product.buyer_product_photo.length != 0) {
+        router.push("buyers_product_condition");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Please add a photo of the product`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
   },
   actions: {
     go_to_buyer_phone({ commit }) {
@@ -129,6 +145,12 @@ export default {
     },
     go_to_gaps_product_image({ commit }) {
       commit("go_to_gaps_product_image");
+    },
+    go_back_to_gaps_agreed_price({ commit }) {
+      commit("go_back_to_gaps_agreed_price");
+    },
+    go_to_gaps_product_condition({ commit }) {
+      commit("go_to_gaps_product_condition");
     },
   },
   getters: {},

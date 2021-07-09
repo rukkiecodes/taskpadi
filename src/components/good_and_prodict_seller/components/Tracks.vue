@@ -26,14 +26,22 @@
     ></div>
     <div
       :class="{
-        active_track:
-          good_and_product_seller.good_and_product.track_5 == true ||
-          good_and_product_seller.good_and_product.buyer_agreed_price != '',
+        active_track: good_and_product_seller.good_and_product.track_5 == true,
       }"
       class="track mx-2"
     ></div>
-    <div class="track mx-2"></div>
-    <div class="track mx-2"></div>
+    <div
+      :class="{
+        active_track: good_and_product_seller.good_and_product.track_6 == true,
+      }"
+      class="track mx-2"
+    ></div>
+    <div
+      :class="{
+        active_track: good_and_product_seller.good_and_product.track_7 == true,
+      }"
+      class="track mx-2"
+    ></div>
   </div>
 </template>
 
