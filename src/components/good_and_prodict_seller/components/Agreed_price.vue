@@ -3,6 +3,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_back_button == true,
+      }"
+      @click="go_back_to_gaps_product_description"
       color="#4169E2"
       small
     >
@@ -23,6 +28,8 @@
         class="mt-10 rounded-lg"
         label="Buyers agreed price"
         background-color="#fff"
+        v-model="good_and_product_seller.good_and_product.buyer_agreed_price"
+        @keypress.enter="go_to_gaps_product_image"
         solo
         flat
       ></v-text-field>
@@ -30,6 +37,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_next_button == true,
+      }"
+      @click="go_to_gaps_product_image"
       color="#4169E2"
       small
     >
@@ -45,6 +57,12 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_back_button ==
+            true,
+        }"
+        @click="go_back_to_gaps_product_description"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -56,6 +74,12 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_next_button ==
+            true,
+        }"
+        @click="go_to_gaps_product_image"
         small
         depressed
       >
@@ -66,6 +90,25 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
+  mounted() {
+    this.good_and_product_seller.good_and_product.track_1 = true;
+    this.good_and_product_seller.good_and_product.track_2 = true;
+    this.good_and_product_seller.good_and_product.track_3 = true;
+    this.good_and_product_seller.good_and_product.track_4 = true;
+    this.good_and_product_seller.good_and_product.track_5 = true;
+    this.good_and_product_seller.good_and_product.activate_next_button = true;
+    this.good_and_product_seller.good_and_product.activate_back_button = true;
+  },
+  methods: {
+    ...mapActions([
+      "go_back_to_gaps_product_description",
+      "go_to_gaps_product_image",
+    ]),
+  },
+  computed: {
+    ...mapState(["good_and_product_seller"]),
+  },
 };
 </script>

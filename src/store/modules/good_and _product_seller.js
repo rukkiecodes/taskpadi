@@ -37,9 +37,8 @@ export default {
         };
       }
     },
-    go_back_to_gaps_email: (state) => {
+    go_back_to_gaps_email() {
       router.push("/good_and_prodict_seller");
-      return state;
     },
     go_to_transaction_title: (state) => {
       if (state.good_and_product.buyer_phone_number != "") {
@@ -54,9 +53,8 @@ export default {
         };
       }
     },
-    go_back_to_buyers_phone: (state) => {
+    go_back_to_buyers_phone() {
       router.push("buyers_phone");
-      return state;
     },
     go_to_gaps_product_description: (state) => {
       if (state.good_and_product.buyer_transaction_title != "") {
@@ -71,9 +69,8 @@ export default {
         };
       }
     },
-    go_back_to_gaps_transaction_title: (state) => {
+    go_back_to_gaps_transaction_title() {
       router.push("transaction_title");
-      return state;
     },
     go_to_gaps_agreed_price: (state) => {
       if (state.good_and_product.buyer_product_description != "") {
@@ -82,6 +79,22 @@ export default {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
           text: `Please enter product description`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    go_back_to_gaps_product_description() {
+      router.push("buyers_product_description");
+    },
+    go_to_gaps_product_image: (state) => {
+      if (state.good_and_product.buyer_agreed_price != "") {
+        router.push("buyers_product_photo");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter product price`,
           snackbar_color: "red",
           snackbar_button_color: "white",
           snackbar_text_color: "white--text",
@@ -110,6 +123,12 @@ export default {
     },
     go_to_gaps_agreed_price({ commit }) {
       commit("go_to_gaps_agreed_price");
+    },
+    go_back_to_gaps_product_description({ commit }) {
+      commit("go_back_to_gaps_product_description");
+    },
+    go_to_gaps_product_image({ commit }) {
+      commit("go_to_gaps_product_image");
     },
   },
   getters: {},
