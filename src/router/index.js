@@ -34,6 +34,12 @@ import Buyers_product_image from "../components/good_and_prodict_seller/componen
 import Trade_crypto from "../views/Trade_crypto.vue"
 import Traders_email from "../components/trade_crypto/components/Traders_email.vue"
 import Traders_phone from "../components/trade_crypto/components/Traders_phone.vue"
+import Traders_currency from "../components/trade_crypto/components/Traders_currency.vue"
+import Traders_amount from "../components/trade_crypto/components/Traders_amount.vue"
+import Traders_price from "../components/trade_crypto/components/Traders_price.vue"
+import Traders_transaction_duration from "../components/trade_crypto/components/Traders_transaction_duration.vue"
+import Traders_wallet_address from "../components/trade_crypto/components/Traders_wallet_address.vue"
+import Traders_your_address from "../components/trade_crypto/components/Traders_your_address.vue"
 
 Vue.use(VueRouter);
 
@@ -202,6 +208,30 @@ const routes = [{
             path: "traders_phone",
             name: "traders phone",
             component: Traders_phone
+        }, {
+            path: "traders_currency",
+            name: "traders currency",
+            component: Traders_currency
+        }, {
+            path: "traders_amount",
+            name: "traders amount",
+            component: Traders_amount
+        }, {
+            path: "traders_price",
+            name: "traders price",
+            component: Traders_price
+        }, {
+            path: "traders_transaction_duration",
+            name: "traders transaction duration",
+            component: Traders_transaction_duration
+        }, {
+            path: "traders_wallet_address",
+            name: "traders wallet address",
+            component: Traders_wallet_address
+        }, {
+            path: "traders_your_address",
+            name: "traders your address",
+            component: Traders_your_address
         }]
     },
     {
