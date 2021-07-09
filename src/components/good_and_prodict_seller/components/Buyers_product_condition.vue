@@ -3,6 +3,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_back_button == true,
+      }"
+      @click="go_back_to_gaps_product_photo"
       color="#4169E2"
       small
     >
@@ -18,31 +23,26 @@
       <div class="icon mt-5">
         <v-icon size="50" class="white--text">mdi-image-outline</v-icon>
       </div>
-      <!-- <v-file-input
-        show-size
-        counter
-        multiple
-        solo
-        dense
-        flat
-        prepend-icon="mdi-image-multiple"
-        style="width: 100%"
-        class="mt-15 mb-5 rounded-lg"
-        label="Select product image"
-      ></v-file-input> -->
       <v-select
-        :items="items"
+        :items="product_condition"
         style="width: 100%"
         class="mt-15 mb-5 rounded-lg"
-        :label="items[0]"
+        :label="product_condition[0]"
         dense
         solo
         flat
+        color="#4468E2"
+        @change="set_product_condition"
       ></v-select>
     </div>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_next_button == true,
+      }"
+      @click="go_to_upload_product_image"
       color="#4169E2"
       small
     >
@@ -58,6 +58,12 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_back_button ==
+            true,
+        }"
+        @click="go_back_to_gaps_product_photo"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -69,6 +75,12 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_next_button ==
+            true,
+        }"
+        @click="go_to_upload_product_image"
         small
         depressed
       >
@@ -79,9 +91,33 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   data: () => ({
-    items: ["Foo", "Bar", "Fizz", "Buzz"],
+    product_condition: ["Brand new", "Fairely used", "Old"],
   }),
+  mounted() {
+    this.good_and_product_seller.good_and_product.track_1 = true;
+    this.good_and_product_seller.good_and_product.track_2 = true;
+    this.good_and_product_seller.good_and_product.track_3 = true;
+    this.good_and_product_seller.good_and_product.track_4 = true;
+    this.good_and_product_seller.good_and_product.track_5 = true;
+    this.good_and_product_seller.good_and_product.track_6 = true;
+    this.good_and_product_seller.good_and_product.track_7 = true;
+    this.good_and_product_seller.good_and_product.activate_next_button = true;
+    this.good_and_product_seller.good_and_product.activate_back_button = true;
+  },
+  methods: {
+    ...mapActions([
+      "go_back_to_gaps_product_photo",
+      "go_to_upload_product_image",
+    ]),
+    set_product_condition(e) {
+      this.good_and_product_seller.good_and_product.buyer_product_condition = e;
+    },
+  },
+  computed: {
+    ...mapState(["good_and_product_seller"]),
+  },
 };
 </script>

@@ -112,9 +112,6 @@ export default {
     ]),
     get_images(e) {
       this.good_and_product_seller.good_and_product.buyer_product_photo.push(e);
-      console.log(
-        this.good_and_product_seller.good_and_product.buyer_product_photo
-      );
     },
   },
   computed: {

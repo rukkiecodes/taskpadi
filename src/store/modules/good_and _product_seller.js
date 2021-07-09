@@ -10,6 +10,7 @@ export default {
       track_5: false,
       track_6: false,
       track_7: false,
+      track_8: false,
       activate_back_button: false,
       activate_next_button: true,
       buyer_email: "",
@@ -18,7 +19,7 @@ export default {
       buyer_product_description: "",
       buyer_agreed_price: "",
       buyer_product_photo: [],
-      buyer_product_condition: ["Brand new", "Fairely used", "Old"],
+      buyer_product_condition: "",
       buyer_photo_of_product: [],
     },
   },
@@ -117,6 +118,22 @@ export default {
         };
       }
     },
+    go_back_to_gaps_product_photo() {
+      router.push("buyers_product_photo");
+    },
+    go_to_upload_product_image: (state) => {
+      if (state.good_and_product.buyer_product_condition != "") {
+        router.push("buyers_product_image");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Please select product condition`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
   },
   actions: {
     go_to_buyer_phone({ commit }) {
@@ -151,6 +168,12 @@ export default {
     },
     go_to_gaps_product_condition({ commit }) {
       commit("go_to_gaps_product_condition");
+    },
+    go_back_to_gaps_product_photo({ commit }) {
+      commit("go_back_to_gaps_product_photo");
+    },
+    go_to_upload_product_image({ commit }) {
+      commit("go_to_upload_product_image");
     },
   },
   getters: {},

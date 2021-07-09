@@ -42,6 +42,12 @@
       }"
       class="track mx-2"
     ></div>
+    <div
+      :class="{
+        active_track: good_and_product_seller.good_and_product.track_8 == true,
+      }"
+      class="track mx-2"
+    ></div>
   </div>
 </template>
 
