@@ -21,7 +21,7 @@
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-image-outline</v-icon>
+        <v-icon size="50" class="white--text">mdi-atom-variant</v-icon>
       </div>
       <v-select
         :items="product_condition"
