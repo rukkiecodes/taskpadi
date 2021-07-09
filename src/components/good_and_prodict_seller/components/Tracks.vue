@@ -20,11 +20,20 @@
       :class="{
         active_track:
           good_and_product_seller.good_and_product.track_3 == true ||
-          good_and_product_seller.good_and_product.buyer_transaction_title != '',
+          good_and_product_seller.good_and_product.buyer_transaction_title !=
+            '',
       }"
       class="track mx-2"
     ></div>
-    <div class="track mx-2"></div>
+    <div
+      :class="{
+        active_track:
+          good_and_product_seller.good_and_product.track_4 == true ||
+          good_and_product_seller.good_and_product.buyer_product_description !=
+            '',
+      }"
+      class="track mx-2"
+    ></div>
     <div class="track mx-2"></div>
     <div class="track mx-2"></div>
     <div class="track mx-2"></div>

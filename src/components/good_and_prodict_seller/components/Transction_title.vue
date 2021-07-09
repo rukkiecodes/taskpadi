@@ -7,6 +7,7 @@
         interactive_form_sides_button_active:
           good_and_product_seller.good_and_product.activate_back_button == true,
       }"
+      @click="go_back_to_buyers_phone"
       color="#4169E2"
       small
     >
@@ -27,6 +28,8 @@
         class="mt-10 rounded-lg"
         label="Transaction title"
         background-color="#fff"
+        v-model="good_and_product_seller.good_and_product.buyer_transaction_title"
+        @keypress.enter="go_to_gaps_product_description"
         solo
         flat
       ></v-text-field>
@@ -38,6 +41,7 @@
         interactive_form_sides_button_active:
           good_and_product_seller.good_and_product.activate_next_button == true,
       }"
+      @click="go_to_gaps_product_description"
       color="#4169E2"
       small
     >
@@ -58,6 +62,7 @@
             good_and_product_seller.good_and_product.activate_back_button ==
             true,
         }"
+        @click="go_back_to_buyers_phone"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -74,6 +79,7 @@
             good_and_product_seller.good_and_product.activate_next_button ==
             true,
         }"
+        @click="go_to_gaps_product_description"
         small
         depressed
       >
@@ -84,7 +90,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.good_and_product_seller.good_and_product.track_1 = true;
@@ -92,6 +98,12 @@ export default {
     this.good_and_product_seller.good_and_product.track_3 = true;
     this.good_and_product_seller.good_and_product.activate_next_button = true;
     this.good_and_product_seller.good_and_product.activate_back_button = true;
+  },
+  methods: {
+    ...mapActions([
+      "go_back_to_buyers_phone",
+      "go_to_gaps_product_description",
+    ]),
   },
   computed: {
     ...mapState(["good_and_product_seller"]),

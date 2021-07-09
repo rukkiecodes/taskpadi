@@ -42,12 +42,46 @@ export default {
       return state;
     },
     go_to_transaction_title: (state) => {
-      if (state.good_and_product.buyer_phone_number != '') {
+      if (state.good_and_product.buyer_phone_number != "") {
         router.push("transaction_title");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
           text: `Please enter transaction title`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    go_back_to_buyers_phone: (state) => {
+      router.push("buyers_phone");
+      return state;
+    },
+    go_to_gaps_product_description: (state) => {
+      if (state.good_and_product.buyer_transaction_title != "") {
+        router.push("buyers_product_description");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter product title`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    go_back_to_gaps_transaction_title: (state) => {
+      router.push("transaction_title");
+      return state;
+    },
+    go_to_gaps_agreed_price: (state) => {
+      if (state.good_and_product.buyer_product_description != "") {
+        router.push("buyers_agreed_price");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `Please enter product description`,
           snackbar_color: "red",
           snackbar_button_color: "white",
           snackbar_text_color: "white--text",
@@ -64,6 +98,18 @@ export default {
     },
     go_to_transaction_title({ commit }) {
       commit("go_to_transaction_title");
+    },
+    go_back_to_buyers_phone({ commit }) {
+      commit("go_back_to_buyers_phone");
+    },
+    go_to_gaps_product_description({ commit }) {
+      commit("go_to_gaps_product_description");
+    },
+    go_back_to_gaps_transaction_title({ commit }) {
+      commit("go_back_to_gaps_transaction_title");
+    },
+    go_to_gaps_agreed_price({ commit }) {
+      commit("go_to_gaps_agreed_price");
     },
   },
   getters: {},
