@@ -3,6 +3,10 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_back_button == true,
+      }"
       color="#4169E2"
       small
     >
@@ -16,7 +20,7 @@
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-phone</v-icon>
+        <v-icon size="50" class="white--text">mdi-subtitles-outline</v-icon>
       </div>
       <v-text-field
         style="width: 100%"
@@ -30,6 +34,10 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_next_button == true,
+      }"
       color="#4169E2"
       small
     >
@@ -45,6 +53,11 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_back_button ==
+            true,
+        }"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -56,6 +69,11 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_next_button ==
+            true,
+        }"
         small
         depressed
       >
@@ -66,6 +84,17 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
+  mounted() {
+    this.good_and_product_seller.good_and_product.track_1 = true;
+    this.good_and_product_seller.good_and_product.track_2 = true;
+    this.good_and_product_seller.good_and_product.track_3 = true;
+    this.good_and_product_seller.good_and_product.activate_next_button = true;
+    this.good_and_product_seller.good_and_product.activate_back_button = true;
+  },
+  computed: {
+    ...mapState(["good_and_product_seller"]),
+  },
 };
 </script>

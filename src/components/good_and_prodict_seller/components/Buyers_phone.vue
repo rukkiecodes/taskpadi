@@ -3,6 +3,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_back_button == true,
+      }"
+      @click="go_back_to_gaps_email"
       color="#4169E2"
       small
     >
@@ -23,6 +28,8 @@
         class="mt-10 rounded-lg"
         label="Buyers phone number"
         background-color="#fff"
+        v-model="good_and_product_seller.good_and_product.buyer_phone_number"
+        @keypress.enter="go_to_transaction_title"
         solo
         flat
       ></v-text-field>
@@ -30,6 +37,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_next_button == true,
+      }"
+      @click="go_to_transaction_title"
       color="#4169E2"
       small
     >
@@ -45,6 +57,12 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_back_button ==
+            true,
+        }"
+        @click="go_back_to_gaps_email"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -56,6 +74,12 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_next_button ==
+            true,
+        }"
+        @click="go_to_transaction_title"
         small
         depressed
       >
@@ -66,6 +90,19 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
+  mounted() {
+    this.good_and_product_seller.good_and_product.track_1 = true;
+    this.good_and_product_seller.good_and_product.track_2 = true;
+    this.good_and_product_seller.good_and_product.activate_next_button = true;
+    this.good_and_product_seller.good_and_product.activate_back_button = true;
+  },
+  methods: {
+    ...mapActions(["go_back_to_gaps_email", "go_to_transaction_title"])
+  },
+  computed: {
+    ...mapState(["good_and_product_seller"]),
+  },
 };
 </script>

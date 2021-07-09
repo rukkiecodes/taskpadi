@@ -23,6 +23,8 @@
         class="mt-10 rounded-lg"
         label="buyers email"
         background-color="#fff"
+        v-model="good_and_product_seller.good_and_product.buyer_email"
+        @keypress.enter="go_to_buyer_phone"
         solo
         flat
       ></v-text-field>
@@ -30,7 +32,12 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          good_and_product_seller.good_and_product.activate_next_button == true,
+      }"
       color="#4169E2"
+      @click="go_to_buyer_phone"
       small
     >
       <v-icon>mdi-arrow-right</v-icon>
@@ -56,6 +63,12 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            good_and_product_seller.good_and_product.activate_next_button ==
+            true,
+        }"
+        @click="go_to_buyer_phone"
         small
         depressed
       >
@@ -66,6 +79,16 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
+  mounted() {
+    this.good_and_product_seller.good_and_product.track_1 = true;
+  },
+  methods: {
+    ...mapActions(["go_to_buyer_phone"]),
+  },
+  computed: {
+    ...mapState(["good_and_product_seller"]),
+  },
 };
 </script>
