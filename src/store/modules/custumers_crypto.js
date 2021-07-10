@@ -14,6 +14,7 @@ export default {
       activeate_next_button: false,
       email_input: "",
       phone_input: "",
+      currency_input: "",
     },
   },
   mutations: {
@@ -48,6 +49,24 @@ export default {
         };
       }
     },
+    go_back_to_phone: (state) => {
+      router.push("traders_phone");
+      state.custumer.track_3 = false;
+    },
+
+    goto_traders_amount: (state) => {
+      if (state.custumer.currency_input != "") {
+        router.push("traders_amount");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `please enter a currency`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
   },
   actions: {
     goto_traders_phone({ commit }) {
@@ -58,6 +77,12 @@ export default {
     },
     goto_currency({ commit }) {
       commit("goto_currency");
+    },
+    go_back_to_phone({ commit }) {
+      commit("go_back_to_phone");
+    },
+    goto_traders_amount({ commit }) {
+      commit("goto_traders_amount");
     },
   },
   getters: {},
