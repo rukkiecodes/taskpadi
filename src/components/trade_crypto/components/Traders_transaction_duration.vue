@@ -7,6 +7,7 @@
         interactive_form_sides_button_active:
           custumers_crypto.custumer.activeate_back_button == true,
       }"
+      @click="go_back_to_price"
       color="#4169E2"
       small
     >
@@ -27,6 +28,8 @@
         class="mt-10 rounded-lg"
         label="Traders Email"
         background-color="#fff"
+        v-model="custumers_crypto.custumer.duration_input"
+        @keypress.enter="go_back_to_wallet_address"
         solo
         flat
       ></v-text-field>
@@ -38,6 +41,7 @@
         interactive_form_sides_button_active:
           custumers_crypto.custumer.activeate_next_button == true,
       }"
+      @click="go_back_to_wallet_address"
       color="#4169E2"
       small
     >
@@ -57,6 +61,7 @@
           interactive_form_mobile_buttons_button_active:
             custumers_crypto.custumer.activeate_back_button == true,
         }"
+        @click="go_back_to_price"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -72,6 +77,7 @@
           interactive_form_mobile_buttons_button_active:
             custumers_crypto.custumer.activeate_next_button == true,
         }"
+        @click="go_back_to_wallet_address"
         small
         depressed
       >
@@ -82,7 +88,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.custumers_crypto.custumer.activeate_next_button = true;
@@ -93,6 +99,9 @@ export default {
     this.custumers_crypto.custumer.track_4 = true;
     this.custumers_crypto.custumer.track_5 = true;
     this.custumers_crypto.custumer.track_6 = true;
+  },
+  methods: {
+    ...mapActions(["go_back_to_price", "go_back_to_wallet_address"]),
   },
   computed: {
     ...mapState(["custumers_crypto"]),
