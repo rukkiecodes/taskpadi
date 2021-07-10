@@ -5,7 +5,7 @@ import good_and_product_buyer from "./modules/good_and_product_buyer";
 import snackbar_state from "./modules/snackbar_state";
 import delivery_info from "./modules/delivery_info"
 import good_and_product_seller from "./modules/good_and _product_seller";
-import custumers_crypty from "./modules/custumers_crypto"
+import custumers_crypto from "./modules/custumers_crypto"
 
 Vue.use(Vuex);
 
@@ -24,6 +24,6 @@ export default new Vuex.Store({
         snackbar_state,
         delivery_info,
         good_and_product_seller,
-        custumers_crypty
+        custumers_crypto
     },
 });

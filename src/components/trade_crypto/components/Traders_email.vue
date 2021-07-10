@@ -3,6 +3,10 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+          interactive_form_mobile_buttons_button_active:
+            custumers_crypto.custumer.activeate_back_button == true,
+        }"
       color="#4169E2"
       small
     >
@@ -23,6 +27,8 @@
         class="mt-10 rounded-lg"
         label="Traders Email"
         background-color="#fff"
+        v-model="custumers_crypto.custumer.email_input"
+        @keypress.enter="goto_traders_phone"
         solo
         flat
       ></v-text-field>
@@ -30,6 +36,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+          interactive_form_sides_button_active:
+            custumers_crypto.custumer.activeate_next_button == true,
+        }"
+        @click="goto_traders_phone"
       color="#4169E2"
       small
     >
@@ -45,6 +56,10 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            custumers_crypto.custumer.activeate_back_button == true,
+        }"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -56,6 +71,11 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            custumers_crypto.custumer.activeate_next_button == true,
+        }"
+        @click="goto_traders_phone"
         small
         depressed
       >
@@ -66,5 +86,18 @@
 </template>
 
 <script>
-export default {};
+import { mapActions, mapState } from "vuex";
+export default {
+  mounted() {
+    this.custumers_crypto.custumer.activeate_next_button = true;
+    this.custumers_crypto.custumer.activeate_back_button = false;
+    this.custumers_crypto.custumer.track_1 = true;
+  },
+  methods: {
+    ...mapActions(["goto_traders_phone"])
+  },
+  computed: {
+    ...mapState(["custumers_crypto"]),
+  },
+};
 </script>
