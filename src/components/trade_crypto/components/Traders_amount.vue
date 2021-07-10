@@ -3,6 +3,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          custumers_crypto.custumer.activeate_back_button == true,
+      }"
+      @click="go_back_to_currency"
       color="#4169E2"
       small
     >
@@ -16,13 +21,17 @@
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-currency-usd-circle-outline</v-icon>
+        <v-icon size="50" class="white--text"
+          >mdi-currency-usd-circle-outline</v-icon
+        >
       </div>
       <v-text-field
         style="width: 100%"
         class="mt-10 rounded-lg"
         label="Traders Email"
         background-color="#fff"
+        v-model="custumers_crypto.custumer.amount_input"
+        @keypress.enter="goto_price"
         solo
         flat
       ></v-text-field>
@@ -30,6 +39,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          custumers_crypto.custumer.activeate_next_button == true,
+      }"
+      @click="goto_price"
       color="#4169E2"
       small
     >
@@ -45,6 +59,11 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            custumers_crypto.custumer.activeate_back_button == true,
+        }"
+        @click="go_back_to_currency"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -56,6 +75,11 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            custumers_crypto.custumer.activeate_next_button == true,
+        }"
+        @click="goto_price"
         small
         depressed
       >
@@ -66,5 +90,21 @@
 </template>
 
 <script>
-export default {};
+import { mapActions, mapState } from "vuex";
+export default {
+  mounted() {
+    this.custumers_crypto.custumer.activeate_next_button = true;
+    this.custumers_crypto.custumer.activeate_back_button = true;
+    this.custumers_crypto.custumer.track_1 = true;
+    this.custumers_crypto.custumer.track_2 = true;
+    this.custumers_crypto.custumer.track_3 = true;
+    this.custumers_crypto.custumer.track_4 = true;
+  },
+  methods: {
+    ...mapActions(["go_back_to_currency", "goto_price"]),
+  },
+  computed: {
+    ...mapState(["custumers_crypto"]),
+  },
+};
 </script>
