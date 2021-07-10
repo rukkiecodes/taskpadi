@@ -86,6 +86,23 @@ export default {
         };
       }
     },
+    go_back_to_amount: (state) => {
+      router.push("traders_amount");
+      state.custumer.track_5 = false;
+    },
+    goto_duration: (state) => {
+      if (state.custumer.price_input != "") {
+        router.push("traders_transaction_duration");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `please enter an price`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
   },
   actions: {
     goto_traders_phone({ commit }) {
@@ -108,6 +125,12 @@ export default {
     },
     goto_price({ commit }) {
       commit("goto_price");
+    },
+    go_back_to_amount({ commit }) {
+      commit("go_back_to_amount");
+    },
+    goto_duration({ commit }) {
+      commit("goto_duration");
     },
   },
   getters: {},

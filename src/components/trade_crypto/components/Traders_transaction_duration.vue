@@ -3,6 +3,10 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          custumers_crypto.custumer.activeate_back_button == true,
+      }"
       color="#4169E2"
       small
     >
@@ -30,6 +34,10 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          custumers_crypto.custumer.activeate_next_button == true,
+      }"
       color="#4169E2"
       small
     >
@@ -45,6 +53,10 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            custumers_crypto.custumer.activeate_back_button == true,
+        }"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -56,6 +68,10 @@
           white--text
           rounded-lg
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            custumers_crypto.custumer.activeate_next_button == true,
+        }"
         small
         depressed
       >
@@ -66,5 +82,20 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  mounted() {
+    this.custumers_crypto.custumer.activeate_next_button = true;
+    this.custumers_crypto.custumer.activeate_back_button = true;
+    this.custumers_crypto.custumer.track_1 = true;
+    this.custumers_crypto.custumer.track_2 = true;
+    this.custumers_crypto.custumer.track_3 = true;
+    this.custumers_crypto.custumer.track_4 = true;
+    this.custumers_crypto.custumer.track_5 = true;
+    this.custumers_crypto.custumer.track_6 = true;
+  },
+  computed: {
+    ...mapState(["custumers_crypto"]),
+  },
+};
 </script>
