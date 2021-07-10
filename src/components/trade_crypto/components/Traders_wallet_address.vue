@@ -7,6 +7,7 @@
         interactive_form_sides_button_active:
           custumers_crypto.custumer.activeate_back_button == true,
       }"
+      @click="go_back_to_duration"
       color="#4169E2"
       small
     >
@@ -57,6 +58,7 @@
           interactive_form_mobile_buttons_button_active:
             custumers_crypto.custumer.activeate_back_button == true,
         }"
+        @click="go_back_to_duration"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -82,7 +84,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.custumers_crypto.custumer.activeate_next_button = false;
@@ -94,6 +96,9 @@ export default {
     this.custumers_crypto.custumer.track_5 = true;
     this.custumers_crypto.custumer.track_6 = true;
     this.custumers_crypto.custumer.track_7 = true;
+  },
+  methods: {
+    ...mapActions(["go_back_to_duration"])
   },
   computed: {
     ...mapState(["custumers_crypto"]),

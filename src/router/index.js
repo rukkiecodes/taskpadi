@@ -39,7 +39,6 @@ import Traders_amount from "../components/trade_crypto/components/Traders_amount
 import Traders_price from "../components/trade_crypto/components/Traders_price.vue"
 import Traders_transaction_duration from "../components/trade_crypto/components/Traders_transaction_duration.vue"
 import Traders_wallet_address from "../components/trade_crypto/components/Traders_wallet_address.vue"
-import Traders_your_address from "../components/trade_crypto/components/Traders_your_address.vue"
 
 Vue.use(VueRouter);
 
@@ -228,10 +227,6 @@ const routes = [{
             path: "traders_wallet_address",
             name: "traders wallet address",
             component: Traders_wallet_address
-        }, {
-            path: "traders_your_address",
-            name: "traders your address",
-            component: Traders_your_address
         }]
     },
     {

@@ -23,16 +23,23 @@
       <div class="icon mt-5">
         <v-icon size="50" class="white--text">mdi-currency-btc</v-icon>
       </div>
-      <v-text-field
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Traders Email"
-        background-color="#fff"
-        v-model="custumers_crypto.custumer.duration_input"
-        @keypress.enter="go_back_to_wallet_address"
-        solo
-        flat
-      ></v-text-field>
+      <v-row class="mt-10">
+        <v-col class="col-8">
+          <v-select
+            :items="custumers_crypto.custumer.items"
+            :label="custumers_crypto.custumer.items[1]"
+            :value="custumers_crypto.custumer.items[1]"
+            @change="set_duration_with_select"
+            class="rounded-lg"
+            solo
+            dense
+            flat
+          ></v-select>
+        </v-col>
+        <v-col class="col-4">
+          <Time_picker />
+        </v-col>
+      </v-row>
     </div>
     <v-btn
       depressed
@@ -89,7 +96,11 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
+import Time_picker from "./Time_picker.vue";
 export default {
+  components: {
+    Time_picker
+  },
   mounted() {
     this.custumers_crypto.custumer.activeate_next_button = true;
     this.custumers_crypto.custumer.activeate_back_button = true;
@@ -102,6 +113,14 @@ export default {
   },
   methods: {
     ...mapActions(["go_back_to_price", "go_back_to_wallet_address"]),
+    set_duration_with_select(e) {
+      this.custumers_crypto.custumer.duration_input = e;
+      console.log(this.custumers_crypto.custumer.duration_input);
+    },
+    set_duration_with_picker(e) {
+      this.custumers_crypto.custumer.duration_input = e;
+      this.custumers_crypto.custumer.time_visibility = false;
+    },
   },
   computed: {
     ...mapState(["custumers_crypto"]),
