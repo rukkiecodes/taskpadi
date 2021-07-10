@@ -13,6 +13,7 @@ export default {
       activeate_back_button: false,
       activeate_next_button: false,
       email_input: "",
+      phone_input: "",
     },
   },
   mutations: {
@@ -34,6 +35,19 @@ export default {
       router.push("/trade_crypto");
       state.custumer.track_2 = false;
     },
+    goto_currency: (state) => {
+      if (state.custumer.phone_input != "") {
+        router.push("traders_currency");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `please enter a phone number`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
   },
   actions: {
     goto_traders_phone({ commit }) {
@@ -41,6 +55,9 @@ export default {
     },
     go_back_to_traders_email({ commit }) {
       commit("go_back_to_traders_email");
+    },
+    goto_currency({ commit }) {
+      commit("goto_currency");
     },
   },
   getters: {},

@@ -28,6 +28,8 @@
         class="mt-10 rounded-lg"
         label="Traders Email"
         background-color="#fff"
+        v-model="custumers_crypto.custumer.phone_input"
+        @keypress.enter="goto_currency"
         solo
         flat
       ></v-text-field>
@@ -39,6 +41,7 @@
         interactive_form_sides_button_active:
           custumers_crypto.custumer.activeate_next_button == true,
       }"
+      @click="goto_currency"
       color="#4169E2"
       small
     >
@@ -74,6 +77,7 @@
           interactive_form_mobile_buttons_button_active:
             custumers_crypto.custumer.activeate_next_button == true,
         }"
+        @click="goto_currency"
         small
         depressed
       >
@@ -93,7 +97,7 @@ export default {
     this.custumers_crypto.custumer.track_2 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_traders_email"])
+    ...mapActions(["go_back_to_traders_email", "goto_currency"]),
   },
   computed: {
     ...mapState(["custumers_crypto"]),
