@@ -25,7 +25,7 @@
         <div>
           <div v-for="(item, i) in items" :key="i" class="card-body">
             <div class="card-container">
-              <div class="display:flex;">
+              <div class="card-container-style">
                 <v-card
                   class="custom-card"
                   :class="style"
@@ -35,10 +35,18 @@
                 >
                   <v-list-item three-line>
                     <v-list-item-subtitle class="text-center text-color">
-                      {{ item }}</v-list-item-subtitle
+                      {{ item }}
+
+                      <v-icon right v-if="i !== active"
+                        >mdi-chevron-down</v-icon
+                      >
+                      <v-icon right v-if="i !== active"
+                        >mdi-chevron-right</v-icon
+                      ></v-list-item-subtitle
                     >
                   </v-list-item>
                 </v-card>
+
                 <div>
                   <p v-if="i == active" class="content-writing-small">
                     {{ answers[active] }}
@@ -57,7 +65,7 @@
         </form>
         <div class="childBody">
           <div class="childbtn1">
-            <span>e</span>
+            <span></span>
           </div>
           <div class="childbtn2">
             <span>e</span>
@@ -171,7 +179,10 @@ export default {
   margin-bottom: 40px !important;
 }
 .custom-card {
-  border-radius: 10px !important;
+  border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   width: 240px;
   height: 102px;
 }
@@ -265,7 +276,10 @@ export default {
     margin-bottom: 10px !important;
   }
   .custom-card {
-    border-radius: 10px !important;
+    border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     width: 700px;
     height: 102px;
     margin-left: 30px;
@@ -279,6 +293,19 @@ export default {
     display: block;
     margin-left: 30px;
     font-size: 13px;
+    width: 700px;
+    border-style: hidden;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: #4169e2 !important;
+    background-color: rgba(65, 106, 226, 0.1) !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   .contact-wrapper {
     display: flex;
@@ -348,11 +375,12 @@ export default {
       margin-bottom: 10px !important;
     }
     .custom-card {
-      border-radius: 10px !important;
-      margin-left: 12px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
       width: 320px;
-      height: 102px;
-      margin-bottom: 10px;
+      height: 70px;
     }
     .content-writing {
       display: none;
@@ -361,8 +389,20 @@ export default {
     }
     .content-writing-small {
       display: block;
-      margin-left: 20px;
       font-size: 13px;
+      width: 320px;
+      border-style: hidden;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-right: 15px;
+      padding-left: 15px;
+      border-top-left-radius: 0px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-color: #4169e2 !important;
+      background-color: rgba(65, 106, 226, 0.1) !important;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
     .contact-wrapper {
       display: flex;
@@ -372,6 +412,11 @@ export default {
     }
     .content-wrapper {
       display: none;
+    }
+    .card-container-style {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .contact-wrapper-small {
       display: flex;
