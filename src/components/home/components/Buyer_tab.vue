@@ -39,8 +39,7 @@ export default {
       },
       {
         image: require("../../../assets/trust/homepage icons/Group 118.svg"),
-        text:
-          "TrustPaddi Pays the Seller after confirmation",
+        text: "TrustPaddi Pays the Seller after confirmation",
       },
     ],
   }),

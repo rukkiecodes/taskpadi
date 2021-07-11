@@ -11,7 +11,7 @@ import VueMeta from "vue-meta";
 Vue.use(VueCountryCode);
 Vue.use(SmoothScrollbar);
 Vue.use(VueMeta, {
-  // optional pluginOptions
+  // optional pluginOptionsgit branch eey
   refreshOnceOnNavigation: true,
 });
 

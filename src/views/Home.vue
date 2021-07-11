@@ -1,7 +1,8 @@
 <template>
   <div id="scroll-area">
     <App_bar />
-    <Drawer />
+    <v-container> <Drawer /></v-container>
+
     <smooth-scrollbar :options="{ damping: 0.06 }">
       <Head />
       <Read_more />

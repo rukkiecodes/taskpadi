@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <App_bar />
+
     <Drawer />
   </v-container>
 </template>
@@ -15,7 +16,7 @@ export default {
   },
   components: {
     App_bar,
-    Drawer
-  }
-}
+    Drawer,
+  },
+};
 </script>
