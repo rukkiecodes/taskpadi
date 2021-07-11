@@ -26,7 +26,7 @@
       <v-text-field
         style="width: 100%"
         class="mt-10 rounded-lg"
-        label="Traders Email"
+        label="Phone number"
         background-color="#fff"
         v-model="custumers_crypto.custumer.phone_input"
         @keypress.enter="goto_currency"

@@ -9,8 +9,8 @@
     >
       Custom
     </v-btn>
-    <v-dialog v-model="custumers_crypto.custumer.dialog" width="300">
-      <v-card class="">
+    <v-dialog persistent v-model="custumers_crypto.custumer.dialog" width="310">
+      <v-card class="ma-0 pa-0">
         <v-toolbar flat dense>
           <v-spacer />
           <v-btn @click="custumers_crypto.custumer.dialog = false" icon>

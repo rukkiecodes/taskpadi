@@ -23,16 +23,18 @@
       <div class="icon mt-5">
         <v-icon size="50" class="white--text">mdi-currency-btc</v-icon>
       </div>
-      <v-text-field
+      <v-select
+        :items="custumers_crypto.custumer.currency"
+        :label="custumers_crypto.custumer.currency[0]"
+        @change="set_currency_input"
+        color="#4169E2"
+        append-icon="mdi-chevron-down"
         style="width: 100%"
         class="mt-10 rounded-lg"
-        label="Traders Email"
-        background-color="#fff"
-        v-model="custumers_crypto.custumer.currency_input"
-        @keypress.enter="goto_traders_amount"
         solo
         flat
-      ></v-text-field>
+        dense
+      ></v-select>
     </div>
     <v-btn
       depressed
@@ -99,6 +101,9 @@ export default {
   },
   methods: {
     ...mapActions(["go_back_to_phone", "goto_traders_amount"]),
+    set_currency_input(e) {
+      this.custumers_crypto.custumer.currency_input = e
+    }
   },
   computed: {
     ...mapState(["custumers_crypto"]),

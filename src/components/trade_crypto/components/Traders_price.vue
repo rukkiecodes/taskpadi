@@ -26,7 +26,7 @@
       <v-text-field
         style="width: 100%"
         class="mt-10 rounded-lg"
-        label="Traders Email"
+        label="Traders price"
         background-color="#fff"
         v-model="custumers_crypto.custumer.price_input"
         @keypress.enter="goto_duration"

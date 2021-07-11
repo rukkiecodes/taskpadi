@@ -115,7 +115,6 @@ export default {
     ...mapActions(["go_back_to_price", "go_back_to_wallet_address"]),
     set_duration_with_select(e) {
       this.custumers_crypto.custumer.duration_input = e;
-      console.log(this.custumers_crypto.custumer.duration_input);
     },
     set_duration_with_picker(e) {
       this.custumers_crypto.custumer.duration_input = e;

@@ -1,17 +1,17 @@
 <template>
   <v-container class="interactive_form">
     <div class="interactive_form_sides">
-      <!-- <Tracks /> -->
+      <Tracks />
       <router-view />
     </div>
   </v-container>
 </template>
 
 <script>
-// import Tracks from "./components/Tracks.vue";
+import Tracks from "./components/Tracks.vue";
 export default {
   components: {
-    // Tracks,
+    Tracks,
   },
 };
 </script>

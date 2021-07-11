@@ -19,6 +19,36 @@ export default {
       price_input: "",
       duration_input: "",
       items: ["Less than 30 minutes", "1 hour", "5 hours"],
+      currency: [
+        "Bitcoin",
+        "Ethereum",
+        "Ethereum Classic",
+        "Litecoin",
+        "Namecoin",
+        "Peercoin",
+        "Dogecoin",
+        "Gridcoin",
+        "Primecoin",
+        "Ripple",
+        "Nxt",
+        "Auroracoin",
+        "Dash",
+        "NEO",
+        "MazaCoin",
+        "Monero",
+        "Titcoin",
+        "Verge",
+        "Stellar",
+        "Vertcoin",
+        "Nano",
+        "Tether",
+        "Firo",
+        "Zcash",
+        "Bitcoin Cash",
+        "EOS.IO",
+        "Cardano",
+        "BitClout",
+      ],
       time_visibility: false,
       dialog: false,
     },
@@ -40,7 +70,7 @@ export default {
     },
     go_back_to_traders_email: (state) => {
       router.push("/trade_crypto");
-      //   state.custumer.track_2 = false;
+      state.custumer.track_2 = false;
     },
     goto_currency: (state) => {
       if (state.custumer.phone_input != "") {
@@ -57,7 +87,7 @@ export default {
     },
     go_back_to_phone: (state) => {
       router.push("traders_phone");
-      //   state.custumer.track_3 = false;
+      state.custumer.track_3 = false;
     },
 
     goto_traders_amount: (state) => {
@@ -75,7 +105,7 @@ export default {
     },
     go_back_to_currency: (state) => {
       router.push("traders_currency");
-      //   state.custumer.track_4 = false;
+      state.custumer.track_4 = false;
     },
     goto_price: (state) => {
       if (state.custumer.amount_input != "") {
@@ -92,7 +122,7 @@ export default {
     },
     go_back_to_amount: (state) => {
       router.push("traders_amount");
-      //   state.custumer.track_5 = false;
+      state.custumer.track_5 = false;
     },
     goto_duration: (state) => {
       if (state.custumer.price_input != "") {
@@ -109,7 +139,7 @@ export default {
     },
     go_back_to_price: (state) => {
       router.push("traders_price");
-      //   state.custumer.track_6 = false;
+      state.custumer.track_6 = false;
     },
     go_back_to_wallet_address: (state) => {
       if (state.custumer.duration_input != "") {
@@ -126,7 +156,7 @@ export default {
     },
     go_back_to_duration: (state) => {
       router.push("traders_price");
-      //   state.custumer.track_7 = false;
+      state.custumer.track_7 = false;
     },
   },
   actions: {
