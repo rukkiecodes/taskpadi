@@ -4,10 +4,9 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-        interactive_form_sides_button_active:
-          custumers_crypto.custumer.activeate_back_button == true,
-      }"
-      @click="go_back_to_phone"
+          interactive_form_mobile_buttons_button_active:
+            custumers_crypto.custumer.activeate_back_button == true,
+        }"
       color="#4169E2"
       small
     >
@@ -15,35 +14,33 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Traders Currency</p>
+        <p class="text-h6">Traders Email</p>
         <p class="text-caption mt-n3">
           Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-currency-btc</v-icon>
+        <v-icon size="50" class="white--text">mdi-email-variant</v-icon>
       </div>
-      <v-select
-        :items="custumers_crypto.custumer.currency"
-        :label="custumers_crypto.custumer.currency[0]"
-        @change="set_currency_input"
-        color="#4169E2"
-        append-icon="mdi-chevron-down"
+      <v-text-field
         style="width: 100%"
         class="mt-10 rounded-lg"
+        label="Traders Email"
+        background-color="#fff"
+        v-model="custumers_crypto.custumer.email_input"
+        @keypress.enter="goto_custumer_phone"
         solo
         flat
-        dense
-      ></v-select>
+      ></v-text-field>
     </div>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-        interactive_form_sides_button_active:
-          custumers_crypto.custumer.activeate_next_button == true,
-      }"
-      @click="goto_traders_amount"
+          interactive_form_sides_button_active:
+            custumers_crypto.custumer.activeate_next_button == true,
+        }"
+        @click="goto_custumer_phone"
       color="#4169E2"
       small
     >
@@ -63,7 +60,6 @@
           interactive_form_mobile_buttons_button_active:
             custumers_crypto.custumer.activeate_back_button == true,
         }"
-        @click="go_back_to_phone"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -79,7 +75,7 @@
           interactive_form_mobile_buttons_button_active:
             custumers_crypto.custumer.activeate_next_button == true,
         }"
-        @click="goto_traders_amount"
+        @click="goto_custumer_phone"
         small
         depressed
       >
@@ -94,16 +90,11 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.custumers_crypto.custumer.activeate_next_button = true;
-    this.custumers_crypto.custumer.activeate_back_button = true;
+    this.custumers_crypto.custumer.activeate_back_button = false;
     this.custumers_crypto.custumer.track_1 = true;
-    this.custumers_crypto.custumer.track_2 = true;
-    this.custumers_crypto.custumer.track_3 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_phone", "goto_traders_amount"]),
-    set_currency_input(e) {
-      this.custumers_crypto.custumer.currency_input = e
-    }
+    ...mapActions(["goto_custumer_phone"])
   },
   computed: {
     ...mapState(["custumers_crypto"]),

@@ -54,10 +54,10 @@ export default {
     },
   },
   mutations: {
-    goto_traders_phone: (state) => {
+    goto_custumer_phone: (state) => {
       const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (state.custumer.email_input.match(email_regex)) {
-        router.push("/custumer_crypto/traders_phone");
+        router.push("/custumer_crypto/custumer_phone");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -74,7 +74,7 @@ export default {
     },
     goto_currency: (state) => {
       if (state.custumer.phone_input != "") {
-        router.push("traders_currency");
+        router.push("custumer_currency");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -86,13 +86,13 @@ export default {
       }
     },
     go_back_to_phone: (state) => {
-      router.push("traders_phone");
+      router.push("custumer_phone");
       state.custumer.track_3 = false;
     },
 
-    goto_traders_amount: (state) => {
+    goto_custumer_amount: (state) => {
       if (state.custumer.currency_input != "") {
-        router.push("traders_amount");
+        router.push("custumer_amount");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -104,12 +104,12 @@ export default {
       }
     },
     go_back_to_currency: (state) => {
-      router.push("traders_currency");
+      router.push("custumer_currency");
       state.custumer.track_4 = false;
     },
     goto_price: (state) => {
       if (state.custumer.amount_input != "") {
-        router.push("traders_price");
+        router.push("custumer_price");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -121,12 +121,12 @@ export default {
       }
     },
     go_back_to_amount: (state) => {
-      router.push("traders_amount");
+      router.push("custumer_amount");
       state.custumer.track_5 = false;
     },
     goto_duration: (state) => {
       if (state.custumer.price_input != "") {
-        router.push("traders_transaction_duration");
+        router.push("custumer_transaction_duration");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -138,12 +138,12 @@ export default {
       }
     },
     go_back_to_price: (state) => {
-      router.push("traders_price");
+      router.push("custumer_price");
       state.custumer.track_6 = false;
     },
     go_back_to_wallet_address: (state) => {
       if (state.custumer.duration_input != "") {
-        router.push("traders_wallet_address");
+        router.push("custumer_wallet_address");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -155,13 +155,13 @@ export default {
       }
     },
     go_back_to_duration: (state) => {
-      router.push("traders_transaction_duration");
+      router.push("custumer_transaction_duration");
       state.custumer.track_7 = false;
     },
   },
   actions: {
-    goto_traders_phone({ commit }) {
-      commit("goto_traders_phone");
+    goto_custumer_phone({ commit }) {
+      commit("goto_custumer_phone");
     },
     go_back_to_traders_email({ commit }) {
       commit("go_back_to_traders_email");
@@ -172,8 +172,8 @@ export default {
     go_back_to_phone({ commit }) {
       commit("go_back_to_phone");
     },
-    goto_traders_amount({ commit }) {
-      commit("goto_traders_amount");
+    goto_custumer_amount({ commit }) {
+      commit("goto_custumer_amount");
     },
     go_back_to_currency({ commit }) {
       commit("go_back_to_currency");

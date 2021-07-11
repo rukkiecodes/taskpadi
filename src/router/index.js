@@ -32,13 +32,13 @@ import Buyers_product_photo from "../components/good_and_prodict_seller/componen
 import Buyers_product_condition from "../components/good_and_prodict_seller/components/Buyers_product_condition.vue"
 import Buyers_product_image from "../components/good_and_prodict_seller/components/Buyers_product_image.vue"
 import custumer_crypto from "../views/Custumer_crypto.vue"
-import Traders_email from "../components/custumer_crypto/components/Traders_email.vue"
-import Traders_phone from "../components/custumer_crypto/components/Traders_phone.vue"
-import Traders_currency from "../components/custumer_crypto/components/Traders_currency.vue"
-import Traders_amount from "../components/custumer_crypto/components/Traders_amount.vue"
-import Traders_price from "../components/custumer_crypto/components/Traders_price.vue"
-import Traders_transaction_duration from "../components/custumer_crypto/components/Traders_transaction_duration.vue"
-import Traders_wallet_address from "../components/custumer_crypto/components/Traders_wallet_address.vue"
+import Customer_email from "../components/custumer_crypto/components/Customer_email.vue"
+import Customer_phone from "../components/custumer_crypto/components/Customer_phone.vue"
+import Customer_currency from "../components/custumer_crypto/components/Customer_currency.vue"
+import Customer_amount from "../components/custumer_crypto/components/Customer_amount.vue"
+import Customer_price from "../components/custumer_crypto/components/Customer_price.vue"
+import Customer_transaction_duration from "../components/custumer_crypto/components/Customer_transaction_duration.vue"
+import Customer_wallet_address from "../components/custumer_crypto/components/Customer_wallet_address.vue"
 import Trader_crypto from "../views/Trader_crypto.vue"
 
 Vue.use(VueRouter);
@@ -198,36 +198,36 @@ const routes = [{
     },
     {
         path: "/custumer_crypto",
-        name: "trade crypto",
+        name: "Customer crypto",
         component: custumer_crypto,
         children: [{
             path: "",
-            name: "traders email",
-            component: Traders_email
+            name: "Customer email",
+            component: Customer_email
         }, {
-            path: "traders_phone",
-            name: "traders phone",
-            component: Traders_phone
+            path: "custumer_phone",
+            name: "Customer phone",
+            component: Customer_phone
         }, {
-            path: "traders_currency",
-            name: "traders currency",
-            component: Traders_currency
+            path: "custumer_currency",
+            name: "Customer currency",
+            component: Customer_currency
         }, {
-            path: "traders_amount",
-            name: "traders amount",
-            component: Traders_amount
+            path: "custumer_amount",
+            name: "Customer amount",
+            component: Customer_amount
         }, {
-            path: "traders_price",
-            name: "traders price",
-            component: Traders_price
+            path: "custumer_price",
+            name: "Customer price",
+            component: Customer_price
         }, {
-            path: "traders_transaction_duration",
-            name: "traders transaction duration",
-            component: Traders_transaction_duration
+            path: "custumer_transaction_duration",
+            name: "Customer transaction duration",
+            component: Customer_transaction_duration
         }, {
-            path: "traders_wallet_address",
-            name: "traders wallet address",
-            component: Traders_wallet_address
+            path: "custumer_wallet_address",
+            name: "Customer wallet address",
+            component: Customer_wallet_address
         }]
     },
     {
