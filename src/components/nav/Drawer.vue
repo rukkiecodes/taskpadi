@@ -48,18 +48,18 @@
             </div>
           </div>
         </div>
-        <div class="contact-wrapper-small">
-          <form action="">
-            <input class="input" placeholder="ask a question" />
-          </form>
-          <div class="childBody">
-            <div class="childbtn1">
-              <span>e</span>
-            </div>
-            <div class="childbtn2">
-              <span>e</span>
-            </div>
-          </div>
+      </div>
+    </div>
+    <div class="contact-wrapper-small">
+      <form action="">
+        <input class="input" placeholder="ask a question" />
+      </form>
+      <div class="childBody">
+        <div class="childbtn1">
+          <span>e</span>
+        </div>
+        <div class="childbtn2">
+          <span>e</span>
         </div>
       </div>
     </div>
