@@ -50,19 +50,21 @@
         </div>
       </div>
     </div>
-    <div class="contact-wrapper-small">
-      <form action="">
-        <input class="input" placeholder="ask a question" />
-      </form>
-      <div class="childBody">
-        <div class="childbtn1">
-          <span>e</span>
-        </div>
-        <div class="childbtn2">
-          <span>e</span>
+    <v-container>
+      <div class="contact-wrapper-small">
+        <form action="">
+          <input class="input" placeholder="ask a question" />
+        </form>
+        <div class="childBody">
+          <div class="childbtn1">
+            <span>e</span>
+          </div>
+          <div class="childbtn2">
+            <span>e</span>
+          </div>
         </div>
       </div>
-    </div>
+    </v-container>
   </div>
 </template>
 
@@ -238,7 +240,7 @@ export default {
 
   background: #4169e2 0% 0% no-repeat padding-box;
   border-radius: 10px;
-  opacity: 1;
+  opacity: 0.1;
   margin-bottom: 10px;
 }
 .childbtn2 {
@@ -314,15 +316,16 @@ export default {
     margin-left: 10px;
   }
   .childbtn1 {
-    height: 58px;
-    width: 50px;
+    height: 51px;
+    width: 51px;
     background: #4169e2 0% 0% no-repeat padding-box;
     border-radius: 10px;
-    opacity: 1;
+    opacity: 0.1;
+    margin-bottom: 30px;
   }
   .childbtn2 {
-    width: 50px;
-    height: 58px;
+    width: 51px;
+    height: 51px;
     background: #4169e2 0% 0% no-repeat padding-box;
     border-radius: 10px;
     opacity: 1;
@@ -395,6 +398,21 @@ export default {
     .childBody {
       text-align: center;
       margin-left: 10px;
+      justify-content: space-between;
+    }
+    .childbtn1 {
+      height: 50px;
+      width: 50px;
+      background: #4169e2 0% 0% no-repeat padding-box;
+      border-radius: 10px;
+      opacity: 0.1;
+    }
+    .childbtn2 {
+      width: 50px;
+      height: 50px;
+      background: #4169e2 0% 0% no-repeat padding-box;
+      border-radius: 10px;
+      opacity: 1;
     }
     .contact-main-body {
       align-self: center;
