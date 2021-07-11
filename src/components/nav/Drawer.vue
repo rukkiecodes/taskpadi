@@ -203,6 +203,9 @@ export default {
   height: 2360px;
   justify-content: space-between;
 }
+.contact-wrapper-small {
+  display: none;
+}
 .contact-main-body {
   align-self: flex-end;
 }
