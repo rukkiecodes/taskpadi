@@ -155,7 +155,7 @@ export default {
       }
     },
     go_back_to_duration: (state) => {
-      router.push("traders_price");
+      router.push("traders_transaction_duration");
       state.custumer.track_7 = false;
     },
   },
