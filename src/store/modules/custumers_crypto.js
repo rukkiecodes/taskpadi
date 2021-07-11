@@ -57,7 +57,7 @@ export default {
     goto_traders_phone: (state) => {
       const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (state.custumer.email_input.match(email_regex)) {
-        router.push("/trade_crypto/traders_phone");
+        router.push("/custumer_crypto/traders_phone");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -69,7 +69,7 @@ export default {
       }
     },
     go_back_to_traders_email: (state) => {
-      router.push("/trade_crypto");
+      router.push("/custumer_crypto");
       state.custumer.track_2 = false;
     },
     goto_currency: (state) => {

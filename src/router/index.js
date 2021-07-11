@@ -31,14 +31,15 @@ import Buyers_agreed_price from "../components/good_and_prodict_seller/component
 import Buyers_product_photo from "../components/good_and_prodict_seller/components/Buyers_product_photo.vue"
 import Buyers_product_condition from "../components/good_and_prodict_seller/components/Buyers_product_condition.vue"
 import Buyers_product_image from "../components/good_and_prodict_seller/components/Buyers_product_image.vue"
-import Trade_crypto from "../views/Trade_crypto.vue"
-import Traders_email from "../components/trade_crypto/components/Traders_email.vue"
-import Traders_phone from "../components/trade_crypto/components/Traders_phone.vue"
-import Traders_currency from "../components/trade_crypto/components/Traders_currency.vue"
-import Traders_amount from "../components/trade_crypto/components/Traders_amount.vue"
-import Traders_price from "../components/trade_crypto/components/Traders_price.vue"
-import Traders_transaction_duration from "../components/trade_crypto/components/Traders_transaction_duration.vue"
-import Traders_wallet_address from "../components/trade_crypto/components/Traders_wallet_address.vue"
+import custumer_crypto from "../views/Custumer_crypto.vue"
+import Traders_email from "../components/custumer_crypto/components/Traders_email.vue"
+import Traders_phone from "../components/custumer_crypto/components/Traders_phone.vue"
+import Traders_currency from "../components/custumer_crypto/components/Traders_currency.vue"
+import Traders_amount from "../components/custumer_crypto/components/Traders_amount.vue"
+import Traders_price from "../components/custumer_crypto/components/Traders_price.vue"
+import Traders_transaction_duration from "../components/custumer_crypto/components/Traders_transaction_duration.vue"
+import Traders_wallet_address from "../components/custumer_crypto/components/Traders_wallet_address.vue"
+import Trader_crypto from "../views/Trader_crypto.vue"
 
 Vue.use(VueRouter);
 
@@ -196,9 +197,9 @@ const routes = [{
         ],
     },
     {
-        path: "/trade_crypto",
+        path: "/custumer_crypto",
         name: "trade crypto",
-        component: Trade_crypto,
+        component: custumer_crypto,
         children: [{
             path: "",
             name: "traders email",
@@ -228,6 +229,11 @@ const routes = [{
             name: "traders wallet address",
             component: Traders_wallet_address
         }]
+    },
+    {
+        path: "/trader_crypto",
+        name: "trader_crypto",
+        component: Trader_crypto,
     },
     {
         path: "/about",
