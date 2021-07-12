@@ -46,6 +46,8 @@ import Trader_currency from "../components/trader_crypto/components/Trader_curre
 import Trader_amount from "../components/trader_crypto/components/Trader_amount.vue";
 import Trader_price from "../components/trader_crypto/components/Trader_price.vue";
 import Trader_transaction_duration from "../components/trader_crypto/components/Trader_transaction_duration.vue";
+import Provider_services from "../views/Provider_services.vue";
+import Provider_email from "../components/provider_services/components/Provider_email.vue";
 
 Vue.use(VueRouter);
 
@@ -282,6 +284,18 @@ const routes = [
         path: "Trader_transaction_duration",
         name: "Trader transaction duration",
         component: Trader_transaction_duration,
+      },
+    ],
+  },
+  {
+    path: "/provider_services",
+    name: "Provider services",
+    component: Provider_services,
+    children: [
+      {
+        path: "",
+        name: "Provider email",
+        component: Provider_email,
       },
     ],
   },

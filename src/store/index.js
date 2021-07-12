@@ -7,6 +7,7 @@ import delivery_info from "./modules/delivery_info"
 import good_and_product_seller from "./modules/good_and _product_seller";
 import custumers_crypto from "./modules/custumers_crypto";
 import trader_crypto from "./modules/traders_crypto";
+import provider_services from "./modules/provider_services"
 
 Vue.use(Vuex);
 
@@ -26,6 +27,7 @@ export default new Vuex.Store({
         delivery_info,
         good_and_product_seller,
         custumers_crypto,
-        trader_crypto
+        trader_crypto,
+        provider_services
     },
 });
