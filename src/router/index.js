@@ -54,6 +54,7 @@ import Provider_services_duration from "../components/provider_services/componen
 import Provider_amount from "../components/provider_services/components/Provider_amount.vue";
 import Provider_when_to_pay from "../components/provider_services/components/Provider_when_to_pay.vue";
 import Provider_contract_terms  from "../components/provider_services/components/Provider_contract_terms.vue";
+import Client_services from "../views/Client_services.vue";
 
 Vue.use(VueRouter);
 
@@ -334,6 +335,11 @@ const routes = [
         component: Provider_contract_terms ,
       },
     ],
+  },
+  {
+    path: "/client_services",
+    name: "Client services",
+    component: Client_services,
   },
   {
     path: "/about",
