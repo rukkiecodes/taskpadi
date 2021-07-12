@@ -30,11 +30,12 @@
   border-radius: 10px !important;
 }
 .text-color {
-  color: #4169e2 !important;
+  color: rgba(65, 106, 226) !important;
+  font-family: "Times New Roman", Times, serif;
 }
 .content-writing {
   text-align: left !important;
-  font: normal normal normal 14px/30px Montserrat !important;
+  font: normal normal normal 14px/30px "Times New Roman", Times, serif !important;
   letter-spacing: 0.42px;
   color: #150f3f !important;
   opacity: 1;
@@ -155,7 +156,7 @@
     border-color: #4169e2 !important;
     background-color: rgba(65, 106, 226) !important;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Times New Roman", Times, serif;
   }
   .contact-wrapper {
     display: flex;
@@ -264,7 +265,7 @@
       border-bottom-right-radius: 5px;
       border-color: #4169e2 !important;
       background-color: rgba(65, 106, 226) !important;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: "Times New Roman", Times, serif;
     }
     .contact-wrapper {
       display: flex;
