@@ -98,7 +98,6 @@ export default {
     ...mapActions(["go_back_available_services", "goto_provider_amount"]),
     set_duration_with_picker(e) {
       this.provider_services.provider.duration_input = e;
-      this.provider_services.provider.time_visibility = false;
     },
   },
   computed: {

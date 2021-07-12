@@ -14,44 +14,11 @@ export default {
       activeate_next_button: false,
       email_input: "",
       phone_input: "",
-      currency_input: "",
       amount_input: "",
-      price_input: "",
       duration_input: "",
       provider_services_input: "",
       when_to_pay_input: "",
       terms_of_contract_input: "",
-      items: ["Less than 30 minutes", "1 hour", "5 hours"],
-      currency: [
-        "Bitcoin",
-        "Ethereum",
-        "Ethereum Classic",
-        "Litecoin",
-        "Namecoin",
-        "Peercoin",
-        "Dogecoin",
-        "Gridcoin",
-        "Primecoin",
-        "Ripple",
-        "Nxt",
-        "Auroracoin",
-        "Dash",
-        "NEO",
-        "MazaCoin",
-        "Monero",
-        "Titcoin",
-        "Verge",
-        "Stellar",
-        "Vertcoin",
-        "Nano",
-        "Tether",
-        "Firo",
-        "Zcash",
-        "Bitcoin Cash",
-        "EOS.IO",
-        "Cardano",
-        "BitClout",
-      ],
       when_to_pay_options: [
         "5 minutes",
         "10 minutes",
@@ -59,7 +26,6 @@ export default {
         "30 minutes",
         "1 hour",
       ],
-      time_visibility: false,
       dialog: false,
     },
   },
@@ -95,11 +61,6 @@ export default {
         };
       }
     },
-    go_back_to_phone: (state) => {
-      router.push("provider_phone");
-      //   state.provider.track_3 = false;
-    },
-
     goto_provider_amount: (state) => {
       if (state.provider.duration_input != "") {
         router.push("provider_amount");
@@ -116,23 +77,6 @@ export default {
     go_back_to_provider_phone: (state) => {
       router.push("provider_phone");
       state.provider.track_3 = false;
-    },
-    goto_provider_price: (state) => {
-      if (state.provider.amount_input != "") {
-        router.push("provider_price");
-      } else {
-        snackbar_state.state.snackbar = {
-          snackbar_state: true,
-          text: `please enter an amount`,
-          snackbar_color: "red",
-          snackbar_button_color: "white",
-          snackbar_text_color: "white--text",
-        };
-      }
-    },
-    go_back_to_amount: (state) => {
-      router.push("provider_amount");
-      //   state.provider.track_5 = false;
     },
     goto_service_duration: (state) => {
       if (state.provider.provider_services_input != "") {
@@ -200,20 +144,11 @@ export default {
     goto_provider_services({ commit }) {
       commit("goto_provider_services");
     },
-    go_back_to_phone({ commit }) {
-      commit("go_back_to_phone");
-    },
     goto_provider_amount({ commit }) {
       commit("goto_provider_amount");
     },
     go_back_to_provider_phone({ commit }) {
       commit("go_back_to_provider_phone");
-    },
-    goto_provider_price({ commit }) {
-      commit("goto_provider_price");
-    },
-    go_back_to_amount({ commit }) {
-      commit("go_back_to_amount");
     },
     goto_service_duration({ commit }) {
       commit("goto_service_duration");

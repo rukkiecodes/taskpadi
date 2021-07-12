@@ -4,9 +4,10 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-          interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
-        }"
+        interactive_form_mobile_buttons_button_active:
+          provider_services.provider.activeate_back_button == true,
+      }"
+      :disabled="provider_services.provider.activeate_back_button == false"
       color="#4169E2"
       small
     >
@@ -15,9 +16,7 @@
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
         <p class="text-h6">Providers Email</p>
-        <p class="text-caption mt-n3">
-          Please providers your email address
-        </p>
+        <p class="text-caption mt-n3">Please providers your email address</p>
       </div>
       <div class="icon mt-5">
         <v-icon size="50" class="white--text">mdi-email-variant</v-icon>
@@ -39,10 +38,10 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-          interactive_form_sides_button_active:
-            provider_services.provider.activeate_next_button == true,
-        }"
-        @click="goto_provider_phone"
+        interactive_form_sides_button_active:
+          provider_services.provider.activeate_next_button == true,
+      }"
+      @click="goto_provider_phone"
       color="#4169E2"
       small
     >
@@ -96,7 +95,7 @@ export default {
     this.provider_services.provider.track_1 = true;
   },
   methods: {
-    ...mapActions(["goto_provider_phone"])
+    ...mapActions(["goto_provider_phone"]),
   },
   computed: {
     ...mapState(["provider_services"]),

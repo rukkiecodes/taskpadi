@@ -43,7 +43,6 @@ export default {
     set_duration_with_picker(e) {
       this.provider_services.provider.duration_input = e;
       this.provider_services.provider.dialog = false;
-      console.log(this.provider_services.provider.duration_input);
     },
   },
   computed: {
