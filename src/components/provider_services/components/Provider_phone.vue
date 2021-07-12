@@ -4,9 +4,10 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-          interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
-        }"
+        interactive_form_sides_button_active:
+          provider_services.provider.activeate_back_button == true,
+      }"
+      @click="go_back_to_traders_email"
       color="#4169E2"
       small
     >
@@ -14,21 +15,21 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Traders Email</p>
+        <p class="text-h6">Traders Phone</p>
         <p class="text-caption mt-n3">
           Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-email-variant</v-icon>
+        <v-icon size="50" class="white--text">mdi-phone</v-icon>
       </div>
       <v-text-field
         style="width: 100%"
         class="mt-10 rounded-lg"
-        label="Traders Email"
+        label="Phone number"
         background-color="#fff"
-        v-model="provider_services.provider.email_input"
-        @keypress.enter="goto_provider_phone"
+        v-model="provider_services.provider.phone_input"
+        @keypress.enter="goto_provider_services"
         solo
         flat
       ></v-text-field>
@@ -37,10 +38,10 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-          interactive_form_sides_button_active:
-            provider_services.provider.activeate_next_button == true,
-        }"
-        @click="goto_provider_phone"
+        interactive_form_sides_button_active:
+          provider_services.provider.activeate_next_button == true,
+      }"
+      @click="goto_provider_services"
       color="#4169E2"
       small
     >
@@ -60,6 +61,7 @@
           interactive_form_mobile_buttons_button_active:
             provider_services.provider.activeate_back_button == true,
         }"
+        @click="go_back_to_traders_email"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -75,7 +77,7 @@
           interactive_form_mobile_buttons_button_active:
             provider_services.provider.activeate_next_button == true,
         }"
-        @click="goto_provider_phone"
+        @click="goto_provider_services"
         small
         depressed
       >
@@ -90,11 +92,12 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.provider_services.provider.activeate_next_button = true;
-    this.provider_services.provider.activeate_back_button = false;
+    this.provider_services.provider.activeate_back_button = true;
     this.provider_services.provider.track_1 = true;
+    this.provider_services.provider.track_2 = true;
   },
   methods: {
-    ...mapActions(["goto_provider_phone"])
+    ...mapActions(["go_back_to_traders_email", "goto_provider_services"]),
   },
   computed: {
     ...mapState(["provider_services"]),

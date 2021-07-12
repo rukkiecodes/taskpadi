@@ -48,6 +48,9 @@ import Trader_price from "../components/trader_crypto/components/Trader_price.vu
 import Trader_transaction_duration from "../components/trader_crypto/components/Trader_transaction_duration.vue";
 import Provider_services from "../views/Provider_services.vue";
 import Provider_email from "../components/provider_services/components/Provider_email.vue";
+import Provider_phone from "../components/provider_services/components/Provider_phone.vue";
+import Provider_services_to_render from "../components/provider_services/components/Provider_services_to_render.vue";
+import Provider_services_duration from "../components/provider_services/components/Provider_services_duration.vue";
 
 Vue.use(VueRouter);
 
@@ -296,6 +299,21 @@ const routes = [
         path: "",
         name: "Provider email",
         component: Provider_email,
+      },
+      {
+        path: "provider_phone",
+        name: "Provider phone",
+        component: Provider_phone,
+      },
+      {
+        path: "available_services",
+        name: "Provider services to render",
+        component: Provider_services_to_render,
+      },
+      {
+        path: "provider_transaction_duration",
+        name: "Provider transaction duration",
+        component: Provider_services_duration,
       },
     ],
   },

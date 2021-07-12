@@ -17,6 +17,7 @@ export default {
       amount_input: "",
       price_input: "",
       duration_input: "",
+      provider_services_input: "",
       items: ["Less than 30 minutes", "1 hour", "5 hours"],
       currency: [
         "Bitcoin",
@@ -56,7 +57,7 @@ export default {
     goto_provider_phone: (state) => {
       const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (state.provider.email_input.match(email_regex)) {
-        router.push("/provider_crypto/provider_phone");
+        router.push("/provider_services/provider_phone");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -68,12 +69,12 @@ export default {
       }
     },
     go_back_to_providers_email: (state) => {
-      router.push("/provider_crypto");
+      router.push("/provider_services");
       state.provider.track_2 = false;
     },
-    goto_provider_currency: (state) => {
+    goto_provider_services: (state) => {
       if (state.provider.phone_input != "") {
-        router.push("provider_currency");
+        router.push("available_services");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -102,8 +103,8 @@ export default {
         };
       }
     },
-    go_back_to_currency: (state) => {
-      router.push("provider_currency");
+    go_back_to_provider_phone: (state) => {
+      router.push("provider_phone");
       state.provider.track_4 = false;
     },
     goto_provider_price: (state) => {
@@ -123,13 +124,13 @@ export default {
       router.push("provider_amount");
       state.provider.track_5 = false;
     },
-    goto_provider_duration: (state) => {
-      if (state.provider.price_input != "") {
+    goto_service_duration: (state) => {
+      if (state.provider.provider_services_input != "") {
         router.push("provider_transaction_duration");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
-          text: `please enter price`,
+          text: `please enter services`,
           snackbar_color: "red",
           snackbar_button_color: "white",
           snackbar_text_color: "white--text",
@@ -148,8 +149,8 @@ export default {
     go_back_to_providers_email({ commit }) {
       commit("go_back_to_providers_email");
     },
-    goto_provider_currency({ commit }) {
-      commit("goto_provider_currency");
+    goto_provider_services({ commit }) {
+      commit("goto_provider_services");
     },
     go_back_to_phone({ commit }) {
       commit("go_back_to_phone");
@@ -157,8 +158,8 @@ export default {
     goto_provider_amount({ commit }) {
       commit("goto_provider_amount");
     },
-    go_back_to_currency({ commit }) {
-      commit("go_back_to_currency");
+    go_back_to_provider_phone({ commit }) {
+      commit("go_back_to_provider_phone");
     },
     goto_provider_price({ commit }) {
       commit("goto_provider_price");
@@ -166,8 +167,8 @@ export default {
     go_back_to_amount({ commit }) {
       commit("go_back_to_amount");
     },
-    goto_provider_duration({ commit }) {
-      commit("goto_provider_duration");
+    goto_service_duration({ commit }) {
+      commit("goto_service_duration");
     },
     go_back_to_price({ commit }) {
       commit("go_back_to_price");

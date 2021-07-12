@@ -4,9 +4,10 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-          interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
-        }"
+        interactive_form_sides_button_active:
+          provider_services.provider.activeate_back_button == true,
+      }"
+      @click="go_back_to_price"
       color="#4169E2"
       small
     >
@@ -14,33 +15,24 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Traders Email</p>
+        <p class="text-h6">Transaction Duration</p>
         <p class="text-caption mt-n3">
           Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-email-variant</v-icon>
+        <v-icon size="50" class="white--text">mdi-currency-btc</v-icon>
       </div>
-      <v-text-field
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Traders Email"
-        background-color="#fff"
-        v-model="provider_services.provider.email_input"
-        @keypress.enter="goto_provider_phone"
-        solo
-        flat
-      ></v-text-field>
+      <Time_picker style="width: 100%" class="mb-8" />
     </div>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-          interactive_form_sides_button_active:
-            provider_services.provider.activeate_next_button == true,
-        }"
-        @click="goto_provider_phone"
+        interactive_form_sides_button_active:
+          provider_services.provider.activeate_next_button == true,
+      }"
+      @click="go_back_to_wallet_address"
       color="#4169E2"
       small
     >
@@ -60,6 +52,7 @@
           interactive_form_mobile_buttons_button_active:
             provider_services.provider.activeate_back_button == true,
         }"
+        @click="go_back_to_price"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -75,7 +68,7 @@
           interactive_form_mobile_buttons_button_active:
             provider_services.provider.activeate_next_button == true,
         }"
-        @click="goto_provider_phone"
+        @click="go_back_to_wallet_address"
         small
         depressed
       >
@@ -87,14 +80,27 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
+import Time_picker from "./Time_picker.vue";
 export default {
+  components: {
+    Time_picker,
+  },
   mounted() {
     this.provider_services.provider.activeate_next_button = true;
-    this.provider_services.provider.activeate_back_button = false;
+    this.provider_services.provider.activeate_back_button = true;
     this.provider_services.provider.track_1 = true;
+    this.provider_services.provider.track_2 = true;
+    this.provider_services.provider.track_3 = true;
+    this.provider_services.provider.track_4 = true;
+    this.provider_services.provider.track_5 = true;
+    this.provider_services.provider.track_6 = true;
   },
   methods: {
-    ...mapActions(["goto_provider_phone"])
+    ...mapActions(["go_back_to_price", "go_back_to_wallet_address"]),
+    set_duration_with_picker(e) {
+      this.provider_services.provider.duration_input = e;
+      this.provider_services.provider.time_visibility = false;
+    },
   },
   computed: {
     ...mapState(["provider_services"]),
