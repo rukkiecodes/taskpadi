@@ -36,14 +36,18 @@
                   <v-list-item three-line>
                     <v-list-item-subtitle class="text-center text-color">
                       {{ item }}
+                      <div class="icon1">
+                        <v-icon right v-if="i !== active"
+                          >mdi-chevron-right</v-icon
+                        >
+                      </div>
 
-                      <v-icon right v-if="i !== active"
-                        >mdi-chevron-down</v-icon
-                      >
-                      <v-icon right v-if="i !== active"
-                        >mdi-chevron-right</v-icon
-                      ></v-list-item-subtitle
-                    >
+                      <div class="icon2">
+                        <v-icon right v-if="i !== active"
+                          >mdi-chevron-down</v-icon
+                        >
+                      </div>
+                    </v-list-item-subtitle>
                   </v-list-item>
                 </v-card>
 
@@ -261,6 +265,13 @@ export default {
   border-radius: 10px;
   opacity: 1;
 }
+.icon1 {
+  display: block;
+}
+.icon2 {
+  display: none;
+}
+
 @media (max-width: 1000px) {
   .wrapper {
     width: 100%;
@@ -350,6 +361,12 @@ export default {
     opacity: 0.1;
     margin-bottom: 30px;
   }
+  .icon2 {
+    display: block;
+  }
+  .icon1 {
+    display: none;
+  }
   .childbtn2 {
     width: 51px;
     height: 51px;
@@ -427,6 +444,9 @@ export default {
       width: 100%;
       justify-content: flex-end;
     }
+    .icon1 {
+      display: none;
+    }
     .input {
       width: 254px;
       height: 131px;
@@ -458,6 +478,12 @@ export default {
       background: #4169e2 0% 0% no-repeat padding-box;
       border-radius: 10px;
       opacity: 1;
+    }
+    .icon2 {
+      display: block;
+    }
+    .icon1 {
+      display: none;
     }
     .contact-main-body {
       align-self: center;
