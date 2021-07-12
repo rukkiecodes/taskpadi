@@ -10,7 +10,7 @@
 <script>
 import App_bar from "../components/nav/App_bar.vue";
 import Drawer from "../components/nav/Drawer.vue";
-import Proof_of_payment  from "../components/proof_of_payment /Proof_of_payment .vue";
+import Proof_of_payment  from "../components/proof_of_payment/Proof_of_payment .vue";
 import Snackbar from "../components/Snackbar.vue"
 export default {
   metaInfo: {

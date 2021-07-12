@@ -9,6 +9,7 @@ import custumers_crypto from "./modules/custumers_crypto";
 import trader_crypto from "./modules/traders_crypto";
 import provider_services from "./modules/provider_services";
 import client_services from "./modules/client_services";
+import proof_of_payment from "./modules/proof_of_payment";
 
 Vue.use(Vuex);
 
@@ -31,5 +32,6 @@ export default new Vuex.Store({
     trader_crypto,
     provider_services,
     client_services,
+    proof_of_payment,
   },
 });

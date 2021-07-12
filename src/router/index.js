@@ -62,7 +62,8 @@ import Client_services_duration from "../components/client_services/components/C
 import Client_amount from "../components/client_services/components/Client_amount.vue";
 import Client_when_to_pay from "../components/client_services/components/Client_when_to_pay.vue";
 import Client_contract_terms from "../components/client_services/components/Client_contract_terms.vue";
-import Proof_of_payment  from "../views/Proof_of_payment .vue";
+import Proof_of_payment from "../views/Proof_of_payment .vue";
+import Wallet_screenshots from "../components/proof_of_payment/components/Wallet_screenshots.vue";
 
 Vue.use(VueRouter);
 
@@ -389,7 +390,14 @@ const routes = [
   {
     path: "/proof_of_payment",
     name: "Proof_of_payment",
-    component: Proof_of_payment ,
+    component: Proof_of_payment,
+    children: [
+      {
+        path: "",
+        name: "Wallet screenshots",
+        component: Wallet_screenshots,
+      },
+    ],
   },
   {
     path: "/about",
