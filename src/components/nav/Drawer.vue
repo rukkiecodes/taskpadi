@@ -36,16 +36,18 @@
                   <v-list-item three-line>
                     <v-list-item-subtitle class="text-center text-color">
                       {{ item }}
-                      <div class="icon1">
-                        <v-icon right v-if="i !== active"
-                          >mdi-chevron-right</v-icon
-                        >
+                      <div class="icon1" v-if="i !== active">
+                        <v-icon right>mdi-chevron-right</v-icon>
+                      </div>
+                      <div v-else class="icon1">
+                        <v-icon right>mdi-chevron-left</v-icon>
                       </div>
 
-                      <div class="icon2">
-                        <v-icon right v-if="i !== active"
-                          >mdi-chevron-down</v-icon
-                        >
+                      <div class="icon2" v-if="i !== active">
+                        <v-icon right>mdi-chevron-down</v-icon>
+                      </div>
+                      <div v-else class="icon2">
+                        <v-icon>mdi-chevron-up</v-icon>
                       </div>
                     </v-list-item-subtitle>
                   </v-list-item>
@@ -141,7 +143,6 @@ export default {
   },
   methods: {
     activeChecker(i) {
-      console.log(i);
       if (this.activeClass) {
         var oldElem = document.querySelector(".activeClass");
         if (oldElem != null) {
@@ -153,6 +154,10 @@ export default {
       }
     },
     toggleIndex(i) {
+      if (this.active == i) {
+        i = null;
+        this.activeClass = false;
+      }
       this.active = i;
       this.activeClass = true;
 
