@@ -7,6 +7,7 @@ export default {
       track_2: false,
       activeate_back_button: false,
       activeate_next_button: false,
+      wallet_screenshots: []
     },
   },
   mutations: {},

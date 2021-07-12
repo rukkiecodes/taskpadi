@@ -3,12 +3,12 @@
     <div
       class="track mx-2"
       :class="{
-        active_track: provider_services.provider.track_1 == true,
+        active_track: proof_of_payment.proof.track_1 == true,
       }"
     ></div>
     <div
       :class="{
-        active_track: provider_services.provider.track_2 == true,
+        active_track: proof_of_payment.proof.track_2 == true,
       }"
       class="track mx-2"
     ></div>
@@ -19,7 +19,7 @@
 import { mapState } from "vuex";
 export default {
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["proof_of_payment"]),
   },
 };
 </script>
