@@ -12,10 +12,49 @@
                 </form>
                 <div class="childBody">
                   <div class="childbtn1">
-                    <span>e</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="29.296"
+                      height="25.324"
+                      viewBox="0 0 29.296 25.324"
+                    >
+                      <g id="Layer_2" data-name="Layer 2">
+                        <g id="Layer_1" data-name="Layer 1">
+                          <g id="camera">
+                            <path
+                              id="Path_125"
+                              data-name="Path 125"
+                              d="M24.082,2.979H20.929L19.9.725A1.246,1.246,0,0,0,18.769,0H10.527A1.246,1.246,0,0,0,9.4.725L8.372,2.979H5.214A5.219,5.219,0,0,0,0,8.193V20.11a5.219,5.219,0,0,0,5.214,5.214H24.082A5.219,5.219,0,0,0,29.3,20.11V8.193a5.219,5.219,0,0,0-5.214-5.214ZM14.648,19.365a5.214,5.214,0,1,1,5.214-5.214,5.214,5.214,0,0,1-5.214,5.214Zm0-7.945a2.731,2.731,0,1,0,2.731,2.731,2.731,2.731,0,0,0-2.731-2.731Z"
+                              fill="#4169e2"
+                              opacity="0.4"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
                   </div>
                   <div class="childbtn2">
-                    <span>e</span>
+                    <svg
+                      id="Layer_2"
+                      data-name="Layer 2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="29.307"
+                      height="29.296"
+                      viewBox="0 0 29.307 29.296"
+                    >
+                      <g
+                        id="Layer_1"
+                        data-name="Layer 1"
+                        transform="translate(0 0)"
+                      >
+                        <path
+                          id="navigation"
+                          d="M28.594.69A2.334,2.334,0,0,0,25.953.219l-24.6,11.3a2.349,2.349,0,0,0,.238,4.37l7.543,2.483,3.843-3.838a1.241,1.241,0,0,1,1.753,1.753L10.912,20.15l2.483,7.543a2.334,2.334,0,0,0,2.11,1.6h.129a2.334,2.334,0,0,0,2.13-1.366l11.3-24.6A2.334,2.334,0,0,0,28.594.69Z"
+                          transform="translate(0.023 -0.001)"
+                          fill="#fff"
+                        />
+                      </g>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -71,10 +110,45 @@
         </form>
         <div class="childBody">
           <div class="childbtn1">
-            <span></span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="29.296"
+              height="25.324"
+              viewBox="0 0 29.296 25.324"
+            >
+              <g id="Layer_2" data-name="Layer 2">
+                <g id="Layer_1" data-name="Layer 1">
+                  <g id="camera">
+                    <path
+                      id="Path_125"
+                      data-name="Path 125"
+                      d="M24.082,2.979H20.929L19.9.725A1.246,1.246,0,0,0,18.769,0H10.527A1.246,1.246,0,0,0,9.4.725L8.372,2.979H5.214A5.219,5.219,0,0,0,0,8.193V20.11a5.219,5.219,0,0,0,5.214,5.214H24.082A5.219,5.219,0,0,0,29.3,20.11V8.193a5.219,5.219,0,0,0-5.214-5.214ZM14.648,19.365a5.214,5.214,0,1,1,5.214-5.214,5.214,5.214,0,0,1-5.214,5.214Zm0-7.945a2.731,2.731,0,1,0,2.731,2.731,2.731,2.731,0,0,0-2.731-2.731Z"
+                      fill="#4169e2"
+                      opacity="0.4"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
           </div>
           <div class="childbtn2">
-            <span>e</span>
+            <svg
+              id="Layer_2"
+              data-name="Layer 2"
+              xmlns="http://www.w3.org/2000/svg"
+              width="29.307"
+              height="29.296"
+              viewBox="0 0 29.307 29.296"
+            >
+              <g id="Layer_1" data-name="Layer 1" transform="translate(0 0)">
+                <path
+                  id="navigation"
+                  d="M28.594.69A2.334,2.334,0,0,0,25.953.219l-24.6,11.3a2.349,2.349,0,0,0,.238,4.37l7.543,2.483,3.843-3.838a1.241,1.241,0,0,1,1.753,1.753L10.912,20.15l2.483,7.543a2.334,2.334,0,0,0,2.11,1.6h.129a2.334,2.334,0,0,0,2.13-1.366l11.3-24.6A2.334,2.334,0,0,0,28.594.69Z"
+                  transform="translate(0.023 -0.001)"
+                  fill="#fff"
+                />
+              </g>
+            </svg>
           </div>
         </div>
       </div>
@@ -257,18 +331,21 @@ export default {
 }
 .childbtn1 {
   height: 58px;
-
-  background: #4169e2 0% 0% no-repeat padding-box;
+  background: rgba(65, 106, 226, 0.1) 0% 0% no-repeat padding-box;
   border-radius: 10px;
-  opacity: 0.1;
+
   margin-bottom: 10px;
 }
 .childbtn2 {
   width: 68px;
   height: 58px;
   background: #4169e2 0% 0% no-repeat padding-box;
+
   border-radius: 10px;
-  opacity: 1;
+}
+.childbtn2,
+.childbtn1 {
+  padding-top: 16px !important;
 }
 .icon1 {
   display: block;
@@ -361,23 +438,28 @@ export default {
   .childbtn1 {
     height: 51px;
     width: 51px;
-    background: #4169e2 0% 0% no-repeat padding-box;
+    background: rgba(65, 106, 226, 0.1) 0% 0% no-repeat padding-box;
     border-radius: 10px;
-    opacity: 0.1;
+
     margin-bottom: 30px;
   }
-  .icon2 {
-    display: block;
-  }
-  .icon1 {
-    display: none;
-  }
+
   .childbtn2 {
     width: 51px;
     height: 51px;
     background: #4169e2 0% 0% no-repeat padding-box;
     border-radius: 10px;
     opacity: 1;
+  }
+  .childbtn2,
+  .childbtn1 {
+    padding-top: 14px !important;
+  }
+  .icon2 {
+    display: block;
+  }
+  .icon1 {
+    display: none;
   }
   .contact-main-body {
     align-self: center;
@@ -473,9 +555,8 @@ export default {
     .childbtn1 {
       height: 50px;
       width: 50px;
-      background: #4169e2 0% 0% no-repeat padding-box;
+      background: rgba(65, 106, 226, 0.1) 0% 0% no-repeat padding-box;
       border-radius: 10px;
-      opacity: 0.1;
     }
     .childbtn2 {
       width: 50px;
@@ -483,6 +564,10 @@ export default {
       background: #4169e2 0% 0% no-repeat padding-box;
       border-radius: 10px;
       opacity: 1;
+    }
+    .childbtn2,
+    .childbtn1 {
+      padding-top: 10px !important;
     }
     .icon2 {
       display: block;
