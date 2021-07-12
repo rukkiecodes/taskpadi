@@ -4,9 +4,10 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-          interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
-        }"
+        interactive_form_sides_button_active:
+          provider_services.provider.activeate_back_button == true,
+      }"
+      @click="go_back_to_pt_duration"
       color="#4169E2"
       small
     >
@@ -14,22 +15,24 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Providers Email</p>
+        <p class="text-h6">Agreed amount</p>
         <p class="text-caption mt-n3">
-          Please providers your email address
+          Please, let your clients now the amount placed on the product
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-email-variant</v-icon>
+        <v-icon size="50" class="white--text"
+          >mdi-currency-usd-circle-outline</v-icon
+        >
       </div>
       <v-text-field
         style="width: 100%"
         class="mt-10 rounded-lg"
-        label="Providers Email"
+        label="Agreed amount"
         background-color="#fff"
-        v-model="provider_services.provider.email_input"
-        @keypress.enter="goto_provider_phone"
-        prepend-inner-icon="mdi-email"
+        v-model="provider_services.provider.amount_input"
+        @keypress.enter="goto_provider_when_to_pay"
+        prepend-inner-icon="mdi-currency-usd-circle-outline"
         color="#4169E2"
         solo
         flat
@@ -39,10 +42,10 @@
       depressed
       class="rounded-lg interactive_form_sides_button"
       :class="{
-          interactive_form_sides_button_active:
-            provider_services.provider.activeate_next_button == true,
-        }"
-        @click="goto_provider_phone"
+        interactive_form_sides_button_active:
+          provider_services.provider.activeate_next_button == true,
+      }"
+      @click="goto_provider_when_to_pay"
       color="#4169E2"
       small
     >
@@ -62,6 +65,7 @@
           interactive_form_mobile_buttons_button_active:
             provider_services.provider.activeate_back_button == true,
         }"
+        @click="go_back_to_pt_duration"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -77,7 +81,7 @@
           interactive_form_mobile_buttons_button_active:
             provider_services.provider.activeate_next_button == true,
         }"
-        @click="goto_provider_phone"
+        @click="goto_provider_when_to_pay"
         small
         depressed
       >
@@ -92,11 +96,15 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.provider_services.provider.activeate_next_button = true;
-    this.provider_services.provider.activeate_back_button = false;
+    this.provider_services.provider.activeate_back_button = true;
     this.provider_services.provider.track_1 = true;
+    this.provider_services.provider.track_2 = true;
+    this.provider_services.provider.track_3 = true;
+    this.provider_services.provider.track_4 = true;
+    this.provider_services.provider.track_5 = true;
   },
   methods: {
-    ...mapActions(["goto_provider_phone"])
+    ...mapActions(["go_back_to_pt_duration", "goto_provider_when_to_pay"]),
   },
   computed: {
     ...mapState(["provider_services"]),

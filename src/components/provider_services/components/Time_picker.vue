@@ -7,7 +7,7 @@
       depressed
       @click="provider_services.provider.dialog = true"
     >
-      Custom
+      Duration in days
     </v-btn>
     <v-dialog persistent v-model="provider_services.provider.dialog" width="310">
       <v-card class="ma-0 pa-0">

@@ -7,7 +7,7 @@
         interactive_form_sides_button_active:
           provider_services.provider.activeate_back_button == true,
       }"
-      @click="go_back_to_price"
+      @click="go_back_available_services"
       color="#4169E2"
       small
     >
@@ -17,7 +17,8 @@
       <div class="texts">
         <p class="text-h6">Transaction Duration</p>
         <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+          Please let your clients know how much time they hve till this deal
+          closes
         </p>
       </div>
       <div class="icon mt-5">
@@ -32,7 +33,7 @@
         interactive_form_sides_button_active:
           provider_services.provider.activeate_next_button == true,
       }"
-      @click="go_back_to_wallet_address"
+      @click="goto_provider_amount"
       color="#4169E2"
       small
     >
@@ -52,7 +53,7 @@
           interactive_form_mobile_buttons_button_active:
             provider_services.provider.activeate_back_button == true,
         }"
-        @click="go_back_to_price"
+        @click="go_back_available_services"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -68,7 +69,7 @@
           interactive_form_mobile_buttons_button_active:
             provider_services.provider.activeate_next_button == true,
         }"
-        @click="go_back_to_wallet_address"
+        @click="goto_provider_amount"
         small
         depressed
       >
@@ -92,11 +93,9 @@ export default {
     this.provider_services.provider.track_2 = true;
     this.provider_services.provider.track_3 = true;
     this.provider_services.provider.track_4 = true;
-    this.provider_services.provider.track_5 = true;
-    this.provider_services.provider.track_6 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_price", "go_back_to_wallet_address"]),
+    ...mapActions(["go_back_available_services", "goto_provider_amount"]),
     set_duration_with_picker(e) {
       this.provider_services.provider.duration_input = e;
       this.provider_services.provider.time_visibility = false;

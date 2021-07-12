@@ -17,7 +17,7 @@
       <div class="texts">
         <p class="text-h6">Available services</p>
         <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+          What kind of services do you offer
         </p>
       </div>
       <div class="icon mt-5">
@@ -26,10 +26,12 @@
       <v-text-field
         style="width: 100%"
         class="mt-10 rounded-lg"
-        label="Phone number"
+        label="Available services"
         background-color="#fff"
         v-model="provider_services.provider.provider_services_input"
         @keypress.enter="goto_service_duration"
+        prepend-inner-icon="mdi-room-service"
+        color="#4169E2"
         solo
         flat
       ></v-text-field>
@@ -95,6 +97,7 @@ export default {
     this.provider_services.provider.activeate_back_button = true;
     this.provider_services.provider.track_1 = true;
     this.provider_services.provider.track_2 = true;
+    this.provider_services.provider.track_3 = true;
   },
   methods: {
     ...mapActions(["go_back_to_provider_phone", "goto_service_duration"]),

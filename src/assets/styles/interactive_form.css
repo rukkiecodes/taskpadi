@@ -237,43 +237,7 @@
           align-items: center;
   text-align: center;
   background: rgba(65, 105, 226, 0.1);
-  width: 70%;
-}
-
-@media (max-width: 768px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 95%;
-  }
-}
-
-@media only screen and (device-width: 320px) and (device-height: 568px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-  }
-}
-
-@media only screen and (device-width: 375px) and (device-height: 667px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-  }
-}
-
-@media only screen and (device-width: 414px) and (device-height: 736px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-  }
-}
-
-@media only screen and (device-width: 375px) and (device-height: 812px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-  }
-}
-
-@media only screen and (device-width: 280px) and (device-height: 653px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-  }
+  width: 350px;
 }
 
 .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card .icon {

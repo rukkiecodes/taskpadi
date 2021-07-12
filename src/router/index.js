@@ -51,6 +51,9 @@ import Provider_email from "../components/provider_services/components/Provider_
 import Provider_phone from "../components/provider_services/components/Provider_phone.vue";
 import Provider_services_to_render from "../components/provider_services/components/Provider_services_to_render.vue";
 import Provider_services_duration from "../components/provider_services/components/Provider_services_duration.vue";
+import Provider_amount from "../components/provider_services/components/Provider_amount.vue";
+import Provider_when_to_pay from "../components/provider_services/components/Provider_when_to_pay.vue";
+import Provider_contract_terms  from "../components/provider_services/components/Provider_contract_terms.vue";
 
 Vue.use(VueRouter);
 
@@ -314,6 +317,21 @@ const routes = [
         path: "provider_transaction_duration",
         name: "Provider transaction duration",
         component: Provider_services_duration,
+      },
+      {
+        path: "provider_amount",
+        name: "Provider amount",
+        component: Provider_amount,
+      },
+      {
+        path: "provider_when_to_pay",
+        name: "Provider when to pay",
+        component: Provider_when_to_pay,
+      },
+      {
+        path: "provider_contract_terms",
+        name: "Provider contract terms",
+        component: Provider_contract_terms ,
       },
     ],
   },

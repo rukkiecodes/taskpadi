@@ -9,6 +9,7 @@ export default {
       track_4: false,
       track_5: false,
       track_6: false,
+      track_7: false,
       activeate_back_button: false,
       activeate_next_button: false,
       email_input: "",
@@ -18,6 +19,8 @@ export default {
       price_input: "",
       duration_input: "",
       provider_services_input: "",
+      when_to_pay_input: "",
+      terms_of_contract_input: "",
       items: ["Less than 30 minutes", "1 hour", "5 hours"],
       currency: [
         "Bitcoin",
@@ -48,6 +51,13 @@ export default {
         "EOS.IO",
         "Cardano",
         "BitClout",
+      ],
+      when_to_pay_options: [
+        "5 minutes",
+        "10 minutes",
+        "20 minutes",
+        "30 minutes",
+        "1 hour",
       ],
       time_visibility: false,
       dialog: false,
@@ -87,11 +97,11 @@ export default {
     },
     go_back_to_phone: (state) => {
       router.push("provider_phone");
-      state.provider.track_3 = false;
+      //   state.provider.track_3 = false;
     },
 
     goto_provider_amount: (state) => {
-      if (state.provider.currency_input != "") {
+      if (state.provider.duration_input != "") {
         router.push("provider_amount");
       } else {
         snackbar_state.state.snackbar = {
@@ -105,7 +115,7 @@ export default {
     },
     go_back_to_provider_phone: (state) => {
       router.push("provider_phone");
-      state.provider.track_4 = false;
+      state.provider.track_3 = false;
     },
     goto_provider_price: (state) => {
       if (state.provider.amount_input != "") {
@@ -122,7 +132,7 @@ export default {
     },
     go_back_to_amount: (state) => {
       router.push("provider_amount");
-      state.provider.track_5 = false;
+      //   state.provider.track_5 = false;
     },
     goto_service_duration: (state) => {
       if (state.provider.provider_services_input != "") {
@@ -137,10 +147,48 @@ export default {
         };
       }
     },
-    go_back_to_price: (state) => {
-      router.push("provider_price");
+    go_back_available_services: (state) => {
+      router.push("available_services");
+      state.provider.track_4 = false;
+    },
+    go_back_to_pt_duration: (state) => {
+      router.push("provider_transaction_duration");
+      state.provider.track_5 = false;
+    },
+    goto_provider_when_to_pay: (state) => {
+      if (state.provider.amount_input != "") {
+        router.push("provider_when_to_pay");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `please enter amount`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    go_back_to_provider_amount: (state) => {
+      router.push("provider_amount");
       state.provider.track_6 = false;
-    }
+    },
+    goto_terms_of_contract: (state) => {
+      if (state.provider.when_to_pay_input != "") {
+        router.push("provider_contract_terms");
+      } else {
+        snackbar_state.state.snackbar = {
+          snackbar_state: true,
+          text: `please enter a value`,
+          snackbar_color: "red",
+          snackbar_button_color: "white",
+          snackbar_text_color: "white--text",
+        };
+      }
+    },
+    go_back_to_provider_when_to_pay: (state) => {
+      router.push("provider_when_to_pay");
+      state.provider.track_7 = false;
+    },
   },
   actions: {
     goto_provider_phone({ commit }) {
@@ -170,9 +218,24 @@ export default {
     goto_service_duration({ commit }) {
       commit("goto_service_duration");
     },
-    go_back_to_price({ commit }) {
-      commit("go_back_to_price");
-    }
+    go_back_available_services({ commit }) {
+      commit("go_back_available_services");
+    },
+    go_back_to_pt_duration({ commit }) {
+      commit("go_back_to_pt_duration");
+    },
+    goto_provider_when_to_pay({ commit }) {
+      commit("goto_provider_when_to_pay");
+    },
+    go_back_to_provider_amount({ commit }) {
+      commit("go_back_to_provider_amount");
+    },
+    goto_terms_of_contract({ commit }) {
+      commit("goto_terms_of_contract");
+    },
+    go_back_to_provider_when_to_pay({ commit }) {
+      commit("go_back_to_provider_when_to_pay");
+    },
   },
   getters: {},
 };
