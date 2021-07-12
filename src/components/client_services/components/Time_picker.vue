@@ -5,15 +5,15 @@
       color="#4169E2"
       block
       depressed
-      @click="provider_services.provider.dialog = true"
+      @click="client_services.client.dialog = true"
     >
       Duration in days
     </v-btn>
-    <v-dialog persistent v-model="provider_services.provider.dialog" width="310">
+    <v-dialog persistent v-model="client_services.client.dialog" width="310">
       <v-card class="ma-0 pa-0">
         <v-toolbar flat dense>
           <v-spacer />
-          <v-btn @click="provider_services.provider.dialog = false" icon>
+          <v-btn @click="client_services.client.dialog = false" icon>
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-toolbar>
@@ -41,12 +41,12 @@ export default {
   }),
   methods: {
     set_duration_with_picker(e) {
-      this.provider_services.provider.duration_input = e;
-      this.provider_services.provider.dialog = false;
+      this.client_services.client.duration_input = e;
+      this.client_services.client.dialog = false;
     },
   },
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["client_services"]),
   },
 };
 </script>

@@ -3,42 +3,42 @@
     <div
       class="track mx-2"
       :class="{
-        active_track: provider_services.provider.track_1 == true,
+        active_track: client_services.client.track_1 == true,
       }"
     ></div>
     <div
       :class="{
-        active_track: provider_services.provider.track_2 == true,
-      }"
-      class="track mx-2"
-    ></div>
-    <div
-      :class="{
-        active_track: provider_services.provider.track_3 == true,
+        active_track: client_services.client.track_2 == true,
       }"
       class="track mx-2"
     ></div>
     <div
       :class="{
-        active_track: provider_services.provider.track_4 == true,
+        active_track: client_services.client.track_3 == true,
       }"
       class="track mx-2"
     ></div>
     <div
       :class="{
-        active_track: provider_services.provider.track_5 == true,
+        active_track: client_services.client.track_4 == true,
       }"
       class="track mx-2"
     ></div>
     <div
       :class="{
-        active_track: provider_services.provider.track_6 == true,
+        active_track: client_services.client.track_5 == true,
       }"
       class="track mx-2"
     ></div>
     <div
       :class="{
-        active_track: provider_services.provider.track_7 == true,
+        active_track: client_services.client.track_6 == true,
+      }"
+      class="track mx-2"
+    ></div>
+    <div
+      :class="{
+        active_track: client_services.client.track_7 == true,
       }"
       class="track mx-2"
     ></div>
@@ -49,7 +49,7 @@
 import { mapState } from "vuex";
 export default {
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["client_services"]),
   },
 };
 </script>

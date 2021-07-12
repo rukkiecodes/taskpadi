@@ -5,9 +5,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_back_button == true,
+          client_services.client.activeate_back_button == true,
       }"
-      @click="go_back_available_services"
+      @click="goback_client_available_services"
       color="#4169E2"
       small
     >
@@ -31,9 +31,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_next_button == true,
+          client_services.client.activeate_next_button == true,
       }"
-      @click="goto_provider_amount"
+      @click="goto_client_amount"
       color="#4169E2"
       small
     >
@@ -51,9 +51,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
+            client_services.client.activeate_back_button == true,
         }"
-        @click="go_back_available_services"
+        @click="goback_client_available_services"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -67,9 +67,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_next_button == true,
+            client_services.client.activeate_next_button == true,
         }"
-        @click="goto_provider_amount"
+        @click="goto_client_amount"
         small
         depressed
       >
@@ -87,21 +87,21 @@ export default {
     Time_picker,
   },
   mounted() {
-    this.provider_services.provider.activeate_next_button = true;
-    this.provider_services.provider.activeate_back_button = true;
-    this.provider_services.provider.track_1 = true;
-    this.provider_services.provider.track_2 = true;
-    this.provider_services.provider.track_3 = true;
-    this.provider_services.provider.track_4 = true;
+    this.client_services.client.activeate_next_button = true;
+    this.client_services.client.activeate_back_button = true;
+    this.client_services.client.track_1 = true;
+    this.client_services.client.track_2 = true;
+    this.client_services.client.track_3 = true;
+    this.client_services.client.track_4 = true;
   },
   methods: {
-    ...mapActions(["go_back_available_services", "goto_provider_amount"]),
+    ...mapActions(["goback_client_available_services", "goto_client_amount"]),
     set_duration_with_picker(e) {
-      this.provider_services.provider.duration_input = e;
+      this.client_services.client.duration_input = e;
     },
   },
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["client_services"]),
   },
 };
 </script>

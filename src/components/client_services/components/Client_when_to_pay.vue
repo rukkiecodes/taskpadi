@@ -5,9 +5,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_back_button == true,
+          client_services.client.activeate_back_button == true,
       }"
-      @click="go_back_to_provider_amount"
+      @click="go_back_to_client_amount"
       color="#4169E2"
       small
     >
@@ -27,10 +27,10 @@
         >
       </div>
       <v-select
-        :items="provider_services.provider.when_to_pay_options"
+        :items="client_services.client.when_to_pay_options"
         style="width: 100%"
         class="mt-10 rounded-lg"
-        :label="provider_services.provider.when_to_pay_options[0]"
+        :label="client_services.client.when_to_pay_options[0]"
         @change="set_when_to_pay_input"
         prepend-inner-icon="mdi-chart-timeline"
         color="#4169E2"
@@ -43,9 +43,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_next_button == true,
+          client_services.client.activeate_next_button == true,
       }"
-      @click="goto_terms_of_contract"
+      @click="goto_client_terms_of_contract"
       color="#4169E2"
       small
     >
@@ -63,9 +63,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
+            client_services.client.activeate_back_button == true,
         }"
-        @click="go_back_to_provider_amount"
+        @click="go_back_to_client_amount"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -79,9 +79,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_next_button == true,
+            client_services.client.activeate_next_button == true,
         }"
-        @click="goto_terms_of_contract"
+        @click="goto_client_terms_of_contract"
         small
         depressed
       >
@@ -95,23 +95,23 @@
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
-    this.provider_services.provider.activeate_next_button = true;
-    this.provider_services.provider.activeate_back_button = true;
-    this.provider_services.provider.track_1 = true;
-    this.provider_services.provider.track_2 = true;
-    this.provider_services.provider.track_3 = true;
-    this.provider_services.provider.track_4 = true;
-    this.provider_services.provider.track_5 = true;
-    this.provider_services.provider.track_6 = true;
+    this.client_services.client.activeate_next_button = true;
+    this.client_services.client.activeate_back_button = true;
+    this.client_services.client.track_1 = true;
+    this.client_services.client.track_2 = true;
+    this.client_services.client.track_3 = true;
+    this.client_services.client.track_4 = true;
+    this.client_services.client.track_5 = true;
+    this.client_services.client.track_6 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_provider_amount", "goto_terms_of_contract"]),
+    ...mapActions(["go_back_to_client_amount", "goto_client_terms_of_contract"]),
     set_when_to_pay_input(e) {
-      this.provider_services.provider.when_to_pay_input = e;
+      this.client_services.client.when_to_pay_input = e;
     },
   },
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["client_services"]),
   },
 };
 </script>

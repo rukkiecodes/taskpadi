@@ -5,9 +5,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_back_button == true,
+          client_services.client.activeate_back_button == true,
       }"
-      @click="go_back_to_provider_phone"
+      @click="go_back_to_client_phone"
       color="#4169E2"
       small
     >
@@ -28,8 +28,8 @@
         class="mt-10 rounded-lg"
         label="Available services"
         background-color="#fff"
-        v-model="provider_services.provider.provider_services_input"
-        @keypress.enter="goto_service_duration"
+        v-model="client_services.client.client_services_input"
+        @keypress.enter="goto_client_service_duration"
         prepend-inner-icon="mdi-room-service"
         color="#4169E2"
         solo
@@ -41,9 +41,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_next_button == true,
+          client_services.client.activeate_next_button == true,
       }"
-      @click="goto_service_duration"
+      @click="goto_client_service_duration"
       color="#4169E2"
       small
     >
@@ -61,9 +61,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
+            client_services.client.activeate_back_button == true,
         }"
-        @click="go_back_to_provider_phone"
+        @click="go_back_to_client_phone"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -77,9 +77,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_next_button == true,
+            client_services.client.activeate_next_button == true,
         }"
-        @click="goto_service_duration"
+        @click="goto_client_service_duration"
         small
         depressed
       >
@@ -93,17 +93,17 @@
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
-    this.provider_services.provider.activeate_next_button = true;
-    this.provider_services.provider.activeate_back_button = true;
-    this.provider_services.provider.track_1 = true;
-    this.provider_services.provider.track_2 = true;
-    this.provider_services.provider.track_3 = true;
+    this.client_services.client.activeate_next_button = true;
+    this.client_services.client.activeate_back_button = true;
+    this.client_services.client.track_1 = true;
+    this.client_services.client.track_2 = true;
+    this.client_services.client.track_3 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_provider_phone", "goto_service_duration"]),
+    ...mapActions(["go_back_to_client_phone", "goto_client_service_duration"]),
   },
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["client_services"]),
   },
 };
 </script>

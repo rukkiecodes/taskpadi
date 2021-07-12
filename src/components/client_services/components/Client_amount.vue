@@ -5,9 +5,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_back_button == true,
+          client_services.client.activeate_back_button == true,
       }"
-      @click="go_back_to_pt_duration"
+      @click="go_back_to_client_duration"
       color="#4169E2"
       small
     >
@@ -30,8 +30,8 @@
         class="mt-10 rounded-lg"
         label="Agreed amount"
         background-color="#fff"
-        v-model="provider_services.provider.amount_input"
-        @keypress.enter="goto_provider_when_to_pay"
+        v-model="client_services.client.amount_input"
+        @keypress.enter="goto_client_when_to_pay"
         prepend-inner-icon="mdi-currency-usd-circle-outline"
         color="#4169E2"
         solo
@@ -43,9 +43,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_next_button == true,
+          client_services.client.activeate_next_button == true,
       }"
-      @click="goto_provider_when_to_pay"
+      @click="goto_client_when_to_pay"
       color="#4169E2"
       small
     >
@@ -63,9 +63,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
+            client_services.client.activeate_back_button == true,
         }"
-        @click="go_back_to_pt_duration"
+        @click="go_back_to_client_duration"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -79,9 +79,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_next_button == true,
+            client_services.client.activeate_next_button == true,
         }"
-        @click="goto_provider_when_to_pay"
+        @click="goto_client_when_to_pay"
         small
         depressed
       >
@@ -95,19 +95,19 @@
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
-    this.provider_services.provider.activeate_next_button = true;
-    this.provider_services.provider.activeate_back_button = true;
-    this.provider_services.provider.track_1 = true;
-    this.provider_services.provider.track_2 = true;
-    this.provider_services.provider.track_3 = true;
-    this.provider_services.provider.track_4 = true;
-    this.provider_services.provider.track_5 = true;
+    this.client_services.client.activeate_next_button = true;
+    this.client_services.client.activeate_back_button = true;
+    this.client_services.client.track_1 = true;
+    this.client_services.client.track_2 = true;
+    this.client_services.client.track_3 = true;
+    this.client_services.client.track_4 = true;
+    this.client_services.client.track_5 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_pt_duration", "goto_provider_when_to_pay"]),
+    ...mapActions(["go_back_to_client_duration", "goto_client_when_to_pay"]),
   },
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["client_services"]),
   },
 };
 </script>

@@ -53,8 +53,15 @@ import Provider_services_to_render from "../components/provider_services/compone
 import Provider_services_duration from "../components/provider_services/components/Provider_services_duration.vue";
 import Provider_amount from "../components/provider_services/components/Provider_amount.vue";
 import Provider_when_to_pay from "../components/provider_services/components/Provider_when_to_pay.vue";
-import Provider_contract_terms  from "../components/provider_services/components/Provider_contract_terms.vue";
+import Provider_contract_terms from "../components/provider_services/components/Provider_contract_terms.vue";
 import Client_services from "../views/Client_services.vue";
+import Client_name from "../components/client_services/components/Client_name.vue";
+import Client_phone from "../components/client_services/components/Client_phone.vue";
+import Client_services_to_render from "../components/client_services/components/Client_services_to_render.vue";
+import Client_services_duration from "../components/client_services/components/Client_services_duration.vue";
+import Client_amount from "../components/client_services/components/Client_amount.vue";
+import Client_when_to_pay from "../components/client_services/components/Client_when_to_pay.vue";
+import Client_contract_terms from "../components/client_services/components/Client_contract_terms.vue";
 
 Vue.use(VueRouter);
 
@@ -332,7 +339,7 @@ const routes = [
       {
         path: "provider_contract_terms",
         name: "Provider contract terms",
-        component: Provider_contract_terms ,
+        component: Provider_contract_terms,
       },
     ],
   },
@@ -340,6 +347,43 @@ const routes = [
     path: "/client_services",
     name: "Client services",
     component: Client_services,
+    children: [
+      {
+        path: "",
+        name: "Client name",
+        component: Client_name,
+      },
+      {
+        path: "client_phone",
+        name: "Client phone",
+        component: Client_phone,
+      },
+      {
+        path: "available_services",
+        name: "Client services to render",
+        component: Client_services_to_render,
+      },
+      {
+        path: "client_transaction_duration",
+        name: "Client transaction duration",
+        component: Client_services_duration,
+      },
+      {
+        path: "client_amount",
+        name: "Client amount",
+        component: Client_amount,
+      },
+      {
+        path: "client_when_to_pay",
+        name: "Client when to pay",
+        component: Client_when_to_pay,
+      },
+      {
+        path: "client_contract_terms",
+        name: "Client contract terms",
+        component: Client_contract_terms,
+      },
+    ],
   },
   {
     path: "/about",

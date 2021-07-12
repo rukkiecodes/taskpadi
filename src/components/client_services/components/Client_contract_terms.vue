@@ -5,10 +5,10 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_back_button == true,
+          client_services.client.activeate_back_button == true,
       }"
-      :disabled="provider_services.provider.activeate_back_button != true"
-      @click="go_back_to_provider_when_to_pay"
+      :disabled="client_services.client.activeate_back_button != true"
+      @click="go_back_to_client_when_to_pay"
       color="#4169E2"
       small
     >
@@ -31,7 +31,7 @@
         class="mt-10 rounded-lg"
         label="Terms of contract"
         background-color="#fff"
-        v-model="provider_services.provider.terms_of_contract_input"
+        v-model="client_services.client.terms_of_contract_input"
         solo
         flat
       ></v-textarea>
@@ -41,9 +41,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_next_button == true,
+          client_services.client.activeate_next_button == true,
       }"
-      :disabled="provider_services.provider.activeate_next_button != true"
+      :disabled="client_services.client.activeate_next_button != true"
       color="#4169E2"
       small
     >
@@ -61,10 +61,10 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
+            client_services.client.activeate_back_button == true,
         }"
-        :disabled="provider_services.provider.activeate_back_button != true"
-        @click="go_back_to_provider_when_to_pay"
+        :disabled="client_services.client.activeate_back_button != true"
+        @click="go_back_to_client_when_to_pay"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -78,9 +78,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_next_button == true,
+            client_services.client.activeate_next_button == true,
         }"
-        :disabled="provider_services.provider.activeate_next_button != true"
+        :disabled="client_services.client.activeate_next_button != true"
         small
         depressed
       >
@@ -94,21 +94,21 @@
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
-    this.provider_services.provider.activeate_next_button = false;
-    this.provider_services.provider.activeate_back_button = true;
-    this.provider_services.provider.track_1 = true;
-    this.provider_services.provider.track_2 = true;
-    this.provider_services.provider.track_3 = true;
-    this.provider_services.provider.track_4 = true;
-    this.provider_services.provider.track_5 = true;
-    this.provider_services.provider.track_6 = true;
-    this.provider_services.provider.track_7 = true;
+    this.client_services.client.activeate_next_button = false;
+    this.client_services.client.activeate_back_button = true;
+    this.client_services.client.track_1 = true;
+    this.client_services.client.track_2 = true;
+    this.client_services.client.track_3 = true;
+    this.client_services.client.track_4 = true;
+    this.client_services.client.track_5 = true;
+    this.client_services.client.track_6 = true;
+    this.client_services.client.track_7 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_provider_when_to_pay"]),
+    ...mapActions(["go_back_to_client_when_to_pay"]),
   },
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["client_services"]),
   },
 };
 </script>

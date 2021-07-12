@@ -5,9 +5,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_back_button == true,
+          client_services.client.activeate_back_button == true,
       }"
-      @click="go_back_to_providers_email"
+      @click="go_back_to_clients_name"
       color="#4169E2"
       small
     >
@@ -15,9 +15,9 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Providers mobile number</p>
+        <p class="text-h6">clients mobile number</p>
         <p class="text-caption mt-n3">
-          Please providers your mobile number
+          Please clients your mobile number
         </p>
       </div>
       <div class="icon mt-5">
@@ -28,8 +28,8 @@
         class="mt-10 rounded-lg"
         label="Mobile number"
         background-color="#fff"
-        v-model="provider_services.provider.phone_input"
-        @keypress.enter="goto_provider_services"
+        v-model="client_services.client.phone_input"
+        @keypress.enter="goto_client_services"
         prepend-inner-icon="mdi-phone"
         color="#4169E2"
         solo
@@ -41,9 +41,9 @@
       class="rounded-lg interactive_form_sides_button"
       :class="{
         interactive_form_sides_button_active:
-          provider_services.provider.activeate_next_button == true,
+          client_services.client.activeate_next_button == true,
       }"
-      @click="goto_provider_services"
+      @click="goto_client_services"
       color="#4169E2"
       small
     >
@@ -61,9 +61,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_back_button == true,
+            client_services.client.activeate_back_button == true,
         }"
-        @click="go_back_to_providers_email"
+        @click="go_back_to_clients_name"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -77,9 +77,9 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            provider_services.provider.activeate_next_button == true,
+            client_services.client.activeate_next_button == true,
         }"
-        @click="goto_provider_services"
+        @click="goto_client_services"
         small
         depressed
       >
@@ -93,16 +93,16 @@
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
-    this.provider_services.provider.activeate_next_button = true;
-    this.provider_services.provider.activeate_back_button = true;
-    this.provider_services.provider.track_1 = true;
-    this.provider_services.provider.track_2 = true;
+    this.client_services.client.activeate_next_button = true;
+    this.client_services.client.activeate_back_button = true;
+    this.client_services.client.track_1 = true;
+    this.client_services.client.track_2 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_providers_email", "goto_provider_services"]),
+    ...mapActions(["go_back_to_clients_name", "goto_client_services"]),
   },
   computed: {
-    ...mapState(["provider_services"]),
+    ...mapState(["client_services"]),
   },
 };
 </script>
