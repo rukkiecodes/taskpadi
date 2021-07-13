@@ -23,7 +23,12 @@
         </p>
       </div>
       <div class="icon mt-5">
-        <!-- <v-icon size="50" class="white--text">mdi-email-variant</v-icon> -->
+        <v-avatar size="130" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/email.png"
+            src="../../../assets/trust/interactive_form_icons/email.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-text-field
         style="width: 100%"
