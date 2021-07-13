@@ -14,7 +14,7 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Seller email</p>
+        <p class="text-h6">Email address</p>
         <p class="text-caption mt-n3">
           Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
         </p>
@@ -90,20 +90,15 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
-  created() {
-    this.sellers_phone_email();
-    this.activate_next_button();
-  },
   mounted() {
-    this.sellers_phone_email();
-    this.activate_next_button();
     this.app_bar_route();
+    this.good_and_product_buyer.good_and_product.activate_back_button = false
+    this.good_and_product_buyer.good_and_product.activate_next_button = true
+    this.good_and_product_buyer.good_and_product.track_1 = true
   },
   methods: {
     ...mapActions([
       "goto_sellers_phone_number",
-      "sellers_phone_email",
-      "activate_next_button",
       "app_bar_route",
     ]),
   },

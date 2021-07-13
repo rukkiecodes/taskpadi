@@ -59,7 +59,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button ==
+            true,
         }"
         @click="go_back_to_seller_phone"
         small
@@ -75,7 +76,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button ==
+            true,
         }"
         @click="goto_product_price"
         small
@@ -90,25 +92,15 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
-  created() {
-    this.activate_back_button();
-    this.activate_next_button();
-  },
   mounted() {
-    this.activate_back_button();
-    this.activate_next_button();
-    this.activate_track_1();
-    this.activate_track_2();
+    this.good_and_product_buyer.good_and_product.activate_next_button = true;
+    this.good_and_product_buyer.good_and_product.activate_back_button = true;
+    this.good_and_product_buyer.good_and_product.track_1 = true;
+    this.good_and_product_buyer.good_and_product.track_2 = true;
+    this.good_and_product_buyer.good_and_product.track_3 = true;
   },
   methods: {
-    ...mapActions([
-      "go_back_to_seller_phone",
-      "activate_back_button",
-      "activate_next_button",
-      "goto_product_price",
-      "activate_track_1",
-      "activate_track_2"
-    ]),
+    ...mapActions(["go_back_to_seller_phone", "goto_product_price"]),
   },
   computed: {
     ...mapState(["good_and_product_buyer"]),

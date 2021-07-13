@@ -3,6 +3,13 @@ import snackbar_state from "./snackbar_state";
 export default {
   state: {
     good_and_product: {
+      track_1: false,
+      track_2: false,
+      track_3: false,
+      track_4: false,
+      track_5: false,
+      track_6: false,
+      track_7: false,
       activate_back_button: false,
       activate_next_button: true,
       seller_email_input: "",
@@ -12,13 +19,6 @@ export default {
       product_description_input: "",
       product_condition_input: "",
       handle_delivery_input: "",
-      track_1: false,
-      track_2: false,
-      track_3: false,
-      track_4: false,
-      track_5: false,
-      track_6: false,
-      track_7: false,
     },
   },
   mutations: {
@@ -141,18 +141,18 @@ export default {
       commit("go_to_handle_delivery");
     },
 
-    sellers_phone_email() {
-      this.state.good_and_product_buyer.good_and_product.activate_back_button = false;
-    },
+    // sellers_phone_email() {
+    //   this.state.good_and_product_buyer.good_and_product.activate_back_button = false;
+    // },
     activate_back_button() {
       this.state.good_and_product_buyer.good_and_product.activate_back_button = true;
     },
-    activate_next_button() {
-      this.state.good_and_product_buyer.good_and_product.activate_next_button = true;
-    },
-    deactivate_next_button() {
-      this.state.good_and_product_buyer.good_and_product.activate_next_button = false;
-    },
+    // activate_next_button() {
+    //   this.state.good_and_product_buyer.good_and_product.activate_next_button = true;
+    // },
+    // deactivate_next_button() {
+    //   this.state.good_and_product_buyer.good_and_product.activate_next_button = false;
+    // },
     go_back_to_seller_email() {
       router.push("/good_and_product_buyer");
       this.state.good_and_product_buyer.good_and_product.track_2 = false;
@@ -174,24 +174,24 @@ export default {
       this.state.good_and_product_buyer.good_and_product.track_6 = false;
     },
     go_back_to_product_condition: () => router.push("condition"),
-    activate_track_1() {
-      this.state.good_and_product_buyer.good_and_product.track_1 = true;
-    },
-    activate_track_2() {
-      this.state.good_and_product_buyer.good_and_product.track_2 = true;
-    },
-    activate_track_3() {
-      this.state.good_and_product_buyer.good_and_product.track_3 = true;
-    },
-    activate_track_4() {
-      this.state.good_and_product_buyer.good_and_product.track_4 = true;
-    },
-    activate_track_5() {
-      this.state.good_and_product_buyer.good_and_product.track_5 = true;
-    },
-    activate_track_6() {
-      this.state.good_and_product_buyer.good_and_product.track_6 = true;
-    },
+    // activate_track_1() {
+    //   this.state.good_and_product_buyer.good_and_product.track_1 = true;
+    // },
+    // activate_track_2() {
+    //   this.state.good_and_product_buyer.good_and_product.track_2 = true;
+    // },
+    // activate_track_3() {
+    //   this.state.good_and_product_buyer.good_and_product.track_3 = true;
+    // },
+    // activate_track_4() {
+    //   this.state.good_and_product_buyer.good_and_product.track_4 = true;
+    // },
+    // activate_track_5() {
+    //   this.state.good_and_product_buyer.good_and_product.track_5 = true;
+    // },
+    // activate_track_6() {
+    //   this.state.good_and_product_buyer.good_and_product.track_6 = true;
+    // },
     proceed_to_delivery_info({ commit }) {
       commit("proceed_to_delivery_info")
     }
