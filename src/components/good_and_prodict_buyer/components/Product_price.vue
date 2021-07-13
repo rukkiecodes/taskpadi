@@ -13,28 +13,33 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
       <div class="texts">
-        <p class="text-h6">Product Price</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+        <p class="text-h6 grey--text text--darken-4">Product price</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          How much would you like to pay to purchase this product
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-cash-register</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="130" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/price.png"
+            src="../../../assets/trust/interactive_form_icons/price.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-text-field
         style="width: 100%"
-        class="mt-10 rounded-lg"
+        class="rounded-lg"
         label="Product price"
-        type="money"
+        color="#4169E2"
         background-color="#fff"
+        type="email"
         v-model="good_and_product_buyer.good_and_product.product_price_input"
         @keypress.enter="go_to_product_description"
-        solo
-        flat
+        outlined
       ></v-text-field>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -60,7 +65,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button ==
+            true,
         }"
         small
         @click="go_back_to_product_name"
@@ -76,7 +82,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button ==
+            true,
         }"
         @click="go_to_product_description"
         small
@@ -100,10 +107,7 @@ export default {
     this.good_and_product_buyer.good_and_product.track_4 = true;
   },
   methods: {
-    ...mapActions([
-      "go_back_to_product_name",
-      "go_to_product_description",
-    ]),
+    ...mapActions(["go_back_to_product_name", "go_to_product_description"]),
   },
   computed: {
     ...mapState(["good_and_product_buyer"]),

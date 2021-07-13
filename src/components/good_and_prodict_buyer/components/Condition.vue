@@ -13,28 +13,32 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
       <div class="texts">
-        <p class="text-h6">Product Condition</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+        <p class="text-h6 grey--text text--darken-4">Product condition</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          What is the state of the product you would like to purchase
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-flash-circle</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="130" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/condition.png"
+            src="../../../assets/trust/interactive_form_icons/condition.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-select
         style="width: 100%"
-        class="mt-10 rounded-lg"
+        class="rounded-lg"
         :items="product_condition"
         :label="product_condition[0]"
         append-icon="mdi-chevron-down"
         color="#4468E2"
         @change="select_value"
-        solo
-        flat
+        outlined
       ></v-select>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
