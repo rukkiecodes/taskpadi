@@ -7,6 +7,9 @@
         interactive_form_sides_button_active:
           good_and_product_buyer.good_and_product.activate_back_button == true,
       }"
+      :disabled="
+        good_and_product_buyer.good_and_product.activate_back_button != true
+      "
       color="#4169E2"
       small
     >
@@ -16,11 +19,11 @@
       <div class="texts">
         <p class="text-h6">Email address</p>
         <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+          Please, enter your email address so bealers can contact you
         </p>
       </div>
       <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-email-variant</v-icon>
+        <!-- <v-icon size="50" class="white--text">mdi-email-variant</v-icon> -->
       </div>
       <v-text-field
         style="width: 100%"
@@ -92,15 +95,12 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.app_bar_route();
-    this.good_and_product_buyer.good_and_product.activate_back_button = false
-    this.good_and_product_buyer.good_and_product.activate_next_button = true
-    this.good_and_product_buyer.good_and_product.track_1 = true
+    this.good_and_product_buyer.good_and_product.activate_back_button = false;
+    this.good_and_product_buyer.good_and_product.activate_next_button = true;
+    this.good_and_product_buyer.good_and_product.track_1 = true;
   },
   methods: {
-    ...mapActions([
-      "goto_sellers_phone_number",
-      "app_bar_route",
-    ]),
+    ...mapActions(["goto_sellers_phone_number", "app_bar_route"]),
   },
   computed: {
     ...mapState(["good_and_product_buyer"]),

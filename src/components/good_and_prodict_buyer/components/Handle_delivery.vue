@@ -94,33 +94,19 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
-  created() {
-    this.activate_back_button();
-    this.deactivate_next_button();
-  },
   mounted() {
-    this.activate_back_button();
-    this.deactivate_next_button();
-    this.activate_track_1();
-    this.activate_track_2();
-    this.activate_track_3();
-    this.activate_track_4();
-    this.activate_track_5();
-    this.activate_track_6();
+    this.good_and_product_buyer.good_and_product.activate_next_button = true;
+    this.good_and_product_buyer.good_and_product.activate_back_button = true;
+    this.good_and_product_buyer.good_and_product.track_1 = true;
+    this.good_and_product_buyer.good_and_product.track_2 = true;
+    this.good_and_product_buyer.good_and_product.track_3 = true;
+    this.good_and_product_buyer.good_and_product.track_4 = true;
+    this.good_and_product_buyer.good_and_product.track_5 = true;
+    this.good_and_product_buyer.good_and_product.track_6 = true;
+    this.good_and_product_buyer.good_and_product.track_7 = true;
   },
   methods: {
-    ...mapActions([
-      "go_back_to_product_condition",
-      "activate_back_button",
-      "deactivate_next_button",
-      "activate_track_1",
-      "activate_track_2",
-      "activate_track_3",
-      "activate_track_4",
-      "activate_track_5",
-      "activate_track_6",
-      "proceed_to_delivery_info"
-    ]),
+    ...mapActions(["go_back_to_product_condition", "proceed_to_delivery_info"]),
   },
   computed: {
     ...mapState(["good_and_product_buyer"]),

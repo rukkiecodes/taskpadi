@@ -112,28 +112,28 @@
           max-width: 100%;
         }
 
-        .icon {
-          background: #feba4f;
-          width: 6em;
-          height: 6em;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50px;
-          position: relative;
+        // .icon {
+        //   background: #feba4f;
+        //   width: 6em;
+        //   height: 6em;
+        //   display: flex;
+        //   justify-content: center;
+        //   align-items: center;
+        //   border-radius: 50px;
+        //   position: relative;
 
-          &::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 6.8em;
-            height: 6.8em;
-            background: rgba(254, 186, 79, 0.2);
-            border-radius: 50px;
-          }
-        }
+        //   &::before {
+        //     content: "";
+        //     position: absolute;
+        //     top: 50%;
+        //     left: 50%;
+        //     transform: translate(-50%, -50%);
+        //     width: 6.8em;
+        //     height: 6.8em;
+        //     background: rgba(254, 186, 79, 0.2);
+        //     border-radius: 50px;
+        //   }
+        // }
       }
 
       .interactive_form_mobile_buttons {

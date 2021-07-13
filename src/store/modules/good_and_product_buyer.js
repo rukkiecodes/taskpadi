@@ -107,9 +107,9 @@ export default {
         };
       }
     },
-    proceed_to_delivery_info: state => {
-      if(state.good_and_product.handle_delivery_input != '') {
-        router.push("/delivery_info")
+    proceed_to_delivery_info: (state) => {
+      if (state.good_and_product.handle_delivery_input != "") {
+        router.push("/delivery_info");
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -119,7 +119,7 @@ export default {
           snackbar_text_color: "white--text",
         };
       }
-    }
+    },
   },
   actions: {
     goto_sellers_phone_number({ commit }) {
@@ -140,19 +140,6 @@ export default {
     go_to_handle_delivery({ commit }) {
       commit("go_to_handle_delivery");
     },
-
-    // sellers_phone_email() {
-    //   this.state.good_and_product_buyer.good_and_product.activate_back_button = false;
-    // },
-    activate_back_button() {
-      this.state.good_and_product_buyer.good_and_product.activate_back_button = true;
-    },
-    // activate_next_button() {
-    //   this.state.good_and_product_buyer.good_and_product.activate_next_button = true;
-    // },
-    // deactivate_next_button() {
-    //   this.state.good_and_product_buyer.good_and_product.activate_next_button = false;
-    // },
     go_back_to_seller_email() {
       router.push("/good_and_product_buyer");
       this.state.good_and_product_buyer.good_and_product.track_2 = false;
@@ -173,28 +160,12 @@ export default {
       router.push("product_description");
       this.state.good_and_product_buyer.good_and_product.track_6 = false;
     },
-    go_back_to_product_condition: () => router.push("condition"),
-    // activate_track_1() {
-    //   this.state.good_and_product_buyer.good_and_product.track_1 = true;
-    // },
-    // activate_track_2() {
-    //   this.state.good_and_product_buyer.good_and_product.track_2 = true;
-    // },
-    // activate_track_3() {
-    //   this.state.good_and_product_buyer.good_and_product.track_3 = true;
-    // },
-    // activate_track_4() {
-    //   this.state.good_and_product_buyer.good_and_product.track_4 = true;
-    // },
-    // activate_track_5() {
-    //   this.state.good_and_product_buyer.good_and_product.track_5 = true;
-    // },
-    // activate_track_6() {
-    //   this.state.good_and_product_buyer.good_and_product.track_6 = true;
-    // },
+    go_back_to_product_condition() {
+      router.push("condition");
+      this.state.good_and_product_buyer.good_and_product.track_7 = false;
+    },
     proceed_to_delivery_info({ commit }) {
-      commit("proceed_to_delivery_info")
-    }
+      commit("proceed_to_delivery_info");
+    },
   },
-  getters: {},
 };
