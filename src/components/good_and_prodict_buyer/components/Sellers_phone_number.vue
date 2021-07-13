@@ -13,7 +13,34 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
+      <div class="texts">
+        <p class="text-h6 grey--text text--darken-4">Phone number</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          Please, enter your mobile number so bealers can contact you
+        </p>
+      </div>
+      <div class="icon my-5">
+        <v-avatar size="130" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/phone.png"
+            src="../../../assets/trust/interactive_form_icons/phone.png"
+          ></v-img>
+        </v-avatar>
+      </div>
+      <v-text-field
+        style="width: 100%"
+        class="rounded-lg"
+        label="Phone number"
+        color="#4169E2"
+        background-color="#fff"
+        type="email"
+        v-model="good_and_product_buyer.good_and_product.seller_phone_input"
+        @keypress.enter="goto_product_name"
+        outlined
+      ></v-text-field>
+    </v-card>
+    <!-- <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
         <p class="text-h6">Phone number</p>
         <p class="text-caption mt-n3">
@@ -33,7 +60,7 @@
         solo
         flat
       ></v-text-field>
-    </div>
+    </div> -->
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -59,7 +86,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_back_button == true,
+            good_and_product_buyer.good_and_product.activate_back_button ==
+            true,
         }"
         @click="go_back_to_seller_email"
         small
@@ -75,7 +103,8 @@
         "
         :class="{
           interactive_form_sides_button_active:
-            good_and_product_buyer.good_and_product.activate_next_button == true,
+            good_and_product_buyer.good_and_product.activate_next_button ==
+            true,
         }"
         @click="goto_product_name"
         small
@@ -95,13 +124,12 @@ export default {
     this.good_and_product_buyer.good_and_product.activate_back_button = true;
     this.good_and_product_buyer.good_and_product.track_1 = true;
     this.good_and_product_buyer.good_and_product.track_2 = true;
-    // this.activate_track_1()
   },
   methods: {
     ...mapActions([
       "goto_product_name",
       "go_back_to_seller_email",
-      "activate_track_1"
+      "activate_track_1",
     ]),
   },
   computed: {

@@ -15,14 +15,14 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
       <div class="texts">
-        <p class="text-h6">Email address</p>
-        <p class="text-caption mt-n3">
+        <p class="text-h6 grey--text text--darken-4">Email address</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
           Please, enter your email address so bealers can contact you
         </p>
       </div>
-      <div class="icon mt-5">
+      <div class="icon my-5">
         <v-avatar size="130" tile>
           <v-img
             lazy-src="../../../assets/trust/interactive_form_icons/email.png"
@@ -32,15 +32,16 @@
       </div>
       <v-text-field
         style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Seller email"
+        class="rounded-lg"
+        label="Email address"
+        color="#4169E2"
         background-color="#fff"
+        type="email"
         v-model="good_and_product_buyer.good_and_product.seller_email_input"
         @keypress.enter="goto_sellers_phone_number"
-        solo
-        flat
+        outlined
       ></v-text-field>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"

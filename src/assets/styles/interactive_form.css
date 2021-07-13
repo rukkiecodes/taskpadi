@@ -134,7 +134,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 2em;
 }
 
 .interactive_form .interactive_form_sides .tracks .track {
@@ -236,58 +235,6 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  background: rgba(65, 105, 226, 0.1);
-  width: 60%;
-  min-width: 60%;
-  max-width: 60%;
-}
-
-@media (max-width: 768px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 95%;
-    min-width: 95%;
-    max-width: 95%;
-  }
-}
-
-@media only screen and (device-width: 320px) and (device-height: 568px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (device-width: 375px) and (device-height: 667px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (device-width: 414px) and (device-height: 736px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (device-width: 375px) and (device-height: 812px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (device-width: 280px) and (device-height: 653px) {
-  .interactive_form .interactive_form_sides .seller_email .interactive_form_sides_card {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
 }
 
 .interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons {
@@ -325,14 +272,5 @@
 
 .interactive_form .interactive_form_sides .seller_email .interactive_form_mobile_buttons .interactive_form_mobile_buttons_button_active {
   background: #4169e2;
-}
-
-@media (max-width: 768px) {
-  .interactive_form .interactive_form_sides .product_description {
-    margin-bottom: -5em !important;
-  }
-  .interactive_form .interactive_form_sides .product_description .interactive_form_mobile_buttons {
-    margin-top: 5em !important;
-  }
 }
 /*# sourceMappingURL=interactive_form.css.map */
