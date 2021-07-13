@@ -13,27 +13,33 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
       <div class="texts">
-        <p class="text-h6">Product name</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+        <p class="text-h6 grey--text text--darken-4">Product name</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          Please, enter the name of the product you would like<br> to purchase
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-shopping-outline</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="130" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/name.png"
+            src="../../../assets/trust/interactive_form_icons/name.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-text-field
         style="width: 100%"
-        class="mt-10 rounded-lg"
+        class="rounded-lg"
         label="Product name"
+        color="#4169E2"
         background-color="#fff"
+        type="email"
         v-model="good_and_product_buyer.good_and_product.product_name_input"
         @keypress.enter="goto_product_price"
-        solo
-        flat
+        outlined
       ></v-text-field>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"

@@ -40,27 +40,6 @@
         outlined
       ></v-text-field>
     </v-card>
-    <!-- <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
-      <div class="texts">
-        <p class="text-h6">Phone number</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
-        </p>
-      </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-phone</v-icon>
-      </div>
-      <v-text-field
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Seller phone number"
-        background-color="#fff"
-        v-model="good_and_product_buyer.good_and_product.seller_phone_input"
-        @keypress.enter="goto_product_name"
-        solo
-        flat
-      ></v-text-field>
-    </div> -->
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
