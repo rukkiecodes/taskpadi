@@ -21,7 +21,7 @@
         </p>
       </div>
       <div class="icon my-5">
-        <v-avatar size="130" tile>
+        <v-avatar size="100" tile>
           <v-img
             lazy-src="../../../assets/trust/interactive_form_icons/description.png"
             src="../../../assets/trust/interactive_form_icons/description.png"

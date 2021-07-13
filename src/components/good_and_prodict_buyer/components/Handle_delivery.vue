@@ -21,42 +21,24 @@
         </p>
       </div>
       <div class="icon my-5">
-        <v-avatar size="130" tile>
+        <v-avatar size="100" tile>
           <v-img
             lazy-src="../../../assets/trust/interactive_form_icons/delivery.png"
             src="../../../assets/trust/interactive_form_icons/delivery.png"
           ></v-img>
         </v-avatar>
       </div>
-      <v-text-field
+      <v-select
         style="width: 100%"
         class="rounded-lg"
-        label="Who should handle delivery"
-        background-color="#fff"
-        v-model="good_and_product_buyer.good_and_product.handle_delivery_input"
+        :items="handle_delivery"
+        :label="handle_delivery[0]"
+        append-icon="mdi-chevron-down"
+        color="#4468E2"
+        @change="set_handle_delivery_input"
         outlined
-      ></v-text-field>
+      ></v-select>
     </v-card>
-    <!-- <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
-      <div class="texts">
-        <p class="text-h6">Who should handle delivery</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
-        </p>
-      </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-cash-register</v-icon>
-      </div>
-      <v-text-field
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Who should handle delivery"
-        background-color="#fff"
-        v-model="good_and_product_buyer.good_and_product.handle_delivery_input"
-        solo
-        flat
-      ></v-text-field>
-    </div> -->
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -118,6 +100,9 @@
 <script>
 import { mapActions, mapState } from "vuex";
 export default {
+  data: () => ({
+    handle_delivery: ["TrustPaddi", "The Seller"],
+  }),
   mounted() {
     this.good_and_product_buyer.good_and_product.activate_next_button = true;
     this.good_and_product_buyer.good_and_product.activate_back_button = true;
@@ -131,6 +116,9 @@ export default {
   },
   methods: {
     ...mapActions(["go_back_to_product_condition", "proceed_to_delivery_info"]),
+    set_handle_delivery_input(e) {
+      this.good_and_product_buyer.good_and_product.handle_delivery_input = e;
+    },
   },
   computed: {
     ...mapState(["good_and_product_buyer"]),

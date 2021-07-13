@@ -23,7 +23,7 @@
         </p>
       </div>
       <div class="icon my-5">
-        <v-avatar size="130" tile>
+        <v-avatar size="100" tile>
           <v-img
             lazy-src="../../../assets/trust/interactive_form_icons/email.png"
             src="../../../assets/trust/interactive_form_icons/email.png"
@@ -37,6 +37,7 @@
         color="#4169E2"
         background-color="#fff"
         type="email"
+        autofocus
         v-model="good_and_product_buyer.good_and_product.seller_email_input"
         @keypress.enter="goto_sellers_phone_number"
         outlined

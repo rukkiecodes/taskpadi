@@ -21,7 +21,7 @@
         </p>
       </div>
       <div class="icon my-5">
-        <v-avatar size="130" tile>
+        <v-avatar size="100" tile>
           <v-img
             lazy-src="../../../assets/trust/interactive_form_icons/condition.png"
             src="../../../assets/trust/interactive_form_icons/condition.png"
@@ -98,7 +98,7 @@
 import { mapActions, mapState } from "vuex";
 export default {
   data: () => ({
-    product_condition: ["Brand New", "Fairly used", "Old"],
+    product_condition: ["Brand New", "Fairly used", "Belgium"],
   }),
   mounted() {
     this.good_and_product_buyer.good_and_product.activate_next_button = true;
