@@ -64,6 +64,7 @@ import Client_when_to_pay from "../components/client_services/components/Client_
 import Client_contract_terms from "../components/client_services/components/Client_contract_terms.vue";
 import Proof_of_payment from "../views/Proof_of_payment .vue";
 import Wallet_screenshots from "../components/proof_of_payment/components/Wallet_screenshots.vue";
+import Other_proof from "../components/proof_of_payment/components/Other_proof.vue";
 
 Vue.use(VueRouter);
 
@@ -396,6 +397,11 @@ const routes = [
         path: "",
         name: "Wallet screenshots",
         component: Wallet_screenshots,
+      },
+      {
+        path: "other_proof",
+        name: "Other proof",
+        component: Other_proof,
       },
     ],
   },

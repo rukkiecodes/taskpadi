@@ -8,6 +8,7 @@
           proof_of_payment.proof.activeate_back_button == true,
       }"
       :disabled="proof_of_payment.proof.activeate_back_button != true"
+      @click="go_back_to_wallet_screenshot"
       color="#4169E2"
       small
     >
@@ -15,9 +16,9 @@
     </v-btn>
     <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
-        <p class="text-h6">Upload screenshot</p>
+        <p class="text-h6">Agreed amount</p>
         <p class="text-caption mt-n3">
-          Please, provide a screenshot of wallet transaction
+          Please, uploading any other prove that shows the  transfer to the buyer
         </p>
       </div>
       <div class="icon mt-5">
@@ -45,7 +46,7 @@
           proof_of_payment.proof.activeate_next_button == true,
       }"
       :disabled="proof_of_payment.proof.activeate_next_button != true"
-      @click="goto_other_proof"
+      @click="goto_proof_when_to_pay"
       color="#4169E2"
       small
     >
@@ -66,6 +67,7 @@
             proof_of_payment.proof.activeate_back_button == true,
         }"
         :disabled="proof_of_payment.proof.activeate_back_button != true"
+        @click="go_back_to_wallet_screenshot"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -82,7 +84,7 @@
             proof_of_payment.proof.activeate_next_button == true,
         }"
         :disabled="proof_of_payment.proof.activeate_next_button != true"
-        @click="goto_other_proof"
+        @click="goto_proof_when_to_pay"
         small
         depressed
       >
@@ -96,12 +98,13 @@
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
-    this.proof_of_payment.proof.activeate_next_button = true;
-    this.proof_of_payment.proof.activeate_back_button = false;
+    this.proof_of_payment.proof.activeate_next_button = false;
+    this.proof_of_payment.proof.activeate_back_button = true;
     this.proof_of_payment.proof.track_1 = true;
+    this.proof_of_payment.proof.track_2 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_pt_duration", "goto_other_proof"]),
+    ...mapActions(["go_back_to_wallet_screenshot", "goto_proof_when_to_pay"]),
     set_wallet_screenshots(e) {
       this.proof_of_payment.proof.wallet_screenshots.push(e);
     },
