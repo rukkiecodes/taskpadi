@@ -7,13 +7,53 @@
       small
       :class="{
         interactive_form_sides_button_active:
-          delivery_info.delivery.activate_back_button == true
+          delivery_info.delivery.activate_back_button == true,
       }"
       @click="go_back_to_di_product_image"
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
+      <div class="texts">
+        <p class="text-h6 grey--text text--darken-4">Product image</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          Please, enter an image of the product
+        </p>
+      </div>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/gallery.png"
+            src="../../../assets/trust/interactive_form_icons/gallery.png"
+          ></v-img>
+        </v-avatar>
+      </div>
+      <v-textarea
+        style="width: 100%"
+        class="mt-10 rounded-lg"
+        label="Residential address"
+        background-color="#fff"
+        v-model="delivery_info.delivery.delivery_address"
+        solo
+        flat
+      ></v-textarea>
+      <!-- <v-file-input
+        show-size
+        counter
+        multiple
+        outlined
+        dense
+        prepend-icon="mdi-image-multiple"
+        style="width: 100%"
+        class="mt-15 mb-5 rounded-lg"
+        label="Select product image"
+        @change="emage_event"
+      ></v-file-input> -->
+    </v-card>
+    <!-- <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
         <p class="text-h6">Residential address</p>
         <p class="text-caption mt-n3">
@@ -32,7 +72,7 @@
         solo
         flat
       ></v-textarea>
-    </div>
+    </div> -->
     <v-btn
       depressed
       class="
@@ -57,7 +97,7 @@
         "
         :class="{
           interactive_form_mobile_buttons_button_active:
-            delivery_info.delivery.activate_back_button == true
+            delivery_info.delivery.activate_back_button == true,
         }"
         @click="go_back_to_di_product_image"
         small
@@ -86,14 +126,14 @@
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
-    this.delivery_info.delivery.activate_back_button = true
-    this.delivery_info.delivery.track_1 = true
-    this.delivery_info.delivery.track_2 = true
-    this.delivery_info.delivery.track_3 = true
-    this.delivery_info.delivery.track_4 = true
+    this.delivery_info.delivery.activate_back_button = true;
+    this.delivery_info.delivery.track_1 = true;
+    this.delivery_info.delivery.track_2 = true;
+    this.delivery_info.delivery.track_3 = true;
+    this.delivery_info.delivery.track_4 = true;
   },
   methods: {
-    ...mapActions(["go_to_state_residence", "go_back_to_di_product_image"])
+    ...mapActions(["go_to_state_residence", "go_back_to_di_product_image"]),
   },
   computed: {
     ...mapState(["delivery_info"]),
