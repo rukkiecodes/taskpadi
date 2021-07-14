@@ -13,7 +13,7 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <!-- <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
         <p class="text-h6">Product image</p>
         <p class="text-caption mt-n3">
@@ -36,7 +36,7 @@
         label="Select product image"
         @change="emage_event"
       ></v-file-input>
-    </div>
+    </div> -->
     <v-btn
       depressed
       class="
