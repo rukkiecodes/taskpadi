@@ -3,6 +3,11 @@
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
+      :class="{
+        interactive_form_sides_button_active:
+          delivery_info.delivery.activate_back_button == true,
+      }"
+      @click="goback_to_handle_delivery"
       color="#4169E2"
       small
     >
@@ -60,6 +65,11 @@
           rounded-lg
           white--text
         "
+        :class="{
+          interactive_form_mobile_buttons_button_active:
+            delivery_info.delivery.activate_back_button == true,
+        }"
+        @click="goback_to_handle_delivery"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -90,9 +100,11 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.delivery_info.delivery.track_1 = true;
+    this.delivery_info.delivery.activate_next_button = true;
+    this.delivery_info.delivery.activate_back_button = true;
   },
   methods: {
-    ...mapActions(["go_to_product_size"]),
+    ...mapActions(["go_to_product_size", "goback_to_handle_delivery"]),
   },
   computed: {
     ...mapState(["delivery_info"]),

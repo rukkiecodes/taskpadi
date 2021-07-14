@@ -85,7 +85,11 @@ export default {
       router.push("residential_address")
       state.delivery.track_2 = false
       return state
-    }
+    },
+    goback_to_handle_delivery: state => {
+      router.push("/good_and_product_buyer/handle_delivery")
+      return state
+    },
   },
   actions: {
     go_to_product_size({ commit }) {
@@ -111,6 +115,9 @@ export default {
     },
     goback_to_di_residential_address({commit}) {
       commit("goback_to_di_residential_address")
+    },
+    goback_to_handle_delivery({commit}) {
+      commit("goback_to_handle_delivery")
     },
   },
   getters: {},
