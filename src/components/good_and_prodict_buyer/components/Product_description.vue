@@ -35,6 +35,7 @@
         color="#4169E2"
         background-color="#fff"
         type="email"
+        :autofocus="true"
         v-model="
           good_and_product_buyer.good_and_product.product_description_input
         "
