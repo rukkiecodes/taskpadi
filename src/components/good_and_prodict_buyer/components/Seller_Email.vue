@@ -37,7 +37,7 @@
         color="#4169E2"
         background-color="#fff"
         type="email"
-        autofocus
+        :autofocus="true"
         v-model="good_and_product_buyer.good_and_product.seller_email_input"
         @keypress.enter="goto_sellers_phone_number"
         outlined

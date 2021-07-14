@@ -1,0 +1,16 @@
+.buyer_roles {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buyer_roles_input_container {
+    // display: flex;
+    // justify-content: space-between;
+    // flex-wrap: wrap;
+    gap: 1em;
+}
+.buyer_roles_input {
+    width: 45%;
+}
