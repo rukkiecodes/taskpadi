@@ -38,7 +38,6 @@
         v-model="
           good_and_product_buyer.good_and_product.product_description_input
         "
-        :autofocus="true"
         outlined
       ></v-textarea>
     </v-card>

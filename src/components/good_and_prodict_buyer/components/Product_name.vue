@@ -37,7 +37,6 @@
         type="email"
         v-model="good_and_product_buyer.good_and_product.product_name_input"
         @keypress.enter="goto_product_price"
-        :autofocus="true"
         outlined
       ></v-text-field>
     </v-card>
