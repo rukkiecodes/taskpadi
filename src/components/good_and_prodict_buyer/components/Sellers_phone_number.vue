@@ -103,7 +103,6 @@ export default {
     this.good_and_product_buyer.good_and_product.activate_next_button = true;
     this.good_and_product_buyer.good_and_product.activate_back_button = true;
     this.good_and_product_buyer.good_and_product.track_1 = true;
-    this.good_and_product_buyer.good_and_product.track_2 = true;
   },
   methods: {
     ...mapActions([

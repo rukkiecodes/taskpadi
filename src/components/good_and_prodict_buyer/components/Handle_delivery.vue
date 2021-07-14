@@ -107,12 +107,6 @@ export default {
     this.good_and_product_buyer.good_and_product.activate_next_button = true;
     this.good_and_product_buyer.good_and_product.activate_back_button = true;
     this.good_and_product_buyer.good_and_product.track_1 = true;
-    this.good_and_product_buyer.good_and_product.track_2 = true;
-    this.good_and_product_buyer.good_and_product.track_3 = true;
-    this.good_and_product_buyer.good_and_product.track_4 = true;
-    this.good_and_product_buyer.good_and_product.track_5 = true;
-    this.good_and_product_buyer.good_and_product.track_6 = true;
-    this.good_and_product_buyer.good_and_product.track_7 = true;
   },
   methods: {
     ...mapActions(["go_back_to_product_condition", "proceed_to_delivery_info"]),
