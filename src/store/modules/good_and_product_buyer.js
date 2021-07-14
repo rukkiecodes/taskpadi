@@ -35,7 +35,6 @@ export default {
     goto_product_name: (state) => {
       if (state.good_and_product.seller_phone_input != "") {
         router.push("product_name");
-        state.good_and_product.track_2 = true;
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
@@ -133,7 +132,6 @@ export default {
     },
     go_back_to_seller_email() {
       router.push("/good_and_product_buyer");
-      this.state.good_and_product_buyer.good_and_product.track_2 = false;
     },
     go_back_to_seller_phone() {
       router.push("seller_phone_number");

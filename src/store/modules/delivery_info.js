@@ -3,6 +3,8 @@ import snackbar_state from "./snackbar_state";
 export default {
   state: {
     delivery: {
+      track_1: false,
+      track_2: false,
       activate_back_button: false,
       activate_next_button: true,
       product_name_input: "",
@@ -12,11 +14,6 @@ export default {
       product_image: [],
       delivery_address: "",
       state_of_residence: "",
-      track_1: false,
-      track_2: false,
-      track_3: false,
-      track_4: false,
-      track_5: false,
     },
   },
   mutations: {

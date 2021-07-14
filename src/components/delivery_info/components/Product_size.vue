@@ -13,7 +13,72 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
+      <div class="texts">
+        <p class="text-h6 grey--text text--darken-4">Product name</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          Please, enter the name of the product you would like<br />
+          to purchase
+        </p>
+      </div>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/name.png"
+            src="../../../assets/trust/interactive_form_icons/name.png"
+          ></v-img>
+        </v-avatar>
+      </div>
+      <div class="mt-5">
+        <p class="text-h6">Size</p>
+        <p
+          @click="
+            delivery_info.delivery.mesurment_unit_visibility =
+              !delivery_info.delivery.mesurment_unit_visibility
+          "
+          class="mt-n3 text-body-2"
+          style="cursor: pointer"
+        >
+          {{ delivery_info.delivery.product_size }}:
+          {{ delivery_info.delivery.mesurment_unit }}
+        </p>
+      </div>
+      <v-slider
+        style="width: 100%"
+        class="mt-5 rounded-lg"
+        v-model="delivery_info.delivery.product_size"
+        min="0"
+        max="100"
+        thumb-label
+        color="#4468E2"
+        dense
+      ></v-slider>
+      <v-btn
+        @click="
+          delivery_info.delivery.mesurment_unit_visibility =
+            !delivery_info.delivery.mesurment_unit_visibility
+        "
+        depressed
+        class="white--text text-capitalize mb-5 rounded-lg"
+        block
+        color="#4468E2"
+        >Mesument unit</v-btn
+      ></v-btn>
+      <v-text-field
+        style="width: 100%"
+        background-color="#fff"
+        v-model="delivery_info.delivery.mesurment_unit"
+        placeholder="Mesurment unit"
+        v-show="delivery_info.delivery.mesurment_unit_visibility == true"
+        @blur="delivery_info.delivery.mesurment_unit_visibility = false"
+        @keypress.enter="
+          delivery_info.delivery.mesurment_unit_visibility = false
+        "
+        dense
+        outlined
+      ></v-text-field>
+    </v-card>
+    <!-- <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
       <div class="texts">
         <p class="text-h6">Product size</p>
         <p class="text-caption mt-n3">
@@ -74,7 +139,7 @@
           delivery_info.delivery.mesurment_unit_visibility = false
         "
       ></v-text-field>
-    </div>
+    </div> -->
     <v-btn
       depressed
       class="
@@ -128,12 +193,11 @@
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
-    this.delivery_info.delivery.activate_back_button = true
-    this.delivery_info.delivery.track_1 = true
-    this.delivery_info.delivery.track_2 = true
+    this.delivery_info.delivery.activate_back_button = true;
+    this.delivery_info.delivery.track_1 = true;
   },
   methods: {
-    ...mapActions(["go_to_product_image", "go_back_to_di_product_name"])
+    ...mapActions(["go_to_product_image", "go_back_to_di_product_name"]),
   },
   computed: {
     ...mapState(["delivery_info"]),
