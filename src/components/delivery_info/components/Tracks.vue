@@ -9,7 +9,9 @@
     <div
       class="track mx-2"
       :class="{
-        active_track: delivery_info.delivery.track_2 == true,
+        active_track:
+          delivery_info.delivery.track_2 == true ||
+          delivery_info.delivery.state_of_residence != '',
       }"
     ></div>
   </div>

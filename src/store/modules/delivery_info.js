@@ -80,6 +80,11 @@ export default {
     go_back_to_di_product_image: state => {
       router.push("product_image")
       return state
+    },
+    goback_to_di_residential_address: state => {
+      router.push("residential_address")
+      state.delivery.track_2 = false
+      return state
     }
   },
   actions: {
@@ -103,7 +108,10 @@ export default {
     },
     go_back_to_di_product_image({commit}) {
       commit("go_back_to_di_product_image")
-    }
+    },
+    goback_to_di_residential_address({commit}) {
+      commit("goback_to_di_residential_address")
+    },
   },
   getters: {},
 };
