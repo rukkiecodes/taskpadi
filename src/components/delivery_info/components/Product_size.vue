@@ -15,10 +15,9 @@
     </v-btn>
     <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
       <div class="texts">
-        <p class="text-h6 grey--text text--darken-4">Product name</p>
+        <p class="text-h6 grey--text text--darken-4">Product size</p>
         <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
-          Please, enter the name of the product you would like<br />
-          to purchase
+          Please, enter the size of the product, and its mesurment<br />unit
         </p>
       </div>
       <div class="icon my-5">
@@ -29,117 +28,35 @@
           ></v-img>
         </v-avatar>
       </div>
-      <div class="mt-5">
-        <p class="text-h6">Size</p>
-        <p
-          @click="
-            delivery_info.delivery.mesurment_unit_visibility =
-              !delivery_info.delivery.mesurment_unit_visibility
-          "
-          class="mt-n3 text-body-2"
-          style="cursor: pointer"
-        >
+      <div class="d-flex align-center">
+        <p class="text-h6 mr-2">Size</p>
+        <p class="text-body-2">
           {{ delivery_info.delivery.product_size }}:
           {{ delivery_info.delivery.mesurment_unit }}
         </p>
       </div>
-      <v-slider
-        style="width: 100%"
-        class="mt-5 rounded-lg"
-        v-model="delivery_info.delivery.product_size"
-        min="0"
-        max="100"
-        thumb-label
-        color="#4468E2"
-        dense
-      ></v-slider>
-      <v-btn
-        @click="
-          delivery_info.delivery.mesurment_unit_visibility =
-            !delivery_info.delivery.mesurment_unit_visibility
-        "
-        depressed
-        class="white--text text-capitalize mb-5 rounded-lg"
-        block
-        color="#4468E2"
-        >Mesument unit</v-btn
-      ></v-btn>
-      <v-text-field
-        style="width: 100%"
-        background-color="#fff"
-        v-model="delivery_info.delivery.mesurment_unit"
-        placeholder="Mesurment unit"
-        v-show="delivery_info.delivery.mesurment_unit_visibility == true"
-        @blur="delivery_info.delivery.mesurment_unit_visibility = false"
-        @keypress.enter="
-          delivery_info.delivery.mesurment_unit_visibility = false
-        "
-        dense
-        outlined
-      ></v-text-field>
+      <v-card-actions class="d-flex flex-row justify-space-between align-center" style="width: 100%">
+        <v-slider
+          style="width: 80%"
+          class="rounded-lg"
+          v-model="delivery_info.delivery.product_size"
+          min="0"
+          max="100"
+          thumb-label
+          color="#4468E2"
+          dense
+        ></v-slider>
+        <v-text-field
+          style="width: 20%"
+          background-color="#fff"
+          v-model="delivery_info.delivery.mesurment_unit"
+          class="text-center"
+          placeholder="M/U"
+          dense
+          outlined
+        ></v-text-field>
+      </v-card-actions>
     </v-card>
-    <!-- <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
-      <div class="texts">
-        <p class="text-h6">Product size</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
-        </p>
-      </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-shopping-outline</v-icon>
-      </div>
-
-      <div class="mt-5">
-        <p class="text-h6">Size</p>
-        <p
-          @click="
-            delivery_info.delivery.mesurment_unit_visibility =
-              !delivery_info.delivery.mesurment_unit_visibility
-          "
-          class="mt-n3 text-body-2"
-          style="cursor: pointer"
-        >
-          {{ delivery_info.delivery.product_size }}:
-          {{ delivery_info.delivery.mesurment_unit }}
-        </p>
-      </div>
-
-      <v-slider
-        style="width: 100%"
-        class="mt-5 rounded-lg"
-        v-model="delivery_info.delivery.product_size"
-        min="0"
-        max="100"
-        thumb-label
-        color="#4468E2"
-        dense
-      ></v-slider>
-      <v-btn
-        @click="
-          delivery_info.delivery.mesurment_unit_visibility =
-            !delivery_info.delivery.mesurment_unit_visibility
-        "
-        depressed
-        class="white--text text-capitalize mb-5 rounded-lg"
-        block
-        color="#4468E2"
-        >Mesument unit</v-btn
-      >
-      <v-text-field
-        style="width: 100%"
-        flat
-        background-color="transparent"
-        v-model="delivery_info.delivery.mesurment_unit"
-        dense
-        solo
-        placeholder="Mesurment unit"
-        v-show="delivery_info.delivery.mesurment_unit_visibility == true"
-        @blur="delivery_info.delivery.mesurment_unit_visibility = false"
-        @keypress.enter="
-          delivery_info.delivery.mesurment_unit_visibility = false
-        "
-      ></v-text-field>
-    </div> -->
     <v-btn
       depressed
       class="
