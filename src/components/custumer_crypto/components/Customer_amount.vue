@@ -7,35 +7,40 @@
         interactive_form_sides_button_active:
           custumers_crypto.custumer.activeate_back_button == true,
       }"
-      @click="go_back_to_currency"
+      @click="go_back_to_cust_currency"
       color="#4169E2"
       small
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Traders Amount</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+        <p class="text-h6 grey--text text--darken-4">Agreed Amount</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          How much was agreed on this transaction?
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text"
-          >mdi-currency-usd-circle-outline</v-icon
-        >
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/cash.png"
+            src="../../../assets/trust/interactive_form_icons/cash.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-text-field
         style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Traders Amount"
+        class="mt-5 rounded-lg"
+        label="Agreed amount"
         background-color="#fff"
         v-model="custumers_crypto.custumer.amount_input"
         @keypress.enter="goto_price"
-        solo
-        flat
+        outlined
       ></v-text-field>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -63,7 +68,7 @@
           interactive_form_mobile_buttons_button_active:
             custumers_crypto.custumer.activeate_back_button == true,
         }"
-        @click="go_back_to_currency"
+        @click="go_back_to_cust_currency"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -101,7 +106,7 @@ export default {
     this.custumers_crypto.custumer.track_4 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_currency", "goto_price"]),
+    ...mapActions(["go_back_to_cust_currency", "goto_price"]),
   },
   computed: {
     ...mapState(["custumers_crypto"]),

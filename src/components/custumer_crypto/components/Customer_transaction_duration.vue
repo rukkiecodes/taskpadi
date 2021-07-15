@@ -7,40 +7,47 @@
         interactive_form_sides_button_active:
           custumers_crypto.custumer.activeate_back_button == true,
       }"
-      @click="go_back_to_price"
+      @click="go_back_to_cust_price"
       color="#4169E2"
       small
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Transaction Duration</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+        <p class="text-h6 grey--text text--darken-4">Transaction Duration</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          How long will this transaction last?
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-currency-btc</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/price.png"
+            src="../../../assets/trust/interactive_form_icons/price.png"
+          ></v-img>
+        </v-avatar>
       </div>
-      <v-row class="mt-10">
+      <v-row class="mt-5">
         <v-col class="col-8">
           <v-select
             :items="custumers_crypto.custumer.items"
-            :label="custumers_crypto.custumer.items[1]"
+            label="Duration"
             :value="custumers_crypto.custumer.items[1]"
             @change="set_duration_with_select"
             class="rounded-lg"
-            solo
+            outlined
             dense
-            flat
           ></v-select>
         </v-col>
         <v-col class="col-4">
           <Time_picker />
         </v-col>
       </v-row>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -68,7 +75,7 @@
           interactive_form_mobile_buttons_button_active:
             custumers_crypto.custumer.activeate_back_button == true,
         }"
-        @click="go_back_to_price"
+        @click="go_back_to_cust_price"
         small
       >
         <v-icon>mdi-arrow-left</v-icon>
@@ -99,7 +106,7 @@ import { mapActions, mapState } from "vuex";
 import Time_picker from "./Time_picker.vue";
 export default {
   components: {
-    Time_picker
+    Time_picker,
   },
   mounted() {
     this.custumers_crypto.custumer.activeate_next_button = true;
@@ -112,7 +119,7 @@ export default {
     this.custumers_crypto.custumer.track_6 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_price", "go_back_to_wallet_address"]),
+    ...mapActions(["go_back_to_cust_price", "go_back_to_wallet_address"]),
     set_duration_with_select(e) {
       this.custumers_crypto.custumer.duration_input = e;
     },

@@ -68,7 +68,7 @@ export default {
         };
       }
     },
-    go_back_to_traders_email: (state) => {
+    go_back_to_cust_traders_email: (state) => {
       router.push("/custumer_crypto");
       state.custumer.track_2 = false;
     },
@@ -85,7 +85,7 @@ export default {
         };
       }
     },
-    go_back_to_phone: (state) => {
+    go_back_to_cust_phone: (state) => {
       router.push("custumer_phone");
       state.custumer.track_3 = false;
     },
@@ -103,7 +103,7 @@ export default {
         };
       }
     },
-    go_back_to_currency: (state) => {
+    go_back_to_cust_currency: (state) => {
       router.push("custumer_currency");
       state.custumer.track_4 = false;
     },
@@ -120,7 +120,7 @@ export default {
         };
       }
     },
-    go_back_to_amount: (state) => {
+    go_back_to_cust_amount: (state) => {
       router.push("custumer_amount");
       state.custumer.track_5 = false;
     },
@@ -137,7 +137,7 @@ export default {
         };
       }
     },
-    go_back_to_price: (state) => {
+    go_back_to_cust_price: (state) => {
       router.push("custumer_price");
       state.custumer.track_6 = false;
     },
@@ -154,7 +154,7 @@ export default {
         };
       }
     },
-    go_back_to_duration: (state) => {
+    go_back_to_cust_duration: (state) => {
       router.push("custumer_transaction_duration");
       state.custumer.track_7 = false;
     },
@@ -163,38 +163,38 @@ export default {
     goto_custumer_phone({ commit }) {
       commit("goto_custumer_phone");
     },
-    go_back_to_traders_email({ commit }) {
-      commit("go_back_to_traders_email");
+    go_back_to_cust_traders_email({ commit }) {
+      commit("go_back_to_cust_traders_email");
     },
     goto_currency({ commit }) {
       commit("goto_currency");
     },
-    go_back_to_phone({ commit }) {
-      commit("go_back_to_phone");
+    go_back_to_cust_phone({ commit }) {
+      commit("go_back_to_cust_phone");
     },
     goto_custumer_amount({ commit }) {
       commit("goto_custumer_amount");
     },
-    go_back_to_currency({ commit }) {
-      commit("go_back_to_currency");
+    go_back_to_cust_currency({ commit }) {
+      commit("go_back_to_cust_currency");
     },
     goto_price({ commit }) {
       commit("goto_price");
     },
-    go_back_to_amount({ commit }) {
-      commit("go_back_to_amount");
+    go_back_to_cust_amount({ commit }) {
+      commit("go_back_to_cust_amount");
     },
     goto_duration({ commit }) {
       commit("goto_duration");
     },
-    go_back_to_price({ commit }) {
-      commit("go_back_to_price");
+    go_back_to_cust_price({ commit }) {
+      commit("go_back_to_cust_price");
     },
     go_back_to_wallet_address({ commit }) {
       commit("go_back_to_wallet_address");
     },
-    go_back_to_duration({ commit }) {
-      commit("go_back_to_duration");
+    go_back_to_cust_duration({ commit }) {
+      commit("go_back_to_cust_duration");
     },
   },
   getters: {},
