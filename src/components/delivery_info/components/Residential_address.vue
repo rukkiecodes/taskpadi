@@ -96,6 +96,7 @@ export default {
   mounted() {
     this.delivery_info.delivery.activate_back_button = true;
     this.delivery_info.delivery.track_1 = true;
+    this.delivery_info.delivery.track_2 = false;
   },
   methods: {
     ...mapActions(["go_to_state_residence", "go_back_to_di_product_image"]),

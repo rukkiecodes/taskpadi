@@ -13,7 +13,7 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
+    <v-card width="350" class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
       <div class="texts">
         <p class="text-h6 grey--text text--darken-4">Product name</p>
         <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
@@ -100,6 +100,7 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.delivery_info.delivery.track_1 = true;
+    this.delivery_info.delivery.track_2 = false;
     this.delivery_info.delivery.activate_next_button = true;
     this.delivery_info.delivery.activate_back_button = true;
   },

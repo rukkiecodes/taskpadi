@@ -13,7 +13,7 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <v-card class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
+    <v-card width="350" class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5">
       <div class="texts">
         <p class="text-h6 grey--text text--darken-4">Product condition</p>
         <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
