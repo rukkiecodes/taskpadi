@@ -13,19 +13,27 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Transaction Duration</p>
-        <p class="text-caption mt-n3">
-          Please let your clients know how much time they hve till this deal
+        <p class="text-h6 grey--text text--darken-4">Transaction Duration</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          Please, let your clients know how much time they hve till this deal
           closes
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-currency-btc</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/duration.png"
+            src="../../../assets/trust/interactive_form_icons/duration.png"
+          ></v-img>
+        </v-avatar>
       </div>
-      <Time_picker style="width: 100%" class="mb-8" />
-    </div>
+      <Time_picker style="width: 100%" class="mb-5" />
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"

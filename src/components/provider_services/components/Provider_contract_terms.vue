@@ -14,28 +14,35 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Terms of contract <small class="text-caption">(Optional)</small></p>
-        <p class="text-caption mt-n3">
-          What are the terms and contitions clients should take note off?
+        <p class="text-h6 grey--text text--darken-4">When to pay</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          When would you like clients to pay for goods? Please select a time and
+          date
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text"
-          >mdi-currency-usd-circle-outline</v-icon
-        >
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/terms-and-conditions.png"
+            src="../../../assets/trust/interactive_form_icons/terms-and-conditions.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-textarea
-        style="width: 100%" 
-        class="mt-10 rounded-lg"
+        style="width: 100%"
+        class="mt-5 rounded-lg"
         label="Terms of contract"
         background-color="#fff"
         v-model="provider_services.provider.terms_of_contract_input"
-        solo
-        flat
+        outlined
+        height="100"
       ></v-textarea>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"

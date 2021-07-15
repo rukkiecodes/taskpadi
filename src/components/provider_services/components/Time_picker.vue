@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-btn
-      class="text-capitalize rounded-lg white--text mt-10"
+      class="text-capitalize rounded-lg white--text mt-5"
       color="#4169E2"
       block
       depressed

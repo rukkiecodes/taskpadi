@@ -20,7 +20,7 @@
       <div class="texts">
         <p class="text-h6 grey--text text--darken-4">Providers Email</p>
         <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
-          Please, providers your email address
+          Please, enter providers your email address
         </p>
       </div>
       <div class="icon my-5">
