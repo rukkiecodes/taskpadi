@@ -20,7 +20,7 @@
       <div class="texts">
         <p class="text-h6 grey--text text--darken-4">Business name</p>
         <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
-          Please provide the name of service client/Business Name
+          Please, provide the name of service client/Business Name
         </p>
       </div>
       <div class="icon my-5">
@@ -39,7 +39,6 @@
         background-color="#fff"
         class="mt-5 rounded-lg"
         @keypress.enter="goto_client_phone"
-        prepend-inner-icon="mdi-google-my-business"
         v-model="client_services.client.name_input"
       ></v-text-field>
     </v-card>

@@ -13,31 +13,35 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">When to pay</p>
-        <p class="text-caption mt-n3">
+        <p class="text-h6 grey--text text--darken-4">When to pay</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
           When would you like clients to pay for goods? Please select a time and
           date
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text"
-          >mdi-currency-usd-circle-outline</v-icon
-        >
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/wallet_2.png"
+            src="../../../assets/trust/interactive_form_icons/wallet_2.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-select
-        :items="client_services.client.when_to_pay_options"
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        :label="client_services.client.when_to_pay_options[0]"
-        @change="set_when_to_pay_input"
-        prepend-inner-icon="mdi-chart-timeline"
+        outlined
         color="#4169E2"
-        flat
-        solo
+        style="width: 100%"
+        class="mt-5 rounded-lg"
+        @change="set_when_to_pay_input"
+        :items="client_services.client.when_to_pay_options"
+        label="When to pay"
       ></v-select>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -105,7 +109,10 @@ export default {
     this.client_services.client.track_6 = true;
   },
   methods: {
-    ...mapActions(["go_back_to_client_amount", "goto_client_terms_of_contract"]),
+    ...mapActions([
+      "go_back_to_client_amount",
+      "goto_client_terms_of_contract",
+    ]),
     set_when_to_pay_input(e) {
       this.client_services.client.when_to_pay_input = e;
     },

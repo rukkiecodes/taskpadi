@@ -13,29 +13,35 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Available services</p>
-        <p class="text-caption mt-n3">
+        <p class="text-h6 grey--text text--darken-4">Available services</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
           What kind of services do you offer
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-phone</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/customer.png"
+            src="../../../assets/trust/interactive_form_icons/customer.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-text-field
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Available services"
-        background-color="#fff"
-        v-model="client_services.client.client_services_input"
-        @keypress.enter="goto_client_service_duration"
-        prepend-inner-icon="mdi-room-service"
+        outlined
         color="#4169E2"
-        solo
-        flat
+        style="width: 100%"
+        background-color="#fff"
+        class="mt-5 rounded-lg"
+        label="Available services"
+        @keypress.enter="goto_client_service_duration"
+        v-model="client_services.client.client_services_input"
       ></v-text-field>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"

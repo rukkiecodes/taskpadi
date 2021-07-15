@@ -13,31 +13,35 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Agreed amount</p>
-        <p class="text-caption mt-n3">
+        <p class="text-h6 grey--text text--darken-4">Agreed amount</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
           Please, let your clients now the amount placed on the product
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text"
-          >mdi-currency-usd-circle-outline</v-icon
-        >
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/cash.png"
+            src="../../../assets/trust/interactive_form_icons/cash.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-text-field
-        style="width: 100%"
-        class="mt-10 rounded-lg"
-        label="Agreed amount"
-        background-color="#fff"
-        v-model="client_services.client.amount_input"
-        @keypress.enter="goto_client_when_to_pay"
-        prepend-inner-icon="mdi-currency-usd-circle-outline"
+        outlined
         color="#4169E2"
-        solo
-        flat
+        style="width: 100%"
+        label="Agreed amount"
+        class="mt-5 rounded-lg"
+        background-color="#fff"
+        @keypress.enter="goto_client_when_to_pay"
+        v-model="client_services.client.amount_input"
       ></v-text-field>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
