@@ -13,29 +13,35 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Traders Currency</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+        <p class="text-h6 grey--text text--darken-4">Trader Currency</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          What currency are you trading with?
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-currency-btc</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/bitcoin.png"
+            src="../../../assets/trust/interactive_form_icons/bitcoin.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-select
         :items="trader_crypto.trader.currency"
-        :label="trader_crypto.trader.currency[0]"
+        label="Currency"
         @change="set_currency_input"
         color="#4169E2"
         append-icon="mdi-chevron-down"
         style="width: 100%"
-        class="mt-10 rounded-lg"
-        solo
-        flat
-        dense
+        class="mt-5 rounded-lg"
+        outlined
       ></v-select>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -102,8 +108,8 @@ export default {
   methods: {
     ...mapActions(["go_back_to_phone", "goto_trader_amount"]),
     set_currency_input(e) {
-      this.trader_crypto.trader.currency_input = e
-    }
+      this.trader_crypto.trader.currency_input = e;
+    },
   },
   computed: {
     ...mapState(["trader_crypto"]),

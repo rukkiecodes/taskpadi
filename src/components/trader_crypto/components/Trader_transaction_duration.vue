@@ -13,34 +13,40 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Transaction Duration</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+        <p class="text-h6 grey--text text--darken-4">Transaction duration</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          Set a duration for this transaction
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-currency-btc</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/duration.png"
+            src="../../../assets/trust/interactive_form_icons/duration.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-row class="mt-10">
         <v-col class="col-8">
           <v-select
             :items="trader_crypto.trader.items"
-            :label="trader_crypto.trader.items[1]"
-            :value="trader_crypto.trader.items[1]"
+            label="Transaction duration"
             @change="set_duration_with_select"
             class="rounded-lg"
-            solo
+            outlined
             dense
-            flat
           ></v-select>
         </v-col>
         <v-col class="col-4">
           <Time_picker />
         </v-col>
       </v-row>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -99,7 +105,7 @@ import { mapActions, mapState } from "vuex";
 import Time_picker from "./Time_picker.vue";
 export default {
   components: {
-    Time_picker
+    Time_picker,
   },
   mounted() {
     this.trader_crypto.trader.activeate_next_button = false;
