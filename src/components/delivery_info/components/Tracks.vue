@@ -5,7 +5,9 @@
       :class="{
         active_track: delivery_info.delivery.track_1 == true,
       }"
-    ></div>
+    >
+      <span class="text-caption">1</span>
+    </div>
     <div
       class="track mx-2"
       :class="{
@@ -13,7 +15,9 @@
           delivery_info.delivery.track_2 == true ||
           delivery_info.delivery.state_of_residence != '',
       }"
-    ></div>
+    >
+      <span class="text-caption">2</span>
+    </div>
   </div>
 </template>
 

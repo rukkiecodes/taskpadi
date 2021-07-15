@@ -5,13 +5,17 @@
       :class="{
         active_track: good_and_product_buyer.good_and_product.track_1 == true,
       }"
-    ></div>
+    >
+      <span class="text-caption">1</span>
+    </div>
     <div
       class="track mx-2"
       :class="{
         active_track: good_and_product_buyer.good_and_product.track_2 == true,
       }"
-    ></div>
+    >
+      <span class="text-caption">2</span>
+    </div>
   </div>
 </template>
 

@@ -65,7 +65,6 @@ import Client_contract_terms from "../components/client_services/components/Clie
 import Proof_of_payment from "../views/Proof_of_payment .vue";
 import Wallet_screenshots from "../components/proof_of_payment/components/Wallet_screenshots.vue";
 import Other_proof from "../components/proof_of_payment/components/Other_proof.vue";
-import Buyer_roles from "../views/Buyer_roles.vue";
 
 Vue.use(VueRouter);
 
@@ -104,11 +103,6 @@ const routes = [
     path: "/faq",
     name: "Faq",
     component: Faq,
-  },
-  {
-    path: "/buyer",
-    name: "Buyer roles",
-    component: Buyer_roles,
   },
   {
     path: "/good_and_product_buyer",
