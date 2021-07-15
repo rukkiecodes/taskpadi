@@ -13,29 +13,36 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Business name</p>
-        <p class="text-caption mt-n3">
+        <p class="text-h6 grey--text text--darken-4">Business name</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
           Please provide the name of service client/Business Name
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-google-my-business</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/company.png"
+            src="../../../assets/trust/interactive_form_icons/company.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-text-field
+        outlined
+        color="#4169E2"
         style="width: 100%"
-        class="mt-10 rounded-lg"
         label="Business name"
         background-color="#fff"
-        v-model="client_services.client.name_input"
+        class="mt-5 rounded-lg"
         @keypress.enter="goto_client_phone"
         prepend-inner-icon="mdi-google-my-business"
-        color="#4169E2"
-        solo
-        flat
+        v-model="client_services.client.name_input"
       ></v-text-field>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
