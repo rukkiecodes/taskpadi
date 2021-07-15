@@ -13,30 +13,37 @@
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
-    <div class="interactive_form_sides_card rounded-xl mx-4 pa-5 pb-0">
+    <v-card
+      width="350"
+      class="interactive_form_sides_card rounded-xl mx-4 mt-5 pt-5 px-5"
+    >
       <div class="texts">
-        <p class="text-h6">Buyers product image</p>
-        <p class="text-caption mt-n3">
-          Lorem ipsum dolor sit amet consectrur adis ampiscing Lorem dolor.
+        <p class="text-h6 grey--text text--darken-4">Product image</p>
+        <p class="text-caption mt-n3 grey--text text--darken-4 text-center">
+          Please, upload an image of the product
         </p>
       </div>
-      <div class="icon mt-5">
-        <v-icon size="50" class="white--text">mdi-image-outline</v-icon>
+      <div class="icon my-5">
+        <v-avatar size="100" tile>
+          <v-img
+            lazy-src="../../../assets/trust/interactive_form_icons/gallery.png"
+            src="../../../assets/trust/interactive_form_icons/gallery.png"
+          ></v-img>
+        </v-avatar>
       </div>
       <v-file-input
-        show-size
+        dense
         counter
         multiple
-        solo
-        dense
-        flat
-        prepend-icon="mdi-image-multiple"
+        outlined
+        show-size
         style="width: 100%"
-        class="mt-15 mb-5 rounded-lg"
-        label="Select product image"
         @change="get_images"
+        label="Select product image"
+        class="mt-5 mb-5 rounded-lg"
+        prepend-icon="mdi-image-multiple"
       ></v-file-input>
-    </div>
+    </v-card>
     <v-btn
       depressed
       class="rounded-lg interactive_form_sides_button"
@@ -97,11 +104,6 @@ import { mapActions, mapState } from "vuex";
 export default {
   mounted() {
     this.good_and_product_seller.good_and_product.track_1 = true;
-    this.good_and_product_seller.good_and_product.track_2 = true;
-    this.good_and_product_seller.good_and_product.track_3 = true;
-    this.good_and_product_seller.good_and_product.track_4 = true;
-    this.good_and_product_seller.good_and_product.track_5 = true;
-    this.good_and_product_seller.good_and_product.track_6 = true;
     this.good_and_product_seller.good_and_product.activate_next_button = true;
     this.good_and_product_seller.good_and_product.activate_back_button = true;
   },

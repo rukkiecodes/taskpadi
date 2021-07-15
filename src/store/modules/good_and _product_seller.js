@@ -34,7 +34,7 @@ export default {
     },
     go_back_to_gaps_email(state) {
       router.push("/good_and_prodict_seller");
-      state.good_and_product.track_2 = false
+      state.good_and_product.track_2 = false;
     },
     go_to_transaction_title(state) {
       if (state.good_and_product.buyer_phone_number != "") {
@@ -131,6 +131,7 @@ export default {
     },
     go_back_to_gaps_product_condition(state) {
       router.push("buyers_product_condition");
+      state.good_and_product.track_2 = false;
     },
   },
   actions: {
