@@ -5,12 +5,6 @@ export default {
     good_and_product: {
       track_1: false,
       track_2: false,
-      track_3: false,
-      track_4: false,
-      track_5: false,
-      track_6: false,
-      track_7: false,
-      track_8: false,
       activate_back_button: false,
       activate_next_button: true,
       buyer_email: "",
@@ -48,7 +42,7 @@ export default {
       } else {
         snackbar_state.state.snackbar = {
           snackbar_state: true,
-          text: `Please enter transaction title`,
+          text: `Please enter a valid mobile number`,
           snackbar_color: "red",
           snackbar_button_color: "white",
           snackbar_text_color: "white--text",
@@ -57,7 +51,6 @@ export default {
     },
     go_back_to_buyers_phone(state) {
       router.push("buyers_phone");
-      state.good_and_product.track_3 = false
     },
     go_to_gaps_product_description(state) {
       if (state.good_and_product.buyer_transaction_title != "") {
@@ -74,7 +67,6 @@ export default {
     },
     go_back_to_gaps_transaction_title(state) {
       router.push("transaction_title");
-      state.good_and_product.track_4 = false
     },
     go_to_gaps_agreed_price(state) {
       if (state.good_and_product.buyer_product_description != "") {
@@ -91,7 +83,6 @@ export default {
     },
     go_back_to_gaps_product_description(state) {
       router.push("buyers_product_description");
-      state.good_and_product.track_5 = false
     },
     go_to_gaps_product_image: (state) => {
       if (state.good_and_product.buyer_agreed_price != "") {
@@ -108,7 +99,6 @@ export default {
     },
     go_back_to_gaps_agreed_price(state) {
       router.push("buyers_agreed_price");
-      state.good_and_product.track_6 = false
     },
     go_to_gaps_product_condition(state) {
       if (state.good_and_product.buyer_product_photo.length != 0) {
@@ -125,7 +115,6 @@ export default {
     },
     go_back_to_gaps_product_photo(state) {
       router.push("buyers_product_photo");
-      state.good_and_product.track_7 = false
     },
     go_to_upload_product_image(state) {
       if (state.good_and_product.buyer_product_condition != "") {
@@ -142,7 +131,6 @@ export default {
     },
     go_back_to_gaps_product_condition(state) {
       router.push("buyers_product_condition");
-      state.good_and_product.track_8 = false
     },
   },
   actions: {
