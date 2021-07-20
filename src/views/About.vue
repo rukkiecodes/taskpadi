@@ -1,14 +1,16 @@
 <template>
-  <v-container class="about">
+  <div>
     <App_bar />
-    <Drawer />
-    <h1>This is an about page</h1>
-  </v-container>
+    <About_us />
+    <App_Footer />
+  </div>
 </template>
 
 <script>
 import App_bar from "../components/nav/App_bar.vue";
-import Drawer from "../components/nav/Drawer.vue";
+import About_us from "../components/home/About.vue";
+import App_Footer from "../components/Footer.vue";
+
 export default {
   metaInfo: {
     title: "Trustpaddi",
@@ -20,7 +22,8 @@ export default {
   },
   components: {
     App_bar,
-    Drawer,
+    About_us,
+    App_Footer,
   },
 };
 </script>

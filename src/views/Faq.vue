@@ -1,14 +1,18 @@
 <template>
-  <v-container>
-    <App_bar />
+  <div>
+    <v-container>
+      <App_bar />
 
-    <Drawer />
-  </v-container>
+      <Drawer />
+    </v-container>
+    <Footer />
+  </div>
 </template>
 
 <script>
 import App_bar from "../components/nav/App_bar.vue";
 import Drawer from "../components/nav/Drawer.vue";
+import Footer from "../components/Footer.vue";
 export default {
   metaInfo: {
     title: "Trustpaddi",
@@ -17,6 +21,7 @@ export default {
   components: {
     App_bar,
     Drawer,
+    Footer,
   },
 };
 </script>
