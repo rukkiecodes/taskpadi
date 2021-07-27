@@ -35,7 +35,7 @@
 }
 .content-writing {
   text-align: left !important;
-  font: normal normal normal 14px/30px "Times New Roman", Times, serif !important;
+  font: normal normal normal 14px/30px !important;
   letter-spacing: 0.42px;
   color: #150f3f !important;
   opacity: 1;
@@ -76,7 +76,7 @@
   align-self: flex-end;
   opacity: 1;
   text-align: left;
-  font: normal normal medium 14px/18px Montserrat;
+  font: normal normal medium 14px/18px;
   letter-spacing: 0.56px;
   color: #555555;
   opacity: 0.5;
@@ -156,7 +156,6 @@
     border-color: #4169e2 !important;
     background-color: rgba(65, 106, 226) !important;
     color: white;
-    font-family: "Times New Roman", Times, serif;
   }
   .contact-wrapper {
     display: flex;
@@ -184,7 +183,7 @@
 
     opacity: 1;
     text-align: left;
-    font: normal normal medium 14px/18px Montserrat;
+    font: normal normal medium 14px/18px;
     letter-spacing: 0.56px;
     color: #555555;
     opacity: 0.5;
@@ -265,7 +264,6 @@
       border-bottom-right-radius: 5px;
       border-color: #4169e2 !important;
       background-color: rgba(65, 106, 226) !important;
-      font-family: "Times New Roman", Times, serif;
     }
     .contact-wrapper {
       display: flex;

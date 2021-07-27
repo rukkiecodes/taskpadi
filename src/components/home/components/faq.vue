@@ -3,7 +3,9 @@
     <div class="wrapper">
       <div class="custom-style">
         <div class="contentBody">
-          <p class="content-writing">{{ answers[active] }}</p>
+          <p class="content-writing" style="font-size: 20px !important">
+            {{ answers[active] }}
+          </p>
           <div class="content-wrapper">
             <div class="contact-main-body" v-show="fullHeight">
               <div class="contact-wrapper">
@@ -93,7 +95,11 @@
                 </v-card>
 
                 <div>
-                  <p v-if="i == active" class="content-writing-small">
+                  <p
+                    v-if="i == active"
+                    class="content-writing-small"
+                    style="font-size: 18px !important"
+                  >
                     {{ answers[active] }}
                   </p>
                 </div>
