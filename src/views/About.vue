@@ -2,13 +2,16 @@
   <v-container class="about">
     <App_bar />
     <Drawer />
-    <h1>This is an about page</h1>
+    <Safe_area />
+    <About />
   </v-container>
 </template>
 
 <script>
 import App_bar from "../components/nav/App_bar.vue";
 import Drawer from "../components/nav/Drawer.vue";
+import About from "../components/about/About.vue";
+import Safe_area from "../components/app_components/Safe_area.vue"
 export default {
   metaInfo: {
     title: "Trustpaddi",
@@ -21,6 +24,8 @@ export default {
   components: {
     App_bar,
     Drawer,
+    About,
+    Safe_area
   },
 };
 </script>
