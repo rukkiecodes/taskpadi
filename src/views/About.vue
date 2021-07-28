@@ -1,5 +1,5 @@
 <template>
-  <v-container class="about">
+  <v-container fluid class="about ma-0 pa-0">
     <App_bar />
     <Drawer />
     <Safe_area />
