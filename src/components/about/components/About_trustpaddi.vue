@@ -10,6 +10,7 @@
         <v-img
           lazy-src="../../../assets/trust/about_hero.png"
           src="../../../assets/trust/about_hero.png"
+          class="mt-n8"
         />
       </v-col>
       <v-col cols="12" sm="6">
