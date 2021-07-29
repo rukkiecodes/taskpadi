@@ -29,7 +29,7 @@ import How_it_works from "../components/home/How_it_works.vue";
 import Who_can_use from "../components/home/Who_can_use.vue";
 import Why_trustpaddy from "../components/home/Why_trustpaddi.vue";
 import Testimonials from "../components/home/Testimonials.vue";
-import Better_safe from "../components/home/Better_safe.vue";
+import Better_safe from "../components/app_components/Better_safe.vue";
 import Footer from "../components/Footer.vue";
 export default {
   metaInfo: {
