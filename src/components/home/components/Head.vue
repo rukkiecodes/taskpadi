@@ -91,8 +91,8 @@
     <div class="head_component_right">
       <v-img
         class="head_img"
-        lazy-src="../../assets/trust/home_phone.png"
-        src="../../assets/trust/home_phone.png"
+        lazy-src="../../../assets/trust/home_phone.png"
+        src="../../../assets/trust/home_phone.png"
         alt=""
       ></v-img>
     </div>
@@ -127,7 +127,7 @@ export default {
 </script>
 
 <style scoped>
-@import url(../../assets/styles/head.css);
+@import url(../../../assets/styles/head.css);
 .active_route {
   color: #4169e2 !important;
 }
