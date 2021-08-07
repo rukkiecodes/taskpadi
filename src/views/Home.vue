@@ -3,6 +3,7 @@
     <App_bar />
     <Drawer />
     <smooth-scrollbar :options="{ damping: 0.06 }">
+      <Safe_area />
       <Head />
       <Read_more />
       <Introducing_trustpaddi />
@@ -20,6 +21,7 @@
 <script>
 import App_bar from "../components/nav/App_bar.vue";
 import Drawer from "../components/nav/Drawer.vue";
+import Safe_area from "../components/app_components/Safe_area.vue";
 import Head from "../components/home/Head.vue";
 import Read_more from "../components/home/Read_more.vue";
 import Introducing_trustpaddi from "../components/home/Introducing_trustpaddi.vue";
@@ -39,6 +41,7 @@ export default {
   components: {
     App_bar,
     Drawer,
+    Safe_area,
     Head,
     Read_more,
     Introducing_trustpaddi,

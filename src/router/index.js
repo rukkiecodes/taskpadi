@@ -65,6 +65,7 @@ import Client_contract_terms from "../components/client_services/components/Clie
 import Proof_of_payment from "../views/Proof_of_payment .vue";
 import Wallet_screenshots from "../components/proof_of_payment/components/Wallet_screenshots.vue";
 import Other_proof from "../components/proof_of_payment/components/Other_proof.vue";
+import ErrorPage from "../views/404.vue"
 
 Vue.use(VueRouter);
 
@@ -409,6 +410,11 @@ const routes = [
     path: "/about",
     name: "About",
     component: About,
+  },
+  {
+    path: "*",
+    name: "ErrorPage",
+    component: ErrorPage,
   },
 ];
 
