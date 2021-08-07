@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import Buyer_tab from "./components/Buyer_tab.vue";
-import Seller_tab from "./components/Seller_tab.vue";
+import Buyer_tab from "./Buyer_tab.vue";
+import Seller_tab from "./Seller_tab.vue";
 export default {
   data: () => ({
     tab: "buyer",
@@ -52,5 +52,5 @@ export default {
 </script>
 
 <style scoped>
-@import url(../../assets/styles/how_it_works.css);
+@import url(../../../assets/styles/how_it_works.css);
 </style>

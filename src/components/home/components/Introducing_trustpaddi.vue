@@ -7,7 +7,7 @@
     <div class="cards">
       <div class="card card_one rounded-xl">
         <div class="head">
-          <img src="../../assets/trust/homepage icons/Group 129.svg" alt="" />
+          <img src="../../../assets/trust/homepage icons/Group 129.svg" alt="" />
           <p>Safe</p>
         </div>
         <p class="text-body-2">
@@ -16,7 +16,7 @@
       </div>
       <div class="card card_two rounded-xl">
         <div class="head">
-          <img src="../../assets/trust/homepage icons/Group 130.svg" alt="" />
+          <img src="../../../assets/trust/homepage icons/Group 130.svg" alt="" />
           <p>Secure</p>
         </div>
         <p class="text-body-2">
@@ -26,7 +26,7 @@
       </div>
       <div class="card card_three rounded-xl">
         <div class="head">
-          <img src="../../assets/trust/homepage icons/Group 131.svg" alt="" />
+          <img src="../../../assets/trust/homepage icons/Group 131.svg" alt="" />
           <p>Fast</p>
         </div>
         <p class="text-body-2">
@@ -39,5 +39,5 @@
 </template>
 
 <style scoped>
-@import url(../../assets/styles/section2.css);
+@import url(../../../assets/styles/section2.css);
 </style>

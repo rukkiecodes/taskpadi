@@ -10,7 +10,7 @@
         </p>
       </div>
       <div class="right">
-        <img src="../../assets/trust/why.svg" alt="" />
+        <img src="../../../assets/trust/why.svg" alt="" />
       </div>
     </div>
   </v-container>
@@ -56,5 +56,5 @@ export default {
 </script>
 
 <style scoped>
-@import url(../../assets/styles/why_trustpaddy.css);
+@import url(../../../assets/styles/why_trustpaddy.css);
 </style>

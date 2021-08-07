@@ -63,5 +63,5 @@ export default {
 </script>
 
 <style scoped>
-@import url(../../assets/styles/testimonials.css);
+@import url(../../../assets/styles/testimonials.css);
 </style>

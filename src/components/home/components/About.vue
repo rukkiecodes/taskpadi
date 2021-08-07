@@ -21,7 +21,7 @@
       </div>
       <img
         class="home_about_sides_img"
-        src="../../assets/trust/about.svg"
+        src="../../../assets/trust/about.svg"
         alt=""
       />
     </div>
@@ -29,5 +29,5 @@
 </template>
 
 <style scoped>
-@import url(../../assets/styles/home_about.css);
+@import url(../../../assets/styles/home_about.css);
 </style>

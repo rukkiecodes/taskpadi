@@ -16,7 +16,7 @@
     </div>
 
     <img
-      src="../../assets/trust/Cash Payment-bro@2x.png"
+      src="../../../assets/trust/Cash Payment-bro@2x.png"
       alt=""
       class="what_escrow_head_image"
     />
@@ -37,5 +37,5 @@ export default {
 </script>
 
 <style scoped>
-@import url(../../assets/styles/what_escrow.css);
+@import url(../../../assets/styles/what_escrow.css);
 </style>
