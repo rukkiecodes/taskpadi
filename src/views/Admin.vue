@@ -1,9 +1,7 @@
 <template>
   <v-app class="admin">
     <Dash_nav v-show="route != '/'" />
-    <v-main>
-      <router-view />
-    </v-main>
+    <router-view />
   </v-app>
 </template>
 
@@ -35,6 +33,6 @@ export default {
 
 <style scoped>
 .admin {
-  background: #EFF1FF
+  background: #eff1ff;
 }
 </style>

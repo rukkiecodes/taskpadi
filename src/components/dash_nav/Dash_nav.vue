@@ -1,37 +1,45 @@
 <template>
-  <div>
-    <v-app-bar flat app>
+  <nav>
+    <v-app-bar color="#EFF1FF" flat app>
       <v-btn @click="drawer = !drawer" fab depressed small>
         <v-icon>mdi-menu</v-icon>
       </v-btn>
       <v-toolbar-title>Dash</v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer width="200" v-model="drawer" app>
-      <v-list dense>
-        <v-list-item v-for="item in items" :key="item.title" link>
+    <v-navigation-drawer color="blue accent-4" width="220" v-model="drawer" app>
+      <v-list class="px-4" dark dense>
+        <v-list-item
+          v-for="(route, index) in dash_navigation"
+          :key="index"
+          :to="route.to"
+          link
+          active-class="white blue--text text--accent-4 rounded-lg"
+        >
           <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{ route.icon }}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title>{{
+              route.title
+            }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </div>
+  </nav>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
       drawer: true,
-      items: [
-        { title: "Home", icon: "mdi-view-dashboard" },
-        { title: "About", icon: "mdi-forum" },
-      ],
     };
+  },
+  computed: {
+    ...mapGetters(["dash_navigation"]),
   },
 };
 </script>

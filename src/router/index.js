@@ -67,6 +67,7 @@ import Wallet_screenshots from "../components/proof_of_payment/components/Wallet
 import Other_proof from "../components/proof_of_payment/components/Other_proof.vue";
 import ErrorPage from "../views/404.vue"
 import Admin from "../views/Admin.vue";
+import Onboarding from "../views/Onboarding.vue";
 
 Vue.use(VueRouter);
 
@@ -416,6 +417,13 @@ const routes = [
     path: "/admin",
     name: "Admin",
     component: Admin,
+    children: [
+      {
+        path: "",
+        name: "Onboarding",
+        component: Onboarding,
+      },
+    ],
   },
   {
     path: "*",
