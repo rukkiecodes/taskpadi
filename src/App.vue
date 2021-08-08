@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <AppNavigation />
+    <AppNavigation v-show="route != '/admin'" />
     <v-main>
-      <Safe_area />
+      <Safe_area v-show="route != '/admin'" />
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
@@ -15,9 +15,26 @@ import AppNavigation from "./components/nav/AppNavigation.vue";
 import Safe_area from "./components/app_components/Safe_area.vue";
 export default {
   name: "App",
+  data: () => ({
+    route: "",
+  }),
   components: {
     Safe_area,
     AppNavigation,
+  },
+  created() {
+    this.nav();
+  },
+  updated() {
+    this.nav();
+  },
+  mounted() {
+    this.nav();
+  },
+  methods: {
+    nav() {
+      this.route = window.location.pathname;
+    },
   },
 };
 </script>
