@@ -9,7 +9,7 @@
                 'text-body-2 text-capitalize blue lighten-5 blue--text text--accent-4 mb-2':
                   active_question == question.title,
                 'blue lighten-5': initial == question.title,
-                'text-body-2 text-capitalize white outline_faq_button grey--text text--darken-3 mb-2':
+                'text-body-2 text-capitalize white outline_faq_card grey--text text--darken-3 mb-2':
                   active_question != question.title,
               }"
               class="text-body-2 text-capitalize mr-2 font-weight-medium"
@@ -25,34 +25,41 @@
         justify="center"
         align="center"
         cols="12"
-        sm="2"
+        sm="3"
       >
         <smooth-scrollbar :options="{ damping: 0.05 }">
-          <v-btn
-            depressed
-            height="70"
-            width="100%"
+          <v-card
             v-for="(question, index) in questions"
             :key="index"
             :class="{
-              'text-body-2 text-capitalize blue lighten-5 blue--text text--accent-4 mb-2':
-                active_question == question.title,
+              'blue lighten-5 mb-2': active_question == question.title,
               'blue lighten-5': initial == question.title,
-              'text-body-2 text-capitalize white outline_faq_button grey--text text--darken-3 mb-2':
-                active_question != question.title,
+              'white outline_faq_card mb-2': active_question != question.title,
             }"
-            class="text-body-2 text-capitalize mb-2 font-weight-medium"
+            class="py-2 px-2 mr-2"
             @click="pass_data(question)"
-            v-text="question.title"
-          />
+            flat
+          >
+            <v-card-text
+              ><span
+                :class="{
+                  'text-body-2 text-capitalize blue--text text--accent-4':
+                    active_question == question.title,
+                  'text-body-2 grey--text text--darken-1 font-weight-regular':
+                    active_question != question.title,
+                }"
+                style="text-transform: initial"
+                v-text="question.title"
+            /></v-card-text>
+          </v-card>
         </smooth-scrollbar>
       </v-col>
-      <v-col class="" cols="12" sm="12" md="12" lg="10">
+      <v-col class="" cols="12" sm="12" md="12" lg="9">
         <v-sheet>
           <v-card class="ma-0 pa-0" flat>
             <v-card-text
-              v-text="answer || questions[0].answer"
-              class="grey--text text--darken-4 text-body-1 ma-o pa-0"
+              v-html="answer || questions[0].answer"
+              class="grey--text text--darken-4 text-body-1 ma-0 pa-0"
             />
           </v-card>
         </v-sheet>
@@ -62,21 +69,20 @@
 </template>
 
 <script>
-import questions from "./questions"
+import questions from "./questions";
 export default {
   data: () => ({
     active_question: "",
     answer: ``,
     model: null,
     initial: "What is TrustPaddi",
-    questions
+    questions,
   }),
   methods: {
     pass_data(question) {
       this.active_question = question.title;
       this.answer = question.answer;
       this.initial = "";
-      console.log(question);
     },
   },
   created() {
@@ -103,7 +109,7 @@ export default {
 .hide_overlay {
   z-index: 0 !important;
 }
-.outline_faq_button {
+.outline_faq_card {
   border: 1px solid rgba(85, 85, 85, 0.5) !important;
 }
 </style>

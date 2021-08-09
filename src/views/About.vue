@@ -1,7 +1,5 @@
 <template>
   <div id="scroll-area">
-    <App_bar />
-    <Drawer />
     <smooth-scrollbar :options="{ damping: 0.06 }">
       <About />
     </smooth-scrollbar>
@@ -9,8 +7,6 @@
 </template>
 
 <script>
-import App_bar from "../components/nav/App_bar.vue";
-import Drawer from "../components/nav/Drawer.vue";
 import About from "../components/about/About.vue";
 export default {
   metaInfo: {
@@ -22,8 +18,6 @@ export default {
     },
   },
   components: {
-    App_bar,
-    Drawer,
     About,
   },
   created() {
