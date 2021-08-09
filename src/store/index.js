@@ -12,6 +12,7 @@ import client_services from "./modules/client_services";
 import proof_of_payment from "./modules/proof_of_payment";
 import buyer_roles from "./modules/buyer_roles"
 import dash_nav from "./modules/dash_nav"
+import faq from "./modules/faq"
 
 Vue.use(Vuex);
 
@@ -36,6 +37,7 @@ export default new Vuex.Store({
     client_services,
     proof_of_payment,
     buyer_roles,
-    dash_nav
+    dash_nav,
+    faq
   },
 });

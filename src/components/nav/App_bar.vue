@@ -6,33 +6,11 @@
     <v-spacer />
     <div class="links hidden-sm-and-down">
       <router-link
-        :class="{ 'active_route font-weight-bold': app_nav_title == '/' }"
-        to="/"
-        >Home</router-link
-      >
-      <router-link
-        :class="{ 'active_route font-weight-bold': app_nav_title == '/about' }"
-        to="/about"
-        >About Us</router-link
-      >
-      <router-link
-        :class="{ 'active_route font-weight-bold': app_nav_title == '/faq' }"
-        to="/faq"
-        >FAQ</router-link
-      >
-      <router-link
-        :class="{
-          'active_route font-weight-bold': app_nav_title == '/contact',
-        }"
-        to="/"
-        >Contact Us</router-link
-      >
-      <router-link
-        :class="{
-          'active_route font-weight-bold': app_nav_title == '/pricing',
-        }"
-        to="/"
-        >Pricing</router-link
+        v-for="(route, index) in drawer_routs"
+        :key="index"
+        :class="{ 'active_route font-weight-bold': app_nav_title == route.to }"
+        :to="route.to"
+        >{{ route.title }}</router-link
       >
     </div>
     <v-spacer />
@@ -57,7 +35,10 @@
           :to="menu.to"
           dense
         >
-          <v-list-item-title class="text-body-2 grey--text text--darken-4" v-text="menu.title" />
+          <v-list-item-title
+            class="text-body-2 grey--text text--darken-4"
+            v-text="menu.title"
+          />
         </v-list-item>
       </v-list>
     </v-menu>
@@ -68,7 +49,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState, mapGetters } from "vuex";
 export default {
   data: () => ({
     logo: require("../../assets/paddi.png"),
@@ -90,6 +71,7 @@ export default {
 
   computed: {
     ...mapState(["app_nav_title"]),
+    ...mapGetters(["drawer_routs"]),
     app_nav_title: {
       get() {
         return this.$store.state.app_nav_title;

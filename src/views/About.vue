@@ -8,6 +8,7 @@
 
 <script>
 import About from "../components/about/About.vue";
+import { mapActions } from "vuex";
 export default {
   metaInfo: {
     title: "Trustpaddi",
@@ -23,6 +24,12 @@ export default {
   created() {
     let elHtml = document.getElementsByTagName("html")[0];
     elHtml.classList.add("hide");
+  },
+  mounted() {
+    this.app_bar_route();
+  },
+  methods: {
+    ...mapActions(["app_bar_route"]),
   },
 };
 </script>
