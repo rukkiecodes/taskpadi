@@ -13,6 +13,7 @@
           :key="index"
           :to="route.to"
           link
+          class="mb-2"
           active-class="white blue--text text--accent-4 rounded-lg"
         >
           <v-list-item-icon>

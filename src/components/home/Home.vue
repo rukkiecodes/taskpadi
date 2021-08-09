@@ -59,7 +59,6 @@ export default {
   height: 100vh;
   overflow: auto;
 }
-/* width */
 .hide::-webkit-scrollbar {
   width: 0px;
 }

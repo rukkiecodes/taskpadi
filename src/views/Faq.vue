@@ -1,21 +1,16 @@
 <template>
-  <v-container>
-    <App_bar />
-    <Drawer />
-  </v-container>
+  <Faq />
 </template>
 
 <script>
-import App_bar from "../components/nav/App_bar.vue";
-import Drawer from "../components/nav/Drawer.vue";
+import Faq from "../components/faq/Faq.vue"
 export default {
   metaInfo: {
     title: "Trustpaddi",
     titleTemplate: "%s - Faq",
   },
   components: {
-    App_bar,
-    Drawer
+    Faq
   }
-}
+};
 </script>

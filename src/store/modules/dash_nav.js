@@ -1,15 +1,15 @@
 export default {
   state: {
     dash_navigation: [
-      { title: "Onboarding", icon: "mdi-account", to: "/admin" },
-      { title: "Onboarding", icon: "mdi-account", to: "/" },
-      { title: "Onboarding", icon: "mdi-account", to: "/" },
-      { title: "Onboarding", icon: "mdi-account", to: "/" },
-      { title: "Onboarding", icon: "mdi-account", to: "/" },
-      { title: "Onboarding", icon: "mdi-account", to: "/" },
-      { title: "Onboarding", icon: "mdi-account", to: "/" },
-      { title: "Onboarding", icon: "mdi-account", to: "/" },
-      { title: "Onboarding", icon: "mdi-account", to: "/" },
+      { title: "Onboarding", icon: "mdi-account-outline", to: "/admin" },
+      { title: "Dashboard Menu", icon: "mdi-account-outline", to: "/" },
+      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
+      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
+      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
+      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
+      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
+      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
+      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
     ],
   },
   getters: {
