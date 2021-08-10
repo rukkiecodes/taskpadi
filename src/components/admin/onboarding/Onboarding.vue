@@ -18,8 +18,8 @@
       </v-col>
       <v-col class="mt-15 mt-sm-0" justify="center" align="center" cols="12" sm="6">
         <v-img
-          lazy-src="../../assets/trust/home_phone.png"
-          src="../../assets/trust/home_phone.png"
+          lazy-src="../../../assets/trust/home_phone.png"
+          src="../../../assets/trust/home_phone.png"
         ></v-img>
       </v-col>
     </v-row>

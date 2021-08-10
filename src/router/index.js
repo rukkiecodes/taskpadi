@@ -68,6 +68,7 @@ import Other_proof from "../components/proof_of_payment/components/Other_proof.v
 import ErrorPage from "../views/404.vue"
 import Admin from "../views/Admin.vue";
 import Onboarding from "../views/Onboarding.vue";
+import Dashboard_menu from "../views/Dashboard_menu.vue"
 
 Vue.use(VueRouter);
 
@@ -422,6 +423,11 @@ const routes = [
         path: "",
         name: "Onboarding",
         component: Onboarding,
+      },
+      {
+        path: "/menu",
+        name: "Dashboard_menu",
+        component: Dashboard_menu,
       },
     ],
   },

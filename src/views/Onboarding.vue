@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Onboarding from "../components/admin/Onboarding.vue";
+import Onboarding from "../components/admin/onboarding/Onboarding.vue";
 export default {
   components: {
     Onboarding,
