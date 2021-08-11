@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <AppNavigation v-show="route != '/admin'" />
-    <v-main>
+    <v-main class="main">
       <Safe_area v-show="route != '/admin'" />
       <transition name="fade" mode="out-in">
         <router-view />
@@ -40,6 +40,9 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  background: #EFF1FF
+}
 .fade-enter-active,
 .fade-leave-active {
   transition-duration: 0.3s;
