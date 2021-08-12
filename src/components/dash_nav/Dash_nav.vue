@@ -6,41 +6,32 @@
       </v-btn>
       <v-toolbar-title>Dash</v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer color="blue accent-4" width="220" v-model="drawer" app>
+    <v-navigation-drawer color="blue accent-4" width="260" v-model="drawer" app>
       <v-list class="px-4" dark dense>
-        <v-list-item
-          v-for="(route, index) in dash_navigation"
-          :key="index"
-          :to="route.to"
-          link
-          class="mb-2"
-          active-class="white blue--text text--accent-4 rounded-lg"
-        >
-          <v-list-item-icon>
-            <v-icon>{{ route.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{
-              route.title
-            }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <Onboarding />
+        <Menu />
+        <Transactions />
       </v-list>
     </v-navigation-drawer>
   </nav>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import Onboarding from "./components/Onboarding.vue";
+import Menu from "./components/Menu.vue";
+import Transactions from "./components/Transactions.vue";
 export default {
-  data() {
-    return {
-      drawer: true,
-    };
-  },
-  computed: {
-    ...mapGetters(["dash_navigation"]),
+  data: () => ({
+    drawer: true,
+  }),
+  components: {
+    Onboarding,
+    Menu,
+    Transactions,
   },
 };
 </script>
+
+<style scoped>
+@import url(../../assets/icon/css/materialdesignicons.min.css);
+</style>

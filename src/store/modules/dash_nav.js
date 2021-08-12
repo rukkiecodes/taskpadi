@@ -1,22 +1,16 @@
 export default {
   state: {
-    dash_navigation: [
-      { title: "Onboarding", icon: "mdi-account-outline", to: "/admin" },
-      {
-        title: "Menu",
-        icon: "mdi-account-outline",
-        to: "/menu",
-      },
-      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
-      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
-      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
-      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
-      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
-      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
-      { title: "Onboarding", icon: "mdi-account-outline", to: "/" },
-    ],
+    active_dash_route: "",
   },
-  getters: {
-    dash_navigation: (state) => state.dash_navigation,
+  mutations: {
+    check_dash_active_route: (state) => {
+      console.log(location.pathname)
+      return state
+    },
+  },
+  actions: {
+    check_dash_active_route({ commit }) {
+      commit("check_dash_active_route");
+    },
   },
 };

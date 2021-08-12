@@ -16,7 +16,13 @@
           >Let's Go</v-btn
         >
       </v-col>
-      <v-col class="mt-15 mt-sm-0" justify="center" align="center" cols="12" sm="6">
+      <v-col
+        class="mt-15 mt-sm-0"
+        justify="center"
+        align="center"
+        cols="12"
+        sm="6"
+      >
         <v-img
           lazy-src="../../../assets/trust/home_phone.png"
           src="../../../assets/trust/home_phone.png"
@@ -25,3 +31,35 @@
     </v-row>
   </v-container>
 </template>
+
+<script>
+import { mapActions, mapState } from "vuex";
+export default {
+  mounted() {
+    this.check_dash_active_route();
+    this.default_route();
+    this.my_logs();
+  },
+  methods: {
+    ...mapActions(["check_dash_active_route"]),
+    my_logs() {
+      console.log("route: ", this.dash_nav.active_dash_route);
+    },
+    default_route() {
+      this.dash_nav.active_dash_route = "/admin";
+    },
+  },
+
+  computed: {
+    ...mapState(["dash_nav"]),
+    dash_nav: {
+      get() {
+        return this.$store.state.dash_nav;
+      },
+      set(new_value) {
+        this.$store.state.dash_nav = new_value;
+      },
+    },
+  },
+};
+</script>
