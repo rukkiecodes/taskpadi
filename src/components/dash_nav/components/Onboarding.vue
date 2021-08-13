@@ -10,7 +10,7 @@
         :class="{
           'blue--text text--accent-4t': dash_nav.active_dash_route == '/admin',
         }"
-        >mdi-account-circle-outline</v-icon
+        >mdi-home-account</v-icon
       >
     </v-list-item-icon>
 

@@ -1,29 +1,29 @@
 <template>
   <v-list-group
     no-action
-    prepend-icon="mdi-bank-outline"
+    prepend-icon="mdi-account-outline"
     class="mt-3"
     color="white"
   >
     <template v-slot:activator>
-      <v-list-item-title class="white--text">Transactions</v-list-item-title>
+      <v-list-item-title class="white--text">Account</v-list-item-title>
     </template>
     <v-list-item color="white" link>
-      <v-list-item-title>Goods/products</v-list-item-title>
+      <v-list-item-title>My profile</v-list-item-title>
       <v-list-item-icon>
-        <v-icon>mdi-shopping-outline</v-icon>
+        <v-icon>mdi-account-circle-outline</v-icon>
       </v-list-item-icon>
     </v-list-item>
     <v-list-item color="white" link>
-      <v-list-item-title>Cryptos</v-list-item-title>
+      <v-list-item-title>Change password</v-list-item-title>
       <v-list-item-icon>
-        <v-icon>mdi-bitcoin</v-icon>
+        <v-icon>mdi-account-lock-outline</v-icon>
       </v-list-item-icon>
     </v-list-item>
     <v-list-item color="white" link>
-      <v-list-item-title>Services</v-list-item-title>
+      <v-list-item-title>Upgrade Account</v-list-item-title>
       <v-list-item-icon>
-        <v-icon>mdi-room-service-outline</v-icon>
+        <v-icon>mdi-account-convert</v-icon>
       </v-list-item-icon>
     </v-list-item>
   </v-list-group>

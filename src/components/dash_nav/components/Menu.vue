@@ -11,7 +11,7 @@
           'blue--text text--accent-4':
             dash_nav.active_dash_route == '/admin/menu',
         }"
-        >mdi-rocket-launch-outline</v-icon
+        >mdi-view-dashboard-outline</v-icon
       >
     </v-list-item-icon>
 

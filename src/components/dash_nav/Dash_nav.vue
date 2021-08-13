@@ -6,28 +6,35 @@
       </v-btn>
       <v-toolbar-title>Dash</v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer color="blue accent-4" width="260" v-model="drawer" app>
+    <v-navigation-drawer color="blue accent-4" width="265" v-model="drawer" app>
       <v-list class="px-4" dark dense>
         <Onboarding />
         <Menu />
         <Transactions />
+        <My_store />
+        <Withdrawals />
+        <Refunds />
+        <Customer_support />
+        <Account />
       </v-list>
     </v-navigation-drawer>
   </nav>
 </template>
 
 <script>
-import Onboarding from "./components/Onboarding.vue";
-import Menu from "./components/Menu.vue";
-import Transactions from "./components/Transactions.vue";
 export default {
   data: () => ({
     drawer: true,
   }),
   components: {
-    Onboarding,
-    Menu,
-    Transactions,
+    Onboarding: () => import("./components/Onboarding.vue"),
+    Menu: () => import("./components/Menu.vue"),
+    Transactions: () => import("./components/Transactions.vue"),
+    My_store: () => import("./components/My_store.vue"),
+    Withdrawals: () => import("./components/Withdrawals.vue"),
+    Refunds: () => import("./components/Refunds.vue"),
+    Customer_support: () => import("./components/Customer_support.vue"),
+    Account: () => import("./components/Account.vue"),
   },
 };
 </script>
