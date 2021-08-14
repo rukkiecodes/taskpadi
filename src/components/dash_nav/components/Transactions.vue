@@ -14,7 +14,7 @@
     <template v-slot:activator>
       <v-list-item-title class="white--text">Transactions</v-list-item-title>
     </template>
-    <!-- GOOD / PRODUCTS -->
+    <!-- GOODS / PRODUCTS -->
     <v-list-item
       :class="{
         'white rounded-lg':
