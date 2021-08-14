@@ -1,21 +1,26 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="transactions"
-    item-key="product_name"
-    :search="search"
-    :items-per-page="5"
-  >
-    <template v-slot:top>
+  <v-card>
+    <v-card-title>
+      Completed Transactions
+      <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
         label="Search"
         class="mx-4"
         :search="search"
         clearable
+        prepend-inner-icon="mdi-magnify"
       ></v-text-field>
-    </template>
-  </v-data-table>
+    </v-card-title>
+    <v-data-table
+      :headers="headers"
+      :items="transactions"
+      item-key="product_name"
+      :search="search"
+      :items-per-page="5"
+    >
+    </v-data-table>
+  </v-card>
 </template>
 
 <script>
@@ -24,6 +29,20 @@ export default {
     return {
       search: "",
       product_name: "",
+      headers: [
+        {
+          text: "S/N",
+          align: "start",
+          sortable: false,
+          value: "SN",
+        },
+        { text: "Product Name", value: "product_name" },
+        { text: "Product Type", value: "fat" },
+        { text: "Quantity", value: "carbs" },
+        { text: "Amount", value: "protein" },
+        { text: "Date", value: "iron" },
+        { text: "Status", value: "iron" },
+      ],
       transactions: [
         {
           SN: "01",
@@ -107,24 +126,6 @@ export default {
         },
       ],
     };
-  },
-  computed: {
-    headers() {
-      return [
-        {
-          text: "S/N",
-          align: "start",
-          sortable: false,
-          value: "SN",
-        },
-        { text: "Product Name", value: "product_name" },
-        { text: "Product Type", value: "fat" },
-        { text: "Quantity", value: "carbs" },
-        { text: "Amount", value: "protein" },
-        { text: "Date", value: "iron" },
-        { text: "Status", value: "iron" },
-      ];
-    },
   },
 };
 </script>
