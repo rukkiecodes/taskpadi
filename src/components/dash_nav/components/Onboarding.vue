@@ -17,8 +17,7 @@
     <v-list-item-title
       class="white--text"
       :class="{
-        'blue--text text--accent-4':
-          dash_nav.active_dash_route == '/admin',
+        'blue--text text--accent-4': dash_nav.active_dash_route == '/admin',
       }"
       >Onboarding</v-list-item-title
     >
@@ -30,7 +29,9 @@ import { mapState } from "vuex";
 export default {
   methods: {
     goto_admin() {
-      this.$router.push("/admin");
+      if (location.pathname != "/admin") {
+        this.$router.push("/admin");
+      }
     },
   },
   computed: {

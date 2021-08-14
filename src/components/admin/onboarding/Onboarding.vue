@@ -33,6 +33,7 @@
 </template>
 
 <script>
+// @ts-nocheck
 import { mapActions, mapState } from "vuex";
 export default {
   mounted() {

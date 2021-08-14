@@ -4,7 +4,7 @@ export default {
   },
   mutations: {
     check_dash_active_route: (state) => {
-      console.log(location.pathname)
+      console.log("from store: ",location.pathname)
       return state
     },
   },

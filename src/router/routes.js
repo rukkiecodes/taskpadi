@@ -471,9 +471,19 @@ const routes = [
         component: () => import("../views/Dashboard_menu.vue"),
       },
       {
-        path: "transactions",
-        name: "Transactions",
-        component: () => import("../views/Transactions.vue"),
+        path: "goods_products",
+        name: "Goods_products",
+        component: () => import("../views/Goods_products.vue"),
+      },
+      {
+        path: "crypto",
+        name: "Crypto",
+        component: () => import("../views/Crypto.vue"),
+      },
+      {
+        path: "services",
+        name: "Services",
+        component: () => import("../views/Services.vue"),
       },
     ],
   },

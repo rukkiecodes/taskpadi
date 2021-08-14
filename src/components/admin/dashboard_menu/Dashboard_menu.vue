@@ -17,6 +17,7 @@
 </template>
 
 <script>
+// @ts-nocheck
 import Current_ballance from "./components/Current_ballance.vue";
 import Trust_ballance from "./components/Trust_ballance.vue";
 import Create_transaction from "./components/Create_transaction.vue";
@@ -24,7 +25,7 @@ import Withdraw from "./components/Withdraw.vue";
 import Create_paddi_link from "./components/Create_paddi_link.vue";
 import Paddi_transaction from "./components/Paddi_transaction.vue";
 import Onboarding from "./components/Onboarding.vue";
-import { mapActions, mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   components: {
     Current_ballance,
@@ -40,18 +41,20 @@ export default {
     elHtml.classList.add("hide");
   },
   mounted() {
-    this.my_logs();
+    this.check_dash_active_route();
     this.default_route();
+    this.my_logs();
   },
   methods: {
     ...mapActions(["check_dash_active_route"]),
     my_logs() {
-      console.log("route: ", this.dash_nav.active_dash_route);
+      console.log("menu route: ", this.dash_nav.active_dash_route);
     },
     default_route() {
       this.dash_nav.active_dash_route = "/admin/menu";
     },
   },
+
   computed: {
     ...mapState(["dash_nav"]),
     dash_nav: {

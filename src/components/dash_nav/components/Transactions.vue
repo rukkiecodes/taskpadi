@@ -2,35 +2,136 @@
   <v-list-group
     no-action
     prepend-icon="mdi-bank-outline"
-    class="mt-3"
+    :class="{
+      'blue darken-3':
+        dash_nav.active_dash_route == '/admin/goods_products' ||
+        dash_nav.active_dash_route == '/admin/crypto' ||
+        dash_nav.active_dash_route == '/admin/services',
+    }"
+    class="mt-3 mb-3 rounded-lg"
     color="white"
   >
     <template v-slot:activator>
       <v-list-item-title class="white--text">Transactions</v-list-item-title>
     </template>
-    <v-list-item color="white" link>
-      <v-list-item-title>Goods/products</v-list-item-title>
+    <!-- GOOD / PRODUCTS -->
+    <v-list-item
+      :class="{
+        'white rounded-lg':
+          dash_nav.active_dash_route == '/admin/goods_products',
+      }"
+      class="mt-2 mx-3"
+      @click="goto_goods_products"
+      link
+    >
+      <v-list-item-title
+        class="white--text ml-n3"
+        :class="{
+          'blue--text text--accent-4':
+            dash_nav.active_dash_route == '/admin/goods_products',
+        }"
+        >Goods/products</v-list-item-title
+      >
       <v-list-item-icon>
-        <v-icon>mdi-shopping-outline</v-icon>
+        <v-icon
+          class="white--text"
+          :class="{
+            'blue--text text--accent-4':
+              dash_nav.active_dash_route == '/admin/goods_products',
+          }"
+          >mdi-shopping-outline</v-icon
+        >
       </v-list-item-icon>
     </v-list-item>
-    <v-list-item color="white" link>
-      <v-list-item-title>Cryptos</v-list-item-title>
+    <!-- CRYPTO -->
+    <v-list-item
+      @click="goto_crypto"
+      class="mt-2 mx-3"
+      :class="{
+        'white rounded-lg': dash_nav.active_dash_route == '/admin/crypto',
+      }"
+      link
+    >
+      <v-list-item-title
+        class="white--text ml-n3"
+        :class="{
+          'blue--text text--accent-4':
+            dash_nav.active_dash_route == '/admin/crypto',
+        }"
+        >Crypto</v-list-item-title
+      >
       <v-list-item-icon>
-        <v-icon>mdi-bitcoin</v-icon>
+        <v-icon
+          class="white--text"
+          :class="{
+            'blue--text text--accent-4':
+              dash_nav.active_dash_route == '/admin/crypto',
+          }"
+          >mdi-bitcoin</v-icon
+        >
       </v-list-item-icon>
     </v-list-item>
-    <v-list-item color="white" link>
-      <v-list-item-title>Services</v-list-item-title>
+    <!-- services -->
+    <v-list-item
+      @click="goto_services"
+      class="mt-2 mx-3"
+      :class="{
+        'white rounded-lg': dash_nav.active_dash_route == '/admin/services',
+      }"
+      link
+    >
+      <v-list-item-title
+        class="white--text ml-n3"
+        :class="{
+          'blue--text text--accent-4':
+            dash_nav.active_dash_route == '/admin/services',
+        }"
+        >Services</v-list-item-title
+      >
       <v-list-item-icon>
-        <v-icon>mdi-room-service-outline</v-icon>
+        <v-icon
+          class="white--text"
+          :class="{
+            'blue--text text--accent-4':
+              dash_nav.active_dash_route == '/admin/services',
+          }"
+          >mdi-room-service-outline</v-icon
+        >
       </v-list-item-icon>
     </v-list-item>
   </v-list-group>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  methods: {
+    goto_goods_products() {
+      if (location.pathname != "/admin/goods_products") {
+        this.$router.push("/admin/goods_products");
+      }
+    },
+    goto_crypto() {
+      if (location.pathname != "/admin/crypto") {
+        this.$router.push("/admin/crypto");
+      }
+    },
+    goto_services() {
+      if (location.pathname != "/admin/services") {
+        this.$router.push("/admin/services");
+      }
+    },
+  },
+  computed: {
+    ...mapState(["dash_nav"]),
+    dash_nav: {
+      get() {
+        return this.$store.state.dash_nav;
+      },
+      set(new_value) {
+        this.$store.state.dash_nav = new_value;
+      },
+    },
+  },
+};
 </script>
-
-<style></style>

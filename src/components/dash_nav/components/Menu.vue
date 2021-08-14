@@ -30,7 +30,9 @@ import { mapState } from "vuex";
 export default {
   methods: {
     goto_menu() {
-      this.$router.push("/admin/menu");
+      if (location.pathname != "/admin/menu") {
+        this.$router.push("/admin/menu");
+      }
     },
   },
   computed: {
