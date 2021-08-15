@@ -1,18 +1,29 @@
 <template>
   <v-container>
-    <v-card>
+    <Create_transaction_button />
+    <v-card flat>
       <v-tabs v-model="tab" background-color="blue accent-4" dark>
-        <v-tab class="text-capitalize">Completed</v-tab>
-        <v-tab class="text-capitalize">Ongoing</v-tab>
-        <v-tab class="text-capitalize">Pending</v-tab>
-        <v-tab class="text-capitalize">Failed</v-tab>
-        <v-tab class="text-capitalize">Cancelled</v-tab>
+        <v-tab active-class="font-weight-bold" class="text-capitalize"
+          >Completed</v-tab
+        >
+        <v-tab active-class="font-weight-bold" class="text-capitalize"
+          >Ongoing</v-tab
+        >
+        <v-tab active-class="font-weight-bold" class="text-capitalize"
+          >Pending</v-tab
+        >
+        <v-tab active-class="font-weight-bold" class="text-capitalize"
+          >Failed</v-tab
+        >
+        <v-tab active-class="font-weight-bold" class="text-capitalize"
+          >Cancelled</v-tab
+        >
       </v-tabs>
 
       <v-tabs-items v-model="tab">
         <v-tab-item>
           <v-card flat>
-            <Completed/>
+            <Completed />
           </v-card>
         </v-tab-item>
         <v-tab-item>
@@ -49,6 +60,7 @@ export default {
   }),
   components: {
     Completed: () => import("./components/Completed.vue"),
+    Create_transaction_button: () => import("./components/Create_transaction_button.vue"),
   },
   mounted() {
     this.check_dash_active_route();

@@ -10,9 +10,10 @@ import trader_crypto from "./modules/traders_crypto";
 import provider_services from "./modules/provider_services";
 import client_services from "./modules/client_services";
 import proof_of_payment from "./modules/proof_of_payment";
-import buyer_roles from "./modules/buyer_roles"
-import dash_nav from "./modules/dash_nav"
-import faq from "./modules/faq"
+import buyer_roles from "./modules/buyer_roles";
+import dash_nav from "./modules/dash_nav";
+import faq from "./modules/faq";
+import goods_products from "./modules/goods_product";
 
 Vue.use(Vuex);
 
@@ -38,6 +39,7 @@ export default new Vuex.Store({
     proof_of_payment,
     buyer_roles,
     dash_nav,
-    faq
+    faq,
+    goods_products,
   },
 });
