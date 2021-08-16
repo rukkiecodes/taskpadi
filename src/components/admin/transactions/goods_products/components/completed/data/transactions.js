@@ -1,6 +1,6 @@
 const transactions = [
   {
-    SN: "02",
+    SN: "01",
     product_name: "Shoe",
     product_type: 9.0,
     product_quantity: 37,
@@ -11,7 +11,7 @@ const transactions = [
     product_action: "mdi-eye-outline",
   },
   {
-    SN: "04",
+    SN: "02",
     product_name: "IPhone X",
     product_type: 3.7,
     product_quantity: 67,
@@ -22,7 +22,7 @@ const transactions = [
     product_action: "mdi-eye-outline",
   },
   {
-    SN: "06",
+    SN: "03",
     product_name: "Broiler Chicken",
     product_type: 0.0,
     product_quantity: 94,
@@ -33,7 +33,7 @@ const transactions = [
     product_action: "mdi-eye-outline",
   },
   {
-    SN: "08",
+    SN: "04",
     product_name: "Refridgirator",
     product_type: 3.2,
     product_quantity: 87,
@@ -44,7 +44,7 @@ const transactions = [
     product_action: "mdi-eye-outline",
   },
   {
-    SN: "10",
+    SN: "05",
     product_name: "Gold bar",
     product_type: 26.0,
     product_quantity: 65,
