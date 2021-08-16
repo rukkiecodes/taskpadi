@@ -28,7 +28,7 @@
         <v-chip
           color="transparent"
           :class="{
-            'red--text text--accent-4': item.product_status == 'Failed',
+            'red--text text--accent-4 font-weight-bold': item.product_status == 'Failed',
           }"
         >
           {{ item.product_status }}
