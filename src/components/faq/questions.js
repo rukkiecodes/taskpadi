@@ -63,8 +63,8 @@ const questions = [
   },
   {
     //13
-    title: "After creating a transaction, can the transaction be cancelled?",
-    answer: `Yes. But the transaction can only be cancelled two hours after the transaction was created, after hours the buyer can still cancel the transaction but there would be 5% deduction from the money.`,
+    title: "After creating a transaction, can the transaction be canceled?",
+    answer: `Yes. But the transaction can only be canceled two hours after the transaction was created, after hours the buyer can still cancel the transaction but there would be 5% deduction from the money.`,
   },
   {
     //14

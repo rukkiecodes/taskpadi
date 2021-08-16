@@ -17,7 +17,7 @@
           >Failed</v-tab
         >
         <v-tab active-class="font-weight-bold" class="text-capitalize"
-          >Cancelled</v-tab
+          >Canceled</v-tab
         >
       </v-tabs>
 
@@ -44,7 +44,7 @@
         </v-tab-item>
         <v-tab-item>
           <v-card flat>
-            <v-card-text>Tab 5 Content</v-card-text>
+            <Canceled />
           </v-card>
         </v-tab-item>
       </v-tabs-items>
@@ -66,6 +66,7 @@ export default {
     Ongoing: () => import("./components/ongoing/Ongoing.vue"),
     Pending: () => import("./components/pending/Pending.vue"),
     Failed: () => import("./components/failed/Failed.vue"),
+    Canceled: () => import("./components/canceled/Canceled.vue"),
   },
   mounted() {
     this.check_dash_active_route();
