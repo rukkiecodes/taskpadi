@@ -28,7 +28,7 @@
         <v-chip
           color="transparent"
           :class="{
-            'lime--text text--accent-4': item.product_status == 'Canceled',
+            'black--text text--accent-4 font-weight-bold': item.product_status == 'Canceled',
           }"
         >
           {{ item.product_status }}
