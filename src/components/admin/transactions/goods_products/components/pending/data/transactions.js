@@ -54,6 +54,17 @@ const transactions = [
     product_status: "Pending",
     product_action: "mdi-eye-outline",
   },
+  {
+    SN: "06",
+    product_name: "Zink",
+    product_type: 25.0,
+    product_quantity: 51,
+    product_amount: 4.9,
+    start_date: "2021-10-28",
+    end_date: "2021-10-28",
+    product_status: "Pending",
+    product_action: "mdi-eye-outline",
+  },
 ];
 
 export default transactions

@@ -5,9 +5,7 @@
       depressed
       color="blue accent-4"
       @click="goods_products.dialog = true"
-      width="200"
-      height="50"
-      class="mb-10 text-capitalize font-weight-bold rounded-lg"
+      class="text-capitalize font-weight-bold rounded-lg"
     >
       Create Transaction
     </v-btn>
