@@ -28,9 +28,7 @@
         <v-chip
           color="transparent"
           :class="{
-            'orange--text text--lighten-1': item.product_status == 'Pending',
-            'teal--text text--accent-4': item.product_status == 'Successful',
-            'blue--text text--accent-4': item.product_status == 'Ongoing',
+            'teal--text text--accent-4 font-weight-bold': item.product_status == 'Ongoing',
           }"
         >
           {{ item.product_status }}
