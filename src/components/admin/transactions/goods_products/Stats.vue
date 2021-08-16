@@ -23,7 +23,7 @@
         Total Transactions Summary
       </div>
     </v-card-text>
-    <v-card-actions class="mt-n2">
+    <v-card-actions class="mt-n2 px-4 pb-5">
       <Create_transaction_button />
     </v-card-actions>
   </v-card>
