@@ -485,6 +485,11 @@ const routes = [
         name: "Services",
         component: () => import("../views/admin/Services.vue"),
       },
+      {
+        path: "withdraws",
+        name: "Withdraws",
+        component: () => import("../views/admin/Withdraws.vue"),
+      },
     ],
   },
   {
