@@ -2,7 +2,7 @@
   <v-container>
     <Create_transaction_button />
     <v-card flat>
-      <v-tabs v-model="tab" background-color="blue accent-4" dark>
+      <v-tabs v-model="tab" color="blue accent-4">
         <v-tab active-class="font-weight-bold" class="text-capitalize"
           >Completed</v-tab
         >
@@ -59,8 +59,8 @@ export default {
     tab: null,
   }),
   components: {
-    Completed: () => import("./components/Completed.vue"),
-    Create_transaction_button: () => import("./components/Create_transaction_button.vue"),
+    Completed: () => import("./components/completed/Completed.vue"),
+    Create_transaction_button: () => import("./components/completed/Create_transaction_button.vue"),
   },
   mounted() {
     this.check_dash_active_route();
