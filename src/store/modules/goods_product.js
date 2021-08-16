@@ -1,6 +1,7 @@
 export default {
   state: {
-    dialog: false
+    dialog: false,
+    search: "",
   },
   getters: {},
   mutations: {},
