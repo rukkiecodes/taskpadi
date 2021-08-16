@@ -11,7 +11,7 @@ const transactions = [
     product_action: "mdi-eye-outline",
   },
   {
-    SN: "03",
+    SN: "02",
     product_name: "Apple",
     product_type: 16.0,
     product_quantity: 23,
@@ -22,7 +22,7 @@ const transactions = [
     product_action: "mdi-eye-outline",
   },
   {
-    SN: "05",
+    SN: "03",
     product_name: "Eva wine",
     product_type: 16.0,
     product_quantity: 49,
@@ -33,7 +33,7 @@ const transactions = [
     product_action: "mdi-eye-outline",
   },
   {
-    SN: "07",
+    SN: "04",
     product_name: "Television",
     product_type: 0.2,
     product_quantity: 98,
@@ -44,7 +44,7 @@ const transactions = [
     product_action: "mdi-eye-outline",
   },
   {
-    SN: "09",
+    SN: "05",
     product_name: "Zink",
     product_type: 25.0,
     product_quantity: 51,
