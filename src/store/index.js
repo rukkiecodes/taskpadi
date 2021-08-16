@@ -14,6 +14,7 @@ import buyer_roles from "./modules/buyer_roles";
 import dash_nav from "./modules/dash_nav";
 import faq from "./modules/faq";
 import goods_products from "./modules/goods_product";
+import withdrawal from "./modules/withdrawal";
 
 Vue.use(Vuex);
 
@@ -41,5 +42,6 @@ export default new Vuex.Store({
     dash_nav,
     faq,
     goods_products,
+    withdrawal,
   },
 });

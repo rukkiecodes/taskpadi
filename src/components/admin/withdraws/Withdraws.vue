@@ -30,7 +30,7 @@ export default {
   methods: {
     ...mapActions(["check_dash_active_route"]),
     my_logs() {
-      console.log("menu route: ", this.dash_nav.active_dash_route);
+      console.log("withdraws route: ", this.dash_nav.active_dash_route);
     },
     default_route() {
       this.dash_nav.active_dash_route = "/admin/withdraws";

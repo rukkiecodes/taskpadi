@@ -1,5 +1,5 @@
 <template>
-  <v-card flat class="rounded-xl pa-5 pt-10">
+  <v-card flat class="pa-5 pt-10">
     <v-row justify="space-between" align="start">
       <v-col cols="12" sm="6">
         <v-text-field

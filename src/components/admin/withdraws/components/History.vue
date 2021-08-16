@@ -1,5 +1,6 @@
 <template>
   <v-card flat>
+    <v-card-title>Withdrawal History</v-card-title>
     <v-tabs v-model="tab" color="blue accent-4">
       <v-tab active-class="font-weight-bold" class="text-capitalize"
         >Completed</v-tab

@@ -4,21 +4,22 @@
       :headers="headers"
       :items="transactions"
       :items-per-page="5"
-      :search="goods_products.search"
+      :search="withdrawal.search"
       sort-by="SN"
       class="grey--text text--darken-1"
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>Transactions Summary</v-toolbar-title>
-          <v-spacer></v-spacer>
+          <v-spacer />
+          <v-spacer />
+          <v-spacer />
           <v-text-field
             dense
             outlined
             clearable
             label="Search"
-            v-model="goods_products.search"
-            :search="goods_products.search"
+            v-model="withdrawal.search"
+            :search="withdrawal.search"
             class="mx-4 mt-5 rounded-lg"
             prepend-inner-icon="mdi-magnify"
           ></v-text-field>
@@ -60,13 +61,13 @@ export default {
   },
 
   computed: {
-    ...mapState(["goods_products"]),
-    goods_products: {
+    ...mapState(["withdrawal"]),
+    withdrawal: {
       get() {
-        return this.$store.state.goods_products;
+        return this.$store.state.withdrawal;
       },
       set(new_value) {
-        this.$store.state.goods_products = new_value;
+        this.$store.state.withdrawal = new_value;
       },
     },
   },
