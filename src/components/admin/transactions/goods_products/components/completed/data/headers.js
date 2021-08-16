@@ -2,7 +2,7 @@ const headers = [
   {
     text: "S/N",
     align: "start",
-    sortable: false,
+    sortable: true,
     value: "SN",
   },
   { text: "Product Name", value: "product_name" },

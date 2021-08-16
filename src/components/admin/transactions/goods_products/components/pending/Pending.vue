@@ -5,7 +5,7 @@
       :items="transactions"
       :items-per-page="5"
       :search="goods_products.search"
-      sort-by="product_name"
+      sort-by="SN"
       class="grey--text text--darken-1"
     >
       <template v-slot:top>
