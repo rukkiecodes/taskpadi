@@ -37,14 +37,14 @@ const routes = [
   {
     path: "/good_and_product_buyer",
     name: "Good and prodict buyer",
-    component: () => import("../views/Good_and_prodict_buyer.vue"),
+    component: () => import("../views/Good_and_product_buyer.vue"),
     children: [
       {
         path: "",
         name: "Seller email",
         component: () =>
           import(
-            "../components/good_and_prodict_buyer/components/Seller_Email.vue"
+            "../components/good_and_product_buyer/components/Seller_Email.vue"
           ),
       },
       {
@@ -52,7 +52,7 @@ const routes = [
         name: "Seller phone number",
         component: () =>
           import(
-            "../components/good_and_prodict_buyer/components/Sellers_phone_number.vue"
+            "../components/good_and_product_buyer/components/Sellers_phone_number.vue"
           ),
       },
       {
@@ -60,7 +60,7 @@ const routes = [
         name: "Seller phone number",
         component: () =>
           import(
-            "../components/good_and_prodict_buyer/components/Product_name.vue"
+            "../components/good_and_product_buyer/components/Product_name.vue"
           ),
       },
       {
@@ -68,7 +68,7 @@ const routes = [
         name: "Product price",
         component: () =>
           import(
-            "../components/good_and_prodict_buyer/components/Product_price.vue"
+            "../components/good_and_product_buyer/components/Product_price.vue"
           ),
       },
       {
@@ -76,7 +76,7 @@ const routes = [
         name: "Product description",
         component: () =>
           import(
-            "../components/good_and_prodict_buyer/components/Product_description.vue"
+            "../components/good_and_product_buyer/components/Product_description.vue"
           ),
       },
       {
@@ -84,7 +84,7 @@ const routes = [
         name: "Product condition",
         component: () =>
           import(
-            "../components/good_and_prodict_buyer/components/Condition.vue"
+            "../components/good_and_product_buyer/components/Condition.vue"
           ),
       },
       {
@@ -92,7 +92,7 @@ const routes = [
         name: "Handle delivery",
         component: () =>
           import(
-            "../components/good_and_prodict_buyer/components/Handle_delivery.vue"
+            "../components/good_and_product_buyer/components/Handle_delivery.vue"
           ),
       },
     ],
@@ -458,32 +458,32 @@ const routes = [
   {
     path: "/admin",
     name: "Admin",
-    component: () => import("../views/Admin.vue"),
+    component: () => import("../views/admin/Admin.vue"),
     children: [
       {
         path: "",
         name: "Onboarding",
-        component: () => import("../views/Onboarding.vue"),
+        component: () => import("../views/admin/Onboarding.vue"),
       },
       {
         path: "menu",
         name: "Dashboard_menu",
-        component: () => import("../views/Dashboard_menu.vue"),
+        component: () => import("../views/admin/Dashboard_menu.vue"),
       },
       {
         path: "goods_products",
         name: "Goods_products",
-        component: () => import("../views/Goods_products.vue"),
+        component: () => import("../views/admin/Goods_products.vue"),
       },
       {
         path: "crypto",
         name: "Crypto",
-        component: () => import("../views/Crypto.vue"),
+        component: () => import("../views/admin/Crypto.vue"),
       },
       {
         path: "services",
         name: "Services",
-        component: () => import("../views/Services.vue"),
+        component: () => import("../views/admin/Services.vue"),
       },
     ],
   },

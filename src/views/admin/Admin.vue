@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Dash_nav from "../components/dash_nav/Dash_nav.vue";
+import Dash_nav from "../../components/dash_nav/Dash_nav.vue";
 export default {
   data: () => ({
     route: "",

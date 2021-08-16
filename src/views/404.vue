@@ -1,11 +1,24 @@
 <template>
   <v-container class="d-flex justify-center align-center errorPage">
     <v-row justify="space-between" align="center">
-      <v-col cols="12" sm="6">
+      <v-col cols="12">
         <div>
           <span class="blue--text text--accent-4 text-h1">404 </span>
+        </div>
+        <div>
           <span class="grey--text text--darken-4 text-h6">Page not found</span>
         </div>
+      </v-col>
+      <v-col cols="12">
+        <v-btn
+          color="blue accent-4"
+          class="rounded-lg white--text"
+          depressed
+          x-large
+          to="/"
+        >
+          Back to Home
+        </v-btn>
       </v-col>
     </v-row>
   </v-container>
