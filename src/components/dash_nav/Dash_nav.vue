@@ -24,7 +24,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
   }),
   components: {
     Onboarding: () => import("./components/Onboarding.vue"),

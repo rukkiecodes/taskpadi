@@ -30,6 +30,7 @@
           :class="{
             'orange--text text--lighten-1': item.product_status == 'Pending',
             'teal--text text--accent-4': item.product_status == 'Successful',
+            'blue--text text--accent-4': item.product_status == 'Ongoing',
           }"
         >
           {{ item.product_status }}
@@ -46,8 +47,8 @@
 
 <script>
 import { mapState } from "vuex";
-import headers from "../data/headers";
-import transactions from "../data/transactions";
+import headers from "./data/headers";
+import transactions from "./data/transactions";
 export default {
   data: () => ({
     headers,

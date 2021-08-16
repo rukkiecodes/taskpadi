@@ -46,8 +46,8 @@
 
 <script>
 import { mapState } from "vuex";
-import headers from "../data/headers";
-import transactions from "../data/transactions";
+import headers from "./data/headers";
+import transactions from "./data/transactions";
 export default {
   data: () => ({
     headers,

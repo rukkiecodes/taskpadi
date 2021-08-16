@@ -173,10 +173,10 @@
 
 <script>
 import { mapState } from "vuex";
-import headers from "./components/data/headers";
-import transactions from "./components/data/transactions";
-import edited_item from "./components/data/edited_item";
-import default_item from "./components/data/default_item";
+import headers from "./components/ongoing/data/headers";
+import transactions from "./components/ongoing/data/transactions";
+import edited_item from "./components/ongoing/data/edited_item";
+import default_item from "./components/ongoing/data/default_item";
 export default {
   data: () => ({
     headers,
