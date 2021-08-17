@@ -10,6 +10,7 @@
         light_blue: route == '/admin/crypto',
         light_blue: route == '/admin/services',
         light_blue: route == '/admin/withdraws',
+        light_blue: route == '/admin/refunds',
       }"
     >
       <Safe_area v-show="route != '/admin'" />
