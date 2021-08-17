@@ -1,9 +1,7 @@
 export default {
   state: {
-    dialog: false,
+    done_dialog: false,
+    loading_dialog: false,
     search: "",
   },
-  getters: {},
-  mutations: {},
-  actions: {},
 };

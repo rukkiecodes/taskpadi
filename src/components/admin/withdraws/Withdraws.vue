@@ -11,6 +11,8 @@
         <History />
       </v-col>
     </v-row>
+    <Loading_dialog />
+    <Done_dialog />
   </v-container>
 </template>
 
@@ -21,6 +23,8 @@ export default {
     Inputs: () => import("./components/Inputs.vue"),
     Ballance: () => import("./components/Ballance.vue"),
     History: () => import("./components/History.vue"),
+    Loading_dialog: () => import("./components/Loading_dialog.vue"),
+    Done_dialog: () => import("./components/Done_dialog.vue"),
   },
   mounted() {
     this.check_dash_active_route();
