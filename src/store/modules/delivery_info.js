@@ -120,5 +120,4 @@ export default {
       commit("goback_to_handle_delivery")
     },
   },
-  getters: {},
 };

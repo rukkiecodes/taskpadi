@@ -178,5 +178,4 @@ export default {
       commit("go_back_to_gaps_product_condition");
     },
   },
-  getters: {},
 };

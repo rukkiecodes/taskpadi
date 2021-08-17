@@ -173,5 +173,4 @@ export default {
       commit("go_back_to_price");
     }
   },
-  getters: {},
 };

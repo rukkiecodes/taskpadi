@@ -172,5 +172,4 @@ export default {
       commit("go_back_to_provider_when_to_pay");
     },
   },
-  getters: {},
 };

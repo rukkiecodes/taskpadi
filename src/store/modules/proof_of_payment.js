@@ -37,5 +37,4 @@ export default {
       commit("go_back_to_wallet_screenshot");
     },
   },
-  getters: {},
 };

@@ -4,7 +4,6 @@ export default {
     answer: ``,
     initial: "What is TrustPaddi",
   },
-  getters: {},
   mutations: {
     pass_data: (state, question) => {
       state.active_question = question.title;

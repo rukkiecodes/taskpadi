@@ -171,5 +171,4 @@ export default {
       commit("go_back_to_client_when_to_pay");
     },
   },
-  getters: {},
 };

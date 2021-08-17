@@ -197,5 +197,4 @@ export default {
       commit("go_back_to_cust_duration");
     },
   },
-  getters: {},
 };

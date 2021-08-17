@@ -3,7 +3,4 @@ export default {
     dialog: false,
     search: "",
   },
-  getters: {},
-  mutations: {},
-  actions: {},
 };
