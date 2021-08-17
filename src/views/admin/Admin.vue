@@ -14,12 +14,6 @@ export default {
   components: {
     Dash_nav,
   },
-  created() {
-    this.nav();
-  },
-  updated() {
-    this.nav();
-  },
   mounted() {
     this.nav();
   },
