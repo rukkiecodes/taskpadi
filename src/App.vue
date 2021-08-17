@@ -1,7 +1,17 @@
 <template>
-  <v-app>
+  <v-app id="paddi_app">
     <AppNavigation v-show="route != '/admin'" />
-    <v-main class="main">
+    <v-main
+      :class="{
+        white: route == '/',
+        light_blue: route == '/admin',
+        light_blue: route == '/admin/menu',
+        light_blue: route == '/admin/goods_products',
+        light_blue: route == '/admin/crypto',
+        light_blue: route == '/admin/services',
+        light_blue: route == '/admin/withdraws',
+      }"
+    >
       <Safe_area v-show="route != '/admin'" />
       <transition name="fade" mode="out-in">
         <router-view />
@@ -34,14 +44,15 @@ export default {
   methods: {
     nav() {
       this.route = window.location.pathname;
+      console.log(this.route);
     },
   },
 };
 </script>
 
 <style scoped>
-.main {
-  background: #EFF1FF
+.light_blue {
+  background: #eff1ff;
 }
 .fade-enter-active,
 .fade-leave-active {
