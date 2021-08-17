@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid id="scroll-area" style="background: #EFF1FF" class="pa-0">
+  <v-container fluid id="scroll-area" class="pa-0">
     <smooth-scrollbar :options="{ damping: 0.05 }">
       <v-container class="px-4">
         <v-row justify="space-between" align="start">

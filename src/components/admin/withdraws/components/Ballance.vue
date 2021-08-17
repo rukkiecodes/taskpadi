@@ -2,6 +2,7 @@
   <v-card
     height="180"
     flat
+    color="grey lighten-3"
     class="d-flex flex-column justify-end pa-5"
   >
     <v-card-text class="d-flex flex-column ma-0 pa-0">
