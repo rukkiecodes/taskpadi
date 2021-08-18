@@ -1,5 +1,6 @@
 <template>
   <div id="scroll-area">
+    <AppNavigation />
     <smooth-scrollbar :options="{ damping: 0.05 }">
       <Head />
       <Read_more />
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import AppNavigation from "../nav/AppNavigation.vue";
 import Head from "./components/Head.vue";
 import Read_more from "./components/Read_more.vue";
 import Introducing_trustpaddi from "./components/Introducing_trustpaddi.vue";
@@ -34,6 +36,7 @@ export default {
     titleTemplate: "%s - Home",
   },
   components: {
+    AppNavigation,
     Head,
     Read_more,
     Introducing_trustpaddi,

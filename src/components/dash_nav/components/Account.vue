@@ -2,7 +2,6 @@
   <v-list-group
     no-action
     prepend-icon="mdi-account-outline"
-    class="mt-3"
     color="white"
   >
     <template v-slot:activator>

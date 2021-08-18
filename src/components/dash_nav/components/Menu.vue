@@ -1,7 +1,6 @@
 <template>
   <v-list-item
     :class="{ 'white rounded-lg': dash_nav.active_dash_route == '/admin/menu' }"
-    class="mt-3"
     @click="goto_menu"
     link
   >

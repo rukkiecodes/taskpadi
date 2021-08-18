@@ -38,5 +38,10 @@ export default {
       name: "Refunds",
       component: () => import("../../views/admin/Refunds.vue"),
     },
+    {
+      path: "customer_support",
+      name: "Customer_support",
+      component: () => import("../../views/admin/Customer_support.vue"),
+    },
   ],
 };

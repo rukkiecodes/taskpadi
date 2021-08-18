@@ -3,7 +3,6 @@
     :class="{
       'white rounded-lg': dash_nav.active_dash_route == '/admin/withdraws',
     }"
-    class="mt-3"
     @click="goto_withdraws"
     link
   >

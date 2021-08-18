@@ -14,7 +14,7 @@
       </v-btn>
 
       <v-btn
-        @click="drawer = !drawer"
+        @click="activate_drawer"
         class="hidden-lg-and-up mr-5"
         icon
         depressed
@@ -34,13 +34,13 @@
     >
       <v-list class="px-4" dark dense>
         <Onboarding />
-        <Menu />
+        <Menu class="mt-3" />
         <Transactions />
-        <My_store />
-        <Withdrawals />
-        <Refunds />
-        <Customer_support />
-        <Account />
+        <My_store class="mt-3" />
+        <Withdrawals class="mt-3" />
+        <Refunds class="mt-3" />
+        <Customer_support class="mt-3" />
+        <Account class="mt-3" />
       </v-list>
     </v-navigation-drawer>
   </nav>
@@ -62,6 +62,13 @@ export default {
     Customer_support: () => import("./components/Customer_support.vue"),
     Account: () => import("./components/Account.vue"),
   },
+
+  methods: {
+    activate_drawer() {
+      this.mini_drawer = false
+      this.drawer = true
+    }
+  }
 };
 </script>
 

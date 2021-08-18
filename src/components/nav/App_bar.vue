@@ -1,19 +1,19 @@
 <template>
-  <v-app-bar flat color="#ffffff" class="app_bar" fixed>
+  <v-app-bar color="#EFF1FF" class="app_bar" flat fixed>
     <v-avatar class="logo_avatar">
       <img :src="logo" :alt="logo" />
     </v-avatar>
     <v-spacer />
-    <div class="links hidden-sm-and-down">
-      <router-link
-        v-for="(route, index) in drawer_routs"
-        :key="index"
-        :class="{ 'active_route font-weight-bold': app_nav_title == route.to }"
-        :to="route.to"
-        >{{ route.title }}</router-link
-      >
-    </div>
-    <v-spacer />
+
+    <v-btn
+      v-for="(route, index) in drawer_routs"
+      :key="index"
+      :to="route.to"
+      class="ml-2 text-capitalize hidden-sm-and-down rounded-lg"
+      active-class="blue--text text--accent-4 font-weight-bold"
+      text
+      >{{ route.title }}</v-btn
+    >
     <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
@@ -70,20 +70,11 @@ export default {
   },
 
   computed: {
-    ...mapState(["app_nav_title"]),
     ...mapGetters(["drawer_routs"]),
-    app_nav_title: {
-      get() {
-        return this.$store.state.app_nav_title;
-      },
-      set(new_value) {
-        this.$store.state.app_nav_title = new_value;
-      },
-    },
   },
 };
 </script>
 
 <style scoped>
-@import url(../../assets/styles/app_bar.css);
+@import url(../../assets/icon/css/materialdesignicons.min.css);
 </style>
