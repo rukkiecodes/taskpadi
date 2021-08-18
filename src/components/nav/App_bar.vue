@@ -42,8 +42,8 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <v-btn class="hidden-md-and-up ml-2" icon depressed @click="toggle_drawer">
-      <v-icon class="white--grey">mdi-menu</v-icon>
+    <v-btn class="hidden-md-and-up" icon depressed @click="toggle_drawer">
+      <v-icon class="white--grey">mdi-dots-vertical</v-icon>
     </v-btn>
   </v-app-bar>
 </template>

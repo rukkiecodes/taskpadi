@@ -1,15 +1,19 @@
 <template>
-  <v-navigation-drawer right v-model="app_drawer.drawer" temporary fixed>
-    <v-list class="rounded-lg" nav dense>
+  <v-navigation-drawer
+    color="blue accent-4"
+    v-model="app_drawer.drawer"
+    app
+  >
+    <v-list class="px-4" dark dense>
       <v-list-item
         v-for="item in drawer_routs"
         :key="item.title"
         :to="item.to"
         link
-        active-class="blue lighten-5"
+        active-class="white blue--text text--accent-4 rounded-lg"
       >
-        <v-list-item-icon class="blue darken-2 px-2 py-4 rounded-lg">
-          <v-icon size="17" class="white--text">{{ item.icon }}</v-icon>
+        <v-list-item-icon>
+          <v-icon size="17">{{ item.icon }}</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
