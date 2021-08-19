@@ -3,7 +3,7 @@
     <Stats />
     <Create_transaction_dialog />
     <v-card flat>
-      <v-tabs v-model="tab" color="blue accent-4">
+      <v-tabs v-model="tab" color="indigo accent-4">
         <v-tab active-class="font-weight-bold" class="text-capitalize"
           >Completed</v-tab
         >

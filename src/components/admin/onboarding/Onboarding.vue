@@ -3,7 +3,7 @@
     <v-row class="px-7 mt-15 mt-lg-0" justify="space-between" align="center">
       <v-col cols="12" sm="6" md="4">
         <p class="text-h5 grey--text text--darken-4">
-          Hello <span class="blue--text text--accent-4">User Name</span>,
+          Hello <span class="indigo--text text--accent-4">User Name</span>,
           welcome to TrustPaddi. Let's get you started with the basics.
         </p>
         <v-btn
@@ -11,7 +11,7 @@
           width="200"
           height="50"
           depressed
-          color="blue accent-4"
+          color="indigo accent-4"
           class="rounded-lg white--text "
           >Let's Go</v-btn
         >

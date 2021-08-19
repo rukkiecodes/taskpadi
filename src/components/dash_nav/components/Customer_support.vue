@@ -10,7 +10,7 @@
       <v-icon
         class="white--text"
         :class="{
-          'blue--text text--accent-4t':
+          'indigo--text text--accent-4t':
             dash_nav.active_dash_route == '/admin/customer_support',
         }"
         >mdi-account-tie-voice-outline</v-icon
@@ -20,7 +20,7 @@
     <v-list-item-title
       class="white--text"
       :class="{
-        'blue--text text--accent-4':
+        'indigo--text text--accent-4':
           dash_nav.active_dash_route == '/admin/customer_support',
       }"
       >Customer Support

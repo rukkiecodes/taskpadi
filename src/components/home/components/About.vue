@@ -25,7 +25,7 @@
             <v-btn
               to="/about"
               class="rounded-lg white--text text-capitalize"
-              color="blue accent-4"
+              color="indigo accent-4"
               depressed
               >About Us</v-btn
             >

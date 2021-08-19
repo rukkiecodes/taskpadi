@@ -7,7 +7,7 @@
       <v-col class="d-flex justify-center" cols="12">
         <v-btn
           depressed
-          color="blue accent-4"
+          color="indigo accent-4"
           class="button rounded-lg text-capitalize white--text"
           x-large
           >Get started Now</v-btn

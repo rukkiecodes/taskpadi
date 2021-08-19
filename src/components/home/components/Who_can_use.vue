@@ -18,7 +18,7 @@
             <v-btn
               small
               depressed
-              color="blue accent-4"
+              color="indigo accent-4"
               v-text="card.button_text"
               class="rounded-lg text-capitalize white--text font-weight-bold py-4"
             />

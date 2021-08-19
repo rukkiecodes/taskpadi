@@ -12,7 +12,7 @@
               <v-text-field
                 dense
                 outlined
-                color="blue accent-4"
+                color="indigo accent-4"
                 label="Sirial Number"
                 v-model="edited_item.SN"
               ></v-text-field>
@@ -21,7 +21,7 @@
               <v-text-field
                 dense
                 outlined
-                color="blue accent-4"
+                color="indigo accent-4"
                 label="Product Name"
                 v-model="edited_item.product_name"
               ></v-text-field>
@@ -30,7 +30,7 @@
               <v-text-field
                 dense
                 outlined
-                color="blue accent-4"
+                color="indigo accent-4"
                 v-model="edited_item.product_type"
                 label="Product Type"
               ></v-text-field>
@@ -39,7 +39,7 @@
               <v-text-field
                 dense
                 outlined
-                color="blue accent-4"
+                color="indigo accent-4"
                 v-model="edited_item.product_quantity"
                 label="Quantity"
               ></v-text-field>
@@ -48,7 +48,7 @@
               <v-text-field
                 dense
                 outlined
-                color="blue accent-4"
+                color="indigo accent-4"
                 v-model="edited_item.product_amount"
                 label="Amount"
               ></v-text-field>
@@ -69,7 +69,7 @@
                     label="Start date"
                     dense
                     outlined
-                    color="blue accent-4"
+                    color="indigo accent-4"
                     readonly
                     v-bind="attrs"
                     v-on="on"
@@ -110,7 +110,7 @@
                     label="End date"
                     dense
                     outlined
-                    color="blue accent-4"
+                    color="indigo accent-4"
                     readonly
                     v-bind="attrs"
                     v-on="on"
@@ -141,7 +141,7 @@
                 label="Product status"
                 dense
                 outlined
-                color="blue accent-4"
+                color="indigo accent-4"
               ></v-text-field>
             </v-col>
           </v-row>
@@ -161,7 +161,7 @@
         <v-btn
           depressed
           @click="save"
-          color="blue accent-4"
+          color="indigo accent-4"
           class="rounded-lg white--text text-capitalize px-4"
         >
           Save

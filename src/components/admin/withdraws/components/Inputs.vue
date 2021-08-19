@@ -6,7 +6,7 @@
           outlined
           class="rounded-lg"
           label="Name of Bank"
-          color="blue accent-4"
+          color="indigo accent-4"
           prepend-inner-icon="mdi-bank-outline"
         ></v-text-field>
       </v-col>
@@ -14,7 +14,7 @@
         <v-text-field
           outlined
           class="rounded-lg"
-          color="blue accent-4"
+          color="indigo accent-4"
           label="Account Number"
           prepend-inner-icon="mdi-piggy-bank"
         ></v-text-field>
@@ -27,7 +27,7 @@
           value="John Doe"
           class="rounded-lg"
           label="Account Name"
-          color="blue accent-4"
+          color="indigo accent-4"
           prepend-inner-icon="mdi-account-tie-outline"
         ></v-text-field>
       </v-col>
@@ -35,7 +35,7 @@
         <v-text-field
           outlined
           class="rounded-lg"
-          color="blue accent-4"
+          color="indigo accent-4"
           label="Amount to be withdrawn"
           prepend-inner-icon="mdi-account-cash"
         ></v-text-field>
@@ -45,7 +45,7 @@
           block
           depressed
           height="53"
-          color="blue accent-4"
+          color="indigo accent-4"
           :disabled="withdrawal.loading_dialog"
           :loading="withdrawal.loading_dialog"
           @click="load_loading_dialog"

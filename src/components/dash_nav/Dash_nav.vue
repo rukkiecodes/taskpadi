@@ -1,38 +1,18 @@
 <template>
   <nav>
-    <v-app-bar color="white" flat app>
-      <v-btn
-        @click="mini_drawer = !mini_drawer"
-        color="white"
-        elevation="3"
-        class="ml-n5 mt-n1 mr-5 rounded-r-lg blue--text text--accent-4 hidden-md-and-down"
-        height="35"
-        x-small
-      >
-        <v-icon small v-show="mini_drawer == false">mdi-arrow-left</v-icon>
-        <v-icon small v-show="mini_drawer == true">mdi-arrow-right</v-icon>
-      </v-btn>
-
-      <v-btn
-        @click="activate_drawer"
-        class="hidden-lg-and-up mr-5"
-        icon
-        depressed
-        small
-      >
+    <v-app-bar color="transparent" flat app>
+      <v-btn @click="drawer = !drawer" class="mr-4" fab depressed small>
         <v-icon>mdi-menu</v-icon>
       </v-btn>
-      <v-toolbar-title>Dash</v-toolbar-title>
+      <v-toolbar-title>TrustPaddi</v-toolbar-title>
     </v-app-bar>
     <v-navigation-drawer
-      :mini-variant="mini_drawer"
-      mini-variant-width="75"
-      color="blue accent-4"
-      width="265"
+      color="indigo accent-4"
+      width="250"
       v-model="drawer"
       app
     >
-      <v-list class="px-4" dark dense>
+      <v-list class="px-3" dark dense>
         <Onboarding />
         <Menu class="mt-3" />
         <Transactions />
@@ -42,15 +22,39 @@
         <Customer_support class="mt-3" />
         <Account class="mt-3" />
       </v-list>
+
+      <template v-slot:append>
+        <div class="pa-2 d-flex justify-space-between">
+          <v-tooltip top>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                to="/"
+                height="34"
+                class="rounded-lg indigo--text px-0"
+                v-bind="attrs" v-on="on"
+                depressed
+                x-small
+              >
+                <v-tooltip>
+                  <span>test</span>
+                </v-tooltip>
+                <v-icon>mdi-logout-variant mdi-flip-h</v-icon>
+              </v-btn>
+            </template>
+            <span>Sign out</span>
+          </v-tooltip>
+          <App_theme_menu />
+        </div>
+      </template>
     </v-navigation-drawer>
   </nav>
 </template>
 
 <script>
+// @ts-nocheck
 export default {
   data: () => ({
     drawer: true,
-    mini_drawer: false,
   }),
   components: {
     Onboarding: () => import("./components/Onboarding.vue"),
@@ -61,14 +65,8 @@ export default {
     Refunds: () => import("./components/Refunds.vue"),
     Customer_support: () => import("./components/Customer_support.vue"),
     Account: () => import("./components/Account.vue"),
+    App_theme_menu: () => import("./components/App_theme_menu.vue"),
   },
-
-  methods: {
-    activate_drawer() {
-      this.mini_drawer = false
-      this.drawer = true
-    }
-  }
 };
 </script>
 

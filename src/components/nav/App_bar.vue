@@ -10,7 +10,7 @@
       :key="index"
       :to="route.to"
       class="ml-2 text-capitalize hidden-sm-and-down rounded-lg"
-      active-class="blue--text text--accent-4 font-weight-bold"
+      active-class="indigo--text text--accent-4 font-weight-bold"
       text
       >{{ route.title }}</v-btn
     >

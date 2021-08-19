@@ -31,7 +31,7 @@
                 <v-menu offset-y>
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                      color="blue accent-4"
+                      color="indigo accent-4"
                       class="text-capitalize white--text rounded-lg"
                       depressed
                       v-bind="attrs"
@@ -51,7 +51,7 @@
                 <v-menu offset-y>
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
-                      color="blue accent-4"
+                      color="indigo accent-4"
                       class="text-capitalize white--text rounded-lg"
                       depressed
                       v-bind="attrs"
@@ -89,14 +89,14 @@
                   @onSelect="onSelect"
                   :preferredCountries="['vn', 'us', 'gb']"
                   :enabledCountryCode="true"
-                  class="rounded-lg blue accent-4"
+                  class="rounded-lg indigo accent-4"
                 />
               </v-card>
             </v-col>
             <v-col cols="12">
               <v-btn
                 depressed
-                color="blue accent-4"
+                color="indigo accent-4"
                 class="white--text rounded-lg font-weight-bold"
                 height="45"
               >

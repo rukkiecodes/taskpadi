@@ -1,26 +1,20 @@
 <template>
-  <v-app>
-    <Dash_nav v-show="route != '/'" />
+  <v-app id="paddi_app">
+    <Dash_nav />
     <router-view />
   </v-app>
 </template>
 
 <script>
-import Dash_nav from "../../components/dash_nav/Dash_nav.vue";
 export default {
-  data: () => ({
-    route: "",
-  }),
   components: {
-    Dash_nav,
-  },
-  mounted() {
-    this.nav();
-  },
-  methods: {
-    nav() {
-      this.route = window.location.pathname;
-    },
+    Dash_nav: () => import("../../components/dash_nav/Dash_nav.vue"),
   },
 };
 </script>
+
+<style scoped>
+#paddi_app {
+  background: #eff1ff;
+}
+</style>

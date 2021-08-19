@@ -6,7 +6,7 @@
       persistent
       width="400"
     >
-      <v-card color="blue accent-4" dark>
+      <v-card color="indigo accent-4" dark>
         <v-card-text class="pt-4 white--text">
           Please wait, while your transaction is proccessing.
           <v-progress-linear

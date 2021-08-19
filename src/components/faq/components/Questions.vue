@@ -11,7 +11,7 @@
         v-for="(question, index) in questions"
         :key="index"
         @click="pass_data(question)"
-        :class="{ 'blue accent-4': faq.active_question == question.title }"
+        :class="{ 'indigo accent-4': faq.active_question == question.title }"
         class="mb-4 rounded-lg"
         flat
       >

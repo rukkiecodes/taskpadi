@@ -8,7 +8,7 @@
       <v-icon
         class="white--text"
         :class="{
-          'blue--text text--accent-4t': dash_nav.active_dash_route == '/admin',
+          'indigo--text text--accent-4t': dash_nav.active_dash_route == '/admin',
         }"
         >mdi-home-account</v-icon
       >
@@ -17,7 +17,7 @@
     <v-list-item-title
       class="white--text"
       :class="{
-        'blue--text text--accent-4': dash_nav.active_dash_route == '/admin',
+        'indigo--text text--accent-4': dash_nav.active_dash_route == '/admin',
       }"
       >Onboarding</v-list-item-title
     >

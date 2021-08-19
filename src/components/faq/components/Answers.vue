@@ -19,7 +19,7 @@
             <v-col cols="12" sm="5"></v-col>
             <v-col cols="12" sm="6">
               <v-textarea
-                color="blue accent-4"
+                color="indigo accent-4"
                 label="Ask a question"
                 class="mb-n6 rounded-lg"
                 outlined
@@ -32,7 +32,7 @@
                 height="55"
                 width="100%"
                 class="white--text mb-4 mt-3 rounded-lg"
-                color="blue accent-4"
+                color="indigo accent-4"
               >
                 <v-icon>mdi-camera</v-icon>
               </v-btn>
@@ -41,7 +41,7 @@
                 height="55"
                 width="100%"
                 class="white--text rounded-lg"
-                color="blue accent-4"
+                color="indigo accent-4"
               >
                 <v-icon>mdi-send mdi-rotate-315</v-icon>
               </v-btn>

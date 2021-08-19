@@ -32,7 +32,7 @@
                     v-for="(text, index) in benefit.texts"
                     :key="index"
                   >
-                    <v-icon color="blue accent-4" size="16"
+                    <v-icon color="indigo accent-4" size="16"
                       >mdi-radiobox-marked</v-icon
                     >
                     {{ text.span }}

@@ -19,7 +19,7 @@
               v-slot="{ active, toggle }"
             >
               <div>
-                <v-btn color="blue accent-4" :input-value="active" icon @click="toggle">
+                <v-btn color="indigo accent-4" :input-value="active" icon @click="toggle">
                   <v-icon>mdi-record</v-icon>
                 </v-btn>
               </div>
@@ -38,7 +38,7 @@
                     <v-row class="mb-4 pa-2" align="center">
                       <v-avatar
                         size="40"
-                        color="blue accent-4"
+                        color="indigo accent-4"
                         class="mr-4 text-uppercase white--text"
                         v-text="card.title.slice(0, 2)"
                       />

@@ -9,7 +9,7 @@
     <v-list-item-icon>
       <v-icon
         :class="{
-          'blue--text text--accent-4':
+          'indigo--text text--accent-4':
             dash_nav.active_dash_route == '/admin/withdraws',
         }"
         >mdi-cash-register</v-icon
@@ -18,7 +18,7 @@
 
     <v-list-item-title
       :class="{
-        'blue--text text--accent-4':
+        'indigo--text text--accent-4':
           dash_nav.active_dash_route == '/admin/withdraws',
       }"
       >Withdrawals</v-list-item-title

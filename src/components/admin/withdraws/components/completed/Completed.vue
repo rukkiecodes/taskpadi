@@ -29,7 +29,7 @@
         <v-chip
           color="transparent"
           :class="{
-            'blue--text text--accent-4 font-weight-bold': item.product_status == 'Successful',
+            'indigo--text text--accent-4 font-weight-bold': item.product_status == 'Successful',
           }"
         >
           {{ item.product_status }}

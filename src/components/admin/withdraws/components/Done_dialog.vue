@@ -13,7 +13,7 @@
             <v-icon class="grey--text text--darken-4">mdi-close</v-icon>
           </v-btn>
         </v-system-bar>
-        <v-card-text class="blue--text text--accent-4 text-center text-body-2">
+        <v-card-text class="indigo--text text--accent-4 text-center text-body-2">
           Your withdrawal was successful. Your payments will be in your account any
           moment now.
         </v-card-text>

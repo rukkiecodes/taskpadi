@@ -3,7 +3,7 @@
     <v-slide-group multiple show-arrows>
       <v-slide-item v-for="(question, index) in questions" :key="index">
         <v-btn
-          :class="{ 'blue accent-4': faq.active_question == question.title }"
+          :class="{ 'indigo accent-4': faq.active_question == question.title }"
           class="text-body-2 text-capitalize mr-2 rounded-lg"
           @click="pass_data(question)"
           depressed

@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    color="blue accent-4"
+    color="indigo accent-4"
     v-model="app_drawer.drawer"
     app
   >
@@ -10,7 +10,7 @@
         :key="item.title"
         :to="item.to"
         link
-        active-class="white blue--text text--accent-4 rounded-lg"
+        active-class="white indigo--text text--accent-4 rounded-lg"
       >
         <v-list-item-icon>
           <v-icon size="17">{{ item.icon }}</v-icon>

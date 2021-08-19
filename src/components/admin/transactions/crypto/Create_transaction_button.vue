@@ -3,7 +3,7 @@
     <v-btn
       dark
       depressed
-      color="blue accent-4"
+      color="indigo accent-4"
       @click="goods_products.dialog = true"
       class="text-capitalize font-weight-bold rounded-lg"
       height="40"

@@ -27,21 +27,21 @@
       <v-list-item-title
         class="white--text ml-n3"
         :class="{
-          'blue--text text--accent-4':
+          'indigo--text text--accent-4':
             dash_nav.active_dash_route == '/admin/goods_products',
         }"
         >Goods/products</v-list-item-title
       >
-      <v-list-item-icon>
+      <!-- <v-list-item-icon>
         <v-icon
           class="white--text"
           :class="{
-            'blue--text text--accent-4':
+            'indigo--text text--accent-4':
               dash_nav.active_dash_route == '/admin/goods_products',
           }"
           >mdi-shopping-outline</v-icon
         >
-      </v-list-item-icon>
+      </v-list-item-icon> -->
     </v-list-item>
     <!-- CRYPTO -->
     <v-list-item
@@ -55,21 +55,21 @@
       <v-list-item-title
         class="white--text ml-n3"
         :class="{
-          'blue--text text--accent-4':
+          'indigo--text text--accent-4':
             dash_nav.active_dash_route == '/admin/crypto',
         }"
         >Crypto</v-list-item-title
       >
-      <v-list-item-icon>
+      <!-- <v-list-item-icon>
         <v-icon
           class="white--text"
           :class="{
-            'blue--text text--accent-4':
+            'indigo--text text--accent-4':
               dash_nav.active_dash_route == '/admin/crypto',
           }"
           >mdi-bitcoin</v-icon
         >
-      </v-list-item-icon>
+      </v-list-item-icon> -->
     </v-list-item>
     <!-- services -->
     <v-list-item
@@ -83,21 +83,21 @@
       <v-list-item-title
         class="white--text ml-n3"
         :class="{
-          'blue--text text--accent-4':
+          'indigo--text text--accent-4':
             dash_nav.active_dash_route == '/admin/services',
         }"
         >Services</v-list-item-title
       >
-      <v-list-item-icon>
+      <!-- <v-list-item-icon>
         <v-icon
           class="white--text"
           :class="{
-            'blue--text text--accent-4':
+            'indigo--text text--accent-4':
               dash_nav.active_dash_route == '/admin/services',
           }"
           >mdi-room-service-outline</v-icon
         >
-      </v-list-item-icon>
+      </v-list-item-icon> -->
     </v-list-item>
   </v-list-group>
 </template>

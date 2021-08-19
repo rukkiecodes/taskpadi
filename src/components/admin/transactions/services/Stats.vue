@@ -2,7 +2,7 @@
   <v-card color="grey lighten-3" class="mb-10 rounded-lg" flat max-width="700">
     <v-sheet
       elevation="5"
-      color="blue accent-4"
+      color="indigo accent-4"
       max-width="calc(100% - 32px)"
       class="v-sheet--offset mx-auto"
     >
