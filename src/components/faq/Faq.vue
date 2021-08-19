@@ -3,7 +3,7 @@
     <AppNavigation />
     <smooth-scrollbar :options="{ damping: 0.05 }">
       <Safe_area />
-      <v-container class="faq mt-0 mt-xl-0 mb-15">
+      <v-container class="faq mt-0 mt-xl-0">
         <v-row justify="space-between" align="start">
           <Mobile_questions />
           <Questions />
@@ -51,13 +51,10 @@ export default {
 .hide_overlay {
   z-index: 0 !important;
 }
-.faq {
-  height: 90vh;
-}
 
 .buttons {
   width: 100%;
-  height: 90vh;
+  height: 94vh;
   overflow: auto;
 }
 </style>

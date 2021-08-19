@@ -10,26 +10,15 @@
       <v-card
         v-for="(question, index) in questions"
         :key="index"
-        :class="{
-          'blue lighten-5 mb-2': faq.active_question == question.title,
-          'blue lighten-5': faq.initial == question.title,
-          'white outline_faq_card mb-2': faq.active_question != question.title,
-        }"
-        class="py-4 px-2 mr-2"
         @click="pass_data(question)"
+        :class="{ 'blue accent-4': faq.active_question == question.title }"
+        class="mb-4 rounded-lg"
         flat
       >
         <v-card-text
-          ><span
-            :class="{
-              'text-body-2 text-capitalize blue--text text--accent-4':
-                faq.active_question == question.title,
-              'text-body-2 grey--text text--darken-1 font-weight-regular':
-                faq.active_question != question.title,
-            }"
-            style="text-transform: initial"
-            v-text="question.title"
-        /></v-card-text>
+          :class="{ 'white--text font-weight-bold': faq.active_question == question.title }"
+          v-text="question.title"
+        />
       </v-card>
     </smooth-scrollbar>
   </v-col>
@@ -50,9 +39,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.outline_faq_card {
-  border: 1px solid rgba(85, 85, 85, 0.5) !important;
-}
-</style>
