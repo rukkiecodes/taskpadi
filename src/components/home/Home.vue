@@ -68,8 +68,4 @@ export default {
 .hide::-webkit-scrollbar {
   width: 0px;
 }
-
-.hide_overlay {
-  z-index: 0 !important;
-}
 </style>
