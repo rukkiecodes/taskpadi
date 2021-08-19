@@ -24,8 +24,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #paddi_app {
   background: #eff1ff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
 }
 </style>

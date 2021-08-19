@@ -20,11 +20,11 @@
 
     <v-card width="400" class="rounded-lg pa-2">
       <v-card-text class="ma-0 pa-0">
-        <v-btn height="44" width="190" color="blue-grey darken-4 rounded-l-lg">
+        <v-btn @click="dark_mode" height="44" width="190" color="blue-grey darken-4 rounded-l-lg">
           <span class="white--text text-capitalize font-weight-bold">Dark</span>
           <v-icon class="white--text ml-2">mdi-weather-night</v-icon>
         </v-btn>
-        <v-btn height="44" width="190" color="white rounded-r-lg">
+        <v-btn @click="light_mode" height="44" width="190" color="white rounded-r-lg">
           <span
             class="indigo--text text--accent-4 text-capitalize font-weight-bold"
             >Light</span
@@ -39,9 +39,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   data: () => ({
     menu: false,
+    app_mode: localStorage.getItem("trustpaddi_app_theme")
   }),
+  methods: {
+    ...mapActions(["dark_mode", "light_mode"])
+  }
 };
 </script>

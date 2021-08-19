@@ -10,7 +10,7 @@
         :class="{
           'indigo--text text--accent-4t': dash_nav.active_dash_route == '/admin',
         }"
-        >mdi-home-account</v-icon
+        >mdi-rocket-launch-outline</v-icon
       >
     </v-list-item-icon>
 

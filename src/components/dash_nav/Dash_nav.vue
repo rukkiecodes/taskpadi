@@ -1,10 +1,18 @@
 <template>
   <nav>
     <v-app-bar color="transparent" flat app>
-      <v-btn @click="drawer = !drawer" class="mr-4" fab depressed small>
+      <v-btn
+        @click="drawer = !drawer"
+        class="mr-4 hidden-lg-and-up"
+        fab
+        depressed
+        small
+      >
         <v-icon>mdi-menu</v-icon>
       </v-btn>
-      <v-toolbar-title>TrustPaddi</v-toolbar-title>
+      <v-toolbar-title class="font-weight-bold grey--text text--darken-3"
+        >Dashboard</v-toolbar-title
+      >
     </v-app-bar>
     <v-navigation-drawer
       color="indigo accent-4"
@@ -12,6 +20,17 @@
       v-model="drawer"
       app
     >
+      <v-card flat color="transparent py-10">
+        <v-card-title class="white--text font-weight-black d-flex justify-center">
+          <v-avatar size="60" tile class="pa-1 mr-3">
+            <v-img
+              lazy-src="../../assets/paddi.png"
+              src="../../assets/paddi.png"
+            />
+          </v-avatar>
+          Trustpaddi
+        </v-card-title>
+      </v-card>
       <v-list class="px-3" dark dense>
         <Onboarding />
         <Menu class="mt-3" />
@@ -31,7 +50,8 @@
                 to="/"
                 height="34"
                 class="rounded-lg indigo--text px-0"
-                v-bind="attrs" v-on="on"
+                v-bind="attrs"
+                v-on="on"
                 depressed
                 x-small
               >
