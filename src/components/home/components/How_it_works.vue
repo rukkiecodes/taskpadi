@@ -3,7 +3,7 @@
     <v-row justify="space-between" align="start">
       <v-col class="text-center text-heading text-sm-h6 text-md-h5" cols="12">
         <h1>How it works</h1>
-        <p class="text-body-1 grey--text text--darken-4 text-center">
+        <p class="text-body-1 grey--text text--darken-4 text-center mt-3">
           The whole process is Simple, transparent and automated
         </p>
       </v-col>
