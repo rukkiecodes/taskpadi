@@ -2,7 +2,8 @@
   <v-list-item
     @click="goto_customer_support"
     :class="{
-      'white rounded-lg': dash_nav.active_dash_route == '/admin/customer_support',
+      'white rounded-lg':
+        dash_nav.active_dash_route == '/admin/customer_support',
     }"
     link
   >
@@ -20,7 +21,7 @@
     <v-list-item-title
       class="white--text"
       :class="{
-        'indigo--text text--accent-4':
+        'indigo--text text--accent-4 font-weight-bold':
           dash_nav.active_dash_route == '/admin/customer_support',
       }"
       >Customer Support

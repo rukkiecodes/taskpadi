@@ -18,7 +18,7 @@
 
     <v-list-item-title
       :class="{
-        'indigo--text text--accent-4':
+        'indigo--text text--accent-4 font-weight-bold':
           dash_nav.active_dash_route == '/admin/withdraws',
       }"
       >Withdrawals</v-list-item-title

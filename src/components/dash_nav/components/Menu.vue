@@ -16,7 +16,7 @@
 
     <v-list-item-title
       :class="{
-        'indigo--text text--accent-4':
+        'indigo--text text--accent-4 font-weight-bold':
           dash_nav.active_dash_route == '/admin/menu',
       }"
       >Menu</v-list-item-title

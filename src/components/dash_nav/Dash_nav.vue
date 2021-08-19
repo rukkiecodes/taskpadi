@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar color="transparent" flat app>
+    <v-app-bar color="#EFF1FF" flat app>
       <v-btn
         @click="drawer = !drawer"
         class="mr-4 hidden-lg-and-up"
@@ -10,10 +10,11 @@
       >
         <v-icon>mdi-menu</v-icon>
       </v-btn>
-      <v-toolbar-title class="font-weight-bold grey--text text--darken-3"
+      <v-toolbar-title class="font-weight-bold grey--text text--darken-2"
         >Dashboard</v-toolbar-title
       >
     </v-app-bar>
+    <Safe_area />
     <v-navigation-drawer
       color="indigo accent-4"
       width="250"
@@ -21,7 +22,9 @@
       app
     >
       <v-card flat color="transparent py-10">
-        <v-card-title class="white--text font-weight-black d-flex justify-center">
+        <v-card-title
+          class="white--text font-weight-black d-flex justify-center"
+        >
           <v-avatar size="60" tile class="pa-1 mr-3">
             <v-img
               lazy-src="../../assets/paddi.png"
@@ -86,6 +89,7 @@ export default {
     Customer_support: () => import("./components/Customer_support.vue"),
     Account: () => import("./components/Account.vue"),
     App_theme_menu: () => import("./components/App_theme_menu.vue"),
+    Safe_area: () => import("../app_components/Safe_area.vue")
   },
 };
 </script>
