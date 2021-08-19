@@ -1,13 +1,18 @@
 <template>
   <v-container class="mt-16">
     <v-row
-      class="flex-column-reverse flex-sm-row"
       justify="space-between"
       align="center"
     >
       <v-col class="text-center text-heading text-sm-h6 text-md-h5" cols="12">
         <h1>About Trustpaddi</h1>
       </v-col>
+    </v-row>
+    <v-row
+      class="flex-column-reverse flex-sm-row"
+      justify="space-between"
+      align="center"
+    >
       <v-col class="mt-8" cols="12" sm="6">
         <v-card flat color="indigo lighten-5" class="rounded-xl">
           <v-card-text class="text-body-2">

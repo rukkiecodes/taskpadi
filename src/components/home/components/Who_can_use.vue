@@ -20,7 +20,7 @@
               depressed
               color="blue accent-4"
               v-text="card.button_text"
-              class="rounded-lg text-capitalize white--text py-4"
+              class="rounded-lg text-capitalize white--text font-weight-bold py-4"
             />
           </v-card-text>
         </v-card>

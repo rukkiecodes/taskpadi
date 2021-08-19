@@ -1,60 +1,36 @@
 <template>
-  <v-container class="why_trustpaddy">
-    <div class="head_text">
-      <p>Why TrustPaddi</p>
-    </div>
-    <div class="sides">
-      <div class="left">
-        <p class="text-body-1" v-for="(list, index) in lists" :key="index">
-          <span class="font-weight-bold">{{ list.title }}:</span> {{ list.body }}
+  <v-container class="mt-16">
+    <v-row justify="space-between" align="start">
+      <v-col class="text-center text-heading text-sm-h6 text-md-h5" cols="12">
+        <h1>Why TrustPaddi</h1>
+      </v-col>
+    </v-row>
+    <v-row
+      class="flex-column-reverse flex-sm-row mt-8"
+      justify="space-between"
+      align="center"
+    >
+      <v-col cols="12" sm="6">
+        <p class="text-body-1" v-for="(list, index) in why_paddi" :key="index">
+          <span class="font-weight-bold">{{ list.title }}:</span>
+          {{ list.body }}
         </p>
-      </div>
-      <div class="right">
-        <img src="../../../assets/trust/why.svg" alt="" />
-      </div>
-    </div>
+      </v-col>
+      <v-col cols="12" sm="5">
+        <v-img
+          lazy-src="../../../assets/trust/about.svg"
+          src="../../../assets/trust/about.svg"
+        ></v-img>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import why_paddi from "./why_paddi";
 export default {
   data: () => ({
-    lists: [
-      {
-        title: "Legal Protection",
-        body:
-          "Both parties are legally protected while carrying out transactions with us.",
-      },
-      {
-        title: "Real Time Notifications",
-        body:
-          "Get instant real time notification on the progress of your order and delivery",
-      },
-      {
-        title: "100% Refund(when necessary",
-        body:
-          " You get instant refund when necessary, TrustPaddi has got you covered",
-      },
-      {
-        title: "Trusted logistics partners",
-        body:
-          "With our network of trusted logistics partners we help you get the goods to your customers on time",
-      },
-      {
-        title: "24/7 Support",
-        body:
-          "Our customer service is second to non, we're always here for you",
-      },
-      {
-        title: "Immediate Disbursement",
-        body:
-          "Seller get paid instantly after the goods have been delivered, payment is sure",
-      },
-    ],
+    why_paddi,
   }),
 };
 </script>
-
-<style scoped>
-@import url(../../../assets/styles/why_trustpaddy.css);
-</style>
