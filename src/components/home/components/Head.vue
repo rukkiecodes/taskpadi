@@ -1,5 +1,5 @@
 <template>
-  <v-container class="head_component">
+  <v-container>
     <v-sheet class="my-8 my-sm-15" color="transparent" width="100%">
       <v-row
         class="flex-column-reverse flex-sm-row"
@@ -72,7 +72,7 @@
               <v-card
                 outlined
                 color="transparent"
-                class="input_two rounded-lg d-flex justify-space-between align-center pa-1 mt-3"
+                class="rounded-lg d-flex justify-space-between align-center pa-1 mt-3"
                 style="border: 0.5px solid rgba(0,0,0,0.2) !important"
               >
                 <span
@@ -80,7 +80,11 @@
                 >
                   For
                 </span>
-                <input type="number" placeholder="2,000,000" />
+                <input
+                  style="outline: none"
+                  type="number"
+                  placeholder="2,000,000"
+                />
                 <vue-country-code
                   @onSelect="onSelect"
                   :preferredCountries="['vn', 'us', 'gb']"
@@ -103,7 +107,6 @@
         </v-col>
         <v-col cols="12" sm="6">
           <v-img
-            class="head_img"
             lazy-src="../../../assets/trust/home_phone.png"
             src="../../../assets/trust/home_phone.png"
             alt=""
@@ -137,16 +140,11 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      console.log(document.querySelector('.country-code'))
-      document.querySelector('.country-code, .dropdown-arrow').style.color = "#ffffff"
-      document.querySelector('.dropdown-arrow').style.color = "#ffffff"
+      console.log(document.querySelector(".country-code"));
+      document.querySelector(".country-code, .dropdown-arrow").style.color =
+        "#ffffff";
+      document.querySelector(".dropdown-arrow").style.color = "#ffffff";
     });
   },
 };
 </script>
-
-<style scoped>
-input {
-  outline: none;
-}
-</style>

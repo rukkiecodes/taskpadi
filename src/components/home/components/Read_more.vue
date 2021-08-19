@@ -1,21 +1,17 @@
 <template>
-  <v-container class="read_more">
-    <div class="read_more_section_one">
-      <div class="read_more_cards">
-        <div
-          v-for="(card, index) in cards"
-          :key="index"
-          class="read_more_card py-5 px-5 rounded-lg"
-        >
-          <div class="card_head mt-3 py-2">
-            <div class="read_more_card_avatar" color="#EFF0F7">
-              <img :src="card.image" alt="" />
-            </div>
-          </div>
-          <p class="mt-4 text-body-1 pt-3" v-text="card.text" />
-        </div>
-      </div>
-    </div>
+  <v-container>
+    <v-row justify="space-between" align="start">
+      <v-col v-for="(card, index) in cards" :key="index" cols="12" sm="4">
+        <v-card flat color="indigo lighten-5 rounded-xl">
+          <v-card-text class="text-center">
+            <v-avatar size="70" color="white" class="my-6">
+              <img :src="card.image" />
+            </v-avatar>
+          </v-card-text>
+          <v-card-text class="text-body-1 grey--text text--darken-4" v-text="card.text" />
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -39,7 +35,3 @@ export default {
   }),
 };
 </script>
-
-<style scoped>
-@import url(../../../assets/styles/read_more.css);
-</style>
