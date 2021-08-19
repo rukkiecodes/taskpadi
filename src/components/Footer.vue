@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer mt-16">
     <v-container class="footer_container py-12">
       <div class="footer_container_row row_one">
         <p class="head text-h6 font-weight-bold">Company</p>
