@@ -5,7 +5,7 @@
         <h1>Testimonials</h1>
       </v-col>
     </v-row>
-    <v-row justify="space-between" align="start">
+    <v-row class="mt-8" justify="space-between" align="start">
       <v-col cols="12">
         <v-row align="center">
           <v-item-group
