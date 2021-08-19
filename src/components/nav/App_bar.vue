@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState, mapGetters } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 export default {
   data: () => ({
     logo: require("../../assets/paddi.png"),
@@ -59,13 +59,7 @@ export default {
     ],
   }),
 
-  created() {
-    this.app_bar_route();
-  },
-
   methods: {
-    ...mapActions(["app_bar_route"]),
-
     ...mapMutations(["toggle_drawer"]),
   },
 

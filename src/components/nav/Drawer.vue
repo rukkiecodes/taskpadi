@@ -30,14 +30,6 @@ export default {
   computed: {
     ...mapState(["app_drawer"]),
     ...mapGetters(["drawer_routs"]),
-    // drawer: {
-    //   get() {
-    //     return this.$store.state.drawer;
-    //   },
-    //   set(new_value) {
-    //     this.$store.state.drawer = new_value;
-    //   },
-    // },
   },
 };
 </script>
