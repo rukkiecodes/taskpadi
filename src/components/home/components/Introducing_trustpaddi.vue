@@ -1,43 +1,42 @@
 <template>
-  <v-container class="section_two">
-    <div class="head_text text-center">
-      <p class="p1">Introducing TrustPaddi</p>
-      <span class="p2 text-body-1">The safest & surest way to transact online</span>
-    </div>
-    <div class="cards">
-      <div class="card card_one rounded-xl">
-        <div class="head">
-          <img src="../../../assets/trust/homepage icons/Group 129.svg" alt="" />
-          <p>Safe</p>
-        </div>
-        <p class="text-body-2">
-          TrustPaddi is convenient for both buyer and the seller.
-        </p>
-      </div>
-      <div class="card card_two rounded-xl">
-        <div class="head">
-          <img src="../../../assets/trust/homepage icons/Group 130.svg" alt="" />
-          <p>Secure</p>
-        </div>
-        <p class="text-body-2">
-          TrustPaddi ensures buyer and seller protection, and protects the
-          interest of both parties.
-        </p>
-      </div>
-      <div class="card card_three rounded-xl">
-        <div class="head">
-          <img src="../../../assets/trust/homepage icons/Group 131.svg" alt="" />
-          <p>Fast</p>
-        </div>
-        <p class="text-body-2">
-          We help deliver goods on time to customers with our network of trusted
-          logistics partners
-        </p>
-      </div>
-    </div>
+  <v-container class="mt-16">
+    <v-row justify="space-between" align="start">
+      <v-col class="text-center text-heading text-sm-h6 text-md-h5" cols="12">
+        <h1>Introducing TrustPaddi</h1>
+      </v-col>
+      <v-col v-for="(card, index) in cards" :key="index" class="mt-8" cols="12" sm="4">
+        <v-card flat color="transparent" class="text-center">
+          <v-card-text>
+            <v-avatar size="80" color="white">
+              <img :src="card.image" />
+            </v-avatar>
+          </v-card-text>
+          <v-card-text class="grey--text text--darken-4 text-body-1" v-text="card.text" />
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
-<style scoped>
-@import url(../../../assets/styles/section2.css);
-</style>
+<script>
+export default {
+  data: () => ({
+    cards: [
+      {
+        image: require("../../../assets/trust/homepage icons/Group 129.svg"),
+        text: "TrustPaddi is convenient for both buyer and the seller.",
+      },
+      {
+        image: require("../../../assets/trust/homepage icons/Group 130.svg"),
+        text:
+          "TrustPaddi ensures buyer and seller protection, and protects the interest of both parties.",
+      },
+      {
+        image: require("../../../assets/trust/homepage icons/Group 131.svg"),
+        text:
+          "We help deliver goods on time to customers with our network of trusted logistics partners",
+      },
+    ],
+  }),
+};
+</script>
