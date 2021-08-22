@@ -21,7 +21,10 @@
             <Create_paddi_link />
           </v-row>
 
-          <!-- <Onboarding /> -->
+          <v-row class="pa-0 ma-0" justify="space-between" align="start">
+            <Goods_product_stats />
+            <Crypto_stats />
+          </v-row>
         </v-col>
         <v-col class="pa-0" cols="12" md="4" lg="4" xl="3">
           <v-col
@@ -104,6 +107,8 @@ import Withdraw from "./components/Withdraw.vue";
 import Create_paddi_link from "./components/Create_paddi_link.vue";
 import Paddi_transaction from "./components/Paddi_transaction.vue";
 import Onboarding from "./components/Onboarding.vue";
+import Goods_product_stats from "./components/Goods_product_stats.vue";
+import Crypto_stats from "./components/Crypto_stats.vue";
 import { mapState, mapActions } from "vuex";
 export default {
   data: () => ({
@@ -119,6 +124,8 @@ export default {
     Create_paddi_link,
     Paddi_transaction,
     Onboarding,
+    Goods_product_stats,
+    Crypto_stats
   },
   mounted() {
     this.check_dash_active_route();
@@ -139,10 +146,7 @@ export default {
     ...mapState(["dash_nav"]),
     dash_nav: {
       get() {
-        return this.$store.state.dash_nav;
-      },
-      set(new_value) {
-        this.$store.state.dash_nav = new_value;
+        r.$store.state.dash_nav = new_value;
       },
     },
   },
