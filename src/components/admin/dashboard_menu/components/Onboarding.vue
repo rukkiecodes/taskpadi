@@ -1,9 +1,17 @@
 <template>
-  <v-col cols="12" sm="6">
-    <v-card color="grey lighten-3" height="180" flat class="d-flex flex-column justify-end rounded-xl">
-      <v-card-text class="d-flex flex-column">
-        <span class="text-h5 grey--text text--darken-4">Onboarding</span>
-      </v-card-text>
-    </v-card>
-  </v-col>
+  <v-card
+    color="white"
+    height="120"
+    flat
+    class="d-flex flex-column justify-end rounded-xl"
+  >
+    <v-card-text class="d-flex flex-column custum_card_text">
+      <span class="text-h5 grey--text text--darken-4 font-weight-bold"
+        >Onboarding</span
+      >
+      <span class="text-body-1 font-weight-bold grey--text text--darken-4"
+        >17</span
+      >
+    </v-card-text>
+  </v-card>
 </template>

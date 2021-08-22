@@ -14,7 +14,6 @@
         >Dashboard</v-toolbar-title
       >
     </v-app-bar>
-    <Safe_area />
     <v-navigation-drawer
       color="indigo accent-4"
       width="250"
@@ -88,8 +87,7 @@ export default {
     Refunds: () => import("./components/Refunds.vue"),
     Customer_support: () => import("./components/Customer_support.vue"),
     Account: () => import("./components/Account.vue"),
-    App_theme_menu: () => import("./components/App_theme_menu.vue"),
-    Safe_area: () => import("../app_components/Safe_area.vue")
+    App_theme_menu: () => import("./components/App_theme_menu.vue")
   },
 };
 </script>

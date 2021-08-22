@@ -1,23 +1,102 @@
 <template>
-  <v-container fluid id="scroll-area" class="pa-0">
-    <smooth-scrollbar :options="{ damping: 0.05 }">
-      <v-container class="px-4">
-        <v-row justify="space-between" align="start">
-          <Current_ballance />
-          <Trust_ballance />
-          <Create_transaction />
-          <Withdraw />
-          <Create_paddi_link />
-          <Paddi_transaction />
-          <Onboarding />
-        </v-row>
-      </v-container>
-    </smooth-scrollbar>
+  <v-container fluid class="pa-0">
+    <v-toolbar flat color="transparent">
+      <v-spacer />
+      <v-btn
+        @click="dashboard_menu_drawer = !dashboard_menu_drawer"
+        icon
+        class="hidden-md-and-up float-right"
+        color="indigo accent-4"
+      >
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+    </v-toolbar>
+    <v-container class="px-4">
+      <v-row justify="space-between" align="start">
+        <v-col class="pa-0" cols="12" md="8" lg="8" xl="9">
+          <v-row class="pa-0 ma-0" justify="space-between" align="start">
+            <Wellcome />
+            <Create_transaction />
+            <Withdraw />
+            <Create_paddi_link />
+          </v-row>
+
+          <!-- <Onboarding /> -->
+        </v-col>
+        <v-col class="pa-0" cols="12" md="4" lg="4" xl="3">
+          <v-col
+            class="mx-sm-auto mt-sm-8 mt-md-0 hidden-sm-and-down"
+            cols="12"
+            sm="8"
+            md="12"
+          >
+            <Transaction_dates />
+          </v-col>
+          <v-col
+            class="mx-sm-auto mt-sm-8 mt-md-0 hidden-sm-and-down"
+            cols="12"
+            sm="8"
+            md="12"
+          >
+            <Current_ballance />
+          </v-col>
+          <v-col
+            class="mx-sm-auto mt-sm-8 mt-md-0 hidden-sm-and-down"
+            cols="12"
+            sm="8"
+            md="12"
+          >
+            <Trust_ballance />
+          </v-col>
+          <v-col
+            class="mx-sm-auto mt-sm-8 mt-md-0 hidden-sm-and-down"
+            cols="12"
+            sm="8"
+            md="12"
+          >
+            <Paddi_transaction />
+          </v-col>
+          <v-col
+            class="mx-sm-auto mt-sm-8 mt-md-0 hidden-sm-and-down"
+            cols="12"
+            sm="8"
+            md="12"
+          >
+            <Onboarding />
+          </v-col>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-navigation-drawer
+      v-model="dashboard_menu_drawer"
+      color="#EFF1FF"
+      width="350"
+      right
+      hide-overlay
+      app
+    >
+      <v-toolbar color="transparent" flat>
+        <v-spacer />
+        <v-btn @click="dashboard_menu_drawer = !dashboard_menu_drawer" icon>
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </v-toolbar>
+      <v-card flat color="transparent" class="pa-4">
+        <Transaction_dates />
+        <Current_ballance class="mt-4" />
+        <Trust_ballance class="mt-4" />
+        <Paddi_transaction class="mt-4" />
+        <Onboarding class="mt-4" />
+      </v-card>
+    </v-navigation-drawer>
   </v-container>
 </template>
 
 <script>
 // @ts-nocheck
+import Wellcome from "./components/Wellcome.vue";
+import Transaction_dates from "./components/Transaction_dates.vue";
 import Current_ballance from "./components/Current_ballance.vue";
 import Trust_ballance from "./components/Trust_ballance.vue";
 import Create_transaction from "./components/Create_transaction.vue";
@@ -27,18 +106,19 @@ import Paddi_transaction from "./components/Paddi_transaction.vue";
 import Onboarding from "./components/Onboarding.vue";
 import { mapState, mapActions } from "vuex";
 export default {
+  data: () => ({
+    dashboard_menu_drawer: false,
+  }),
   components: {
+    Wellcome,
     Current_ballance,
+    Transaction_dates,
     Trust_ballance,
     Create_transaction,
     Withdraw,
     Create_paddi_link,
     Paddi_transaction,
     Onboarding,
-  },
-  created() {
-    let elHtml = document.getElementsByTagName("html")[0];
-    elHtml.classList.add("hide");
   },
   mounted() {
     this.check_dash_active_route();
@@ -68,18 +148,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#scroll-area {
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
-}
-.hide::-webkit-scrollbar {
-  width: 0px;
-}
-
-.hide_overlay {
-  z-index: 0 !important;
-}
-</style>
