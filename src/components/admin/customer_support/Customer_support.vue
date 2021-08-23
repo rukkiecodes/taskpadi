@@ -1,5 +1,11 @@
 <template>
   <v-container>
+    <Safe_area />
+    <v-row class="mb-16" justify="space-between" align="start">
+      <v-col cols="12" sm="8">
+        <Inputs />
+      </v-col>
+    </v-row>
     <Table />
   </v-container>
 </template>
@@ -8,7 +14,9 @@
 import { mapState, mapActions } from "vuex";
 export default {
   components: {
-    Table: () => import("./components/Table.vue")
+    Safe_area: () => import("../../app_components/Safe_area.vue"),
+    Inputs: () => import("./components/Inputs.vue"),
+    Table: () => import("./components/Table.vue"),
   },
   mounted() {
     this.check_dash_active_route();
