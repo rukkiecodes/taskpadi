@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12">
+  <v-col class="mt-2" cols="12">
     <v-toolbar flat color="transparent">
       <v-toolbar-title class="grey--text text--darken-4">
         Recent activity stats on Crypto
@@ -28,7 +28,7 @@
         Total Transactions Summary
       </v-card-title>
       <v-card-text class="pt-0 mt-0">
-        <v-icon>mdi-clock-time-eight-outline</v-icon>Last updated 3 minutes ago
+        <v-icon size="20">mdi-clock-time-eight-outline</v-icon>Last updated 3 minutes ago
       </v-card-text>
     </v-card>
   </v-col>

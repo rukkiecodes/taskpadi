@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <Safe_area />
     <Stats />
     <Create_transaction_dialog />
     <Table />
@@ -11,6 +12,7 @@
 import { mapActions, mapState } from "vuex";
 export default {
   components: {
+    Safe_area: () => import("../../../app_components/Safe_area.vue"),
     Create_transaction_dialog: () => import("./Create_transaction_dialog.vue"),
     Stats: () => import("./Stats.vue"),
     Table: () => import("./components/Table.vue"),

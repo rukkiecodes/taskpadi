@@ -57,7 +57,7 @@
             sm="8"
             md="12"
           >
-            <Paddi_transaction />
+            <Completed />
           </v-col>
           <v-col
             class="mx-sm-auto mt-sm-8 mt-md-0 hidden-sm-and-down"
@@ -66,6 +66,14 @@
             md="12"
           >
             <Onboarding />
+          </v-col>
+          <v-col
+            class="mx-sm-auto mt-sm-8 mt-md-0 hidden-sm-and-down"
+            cols="12"
+            sm="8"
+            md="12"
+          >
+            <Paddi_transaction />
           </v-col>
         </v-col>
       </v-row>
@@ -89,8 +97,8 @@
         <Transaction_dates />
         <Current_ballance class="mt-4" />
         <Trust_ballance class="mt-4" />
-        <Paddi_transaction class="mt-4" />
         <Onboarding class="mt-4" />
+        <Paddi_transaction class="mt-4" />
       </v-card>
     </v-navigation-drawer>
   </v-container>
@@ -105,8 +113,9 @@ import Trust_ballance from "./components/Trust_ballance.vue";
 import Create_transaction from "./components/Create_transaction.vue";
 import Withdraw from "./components/Withdraw.vue";
 import Create_paddi_link from "./components/Create_paddi_link.vue";
-import Paddi_transaction from "./components/Paddi_transaction.vue";
+import Completed from "./components/Completed.vue";
 import Onboarding from "./components/Onboarding.vue";
+import Paddi_transaction from "./components/Paddi_transaction.vue";
 import Goods_product_stats from "./components/Goods_product_stats.vue";
 import Crypto_stats from "./components/Crypto_stats.vue";
 import { mapState, mapActions } from "vuex";
@@ -122,10 +131,11 @@ export default {
     Create_transaction,
     Withdraw,
     Create_paddi_link,
-    Paddi_transaction,
+    Completed,
     Onboarding,
+    Paddi_transaction,
     Goods_product_stats,
-    Crypto_stats
+    Crypto_stats,
   },
   mounted() {
     this.check_dash_active_route();
@@ -146,7 +156,10 @@ export default {
     ...mapState(["dash_nav"]),
     dash_nav: {
       get() {
-        r.$store.state.dash_nav = new_value;
+        return this.$store.state.dash_nav;
+      },
+      set(new_value) {
+        this.$store.state.dash_nav = new_value;
       },
     },
   },

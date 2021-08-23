@@ -1,10 +1,11 @@
 <template>
   <v-container>
+    <Safe_area />
     <v-row justify="space-between" align="start">
-      <v-col cols="12">
+      <v-col cols="12" md="4">
         <Ballance />
       </v-col>
-      <v-col cols="12">
+      <v-col cols="12" md="8">
         <Inputs />
       </v-col>
       <v-col cols="12">
@@ -20,6 +21,7 @@
 import { mapState, mapActions } from "vuex";
 export default {
   components: {
+    Safe_area: () => import("../../app_components/Safe_area.vue"),
     Inputs: () => import("./components/Inputs.vue"),
     Ballance: () => import("./components/Ballance.vue"),
     History: () => import("./components/History.vue"),

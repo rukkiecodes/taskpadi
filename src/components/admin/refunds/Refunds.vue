@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <Safe_area />
     <Table />
   </v-container>
 </template>
@@ -9,6 +10,7 @@
 import { mapActions, mapState } from "vuex";
 export default {
   components: {
+    Safe_area: () => import("../../app_components/Safe_area.vue"),
     Table: () => import("./components/Table.vue")
   },
   mounted() {

@@ -1,5 +1,5 @@
 <template>
-  <v-card color="grey lighten-3" class="mb-10 rounded-lg" flat max-width="700">
+  <v-card color="white" class="mb-10 rounded-lg" flat max-width="700">
     <v-sheet
       elevation="5"
       color="indigo accent-4"

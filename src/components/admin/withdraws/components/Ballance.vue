@@ -1,21 +1,40 @@
 <template>
   <v-card
-    height="180"
+    :height="height"
     flat
-    color="grey lighten-3"
-    class="d-flex flex-column justify-end pa-5"
+    color="white"
+    class="d-flex flex-column justify-end pa-5 rounded-xl"
   >
-    <v-card-text class="d-flex flex-column ma-0 pa-0">
-      <span class="text-h5 grey--text text--darken-4"
+    <v-card-text class="d-flex flex-column">
+      <span class="text-h5 grey--text text--darken-3 font-weight-bold"
         >Withdrawable Ballance</span
       >
-      <span class="text-h6 grey--text text--darken-4">N 1,500,000</span>
+      <span class="text-body-1 font-weight-bold grey--text text--darken-3"
+        >N 1,500,000</span
+      >
     </v-card-text>
   </v-card>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    height() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return 160;
+        case "sm":
+          return 160;
+        case "md":
+          return 335;
+        case "lg":
+          return 335;
+        case "xl":
+          return 335;
+      }
+    },
+  },
+};
 </script>
 
 <style></style>

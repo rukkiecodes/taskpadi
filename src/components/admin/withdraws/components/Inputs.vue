@@ -1,5 +1,5 @@
 <template>
-  <v-card color="grey lighten-3" flat class="pa-5 pt-10">
+  <v-card color="white" flat class="pa-5 pt-10 rounded-xl">
     <v-row justify="space-between" align="start">
       <v-col cols="12" sm="6">
         <v-text-field
@@ -7,7 +7,6 @@
           class="rounded-lg"
           label="Name of Bank"
           color="indigo accent-4"
-          prepend-inner-icon="mdi-bank-outline"
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6">
@@ -16,7 +15,6 @@
           class="rounded-lg"
           color="indigo accent-4"
           label="Account Number"
-          prepend-inner-icon="mdi-piggy-bank"
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6">
@@ -28,19 +26,17 @@
           class="rounded-lg"
           label="Account Name"
           color="indigo accent-4"
-          prepend-inner-icon="mdi-account-tie-outline"
         ></v-text-field>
       </v-col>
-      <v-col cols="12" sm="6" md="4">
+      <v-col cols="12" sm="6">
         <v-text-field
           outlined
           class="rounded-lg"
           color="indigo accent-4"
           label="Amount to be withdrawn"
-          prepend-inner-icon="mdi-account-cash"
         ></v-text-field>
       </v-col>
-      <v-col cols="12" sm="4" md="2">
+      <v-col cols="12" sm="4">
         <v-btn
           block
           depressed
@@ -49,7 +45,7 @@
           :disabled="withdrawal.loading_dialog"
           :loading="withdrawal.loading_dialog"
           @click="load_loading_dialog"
-          class="rounded-lg text-capitalize text-body-1 white--text font-weight-bold mb-6 mb-sm-5 mb-md-0"
+          class="rounded-lg text-capitalize text-body-1 white--text font-weight-bold "
         >
           Start loading
         </v-btn>
