@@ -1,47 +1,15 @@
 <template>
   <v-container>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet modi dolores
-    ut officia doloremque nam doloribus recusandae! Nisi, porro, consequatur
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet modi dolores
-    ut officia doloremque nam doloribus recusandae! Nisi, porro, consequatur
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet modi dolores
-    ut officia doloremque nam doloribus recusandae! Nisi, porro, consequatur
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
-    ducimus aspernatur debitis itaque assumenda architecto vero, voluptates
-    reprehenderit optio!
+    <Table />
   </v-container>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
 export default {
+  components: {
+    Table: () => import("./components/Table.vue")
+  },
   mounted() {
     this.check_dash_active_route();
     this.default_route();
@@ -52,7 +20,7 @@ export default {
     ...mapActions(["check_dash_active_route"]),
     my_logs() {
       // @ts-ignore
-      console.log("customer_support route: ", this.dash_nav.active_dash_route);
+      console.log("customer support route: ", this.dash_nav.active_dash_route);
     },
     default_route() {
       // @ts-ignore

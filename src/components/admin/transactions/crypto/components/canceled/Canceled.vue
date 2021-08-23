@@ -30,6 +30,7 @@
           :class="{
             'black--text text--accent-4 font-weight-bold': item.product_status == 'Canceled',
           }"
+          class="px-0"
         >
           {{ item.product_status }}
         </v-chip>

@@ -1,11 +1,11 @@
 <template>
   <v-card flat>
     <v-data-table
+      :search="search"
+      :items="refunds"
       :headers="headers"
-      :items="transactions"
-      :items-per-page="5"
-      :search="goods_products.search"
-      sort-by="SN"
+      :items-per-page="10"
+      sort-by="transaction_ID"
       class="grey--text text--darken-1"
     >
       <template v-slot:top>
@@ -17,8 +17,8 @@
             outlined
             clearable
             label="Search"
-            v-model="goods_products.search"
-            :search="goods_products.search"
+            v-model="search"
+            :search="search"
             class="mx-4 mt-5 rounded-lg"
             prepend-inner-icon="mdi-magnify"
           ></v-text-field>
@@ -28,47 +28,34 @@
         <v-chip
           color="transparent"
           :class="{
-            'indigo--text text--accent-4 font-weight-bold': item.product_status == 'Successful',
+            'teal--text text--accent-4 font-weight-bold':
+              item.product_status == 'Resolved',
+            'orange--text text--lighten-1 font-weight-bold':
+              item.product_status == 'Pending',
+            'indigo--text text--accent-4 font-weight-bold':
+              item.product_status == 'Ongoig',
           }"
           class="px-0"
         >
           {{ item.product_status }}
         </v-chip>
       </template>
-      <template v-slot:item.product_action="{ item }">
-        <v-btn icon @click="check_item(item)">
-          <v-icon small>{{ item.product_action }}</v-icon>
-        </v-btn>
-      </template>
     </v-data-table>
   </v-card>
 </template>
 
 <script>
-import { mapState } from "vuex";
 import headers from "./data/headers";
-import transactions from "./data/transactions";
+import refunds from "./data/refunds";
 export default {
   data: () => ({
+    search: "",
     headers,
-    transactions,
+    refunds,
   }),
-
   methods: {
     check_item(item) {
       console.log(item);
-    },
-  },
-
-  computed: {
-    ...mapState(["goods_products"]),
-    goods_products: {
-      get() {
-        return this.$store.state.goods_products;
-      },
-      set(new_value) {
-        this.$store.state.goods_products = new_value;
-      },
     },
   },
 };

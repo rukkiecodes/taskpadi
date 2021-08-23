@@ -30,6 +30,7 @@
           :class="{
             'teal--text text--accent-4 font-weight-bold': item.product_status == 'Ongoing',
           }"
+          class="px-0"
         >
           {{ item.product_status }}
         </v-chip>

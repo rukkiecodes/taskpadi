@@ -30,6 +30,7 @@
           :class="{
             'red--text text--accent-4 font-weight-bold': item.product_status == 'Failed',
           }"
+          class="px-0"
         >
           {{ item.product_status }}
         </v-chip>

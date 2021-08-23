@@ -30,6 +30,7 @@
           :class="{
             'orange--text text--lighten-1 font-weight-bold': item.product_status == 'Pending',
           }"
+          class="px-0"
         >
           {{ item.product_status }}
         </v-chip>
