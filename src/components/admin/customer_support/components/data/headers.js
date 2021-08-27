@@ -1,9 +1,9 @@
 export default [
   {
-    text: "Transaction ID",
+    text: "Ticket ID",
     align: "start",
     sortable: true,
-    value: "transaction_ID",
+    value: "ticket_ID",
   },
   { text: "Amount refunded", value: "amount_refunded" },
   { text: "Amount", value: "product_amount" },

@@ -1,9 +1,7 @@
 <template>
   <v-container class="mt-16">
     <v-row justify="space-between" align="start">
-      <v-col class="text-center text-heading text-sm-h6 text-md-h5" cols="12">
-        <h1>Introducing TrustPaddi</h1>
-      </v-col>
+      <Headings heading="Introducing TrustPaddi" />
       <v-col v-for="(card, index) in cards" :key="index" class="mt-8" cols="12" sm="4">
         <v-card flat color="transparent" class="text-center">
           <v-card-text>
@@ -38,5 +36,9 @@ export default {
       },
     ],
   }),
+
+  components: {
+    Headings: () => import("./Headings.vue")
+  }
 };
 </script>

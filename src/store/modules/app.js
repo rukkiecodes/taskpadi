@@ -6,17 +6,17 @@ export default {
   mutations: {
     dark_mode: (state) => {
       localStorage.setItem("trustpaddi_app_theme", "dark");
-      setTimeout(() => {
-        state.app_theme = localStorage.getItem("trustpaddi_app_theme");
-        console.log(state.app_theme);
-      }, 1000);
+      // state.app_theme = localStorage.getItem("trustpaddi_app_theme");
+      // console.log(state.app_theme);
+      // setTimeout(() => {
+      // }, 1000);
     },
     light_mode: (state) => {
       localStorage.setItem("trustpaddi_app_theme", "light");
-      setTimeout(() => {
-        state.app_theme = localStorage.getItem("trustpaddi_app_theme");
-        console.log(state.app_theme);
-      }, 1000);
+      // setTimeout(() => {
+        // state.app_theme = localStorage.getItem("trustpaddi_app_theme");
+        // console.log(state.app_theme);
+      // }, 1000);
     },
   },
   actions: {

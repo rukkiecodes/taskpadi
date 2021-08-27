@@ -1,12 +1,7 @@
 <template>
   <v-container class="mt-16">
-    <v-row
-      justify="space-between"
-      align="center"
-    >
-      <v-col class="text-center text-heading text-sm-h6 text-md-h5" cols="12">
-        <h1>About Trustpaddi</h1>
-      </v-col>
+    <v-row justify="space-between" align="center">
+      <Headings heading="About Trustpaddi" />
     </v-row>
     <v-row
       class="flex-column-reverse flex-sm-row"
@@ -41,3 +36,11 @@
     </v-row>
   </v-container>
 </template>
+
+<script>
+export default {
+  components: {
+    Headings: () => import("./Headings.vue")
+  }
+};
+</script>

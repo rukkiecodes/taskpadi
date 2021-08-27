@@ -39,14 +39,22 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 export default {
   data: () => ({
     menu: false,
     app_mode: localStorage.getItem("trustpaddi_app_theme")
   }),
   methods: {
-    ...mapActions(["dark_mode", "light_mode"])
+    light_mode() {
+      if (this.$vuetify.theme.dark == true) {
+        this.$vuetify.theme.dark = false
+      }
+    },
+    dark_mode() {
+      if (this.$vuetify.theme.dark != true) {
+        this.$vuetify.theme.dark = true
+      }
+    }
   }
 };
 </script>

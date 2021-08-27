@@ -2,7 +2,7 @@
   <v-card flat>
     <v-data-table
       :search="search"
-      :items="refunds"
+      :items="ticket"
       :headers="headers"
       :items-per-page="10"
       sort-by="transaction_ID"
@@ -10,8 +10,9 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-toolbar-title>Transactions Summary</v-toolbar-title>
-          <v-spacer></v-spacer>
+          <v-spacer />
+          <v-spacer />
+          <v-spacer />
           <v-text-field
             dense
             outlined
@@ -46,12 +47,12 @@
 
 <script>
 import headers from "./data/headers";
-import refunds from "./data/refunds";
+import ticket from "./data/ticket";
 export default {
   data: () => ({
     search: "",
     headers,
-    refunds,
+    ticket,
   }),
   methods: {
     check_item(item) {

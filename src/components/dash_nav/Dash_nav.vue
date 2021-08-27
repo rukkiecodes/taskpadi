@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar color="#EFF1FF" flat app>
+    <v-app-bar color="#EFF1FF" dark flat app>
       <v-btn
         @click="drawer = !drawer"
         class="mr-4 hidden-lg-and-up"
@@ -89,6 +89,9 @@ export default {
     Account: () => import("./components/Account.vue"),
     App_theme_menu: () => import("./components/App_theme_menu.vue")
   },
+  mounted() {
+    console.log(this.$vuetify.theme.dark)
+  }
 };
 </script>
 
