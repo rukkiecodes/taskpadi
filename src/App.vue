@@ -1,6 +1,6 @@
 <template>
   <v-app id="paddi_app">
-    <v-main>
+    <v-main class="deep-purple lighten-5">
       <router-view />
     </v-main>
   </v-app>
@@ -9,18 +9,6 @@
 <script>
 export default {
   name: "App",
-  data: () => ({
-    route: "",
-  }),
-  mounted() {
-    this.nav();
-  },
-  methods: {
-    nav() {
-      this.route = window.location.pathname;
-      console.log(this.route);
-    },
-  },
 };
 </script>
 

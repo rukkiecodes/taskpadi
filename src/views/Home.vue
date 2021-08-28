@@ -1,7 +1,8 @@
 <template>
-  <v-container fluid class="pa-0 deep-purple lighten-5">
+  <v-container fluid class="pa-0">
     <Nav />
     <Home />
+    <Footer />
   </v-container>
 </template>
 
@@ -11,6 +12,7 @@ export default {
   components: {
     Nav,
     Home: () => import("../components/home/Home.vue"),
+    Footer: () => import("../components/app_components/Footer.vue")
   },
 };
 </script>

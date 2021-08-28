@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAC;EACT,MAAM,EAAE,KAAK;EACb,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;CACtB;;AAED,AAAA,4BAA4B,CAAC;EAIzB,GAAG,EAAE,GAAG;CACX;;AACD,AAAA,kBAAkB,CAAC;EACf,KAAK,EAAE,GAAG;CACb",
-    "sources": [
-        "buyer_roles.scss"
-    ],
-    "names": [],
-    "file": "buyer_roles.css"
-}
