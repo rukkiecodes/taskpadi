@@ -25,7 +25,7 @@ export default {
     WhoCanUseTrustpaddi: () => import("./components/WhoCanUseTrustpaddi.vue"),
     WhyTrustPaddi: () => import("./components/WhyTrustPaddi.vue"),
     Testimonials: () => import("./components/Testimonials.vue"),
-    BetterSafe: () => import("../app_components/BetterSafe.vue")
-  }
-}
+    BetterSafe: () => import("../app_components/BetterSafe.vue"),
+  },
+};
 </script>

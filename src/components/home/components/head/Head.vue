@@ -3,6 +3,7 @@
     class="flex-column-reverse flex-md-row"
     justify="space-between"
     align="center"
+    ref="head"
   >
     <v-col cols="12" sm="12" md="6" lg="5">
       <p class="text-h4 grey--text text--darken-4">

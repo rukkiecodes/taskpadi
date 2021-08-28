@@ -1,6 +1,6 @@
 <template>
   <v-row justify="space-between" align="start">
-    <v-col v-for="(card, i) in cards" :key="i" cols="12" sm="4">
+    <v-col v-for="(card, i) in cards" :key="i" ref="infoCards" cols="12" sm="4">
       <v-card color="transparent" flat>
         <v-card-text class="text-center py-12">
           <v-avatar tile size="70">

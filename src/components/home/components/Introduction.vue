@@ -22,6 +22,7 @@
 </template>
 
 <script>
+// @ts-nocheck
 export default {
   data: () => ({
     cards: [
