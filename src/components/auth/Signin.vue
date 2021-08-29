@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="mt-sm-16">
     <v-row justify="space-between" align="center">
       <v-col class="text-center" cols="12" sm="5">
         <v-img
@@ -11,7 +11,14 @@
         <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
           <v-icon>mdi-linkedin</v-icon>
         </v-btn>
-        <v-btn x-small depressed class="mx-2" color="deep-purple accent-4" dark height="38">
+        <v-btn
+          x-small
+          depressed
+          class="mx-2"
+          color="deep-purple accent-4"
+          dark
+          height="38"
+        >
           <v-icon>mdi-facebook</v-icon>
         </v-btn>
         <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
@@ -21,25 +28,10 @@
       <v-col cols="12" sm="5">
         <v-card flat color="transparent" class="mx-auto mt-16">
           <v-card-title class="grey--text text--darken-3 text-h3"
-            >Sign up</v-card-title
+            >Sign In</v-card-title
           >
-          <v-card-subtitle>Enter details to sign up as Buyer</v-card-subtitle>
+          <v-card-subtitle>Enter details to sign in</v-card-subtitle>
           <v-card-text>
-            <v-text-field
-              full-width
-              outlined
-              dense
-              color="deep-purple accent-4"
-              label="Full name"
-            ></v-text-field>
-            <v-text-field
-              full-width
-              outlined
-              dense
-              type="email"
-              color="deep-purple accent-4"
-              label="Email"
-            ></v-text-field>
             <v-text-field
               full-width
               outlined
@@ -68,8 +60,8 @@
           <v-card-text class="mt-n10 text-right">
             <router-link
               class="deep-purple--text text--accent-4 text-decoration-none"
-              to="/signup_seller"
-              >Register as a seller</router-link
+              to="/forgotPassword"
+              >Forgot password?</router-link
             >
           </v-card-text>
           <v-card-text>
@@ -80,14 +72,16 @@
               dark
               block
             >
-              Sign Up
+              Sign In
             </v-btn>
           </v-card-text>
           <v-card-text class="text-center">
             <p class="grey--text text--darken-3">
-              Already have an account?
-              <router-link class="deep-purple--text text--accent-4" to="/signin"
-                >Sign In</router-link
+              Don't' have an account?
+              <router-link
+                class="deep-purple--text text--accent-4"
+                to="/signup_buyer"
+                >Sign Up</router-link
               >
             </p>
           </v-card-text>

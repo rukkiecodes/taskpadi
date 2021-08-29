@@ -1,11 +1,29 @@
 <template>
   <v-container>
     <v-row justify="space-between" align="center">
-      <v-col cols="12" sm="5">
+      <v-col class="text-center" cols="12" sm="5">
         <v-img
           lazy-src="../../assets/trust/Group 58.png"
           src="../../assets/trust/phone1.png"
+          class="mx-auto"
         />
+        <p class="grey--text text--darken-3 text-body-1">Follow us</p>
+        <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
+          <v-icon>mdi-linkedin</v-icon>
+        </v-btn>
+        <v-btn
+          x-small
+          depressed
+          class="mx-2"
+          color="deep-purple accent-4"
+          dark
+          height="38"
+        >
+          <v-icon>mdi-facebook</v-icon>
+        </v-btn>
+        <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
       </v-col>
       <v-col cols="12" sm="5">
         <v-card flat color="transparent" class="mx-auto mt-16">

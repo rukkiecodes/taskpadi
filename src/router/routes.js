@@ -24,4 +24,14 @@ export default [
     name: "Signup_buyer",
     component: () => import("../views/auth/Signup_buyer.vue"),
   },
+  {
+    path: "/signin",
+    name: "Signin",
+    component: () => import("../views/auth/Signin.vue"),
+  },
+  {
+    path: "/forgotPassword",
+    name: "ForgotPassword",
+    component: () => import("../views/auth/ForgotPassword.vue"),
+  },
 ];
