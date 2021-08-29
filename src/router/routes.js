@@ -38,6 +38,14 @@ export default [
     path: "/goodAndProductBuyer",
     name: "GoodAndProductBuyer",
     component: () =>
-      import("../views/transactions/goodAndProductBuyer/GoodAndProductBuyer.vue"),
+      import(
+        "../views/transactions/goodAndProductBuyer/GoodAndProductBuyer.vue"
+      ),
+  },
+  {
+    path: "/deliveryInfo",
+    name: "deliveryInfo",
+    component: () =>
+      import("../views/transactions/deliveryInfo/DeliveryInfo.vue"),
   },
 ];

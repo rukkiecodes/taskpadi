@@ -4,6 +4,7 @@ import Vuex from "vuex";
 import nav from "./modules/nav";
 import faq from "./modules/faq"
 import goodAndProductBuyer from "./modules/goodAndProductBuyer";
+import deliveryInfo from "./modules/deliveryInfo";
 import snackbar from "./modules/snackbar"
 
 Vue.use(Vuex);
@@ -11,8 +12,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   modules: {
     nav,
+    snackbar,
     faq,
     goodAndProductBuyer,
-    snackbar,
+    deliveryInfo
   },
 });

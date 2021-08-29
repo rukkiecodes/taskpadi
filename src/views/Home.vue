@@ -8,9 +8,9 @@
 
 <script>
 // @ts-nocheck
-import Nav from "../components/app_components/nav/Nav.vue";
+import Nav from "../components/app components/nav/Nav.vue";
 import Home from "../components/home/Home.vue";
-import Footer from "../components/app_components/Footer.vue";
+import Footer from "../components/app components/Footer.vue";
 export default {
   components: {
     Nav,

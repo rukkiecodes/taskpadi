@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Alert from "./components/app_components/Aleart.vue";
+import Alert from "./components/app components/Aleart.vue";
 export default {
   name: "App",
   components: {

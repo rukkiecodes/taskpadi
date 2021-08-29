@@ -13,7 +13,7 @@ export default {
     Head: () => import("./components/Head.vue"),
     IntroducingTrustPaddi: () => import("./components/IntroducingTrustPaddi.vue"),
     BenefitsOfTrustPaddi: () => import("./components/BenefitsOfTrustPaddi.vue"),
-    BetterSafe: () => import("../app_components/BetterSafe.vue"),
+    BetterSafe: () => import("../app components/BetterSafe.vue"),
   }
 }
 </script>

@@ -1,17 +1,17 @@
 <template>
   <v-container fluid class="pa-0">
     <Nav />
-    <GoodAndProductBuyer />
+    <DeliveryInfo />
   </v-container>
 </template>
 
 <script>
 import Nav from "../../../components/app components/nav/Nav.vue"
-import GoodAndProductBuyer from "../../../components/transactions/goodAndProductBuyer/GoodAndProductBuyer.vue"
+import DeliveryInfo from "../../../components/transactions/deliveryInfo/DeliveryInfo.vue"
 export default {
   components: {
     Nav,
-    GoodAndProductBuyer
+    DeliveryInfo
   }
 }
 </script>

@@ -38,7 +38,7 @@
 <script>
 export default {
   components: {
-    Title: () => import("../../app_components/Title.vue"),
+    Title: () => import("../../app components/Title.vue"),
   },
 };
 </script>

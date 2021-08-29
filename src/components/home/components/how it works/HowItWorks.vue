@@ -40,7 +40,7 @@ export default {
     items: [{ tab: "Buyer" }, { tab: "Seller" }],
   }),
   components: {
-    Title: () => import("../../../app_components/Title.vue"),
+    Title: () => import("../../../app components/Title.vue"),
     Buyer: () => import("./components/Buyer.vue"),
     Seller: () => import("./components/Seller.vue"),
   },
