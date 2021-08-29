@@ -34,4 +34,10 @@ export default [
     name: "ForgotPassword",
     component: () => import("../views/auth/ForgotPassword.vue"),
   },
+  {
+    path: "/goodAndProductBuyer",
+    name: "GoodAndProductBuyer",
+    component: () =>
+      import("../views/transactions/goodAndProductBuyer/GoodAndProductBuyer.vue"),
+  },
 ];
