@@ -11,6 +11,7 @@ import clientServices from "./modules/clientServices";
 import custumerCrypto from "./modules/custumerCrypto";
 import goodAndProductSeller from "./modules/goodAndProductSeller";
 import proofOfPayment from "./modules/proofOfPayment";
+import providerServices from "./modules/providerServices";
 
 Vue.use(Vuex);
 
@@ -26,5 +27,6 @@ export default new Vuex.Store({
     custumerCrypto,
     goodAndProductSeller,
     proofOfPayment,
+    providerServices,
   },
 });

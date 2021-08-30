@@ -2,7 +2,7 @@
   <v-card flat>
     <v-card-text class="mx-0 px-0">
       <v-textarea
-        v-model="clientServices.clientServicesInputs.termsOfContract"
+        v-model="providerServices.providerServicesInputs.termsOfContract"
         color="deep-purple accent-4"
         full-width
         outlined
@@ -17,7 +17,7 @@
 import { mapState } from "vuex";
 export default {
   computed: {
-    ...mapState(["clientServices"]),
+    ...mapState(["providerServices"]),
   },
 };
 </script>

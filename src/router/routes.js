@@ -69,4 +69,9 @@ export default [
     name: "ProofOfPayment",
     component: () => import("../views/transactions/ProofOfPayment.vue"),
   },
+  {
+    path: "/providerServices",
+    name: "ProviderServices",
+    component: () => import("../views/transactions/ProviderServices.vue"),
+  },
 ];
