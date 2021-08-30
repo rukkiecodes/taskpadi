@@ -26,7 +26,14 @@
         </template>
         <v-card width="300">
           <v-card-text class="ma-0 pa-0">
-            <v-date-picker @change="setDurationWithCalender" full-width color="deep-purple accent-4" v-model="picker"></v-date-picker>
+            <v-time-picker
+              format="ampm"
+              @change="setDurationWithClock"
+              @update:period="setDurationWithClock"
+              full-width
+              color="deep-purple accent-4"
+              v-model="picker"
+            ></v-time-picker>
           </v-card-text>
         </v-card>
       </v-menu>
@@ -39,17 +46,16 @@ import { mapState } from "vuex";
 export default {
   data: () => ({
     duration: ["Less than 30 minutes", "1 houre", "5 hours"],
-    picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-      .toISOString()
-      .substr(0, 10),
+    picker: null,
   }),
   methods: {
     setDurationWithSelect(e) {
-      this.traderCrypto.traderCryptoInputs.duration = e
+      this.traderCrypto.traderCryptoInputs.duration = e;
     },
-    setDurationWithCalender(e) {
-      this.traderCrypto.traderCryptoInputs.duration = e
-    }
+    setDurationWithClock() {
+      this.traderCrypto.traderCryptoInputs.duration = this.picker;
+      console.log(this.traderCrypto.traderCryptoInputs.duration);
+    },
   },
   computed: {
     ...mapState(["traderCrypto"]),
