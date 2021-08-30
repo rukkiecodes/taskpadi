@@ -1,3 +1,4 @@
+import dashboard from "./modules/dashboard/dashboard";
 export default [
   {
     path: "/",
@@ -74,4 +75,5 @@ export default [
     name: "ProviderServices",
     component: () => import("../views/transactions/ProviderServices.vue"),
   },
+  dashboard,
 ];
