@@ -2,20 +2,20 @@
   <v-card flat>
     <v-card-text class="mx-0 px-0 d-flex">
       <v-select
-        :items="duration"
-        label="Transaction duration"
-        class="mr-4"
         dense
-        color="deep-purple accent-4"
         outlined
-        hide-details
-        @change="setDurationWithSelect"
+        color="deep-purple accent-4"
+        class="mr-4"
+        :items="items"
+        label="When to pay"
+        @change="setWhenToPayDurationWithSelect"
       ></v-select>
-      <v-menu :close-on-content-click="false" offset-y>
+      <v-menu offset-y :close-on-content-click="false">
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             color="deep-purple accent-4"
             class="text-capitalize"
+            depressed
             text
             dark
             v-bind="attrs"
@@ -27,11 +27,10 @@
         <v-card width="300">
           <v-card-text class="ma-0 pa-0">
             <v-time-picker
-              format="ampm"
-              @change="setDurationWithClock"
-              full-width
               color="deep-purple accent-4"
-              v-model="picker"
+              @change="setDurationWithClock"
+              format="ampm"
+              full-width
             ></v-time-picker>
           </v-card-text>
         </v-card>
@@ -44,20 +43,18 @@
 import { mapState } from "vuex";
 export default {
   data: () => ({
-    duration: ["Less than 30 minutes", "1 houre", "5 hours"],
-    picker: null,
+    items: ["5 minutes", "10 minutes", "20 minutes", "30 minutes", "1 hour"],
   }),
   methods: {
-    setDurationWithSelect(e) {
-      this.traderCrypto.traderCryptoInputs.duration = e;
+    setWhenToPayDurationWithSelect(e) {
+      this.clientServices.clientServicesInputs.whenToPay = e
     },
-    setDurationWithClock() {
-      this.traderCrypto.traderCryptoInputs.duration = this.picker;
-      console.log(this.traderCrypto.traderCryptoInputs.duration);
-    },
+    setDurationWithClock(e) {
+      this.clientServices.clientServicesInputs.whenToPay = e
+    }
   },
   computed: {
-    ...mapState(["traderCrypto"]),
+    ...mapState(["clientServices"]),
   },
 };
 </script>

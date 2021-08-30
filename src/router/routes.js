@@ -37,21 +37,21 @@ export default [
   {
     path: "/goodAndProductBuyer",
     name: "GoodAndProductBuyer",
-    component: () =>
-      import(
-        "../views/transactions/GoodAndProductBuyer.vue"
-      ),
+    component: () => import("../views/transactions/GoodAndProductBuyer.vue"),
   },
   {
     path: "/deliveryInfo",
     name: "DeliveryInfo",
-    component: () =>
-      import("../views/transactions/DeliveryInfo.vue"),
+    component: () => import("../views/transactions/DeliveryInfo.vue"),
   },
   {
     path: "/traderCrypto",
     name: "TraderCrypto",
-    component: () =>
-      import("../views/transactions/TraderCrypto.vue"),
+    component: () => import("../views/transactions/TraderCrypto.vue"),
+  },
+  {
+    path: "/clientServices",
+    name: "ClientServices",
+    component: () => import("../views/transactions/ClientServices.vue"),
   },
 ];

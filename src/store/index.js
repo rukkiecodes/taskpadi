@@ -7,6 +7,7 @@ import faq from "./modules/faq"
 import goodAndProductBuyer from "./modules/goodAndProductBuyer";
 import deliveryInfo from "./modules/deliveryInfo";
 import traderCrypto from "./modules/traderCrypto";
+import clientServices from "./modules/clientServices";
 
 Vue.use(Vuex);
 
@@ -18,5 +19,6 @@ export default new Vuex.Store({
     goodAndProductBuyer,
     deliveryInfo,
     traderCrypto,
+    clientServices,
   },
 });
