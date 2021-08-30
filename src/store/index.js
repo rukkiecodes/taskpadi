@@ -10,6 +10,7 @@ import traderCrypto from "./modules/traderCrypto";
 import clientServices from "./modules/clientServices";
 import custumerCrypto from "./modules/custumerCrypto";
 import goodAndProductSeller from "./modules/goodAndProductSeller";
+import proofOfPayment from "./modules/proofOfPayment";
 
 Vue.use(Vuex);
 
@@ -24,5 +25,6 @@ export default new Vuex.Store({
     clientServices,
     custumerCrypto,
     goodAndProductSeller,
+    proofOfPayment,
   },
 });
