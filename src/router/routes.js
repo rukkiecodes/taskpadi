@@ -59,4 +59,9 @@ export default [
     name: "CustumerCrypto",
     component: () => import("../views/transactions/CustumerCrypto.vue"),
   },
+  {
+    path: "/goodAndProductSeller",
+    name: "GoodAndProductSeller",
+    component: () => import("../views/transactions/GoodAndProductSeller.vue"),
+  },
 ];
