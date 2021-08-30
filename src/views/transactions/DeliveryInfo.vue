@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Nav from "../../../components/app components/nav/Nav.vue"
-import DeliveryInfo from "../../../components/transactions/deliveryInfo/DeliveryInfo.vue"
+import Nav from "../../components/app components/nav/Nav.vue"
+import DeliveryInfo from "../../components/transactions/deliveryInfo/DeliveryInfo.vue"
 export default {
   components: {
     Nav,

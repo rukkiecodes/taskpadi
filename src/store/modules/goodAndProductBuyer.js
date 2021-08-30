@@ -14,8 +14,8 @@ export default {
   },
   mutations: {
     toGoodAndProductBuyerPhone: (state) => {
-      const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if (state.goodAndProductBuyerInputs.email.match(email_regex)) {
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (state.goodAndProductBuyerInputs.email.match(emailRegex)) {
         state.steps = 2;
       } else {
         snackbar.state.snack = true;

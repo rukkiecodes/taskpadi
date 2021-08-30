@@ -2,12 +2,12 @@
   <v-card flat>
     <v-card-text class="mx-0 px-0">
       <v-text-field
-        v-model="goodAndProductBuyer.goodAndProductBuyerInputs.phone"
+        v-model="traderCrypto.traderCryptoInputs.agreedAmount"
         color="deep-purple accent-4"
         full-width
         outlined
         dense
-        label="Phone number"
+        label="Agreed amount"
       ></v-text-field>
     </v-card-text>
   </v-card>
@@ -17,7 +17,7 @@
 import { mapState } from "vuex";
 export default {
   computed: {
-    ...mapState(["goodAndProductBuyer"]),
+    ...mapState(["traderCrypto"]),
   },
 };
 </script>

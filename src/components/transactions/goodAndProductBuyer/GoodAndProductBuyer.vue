@@ -9,6 +9,7 @@
     <v-stepper-step
       color="deep-purple accent-4"
       :complete="goodAndProductBuyer.steps > 1"
+      editable
       step="1"
     >
       Email address
@@ -33,6 +34,7 @@
     <v-stepper-step
       color="deep-purple accent-4"
       :complete="goodAndProductBuyer.steps > 2"
+      editable
       step="2"
     >
       Phone number
@@ -57,6 +59,7 @@
     <v-stepper-step
       color="deep-purple accent-4"
       :complete="goodAndProductBuyer.steps > 3"
+      editable
       step="3"
     >
       Product name
@@ -81,6 +84,7 @@
     <v-stepper-step
       color="deep-purple accent-4"
       :complete="goodAndProductBuyer.steps > 4"
+      editable
       step="4"
     >
       Product price
@@ -105,6 +109,7 @@
     <v-stepper-step
       color="deep-purple accent-4"
       :complete="goodAndProductBuyer.steps > 5"
+      editable
       step="5"
     >
       Product Description
@@ -129,6 +134,7 @@
     <v-stepper-step
       color="deep-purple accent-4"
       :complete="goodAndProductBuyer.steps > 6"
+      editable
       step="6"
     >
       Product condition
@@ -153,6 +159,7 @@
     <v-stepper-step
       color="deep-purple accent-4"
       :complete="goodAndProductBuyer.steps > 7"
+      editable
       step="7"
     >
       Handle Delivery

@@ -2,23 +2,23 @@
   <v-stepper
     :width="width"
     class="mx-auto"
-    v-model="deliveryInfo.steps"
+    v-model="traderCrypto.steps"
     vertical
   >
     <!-- EMAIL STEP -->
     <v-stepper-step
       color="deep-purple accent-4"
-      :complete="deliveryInfo.steps > 1"
+      :complete="traderCrypto.steps > 1"
       editable
       step="1"
     >
-      Product name
+      Email address
     </v-stepper-step>
 
     <v-stepper-content step="1">
-      <Name />
+      <Email />
       <v-btn
-        @click="toDeliveryInfoProductSize"
+        @click="totraderCryptoProductPhone"
         class="mr-4"
         color="deep-purple accent-4"
         dark
@@ -30,24 +30,20 @@
       </v-btn>
     </v-stepper-content>
 
-    <!-- PRODUCT SIZE STEP -->
+    <!-- PHONE STEP -->
     <v-stepper-step
       color="deep-purple accent-4"
-      :complete="deliveryInfo.steps > 2"
+      :complete="traderCrypto.steps > 2"
       editable
       step="2"
     >
-      Product size
-      <small
-        >{{ deliveryInfo.deliveryInfoInputs.size }}
-        {{ deliveryInfo.deliveryInfoInputs.sizeMesurmentUnit }}</small
-      >
+      Phone number
     </v-stepper-step>
 
     <v-stepper-content step="2">
-      <Size />
+      <Phone />
       <v-btn
-        @click="toDeliveryInfoProductImage"
+        @click="totraderCryptoProductCurrency"
         class="mr-4"
         color="deep-purple accent-4"
         dark
@@ -59,24 +55,19 @@
       </v-btn>
     </v-stepper-content>
 
-    <!-- PRODUCT IMAGE STEP -->
+    <!-- CURRENCY STEP -->
     <v-stepper-step
       color="deep-purple accent-4"
-      :complete="deliveryInfo.steps > 3"
+      :complete="traderCrypto.steps > 3"
       editable
       step="3"
     >
-      Product Image
+      Trader currency
     </v-stepper-step>
 
     <v-stepper-content step="3">
-      <ProductImage />
-      <v-btn
-        @click="toDeliveryInfoProductResidentialAddress"
-        class="mr-4"
-        color="deep-purple accent-4"
-        dark
-      >
+      <TraderCurrency />
+      <v-btn @click="totraderCryptoProductAgreedAmount" class="mr-4" color="deep-purple accent-4" dark>
         Continue
       </v-btn>
       <v-btn text>
@@ -84,19 +75,19 @@
       </v-btn>
     </v-stepper-content>
 
-    <!-- PRODUCT Residential Address STEP -->
+    <!-- AgreedAmount STEP -->
     <v-stepper-step
       color="deep-purple accent-4"
-      :complete="deliveryInfo.steps > 4"
+      :complete="traderCrypto.steps > 4"
       editable
       step="4"
     >
-      Residential Address
+      Agreed amount
     </v-stepper-step>
 
     <v-stepper-content step="4">
-      <ResidentialAddress />
-      <v-btn @click="toDeliveryInfoProductStateOfResidence" class="mr-4" color="deep-purple accent-4" dark>
+      <AgreedAmount />
+      <v-btn @click="totraderCryptoProductPrice" class="mr-4" color="deep-purple accent-4" dark>
         Continue
       </v-btn>
       <v-btn text>
@@ -104,18 +95,38 @@
       </v-btn>
     </v-stepper-content>
 
-    <!-- PRODUCT Residential Address STEP -->
+    <!-- Price STEP -->
     <v-stepper-step
       color="deep-purple accent-4"
-      :complete="deliveryInfo.steps > 5"
+      :complete="traderCrypto.steps > 5"
       editable
       step="5"
     >
-      State of residence
+      Price
     </v-stepper-step>
 
     <v-stepper-content step="5">
-      <StateOfResidence />
+      <Price />
+      <v-btn @click="totraderCryptoProductDuration" class="mr-4" color="deep-purple accent-4" dark>
+        Continue
+      </v-btn>
+      <v-btn text>
+        Cancel
+      </v-btn>
+    </v-stepper-content>
+
+    <!-- Duration STEP -->
+    <v-stepper-step
+      color="deep-purple accent-4"
+      :complete="traderCrypto.steps > 6"
+      editable
+      step="6"
+    >
+      Transaction duration
+    </v-stepper-step>
+
+    <v-stepper-content step="6">
+      <Duration />
       <v-btn class="mr-4" color="deep-purple accent-4" dark>
         Continue
       </v-btn>
@@ -127,25 +138,28 @@
 </template>
 
 <script>
+// @ts-nocheck
 import { mapState, mapActions } from "vuex";
 export default {
   components: {
-    Name: () => import("./components/Name.vue"),
-    Size: () => import("./components/Size.vue"),
-    ProductImage: () => import("./components/ProductImage.vue"),
-    ResidentialAddress: () => import("./components/ResidentialAddress.vue"),
-    StateOfResidence: () => import("./components/StateOfResidence.vue"),
+    Email: () => import("./components/Email.vue"),
+    Phone: () => import("./components/Phone.vue"),
+    TraderCurrency: () => import("./components/TraderCurrency.vue"),
+    AgreedAmount: () => import("./components/AgreedAmount.vue"),
+    Price: () => import("./components/Price.vue"),
+    Duration: () => import("./components/Duration.vue"),
   },
   methods: {
     ...mapActions([
-      "toDeliveryInfoProductSize",
-      "toDeliveryInfoProductImage",
-      "toDeliveryInfoProductResidentialAddress",
-      "toDeliveryInfoProductStateOfResidence"
+      "totraderCryptoProductPhone",
+      "totraderCryptoProductCurrency",
+      "totraderCryptoProductAgreedAmount",
+      "totraderCryptoProductPrice",
+      "totraderCryptoProductDuration"
     ]),
   },
   computed: {
-    ...mapState(["deliveryInfo"]),
+    ...mapState(["traderCrypto"]),
     width() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":

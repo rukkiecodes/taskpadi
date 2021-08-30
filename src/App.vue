@@ -1,7 +1,7 @@
 <template>
   <v-app id="paddi_app">
+    <Alert />
     <v-main class="deep-purple lighten-5">
-      <Alert />
       <router-view />
     </v-main>
   </v-app>

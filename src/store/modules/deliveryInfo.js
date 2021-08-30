@@ -2,103 +2,73 @@ import snackbar from "./snackbar";
 export default {
   state: {
     steps: 1,
-    goodAndProductBuyerInputs: {
-      email: "",
-      phone: "",
+    deliveryInfoInputs: {
       name: "",
-      price: "",
-      description: "",
-      condition: "",
-      handleDelivery: ""
+      size: "",
+      sizeMesurmentUnit: "",
+      productImage: [],
+      residentialAddress: "",
+      stateOfResidence: "",
     },
   },
   mutations: {
-    toGoodAndProductBuyerPhone: (state) => {
-      const email_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if (state.goodAndProductBuyerInputs.email.match(email_regex)) {
+    toDeliveryInfoProductSize: (state) => {
+      if (state.deliveryInfoInputs.name != "") {
         state.steps = 2;
-      } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please enter a valid email`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
-        state.steps = 1;
-      }
-    },
-    toGoodAndProductBuyerName: (state) => {
-      if (state.goodAndProductBuyerInputs.phone != "") {
-        state.steps = 3;
-      } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please enter a Phone number`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
-        state.steps = 2;
-      }
-    },
-    toGoodAndProductBuyerPrice: (state) => {
-      if (state.goodAndProductBuyerInputs.name != "") {
-        state.steps = 4;
       } else {
         snackbar.state.snack = true;
         snackbar.state.text = `Please enter product name`;
         snackbar.state.color = "error";
         snackbar.state.buttonColor = "error";
+        state.steps = 1;
+      }
+    },
+    toDeliveryInfoProductImage: (state) => {
+      if (state.deliveryInfoInputs.size != "") {
+        state.steps = 3;
+      } else {
+        snackbar.state.snack = true;
+        snackbar.state.text = `Please enter product size`;
+        snackbar.state.color = "error";
+        snackbar.state.buttonColor = "error";
+        state.steps = 2;
+      }
+    },
+    toDeliveryInfoProductResidentialAddress: (state) => {
+      if (state.deliveryInfoInputs.productImage.length != 0) {
+        state.steps = 4;
+      } else {
+        snackbar.state.snack = true;
+        snackbar.state.text = `Please enter product image`;
+        snackbar.state.color = "error";
+        snackbar.state.buttonColor = "error";
         state.steps = 3;
       }
     },
-    toGoodAndProductBuyerDescription: (state) => {
-      if (state.goodAndProductBuyerInputs.price != "") {
+    toDeliveryInfoProductStateOfResidence: (state) => {
+      if (state.deliveryInfoInputs.residentialAddress != "") {
         state.steps = 5;
       } else {
         snackbar.state.snack = true;
-        snackbar.state.text = `Please enter product price`;
+        snackbar.state.text = `Please enter your Residential address`;
         snackbar.state.color = "error";
         snackbar.state.buttonColor = "error";
         state.steps = 4;
       }
     },
-    toGoodAndProductBuyerCondition: (state) => {
-      if (state.goodAndProductBuyerInputs.description != "") {
-        state.steps = 6;
-      } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please enter product description`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
-        state.steps = 5;
-      }
-    },
-    toGoodAndProductBuyerHandleDelivery: (state) => {
-      if (state.goodAndProductBuyerInputs.condition != "") {
-        state.steps = 7;
-      } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please select the product condition`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
-        state.steps = 6;
-      }
-    },
   },
   actions: {
-    toGoodAndProductBuyerPhone({ commit }) {
-      commit("toGoodAndProductBuyerPhone");
+    toDeliveryInfoProductSize({ commit }) {
+      commit("toDeliveryInfoProductSize");
     },
-    toGoodAndProductBuyerName({ commit }) {
-      commit("toGoodAndProductBuyerName");
+    toDeliveryInfoProductImage({ commit }) {
+      commit("toDeliveryInfoProductImage");
     },
-    toGoodAndProductBuyerPrice({ commit }) {
-      commit("toGoodAndProductBuyerPrice");
+    toDeliveryInfoProductResidentialAddress({ commit }) {
+      commit("toDeliveryInfoProductResidentialAddress");
     },
-    toGoodAndProductBuyerDescription({ commit }) {
-      commit("toGoodAndProductBuyerDescription");
-    },
-    toGoodAndProductBuyerCondition({ commit }) {
-      commit("toGoodAndProductBuyerCondition");
-    },
-    toGoodAndProductBuyerHandleDelivery({ commit }) {
-      commit("toGoodAndProductBuyerHandleDelivery");
+    toDeliveryInfoProductStateOfResidence({ commit }) {
+      commit("toDeliveryInfoProductStateOfResidence");
     },
   },
 };

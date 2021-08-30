@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Nav from "../../../components/app components/nav/Nav.vue"
-import GoodAndProductBuyer from "../../../components/transactions/goodAndProductBuyer/GoodAndProductBuyer.vue"
+import Nav from "../../components/app components/nav/Nav.vue"
+import GoodAndProductBuyer from "../../components/transactions/goodAndProductBuyer/GoodAndProductBuyer.vue"
 export default {
   components: {
     Nav,

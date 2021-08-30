@@ -39,13 +39,19 @@ export default [
     name: "GoodAndProductBuyer",
     component: () =>
       import(
-        "../views/transactions/goodAndProductBuyer/GoodAndProductBuyer.vue"
+        "../views/transactions/GoodAndProductBuyer.vue"
       ),
   },
   {
     path: "/deliveryInfo",
-    name: "deliveryInfo",
+    name: "DeliveryInfo",
     component: () =>
-      import("../views/transactions/deliveryInfo/DeliveryInfo.vue"),
+      import("../views/transactions/DeliveryInfo.vue"),
+  },
+  {
+    path: "/traderCrypto",
+    name: "TraderCrypto",
+    component: () =>
+      import("../views/transactions/TraderCrypto.vue"),
   },
 ];
