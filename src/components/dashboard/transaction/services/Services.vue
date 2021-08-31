@@ -4,7 +4,7 @@
       <CreateTransaction />
     </v-col>
     <v-col cols="12">
-      <v-card>
+      <v-card flat>
         <v-tabs
           color="deep-purple accent-4"
           v-model="tab"

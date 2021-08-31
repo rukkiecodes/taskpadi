@@ -1,9 +1,22 @@
 <template>
   <v-container>
-    <h1 class="text-h1">Withdraws</h1>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam temporibus
-    nulla ad corrupti, eum doloribus obcaecati ab ducimus quidem officia,
-    aliquam laudantium earum magnam tempore molestiae explicabo voluptas
-    delectus possimus?
+    <v-row justify="space-between" align="start">
+      <Ballance />
+      <Form />
+      <History />
+    </v-row>
   </v-container>
 </template>
+
+<script>
+import Form from "./components/Form.vue";
+import Ballance from "./components/Ballance.vue"
+import History from "./components/history/History.vue"
+export default {
+  components: {
+    Form,
+    Ballance,
+    History
+  },
+};
+</script>

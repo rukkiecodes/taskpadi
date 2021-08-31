@@ -1,6 +1,12 @@
 <template>
-  <v-snackbar top right :color="snackbar.color" text v-model="snackbar.snack">
-    <v-icon class="mr-4" :color="snackbar.color">mdi-alert</v-icon>
+  <v-snackbar
+    top
+    right
+    :width="snackbarWidth"
+    :color="snackbar.color"
+    text
+    v-model="snackbar.snack"
+  >
     {{ snackbar.text }}
 
     <template v-slot:action="{ attrs }">
@@ -24,6 +30,20 @@ export default {
   }),
   computed: {
     ...mapState(["snackbar"]),
+    snackbarWidth() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return 220;
+        case "sm":
+          return 400;
+        case "md":
+          return 500;
+        case "lg":
+          return 500;
+        case "xl":
+          return 500;
+      }
+    },
   },
 };
 </script>

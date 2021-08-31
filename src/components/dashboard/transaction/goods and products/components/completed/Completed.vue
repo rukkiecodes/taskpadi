@@ -18,6 +18,7 @@
           label="Search"
           v-model="search"
           :search="search"
+          color="deep-purple accent-4"
           prepend-inner-icon="mdi-magnify"
         ></v-text-field>
       </v-toolbar>
