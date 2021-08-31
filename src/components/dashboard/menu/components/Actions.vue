@@ -22,12 +22,12 @@
 </template>
 
 <script>
+import Action from "./Action.vue";
+import Ballance from "./Ballance.vue";
 export default {
   components: {
-    Action: () => import("./Action.vue"),
-    Ballance: () => import("./Ballance.vue")
+    Action,
+    Ballance,
   },
 };
 </script>
-
-<style></style>
