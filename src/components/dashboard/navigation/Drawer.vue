@@ -3,6 +3,7 @@
     v-model="dashboardNavigation.drawerState"
     color="deep-purple accent-4"
     hide-overlay
+    width="200"
     app
   >
     <v-list-item>
@@ -29,7 +30,10 @@
         :to="route.route"
         link
         dense
+        dark
         color="white"
+        class="mb-2"
+        @click="setCurrentRoute"
       >
         <v-list-item-icon>
           <v-icon v-text="route.icon" />
@@ -53,9 +57,14 @@ export default {
       { title: "About", icon: "mdi-forum" },
     ],
   }),
+  methods: {
+    setCurrentRoute() {
+      this.dashboardNavigation.currentRoute = window.location.pathname;
+    },
+  },
   computed: {
     ...mapGetters(["dashboardRoutes"]),
-    ...mapState(["dashboardNavigation"])
+    ...mapState(["dashboardNavigation"]),
   },
 };
 </script>

@@ -1,11 +1,14 @@
 export default {
   state: {
     drawerState: true,
+    currentRoute: "/dashboard/menu",
+    transactionTabs: null,
+    tabs: ["Goods/products", "Crypto", "Services"],
     dashboardRoutes: [
       {
         icon: "mdi-chart-tree",
         title: "Menu",
-        route: "/dashboard",
+        route: "/dashboard/menu",
       },
       {
         icon: "mdi-bank-outline",
@@ -16,7 +19,6 @@ export default {
   },
   getters: {
     dashboardRoutes: (state) => state.dashboardRoutes,
+    tabs: (state) => state.tabs,
   },
-  mutations: {},
-  actions: {},
 };
