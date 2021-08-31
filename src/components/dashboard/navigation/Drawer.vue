@@ -1,25 +1,42 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app hide-overlay>
+  <v-navigation-drawer
+    v-model="dashboardNavigation.drawerState"
+    color="deep-purple accent-4"
+    hide-overlay
+    app
+  >
     <v-list-item>
-      <v-list-item-avatar>
-        <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-      </v-list-item-avatar>
-
-      <v-list-item-content>
-        <v-list-item-title>John Leider</v-list-item-title>
-      </v-list-item-content>
+      <v-card
+        class="d-flex flex-column justify-center align-center"
+        width="100%"
+        height="200"
+        flat
+        color="transparent"
+      >
+        <v-avatar tile size="70">
+          <img src="../../../assets/paddi.png" />
+        </v-avatar>
+        <span class="text-h6 mt-4 white--text">
+          TrustPaddi
+        </span>
+      </v-card>
     </v-list-item>
 
-    <v-divider></v-divider>
-
     <v-list dense>
-      <v-list-item v-for="item in items" :key="item.title" link>
+      <v-list-item
+        v-for="(route, i) in dashboardRoutes"
+        :key="i"
+        :to="route.route"
+        link
+        dense
+        color="white"
+      >
         <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
+          <v-icon v-text="route.icon" />
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-title v-text="route.title" />
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -27,6 +44,7 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from "vuex";
 export default {
   data: () => ({
     drawer: true,
@@ -35,7 +53,9 @@ export default {
       { title: "About", icon: "mdi-forum" },
     ],
   }),
+  computed: {
+    ...mapGetters(["dashboardRoutes"]),
+    ...mapState(["dashboardNavigation"])
+  },
 };
 </script>
-
-<style></style>

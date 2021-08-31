@@ -12,6 +12,7 @@ import custumerCrypto from "./modules/custumerCrypto";
 import goodAndProductSeller from "./modules/goodAndProductSeller";
 import proofOfPayment from "./modules/proofOfPayment";
 import providerServices from "./modules/providerServices";
+import dashboardNavigation from "./modules/dashboardNavigation";
 
 Vue.use(Vuex);
 
@@ -28,5 +29,6 @@ export default new Vuex.Store({
     goodAndProductSeller,
     proofOfPayment,
     providerServices,
+    dashboardNavigation,
   },
 });

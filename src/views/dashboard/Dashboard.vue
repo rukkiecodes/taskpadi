@@ -1,12 +1,8 @@
 <template>
-  <v-app>
+  <v-app class="deep-purple lighten-5">
     <AppBar />
     <Drawer />
-    <v-main class="deep-purple lighten-5">
-      <v-container fluid>
-        <router-view />
-      </v-container>
-    </v-main>
+    <router-view />
   </v-app>
 </template>
 
