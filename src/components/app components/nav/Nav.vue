@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar app flat color="deep-purple lighten-5">
+    <v-app-bar fixed flat color="transparent">
       <v-avatar tile>
         <img src="../../../assets/paddi.png" alt="" />
       </v-avatar>
