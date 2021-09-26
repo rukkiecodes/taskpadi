@@ -2,10 +2,10 @@ export default {
   state: {
     appRoutes: [
       { title: "Home", to: "/" },
-      { title: "About", to: "/about" },
+      { title: "About us", to: "/about" },
+      { title: "How it works", to: "/howItWorks" },
       { title: "FAQ", to: "/faq" },
       { title: "Contact us", to: "/contactUs" },
-      { title: "Pricing", to: "/pricing" },
     ],
     drawer: false
   },

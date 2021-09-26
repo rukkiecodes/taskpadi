@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid class="pa-0 red">
-    <!-- <Nav /> -->
+  <v-container fluid class="pa-0">
+    <Nav />
     <Home />
     <!-- <Footer /> -->
   </v-container>
@@ -8,12 +8,12 @@
 
 <script>
 // @ts-nocheck
-// import Nav from "../components/app components/nav/Nav.vue";
+import Nav from "../components/app components/nav/Nav.vue";
 import Home from "../components/home/Home.vue";
 // import Footer from "../components/app components/Footer.vue";
 export default {
   components: {
-    // Nav,
+    Nav,
     Home,
     // Footer,
   },

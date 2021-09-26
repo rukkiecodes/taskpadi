@@ -1,0 +1,275 @@
+<template>
+  <v-sheet color="red" class="head">
+    <v-img
+      class="d-flex align-center overflow-sm-auto overflow-xs-auto"
+      :src="bg"
+      :lazy-src="bg"
+      :height="imgHeight"
+    >
+      <v-sheet height="200" class="hidden-sm-and-up"></v-sheet>
+      <v-container class="mt-16">
+        <v-sheet color="transparent" height="100%">
+          <v-row
+            class="flex-column-reverse flex-sm-row"
+            justify="space-between"
+            align="center"
+          >
+            <v-col cols="12" sm="6">
+              <v-card flat>
+                <v-card-text class="text-h5 text-sm-h4 text-lg-h3 font-weight-bold">
+                  Safe transactions,<br />Happy People
+                </v-card-text>
+                <v-card-text>
+                  Transact Securely with online vendors & marketplaces, gain
+                  customers trust with TrustPaddi
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn
+                    dark
+                    large
+                    rounded
+                    depressed
+                    color="amber darken-3"
+                    class="text-capitalize"
+                    >Get Started</v-btn
+                  >
+                </v-card-actions>
+              </v-card>
+            </v-col>
+            <v-sheet height="100" class="hidden-sm-and-up"></v-sheet>
+            <v-col class="d-flex justify-end align-start" cols="12" sm="6">
+              <v-sheet
+                color="transparent"
+                width="330"
+                height="500"
+                style="position: relative"
+                class="mt-12"
+              >
+                <v-card
+                  height="100%"
+                  width="330"
+                  class="ma-0 pa-0 rounded-xl"
+                  elevation="12"
+                  color="transparent"
+                >
+                  <v-img
+                    lazy-src="../../../assets/trust/home/headImage.jpg"
+                    src="../../../assets/trust/home/headImage.jpg"
+                    class="pa-0 rounded-xl"
+                    height="100%"
+                  />
+                </v-card>
+
+                <v-card
+                  elevation="12"
+                  class="d-flex align-center rounded-lg pa-2"
+                  :style="{
+                    position: 'absolute',
+                    top: avatarTop + '%',
+                    left: avatarLeft + 'em',
+                  }"
+                >
+                  <v-avatar size="35" class="mr-2">
+                    <v-img
+                      lazy-src="../../../assets/trust/home/me.jpg"
+                      src="../../../assets/trust/home/me.jpg"
+                    />
+                  </v-avatar>
+                  <div>
+                    <v-card
+                      flat
+                      height="8"
+                      width="100"
+                      color="grey lighten-3"
+                    ></v-card>
+                    <v-card
+                      flat
+                      height="8"
+                      width="50"
+                      class="mt-2"
+                      color="grey lighten-3"
+                    ></v-card>
+                  </div>
+                </v-card>
+
+                <v-sheet
+                  width="220"
+                  color="white"
+                  elevation="12"
+                  class="stats rounded-xl pa-2"
+                  :style="{
+                    position: 'absolute',
+                    bottom: statBottom + '%',
+                    left: statLeft + 'em',
+                  }"
+                >
+                  <v-card
+                    flat
+                    height="50"
+                    width="100%"
+                    color="white"
+                    class="d-flex justify-space-around align-center rounded-lg"
+                  >
+                    <v-icon class="grey--text text--darken-1" left
+                      >mdi-arrow-left</v-icon
+                    >
+                    <span class="grey--text text--darken-3 text-body-2"
+                      >Stats</span
+                    >
+                    <v-icon class="grey--text text--darken-1" right
+                      >mdi-arrow-right</v-icon
+                    >
+                  </v-card>
+                  <v-card flat color="write" class="rounded-lg">
+                    <v-row
+                      no-gutters
+                      justify="space-between"
+                      align="start"
+                      class="statsSlide"
+                    >
+                      <v-col
+                        class="d-flex flex-column ma-0"
+                        cols="1"
+                        v-for="(slide, i) in slides"
+                        :key="i"
+                      >
+                        <v-slider
+                          dense
+                          max="100"
+                          readonly
+                          vertical
+                          min="0"
+                          :value="slide.value"
+                          track-color="grey lighten-2"
+                          color="#210070"
+                          class="ma-0 pa-0"
+                          thumb-color="transparent"
+                          hide-details
+                        ></v-slider>
+                      </v-col>
+                    </v-row>
+                  </v-card>
+                </v-sheet>
+              </v-sheet>
+            </v-col>
+          </v-row>
+        </v-sheet>
+      </v-container>
+    </v-img>
+  </v-sheet>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    slides: [
+      { value: 20 },
+      { value: 40 },
+      { value: 10 },
+      { value: 13 },
+      { value: 30 },
+      { value: 60 },
+      { value: 6 },
+      { value: 15 },
+      { value: 70 },
+      { value: 10 },
+      { value: 25 },
+      { value: 20 },
+    ],
+    avatarTop: 20,
+    avatarLeft: -4,
+    statBottom: -10,
+    statLeft: -8,
+  }),
+  methods: {
+    resizeAvatarCard() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          this.avatarTop = 20;
+          this.avatarLeft = -1.5;
+          break;
+        case "sm":
+          this.avatarTop = 20;
+          this.avatarLeft = -4;
+          break;
+        case "md":
+          this.avatarTop = 20;
+          this.avatarLeft = -4;
+          break;
+        case "lg":
+          this.avatarTop = 20;
+          this.avatarLeft = -4;
+          break;
+        case "xl":
+          this.avatarTop = 20;
+          this.avatarLeft = -4;
+          break;
+      }
+    },
+    resizeStatCard() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          this.statLeft = -1.5;
+          this.statBottom = -15;
+          break;
+        case "sm":
+          this.statLeft = -8;
+          this.statBottom = -10;
+          break;
+        case "md":
+          this.statLeft = -8;
+          this.statBottom = -10;
+          break;
+        case "lg":
+          this.statLeft = -8;
+          this.statBottom = -10;
+          break;
+        case "xl":
+          this.statLeft = -8;
+          this.statBottom = -10;
+          break;
+      }
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      const col1 = document.querySelectorAll(".statsSlide .col-1");
+      col1.forEach((el) => {
+        el.style.maxWidth = "4%";
+      });
+      this.resizeAvatarCard();
+      this.resizeStatCard();
+      document.addEventListener("resize", () => {
+        this.resizeAvatarCard();
+        this.resizeStatCard();
+      });
+    });
+  },
+  computed: {
+    bg() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return require("../../../assets/trust/home/headBgMobile.svg");
+        case "sm":
+          return require("../../../assets/trust/home/headBgMobile.svg");
+        case "md":
+          return require("../../../assets/trust/home/headBg.svg");
+        case "lg":
+          return require("../../../assets/trust/home/headBg.svg");
+        case "xl":
+          return require("../../../assets/trust/home/headBg.svg");
+      }
+    },
+    imgHeight() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "100vh";
+        case "sm":
+          return "100vh";
+        case "md":
+          return "100vh";
+      }
+    },
+  },
+};
+</script>
