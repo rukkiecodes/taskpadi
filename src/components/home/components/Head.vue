@@ -1,25 +1,28 @@
 <template>
-  <v-sheet color="red" class="head">
+  <v-sheet color="white" class="head">
     <v-img
-      class="d-flex align-center overflow-sm-auto overflow-xs-auto"
       :src="bg"
       :lazy-src="bg"
       :height="imgHeight"
+      :class="autoOverflow"
+      class="d-flex align-center"
     >
-      <v-sheet height="200" class="hidden-sm-and-up"></v-sheet>
+      <v-sheet height="250" class="hidden-sm-and-up"></v-sheet>
       <v-container class="mt-16">
         <v-sheet color="transparent" height="100%">
           <v-row
-            class="flex-column-reverse flex-sm-row"
-            justify="space-between"
             align="center"
+            justify="space-between"
+            class="flex-column-reverse flex-sm-row"
           >
             <v-col cols="12" sm="6">
-              <v-card flat>
-                <v-card-text class="text-h5 text-sm-h4 text-lg-h3 font-weight-bold">
+              <v-card flat color="transparent">
+                <v-card-text
+                  class="text-h5 text-sm-h4 text-lg-h3 font-weight-bold grey--text text--darken-4"
+                >
                   Safe transactions,<br />Happy People
                 </v-card-text>
-                <v-card-text>
+                <v-card-text class="grey--text text--darken-3">
                   Transact Securely with online vendors & marketplaces, gain
                   customers trust with TrustPaddi
                 </v-card-text>
@@ -29,6 +32,7 @@
                     large
                     rounded
                     depressed
+                    width="150"
                     color="amber darken-3"
                     class="text-capitalize"
                     >Get Started</v-btn
@@ -39,24 +43,24 @@
             <v-sheet height="100" class="hidden-sm-and-up"></v-sheet>
             <v-col class="d-flex justify-end align-start" cols="12" sm="6">
               <v-sheet
-                color="transparent"
                 width="330"
                 height="500"
-                style="position: relative"
                 class="mt-12"
+                color="transparent"
+                style="position: relative"
               >
                 <v-card
-                  height="100%"
                   width="330"
-                  class="ma-0 pa-0 rounded-xl"
+                  height="100%"
                   elevation="12"
                   color="transparent"
+                  class="ma-0 pa-0 rounded-xl"
                 >
                   <v-img
-                    lazy-src="../../../assets/trust/home/headImage.jpg"
-                    src="../../../assets/trust/home/headImage.jpg"
-                    class="pa-0 rounded-xl"
                     height="100%"
+                    class="pa-0 rounded-xl"
+                    src="../../../assets/trust/home/headImage.jpg"
+                    lazy-src="../../../assets/trust/home/headImage.jpg"
                   />
                 </v-card>
 
@@ -123,9 +127,9 @@
                   <v-card flat color="write" class="rounded-lg">
                     <v-row
                       no-gutters
-                      justify="space-between"
                       align="start"
                       class="statsSlide"
+                      justify="space-between"
                     >
                       <v-col
                         class="d-flex flex-column ma-0"
@@ -135,16 +139,16 @@
                       >
                         <v-slider
                           dense
-                          max="100"
-                          readonly
-                          vertical
                           min="0"
-                          :value="slide.value"
-                          track-color="grey lighten-2"
+                          vertical
+                          readonly
+                          max="100"
+                          hide-details
                           color="#210070"
                           class="ma-0 pa-0"
+                          :value="slide.value"
                           thumb-color="transparent"
-                          hide-details
+                          track-color="grey lighten-2"
                         ></v-slider>
                       </v-col>
                     </v-row>
@@ -268,6 +272,12 @@ export default {
           return "100vh";
         case "md":
           return "100vh";
+      }
+    },
+    autoOverflow() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "overflow-auto";
       }
     },
   },

@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar fixed flat color="transparent">
+    <v-app-bar fixed flat dense :color="appBarColor">
       <v-avatar tile>
         <img src="../../../assets/paddi.png" alt="" />
       </v-avatar>
@@ -34,12 +34,31 @@
 import Drawer from "./Drawer.vue";
 import { mapGetters, mapActions, mapState } from "vuex";
 export default {
+  data: () => ({
+    appBarColor: "transparent",
+  }),
   components: {
     Drawer,
-    Menu: () => import("./Menu.vue")
+    Menu: () => import("./Menu.vue"),
   },
   methods: {
     ...mapActions(["toggleDrawer"]),
+
+    colorNav() {
+      document.addEventListener("scroll", () => {
+        // console.log(window.scrollY);
+        if (window.scrollY >= 50) {
+          this.appBarColor = "white";
+        } else {
+          this.appBarColor = "transparent";
+        }
+      });
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.colorNav();
+    });
   },
   computed: {
     ...mapGetters(["appRoutes"]),
@@ -55,4 +74,3 @@ export default {
   },
 };
 </script>
-
