@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-10">
+  <v-container class="mt-16">
     <Heading
       class="text-h5 text-sm-h4 text-lg-h3 font-weight-bold text-center grey--text text--darken-4"
       title="Introducing Trustpaddi"
@@ -14,7 +14,7 @@
       :key="i"
       v-html="quote"
     />
-    <v-row justify="space-between" align="center">
+    <v-row class="mt-8" justify="space-between" align="center">
       <v-col cols="12" sm="6" md="3" lg="3" v-for="(card, i) in cards" :key="i">
         <v-card class="text-center pa-4" width="400" flat>
           <v-avatar size="80" tile>

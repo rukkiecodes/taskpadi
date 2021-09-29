@@ -2,6 +2,7 @@
   <v-container fluid class="pa-0">
     <Head />
     <Introducing />
+    <HowItWorks />
   </v-container>
 </template>
 
@@ -9,7 +10,8 @@
 export default {
   components: {
     Head: () => import("./components/Head.vue"),
-    Introducing: () => import("./components/Introducing.vue")
+    Introducing: () => import("./components/Introducing.vue"),
+    HowItWorks: () => import("./components/HowItWorks.vue"),
   },
 };
 </script>
