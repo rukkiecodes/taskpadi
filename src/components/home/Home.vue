@@ -3,6 +3,7 @@
     <Head />
     <Introducing />
     <HowItWorks />
+    <WhoCanUse />
   </v-container>
 </template>
 
@@ -12,6 +13,7 @@ export default {
     Head: () => import("./components/Head.vue"),
     Introducing: () => import("./components/Introducing.vue"),
     HowItWorks: () => import("./components/HowItWorks.vue"),
+    WhoCanUse: () => import("./components/WhoCanUse.vue"),
   },
 };
 </script>

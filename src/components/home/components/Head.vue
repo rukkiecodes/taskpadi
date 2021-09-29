@@ -164,6 +164,7 @@
 </template>
 
 <script>
+// @ts-nocheck
 export default {
   data: () => ({
     slides: [
@@ -185,101 +186,105 @@ export default {
     statBottom: -10,
     statLeft: -8,
   }),
+  updated() {
+    this.resizeAvatarCard()
+    this.resizeStatCard()
+  },
+  mounted() {
+    this.$nextTick(() => {
+      const col1 = document.querySelectorAll(".statsSlide .col-1")
+      col1.forEach((el) => {
+        el.style.maxWidth = "4%"
+      })
+      this.resizeAvatarCard()
+      this.resizeStatCard()
+      document.addEventListener("resize", () => {
+        this.resizeAvatarCard()
+        this.resizeStatCard()
+      })
+    })
+  },
   methods: {
     resizeAvatarCard() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          this.avatarTop = 20;
-          this.avatarLeft = -1.5;
-          break;
+          this.avatarTop = 20
+          this.avatarLeft = -1.5
+          break
         case "sm":
-          this.avatarTop = 20;
-          this.avatarLeft = -4;
-          break;
+          this.avatarTop = 20
+          this.avatarLeft = -4
+          break
         case "md":
-          this.avatarTop = 20;
-          this.avatarLeft = -4;
-          break;
+          this.avatarTop = 20
+          this.avatarLeft = -4
+          break
         case "lg":
-          this.avatarTop = 20;
-          this.avatarLeft = -4;
-          break;
+          this.avatarTop = 20
+          this.avatarLeft = -4
+          break
         case "xl":
-          this.avatarTop = 20;
-          this.avatarLeft = -4;
-          break;
+          this.avatarTop = 20
+          this.avatarLeft = -4
+          break
       }
     },
     resizeStatCard() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          this.statLeft = -1.5;
-          this.statBottom = -15;
-          break;
+          this.statLeft = -1.5
+          this.statBottom = -15
+          break
         case "sm":
-          this.statLeft = -8;
-          this.statBottom = -10;
-          break;
+          this.statLeft = -8
+          this.statBottom = -10
+          break
         case "md":
-          this.statLeft = -8;
-          this.statBottom = -10;
-          break;
+          this.statLeft = -8
+          this.statBottom = -10
+          break
         case "lg":
-          this.statLeft = -8;
-          this.statBottom = -10;
-          break;
+          this.statLeft = -8
+          this.statBottom = -10
+          break
         case "xl":
-          this.statLeft = -8;
-          this.statBottom = -10;
-          break;
+          this.statLeft = -8
+          this.statBottom = -10
+          break
       }
     },
-  },
-  mounted() {
-    this.$nextTick(() => {
-      const col1 = document.querySelectorAll(".statsSlide .col-1");
-      col1.forEach((el) => {
-        el.style.maxWidth = "4%";
-      });
-      this.resizeAvatarCard();
-      this.resizeStatCard();
-      document.addEventListener("resize", () => {
-        this.resizeAvatarCard();
-        this.resizeStatCard();
-      });
-    });
   },
   computed: {
     bg() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return require("../../../assets/trust/home/headBgMobile.svg");
+          return require("../../../assets/trust/home/headBgMobile.svg")
         case "sm":
-          return require("../../../assets/trust/home/headBgMobile.svg");
+          return require("../../../assets/trust/home/headBgMobile.svg")
         case "md":
-          return require("../../../assets/trust/home/headBg.svg");
+          return require("../../../assets/trust/home/headBg.svg")
         case "lg":
-          return require("../../../assets/trust/home/headBg.svg");
+          return require("../../../assets/trust/home/headBg.svg")
         case "xl":
-          return require("../../../assets/trust/home/headBg.svg");
+          return require("../../../assets/trust/home/headBg.svg")
       }
     },
     imgHeight() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return "100vh";
+          return "100vh"
         case "sm":
-          return "100vh";
+          return "100vh"
         case "md":
-          return "100vh";
+          return "100vh"
       }
     },
     autoOverflow() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return "overflow-auto";
+          return "overflow-auto"
       }
     },
   },
-};
+}
 </script>
