@@ -6,6 +6,7 @@
     />
     <Section1 />
     <Section2 />
+    <Section3 />
   </v-container>
 </template>
 
@@ -16,6 +17,7 @@ export default {
     Heading: () => import("./Heading.vue"),
     Section1: () => import("./whoCanUse/Section1.vue"),
     Section2: () => import("./whoCanUse/Section2.vue"),
+    Section3: () => import("./whoCanUse/Section3.vue"),
   },
 }
 </script>

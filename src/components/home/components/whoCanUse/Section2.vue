@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="space-between" align="center">
+  <v-row class="flex-column-reverse flex-sm-row" justify="space-between" align="center">
     <v-col cols="12" sm="6" lg="6">
       <v-card flat color="transparent">
         <v-card-text
