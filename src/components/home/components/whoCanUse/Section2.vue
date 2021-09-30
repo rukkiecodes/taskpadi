@@ -50,8 +50,8 @@
             height="100%"
             class="pa-0 rounded-xl"
             position="center center"
-            src="../../../../assets/trust/home/headImage.jpg"
-            lazy-src="../../../../assets/trust/home/headImage.jpg"
+            src="../../../../assets/trust/home/bussiness.jpg"
+            lazy-src="../../../../assets/trust/home/bussiness.jpg"
           />
         </v-card>
 

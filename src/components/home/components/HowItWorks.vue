@@ -74,8 +74,8 @@
               width="100%"
               height="100%"
               class="rounded-xl"
-              lazy-src="../../../assets/trust/home/headImage.jpg"
-              src="../../../assets/trust/home/headImage.jpg"
+              lazy-src="../../../assets/trust/home/howBuyer.jpg"
+              src="../../../assets/trust/home/howBuyer.jpg"
             />
           </v-sheet>
         </v-col>
@@ -120,8 +120,8 @@
               width="100%"
               height="100%"
               class="rounded-xl"
-              lazy-src="../../../assets/trust/home/headImage.jpg"
-              src="../../../assets/trust/home/headImage.jpg"
+              lazy-src="../../../assets/trust/home/howSeller.jpg"
+              src="../../../assets/trust/home/howSeller.jpg"
             />
           </v-sheet>
         </v-col>

@@ -75,8 +75,8 @@
                 >
                   <v-avatar size="35" class="mr-2">
                     <v-img
-                      lazy-src="../../../assets/trust/home/me.jpg"
-                      src="../../../assets/trust/home/me.jpg"
+                      lazy-src="../../../assets/trust/home/avatar.jpg"
+                      src="../../../assets/trust/home/avatar.jpg"
                     />
                   </v-avatar>
                   <div>
