@@ -6,6 +6,7 @@
     <WhoCanUse />
     <WhyTrustPaddi />
     <Testimonials />
+    <BetterSafe class="mt-16" />
   </v-container>
 </template>
 
@@ -18,6 +19,7 @@ export default {
     WhoCanUse: () => import("./components/WhoCanUse.vue"),
     WhyTrustPaddi: () => import("./components/WhyTrustPaddi.vue"),
     Testimonials: () => import("./components/Testimonials.vue"),
+    BetterSafe: () => import("../app components/BetterSafe.vue"),
   },
 };
 </script>

@@ -1,14 +1,35 @@
 <template>
-  <v-row class="flex-column text-center" justify="center" align="center">
-    <Title title="It's better safe than sorry" />
-    <v-btn color="deep-purple accent-4 px-16 px-md-10" dark depressed x-large>Get Started</v-btn>
-  </v-row>
+  <v-container>
+    <v-sheet height="300" color="#210070" class="rounded-xl">
+      <v-img
+        eager
+        height="100%"
+        src="../../assets/trust/home/wave.svg"
+        class="rounded-xl d-flex justify-center align-center text-center"
+      >
+        <Title class="white--text text-h4 font-weight-bold" :title="title" />
+        <v-btn
+          dark
+          large
+          rounded
+          depressed
+          width="150"
+          color="amber darken-3"
+          class="text-capitalize"
+          >Get Started</v-btn
+        >
+      </v-img>
+    </v-sheet>
+  </v-container>
 </template>
 
 <script>
 export default {
+  data: () => ({
+    title: `"It's Better Safe than sorry"`,
+  }),
   components: {
-    Title: () => import("./Title.vue"),
+    Title: () => import("../app components/Title.vue"),
   },
-};
+}
 </script>
