@@ -6,7 +6,7 @@
     />
     <SubHeading
       class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
-      title="The whole process is Simple, transparent and automated "
+      title="The whole process is Simple, transparent and automated"
     />
 
     <v-sheet

@@ -4,6 +4,7 @@
     <Introducing />
     <HowItWorks />
     <WhoCanUse />
+    <WhyTrustPaddi />
   </v-container>
 </template>
 
@@ -14,6 +15,7 @@ export default {
     Introducing: () => import("./components/Introducing.vue"),
     HowItWorks: () => import("./components/HowItWorks.vue"),
     WhoCanUse: () => import("./components/WhoCanUse.vue"),
+    WhyTrustPaddi: () => import("./components/WhyTrustPaddi.vue"),
   },
 };
 </script>

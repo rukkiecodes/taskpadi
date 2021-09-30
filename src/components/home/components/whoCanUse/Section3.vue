@@ -94,14 +94,14 @@
           website or marketplace.
         </v-card-text>
         <v-card-actions>
-          <v-btng
+          <v-btn
             dark
             large
             depressed
             width="200"
             color="#210070"
             class="text-capitalize rounded-lg"
-            >Integrate Now</v-btng
+            >Integrate Now</v-btn
           >
         </v-card-actions>
       </v-card>
