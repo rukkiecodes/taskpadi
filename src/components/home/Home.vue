@@ -7,6 +7,7 @@
     <WhyTrustPaddi />
     <Testimonials />
     <BetterSafe class="mt-16" />
+    <Footer class="mt-16" />
   </v-container>
 </template>
 
@@ -20,6 +21,7 @@ export default {
     WhyTrustPaddi: () => import("./components/WhyTrustPaddi.vue"),
     Testimonials: () => import("./components/Testimonials.vue"),
     BetterSafe: () => import("../app components/BetterSafe.vue"),
+    Footer: () => import("../app components/Footer.vue"),
   },
 };
 </script>
