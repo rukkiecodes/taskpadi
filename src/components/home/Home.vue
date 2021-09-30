@@ -5,6 +5,7 @@
     <HowItWorks />
     <WhoCanUse />
     <WhyTrustPaddi />
+    <Testimonials />
   </v-container>
 </template>
 
@@ -16,6 +17,7 @@ export default {
     HowItWorks: () => import("./components/HowItWorks.vue"),
     WhoCanUse: () => import("./components/WhoCanUse.vue"),
     WhyTrustPaddi: () => import("./components/WhyTrustPaddi.vue"),
+    Testimonials: () => import("./components/Testimonials.vue"),
   },
 };
 </script>

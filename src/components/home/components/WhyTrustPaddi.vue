@@ -21,8 +21,8 @@
           class="d-flex flex-column justify-start align-center text-center pa-3"
           flat
         >
-          <v-avatar size="80" color="#F4F5F7">
-            <v-img :lazy-src="why.avatar" :src="why.avatar" />
+          <v-avatar size="70" color="#F4F5F7">
+            <v-img :lazy-src="why.avatar" :src="why.avatar" contain />
           </v-avatar>
           <v-card-title
             class="pb-0 grey--text text--darken-4 text-body-1 font-weight-bold"
