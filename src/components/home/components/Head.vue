@@ -209,7 +209,7 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           this.avatarTop = 20
-          this.avatarLeft = -1.5
+          this.avatarLeft = -0.6
           break
         case "sm":
           this.avatarTop = 20
@@ -232,7 +232,7 @@ export default {
     resizeStatCard() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          this.statLeft = -1.5
+          this.statLeft = -0.5
           this.statBottom = -15
           break
         case "sm":

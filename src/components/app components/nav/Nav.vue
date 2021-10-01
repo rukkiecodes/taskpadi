@@ -7,15 +7,15 @@
       <v-spacer />
 
       <v-btn
+        text
         link
         depressed
-        text
         v-for="(route, i) in appRoutes"
         :key="i"
-        class="ml-3 text-capitalize hidden-md-and-down"
-        active-class="deep-purple accent-4 white--text"
         :to="route.to"
         v-text="route.title"
+        class="ml-3 text-capitalize hidden-md-and-down rounded-pill"
+        active-class="deep-purple accent-4 white--text"
       />
       <Menu />
       <v-btn

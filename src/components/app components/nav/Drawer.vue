@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="nav.drawer" color="deep-purple lighten-5" hide-overlay app>
+  <v-navigation-drawer v-model="nav.drawer" color="white" right app>
     <v-list-item>
       <v-card
         class="d-flex flex-column justify-center align-center"
@@ -34,19 +34,32 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters } from "vuex"
 export default {
+  mounted() {
+    this.$nextTick(() => {
+      this.hideDrawerBorder()
+    })
+  },
+  methods: {
+    hideDrawerBorder() {
+      const border = document.querySelectorAll(".v-navigation-drawer__border")
+      border.forEach((element) => {
+        element.style.display = "none"
+      })
+    },
+  },
   computed: {
     ...mapGetters(["appRoutes"]),
     ...mapState(["nav"]),
     nav: {
       get() {
-        return this.$store.state.nav;
+        return this.$store.state.nav
       },
       set(new_value) {
-        this.$store.state.nav = new_value;
+        this.$store.state.nav = new_value
       },
     },
   },
-};
+}
 </script>

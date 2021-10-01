@@ -51,9 +51,9 @@
           >
             <v-row justify="start" align="start">
               <v-col cols="2">
-                <v-avatar color="#F4F5F7" size="65">
+                <v-avatar color="#F4F5F7" :size="avatarSize">
                   <span
-                    class="text-h3   font-weight-bold"
+                    class="text-h4 font-weight-bold"
                     v-text="buy.avatar"
                   />
                 </v-avatar>
@@ -97,7 +97,7 @@
           >
             <v-row justify="start" align="start">
               <v-col cols="2">
-                <v-avatar color="#F4F5F7" size="65">
+                <v-avatar color="#F4F5F7" :size="avatarSize">
                   <span
                     class="text-h3   font-weight-bold"
                     v-text="sell.avatar"
@@ -242,6 +242,15 @@ export default {
           return 600
       }
     },
+    avatarSize () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return 50
+          case 'sm': return 60
+          case 'md': return 60
+          case 'lg': return 64
+          case 'xl': return 70
+        }
+      },
   },
 }
 </script>
