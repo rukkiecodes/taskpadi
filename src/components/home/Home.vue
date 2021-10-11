@@ -48,7 +48,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       document.addEventListener("scroll", () => {
-        if (window.scrollY >= 300) {
+        if (window.scrollY >= 500) {
           this.showBackToTop = true
         } else {
           this.showBackToTop = false

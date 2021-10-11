@@ -35,98 +35,102 @@
         >Seller</v-btn
       >
     </v-sheet>
-    <v-sheet v-if="buy">
-      <v-row
-        class="flex-column-reverse flex-sm-row"
-        justify="space-between"
-        align="start"
-      >
-        <v-col cols="12" sm="6">
-          <v-card
-            v-for="(buy, i) in buyer"
-            :key="i"
-            color="transparent"
-            flat
-            class="d-flex justify-start align-strat mb-8"
-          >
-            <v-row justify="start" align="start">
-              <v-col cols="2">
-                <v-avatar color="#F4F5F7" :size="avatarSize">
-                  <span
-                    class="text-h4 font-weight-bold"
-                    v-text="buy.avatar"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col cols="10">
-                <span class="grey--text text--darken-3" v-text="buy.text" />
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-col>
-        <v-col class="d-flex justify-end align-center" cols="12" sm="6">
-          <v-sheet
-            elevation="12"
-            :width="imageCardWidth"
-            class="ma-0 pa-0 rounded-xl"
-          >
-            <v-img
-              width="100%"
-              height="100%"
-              class="rounded-xl"
-              lazy-src="../../../assets/trust/home/howBuyer.jpg"
-              src="../../../assets/trust/home/howBuyer.jpg"
-            />
-          </v-sheet>
-        </v-col>
-      </v-row>
-    </v-sheet>
-    <v-sheet v-if="sell">
-      <v-row
-        class="flex-column-reverse flex-sm-row"
-        justify="space-between"
-        align="start"
-      >
-        <v-col cols="12" sm="6">
-          <v-card
-            v-for="(sell, i) in seller"
-            :key="i"
-            color="transparent"
-            flat
-            class="d-flex justify-start align-strat mb-8"
-          >
-            <v-row justify="start" align="start">
-              <v-col cols="2">
-                <v-avatar color="#F4F5F7" :size="avatarSize">
-                  <span
-                    class="text-h3   font-weight-bold"
-                    v-text="sell.avatar"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col cols="10">
-                <span class="grey--text text--darken-3" v-text="sell.text" />
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-col>
-        <v-col class="d-flex justify-end align-center" cols="12" sm="6">
-          <v-sheet
-            elevation="12"
-            :width="imageCardWidth"
-            class="ma-0 pa-0 rounded-xl"
-          >
-            <v-img
-              width="100%"
-              height="100%"
-              class="rounded-xl"
-              lazy-src="../../../assets/trust/home/howSeller.jpg"
-              src="../../../assets/trust/home/howSeller.jpg"
-            />
-          </v-sheet>
-        </v-col>
-      </v-row>
-    </v-sheet>
+    <v-fade-transition>
+      <v-sheet v-if="buy">
+        <v-row
+          class="flex-column-reverse flex-sm-row"
+          justify="space-between"
+          align="start"
+        >
+          <v-col cols="12" sm="6">
+            <v-card
+              v-for="(buy, i) in buyer"
+              :key="i"
+              color="transparent"
+              flat
+              class="d-flex justify-start align-strat mb-8"
+            >
+              <v-row justify="start" align="start">
+                <v-col cols="2">
+                  <v-avatar color="#F4F5F7" :size="avatarSize">
+                    <span
+                      class="text-h4 font-weight-bold"
+                      v-text="buy.avatar"
+                    />
+                  </v-avatar>
+                </v-col>
+                <v-col cols="10">
+                  <span class="grey--text text--darken-3" v-text="buy.text" />
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-col>
+          <v-col class="d-flex justify-end align-center" cols="12" sm="6">
+            <v-sheet
+              elevation="12"
+              :width="imageCardWidth"
+              class="ma-0 pa-0 rounded-xl"
+            >
+              <v-img
+                width="100%"
+                height="100%"
+                class="rounded-xl"
+                lazy-src="../../../assets/trust/home/howBuyer.jpg"
+                src="../../../assets/trust/home/howBuyer.jpg"
+              />
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-sheet>
+    </v-fade-transition>
+    <v-fade-transition>
+      <v-sheet v-if="sell">
+        <v-row
+          class="flex-column-reverse flex-sm-row"
+          justify="space-between"
+          align="start"
+        >
+          <v-col cols="12" sm="6">
+            <v-card
+              v-for="(sell, i) in seller"
+              :key="i"
+              color="transparent"
+              flat
+              class="d-flex justify-start align-strat mb-8"
+            >
+              <v-row justify="start" align="start">
+                <v-col cols="2">
+                  <v-avatar color="#F4F5F7" :size="avatarSize">
+                    <span
+                      class="text-h3   font-weight-bold"
+                      v-text="sell.avatar"
+                    />
+                  </v-avatar>
+                </v-col>
+                <v-col cols="10">
+                  <span class="grey--text text--darken-3" v-text="sell.text" />
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-col>
+          <v-col class="d-flex justify-end align-center" cols="12" sm="6">
+            <v-sheet
+              elevation="12"
+              :width="imageCardWidth"
+              class="ma-0 pa-0 rounded-xl"
+            >
+              <v-img
+                width="100%"
+                height="100%"
+                class="rounded-xl"
+                lazy-src="../../../assets/trust/home/howSeller.jpg"
+                src="../../../assets/trust/home/howSeller.jpg"
+              />
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-sheet>
+    </v-fade-transition>
   </v-container>
 </template>
 
@@ -181,7 +185,8 @@ export default {
       },
       {
         avatar: "3",
-        text: "Buyer accepts the transaction & pays to TrustPaddi; TrustPaddi holds on to the payment.",
+        text:
+          "Buyer accepts the transaction & pays to TrustPaddi; TrustPaddi holds on to the payment.",
       },
       {
         avatar: "4",
@@ -242,15 +247,20 @@ export default {
           return 600
       }
     },
-    avatarSize () {
-        switch (this.$vuetify.breakpoint.name) {
-          case 'xs': return 50
-          case 'sm': return 60
-          case 'md': return 60
-          case 'lg': return 64
-          case 'xl': return 70
-        }
-      },
+    avatarSize() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return 50
+        case "sm":
+          return 60
+        case "md":
+          return 60
+        case "lg":
+          return 64
+        case "xl":
+          return 70
+      }
+    },
   },
 }
 </script>
