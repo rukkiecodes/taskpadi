@@ -13,7 +13,7 @@
       >
         <v-slide-group class="py-4" show-arrows>
           <v-slide-item class="mr-4" v-for="(testimony, i) in testimonies" :key="i">
-            <v-card class="rounded-lg my-2" color="white" width="300">
+            <v-card class="rounded-lg ma-2" color="white" width="300">
               <v-toolbar flat>
                 <v-avatar class="mr-3">
                   <v-img :src="testimony.avatar" />
