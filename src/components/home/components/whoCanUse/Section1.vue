@@ -86,7 +86,7 @@
         >
         <v-card-title
           :class="sectionClass"
-          class="text-h4 text-sm-h3 font-weight-bold"
+          class="text-h4 text-md-h3 font-weight-bold"
           >Peer 2 Peer</v-card-title
         >
         <v-card-text :class="sectionBodyClass"
@@ -137,11 +137,11 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           this.airplaneAratarTop = 5
-          this.airplaneAratarRight = -0.5
+          this.airplaneAratarRight = 0
           break
         case "sm":
           this.airplaneAratarTop = 20
-          this.airplaneAratarRight = -2
+          this.airplaneAratarRight = -1
           break
         case "md":
           this.airplaneAratarTop = 20
@@ -161,11 +161,11 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           this.greenBoxCheckTop = 20
-          this.greenBoxCheckRight = -0.5
+          this.greenBoxCheckRight = 0
           break
         case "sm":
           this.greenBoxCheckTop = 50
-          this.greenBoxCheckRight = -2
+          this.greenBoxCheckRight = -1
           break
         case "md":
           this.greenBoxCheckTop = 60
@@ -187,6 +187,14 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "deep-purple accent-4"
+        case "sm":
+          return "transparent"
+        case "md":
+          return "transparent"
+        case "lg":
+          return "transparent"
+        case "xl":
+          return "transparent"
       }
     },
     title() {
