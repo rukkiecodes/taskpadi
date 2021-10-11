@@ -1,7 +1,7 @@
 <template>
   <v-container class="mt-16">
     <Heading
-      class="text-h3 font-weight-bold text-center grey--text text--darken-4"
+      class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
       title="Introducing Trustpaddi"
     />
     <SubHeading

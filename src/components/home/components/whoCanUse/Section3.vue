@@ -78,16 +78,19 @@
       </v-sheet>
     </v-col>
     <v-col cols="12" sm="6" lg="6">
-      <v-card flat color="transparent">
+      <v-card flat class="rounded-lg" :color="section">
         <v-card-text
-          class="text-uppercase amber--text text--darken-3 font-weight-bold text-subtitle-2"
+          :class="title"
+          class="text-uppercase font-weight-bold text-subtitle-2"
           >E-commerce</v-card-text
         >
-        <v-card-title class="text-h4 text-sm-h3 font-weight-bold"
+        <v-card-title
+          :class="sectionClass"
+          class="text-h4 text-sm-h3 font-weight-bold"
           >ONLINE <br />
-          MARKETPLACES/ E-COMMERCE STORES
-        </v-card-title>
-        <v-card-text class="grey--text text--darken-3 text-body-1"
+          MARKETPLACES/ E-COMMERCE STORES</v-card-title
+        >
+        <v-card-text :class="sectionBodyClass"
           >Potential customers are always skeptical about certain e-commerce
           sites which hasn't been recognised, the best way to gain your
           customers trust is to integrate TrustPaddi with your e-commerce
@@ -181,7 +184,47 @@ export default {
       }
     },
   },
+  computed: {
+    section() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "deep-purple accent-4"
+      }
+    },
+    title() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "white--text"
+        case "sm":
+          return "amber--text text--darken-3"
+        case "md":
+          return "amber--text text--darken-3"
+        case "lg":
+          return "amber--text text--darken-3"
+        case "xl":
+          return "amber--text text--darken-3"
+      }
+    },
+    sectionClass() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "white--text"
+      }
+    },
+    sectionBodyClass() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "white--text text-body-1"
+        case "sm":
+          return "grey--text text--darken-3 text-body-1"
+        case "md":
+          return "grey--text text--darken-3 text-body-1"
+        case "lg":
+          return "grey--text text--darken-3 text-body-1"
+        case "xl":
+          return "grey--text text--darken-3 text-body-1"
+      }
+    },
+  },
 }
 </script>
-
-<style></style>

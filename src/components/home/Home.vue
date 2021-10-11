@@ -1,10 +1,10 @@
 <template>
   <v-container fluid class="pa-0">
-    <Head />
+    <!-- <Head /> -->
     <Introducing />
     <HowItWorks />
     <WhoCanUse />
-    <WhyTrustPaddi />
+    <BenefitsOfTrustPaddi />
     <Testimonials />
     <BetterSafe class="mt-16" />
     <Footer class="mt-16" />
@@ -18,7 +18,7 @@ export default {
     Introducing: () => import("./components/Introducing.vue"),
     HowItWorks: () => import("./components/HowItWorks.vue"),
     WhoCanUse: () => import("./components/WhoCanUse.vue"),
-    WhyTrustPaddi: () => import("./components/WhyTrustPaddi.vue"),
+    BenefitsOfTrustPaddi: () => import("./components/benefitsOfTrustPaddi.vue"),
     Testimonials: () => import("./components/Testimonials.vue"),
     BetterSafe: () => import("../app components/BetterSafe.vue"),
     Footer: () => import("../app components/Footer.vue"),

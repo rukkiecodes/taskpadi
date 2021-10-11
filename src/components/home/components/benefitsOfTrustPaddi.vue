@@ -1,8 +1,8 @@
 <template>
   <v-container class="mt-16">
     <Heading
-      class="text-h3 font-weight-bold text-center grey--text text--darken-4"
-      title="Why Trustpaddi?"
+      class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
+      title="Benefits Trustpaddi!"
     />
     <SubHeading
       class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
