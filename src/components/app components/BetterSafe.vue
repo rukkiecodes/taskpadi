@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-sheet height="300" color="#210070" class="rounded-xl">
+  <v-container class="mx-auto">
+    <v-sheet height="300" color="#210070" class="rounded-xl mx-auto">
       <v-img
         eager
         height="100%"
