@@ -86,7 +86,7 @@
         >
         <v-card-title
           :class="sectionClass"
-          class="text-h4 text-sm-h3 font-weight-bold"
+          class="text-h4 text-md-h3 font-weight-bold"
           >ONLINE <br />
           MARKETPLACES/ E-COMMERCE STORES</v-card-title
         >
@@ -139,11 +139,11 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           this.shopAratarTop = 5
-          this.shopAratarRight = -0.5
+          this.shopAratarRight = 0
           break
         case "sm":
           this.shopAratarTop = 20
-          this.shopAratarRight = -2
+          this.shopAratarRight = -1
           break
         case "md":
           this.shopAratarTop = 20
@@ -163,11 +163,11 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           this.blackShirtTop = 20
-          this.blackShirtRight = -0.5
+          this.blackShirtRight = 0
           break
         case "sm":
           this.blackShirtTop = 50
-          this.blackShirtRight = -2
+          this.blackShirtRight = -1
           break
         case "md":
           this.blackShirtTop = 60
@@ -189,6 +189,14 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "deep-purple accent-4"
+        case "sm":
+          return "transparent"
+        case "md":
+          return "transparent"
+        case "lg":
+          return "transparent"
+        case "xl":
+          return "transparent"
       }
     },
     title() {
