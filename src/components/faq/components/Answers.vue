@@ -3,6 +3,7 @@
     <v-card-text
       v-for="(yourAnswer, i) in askedQuestion"
       :key="i"
+      class="text-body-1"
       v-text="yourAnswer.answer"
     />
     <v-card-text v-if="askedQuestion.length == 0" class="pt-16 text-center">

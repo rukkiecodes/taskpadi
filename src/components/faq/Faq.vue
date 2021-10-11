@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="mt-16">
     <v-row justify="space-between" align="start">
       <v-col class="hidden-md-and-up" id="scrollArea" cols="12">
         <MobileQuestions />

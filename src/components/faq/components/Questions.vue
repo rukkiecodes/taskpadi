@@ -5,7 +5,7 @@
         flat
         v-for="(question, i) in questions"
         :key="i"
-        class="mb-4"
+        class="mb-4 rounded-lg"
         :class="{
           'deep-purple accent-4': faq.activeQuestion == question.title,
         }"
