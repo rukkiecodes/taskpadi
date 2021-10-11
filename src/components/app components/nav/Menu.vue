@@ -3,13 +3,12 @@
     <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="deep-purple accent-4"
-          class="text-capitalize ml-4"
-          dark
-          text
-          depressed
-          v-bind="attrs"
           v-on="on"
+          v-bind="attrs"
+          color="deep-purple accent-4"
+          class="text-capitalize ml-4 rounded-pill"
+          dark
+          depressed
         >
           Get started
         </v-btn>
