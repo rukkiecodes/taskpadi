@@ -1,0 +1,177 @@
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 384px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 1.25) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 384px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 412px) and (device-height: 732px) and (-webkit-device-pixel-ratio: 2.625) {
+  .background {
+    height: 145vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 412px) and (device-height: 732px) and (-webkit-device-pixel-ratio: 3.5) {
+  .background {
+    height: 132vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 320px) and (device-height: 533px) and (-webkit-device-pixel-ratio: 1.5) {
+  .background {
+    height: 182vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 480px) and (device-height: 854px) and (-webkit-device-pixel-ratio: 1) {
+  .background {
+    height: 115vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 106vh;
+  }
+}
+
+@media screen and (device-width: 1024px) and (device-height: 768px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 100vh;
+  }
+}
+
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 200vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 411px) and (device-height: 731px) and (-webkit-device-pixel-ratio: 2.625) {
+  .background {
+    height: 130vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 411px) and (device-height: 823px) and (-webkit-device-pixel-ratio: 3.5) {
+  .background {
+    height: 120vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 170vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 145vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+  .background {
+    height: 130vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .background {
+    height: 122vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 540px) and (device-height: 720px) and (-webkit-device-pixel-ratio: 2.5) {
+  .background {
+    height: 132vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 100vh;
+  }
+}
+
+@media screen and (device-width: 280px) and (device-height: 653px) and (-webkit-device-pixel-ratio: 3) {
+  .background {
+    height: 140vh;
+  }
+}
+/*# sourceMappingURL=head.css.map */

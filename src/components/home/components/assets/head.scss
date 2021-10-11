@@ -1,0 +1,172 @@
+.background {
+  @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+    //BlackBerry Z30 Portrait
+    height: 151vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+    //Galaxy Note 3 Portrait
+    height: 151vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 384px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 1.25) {
+    //LG Optimus L70 Portrait
+    height: 151vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) {
+    //Microsoft lumia 950 Portrait
+    height: 151vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 384px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+    //Nexus 4 Portrait
+    height: 151vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 412px) and (device-height: 732px) and (-webkit-device-pixel-ratio: 2.625) {
+    //Nexus 5X Portrait
+    height: 145vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 412px) and (device-height: 732px) and (-webkit-device-pixel-ratio: 3.5) {
+    //Nexus 6 Portrait
+    height: 132vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 320px) and (device-height: 533px) and (-webkit-device-pixel-ratio: 1.5) {
+    //Nokia Lumia 520 Portrait
+    height: 182vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 480px) and (device-height: 854px) and (-webkit-device-pixel-ratio: 1) {
+    //Nokia N9 Portrait
+    height: 115vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {
+    //iPad Mini Portrait
+    height: 106vh;
+  }
+
+  @media screen and (device-width: 1024px) and (device-height: 768px) and (-webkit-device-pixel-ratio: 2) {
+    //iPad Mini Landscape
+    height: 100vh;
+  }
+
+  @media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2) {
+    //iPhone 4 Portrait
+    height: 200vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 411px) and (device-height: 731px) and (-webkit-device-pixel-ratio: 2.625) {
+    //Pixel 2 Portrait
+    height: 130vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 411px) and (device-height: 823px) and (-webkit-device-pixel-ratio: 3.5) {
+    //Pixel 2 XL Portrait
+    height: 120vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+    //iPhone 5/SE Portrait
+    height: 170vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+    //iPhone 6/7/8 Portrait
+    height: 145vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+    //iPhone 6/7/8 Plus Portrait
+    height: 130vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    //iPhone X Plus Portrait
+    height: 122vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 540px) and (device-height: 720px) and (-webkit-device-pixel-ratio: 2.5) {
+    //Surface Duo closed Portrait
+    height: 132vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
+  @media screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) {
+    height: 100vh;
+  }
+
+  @media screen and (device-width: 280px) and (device-height: 653px) and (-webkit-device-pixel-ratio: 3) {
+    height: 140vh;
+  }
+}

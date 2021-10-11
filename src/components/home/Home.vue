@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pa-0">
-    <!-- <Head /> -->
+    <Head />
     <Introducing />
     <HowItWorks />
     <WhoCanUse />
