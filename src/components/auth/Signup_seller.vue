@@ -8,20 +8,34 @@
           class="mx-auto"
         />
         <p class="grey--text text--darken-3 text-body-1">Follow us</p>
-        <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
+        <v-btn
+          dark
+          x-small
+          depressed
+          height="38"
+          class="rounded-lg"
+          color="deep-purple accent-4"
+        >
           <v-icon>mdi-linkedin</v-icon>
         </v-btn>
         <v-btn
+          dark
           x-small
           depressed
-          class="mx-2"
-          color="deep-purple accent-4"
-          dark
           height="38"
+          class="mx-2 rounded-lg"
+          color="deep-purple accent-4"
         >
           <v-icon>mdi-facebook</v-icon>
         </v-btn>
-        <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
+        <v-btn
+          dark
+          x-small
+          depressed
+          height="38"
+          class="rounded-lg"
+          color="deep-purple accent-4"
+        >
           <v-icon>mdi-github</v-icon>
         </v-btn>
       </v-col>
@@ -33,19 +47,21 @@
           <v-card-subtitle>Enter details to sign up as Seller</v-card-subtitle>
           <v-card-text>
             <v-text-field
-              full-width
-              outlined
               dense
+              outlined
+              full-width
+              class="rounded-lg"
+              placeholder="Full name"
               color="deep-purple accent-4"
-              label="Full name"
             ></v-text-field>
             <v-text-field
-              full-width
-              outlined
               dense
+              outlined
+              full-width
               type="email"
+              class="rounded-lg"
+              placeholder="Email"
               color="deep-purple accent-4"
-              label="Email"
             ></v-text-field>
             <v-text-field
               full-width
@@ -54,29 +70,24 @@
               color="deep-purple accent-4"
               label="Phone number"
             ></v-text-field>
-            <div class="d-flex ">
-              <v-text-field
-                outlined
-                dense
-                color="deep-purple accent-4"
-                :type="passwordType"
-                label="Password"
-              ></v-text-field>
-              <v-btn @click="togglPasswordType" icon>
-                <v-icon v-show="passwordType == 'password'"
-                  >mdi-eye-outline</v-icon
-                >
-                <v-icon v-show="passwordType != 'password'"
-                  >mdi-eye-off-outline</v-icon
-                >
-              </v-btn>
-            </div>
-            <v-select
-              full-width
+            <v-text-field
               dense
               outlined
+              full-width
+              v-model="password"
+              class="rounded-lg"
+              placeholder="Password"
+              :type="peekPassword ? 'text' : 'password'"
+              @click:append="peekPassword = !peekPassword"
+              :append-icon="peekPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            ></v-text-field>
+            <v-select
+              dense
+              outlined
+              full-width
               :items="items"
-              :label="items[0]"
+              class="rounded-lg"
+              :placeholder="items[0]"
             ></v-select>
           </v-card-text>
           <v-card-text class="mt-n10 text-right">
@@ -88,11 +99,11 @@
           </v-card-text>
           <v-card-text>
             <v-btn
-              class="mt-n3"
-              color="deep-purple accent-4"
-              depressed
               dark
               block
+              depressed
+              class="mt-n3 rounded-lg"
+              color="deep-purple accent-4"
             >
               Sign Up
             </v-btn>
@@ -114,17 +125,9 @@
 <script>
 export default {
   data: () => ({
-    passwordType: "password",
+    password: "",
+    peekPassword: false,
     items: ["I am a business seller", "I am a business buyer"],
   }),
-  methods: {
-    togglPasswordType() {
-      if (this.passwordType == "password") {
-        this.passwordType = "text";
-      } else {
-        this.passwordType = "password";
-      }
-    },
-  },
-};
+}
 </script>
