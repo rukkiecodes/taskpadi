@@ -13,10 +13,8 @@
         >
         <v-card-title
           :class="sectionClass"
-          class="text-h4 text-sm-h3 font-weight-bold"
-          >Sellers, service <br />
-          providers, Crypto <br />
-          traders & online <br />
+          class="text-h4 text-md-h3 font-weight-bold"
+          >Sellers, service providers, Crypto traders & online
           vendors</v-card-title
         >
         <v-card-text :class="sectionBodyClass"
@@ -145,12 +143,12 @@ export default {
     resizeAirplaneAvatarCard() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          this.holdingCoinsAvatarTop = 5
-          this.holdingCoinsAvatarLeft = -0.5
+          this.holdingCoinsAvatarTop = 65
+          this.holdingCoinsAvatarLeft = 0
           break
         case "sm":
-          this.holdingCoinsAvatarTop = 20
-          this.holdingCoinsAvatarLeft = -2
+          this.holdingCoinsAvatarTop = 65
+          this.holdingCoinsAvatarLeft = -1
           break
         case "md":
           this.holdingCoinsAvatarTop = 20
@@ -169,12 +167,12 @@ export default {
     resizeTinyMonitorAvatarCard() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          this.tinyMonitorTop = 20
-          this.tinyMonitorLeft = -0.5
+          this.tinyMonitorTop = 80
+          this.tinyMonitorLeft = 0
           break
         case "sm":
-          this.tinyMonitorTop = 50
-          this.tinyMonitorLeft = -2
+          this.tinyMonitorTop = 80
+          this.tinyMonitorLeft = -1
           break
         case "md":
           this.tinyMonitorTop = 60
@@ -196,6 +194,14 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "deep-purple accent-4"
+        case "sm":
+          return "transparent"
+        case "md":
+          return "transparent"
+        case "lg":
+          return "transparent"
+        case "xl":
+          return "transparent"
       }
     },
     title() {

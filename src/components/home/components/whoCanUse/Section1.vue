@@ -140,7 +140,7 @@ export default {
           this.airplaneAratarRight = 0
           break
         case "sm":
-          this.airplaneAratarTop = 20
+          this.airplaneAratarTop = 10
           this.airplaneAratarRight = -1
           break
         case "md":
@@ -164,7 +164,7 @@ export default {
           this.greenBoxCheckRight = 0
           break
         case "sm":
-          this.greenBoxCheckTop = 50
+          this.greenBoxCheckTop = 25
           this.greenBoxCheckRight = -1
           break
         case "md":
