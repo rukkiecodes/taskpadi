@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-menu offset-y>
+    <v-menu transition="scale-transition">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-on="on"
@@ -13,8 +13,11 @@
           Get started
         </v-btn>
       </template>
-      <v-list>
+      <v-list class="py-0" width="200" dense>
         <v-list-item v-for="(route, i) in start" :key="i" :to="route.to" link>
+          <v-list-item-icon>
+            <v-icon>{{ route.icon }}</v-icon>
+          </v-list-item-icon>
           <v-list-item-title>{{ route.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -26,9 +29,9 @@
 export default {
   data: () => ({
     start: [
-      { title: "Sign Up", to: "/signup" },
-      { title: "Sign In", to: "/signin" },
+      { title: "Sign Up", icon: "mdi-location-enter", to: "/signup_buyer" },
+      { title: "Sign In", icon: "mdi-login-variant", to: "/signin" },
     ],
   }),
-};
+}
 </script>
