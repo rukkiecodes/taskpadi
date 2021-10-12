@@ -8,20 +8,34 @@
           class="mx-auto"
         />
         <p class="grey--text text--darken-3 text-body-1">Follow us</p>
-        <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
+        <v-btn
+          dark
+          x-small
+          depressed
+          height="38"
+          class="rounded-lg"
+          color="deep-purple accent-4"
+        >
           <v-icon>mdi-linkedin</v-icon>
         </v-btn>
         <v-btn
+          dark
           x-small
           depressed
-          class="mx-2"
-          color="deep-purple accent-4"
-          dark
           height="38"
+          class="mx-2 rounded-lg"
+          color="deep-purple accent-4"
         >
           <v-icon>mdi-facebook</v-icon>
         </v-btn>
-        <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
+        <v-btn
+          dark
+          x-small
+          depressed
+          height="38"
+          class="rounded-lg"
+          color="deep-purple accent-4"
+        >
           <v-icon>mdi-github</v-icon>
         </v-btn>
       </v-col>
@@ -33,21 +47,22 @@
           <v-card-subtitle>Enter details to sign in</v-card-subtitle>
           <v-card-text>
             <v-text-field
-              full-width
-              outlined
               dense
-              color="deep-purple accent-4"
-              label="Email"
+              outlined
+              full-width
               type="email"
+              class="rounded-lg"
+              placeholder="Email"
+              color="deep-purple accent-4"
             ></v-text-field>
           </v-card-text>
           <v-card-text class="mt-n8">
             <v-btn
-              class="mt-n3"
-              color="deep-purple accent-4"
-              depressed
               dark
               block
+              depressed
+              class="mt-n3 rounded-lg"
+              color="deep-purple accent-4"
             >
               Reset Password
             </v-btn>
@@ -56,8 +71,8 @@
             <p class="grey--text text--darken-3">
               Don't' have an account?
               <router-link
-                class="deep-purple--text text--accent-4"
                 to="/signup_buyer"
+                class="deep-purple--text text--accent-4"
                 >Sign Up</router-link
               >
             </p>

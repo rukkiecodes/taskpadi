@@ -53,6 +53,7 @@
               class="rounded-lg"
               placeholder="Full name"
               color="deep-purple accent-4"
+              v-model="signup_buyer.credentials.fullName"
             ></v-text-field>
             <v-text-field
               dense
@@ -62,6 +63,7 @@
               class="rounded-lg"
               placeholder="Email"
               color="deep-purple accent-4"
+              v-model="signup_buyer.credentials.email"
             ></v-text-field>
             <v-text-field
               dense
@@ -70,15 +72,16 @@
               class="rounded-lg"
               placeholder="Phone number"
               color="deep-purple accent-4"
+              v-model="signup_buyer.credentials.phone"
             ></v-text-field>
             <v-text-field
               dense
               outlined
               full-width
-              v-model="password"
               class="rounded-lg"
               placeholder="Password"
               :type="peekPassword ? 'text' : 'password'"
+              v-model="signup_buyer.credentials.password"
               @click:append="peekPassword = !peekPassword"
               :append-icon="peekPassword ? 'mdi-eye' : 'mdi-eye-off'"
             ></v-text-field>
@@ -95,8 +98,10 @@
               dark
               block
               depressed
+              @click="signupAsBuyer"
               class="mt-n3 rounded-lg"
               color="deep-purple accent-4"
+              :loading="signup_buyer.loading"
             >
               Sign Up
             </v-btn>
@@ -116,10 +121,19 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     password: "",
     peekPassword: false,
   }),
+
+  methods: {
+    ...mapActions(['signupAsBuyer'])
+  },
+
+  computed: {
+    ...mapState(["signup_buyer"]),
+  },
 }
 </script>

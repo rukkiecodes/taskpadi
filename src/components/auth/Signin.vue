@@ -8,20 +8,34 @@
           class="mx-auto"
         />
         <p class="grey--text text--darken-3 text-body-1">Follow us</p>
-        <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
+        <v-btn
+          dark
+          x-small
+          depressed
+          height="38"
+          class="rounded-lg"
+          color="deep-purple accent-4"
+        >
           <v-icon>mdi-linkedin</v-icon>
         </v-btn>
         <v-btn
+          dark
           x-small
           depressed
-          class="mx-2"
-          color="deep-purple accent-4"
-          dark
           height="38"
+          class="mx-2 rounded-lg"
+          color="deep-purple accent-4"
         >
           <v-icon>mdi-facebook</v-icon>
         </v-btn>
-        <v-btn x-small depressed color="deep-purple accent-4" dark height="38">
+        <v-btn
+          dark
+          x-small
+          depressed
+          height="38"
+          class="rounded-lg"
+          color="deep-purple accent-4"
+        >
           <v-icon>mdi-github</v-icon>
         </v-btn>
       </v-col>
@@ -33,29 +47,24 @@
           <v-card-subtitle>Enter details to sign in</v-card-subtitle>
           <v-card-text>
             <v-text-field
-              full-width
-              outlined
               dense
+              outlined
+              full-width
+              class="rounded-lg"
+              placeholder="Phone number"
               color="deep-purple accent-4"
-              label="Phone number"
             ></v-text-field>
-            <div class="d-flex ">
-              <v-text-field
-                outlined
-                dense
-                color="deep-purple accent-4"
-                :type="passwordType"
-                label="Password"
-              ></v-text-field>
-              <v-btn @click="togglPasswordType" icon>
-                <v-icon v-show="passwordType == 'password'"
-                  >mdi-eye-outline</v-icon
-                >
-                <v-icon v-show="passwordType != 'password'"
-                  >mdi-eye-off-outline</v-icon
-                >
-              </v-btn>
-            </div>
+            <v-text-field
+              dense
+              outlined
+              full-width
+              v-model="password"
+              class="rounded-lg"
+              placeholder="Password"
+              :type="peekPassword ? 'text' : 'password'"
+              @click:append="peekPassword = !peekPassword"
+              :append-icon="peekPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            ></v-text-field>
           </v-card-text>
           <v-card-text class="mt-n10 text-right">
             <router-link
@@ -66,11 +75,11 @@
           </v-card-text>
           <v-card-text>
             <v-btn
-              class="mt-n3"
-              color="deep-purple accent-4"
-              depressed
               dark
               block
+              depressed
+              class="mt-n3 rounded-lg"
+              color="deep-purple accent-4"
             >
               Sign In
             </v-btn>
@@ -79,8 +88,8 @@
             <p class="grey--text text--darken-3">
               Don't' have an account?
               <router-link
-                class="deep-purple--text text--accent-4"
                 to="/signup_buyer"
+                class="deep-purple--text text--accent-4"
                 >Sign Up</router-link
               >
             </p>
@@ -94,16 +103,8 @@
 <script>
 export default {
   data: () => ({
-    passwordType: "password",
+    password: "",
+    peekPassword: false,
   }),
-  methods: {
-    togglPasswordType() {
-      if (this.passwordType == "password") {
-        this.passwordType = "text";
-      } else {
-        this.passwordType = "password";
-      }
-    },
-  },
-};
+}
 </script>
