@@ -79,6 +79,7 @@
               full-width
               class="rounded-lg"
               placeholder="Password"
+              color="deep-purple accent-4"
               :type="peekPassword ? 'text' : 'password'"
               v-model="signup_seller.credentials.password"
               @click:append="peekPassword = !peekPassword"
