@@ -1,4 +1,15 @@
+@import "./settings/mediaQuery";
+
 .background {
+  @include mobile {
+    //Default mobile Portrait
+    height: 140vh;
+
+    .backgroundText {
+      margin-top: 4em;
+    }
+  }
+
   @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
     //BlackBerry Z30 Portrait
     height: 151vh;
