@@ -8,71 +8,61 @@
       class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
       title="The safest & surest way to transact online"
     />
-    <v-row justify="center" align="start">
-      <v-col
-        v-for="(why, i) in whyTrustPaddi"
-        :key="i"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-      >
-        <v-card
-          class="d-flex flex-column justify-start align-center text-center pa-3"
-          flat
+    <v-row justify="space-between" align="start">
+      <v-col v-for="(card, i) in cards" :key="i" cols="12" sm="4">
+        <p
+          class="deep-purple--text text--accent-4 text-h5"
+          v-text="card.title"
+        />
+        <p
+          v-for="(text, i) in card.texts"
+          :key="i"
+          class="grey--text text--darken-3"
         >
-          <v-avatar size="70" color="#F4F5F7">
-            <v-img :lazy-src="why.avatar" :src="why.avatar" contain />
-          </v-avatar>
-          <v-card-title
-            class="pb-0 grey--text text--darken-4 text-body-1 font-weight-bold"
-            v-text="why.title"
-          />
-          <v-card-text v-text="why.text" class="grey--text text--darken-3" />
-        </v-card>
+          <v-icon class="mt-n1 deep-purple--text text--accent-4" size="15"
+            >mdi-radiobox-marked</v-icon
+          >
+          {{ text }}
+        </p>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+// @ts-nocheck
 export default {
   data: () => ({
-    whyTrustPaddi: [
+    cards: [
       {
-        avatar: require("../../../assets/trust/home/sellWithEase.png"),
-        title: "Sell with ease",
-        text: "Buy without fear online.",
+        title: "For Sellers",
+        texts: [
+          "Gain Customers Trust",
+          "Increase Sales",
+          "Sell to customers outside your reach (outside your state)",
+          "Get Free escrow stores",
+          "Avoid The risks associated with pay on delivery",
+          "Attract Serious Customers and repels the unserious ones",
+        ],
       },
       {
-        avatar: require("../../../assets/trust/home/legapProtection.png"),
-        title: "Legal Protection",
-        text: "Both parties are legally protected while carrying out transactions with us.",
+        title: "For Buyers",
+        texts: [
+          "Safe and secure transactions with unknown vendors",
+          "We ensure you get exactly what you ordered",
+          "Guaranteed refund within 24hours of deliver",
+          "24/7 Customer Support",
+          "Fast Delivery",
+        ],
       },
       {
-        avatar: require("../../../assets/trust/home/realTimeNotification.png"),
-        title: "Real Time Notifications",
-        text: "Get instant real time notification on the progress of your order and delivery.",
-      },
-      {
-        avatar: require("../../../assets/trust/home/refund.png"),
-        title: "100% Refund",
-        text: "You get instant refund when necessary, TrustPaddi has got you covered.",
-      },
-      {
-        avatar: require("../../../assets/trust/home/trustedLogisticsPartners.png"),
-        title: "Trusted logistics partners",
-        text: "With our network of trusted logistics partners we help you get the goods to your customers on time.",
-      },
-      {
-        avatar: require("../../../assets/trust/home/support.png"),
-        title: "24/7 Support",
-        text: "Our customer service is second to non, we're always here for you.",
-      },
-      {
-        avatar: require("../../../assets/trust/home/immediateDisbursement.png"),
-        title: "Immediate Disbursement",
-        text: "Seller get paid instantly after the goods have been delivered, payment is sure.",
+        title: "For marketplace",
+        texts: [
+          "Gain customer trust as an upcoming e-commerce brand",
+          "It's secure",
+          "Well Written Documentation",
+          "24/7 Customer Support",
+        ],
       },
     ],
   }),
