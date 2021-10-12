@@ -7,7 +7,7 @@
     class="flex-column-reverse flex-sm-row"
   >
     <v-col cols="12" sm="6" lg="6">
-      <v-card flat class="rounded-lg" :color="section">
+      <v-card flat class="rounded-lg" color="transparent">
         <v-card-text
           :class="title"
           class="text-uppercase font-weight-bold text-subtitle-2"
