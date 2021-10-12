@@ -33,6 +33,7 @@
             depressed
             width="200"
             color="#210070"
+            :class="roundButton"
             class="text-capitalize rounded-lg"
             >Get Started</v-btn
           >
@@ -252,6 +253,21 @@ export default {
           return false
         case "xl":
           return false
+      }
+    },
+
+    roundButton() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "rounded-bl-xl"
+        case "sm":
+          return "rounded-lg"
+        case "md":
+          return "rounded-lg"
+        case "lg":
+          return "rounded-lg"
+        case "xl":
+          return "rounded-lg"
       }
     },
   },
