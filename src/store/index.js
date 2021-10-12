@@ -14,6 +14,7 @@ import proofOfPayment from "./modules/proofOfPayment";
 import providerServices from "./modules/providerServices";
 import dashboardNavigation from "./modules/dashboardNavigation";
 import signup_buyer from "./modules/signup_buyer"
+import signup_seller from "./modules/signup_seller"
 
 Vue.use(Vuex);
 
@@ -32,5 +33,6 @@ export default new Vuex.Store({
     providerServices,
     dashboardNavigation,
     signup_buyer,
+    signup_seller,
   },
 })

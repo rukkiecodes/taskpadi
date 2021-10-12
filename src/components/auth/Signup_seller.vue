@@ -53,6 +53,7 @@
               class="rounded-lg"
               placeholder="Full name"
               color="deep-purple accent-4"
+              v-model="signup_seller.credentials.fullName"
             ></v-text-field>
             <v-text-field
               dense
@@ -61,23 +62,25 @@
               type="email"
               class="rounded-lg"
               placeholder="Email"
+              v-model="signup_seller.credentials.email"
               color="deep-purple accent-4"
             ></v-text-field>
             <v-text-field
-              full-width
-              outlined
               dense
-              color="deep-purple accent-4"
+              outlined
+              full-width
               label="Phone number"
+              color="deep-purple accent-4"
+              v-model="signup_seller.credentials.phone"
             ></v-text-field>
             <v-text-field
               dense
               outlined
               full-width
-              v-model="password"
               class="rounded-lg"
               placeholder="Password"
               :type="peekPassword ? 'text' : 'password'"
+              v-model="signup_seller.credentials.password"
               @click:append="peekPassword = !peekPassword"
               :append-icon="peekPassword ? 'mdi-eye' : 'mdi-eye-off'"
             ></v-text-field>
@@ -88,6 +91,7 @@
               :items="items"
               class="rounded-lg"
               :placeholder="items[0]"
+              v-model="signup_seller.credentials.signupAs"
             ></v-select>
           </v-card-text>
           <v-card-text class="mt-n10 text-right">
@@ -102,8 +106,10 @@
               dark
               block
               depressed
+              @click="signupAsSeller"
               class="mt-n3 rounded-lg"
               color="deep-purple accent-4"
+              :loading="signup_seller.loading"
             >
               Sign Up
             </v-btn>
@@ -123,11 +129,20 @@
 </template>
 
 <script>
+// signup_seller
+import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
-    password: "",
     peekPassword: false,
-    items: ["I am a business seller", "I am a business buyer"],
+    items: ["seller", "buyer"],
   }),
+
+  methods: {
+    ...mapActions(['signupAsSeller'])
+  },
+
+  computed: {
+    ...mapState(["signup_seller"]),
+  },
 }
 </script>

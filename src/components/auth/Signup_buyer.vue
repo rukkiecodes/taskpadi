@@ -124,7 +124,6 @@
 import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
-    password: "",
     peekPassword: false,
   }),
 
