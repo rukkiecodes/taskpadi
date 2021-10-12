@@ -1,11 +1,16 @@
 <template>
-  <v-row justify="space-between" align="center">
+  <v-row
+    align="center"
+    :class="section"
+    :no-gutters="noGutter"
+    justify="space-between"
+  >
     <v-col cols="12" sm="6" lg="5">
       <v-sheet
         width="100%"
         height="500"
-        class="mt-12"
         style="position: relative"
+        class="mt-0 mt-sm-12 rounded-xl"
       >
         <v-card
           width="100%"
@@ -78,7 +83,7 @@
       </v-sheet>
     </v-col>
     <v-col cols="12" sm="6" lg="6">
-      <v-card flat class="rounded-lg" :color="section">
+      <v-card flat class="rounded-lg" color="transparent">
         <v-card-text
           :class="title"
           class="text-uppercase font-weight-bold text-subtitle-2"
@@ -188,7 +193,7 @@ export default {
     section() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return "deep-purple accent-4"
+          return "deep-purple accent-4 rounded-xl mt-10"
         case "sm":
           return "transparent"
         case "md":
@@ -231,6 +236,21 @@ export default {
           return "grey--text text--darken-3 text-body-1"
         case "xl":
           return "grey--text text--darken-3 text-body-1"
+      }
+    },
+
+    noGutter() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return false
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
       }
     },
   },

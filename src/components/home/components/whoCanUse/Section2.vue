@@ -43,8 +43,8 @@
       <v-sheet
         width="100%"
         height="500"
-        class="mt-0 mt-sm-12 rounded-xl"
         style="position: relative"
+        class="mt-0 mt-sm-12 rounded-xl"
       >
         <v-card
           width="100%"

@@ -1,11 +1,16 @@
 <template>
-  <v-row :no-gutters="noGutter" :class="section" justify="space-between" align="center">
+  <v-row
+    align="center"
+    :class="section"
+    :no-gutters="noGutter"
+    justify="space-between"
+  >
     <v-col cols="12" sm="6" lg="5">
       <v-sheet
         width="100%"
         height="500"
-        class="mt-0 mt-sm-12 rounded-xl"
         style="position: relative"
+        class="mt-0 mt-sm-12 rounded-xl"
       >
         <v-card
           width="100%"
@@ -101,7 +106,8 @@
             depressed
             width="200"
             color="#210070"
-            class="text-capitalize rounded-lg"
+            :class="roundButton"
+            class="text-capitalize"
             >Create a Transaction</v-btn
           >
         </v-card-actions>
@@ -243,6 +249,20 @@ export default {
           return false
         case "xl":
           return false
+      }
+    },
+    roundButton() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "rounded-bl-xl"
+        case "sm":
+          return "rounded-lg"
+        case "md":
+          return "rounded-lg"
+        case "lg":
+          return "rounded-lg"
+        case "xl":
+          return "rounded-lg"
       }
     },
   },
