@@ -129,7 +129,6 @@
 </template>
 
 <script>
-// signup_seller
 import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({

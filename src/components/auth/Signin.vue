@@ -50,17 +50,19 @@
               dense
               outlined
               full-width
+              type="email"
               class="rounded-lg"
-              placeholder="Phone number"
+              placeholder="Email"
               color="deep-purple accent-4"
+              v-model="signin.credentials.email"
             ></v-text-field>
             <v-text-field
               dense
               outlined
               full-width
-              v-model="password"
               class="rounded-lg"
               placeholder="Password"
+              v-model="signin.credentials.password"
               :type="peekPassword ? 'text' : 'password'"
               @click:append="peekPassword = !peekPassword"
               :append-icon="peekPassword ? 'mdi-eye' : 'mdi-eye-off'"
@@ -78,7 +80,9 @@
               dark
               block
               depressed
+              @click="signinUSer"
               class="mt-n3 rounded-lg"
+              :loading="signin.loading"
               color="deep-purple accent-4"
             >
               Sign In
@@ -101,10 +105,18 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     password: "",
     peekPassword: false,
   }),
+  methods: {
+    ...mapActions(["signinUSer"]),
+  },
+
+  computed: {
+    ...mapState(["signin"]),
+  },
 }
 </script>

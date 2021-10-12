@@ -46,7 +46,7 @@ export default {
           this.state.signup_seller.loading = false
           this.state.snackbar.snack = true
           this.state.snackbar.text =
-            "ERROR!!! This email is taken try another !"
+            "ERROR!!! This email is taken try another"
           this.state.snackbar.color = "error"
           this.state.snackbar.buttonColor = "error"
         }
