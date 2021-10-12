@@ -1,4 +1,3 @@
-import axios from "axios"
 import vueCookies from "vue-cookies"
 import router from "../../router"
 
