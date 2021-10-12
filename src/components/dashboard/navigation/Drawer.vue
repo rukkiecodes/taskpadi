@@ -44,11 +44,25 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
+    <template v-slot:append>
+      <v-list class="py-0" dense>
+        <v-list-item link dense dark color="white" @click="logout.logoutDialog = true">
+          <v-list-item-icon>
+            <v-icon>mdi-logout-variant</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Logout</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </template>
+    <LogoutDialog />
   </v-navigation-drawer>
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
+import { mapGetters, mapState } from "vuex"
+import LogoutDialog from "../components/logoutDialog.vue"
 export default {
   data: () => ({
     drawer: true,
@@ -57,14 +71,17 @@ export default {
       { title: "About", icon: "mdi-forum" },
     ],
   }),
+  components: {
+    LogoutDialog,
+  },
   methods: {
     setCurrentRoute() {
-      this.dashboardNavigation.currentRoute = window.location.pathname;
+      this.dashboardNavigation.currentRoute = window.location.pathname
     },
   },
   computed: {
     ...mapGetters(["dashboardRoutes"]),
-    ...mapState(["dashboardNavigation"]),
+    ...mapState(["dashboardNavigation", "logout"]),
   },
-};
+}
 </script>
