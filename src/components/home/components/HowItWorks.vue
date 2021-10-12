@@ -38,11 +38,13 @@
     <v-fade-transition>
       <v-sheet v-if="buy">
         <v-row
-          class="flex-column-reverse flex-sm-row"
-          justify="space-between"
           align="start"
+          :class="howSection"
+          :no-gutters="noGutter"
+          justify="space-between"
+          class="flex-column-reverse flex-sm-row"
         >
-          <v-col cols="12" sm="6">
+          <v-col :class="sectionClass" cols="12" sm="6">
             <v-card
               v-for="(buy, i) in buyer"
               :key="i"
@@ -60,7 +62,7 @@
                   </v-avatar>
                 </v-col>
                 <v-col cols="10">
-                  <span class="grey--text text--darken-3" v-text="buy.text" />
+                  <span :class="text" v-text="buy.text" />
                 </v-col>
               </v-row>
             </v-card>
@@ -86,11 +88,13 @@
     <v-fade-transition>
       <v-sheet v-if="sell">
         <v-row
-          class="flex-column-reverse flex-sm-row"
-          justify="space-between"
           align="start"
+          :class="howSection"
+          :no-gutters="noGutter"
+          justify="space-between"
+          class="flex-column-reverse flex-sm-row"
         >
-          <v-col cols="12" sm="6">
+          <v-col :class="sectionClass" cols="12" sm="6">
             <v-card
               v-for="(sell, i) in seller"
               :key="i"
@@ -108,7 +112,7 @@
                   </v-avatar>
                 </v-col>
                 <v-col cols="10">
-                  <span class="grey--text text--darken-3" v-text="sell.text" />
+                  <span :class="text" v-text="sell.text" />
                 </v-col>
               </v-row>
             </v-card>
@@ -259,6 +263,54 @@ export default {
           return 64
         case "xl":
           return 70
+      }
+    },
+    noGutter() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return false
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
+    howSection() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "deep-purple accent-4 rounded-xl"
+        case "sm":
+          return "white rounded-lg"
+        case "md":
+          return "white rounded-lg"
+        case "lg":
+          return "white rounded-lg"
+        case "xl":
+          return "white rounded-lg"
+      }
+    },
+    sectionClass() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "pa-2 mt-4"
+      }
+    },
+    text() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "white--text"
+        case "sm":
+          return "grey--text text--darken-3"
+        case "md":
+          return "grey--text text--darken-3"
+        case "lg":
+          return "grey--text text--darken-3"
+        case "xl":
+          return "grey--text text--darken-3"
       }
     },
   },
