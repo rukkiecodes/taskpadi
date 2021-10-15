@@ -34,7 +34,7 @@ export default {
       ) {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/loggin",
+            "https://trustpaddiauth.herokuapp.com/auth/loggin",
             this.state.signin.credentials
           )
           commit("signinUSer", response)
