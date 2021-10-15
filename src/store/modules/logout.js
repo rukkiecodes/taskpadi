@@ -9,6 +9,7 @@ export default {
     logoutUser() {
       vueCookies.remove("trustpaddi user")
       vueCookies.remove("trustpaddi token")
+      this.state.logout.logoutDialog = false
       router.push("/")
     },
   },

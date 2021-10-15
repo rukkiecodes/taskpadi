@@ -17,6 +17,7 @@ import signup_buyer from "./modules/signup_buyer"
 import signup_seller from "./modules/signup_seller"
 import signin from "./modules/signin"
 import logout from "./modules/logout"
+import restrict from "./modules/restrict"
 
 Vue.use(Vuex);
 
@@ -38,5 +39,6 @@ export default new Vuex.Store({
     signup_seller,
     signin,
     logout,
+    restrict,
   },
 })
