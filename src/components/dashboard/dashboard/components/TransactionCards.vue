@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row justify="space-between" align="start">
     <v-col cols="12" sm="6">
       <v-card min-height="190" color="#0096B7" flat dark>
         <v-toolbar color="transparent" flat dense>
