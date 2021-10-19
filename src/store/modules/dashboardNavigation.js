@@ -1,49 +1,63 @@
 export default {
   state: {
     drawerState: true,
+    rightDrawerState: true,
     currentRoute: "/dashboard/menu",
     transactionTabs: null,
     tabs: ["Goods/products", "Crypto", "Services"],
     dashboardRoutes: [
       {
-        icon: "mdi-chart-tree",
-        title: "Menu",
-        route: "/dashboard/menu",
+        icon: "mdi-home-outline",
+        title: "Dashboard",
+        route: "/dashboard/dash",
+        location: window.location.pathname,
       },
+      // {
+      //   icon: "mdi-chart-tree",
+      //   title: "Menu",
+      //   route: "/dashboard/menu",
+      //   location: window.location.pathname,
+      // },
       {
-        icon: "mdi-bank-outline",
+        icon: "mdi-swap-vertical",
         title: "Transactions",
         route: "/dashboard/transaction",
+        location: window.location.pathname,
       },
-      {
-        icon: "mdi-store-outline",
-        title: "Store",
-        route: "/dashboard/store",
-      },
-      {
-        icon: "mdi-cash-register",
-        title: "Withdraws",
-        route: "/dashboard/withdraws",
-      },
-      {
-        icon: "mdi-cash-refund",
-        title: "Refunds",
-        route: "/dashboard/refunds",
-      },
-      {
-        icon: "mdi-account-tie-voice-outline",
-        title: "Customer support",
-        route: "/dashboard/customerSupport",
-      },
-      {
-        icon: "mdi-account-outline",
-        title: "Account",
-        route: "/dashboard/account",
-      },
+      // {
+      //   icon: "mdi-store-outline",
+      //   title: "Store",
+      //   route: "/dashboard/store",
+      //   location: window.location.pathname,
+      // },
+      // {
+      //   icon: "mdi-cash-register",
+      //   title: "Withdraws",
+      //   route: "/dashboard/withdraws",
+      //   location: window.location.pathname,
+      // },
+      // {
+      //   icon: "mdi-cash-refund",
+      //   title: "Refunds",
+      //   route: "/dashboard/refunds",
+      //   location: window.location.pathname,
+      // },
+      // {
+      //   icon: "mdi-account-tie-voice-outline",
+      //   title: "Customer support",
+      //   route: "/dashboard/customerSupport",
+      //   location: window.location.pathname,
+      // },
+      // {
+      //   icon: "mdi-account-outline",
+      //   title: "Account",
+      //   route: "/dashboard/account",
+      //   location: window.location.pathname,
+      // },
     ],
   },
   getters: {
     dashboardRoutes: (state) => state.dashboardRoutes,
     tabs: (state) => state.tabs,
   },
-};
+}

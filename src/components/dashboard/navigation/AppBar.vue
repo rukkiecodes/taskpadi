@@ -1,53 +1,42 @@
 <template>
-  <v-app-bar
-    app
-    flat
-    dense
-    :height="appBarHeight"
-    :prominent="normalizeAppBar"
-    color="deep-purple lighten-5"
-    :shrink-on-scroll="normalizeAppBar"
-  >
+  <v-app-bar app flat color="deep-purple lighten-5">
     <v-app-bar-nav-icon
       @click="
         dashboardNavigation.drawerState = !dashboardNavigation.drawerState
       "
+      class="hidden-lg-and-up"
     />
-    <v-app-bar-title>Dashboard</v-app-bar-title>
 
-    <v-spacer></v-spacer>
+    <v-text-field
+      flat
+      solo
+      dense
+      hide-details
+      placeholder="Search here"
+      append-icon="mdi-magnify"
+      color="deep-purple accent-4"
+    ></v-text-field>
 
-    <template
-      v-if="dashboardNavigation.currentRoute == '/dashboard/transaction'"
-      v-slot:extension
+    <v-spacer />
+    <v-btn
+      icon
+      plain
+      @click="
+        dashboardNavigation.rightDrawerState = !dashboardNavigation.rightDrawerState
+      "
+      color="grey darken-4"
+      class="hidden-lg-and-up"
     >
-      <TabHead />
-    </template>
+      <v-icon>mdi-dots-vertical</v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from "vuex"
 export default {
-  components: {
-    TabHead: () => import("../transaction/TabHead.vue")
-  },
   computed: {
-    normalizeAppBar() {
-      // @ts-ignore
-      switch (this.dashboardNavigation.currentRoute) {
-        case "/dashboard/transaction":
-          return true;
-      }
-    },
-    appBarHeight() {
-      // @ts-ignore
-      switch (this.dashboardNavigation.currentRoute) {
-        case "/dashboard/transaction":
-          return 20;
-      }
-    },
     ...mapState(["dashboardNavigation"]),
   },
-};
+}
 </script>

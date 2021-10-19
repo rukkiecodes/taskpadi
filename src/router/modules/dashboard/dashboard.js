@@ -4,9 +4,9 @@ export default {
   component: () => import("../../../views/dashboard/Dashboard.vue"),
   children: [
     {
-      path: "menu",
-      name: "Menu",
-      component: () => import("../../../views/dashboard/Menu.vue"),
+      path: "dash",
+      name: "Dash",
+      component: () => import("../../../views/dashboard/DashboardMenu.vue"),
     },
     {
       path: "transaction",
@@ -41,4 +41,4 @@ export default {
       component: () => import("../../../views/dashboard/account/Account.vue"),
     },
   ],
-};
+}

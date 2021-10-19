@@ -7,7 +7,7 @@ export default {
       // @ts-ignore
       const token = vueCookies.get("trustpaddi token")
       if (token) {
-        router.push("/dashboard/menu")
+        router.push("/dashboard/dash")
       } else {
         router.push("/")
       }
