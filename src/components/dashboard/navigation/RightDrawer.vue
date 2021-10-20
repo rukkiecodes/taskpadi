@@ -5,27 +5,16 @@
     color="white"
     v-model="dashboardNavigation.rightDrawerState"
   >
-    <v-list-item dense>
-      <v-card
-        flat
-        width="100%"
-        height="200"
-        color="transparent"
-        class="d-flex flex-column justify-center align-center"
-      >
-        <v-avatar tile size="60">
-          <img src="../../../assets/paddi.png" />
-        </v-avatar>
-        <span
-          class="text-body-1 mt-4 grey--text text--darken-4 text-uppercase font-weight-bold"
-        >
-          TrustPaddi
-        </span>
-        <span class="text-caption mt-0 grey--text text--darken-3">
-          Safer Transactions, Happy people
-        </span>
-      </v-card>
-    </v-list-item>
+    <template v-slot:prepend>
+      <v-toolbar flat>
+        <v-spacer></v-spacer>
+        <v-badge color="red" dot overlap>
+          <v-icon>mdi-bell-outline</v-icon>
+        </v-badge>
+        <ProfileMenu />
+      </v-toolbar>
+    </template>
+    <Balance />
   </v-navigation-drawer>
 </template>
 
@@ -36,6 +25,10 @@ export default {
   data: () => ({
     drawer: true,
   }),
+  components: {
+    ProfileMenu: () => import("./components/ProfileMenu.vue"),
+    Balance: () => import("./components/Balance.vue"),
+  },
   mounted() {
     this.$nextTick(() => {
       this.removeBorder()
