@@ -4,6 +4,7 @@
       <TransactionCards />
       <TransactionTable />
     </v-row>
+    <ViewDetails />
   </v-container>
 </template>
 
@@ -12,6 +13,7 @@ export default {
   components: {
     TransactionCards: () => import("./components/TransactionCards.vue"),
     TransactionTable: () => import("./components/TransactionTable.vue"),
+    ViewDetails: () => import("../../app components/ViewDetails.vue"),
   },
 }
 </script>

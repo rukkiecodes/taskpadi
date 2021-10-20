@@ -1,6 +1,7 @@
 <template>
   <v-navigation-drawer
     app
+    width="200"
     color="white"
     v-model="dashboardNavigation.drawerState"
   >
@@ -20,7 +21,7 @@
         >
           TrustPaddi
         </span>
-        <span class="text-caption mt-0 grey--text text--darken-3">
+        <span class="text-caption text-center mt-0 grey--text text--darken-3">
           Safer Transactions, Happy people
         </span>
       </v-card>
