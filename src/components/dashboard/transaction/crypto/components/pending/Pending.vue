@@ -36,7 +36,7 @@
       </v-chip>
     </template>
     <template v-slot:item.productAction="{ item }">
-      <v-btn @click="viewData(item)" icon>
+      <v-btn @click="viewTransactionDetails(item)" icon>
         <v-icon small>{{ item.productAction }}</v-icon>
       </v-btn>
     </template>
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import header from "./data/header";
 import transaction from "./data/transaction";
 export default {
@@ -53,9 +54,7 @@ export default {
     transaction,
   }),
   methods: {
-    viewData(item) {
-      console.log(item)
-    }
+    ...mapActions(["viewTransactionDetails"])
   }
 };
 </script>
