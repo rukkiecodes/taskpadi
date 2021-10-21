@@ -1,13 +1,14 @@
+// @ts-nocheck
 import vueCookies from "vue-cookies"
 import router from "../../router"
 
 export default {
   actions: {
     ifAuth() {
-      // @ts-ignore
       const token = vueCookies.get("trustpaddi token")
       if (token) {
-        router.push("/dashboard/dash")
+        if (location.pathname == "/dashboard/transaction")
+          router.push("/dashboard/dash")
       } else {
         router.push("/")
       }

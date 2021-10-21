@@ -8,7 +8,7 @@
     v-model="dashboardNavigation.rightDrawerState"
   >
     <template v-slot:prepend>
-      <v-sheet class="d-flex justify-end align-center px-0 py-2" flat>
+      <v-sheet class="d-flex justify-end align-center px-0 py-3" flat>
         <v-spacer></v-spacer>
         <v-badge color="red" dot overlap>
           <v-icon>mdi-bell-outline</v-icon>
@@ -18,7 +18,9 @@
     </template>
     <Balance />
     <v-card color="transparent mx-2 mt-2 text-center" flat>
-      <v-card-text class="pa-0">Money here are available for witdraws</v-card-text>
+      <v-card-text class="pa-0"
+        >Money here are available for witdraws</v-card-text
+      >
     </v-card>
     <Buttons />
     <RecentTransactions />

@@ -17,7 +17,7 @@ export default {
         state.loading = false
         vueCookies.set("trustpaddi token", response.data.token)
         vueCookies.set("trustpaddi user", response.data.user)
-        router.push("/dashboard/menu")
+        router.push("/dashboard/dash")
       } else {
         state.loading = false
         router.push("/signin")
