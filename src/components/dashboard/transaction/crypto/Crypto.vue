@@ -19,21 +19,31 @@
         </v-tabs>
 
         <v-tabs-items v-model="tab">
-          <v-tab-item>
-            <Completed />
-          </v-tab-item>
-          <v-tab-item>
-            <Ongoing />
-          </v-tab-item>
-          <v-tab-item>
-            <Pending />
-          </v-tab-item>
-          <v-tab-item>
-            <Failed />
-          </v-tab-item>
-          <v-tab-item>
-            <Canceled />
-          </v-tab-item>
+          <v-fade-transition>
+            <v-tab-item>
+              <Completed />
+            </v-tab-item>
+          </v-fade-transition>
+          <v-fade-transition>
+            <v-tab-item>
+              <Ongoing />
+            </v-tab-item>
+          </v-fade-transition>
+          <v-fade-transition>
+            <v-tab-item>
+              <Pending />
+            </v-tab-item>
+          </v-fade-transition>
+          <v-fade-transition>
+            <v-tab-item>
+              <Failed />
+            </v-tab-item>
+          </v-fade-transition>
+          <v-fade-transition>
+            <v-tab-item>
+              <Canceled />
+            </v-tab-item>
+          </v-fade-transition>
         </v-tabs-items>
       </v-card>
     </v-col>
@@ -54,5 +64,5 @@ export default {
     Canceled: () => import("./components/canceled/Canceled.vue"),
     CreateTransaction: () => import("./CreateTransaction.vue"),
   },
-};
+}
 </script>
