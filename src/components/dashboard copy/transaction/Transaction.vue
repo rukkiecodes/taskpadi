@@ -27,7 +27,6 @@ export default {
   },
   computed: {
     ...mapState(["dashboardNavigation"]),
-    ...mapGetters(["tabs"]),
   },
 };
 </script>

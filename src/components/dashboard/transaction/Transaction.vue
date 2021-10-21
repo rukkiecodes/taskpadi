@@ -1,9 +1,12 @@
 <template>
   <v-container>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum reiciendis
-    non eos at aliquam amet assumenda, quia eaque ad labore magni? Atque
-    mollitia ipsum iure voluptates alias, sapiente quisquam laudantium!
-    <!-- <v-tabs-items v-model="dashboardNavigation.transactionTabs">
+    <v-tabs v-model="tab" color="deep-purple accent-4" background-color="transparent" align-with-title>
+      <v-tab class="text-capitalize">Good/Products</v-tab>
+      <v-tab class="text-capitalize">Crypto</v-tab>
+      <v-tab class="text-capitalize">Services</v-tab>
+    </v-tabs>
+
+    <v-tabs-items v-model="tab">
       <v-tab-item class="deep-purple lighten-5">
         <GoodsAndProducts class="deep-purple lighten-5" />
       </v-tab-item>
@@ -13,20 +16,23 @@
       <v-tab-item class="deep-purple lighten-5">
         <Services class="deep-purple lighten-5" />
       </v-tab-item>
-    </v-tabs-items> -->
+    </v-tabs-items>
   </v-container>
 </template>
 
 <script>
-// import GoodsAndProducts from "../transaction/goods and products/GoodsAndProducts.vue"
-// import Crypto from "../transaction/crypto/Crypto.vue"
-// import Services from "../transaction/services/Services.vue"
+import GoodsAndProducts from "../transaction/goods and products/GoodsAndProducts.vue"
+import Crypto from "../transaction/crypto/Crypto.vue"
+import Services from "../transaction/services/Services.vue"
 import { mapGetters, mapState } from "vuex"
 export default {
+  data: () => ({
+    tab: null,
+  }),
   components: {
-    // GoodsAndProducts,
-    // Crypto,
-    // Services,
+    GoodsAndProducts,
+    Crypto,
+    Services,
   },
   computed: {
     ...mapState(["dashboardNavigation"]),

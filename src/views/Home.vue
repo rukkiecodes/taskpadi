@@ -15,13 +15,5 @@ export default {
     Nav,
     Home,
   },
-
-  beforeMount() {
-    this.ifAuth()
-  },
-
-  methods: {
-    ...mapActions(["ifAuth"])
-  }
 };
 </script>

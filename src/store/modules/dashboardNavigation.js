@@ -4,7 +4,6 @@ export default {
     rightDrawerState: true,
     currentRoute: "/dashboard/menu",
     transactionTabs: null,
-    tabs: ["Goods/products", "Crypto", "Services"],
     dashboardRoutes: [
       {
         icon: "mdi-home-outline",
@@ -58,6 +57,5 @@ export default {
   },
   getters: {
     dashboardRoutes: (state) => state.dashboardRoutes,
-    tabs: (state) => state.tabs,
   },
 }

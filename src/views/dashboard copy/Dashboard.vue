@@ -16,12 +16,6 @@ export default {
     AppBar,
     Drawer,
   },
-  beforeMount() {
-    this.ifAuth()
-  },
-  methods: {
-    ...mapActions(["ifAuth"]),
-  },
 }
 </script>
 

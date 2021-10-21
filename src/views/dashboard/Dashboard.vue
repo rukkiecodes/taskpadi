@@ -19,12 +19,6 @@ export default {
     Drawer,
     RightDrawer,
   },
-  beforeMount() {
-    this.ifAuth()
-  },
-  methods: {
-    ...mapActions(["ifAuth"]),
-  },
 }
 </script>
 
