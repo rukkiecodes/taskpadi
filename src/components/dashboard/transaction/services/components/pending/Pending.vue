@@ -27,8 +27,7 @@
       <v-chip
         color="transparent"
         :class="{
-          'primary--text font-weight-bold':
-            item.productStatus == 'Pending',
+          'primary--text font-weight-bold': item.productStatus == 'Pending',
         }"
         class="px-0"
       >
@@ -36,7 +35,7 @@
       </v-chip>
     </template>
     <template v-slot:item.productAction="{ item }">
-      <v-btn @click="viewData(item)" icon>
+      <v-btn @click="viewTransactionDetails(item)" icon>
         <v-icon small>{{ item.productAction }}</v-icon>
       </v-btn>
     </template>
@@ -44,8 +43,9 @@
 </template>
 
 <script>
-import header from "./data/header";
-import transaction from "./data/transaction";
+import { mapActions } from "vuex"
+import header from "./data/header"
+import transaction from "./data/transaction"
 export default {
   data: () => ({
     search: "",
@@ -53,9 +53,7 @@ export default {
     transaction,
   }),
   methods: {
-    viewData(item) {
-      console.log(item)
-    }
-  }
-};
+    ...mapActions(["viewTransactionDetails"]),
+  },
+}
 </script>
