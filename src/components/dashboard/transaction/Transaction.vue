@@ -27,6 +27,7 @@
         </v-tab-item>
       </v-fade-transition>
     </v-tabs-items>
+    <ViewDetails />
   </v-container>
 </template>
 
@@ -43,6 +44,8 @@ export default {
     GoodsAndProducts,
     Crypto,
     Services,
+    ViewDetails: () =>
+      import("../../../components/app components/ViewDetails.vue"),
   },
   computed: {
     ...mapState(["dashboardNavigation"]),

@@ -14,8 +14,9 @@ export default {
   components: {
     TransactionCards: () => import("./components/TransactionCards.vue"),
     TransactionTable: () => import("./components/TransactionTable.vue"),
-    ViewDetails: () => import("../../app components/ViewDetails.vue"),
     Activities: () => import("./components/Activities.vue"),
+    ViewDetails: () =>
+      import("../../../components/app components/ViewDetails.vue"),
   },
 }
 </script>
