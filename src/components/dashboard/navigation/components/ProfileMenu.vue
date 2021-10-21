@@ -5,10 +5,9 @@
         text
         v-on="on"
         depressed
-        height="100%"
         v-bind="attrs"
         color="grey darken-3"
-        class="text-capitalize py-0 ml-3"
+        class="text-capitalize ml-3"
       >
         <v-avatar left class="mr-2" size="35">
           <img src="../../../../assets/trust/Ellipse3.png" >

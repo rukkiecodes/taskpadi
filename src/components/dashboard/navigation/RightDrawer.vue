@@ -3,18 +3,25 @@
     app
     right
     color="white"
+    width="260"
+    class="rightDrawer"
     v-model="dashboardNavigation.rightDrawerState"
   >
     <template v-slot:prepend>
-      <v-toolbar flat>
+      <v-sheet class="d-flex justify-end align-center px-0 py-2" flat>
         <v-spacer></v-spacer>
         <v-badge color="red" dot overlap>
           <v-icon>mdi-bell-outline</v-icon>
         </v-badge>
         <ProfileMenu />
-      </v-toolbar>
+      </v-sheet>
     </template>
     <Balance />
+    <v-card color="transparent mx-2 mt-2 text-center" flat>
+      <v-card-text class="pa-0">Money here are available for witdraws</v-card-text>
+    </v-card>
+    <Buttons />
+    <RecentTransactions />
   </v-navigation-drawer>
 </template>
 
@@ -28,6 +35,8 @@ export default {
   components: {
     ProfileMenu: () => import("./components/ProfileMenu.vue"),
     Balance: () => import("./components/Balance.vue"),
+    Buttons: () => import("./components/Buttons.vue"),
+    RecentTransactions: () => import("./components/RecentTransactions.vue"),
   },
   mounted() {
     this.$nextTick(() => {
@@ -52,3 +61,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.v-navigation-drawer__content::-webkit-scrollbar {
+  width: 0px;
+}
+</style>

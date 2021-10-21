@@ -1,9 +1,9 @@
 <template>
   <v-card
-    class="mx-3 mt-10 rounded-lg"
-    color="deep-purple accent-4"
-    elevation="12"
     dark
+    elevation="12"
+    color="deep-purple accent-4"
+    class="mx-3 mt-10 rounded-lg"
   >
     <v-card-title>
       <v-spacer></v-spacer>
