@@ -9,7 +9,7 @@
     <v-col cols="12" sm="6" lg="5">
       <v-card
         width="100%"
-        height="100%"
+        height="500"
         elevation="12"
         color="transparent"
         class="ma-0 pa-0 rounded-xl"
@@ -27,7 +27,7 @@
     <v-col cols="12" sm="6" lg="6">
       <v-card flat class="rounded-lg" color="transparent">
         <v-card-text v-for="(card, i) in cards" :key="i">
-          <p class="text-h5" :class="textColor" v-text="card.title" />
+          <p class="text-h5 text-md-h4 font-weight-bold" :class="textColor" v-text="card.title" />
           <p :class="textColor" v-for="(text, i) in card.texts" :key="i">
             <v-icon :class="dotIconColor" class="mt-n1" size="15">mdi-radiobox-marked</v-icon>
             {{ text }}
@@ -76,13 +76,13 @@ export default {
         case "xs":
           return "white--text"
         case "sm":
-          return "grey--text text--darken-3"
+          return "grey--text text--darken-4"
         case "md":
-          return "grey--text text--darken-3"
+          return "grey--text text--darken-4"
         case "lg":
-          return "grey--text text--darken-3"
+          return "grey--text text--darken-4"
         case "xl":
-          return "grey--text text--darken-3"
+          return "grey--text text--darken-4"
       }
     },
     dotIconColor() {
