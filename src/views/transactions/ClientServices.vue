@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
     <Nav />
-    <ClientServices />
+    <ClientServices class="my-16" />
   </v-container>
 </template>
 

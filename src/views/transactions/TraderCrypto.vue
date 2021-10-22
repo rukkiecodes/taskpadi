@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
     <Nav />
-    <TraderCrypto />
+    <TraderCrypto class="my-16" />
   </v-container>
 </template>
 
