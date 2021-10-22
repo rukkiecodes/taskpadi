@@ -11,21 +11,15 @@
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <v-fade-transition>
-        <v-tab-item class="deep-purple lighten-5">
-          <GoodsAndProducts class="deep-purple lighten-5" />
-        </v-tab-item>
-      </v-fade-transition>
-      <v-fade-transition>
-        <v-tab-item class="deep-purple lighten-5">
-          <Crypto class="deep-purple lighten-5" />
-        </v-tab-item>
-      </v-fade-transition>
-      <v-fade-transition>
-        <v-tab-item class="deep-purple lighten-5">
-          <Services class="deep-purple lighten-5" />
-        </v-tab-item>
-      </v-fade-transition>
+      <v-tab-item class="deep-purple lighten-5">
+        <GoodsAndProducts class="deep-purple lighten-5" />
+      </v-tab-item>
+      <v-tab-item class="deep-purple lighten-5">
+        <Crypto class="deep-purple lighten-5" />
+      </v-tab-item>
+      <v-tab-item class="deep-purple lighten-5">
+        <Services class="deep-purple lighten-5" />
+      </v-tab-item>
     </v-tabs-items>
     <ViewDetails />
   </v-container>

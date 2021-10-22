@@ -4,7 +4,7 @@
     :items="transaction"
     :search="search"
     :items-per-page="5"
-    class="elevation-0"
+    class="transparent"
   >
     <template v-slot:top>
       <v-toolbar flat>
