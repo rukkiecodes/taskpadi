@@ -10,29 +10,34 @@
         class="text-capitalize ml-3"
       >
         <v-avatar left class="mr-2" size="35">
-          <img src="../../../../assets/trust/Ellipse3.png" >
+          <img src="../../../../assets/trust/Ellipse3.png" />
         </v-avatar>
         Eddiong
         <v-icon right>mdi-chevron-down</v-icon>
       </v-btn>
     </template>
-    <v-list>
-      <v-list-item v-for="(item, index) in items" :key="index">
-        <v-list-item-title>{{ item.title }}</v-list-item-title>
+    <v-list class="py-0" dense>
+      <v-list-item dense>
+        <v-list-item-icon>
+          <v-icon>mdi-account-outline</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>Profile</v-list-item-title>
+      </v-list-item>
+      <v-list-item @click="logout.logoutDialog = true" dense>
+        <v-list-item-icon>
+          <v-icon color="red">mdi-power</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title class="red--text">Logout</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-menu>
 </template>
 
 <script>
+import { mapState } from "vuex"
 export default {
-  data: () => ({
-    items: [
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" },
-    ],
-  }),
+  computed: {
+    ...mapState(["logout"]),
+  },
 }
 </script>
