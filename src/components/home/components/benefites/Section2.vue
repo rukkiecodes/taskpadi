@@ -35,8 +35,8 @@
           height="100%"
           class="pa-0 rounded-xl"
           position="center center"
-          src="../../../../assets/trust/home/peer.jpg"
-          lazy-src="../../../../assets/trust/home/peer.jpg"
+          src="../../../../assets/trust/home/buyer.jpg"
+          lazy-src="../../../../assets/trust/home/buyer.jpg"
         />
       </v-card>
     </v-col>
