@@ -1,7 +1,6 @@
 export default {
   state: {
     drawerState: true,
-    rightDrawerState: true,
     currentRoute: "/dashboard/menu",
     transactionTabs: null,
     dashboardRoutes: [

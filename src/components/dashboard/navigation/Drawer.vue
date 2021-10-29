@@ -1,7 +1,6 @@
 <template>
   <v-navigation-drawer
     app
-    width="200"
     color="white"
     v-model="dashboardNavigation.drawerState"
   >
