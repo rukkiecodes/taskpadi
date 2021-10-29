@@ -98,11 +98,6 @@ export default {
         amount: "$35, 723",
         icon: "mdi-package-down",
       },
-      {
-        subtitle: "Average Price",
-        amount: "$16.2",
-        icon: "mdi-tag",
-      },
     ],
   }),
 }
