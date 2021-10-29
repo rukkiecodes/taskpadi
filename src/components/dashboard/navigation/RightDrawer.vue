@@ -10,10 +10,8 @@
     <template v-slot:prepend>
       <v-sheet class="d-flex justify-end align-center px-0 py-3" flat>
         <v-spacer></v-spacer>
-        <v-badge color="red" dot overlap>
-          <v-icon>mdi-bell-outline</v-icon>
-        </v-badge>
-        <ProfileMenu />
+        
+        
       </v-sheet>
     </template>
     <Balance />
@@ -33,7 +31,7 @@ export default {
     drawer: true,
   }),
   components: {
-    ProfileMenu: () => import("./components/ProfileMenu.vue"),
+    
     Balance: () => import("./components/Balance.vue"),
   },
   mounted() {

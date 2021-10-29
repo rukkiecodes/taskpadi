@@ -12,29 +12,26 @@
       solo
       dense
       hide-details
+      class="hidden-xs-only"
       placeholder="Search here"
       append-icon="mdi-magnify"
       color="deep-purple accent-4"
     ></v-text-field>
 
     <v-spacer />
-    <v-btn
-      icon
-      plain
-      @click="
-        dashboardNavigation.rightDrawerState = !dashboardNavigation.rightDrawerState
-      "
-      color="grey darken-4"
-      class="hidden-lg-and-up"
-    >
-      <v-icon>mdi-dots-vertical</v-icon>
-    </v-btn>
+    <v-badge color="red" dot overlap>
+      <v-icon>mdi-bell-outline</v-icon>
+    </v-badge>
+    <ProfileMenu />
   </v-app-bar>
 </template>
 
 <script>
 import { mapState } from "vuex"
 export default {
+  components: {
+    ProfileMenu: () => import("./components/ProfileMenu.vue"),
+  },
   computed: {
     ...mapState(["dashboardNavigation"]),
   },
