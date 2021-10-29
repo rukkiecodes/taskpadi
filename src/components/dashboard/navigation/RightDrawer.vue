@@ -22,8 +22,6 @@
         >Money here are available for witdraws</v-card-text
       >
     </v-card>
-    <Buttons />
-    <RecentTransactions />
   </v-navigation-drawer>
 </template>
 
@@ -37,8 +35,6 @@ export default {
   components: {
     ProfileMenu: () => import("./components/ProfileMenu.vue"),
     Balance: () => import("./components/Balance.vue"),
-    Buttons: () => import("./components/Buttons.vue"),
-    RecentTransactions: () => import("./components/RecentTransactions.vue"),
   },
   mounted() {
     this.$nextTick(() => {
