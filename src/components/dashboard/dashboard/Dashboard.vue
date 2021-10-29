@@ -2,8 +2,8 @@
   <v-container class="py-9 px-8">
     <v-row justify="space-between" align="start">
       <AllTransactionCarousel />
-      <Actions />
       <Activities />
+      <Actions />
       <TransactionTable />
     </v-row>
     <ViewDetails />

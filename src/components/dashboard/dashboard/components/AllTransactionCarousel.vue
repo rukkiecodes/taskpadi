@@ -1,8 +1,8 @@
 <template>
-  <v-col class="px-0" cols="12" sm="6">
+  <v-col class="pa-0 pr-sm-3" cols="12" sm="6">
     <v-carousel
-      cycle
       height="300"
+      hide-delimiters
       show-arrows-on-hover
       hide-delimiter-background
     >
