@@ -48,7 +48,7 @@
       <v-list class="py-0" dense>
         <v-list-item dense @click="logout.logoutDialog = true">
           <v-list-item-icon>
-            <v-icon>mdi-logout-variant</v-icon>
+            <v-icon>mdi-power</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>Logout</v-list-item-title>
