@@ -16,11 +16,15 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table
-      :headers="headers"
-      :items="desserts"
       :search="search"
-      class="transparent"
+      :headers="headers"
+      :page.sync="page"
+      :items="transactions"
       hide-default-footer
+      :mobile-breakpoint="0"
+      class="elevation-0 transparent"
+      :items-per-page="itemsPerPage"
+      @page-count="pageCount = $event"
     >
       <template v-slot:item.status="{ item }">
         <v-chip
@@ -47,6 +51,13 @@
         </v-btn>
       </template>
     </v-data-table>
+    <div class="text-center pt-2">
+      <v-pagination
+        v-model="page"
+        :length="pageCount"
+        color="deep-purple accent-4"
+      ></v-pagination>
+    </div>
   </v-card>
 </template>
 
@@ -67,7 +78,7 @@ export default {
       { text: "Status", value: "status" },
       { text: "View details", value: "action", sortable: false },
     ],
-    desserts: [
+    transactions: [
       {
         id: "12625juf",
         amount: "#45,000",
@@ -97,6 +108,9 @@ export default {
         action: "view details",
       },
     ],
+    page: 1,
+    pageCount: 0,
+    itemsPerPage: 5,
   }),
 
   methods: {
