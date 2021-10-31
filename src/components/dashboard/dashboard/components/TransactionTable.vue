@@ -4,15 +4,15 @@
       Transaction Summary
       <v-spacer></v-spacer>
       <v-text-field
-        solo
-        flat
         dense
-        single-line
+        outlined
+        clearable
         hide-details
         label="Search"
         v-model="search"
-        placeholder="Search"
-        append-icon="mdi-magnify"
+        :search="search"
+        color="deep-purple accent-4"
+        prepend-inner-icon="mdi-magnify"
       ></v-text-field>
     </v-card-title>
     <v-data-table
