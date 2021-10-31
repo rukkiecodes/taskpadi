@@ -6,7 +6,7 @@
       background-color="transparent"
     >
       <v-tab
-        class="text-capitalize"
+        class="text-capitalize transparent"
         v-for="item in items"
         :key="item"
         v-text="item"
@@ -14,20 +14,17 @@
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <v-tab-item>
-        <Completed />
+      <v-tab-item class="deep-purple lighten-5">
+        <Withdrawn />
       </v-tab-item>
-      <v-tab-item>
-        <Ongoing />
+      <v-tab-item class="deep-purple lighten-5">
+        <Date />
       </v-tab-item>
-      <v-tab-item>
-        <Pending />
+      <v-tab-item class="deep-purple lighten-5">
+        <Account />
       </v-tab-item>
-      <v-tab-item>
-        <Failed />
-      </v-tab-item>
-      <v-tab-item>
-        <Canceled />
+      <v-tab-item class="deep-purple lighten-5">
+        <WithdrawnTo />
       </v-tab-item>
     </v-tabs-items>
   </v-col>
@@ -37,14 +34,13 @@
 export default {
   data: () => ({
     tab: null,
-    items: ["Completed", "Ongoing", "Pending", "Failed", "Canceled"],
+    items: ["Withdrawn", "Date", "Account", "Withdrawn to"],
   }),
   components: {
-    Completed: () => import("./components/completed/Completed.vue"),
-    Ongoing: () => import("./components/ongoing/Ongoing.vue"),
-    Pending: () => import("./components/pending/Pending.vue"),
-    Failed: () => import("./components/failed/Failed.vue"),
-    Canceled: () => import("./components/canceled/Canceled.vue"),
+    Withdrawn: () => import("./components/withdrawn/Withdrawn.vue"),
+    Date: () => import("./components/date/Date.vue"),
+    Account: () => import("./components/account/Account.vue"),
+    WithdrawnTo: () => import("./components/withdrawnTo/WithdrawnTo.vue"),
   },
 }
 </script>
