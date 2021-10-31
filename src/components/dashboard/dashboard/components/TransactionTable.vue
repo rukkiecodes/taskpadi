@@ -1,5 +1,5 @@
 <template>
-  <v-card width="1000%" color="transparent" class="mt-7 tableCard" flat>
+  <v-card width="100%" color="transparent" class="mt-7 tableCard" flat>
     <v-card-title>
       Transaction Summary
       <v-spacer></v-spacer>
