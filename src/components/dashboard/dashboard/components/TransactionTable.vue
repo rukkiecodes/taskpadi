@@ -1,5 +1,5 @@
 <template>
-  <v-card width="100%" color="transparent" class="mt-7" flat>
+  <v-card width="1000%" color="transparent" class="mt-7 tableCard" flat>
     <v-card-title>
       Transaction Summary
       <v-spacer></v-spacer>
@@ -100,11 +100,25 @@ export default {
   }),
 
   methods: {
-    ...mapActions(["viewTransactionDetails"])
+    ...mapActions(["viewTransactionDetails"]),
   },
 
   computed: {
     ...mapState(["viewDetailsDialog"]),
+    tableWidth() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "600px"
+        case "sm":
+          return 400
+        case "md":
+          return 500
+        case "lg":
+          return 600
+        case "xl":
+          return 800
+      }
+    },
   },
 }
 </script>
