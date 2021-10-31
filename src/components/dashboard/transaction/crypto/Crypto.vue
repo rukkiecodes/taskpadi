@@ -10,7 +10,7 @@
         background-color="transparent"
       >
         <v-tab
-          class="text-capitalize"
+          class="text-capitalize transparent"
           v-for="item in items"
           :key="item"
           v-text="item"
@@ -18,19 +18,19 @@
       </v-tabs>
 
       <v-tabs-items v-model="tab">
-        <v-tab-item>
+        <v-tab-item class="deep-purple lighten-5">
           <Completed />
         </v-tab-item>
-        <v-tab-item>
+        <v-tab-item class="deep-purple lighten-5">
           <Ongoing />
         </v-tab-item>
-        <v-tab-item>
+        <v-tab-item class="deep-purple lighten-5">
           <Pending />
         </v-tab-item>
-        <v-tab-item>
+        <v-tab-item class="deep-purple lighten-5">
           <Failed />
         </v-tab-item>
-        <v-tab-item>
+        <v-tab-item class="deep-purple lighten-5">
           <Canceled />
         </v-tab-item>
       </v-tabs-items>
