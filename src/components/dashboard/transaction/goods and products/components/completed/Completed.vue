@@ -47,7 +47,11 @@
       </template>
     </v-data-table>
     <div class="text-center pt-2">
-      <v-pagination v-model="page" :length="pageCount" color="deep-purple accent-4"></v-pagination>
+      <v-pagination
+        v-model="page"
+        :length="pageCount"
+        color="deep-purple accent-4"
+      ></v-pagination>
     </div>
   </v-card>
 </template>
