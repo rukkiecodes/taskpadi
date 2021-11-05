@@ -29,6 +29,12 @@ export default {
         location: window.location.pathname,
       },
       {
+        icon: "mdi-link-variant-plus",
+        title: "Create paddi link",
+        route: "/dashboard/paddiLink",
+        location: window.location.pathname,
+      },
+      {
         icon: "mdi-sync",
         title: "Refunds",
         route: "/dashboard/refunds",

@@ -25,6 +25,11 @@ export default {
       component: () => import("../../../views/dashboard/Withdraws.vue"),
     },
     {
+      path: "paddiLink",
+      name: "PaddiLink",
+      component: () => import("../../../views/dashboard/PaddiLink.vue"),
+    },
+    {
       path: "refunds",
       name: "Refunds",
       component: () => import("../../../views/dashboard/Refunds.vue"),
