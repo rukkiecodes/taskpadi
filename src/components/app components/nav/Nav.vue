@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar fixed flat dense :color="appBarColor">
+    <v-app-bar fixed flat :color="appBarColor">
       <v-avatar tile>
         <img src="../../../assets/paddi.png" alt="" />
       </v-avatar>

@@ -17,19 +17,19 @@ export default {
         location: window.location.pathname,
       },
       {
-        icon: "mdi-store-outline",
+        icon: "mdi-briefcase-variant-outline",
         title: "Store",
         route: "/dashboard/store",
         location: window.location.pathname,
       },
       {
-        icon: "mdi-cash-register",
+        icon: "mdi-arrow-down",
         title: "Withdraws",
         route: "/dashboard/withdraws",
         location: window.location.pathname,
       },
       {
-        icon: "mdi-cash-refund",
+        icon: "mdi-sync",
         title: "Refunds",
         route: "/dashboard/refunds",
         location: window.location.pathname,
