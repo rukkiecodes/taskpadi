@@ -22,14 +22,17 @@
           outlined
           dense
         ></v-text-field>
-        <v-text-field
+        <v-textarea
           color="deep-purple accent-4"
           label="Product Product Description"
           hint="(with word limit of 30words)"
+          :maxlength="max"
+          v-model="text"
           full-width
           outlined
           dense
-        ></v-text-field>
+        ></v-textarea>
+        <div class="input-group-addon" v-text="(max - text.length)"></div>
         <v-file-input
           full-width
           outlined
@@ -38,11 +41,7 @@
           label="upload a photo"
           @change="onFileChange"
         ></v-file-input>
-        <v-img
-          class="mx-auto"
-          v-show="url"
-          :src="url"
-        ></v-img>
+        <v-img class="mx-auto" v-show="url" :src="url"></v-img>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -52,7 +51,9 @@
 import { mapState } from "vuex"
 export default {
   data: () => ({
-    url: null
+    url: null,
+    max: 136,
+    text: ''
   }),
 
   computed: {
