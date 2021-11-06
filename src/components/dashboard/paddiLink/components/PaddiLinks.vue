@@ -1,9 +1,9 @@
 <template>
-  <v-expansion-panels popout>
+  <v-expansion-panels popout flat>
     <v-expansion-panel v-for="(link, i) in paddiLinks" :key="i">
       <v-expansion-panel-header>
         <div>
-          <v-avatar rounded>
+          <v-avatar>
             <v-img :src="link.image" :alt="link.title + 'image'" />
           </v-avatar>
           <span
@@ -26,11 +26,11 @@
         <v-list>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>{{ link.title }}</v-list-item-title>
-              <v-list-item-subtitle>{{ link.price }}</v-list-item-subtitle>
+              <v-list-item-title>Product Name: <b>{{ link.title }}</b></v-list-item-title>
+              <v-list-item-subtitle>Price: <b>{{ link.price }}</b></v-list-item-subtitle>
             </v-list-item-content>
             <v-list-item-action>
-              <v-btn color="green" class="text-capitalize" small dark depressed
+              <v-btn @click="editPaddiLink(link)" color="green" class="text-capitalize" small dark depressed
                 >Edit link</v-btn
               >
             </v-list-item-action>
@@ -56,8 +56,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapActions, mapGetters } from "vuex"
 export default {
+  methods: {
+    ...mapActions(["editPaddiLink"])
+  },
   computed: {
     ...mapGetters(["paddiLinks"]),
   },

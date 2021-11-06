@@ -1,6 +1,7 @@
 export default {
   state: {
     dialog: false,
+    editDialog: false,
     paddiLinkInputs: {
       title: "",
       price: "",
@@ -8,6 +9,8 @@ export default {
       image: null,
     },
     paddiLinks: [],
+    createMode: true,
+    editMode: false,
   },
 
   getters: {
@@ -32,11 +35,23 @@ export default {
         state.dialog = false
       }
     },
+
+    editPaddiLink: (state, link) => {
+      state.createMode = false
+      state.editMode = true
+      state.editDialog = true
+      state.paddiLinkInputs = link
+      console.log(link)
+      return state
+    },
   },
 
   actions: {
     createPaddiLink({ commit }) {
       commit("createPaddiLink")
+    },
+    editPaddiLink({ commit }, link) {
+      commit("editPaddiLink", link)
     },
   },
 }

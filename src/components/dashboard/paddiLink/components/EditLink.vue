@@ -1,10 +1,10 @@
 <template>
-  <v-dialog v-model="paddiLink.dialog" max-width="400" scrollable>
+  <v-dialog v-model="paddiLink.editDialog" max-width="400" scrollable>
     <v-card max-height="500">
       <v-card-title class="grey--text text--darken-4">
-        Create a Paddi link
+        Edit Paddi link
         <v-spacer />
-        <v-btn @click="paddiLink.dialog = false" icon>
+        <v-btn @click="paddiLink.editDialog = false" icon>
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-title>
@@ -55,7 +55,7 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          @click="createPaddiLink"
+          @click="editLink"
           color="deep-purple accent-4"
           dark
           block
@@ -80,7 +80,7 @@ export default {
       if (image)
         this.paddiLink.paddiLinkInputs.image = URL.createObjectURL(image)
     },
-    ...mapActions(["createPaddiLink"]),
+    ...mapActions(["editLink"]),
   },
 
   computed: {
