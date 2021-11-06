@@ -12,12 +12,14 @@
         <v-text-field
           color="deep-purple accent-4"
           label="Product Name/Title"
+          v-model="paddiLink.paddiLinkInputs.title"
           full-width
           outlined
           dense
         ></v-text-field>
         <v-text-field
           color="deep-purple accent-4"
+          v-model="paddiLink.paddiLinkInputs.price"
           label="Product Price"
           full-width
           outlined
@@ -26,9 +28,12 @@
         <v-textarea
           color="deep-purple accent-4"
           label="Product Product Description"
-          :hint="`Word limit of ${max} words (${max - text.length} left)`"
+          :hint="
+            `Word limit of ${max} words (${max -
+              paddiLink.paddiLinkInputs.description.length} left)`
+          "
+          v-model="paddiLink.paddiLinkInputs.description"
           :maxlength="max"
-          v-model="text"
           full-width
           outlined
           counter
@@ -42,10 +47,14 @@
           label="upload a photo"
           @change="onFileChange"
         ></v-file-input>
-        <v-img class="mx-auto" v-show="url" :src="url"></v-img>
+        <v-img
+          class="mx-auto"
+          v-show="paddiLink.paddiLinkInputs.image"
+          :src="paddiLink.paddiLinkInputs.image"
+        ></v-img>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="deep-purple accent-4" dark block depressed>
+        <v-btn @click="createPaddiLink" color="deep-purple accent-4" dark block depressed>
           Done
         </v-btn>
       </v-card-actions>
@@ -54,23 +63,22 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
-    url: null,
     max: 130,
-    text: "",
   }),
-
-  computed: {
-    ...mapState(["paddiLink"]),
-  },
 
   methods: {
     onFileChange(image) {
-      const file = image
-      this.url = URL.createObjectURL(file)
+      if (image)
+        this.paddiLink.paddiLinkInputs.image = URL.createObjectURL(image)
     },
+    ...mapActions(["createPaddiLink"])
+  },
+
+  computed: {
+    ...mapState(["paddiLink"]),
   },
 }
 </script>
