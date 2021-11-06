@@ -23,10 +23,9 @@
       <v-icon>mdi-bell-outline</v-icon>
     </v-badge>
     <v-btn
-      class="mx-3 text-capitalize"
+      class="mx-3 text-capitalize hidden-xs-only"
       color="deep-purple accent-4"
       rounded
-      
       dark
       depressed
       to="/dashboard/paddiLink"

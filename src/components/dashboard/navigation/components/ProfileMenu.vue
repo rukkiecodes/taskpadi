@@ -7,7 +7,7 @@
         depressed
         v-bind="attrs"
         color="grey darken-3"
-        class="text-capitalize rounded-pill pl-0"
+        class="text-capitalize rounded-pill pl-0 ml-4 ml-sm-0"
       >
         <v-avatar left class="mr-2" size="35">
           <img src="../../../../assets/trust/Ellipse3.png" />
