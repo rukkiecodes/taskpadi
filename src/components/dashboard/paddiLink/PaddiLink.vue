@@ -1,7 +1,8 @@
 <template>
   <v-container>
-    <NoLink />
+    <!-- <NoLink /> -->
     <CreateLink />
+    <PaddiLinks />
   </v-container>
 </template>
 
@@ -9,7 +10,8 @@
 export default {
   components: {
     NoLink: () => import("./components/NoLink.vue"),
-    CreateLink: () => import("./components/CreateLink.vue")
+    CreateLink: () => import("./components/CreateLink.vue"),
+    PaddiLinks: () => import("./components/PaddiLinks.vue")
   },
 }
 </script>
