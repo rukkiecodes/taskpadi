@@ -22,6 +22,16 @@
     <v-badge color="red" dot overlap>
       <v-icon>mdi-bell-outline</v-icon>
     </v-badge>
+    <v-btn
+      class="mx-3 text-capitalize"
+      color="deep-purple accent-4"
+      rounded
+      small
+      dark
+      depressed
+      to="/dashboard/paddiLink"
+      >Create paddi link</v-btn
+    >
     <ProfileMenu />
   </v-app-bar>
 </template>
