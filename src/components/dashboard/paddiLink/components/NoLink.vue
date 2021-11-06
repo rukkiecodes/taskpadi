@@ -13,12 +13,17 @@
         one.
       </v-card-text>
     </v-card>
-    <v-btn color="deep-purple accent-4" class="mt-4" dark
+    <v-btn @click="paddiLink.dialog = true" color="deep-purple accent-4" class="mt-4" dark
       >Create Paddi link</v-btn
     >
   </v-sheet>
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  computed: {
+    ...mapState(["paddiLink"])
+  }
+}
 </script>
