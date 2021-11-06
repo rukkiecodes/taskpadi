@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app flat color="deep-purple lighten-5">
+  <v-app-bar app flat color="#eff0f5">
     <v-app-bar-nav-icon
       @click="
         dashboardNavigation.drawerState = !dashboardNavigation.drawerState

@@ -1,5 +1,5 @@
 <template>
-  <v-app class="deep-purple lighten-5">
+  <v-app class="dashboardColor">
     <AppBar />
     <Drawer />
     <transition name="fade" mode="out-in">
@@ -32,5 +32,9 @@ export default {
 .fade-enter,
 .fade-leave-active {
   opacity: 0;
+}
+
+.dashboardColor {
+  background: #eff0f5 !important
 }
 </style>

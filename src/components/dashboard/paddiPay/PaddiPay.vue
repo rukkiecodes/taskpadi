@@ -4,6 +4,7 @@
       <ProductImages />
       <ProductDetails />
       <MerchantDetails />
+      <Form />
     </v-row>
   </v-container>
 </template>
@@ -13,7 +14,8 @@ export default {
   components: {
     ProductImages: () => import("./components/ProductImages.vue"),
     ProductDetails: () => import("./components/ProductDetails.vue"),
-    MerchantDetails: () => import("./components/MerchantDetails.vue")
+    MerchantDetails: () => import("./components/MerchantDetails.vue"),
+    Form: () => import("./components/Form.vue"),
   },
 }
 </script>
