@@ -26,7 +26,7 @@
       class="mx-3 text-capitalize"
       color="deep-purple accent-4"
       rounded
-      small
+      
       dark
       depressed
       to="/dashboard/paddiLink"

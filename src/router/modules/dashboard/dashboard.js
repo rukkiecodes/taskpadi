@@ -30,6 +30,11 @@ export default {
       component: () => import("../../../views/dashboard/PaddiLink.vue"),
     },
     {
+      path: "paddiPay",
+      name: "PaddiPay",
+      component: () => import("../../../views/dashboard/PaddiPay.vue"),
+    },
+    {
       path: "refunds",
       name: "Refunds",
       component: () => import("../../../views/dashboard/Refunds.vue"),
