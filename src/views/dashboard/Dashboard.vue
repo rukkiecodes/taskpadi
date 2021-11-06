@@ -2,12 +2,13 @@
   <v-app class="deep-purple lighten-5">
     <AppBar />
     <Drawer />
-    <router-view />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </v-app>
 </template>
 
 <script>
-import { mapActions } from "vuex"
 import AppBar from "../../components/dashboard/navigation/AppBar.vue"
 import Drawer from "../../components/dashboard/navigation/Drawer.vue"
 export default {
@@ -21,4 +22,15 @@ export default {
 
 <style>
 @import url(../../assets/icon/css/materialdesignicons.min.css);
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
 </style>
