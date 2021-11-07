@@ -8,7 +8,7 @@ export default {
       const token = vueCookies.get("trustpaddi token")
       if (token) {
         if (location.pathname == "/dashboard/transaction")
-          router.push("/dashboard/dash")
+          router.push("/dashboard/yourPaddiDashboard")
       } else {
         router.push("/")
       }

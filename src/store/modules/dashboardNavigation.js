@@ -6,7 +6,7 @@ export default {
       {
         icon: "mdi-home-outline",
         title: "Dashboard",
-        route: "/dashboard/dash",
+        route: "/dashboard/yourPaddiDashboard",
         location: window.location.pathname,
       },
       {

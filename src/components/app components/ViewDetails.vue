@@ -23,13 +23,13 @@
       <v-card-text class="pa-0">
         <v-card-text class="mt-5 pb-0">
           Product id:
-          <router-link class="text-decoration-none" to="/dashboard/dash"
+          <router-link class="text-decoration-none" to="/dashboard/yourPaddiDashboard"
             >#SK2540</router-link
           >
         </v-card-text>
         <v-card-text class="pt-0">
           Billing Name:
-          <router-link class="text-decoration-none" to="/dashboard/dash"
+          <router-link class="text-decoration-none" to="/dashboard/yourPaddiDashboard"
             >Neal Matthews</router-link
           >
         </v-card-text>
