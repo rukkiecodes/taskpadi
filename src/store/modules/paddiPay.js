@@ -1,5 +1,5 @@
 export default {
   state: {
-    dialog: true
+    dialog: false
   }
 }
