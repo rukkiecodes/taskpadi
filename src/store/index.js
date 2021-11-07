@@ -20,6 +20,7 @@ import logout from "./modules/logout"
 import restrict from "./modules/restrict"
 import viewDetailsDialog from "./modules/viewDetailsDialog"
 import paddiLink from "./modules/paddiLink"
+import paddiPay from "./modules/paddiPay"
 
 Vue.use(Vuex);
 
@@ -44,5 +45,6 @@ export default new Vuex.Store({
     restrict,
     viewDetailsDialog,
     paddiLink,
+    paddiPay
   },
 })
