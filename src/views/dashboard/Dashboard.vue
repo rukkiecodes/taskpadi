@@ -1,7 +1,6 @@
 <template>
   <v-app class="dashboardColor">
-    <AppBar />
-    <Drawer />
+    <Nav />
     <transition name="fade" mode="out-in">
       <router-view />
     </transition>
@@ -9,13 +8,11 @@
 </template>
 
 <script>
-import AppBar from "../../components/dashboard/navigation/AppBar.vue"
-import Drawer from "../../components/dashboard/navigation/Drawer.vue"
+import Nav from "../../components/dashboard/navigation/Nav.vue"
 export default {
   name: "Dashboard",
   components: {
-    AppBar,
-    Drawer,
+    Nav,
   },
 }
 </script>
