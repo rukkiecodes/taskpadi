@@ -2,18 +2,6 @@
   <v-card width="100%" color="transparent" class="mt-7 tableCard" flat>
     <v-card-title>
       Transaction Summary
-      <v-spacer></v-spacer>
-      <v-text-field
-        dense
-        outlined
-        clearable
-        hide-details
-        label="Search"
-        v-model="search"
-        :search="search"
-        color="deep-purple accent-4"
-        prepend-inner-icon="mdi-magnify"
-      ></v-text-field>
     </v-card-title>
     <v-data-table
       :search="search"
@@ -51,12 +39,8 @@
         </v-btn>
       </template>
     </v-data-table>
-    <div class="text-center pt-2">
-      <v-pagination
-        v-model="page"
-        :length="pageCount"
-        color="deep-purple accent-4"
-      ></v-pagination>
+    <div class="text-center my-10">
+      <v-btn color="deep-purple accent-4" to="/dashboard/transaction" depressed dark>View more</v-btn>
     </div>
   </v-card>
 </template>
