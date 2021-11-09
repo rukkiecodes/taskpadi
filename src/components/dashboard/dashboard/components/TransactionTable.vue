@@ -10,7 +10,7 @@
       :items="transactions"
       hide-default-footer
       :mobile-breakpoint="0"
-      class="elevation-0 transparent"
+      class="elevation-0"
       :items-per-page="itemsPerPage"
       @page-count="pageCount = $event"
     >
@@ -40,7 +40,13 @@
       </template>
     </v-data-table>
     <div class="text-center my-10">
-      <v-btn color="deep-purple accent-4" to="/dashboard/transaction" depressed dark>View more</v-btn>
+      <v-btn
+        color="deep-purple accent-4"
+        to="/dashboard/transaction"
+        depressed
+        dark
+        >View more</v-btn
+      >
     </div>
   </v-card>
 </template>
