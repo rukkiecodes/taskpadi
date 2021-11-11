@@ -4,6 +4,7 @@
       <ProductImages />
       <ProductDetails />
     </v-row>
+    <!-- <Footer /> -->
     <Form />
   </v-container>
 </template>
@@ -14,7 +15,8 @@ export default {
   components: {
     ProductImages: () => import("./components/ProductImages.vue"),
     ProductDetails: () => import("./components/ProductDetails.vue"),
-    Form
+    Form,
+    Footer: () => import("./components/Footer.vue"),
   },
 }
 </script>

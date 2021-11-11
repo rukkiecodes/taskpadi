@@ -26,7 +26,9 @@
         <span class="text-h4 font-weight-bold">$235</span>
       </v-card-title>
 
-      <v-card-text class="d-flex justify-start align-center py-0 pl-2 my-0">
+      <v-card-text
+        class="d-flex flex-column flex-sm-row justify-start align-center py-0 pl-2 my-0"
+      >
         <v-rating
           v-model="rating"
           background-color="yellow"
@@ -40,18 +42,20 @@
         ></v-rating>
         <span>{{ rating }} Stars</span>
       </v-card-text>
-      <v-card-text>
+      <v-card-text class="text-center text-sm-left">
         The GORE-TEX lining, large lugs on the outsole and removable silicone
         ankle strap toughen up the icon while the padded, high-cut collar keeps
         the heritage b-ball look and hardwood comfort. Size 45
       </v-card-text>
-      <v-card flat color="transparent">
-        <v-card-title class="text-body-1 font-weight-medium"
-          >Merchant’s Details :</v-card-title
+      <v-card flat :color="detailsCard" :dark="detailsCardMode">
+        <v-card-title
+          class="text-body-1 font-weight-medium"
+          :class="detailsCardTextClass"
+          >Merchant’s Details</v-card-title
         >
       </v-card>
       <v-divider />
-      <v-card flat color="transparent">
+      <v-card flat class="text-center d-flex flex-column" color="transparent">
         <v-card-title class="text-subtitle-1 font-weight-medium">
           <v-avatar class="white--text mr-3" color="grey darken-2">AZ</v-avatar>
           AZ Ventures
@@ -60,41 +64,50 @@
 
           <span
             class="deep-purple--text text--accent-4 text-body-2 font-weight-bold"
-            >Verified</span
+            >Verified
+            <v-icon color="green"
+              >mdi-checkbox-marked-circle-outline</v-icon
+            ></span
           >
         </v-card-title>
 
-        <v-card-text>
-          <v-card
-            width="250"
-            class="d-flex justify-start align-center ma-0 pa-0"
-            color="transparent"
-            flat
-          >
-            <span>Trust Level :</span>
-            <v-slider
-              hide-details
-              max="100"
-              :thumb-size="0"
-              min="0"
-              value="60"
-              height="0"
-              color="deep-purple accent-4"
-              thumb-color="transparent"
-              readonly
-            ></v-slider>
-          </v-card>
-
-          <p class="grey--text text--darken-4 mt-2">
-            Location : <span class="font-weight-bold">Yaba, Lagos</span>
-          </p>
-          <p class="grey--text text--darken-4 mt-n2">
-            Category : <span class="font-weight-bold">Fashion</span>
-          </p>
+        <v-card-text class="text-center text-sm-left">
+          <v-row no-gutters justify="space-between" align="center" class="flex-column-reverse flex-sm-row">
+            <v-col cols="12" sm="6">
+              <p class="grey--text text--darken-4 mt-2">
+                <v-icon small color="amber">mdi-star-circle</v-icon> Location :
+                <span class="font-weight-bold">Yaba, Lagos</span>
+              </p>
+              <p class="grey--text text--darken-4 mt-n2">
+                <v-icon small color="amber">mdi-star-circle</v-icon> Category :
+                <span class="font-weight-bold">Fashion</span>
+              </p>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="6"
+              class="d-flex justify-center justify-sm-end"
+            >
+              <v-progress-circular
+                :rotate="-90"
+                :size="90"
+                :width="10"
+                :value="value"
+                color="amber"
+              >
+                <span class="grey--text text--darken-3 text-center text-caption"
+                  >Trust Level<br /><span
+                    class="amber--text text--darken-4 font-weight-bold"
+                    >{{ value }}%</span
+                  ></span
+                >
+              </v-progress-circular>
+            </v-col>
+          </v-row>
         </v-card-text>
       </v-card>
 
-      <v-card-text>
+      <v-card-text class="text-center text-sm-left">
         <v-btn
           color="deep-purple accent-4"
           class="text-capitalize mr-3"
@@ -110,14 +123,64 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex"
 export default {
   data: () => ({
     rating: 3.5,
+    value: 60,
   }),
 
   computed: {
-    ...mapState(["paddiPay"])
-  }
+    ...mapState(["paddiPay"]),
+
+    detailsCard() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "deep-purple accent-4"
+        case "sm":
+          return "transparent"
+        case "md":
+          return "transparent"
+        case "lg":
+          return "transparent"
+        case "xl":
+          return "transparent"
+      }
+    },
+    detailsCardMode() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return false
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
+    detailsCardTextClass() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "d-flex justify-center"
+        case "sm":
+          return "d-flex justify-start"
+        case "md":
+          return "d-flex justify-start"
+        case "lg":
+          return "d-flex justify-start"
+        case "xl":
+          return "d-flex justify-start"
+      }
+    },
+  },
 }
 </script>
+
+<style scoped>
+.v-progress-circular {
+  margin: 1rem;
+}
+</style>
