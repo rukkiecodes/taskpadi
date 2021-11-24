@@ -9,6 +9,7 @@
       <v-btn
         text
         link
+        dark
         depressed
         v-for="(route, i) in appRoutes"
         :key="i"
@@ -20,8 +21,9 @@
       <Menu />
       <v-btn
         @click="nav.drawer = true"
-        class="hidden-lg-and-up grey--text text--darken-3"
+        class="hidden-lg-and-up"
         icon
+        dark
       >
         <v-icon>mdi-menu</v-icon>
       </v-btn>

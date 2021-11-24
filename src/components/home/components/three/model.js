@@ -30,12 +30,10 @@ let canvas,
   clock,
   elapsedTime,
   cursor,
-  windowFraction,
   directionLight,
   directionLight1,
   directionLight2,
-  globeMaterial,
-  originalMesh
+  globeMaterial
 
 /**
  * Sizes
@@ -50,11 +48,6 @@ cursor = {
   y: 0,
 }
 
-windowFraction = {
-  x: window.innerWidth / 2,
-  y: window.innerHeight / 2,
-}
-
 const init = () => {
   /**
    * Base
@@ -67,7 +60,6 @@ const init = () => {
 
   /* Fog */
   scene.fog = new Fog(0x545ef3, 400, 2000)
-  scene.background = new Color(0x040d21)
 
   // RESIZE
   window.addEventListener("resize", () => {
@@ -84,18 +76,12 @@ const init = () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
   })
 
-  // Mouse move
-  window.addEventListener("mousemove", (event) => {
-    cursor.x = event.clientX / sizes.width - 0.5
-    cursor.y = -(event.clientY / sizes.height - 0.5)
-  })
-
   /**
    * Camera
    */
   // Base camera
   camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-  camera.position.z = 85
+  camera.position.z = 77
   scene.add(camera)
 
   /* Lights */
@@ -116,9 +102,9 @@ const init = () => {
   controls.enableDamping = true
   controls.dampingFactor = 0.01
   controls.enablePan = false
+  controls.enableZoom = false
   controls.rotateSpeed = 0.8
-  controls.zoomSpeed = 1
-  controls.autoRotate = false
+  controls.autoRotate = true
   controls.minPolarAngle = Math.PI / 3.5
   controls.maxPolarAngle = Math.PI - Math.PI / 3
 
@@ -162,7 +148,7 @@ const init = () => {
     .hexPolygonMargin(0.7)
     .showAtmosphere(true)
     .atmosphereColor("#4169e1")
-    .atmosphereAltitude(0.20)
+    .atmosphereAltitude(0.2)
     .hexPolygonColor(() => {
       return "rgba(255, 255, 255, 1)"
     })
@@ -176,9 +162,11 @@ const init = () => {
   globeMaterial.emissiveIntensity = 0.1
   globeMaterial.shininess = 0.7
 
-  Globe.scale.x = 0.4
-  Globe.scale.y = 0.4
-  Globe.scale.z = 0.4
+  Globe.onGlobeReady((e) => {
+    Globe.scale.x = 0.4
+    Globe.scale.y = 0.4
+    Globe.scale.z = 0.4
+  })
 
   scene.add(Globe)
 
@@ -187,6 +175,7 @@ const init = () => {
    */
   renderer = new WebGLRenderer({
     canvas: canvas,
+    alpha: true
   })
   renderer.setSize(sizes.width, sizes.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
@@ -200,7 +189,7 @@ const init = () => {
     elapsedTime = clock.getElapsedTime()
 
     // Animate Globe
-    Globe.rotation.y = 0.05 * elapsedTime
+    Globe.rotation.y = -0.01 * elapsedTime
 
     // Update controls
     controls.update()
