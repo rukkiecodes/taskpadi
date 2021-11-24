@@ -1,0 +1,286 @@
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone X ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S3 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S6 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Google Pixel ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Google Pixel XL ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- HTC One ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Windows Phone ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad 1, 2, Mini and Air ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad Pro 10.5" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* ----------- iPad Pro 12.9" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* ----------- Galaxy Tab 2 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy Tab S ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Nexus 7 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Nexus 9 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Kindle Fire HD 7" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Kindle Fire HD 8.9" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Non-Retina Screens ----------- */
+/* ----------- Retina Screens ----------- */
+/* ----------- Apple Watch ----------- */
+/* ----------- Moto 360 Watch ----------- */
+@media (max-width: 768px) {
+  .background {
+    height: 140vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 384px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 1.25) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 384px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 151vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 412px) and (device-height: 732px) and (-webkit-device-pixel-ratio: 2.625) {
+  .background {
+    height: 145vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 412px) and (device-height: 732px) and (-webkit-device-pixel-ratio: 3.5) {
+  .background {
+    height: 132vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 320px) and (device-height: 533px) and (-webkit-device-pixel-ratio: 1.5) {
+  .background {
+    height: 182vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 480px) and (device-height: 854px) and (-webkit-device-pixel-ratio: 1) {
+  .background {
+    height: 115vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 106vh;
+  }
+}
+
+@media screen and (device-width: 1024px) and (device-height: 768px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 100vh;
+  }
+}
+
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 200vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 411px) and (device-height: 731px) and (-webkit-device-pixel-ratio: 2.625) {
+  .background {
+    height: 130vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 411px) and (device-height: 823px) and (-webkit-device-pixel-ratio: 3.5) {
+  .background {
+    height: 120vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 170vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 145vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+  .background {
+    height: 130vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .background {
+    height: 122vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 540px) and (device-height: 720px) and (-webkit-device-pixel-ratio: 2.5) {
+  .background {
+    height: 132vh;
+  }
+  .background .backgroundText {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) {
+  .background {
+    height: 100vh;
+  }
+}
+
+@media screen and (device-width: 280px) and (device-height: 653px) and (-webkit-device-pixel-ratio: 3) {
+  .background {
+    height: 140vh;
+  }
+}
+/*# sourceMappingURL=head copy.css.map */

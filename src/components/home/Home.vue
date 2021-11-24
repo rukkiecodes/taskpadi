@@ -1,13 +1,13 @@
 <template>
   <v-container fluid class="pa-0">
     <Head />
-    <Introducing />
+    <!-- <Introducing />
     <HowItWorks />
     <WhoCanUse />
     <BenefitsOfTrustPaddi />
     <Testimonials />
     <BetterSafe class="mt-16" />
-    <Footer class="mt-16" />
+    <Footer class="mt-16" /> -->
     <v-fab-transition>
       <v-btn
         fab
