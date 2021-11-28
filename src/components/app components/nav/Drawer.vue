@@ -1,65 +1,34 @@
 <template>
-  <v-navigation-drawer v-model="nav.drawer" color="white" right app>
-    <v-list-item>
-      <v-card
-        class="d-flex flex-column justify-center align-center"
-        width="100%"
-        height="200"
-        flat
-        color="transparent"
-      >
-        <v-avatar tile size="70">
-          <img src="../../../assets/paddi.png" />
-        </v-avatar>
-        <span class="text-h6 mt-4 grey--text text--darken-3">
-          TrustPaddi
-        </span>
-      </v-card>
-    </v-list-item>
-
-    <v-list dense>
+  <v-menu min-width="500" offset-y>
+    <template v-slot:activator="{ on, attrs }">
+      <v-btn class="hidden-lg-and-up" v-bind="attrs" v-on="on" icon dark>
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
+    </template>
+    <v-list class="py-0">
       <v-list-item
-        v-for="(route, i) in appRoutes"
-        :key="i"
+        v-for="(route, index) in routes"
+        :key="index"
         :to="route.to"
         active-class="deep-purple accent-4 white--text"
         link
       >
-        <v-list-item-content>
-          <v-list-item-title>{{ route.title }}</v-list-item-title>
-        </v-list-item-content>
+        <v-list-item-title>{{ route.title }}</v-list-item-title>
       </v-list-item>
     </v-list>
-  </v-navigation-drawer>
+  </v-menu>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex"
 export default {
-  mounted() {
-    this.$nextTick(() => {
-      this.hideDrawerBorder()
-    })
-  },
-  methods: {
-    hideDrawerBorder() {
-      const border = document.querySelectorAll(".v-navigation-drawer__border")
-      border.forEach((element) => {
-        element.style.display = "none"
-      })
-    },
-  },
-  computed: {
-    ...mapGetters(["appRoutes"]),
-    ...mapState(["nav"]),
-    nav: {
-      get() {
-        return this.$store.state.nav
-      },
-      set(new_value) {
-        this.$store.state.nav = new_value
-      },
-    },
-  },
+  data: () => ({
+    routes: [
+      { title: "Home", to: "/" },
+      { title: "About us", to: "/about" },
+      { title: "How it works", to: "/howItWorks" },
+      { title: "FAQ", to: "/faq" },
+      { title: "Contact us", to: "/contactUs" },
+    ],
+  }),
 }
 </script>

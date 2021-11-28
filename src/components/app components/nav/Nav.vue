@@ -19,26 +19,18 @@
         active-class="deep-purple accent-4 white--text"
       />
       <Menu />
-      <v-btn
-        @click="nav.drawer = true"
-        class="hidden-lg-and-up"
-        icon
-        dark
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <Drawer />
     </v-app-bar>
-    <Drawer />
   </nav>
 </template>
 
 <script>
-import Drawer from "./Drawer.vue";
-import { mapGetters, mapActions, mapState } from "vuex";
+import Drawer from "./Drawer.vue"
+import { mapGetters, mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     appBarColor: "transparent",
-    dark: true
+    dark: true,
   }),
   components: {
     Drawer,
@@ -51,31 +43,31 @@ export default {
       document.addEventListener("scroll", () => {
         // console.log(window.scrollY);
         if (window.scrollY >= 600) {
-          this.appBarColor = "white";
+          this.appBarColor = "white"
           this.dark = false
         } else {
-          this.appBarColor = "transparent";
+          this.appBarColor = "transparent"
           this.dark = true
         }
-      });
+      })
     },
   },
   mounted() {
     this.$nextTick(() => {
-      this.colorNav();
-    });
+      this.colorNav()
+    })
   },
   computed: {
     ...mapGetters(["appRoutes"]),
     ...mapState(["nav"]),
     nav: {
       get() {
-        return this.$store.state.nav;
+        return this.$store.state.nav
       },
       set(new_value) {
-        this.$store.state.nav = new_value;
+        this.$store.state.nav = new_value
       },
     },
   },
-};
+}
 </script>
