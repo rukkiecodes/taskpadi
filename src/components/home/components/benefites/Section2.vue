@@ -7,7 +7,7 @@
     :class="sectionClass"
   >
     <v-col cols="12" sm="6" lg="6">
-      <v-card flat class="rounded-lg" color="transparent">
+      <v-card flat class="rounded-lg" color="transparent" data-aos="fade-up">
         <v-card-text v-for="(card, i) in cards" :key="i">
           <p
             class="text-h5 text-md-h4 font-weight-bold"
@@ -30,6 +30,7 @@
         elevation="12"
         color="transparent"
         class="ma-0 pa-0 rounded-xl"
+        data-aos="fade-down"
       >
         <v-img
           height="100%"

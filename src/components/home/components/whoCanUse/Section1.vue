@@ -11,6 +11,7 @@
         height="500"
         style="position: relative"
         class="mt-0 mt-sm-12 rounded-xl"
+        data-aos="fade-down"
       >
         <v-card
           width="100%"
@@ -83,7 +84,7 @@
       </v-sheet>
     </v-col>
     <v-col cols="12" sm="6" lg="6">
-      <v-card flat class="rounded-lg" color="transparent">
+      <v-card flat class="rounded-lg" color="transparent" data-aos="fade-up">
         <v-card-text
           :class="title"
           class="text-uppercase font-weight-bold text-subtitle-2"

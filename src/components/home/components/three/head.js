@@ -29,10 +29,10 @@ let canvas,
   controls,
   clock,
   elapsedTime,
-  cursor,
   directionLight,
   directionLight1,
   directionLight2,
+  directionLight3,
   globeMaterial
 
 /**
@@ -43,23 +43,12 @@ sizes = {
   height: window.innerHeight,
 }
 
-cursor = {
-  x: 0,
-  y: 0,
-}
-
 const init = () => {
-  /**
-   * Base
-   */
   // Canvas
   canvas = document.querySelector("canvas.model")
 
   // Scene
   scene = new Scene()
-
-  /* Fog */
-  scene.fog = new Fog(0x545ef3, 400, 2000)
 
   // RESIZE
   window.addEventListener("resize", () => {
@@ -76,9 +65,6 @@ const init = () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
   })
 
-  /**
-   * Camera
-   */
   // Base camera
   camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
   camera.position.z = 77
@@ -96,6 +82,10 @@ const init = () => {
   directionLight2 = new DirectionalLight(0x8566cc, 0.5)
   directionLight2.position.set(-200, 500, 200)
   camera.add(directionLight2)
+
+  directionLight3 = new DirectionalLight(0xdb469f, 0.4)
+  directionLight3.position.set(200, -600, -200)
+  camera.add(directionLight3)
 
   // Controls
   controls = new OrbitControls(camera, canvas)
@@ -175,7 +165,7 @@ const init = () => {
    */
   renderer = new WebGLRenderer({
     canvas: canvas,
-    alpha: true
+    alpha: true,
   })
   renderer.setSize(sizes.width, sizes.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
@@ -189,7 +179,7 @@ const init = () => {
     elapsedTime = clock.getElapsedTime()
 
     // Animate Globe
-    Globe.rotation.y = -0.01 * elapsedTime
+    Globe.rotation.y = -0.025 * elapsedTime
 
     // Update controls
     controls.update()

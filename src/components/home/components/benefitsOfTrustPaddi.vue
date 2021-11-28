@@ -3,10 +3,12 @@
     <Heading
       class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
       title="Benefits Trustpaddi!"
+      data-aos="fade-up"
     />
     <SubHeading
       class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
       title="The safest & surest way to transact online"
+      data-aos="fade-up"
     />
     <Section1 />
     <Section2 class="mt-10" />
@@ -16,6 +18,8 @@
 
 <script>
 // @ts-nocheck
+import * as AOS from "aos"
+import "aos/dist/aos.css"
 export default {
   components: {
     Heading: () => import("./Heading.vue"),
@@ -24,5 +28,11 @@ export default {
     Section2: () => import("./benefites/Section2.vue"),
     Section3: () => import("./benefites/Section3.vue"),
   },
+
+  mounted() {
+    this.$nextTick(() => {
+      AOS.init();
+    })
+  }
 }
 </script>

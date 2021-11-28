@@ -1,13 +1,13 @@
 <template>
   <v-container fluid class="pa-0">
     <Head />
-    <!-- <Introducing />
+    <Introducing />
     <HowItWorks />
     <WhoCanUse />
     <BenefitsOfTrustPaddi />
     <Testimonials />
     <BetterSafe class="mt-16" />
-    <Footer class="mt-16" /> -->
+    <Footer class="mt-16" />
     <v-fab-transition>
       <v-btn
         fab
@@ -26,6 +26,14 @@
 </template>
 
 <script>
+import Head from "./components/Head.vue"
+import Introducing from "./components/Introducing.vue"
+import HowItWorks from "./components/HowItWorks.vue"
+import WhoCanUse from "./components/WhoCanUse.vue"
+import BenefitsOfTrustPaddi from "./components/benefitsOfTrustPaddi.vue"
+import Testimonials from "./components/Testimonials.vue"
+import BetterSafe from "../app components/BetterSafe.vue"
+import Footer from "../app components/Footer.vue"
 export default {
   data: () => ({
     type: "number",
@@ -36,14 +44,14 @@ export default {
     showBackToTop: false,
   }),
   components: {
-    Head: () => import("./components/Head.vue"),
-    Introducing: () => import("./components/Introducing.vue"),
-    HowItWorks: () => import("./components/HowItWorks.vue"),
-    WhoCanUse: () => import("./components/WhoCanUse.vue"),
-    BenefitsOfTrustPaddi: () => import("./components/benefitsOfTrustPaddi.vue"),
-    Testimonials: () => import("./components/Testimonials.vue"),
-    BetterSafe: () => import("../app components/BetterSafe.vue"),
-    Footer: () => import("../app components/Footer.vue"),
+    Head,
+    Introducing,
+    HowItWorks,
+    WhoCanUse,
+    BenefitsOfTrustPaddi,
+    Testimonials,
+    BetterSafe,
+    Footer
   },
   mounted() {
     this.$nextTick(() => {

@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "axios": "^0.23.0",
     "core-js": "^3.6.5",
     "dat.gui": "^0.7.7",
@@ -15,6 +16,7 @@
     "three-globe": "^2.21.3",
     "three-glow-mesh": "^0.1.2",
     "vue": "^2.6.11",
+    "vue-aos": "^2.3.0",
     "vue-cookies": "^1.7.4",
     "vue-country-code": "^1.1.2",
     "vue-meta": "^2.4.0",

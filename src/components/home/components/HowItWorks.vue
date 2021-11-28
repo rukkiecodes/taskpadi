@@ -3,10 +3,12 @@
     <Heading
       class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
       title="How it works"
+      data-aos="fade-up"
     />
     <SubHeading
       class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
       title="The whole process is Simple, transparent and automated"
+      data-aos="fade-up"
     />
 
     <v-sheet
@@ -51,6 +53,7 @@
               color="transparent"
               flat
               class="d-flex justify-start align-strat mb-8"
+              data-aos="fade-right"
             >
               <v-row justify="start" align="start">
                 <v-col cols="2">
@@ -72,6 +75,7 @@
               elevation="12"
               :width="imageCardWidth"
               class="ma-0 pa-0 rounded-xl"
+              :data-aos="animateImage"
             >
               <v-img
                 width="100%"
@@ -101,6 +105,7 @@
               color="transparent"
               flat
               class="d-flex justify-start align-strat mb-8"
+              data-aos="fade-right"
             >
               <v-row justify="start" align="start">
                 <v-col cols="2">
@@ -122,6 +127,7 @@
               elevation="12"
               :width="imageCardWidth"
               class="ma-0 pa-0 rounded-xl"
+              :data-aos="animateImage"
             >
               <v-img
                 width="100%"
@@ -139,6 +145,8 @@
 </template>
 
 <script>
+import * as AOS from "aos"
+import "aos/dist/aos.css"
 export default {
   data: () => ({
     buy: true,
@@ -215,6 +223,11 @@ export default {
   },
   updated() {
     this.changeButtonColor()
+  },
+  mounted() {
+    this.$nextTick(() => {
+      AOS.init();
+    })
   },
   methods: {
     showBuyerTab() {
@@ -311,6 +324,20 @@ export default {
           return "grey--text text--darken-3"
         case "xl":
           return "grey--text text--darken-3"
+      }
+    },
+    animateImage() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "fade-up"
+        case "sm":
+          return "fade-left"
+        case "md":
+          return "fade-left"
+        case "lg":
+          return "fade-left"
+        case "xl":
+          return "fade-left"
       }
     },
   },

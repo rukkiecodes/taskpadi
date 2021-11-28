@@ -9,7 +9,7 @@
       <v-btn
         text
         link
-        dark
+        :dark="dark"
         depressed
         v-for="(route, i) in appRoutes"
         :key="i"
@@ -38,6 +38,7 @@ import { mapGetters, mapActions, mapState } from "vuex";
 export default {
   data: () => ({
     appBarColor: "transparent",
+    dark: true
   }),
   components: {
     Drawer,
@@ -49,10 +50,12 @@ export default {
     colorNav() {
       document.addEventListener("scroll", () => {
         // console.log(window.scrollY);
-        if (window.scrollY >= 50) {
+        if (window.scrollY >= 600) {
           this.appBarColor = "white";
+          this.dark = false
         } else {
           this.appBarColor = "transparent";
+          this.dark = true
         }
       });
     },

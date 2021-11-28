@@ -7,11 +7,8 @@
 
     <v-card :width="textCardWidth" color="transparent" class="hero" flat>
       <v-card-text
-        class="
-          text-h4 text-sm-h3 text-lg-h2
-          font-weight-bold
-          white--text
-        "
+        class="text-h4 text-sm-h3 text-lg-h2 font-weight-bold white--text"
+        id="quote"
       >
         Safe transactions,<br />Happy People
       </v-card-text>
@@ -36,11 +33,13 @@
 
 <script>
 // @ts-nocheck
-import init from "./three/model"
+import init from "./three/head"
 export default {
   mounted() {
     this.$nextTick(() => {
-      init()
+      setTimeout(() => {
+        init()
+      }, 2000)
     })
   },
 
