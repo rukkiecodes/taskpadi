@@ -5,8 +5,8 @@
       <v-col cols="12" lg="8">
         <div id="growthChart"></div>
       </v-col>
-      <v-card-text>
-        <v-col>
+      <v-col cols="4">
+        <v-card-text>
           <p class="text-h6">Total</p>
           <p class="text-h4">$49000</p>
           <p class="text-body-2 font-weight-light grey--text text--darken-2">
@@ -50,8 +50,8 @@
               >
             </v-col>
           </v-row>
-        </v-col>
-      </v-card-text>
+        </v-card-text>
+      </v-col>
     </v-row>
   </v-card>
 </template>
