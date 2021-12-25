@@ -1,4 +1,5 @@
 import dashboard from "./modules/dashboard/dashboard";
+import admin from "./modules/admin/admin"
 export default [
   {
     path: "/",
@@ -76,4 +77,5 @@ export default [
     component: () => import("../views/transactions/ProviderServices.vue"),
   },
   dashboard,
-];
+  admin,
+]

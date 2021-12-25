@@ -3,23 +3,26 @@ import router from "../../router"
 export default {
   state: {
     credentials: {
-      fullName: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      phone: "",
+      referralCode: "",
       password: "",
+      confirmPassword: "",
     },
     loading: false,
   },
 
   mutations: {
     signupAsBuyer: (state, response) => {
-      if (response.status == 201) {
-        state.loading = false
-        router.push("/signin")
-      } else {
-        state.loading = false
-        router.push("/signup_buyer")
-      }
+      console.log(response)
+      // if (response.status == 201) {
+      //   state.loading = false
+      //   router.push("/signin")
+      // } else {
+      //   state.loading = false
+      //   router.push("/signup_buyer")
+      // }
     },
   },
 
@@ -27,10 +30,12 @@ export default {
     async signupAsBuyer({ commit }) {
       this.state.signup_buyer.loading = true
       if (
-        this.state.signup_buyer.credentials.fullName != "" &&
+        this.state.signup_buyer.credentials.firstName != "" &&
+        this.state.signup_buyer.credentials.lastName != "" &&
         this.state.signup_buyer.credentials.email != "" &&
-        this.state.signup_buyer.credentials.phone != "" &&
-        this.state.signup_buyer.credentials.password != ""
+        this.state.signup_buyer.credentials.referralCode != "" &&
+        this.state.signup_buyer.credentials.password != "" &&
+        this.state.signup_buyer.credentials.confirmPassword != ""
       ) {
         try {
           const response = await axios.post(
@@ -43,8 +48,7 @@ export default {
           console.log(error)
           this.state.signup_buyer.loading = false
           this.state.snackbar.snack = true
-          this.state.snackbar.text =
-            "ERROR!!! This email is taken try another"
+          this.state.snackbar.text = "ERROR!!! This email is taken try another"
           this.state.snackbar.color = "error"
           this.state.snackbar.buttonColor = "error"
         }

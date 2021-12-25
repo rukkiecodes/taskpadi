@@ -40,7 +40,7 @@
         </v-btn>
       </v-col>
       <v-col cols="12" sm="5">
-        <v-card flat color="transparent" class="mx-auto mt-16">
+        <v-card flat color="transparent" class="mx-auto">
           <v-card-title class="grey--text text--darken-3 text-h3"
             >Sign up</v-card-title
           >
@@ -53,7 +53,16 @@
               class="rounded-lg"
               placeholder="Full name"
               color="deep-purple accent-4"
-              v-model="signup_buyer.credentials.fullName"
+              v-model="signup_buyer.credentials.firstName"
+            ></v-text-field>
+            <v-text-field
+              dense
+              outlined
+              full-width
+              class="rounded-lg"
+              placeholder="Full name"
+              color="deep-purple accent-4"
+              v-model="signup_buyer.credentials.lastName"
             ></v-text-field>
             <v-text-field
               dense
@@ -70,9 +79,9 @@
               outlined
               full-width
               class="rounded-lg"
-              placeholder="Phone number"
+              placeholder="Referral code"
               color="deep-purple accent-4"
-              v-model="signup_buyer.credentials.phone"
+              v-model="signup_buyer.credentials.referralCode"
             ></v-text-field>
             <v-text-field
               dense
@@ -85,6 +94,19 @@
               v-model="signup_buyer.credentials.password"
               @click:append="peekPassword = !peekPassword"
               :append-icon="peekPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            ></v-text-field>
+            <v-text-field
+              dense
+              outlined
+              full-width
+              disabled
+              class="rounded-lg"
+              placeholder="Confirm Password"
+              color="deep-purple accent-4"
+              :type="peekPassword2 ? 'text' : 'password'"
+              v-model="signup_buyer.credentials.confirmPassword"
+              @click:append="peekPassword2 = !peekPassword2"
+              :append-icon="peekPassword2 ? 'mdi-eye' : 'mdi-eye-off'"
             ></v-text-field>
           </v-card-text>
           <v-card-text class="mt-n10 text-right">
@@ -126,6 +148,7 @@ import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     peekPassword: false,
+    peekPassword2: false,
   }),
 
   methods: {

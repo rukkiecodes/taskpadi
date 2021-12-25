@@ -1,6 +1,6 @@
 <template>
-  <v-dialog v-model="paddiLink.dialog" max-width="400" scrollable>
-    <v-card max-height="500">
+  <v-dialog v-model="paddiLink.dialog" scrollable>
+    <v-card max-height="500" width="400">
       <v-card-title class="grey--text text--darken-4">
         Create a Paddi link
         <v-spacer />
