@@ -6,6 +6,10 @@
           sell.title
         }}</v-card-title>
 
+        <v-avatar class="salesCardAvatar" tile>
+          <v-img :src="sell.image" :lazy-src="sell.image" :alt="sell.title" />
+        </v-avatar>
+
         <v-row no-gutters>
           <v-col cols="2">
             <span class="text-body-1 font-weight-bold">{{ sell.money }}</span>
@@ -48,6 +52,7 @@ export default {
         color: "deep-purple accent-4",
         textColor: "deep-purple--text text--accent-4",
         icon: "mdi-arrow-up-bold",
+        image: require("../assets/1.png")
       },
       {
         title: "Total Orders",
@@ -58,6 +63,7 @@ export default {
         color: "#FE517E",
         textColor: "pink--text",
         icon: "mdi-arrow-down-bold",
+        image: require("../assets/2.png")
       },
       {
         title: "Seller Revenue",
@@ -65,9 +71,10 @@ export default {
         label: ["12am", "3am", "6am", "9am"],
         value: [200, 675, 410, 390],
         rate: "+0.36%",
-        color: "cyan lighten-2",
-        textColor: "cyan--text text--lighten-2",
+        color: "#65F9B3",
+        textColor: "teal--text text--lighten-2",
         icon: "mdi-arrow-up-bold",
+        image: require("../assets/3.png")
       },
       {
         title: "TrustPaddi revenue",
@@ -78,6 +85,7 @@ export default {
         color: "amber darken-2",
         textColor: "amber--text text--lighten-1",
         icon: "mdi-arrow-up-bold",
+        image: require("../assets/4.png")
       },
     ],
   }),
@@ -92,5 +100,13 @@ export default {
 
 .salesCard {
   box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1) !important;
+  position: relative
+}
+
+.salesCardAvatar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 8px 0 0 !important;
 }
 </style>

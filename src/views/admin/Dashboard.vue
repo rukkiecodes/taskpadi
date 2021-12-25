@@ -32,6 +32,6 @@ export default {
 }
 
 .dashboardColor {
-  background: #eff0f5 !important
+  background: #F8F8FB !important
 }
 </style>
