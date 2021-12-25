@@ -1,18 +1,27 @@
 <template>
   <v-container>
     <Sales />
-    <GrowthRate />
+    <v-row justify="space-between" align="start">
+      <v-col cols="12" md="8">
+        <GrowthRate />
+      </v-col>
+      <v-col cols="12" md="4">
+        <TransactionDetails />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import Sales from "./components/Sales.vue"
 import GrowthRate from "./components/GrowthRate.vue"
+import TransactionDetails from "./components/TransactionDetails.vue"
 export default {
   components: {
     Sales,
-    GrowthRate
-  }
+    GrowthRate,
+    TransactionDetails,
+  },
 }
 </script>
 

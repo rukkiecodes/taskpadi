@@ -1,7 +1,7 @@
 <template>
   <v-row justify="space-between" align="start">
     <v-col v-for="(sell, i) in sales" :key="i" cols="12" sm="4" lg="3">
-      <v-card class="salesCard px-2" min-height="120" flat>
+      <v-card class="salesCard px-2 rounded-lg" min-height="120" flat>
         <v-card-title class="text-body-2 grey--text text--darken-1">{{
           sell.title
         }}</v-card-title>
@@ -55,7 +55,7 @@ export default {
         label: ["12am", "3am", "6am", "9am"],
         value: [200, 675, 410, 390],
         rate: "-6%",
-        color: "pink",
+        color: "#FE517E",
         textColor: "pink--text",
         icon: "mdi-arrow-down-bold",
       },

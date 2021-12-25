@@ -8,10 +8,13 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "apexcharts": "^3.32.1",
     "axios": "^0.23.0",
+    "chart.js": "^3.7.0",
     "core-js": "^3.6.5",
     "dat.gui": "^0.7.7",
     "gsap": "^3.8.0",
+    "jquery": "^3.6.0",
     "three": "^0.134.0",
     "three-globe": "^2.21.3",
     "three-glow-mesh": "^0.1.2",
