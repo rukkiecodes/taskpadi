@@ -10,30 +10,30 @@
           </v-btn>
         </template>
         <v-list class="pa-0">
-          <v-list-item @click="showStoresCreated">
-            <v-list-item-title>Stores created</v-list-item-title>
+          <v-list-item @click="showNumberOfUsers">
+            <v-list-item-title>Number of users</v-list-item-title>
           </v-list-item>
-          <v-list-item @click="showPaddiLinks">
-            <v-list-item-title>Paddi links</v-list-item-title>
+          <v-list-item @click="showUserPercentagess">
+            <v-list-item-title>User percentagess</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
     </v-card-title>
     <v-card-text>
       <donut-chart
-        id="donut"
+        id="donut3"
         :data="donutData"
         colors='[ "#FF6384", "#36A2EB", "#FFCE56" ]'
         resize="true"
-        v-show="storesCreated == true"
+        v-show="NumberOfUsers == true"
       ></donut-chart>
       <donut-chart
-        id="donut2"
+        id="donut4"
         style="margin-left: -6.3em"
-        :data="donutData"
+        :data="userPercentageData"
         colors='[ "#FF6384", "#36A2EB", "#FFCE56" ]'
         resize="true"
-        v-show="paddiLink == true"
+        v-show="userPercentages == true"
       ></donut-chart>
     </v-card-text>
   </v-card>
@@ -46,13 +46,18 @@ global.Raphael = Raphael
 import { DonutChart } from "vue-morris"
 export default {
   data: () => ({
-    storesCreated: true,
-    paddiLink: false,
-    title: "Stores created",
+    NumberOfUsers: true,
+    userPercentages: false,
+    title: "Number of users",
     donutData: [
       { label: "In-Store Sales", value: 30 },
       { label: "Download Sales", value: 12 },
       { label: "Mail-Order Sales", value: 20 },
+    ],
+    userPercentageData: [
+      { label: "Amount of sellers", value: 30 },
+      { label: "Sellers and buyers", value: 50 },
+      { label: "Amount of buyers", value: 20 },
     ],
   }),
 
@@ -65,15 +70,15 @@ export default {
   },
 
   methods: {
-    showStoresCreated() {
-      this.storesCreated = true
-      this.paddiLink = false
-      this.title = "Stores created"
+    showNumberOfUsers() {
+      this.NumberOfUsers = true
+      this.userPercentages = false
+      this.title = "Number of users"
     },
-    showPaddiLinks() {
-      this.storesCreated = false
-      this.paddiLink = true
-      this.title = "Paddi link"
+    showUserPercentagess() {
+      this.NumberOfUsers = false
+      this.userPercentages = true
+      this.title = "User percentages"
     },
   },
 }

@@ -12,7 +12,7 @@
         <StoresCreated />
       </v-col>
       <v-col cols="12" md="4">
-        <PaddiLinks />
+        <UserStats />
       </v-col>
       <v-col cols="12" md="4">
         <Despute />
@@ -27,7 +27,7 @@ import GrowthRate from "./components/GrowthRate.vue"
 import TransactionDetails from "./components/TransactionDetails.vue"
 import Despute from "./components/Despute.vue"
 import StoresCreated from "./components/StoresCreated.vue"
-import PaddiLinks from "./components/PaddiLinks.vue"
+import UserStats from "./components/UserStats.vue"
 export default {
   components: {
     Sales,
@@ -35,7 +35,7 @@ export default {
     TransactionDetails,
     Despute,
     StoresCreated,
-    PaddiLinks
+    UserStats
   },
 }
 </script>
