@@ -5,7 +5,7 @@
       <v-col cols="12" lg="8">
         <div id="growthChart"></div>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" sm="6" md="8" lg="4">
         <v-card-text>
           <p class="text-h6">Total</p>
           <p class="text-h4">$49000</p>

@@ -2,16 +2,16 @@
   <v-container>
     <Sales />
     <v-row justify="space-between" align="start">
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="7" lg="8">
         <GrowthRate />
       </v-col>
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="5" lg="4">
         <TransactionDetails />
       </v-col>
-      <v-col cols="12" md="4">
+      <v-col cols="12" sm="6" md="4">
         <StoresCreated />
       </v-col>
-      <v-col cols="12" md="4">
+      <v-col cols="12" sm="6" md="4">
         <UserStats />
       </v-col>
       <v-col cols="12" md="4">
