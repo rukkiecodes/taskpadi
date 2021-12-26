@@ -16,6 +16,7 @@
       </v-col>
       <v-col cols="12" md="4">
         <Despute />
+        <Users />
       </v-col>
     </v-row>
   </v-container>
@@ -28,6 +29,7 @@ import TransactionDetails from "./components/TransactionDetails.vue"
 import Despute from "./components/Despute.vue"
 import StoresCreated from "./components/StoresCreated.vue"
 import UserStats from "./components/UserStats.vue"
+import Users from "./components/Users.vue"
 export default {
   components: {
     Sales,
@@ -35,7 +37,8 @@ export default {
     TransactionDetails,
     Despute,
     StoresCreated,
-    UserStats
+    UserStats,
+    Users
   },
 }
 </script>
