@@ -1,5 +1,5 @@
 <template>
-  <v-card class="transactionDetailes" flat>
+  <v-card class="transactionDetailes rounded-lg" flat>
     <v-card-text>
       <v-card flat class="mb-13 transactionDetailesCards" v-for="(transaction, i) in transactionDetailes" :key="i">
         <v-row no-gutters align="center">
