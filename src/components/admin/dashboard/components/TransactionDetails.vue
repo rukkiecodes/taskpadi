@@ -124,11 +124,11 @@ export default {
         ".transactionDetailes .v-slider--horizontal .v-slider__track-container"
       )
 
-      if (sliders) {
-        for (let i = 0; i <= sliders.length; i++) {
-          sliders[i].style.height = "6px"
-        }
-      }
+      // if (sliders) {
+      //   for (let i = 0; i <= sliders.length; i++) {
+      //     sliders[i].style.height = "6px"
+      //   }
+      // }
     })
   },
 }

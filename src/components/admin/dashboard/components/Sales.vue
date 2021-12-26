@@ -40,6 +40,7 @@
 </template>
 
 <script>
+// @ts-nocheck
 export default {
   data: () => ({
     sales: [

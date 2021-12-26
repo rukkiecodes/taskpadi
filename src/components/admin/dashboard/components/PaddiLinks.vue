@@ -1,9 +1,9 @@
 <template>
   <v-card class="storesCreadedCard rounded-lg">
-    <v-card-title> Stores created </v-card-title>
+    <v-card-title> Paddi links </v-card-title>
     <v-card-text>
       <donut-chart
-        id="donut"
+        id="donut2"
         :data="donutData"
         colors='[ "#FF6384", "#36A2EB", "#FFCE56" ]'
         resize="true"
