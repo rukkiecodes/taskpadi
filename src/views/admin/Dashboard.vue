@@ -4,15 +4,18 @@
     <transition name="fade" mode="out-in">
       <router-view />
     </transition>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import Nav from "../../components/admin/navigation/Nav.vue"
+import Footer from "../../components/admin/components/Footer.vue"
 export default {
   name: "Dashboard",
   components: {
     Nav,
+    Footer,
   },
 }
 </script>
@@ -32,6 +35,6 @@ export default {
 }
 
 .dashboardColor {
-  background: #F8F8FB !important
+  background: #f8f8fb !important;
 }
 </style>

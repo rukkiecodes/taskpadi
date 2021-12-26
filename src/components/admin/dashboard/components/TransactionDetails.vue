@@ -1,7 +1,12 @@
 <template>
   <v-card class="transactionDetailes rounded-lg" flat>
     <v-card-text>
-      <v-card flat class="mb-13 transactionDetailesCards" v-for="(transaction, i) in transactionDetailes" :key="i">
+      <v-card
+        flat
+        class="mb-13 transactionDetailesCards"
+        v-for="(transaction, i) in transactionDetailes"
+        :key="i"
+      >
         <v-row no-gutters align="center">
           <v-col cols="3">
             <v-avatar
@@ -124,11 +129,11 @@ export default {
         ".transactionDetailes .v-slider--horizontal .v-slider__track-container"
       )
 
-      // if (sliders) {
-      //   for (let i = 0; i <= sliders.length; i++) {
-      //     sliders[i].style.height = "6px"
-      //   }
-      // }
+      if (sliders) {
+        for (let i = 0; i <= sliders.length; i++) {
+          sliders[i].style.height = "6px"
+        }
+      }
     })
   },
 }

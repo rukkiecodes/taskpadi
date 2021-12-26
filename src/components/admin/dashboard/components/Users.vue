@@ -18,6 +18,10 @@
         >
       </v-list-item>
     </v-list>
+
+    <v-card-actions>
+      <v-btn color="deep-purple accent-4" class="text-capitalize" block dark depressed>View more</v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 
