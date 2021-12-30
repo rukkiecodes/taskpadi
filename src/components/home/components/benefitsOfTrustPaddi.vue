@@ -1,14 +1,16 @@
 <template>
   <v-container class="mt-16">
     <Heading
-      class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
-      title="Benefits Trustpaddi!"
       data-aos="fade-up"
+      title="Benefits Trustpaddi!"
+      style="font-family: 'Montserrat', sans-serif !important;"
+      class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
     />
     <SubHeading
-      class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
-      title="The safest & surest way to transact online"
       data-aos="fade-up"
+      title="The safest & surest way to transact online"
+      style="font-family: 'Montserrat', sans-serif !important;"
+      class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
     />
     <Section1 />
     <Section2 class="mt-10" />

@@ -28,8 +28,18 @@
     <v-col cols="12" sm="6" lg="6">
       <v-card flat class="rounded-lg" color="transparent" data-aos="fade-up">
         <v-card-text v-for="(card, i) in cards" :key="i">
-          <p class="text-h5 text-md-h4 font-weight-bold" :class="textColor" v-text="card.title" />
-          <p :class="textColor" v-for="(text, i) in card.texts" :key="i">
+          <p
+            :class="textColor"
+            v-text="card.title"
+            class="text-h5 text-md-h4 font-weight-bold"
+            style="font-family: 'Montserrat', sans-serif !important;"
+          />
+          <p
+            :key="i"
+            :class="textColor"
+            v-for="(text, i) in card.texts"
+            style="font-family: 'Montserrat', sans-serif !important;"
+          >
             <v-icon :class="dotIconColor" class="mt-n1" size="15"
               >mdi-radiobox-marked</v-icon
             >
