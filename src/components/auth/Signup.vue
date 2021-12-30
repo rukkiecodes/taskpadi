@@ -60,7 +60,7 @@
               outlined
               full-width
               class="rounded-lg"
-              placeholder="Full name"
+              placeholder="Last name"
               color="deep-purple accent-4"
               v-model="signup_buyer.credentials.lastName"
             ></v-text-field>
@@ -99,7 +99,6 @@
               dense
               outlined
               full-width
-              disabled
               class="rounded-lg"
               placeholder="Confirm Password"
               color="deep-purple accent-4"

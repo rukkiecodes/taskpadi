@@ -22,9 +22,9 @@ export default [
     component: () => import("../views/auth/Signup_seller.vue"),
   },
   {
-    path: "/signup_buyer",
-    name: "Signup_buyer",
-    component: () => import("../views/auth/Signup_buyer.vue"),
+    path: "/signup",
+    name: "Signup",
+    component: () => import("../views/auth/Signup.vue"),
   },
   {
     path: "/signin",

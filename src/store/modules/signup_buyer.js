@@ -39,7 +39,7 @@ export default {
       ) {
         try {
           const response = await axios.post(
-            "https://trustpaddiauth.herokuapp.com/auth/signupBuyer",
+            "https://dev.trustpaddi.com/api/v1/register",
             this.state.signup_buyer.credentials
           )
           commit("signupAsBuyer", response)

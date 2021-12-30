@@ -29,7 +29,7 @@
 export default {
   data: () => ({
     start: [
-      { title: "Sign Up", icon: "mdi-location-enter", to: "/signup_buyer" },
+      { title: "Sign Up", icon: "mdi-location-enter", to: "/signup" },
       { title: "Sign In", icon: "mdi-login-variant", to: "/signin" },
     ],
   }),
