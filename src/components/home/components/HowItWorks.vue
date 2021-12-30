@@ -136,15 +136,15 @@
             <v-sheet
               elevation="12"
               :width="imageCardWidth"
-              class="ma-0 pa-0 rounded-xl"
               :data-aos="animateImage"
+              class="ma-0 pa-0 rounded-xl"
             >
               <v-img
                 width="100%"
                 height="100%"
                 class="rounded-xl"
-                lazy-src="../../../assets/trust/home/howSeller.jpg"
                 src="../../../assets/trust/home/howSeller.jpg"
+                lazy-src="../../../assets/trust/home/howSeller.jpg"
               />
             </v-sheet>
           </v-col>

@@ -11,15 +11,19 @@
         <v-card-text
           :class="title"
           class="text-uppercase font-weight-bold text-subtitle-2"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >businesses</v-card-text
         >
         <v-card-title
           :class="sectionClass"
           class="text-h4 text-md-h3 font-weight-bold"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >Sellers, service providers, Crypto traders & online
           vendors</v-card-title
         >
-        <v-card-text :class="sectionBodyClass"
+        <v-card-text
+          :class="sectionBodyClass"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >Any Business owner can use TrustPaddi, with our escrow services you
           can gain the Trust and Reliability that big brands enjoy, boost your
           sales, avoid the risk associated with cash on delivery (COD), attend

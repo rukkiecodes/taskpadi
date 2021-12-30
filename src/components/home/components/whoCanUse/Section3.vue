@@ -88,15 +88,19 @@
         <v-card-text
           :class="title"
           class="text-uppercase font-weight-bold text-subtitle-2"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >E-commerce</v-card-text
         >
         <v-card-title
           :class="sectionClass"
           class="text-h4 text-md-h3 font-weight-bold"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >ONLINE <br />
           MARKETPLACES/ E-COMMERCE STORES</v-card-title
         >
-        <v-card-text :class="sectionBodyClass"
+        <v-card-text
+          :class="sectionBodyClass"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >Potential customers are always skeptical about certain e-commerce
           sites which hasn't been recognised, the best way to gain your
           customers trust is to integrate TrustPaddi with your e-commerce

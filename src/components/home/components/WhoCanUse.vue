@@ -1,9 +1,10 @@
 <template>
   <v-container class="mt-16">
     <Heading
-      class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
-      title="Who can use Trust paddi?"
       data-aos="fade-up"
+      title="Who can use Trust paddi?"
+      style="font-family: 'Montserrat', sans-serif !important;"
+      class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
     />
     <Section1 />
     <Section2 />

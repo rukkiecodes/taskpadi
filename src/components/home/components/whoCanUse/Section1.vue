@@ -9,9 +9,9 @@
       <v-sheet
         width="100%"
         height="500"
+        data-aos="fade-down"
         style="position: relative"
         class="mt-0 mt-sm-12 rounded-xl"
-        data-aos="fade-down"
       >
         <v-card
           width="100%"
@@ -66,8 +66,8 @@
         >
           <v-avatar size="35" class="mr-2">
             <v-img
-              lazy-src="../../../../assets/trust/home/greenBoxCheck.png"
               src="../../../../assets/trust/home/greenBoxCheck.png"
+              lazy-src="../../../../assets/trust/home/greenBoxCheck.png"
             />
           </v-avatar>
           <div>
@@ -88,14 +88,18 @@
         <v-card-text
           :class="title"
           class="text-uppercase font-weight-bold text-subtitle-2"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >Individuals</v-card-text
         >
         <v-card-title
           :class="sectionClass"
           class="text-h4 text-md-h3 font-weight-bold"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >Peer 2 Peer</v-card-title
         >
-        <v-card-text :class="sectionBodyClass"
+        <v-card-text
+          :class="sectionBodyClass"
+          style="font-family: 'Montserrat', sans-serif !important;"
           >Anyone can use TrustPaddi especially when it comes to making
           transactions with unknown online vendors, service providers or with
           people whom you haven't done business with before.
