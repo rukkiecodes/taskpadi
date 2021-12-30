@@ -12,18 +12,32 @@
         :max-width="groupSheetWidth"
       >
         <v-slide-group class="py-4" show-arrows>
-          <v-slide-item class="mr-4" v-for="(testimony, i) in testimonies" :key="i">
+          <v-slide-item
+            class="mr-4"
+            v-for="(testimony, i) in testimonies"
+            :key="i"
+          >
             <v-card class="rounded-lg ma-2" color="white" width="300">
-              <v-toolbar flat>
-                <v-avatar class="mr-3">
-                  <v-img :src="testimony.avatar" />
-                </v-avatar>
-                <v-sheet class="d-flex flex-column align-start justify-center">
-                  <v-toolbar-title v-text="testimony.name" />
-                  <span class="text-caption grey--text text--darken-3" v-text="testimony.position" />
-                </v-sheet>
-              </v-toolbar>
-              <v-card-text>
+              <v-list two-line>
+                <v-list-item>
+                  <v-list-item-avatar>
+                    <v-img :src="testimony.avatar" />
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title
+                      v-text="testimony.name"
+                      style="font-family: 'Montserrat', sans-serif !important;"
+                    />
+                    <v-list-item-subtitle
+                      v-text="testimony.position"
+                      style="font-family: 'Montserrat', sans-serif !important;"
+                    />
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+              <v-card-text
+                style="font-family: 'Montserrat', sans-serif !important;"
+              >
                 <v-icon color="#210070" size="30">mdi-format-quote-open</v-icon>
                 {{ testimony.body }}
               </v-card-text>
@@ -42,7 +56,7 @@ export default {
   data: () => ({
     groupSheetWidth: null,
     groupSheetHeight: null,
-    testimonies
+    testimonies,
   }),
   mounted() {
     const groupSheet = document.querySelector(".groupSheet")
