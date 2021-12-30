@@ -4,43 +4,52 @@
       <v-row justify="space-between" align="start">
         <v-col cols="12" sm="6" lg="3">
           <v-card flat color="transparent" class="ma-0 pa-0">
-            <v-card-title class="white--text text-center">Company</v-card-title>
+            <v-card-title
+              class="white--text text-center"
+              style="font-family: 'Montserrat', sans-serif !important;"
+              >Company</v-card-title
+            >
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 Testimonials
               </router-link>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 P2P Transaction
               </router-link>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 FAQs
               </router-link>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 Blog
               </router-link>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 Careers
               </router-link>
@@ -49,35 +58,43 @@
         </v-col>
         <v-col cols="12" sm="6" lg="3">
           <v-card flat color="transparent" class="ma-0 pa-0">
-            <v-card-title class="white--text text-center">Support</v-card-title>
+            <v-card-title
+              class="white--text text-center"
+              style="font-family: 'Montserrat', sans-serif !important;"
+              >Support</v-card-title
+            >
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 Security
               </router-link>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 Fee Calculator
               </router-link>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 Fraud Prevention
               </router-link>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
               <router-link
-                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
                 to="/"
+                style="font-family: 'Montserrat', sans-serif !important;"
+                class="text-decoration-none grey--text text--lighten-2 pa-0 ma-0"
               >
                 Report a Bug
               </router-link>
@@ -86,7 +103,9 @@
         </v-col>
         <v-col cols="12" sm="6" lg="3">
           <v-card flat color="transparent" class="ma-0 pa-0">
-            <v-card-title class="white--text text-center"
+            <v-card-title
+              class="white--text text-center"
+              style="font-family: 'Montserrat', sans-serif !important;"
               >Reach us</v-card-title
             >
             <v-card-text class="pb-0 mb-0">
@@ -94,7 +113,10 @@
                 <v-list-item-icon>
                   <v-icon>mdi-email</v-icon>
                 </v-list-item-icon>
-                <v-list-item-title>contact@trustpaddi.com</v-list-item-title>
+                <v-list-item-title
+                  style="font-family: 'Montserrat', sans-serif !important;"
+                  >contact@trustpaddi.com</v-list-item-title
+                >
               </v-list-item>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
@@ -102,7 +124,10 @@
                 <v-list-item-icon>
                   <v-icon>mdi-cellphone-android</v-icon>
                 </v-list-item-icon>
-                <v-list-item-title>+2349033275449</v-list-item-title>
+                <v-list-item-title
+                  style="font-family: 'Montserrat', sans-serif !important;"
+                  >+2349033275449</v-list-item-title
+                >
               </v-list-item>
             </v-card-text>
             <v-card-text class="pb-0 mb-0">
@@ -110,14 +135,19 @@
                 <v-list-item-icon>
                   <v-icon>mdi-map-marker</v-icon>
                 </v-list-item-icon>
-                <v-list-item-title>Lagos</v-list-item-title>
+                <v-list-item-title
+                  style="font-family: 'Montserrat', sans-serif !important;"
+                  >Lagos</v-list-item-title
+                >
               </v-list-item>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="12" sm="6" lg="3">
           <v-card flat color="transparent" class="ma-0 pa-0">
-            <v-card-title class="white--text text-center"
+            <v-card-title
+              class="white--text text-center"
+              style="font-family: 'Montserrat', sans-serif !important;"
               >Stay up to date</v-card-title
             >
             <v-card-text class="pb-0 mb-0">
@@ -131,6 +161,7 @@
                 class="rounded-lg"
                 placeholder="Your email address"
                 append-icon="mdi-send-outline mdi-rotate-315"
+                style="font-family: 'Montserrat', sans-serif !important;"
               ></v-text-field>
             </v-card-text>
           </v-card>
@@ -138,35 +169,39 @@
       </v-row>
       <v-divider dark class="my-5" />
       <v-row
-        class="flex-column-reverse flex-sm-row"
-        justify="space-between"
         align="center"
+        justify="space-between"
+        class="flex-column-reverse flex-sm-row"
       >
         <v-col class="text-center text-sm-left" cols="12" sm="4" lg="4">
           <span
+            style="font-family: 'Montserrat', sans-serif !important;"
             class="grey--text text--lighten-2 text-body-2 text-sm-caption text-md-body-2 mt-sm-3"
           >
             © 2021 TrustPaddi. All rights reserved
           </span>
         </v-col>
         <v-col
-          class="d-flex justify-space-around align-center"
-          cols="12"
           sm="4"
           lg="4"
+          cols="12"
+          class="d-flex justify-space-around align-center"
         >
           <router-link
             to="/"
+            style="font-family: 'Montserrat', sans-serif !important;"
             class="grey--text text--lighten-2 text-body-2 text-decoration-none text-sm-caption text-md-body-2"
             >Terms</router-link
           >
           <router-link
             to="/"
+            style="font-family: 'Montserrat', sans-serif !important;"
             class="grey--text text--lighten-2 text-body-2 text-decoration-none text-sm-caption text-md-body-2"
             >Privacy</router-link
           >
           <router-link
             to="/"
+            style="font-family: 'Montserrat', sans-serif !important;"
             class="grey--text text--lighten-2 text-body-2 text-decoration-none text-sm-caption text-md-body-2"
             >Cookies</router-link
           >

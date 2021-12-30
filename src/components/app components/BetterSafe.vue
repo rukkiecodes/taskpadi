@@ -7,7 +7,11 @@
         src="../../assets/trust/home/wave.svg"
         class="rounded-xl d-flex justify-center align-center text-center"
       >
-        <Title class="white--text text-h4 font-weight-bold" :title="title" />
+        <Title
+          :title="title"
+          class="white--text text-h4 font-weight-bold"
+          style="font-family: 'Montserrat', sans-serif !important;"
+        />
         <v-btn
           dark
           large
