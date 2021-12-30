@@ -13,7 +13,7 @@
       data-aos="fade-up"
     />
     <p
-      class="text-body-1 text-center grey--text text--darken-3"
+      class="text-body-1 text-center grey--text text--darken-3 mb-8"
       style="font-family: 'Montserrat', sans-serif !important;"
       v-for="(quote, i) in blockquote"
       :key="i"
@@ -57,17 +57,7 @@ import "aos/dist/aos.css"
 export default {
   data: () => ({
     blockquote: [
-      `<span class="font-weight-bold">TrustPaddi</span> is Nigerians most trusted escrow/middleman platform built with
-      the latest technology which enables safer transactions between online
-      vendors (marketplaces, businesses etc) & individuals whether online or
-      offline.`,
-      `With TrustPaddi Cash on delivery just got better cause we provide full
-      escrow protection for both parties and stress-free delivery options for
-      online business owners`,
-      `Therefore, Whether you’re dealing with a real estate transaction, an
-      online seller or a Crypto trader etc escrow is the best means to transact
-      Securely and this is what TrustPaddi offers, Escrow Protection at it's
-      best.`,
+      `<span class="font-weight-bold">TrustPaddi</span> is a payment solution built with escrow protection, which ensures safer and scam free transactions between online vendors, service providers and individuals online.`,
     ],
     cards: [
       {

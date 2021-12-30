@@ -95,8 +95,8 @@
           :class="sectionClass"
           class="text-h4 text-md-h3 font-weight-bold"
           style="font-family: 'Montserrat', sans-serif !important;"
-          >ONLINE <br />
-          MARKETPLACES/ E-COMMERCE STORES</v-card-title
+          >ONLINE<br>
+          MARKETPLACES/ E-COMMERCE<br class="hidden-sm-and-up">STORES</v-card-title
         >
         <v-card-text
           :class="sectionBodyClass"

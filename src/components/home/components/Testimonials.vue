@@ -18,7 +18,7 @@
             :key="i"
           >
             <v-card class="rounded-lg ma-2" color="white" width="300">
-              <v-list two-line>
+              <v-list>
                 <v-list-item>
                   <v-list-item-avatar>
                     <v-img :src="testimony.avatar" />
@@ -26,10 +26,6 @@
                   <v-list-item-content>
                     <v-list-item-title
                       v-text="testimony.name"
-                      style="font-family: 'Montserrat', sans-serif !important;"
-                    />
-                    <v-list-item-subtitle
-                      v-text="testimony.position"
                       style="font-family: 'Montserrat', sans-serif !important;"
                     />
                   </v-list-item-content>

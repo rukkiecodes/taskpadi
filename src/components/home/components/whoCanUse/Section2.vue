@@ -18,8 +18,9 @@
           :class="sectionClass"
           class="text-h4 text-md-h3 font-weight-bold"
           style="font-family: 'Montserrat', sans-serif !important;"
-          >Sellers, service providers, Crypto traders & online
-          vendors</v-card-title
+          >Sellers, service<br class="hidden-sm-and-up" />providers, Crypto<br
+            class="hidden-sm-and-up"
+          />traders & online<br class="hidden-sm-and-up">vendors</v-card-title
         >
         <v-card-text
           :class="sectionBodyClass"
