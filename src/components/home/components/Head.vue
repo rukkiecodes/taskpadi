@@ -7,13 +7,16 @@
 
     <v-card :width="textCardWidth" color="transparent" class="hero" flat>
       <v-card-text
-        class="text-h4 text-sm-h3 text-lg-h3 font-weight-bold white--text"
-        style="font-family: 'Montserrat', sans-serif !important;"
         id="quote"
+        style="font-family: 'Montserrat', sans-serif !important;"
+        class="text-h4 text-sm-h3 text-lg-h3 font-weight-bold white--text"
       >
         Safe transactions,<br />Happy People
       </v-card-text>
-      <v-card-text class="white--text text-body-1" style="font-family: 'Montserrat', sans-serif !important;">
+      <v-card-text
+        class="white--text text-body-1"
+        style="font-family: 'Montserrat', sans-serif !important;"
+      >
         Transact Securely with online vendors & marketplaces, gain customers
         trust with TrustPaddi
       </v-card-text>
@@ -23,8 +26,8 @@
           large
           depressed
           width="160"
-          color="deep-purple accent-4"
           class="text-capitalize"
+          color="deep-purple accent-4"
           >Get Started</v-btn
         >
       </v-card-actions>

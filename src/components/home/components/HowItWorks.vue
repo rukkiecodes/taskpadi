@@ -1,21 +1,23 @@
 <template>
   <v-container class="mt-16">
     <Heading
-      class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
-      title="How it works"
       data-aos="fade-up"
+      title="How it works"
+      style="font-family: 'Montserrat', sans-serif !important;"
+      class="text-h4 text-md-h3 font-weight-bold text-center grey--text text--darken-4"
     />
     <SubHeading
-      class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
-      title="The whole process is Simple, transparent and automated"
       data-aos="fade-up"
+      style="font-family: 'Montserrat', sans-serif !important;"
+      title="The whole process is Simple, transparent and automated"
+      class="mt-2 mb-6 text-center grey--text text--darken-3 text-subtitle-1"
     />
 
     <v-sheet
-      width="300"
-      class="pa-3 mb-6 rounded-lg mx-auto"
-      color="#F8F8F8"
       flat
+      width="300"
+      color="transparent"
+      class="pa-3 mb-6 rounded-lg mx-auto"
     >
       <v-btn
         dark
@@ -48,24 +50,28 @@
         >
           <v-col :class="sectionClass" cols="12" sm="6">
             <v-card
-              v-for="(buy, i) in buyer"
+              flat
               :key="i"
               color="transparent"
-              flat
-              class="d-flex justify-start align-strat mb-8"
               data-aos="fade-right"
+              v-for="(buy, i) in buyer"
+              class="d-flex justify-start align-strat mb-8"
             >
               <v-row justify="start" align="start">
                 <v-col cols="2">
                   <v-avatar color="#F4F5F7" :size="avatarSize">
                     <span
-                      class="text-h4 font-weight-bold"
                       v-text="buy.avatar"
+                      class="text-h4 font-weight-bold"
                     />
                   </v-avatar>
                 </v-col>
                 <v-col cols="10">
-                  <span :class="text" v-text="buy.text" />
+                  <span
+                    :class="text"
+                    v-text="buy.text"
+                    style="font-family: 'Montserrat', sans-serif !important;"
+                  />
                 </v-col>
               </v-row>
             </v-card>
@@ -117,7 +123,11 @@
                   </v-avatar>
                 </v-col>
                 <v-col cols="10">
-                  <span :class="text" v-text="sell.text" />
+                  <span
+                    :class="text"
+                    v-text="sell.text"
+                    style="font-family: 'Montserrat', sans-serif !important;"
+                  />
                 </v-col>
               </v-row>
             </v-card>
@@ -226,7 +236,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      AOS.init();
+      AOS.init()
     })
   },
   methods: {
