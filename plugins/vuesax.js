@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuesax from "vuesax";
 import "./vuesax.css";
-import "material-icons/iconfont/material-icons.css";
+import "./icon/css/line-awesome.min.css";
 
 Vue.use(Vuesax);

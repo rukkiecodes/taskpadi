@@ -1,0 +1,29 @@
+.nav {
+  background-color: transparent;
+}
+
+.nav .mobileMenuButton {
+  display: none;
+}
+
+.nav .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav .logo .logoImg {
+  width: 30px;
+}
+
+.nav .logo span {
+  font-weight: 600;
+  margin-left: .7em;
+}
+/*# sourceMappingURL=nav.css.map */

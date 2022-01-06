@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="521" height="284" viewBox="0 0 521 284">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.673" y1="-0.224" x2="-0.298" y2="1.075" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#150f3f"/>
+      <stop offset="1" stop-color="#6200EA"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_160" data-name="Group 160" transform="translate(-350 -278)">
+    <rect id="Rectangle_94" data-name="Rectangle 94" width="521" height="284" rx="20" transform="translate(350 278)" fill="url(#linear-gradient)"/>
+    <text id="Victor_Trust" data-name="Victor Trust" transform="translate(389 359)" fill="#fff" font-size="31" font-family="Montserrat-Regular, Montserrat" letter-spacing="0.02em"><tspan x="0" y="0">Victor Trust</tspan></text>
+    <g id="Group_76" data-name="Group 76" transform="translate(741.365 463.953)">
+      <ellipse id="Ellipse_13" data-name="Ellipse 13" cx="27.5" cy="27" rx="27.5" ry="27" transform="translate(27.635 0.047)" fill="#ffd950" opacity="0.58"/>
+      <circle id="Ellipse_12" data-name="Ellipse 12" cx="27" cy="27" r="27" transform="translate(-0.365 0.047)" fill="#3766b1"/>
+    </g>
+    <text id="XXXX_XXXX_XXXX_XXXX_XXXX" data-name="XXXX XXXX XXXX XXXX XXXX" transform="translate(389 432)" fill="#84b5ff" font-size="28" font-family="Poppins-Light, Poppins" font-weight="300"><tspan x="0" y="0">XXXX XXXX XXXX XXXX XXXX</tspan></text>
+    <text id="XXXXX" transform="translate(389 501)" fill="#fff" font-size="28" font-family="Poppins-Light, Poppins" font-weight="300"><tspan x="0" y="0">XXXXX</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+.nav {
+  background-color: transparent;
+
+  .mobileMenuButton {
+    display: none
+  }
+
+  .logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .logoImg {
+      width: 30px;
+    }
+
+    span {
+      font-weight: 600;
+      margin-left: .7em;
+    }
+  }
+}
