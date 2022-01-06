@@ -1,0 +1,28 @@
+@import "./settings/_mediaQuery";
+
+.heading {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+
+  h1 {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #212121;
+
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    margin-top: 0;
+    text-align: center;
+    color: #212121;
+  }
+}
