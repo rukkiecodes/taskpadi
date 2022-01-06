@@ -1,5 +1,7 @@
 .nav {
   background-color: transparent;
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+          backdrop-filter: blur(10px) saturate(180%);
 }
 
 .nav .mobileMenuButton {

@@ -124,7 +124,7 @@
   color: #212121;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 360px) {
   .heading h1 {
     font-size: 2rem;
   }
@@ -133,6 +133,6 @@
 .heading p {
   margin-top: 0;
   text-align: center;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.7);
 }
 /*# sourceMappingURL=heading.css.map */

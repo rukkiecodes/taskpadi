@@ -88,6 +88,10 @@
     h1 {
       font-size: 3rem;
       color: #000;
+
+      @include mobile {
+        width: 100%;
+      }
     }
 
     p {

@@ -1,5 +1,6 @@
 .nav {
   background-color: transparent;
+  backdrop-filter: blur(10px) saturate(180%);
 
   .mobileMenuButton {
     display: none
