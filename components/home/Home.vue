@@ -5,6 +5,9 @@
     <IntroducingTrustpaddi />
     <HowItWoks />
     <WhoCanUse />
+    <Benefits />
+    <Testimony />
+    <Footer />
   </div>
 </template>
 
@@ -14,6 +17,9 @@ import Head from "./components/Head.vue"
 import IntroducingTrustpaddi from "./components/IntroducingTrustpaddi.vue"
 import HowItWoks from "./components/HowItWorks.vue"
 import WhoCanUse from "./components/WhoCanUse.vue"
+import Benefits from "./components/Benefits.vue"
+import Testimony from "./components/Testimony.vue"
+import Footer from "./components/Footer.vue"
 export default {
   name: "HomeComponent",
 
@@ -22,7 +28,10 @@ export default {
     Head,
     IntroducingTrustpaddi,
     HowItWoks,
-    WhoCanUse
+    WhoCanUse,
+    Benefits,
+    Testimony,
+    Footer
   }
 };
 </script>

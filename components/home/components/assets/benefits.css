@@ -98,43 +98,72 @@
 /* ----------- Retina Screens ----------- */
 /* ----------- Apple Watch ----------- */
 /* ----------- Moto 360 Watch ----------- */
-.IntroducingTrustpaddi {
+.benefits {
   width: 1150px;
   max-width: 95%;
   margin: auto;
 }
 
-.IntroducingTrustpaddi .introductoction {
-  text-align: center;
-}
-
-.IntroducingTrustpaddi .introductoction p {
-  margin-bottom: 2em;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.IntroducingTrustpaddi .introductoction p span {
-  font-weight: 600;
-}
-
-.IntroducingTrustpaddi .perks {
-  margin-top: 3em;
+.sectionEven {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 4em;
 }
 
-.IntroducingTrustpaddi .perks .perksCard {
-  width: 23%;
+.sectionEven:last-child {
+  margin-bottom: 0;
+}
+
+.sectionEven .left {
+  width: 450px;
+  max-width: 100%;
+}
+
+.sectionEven .left .leftImage {
+  overflow: hidden;
+  width: 100%;
+  height: 440px;
+  border-radius: 20px;
+  -webkit-transition: .24s all ease;
+  transition: .24s all ease;
+  overflow: hidden;
+}
+
+.sectionEven .left .leftImage:hover {
+  scale: .9;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.sectionEven .left .leftImage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: .24s all ease;
+  transition: .24s all ease;
+}
+
+.sectionEven .left .leftImage img:hover {
+  scale: .9;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+}
+
+.sectionEven .right {
+  width: 350px;
+  max-width: 100%;
+  width: 500px;
+}
+
+.sectionEven .right .textArea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,34 +171,139 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-@media (max-width: 768px) {
-  .IntroducingTrustpaddi .perks .perksCard {
-    width: 100%;
-  }
+.sectionEven .right .textArea .largeTitle {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #212121;
 }
 
-.IntroducingTrustpaddi .perks .perksCard img {
-  width: 30%;
+.sectionEven .right .textArea .body {
+  margin-top: 1em;
 }
 
-.IntroducingTrustpaddi .perks .perksCard .title {
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 1.3rem;
-  text-align: center;
+.sectionEven .right .textArea .body .list {
+  margin-bottom: .7em;
 }
 
-.IntroducingTrustpaddi .perks .perksCard .body {
+.sectionEven .right .textArea .body .list i {
+  color: #6200EA;
+}
+
+.sectionEven .right .textArea .body .list span {
   font-size: .9rem;
   color: rgba(0, 0, 0, 0.7);
-  text-align: center;
-  margin-top: 0;
 }
-/*# sourceMappingURL=IntroducingTrustpaddi.css.map */
+
+.sectionOdd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 4em;
+}
+
+.sectionOdd:last-child {
+  margin-bottom: 0;
+}
+
+.sectionOdd .left {
+  width: 450px;
+  max-width: 100%;
+}
+
+.sectionOdd .left .leftImage {
+  overflow: hidden;
+  width: 100%;
+  height: 440px;
+  border-radius: 20px;
+  -webkit-transition: .24s all ease;
+  transition: .24s all ease;
+  overflow: hidden;
+}
+
+.sectionOdd .left .leftImage:hover {
+  scale: .9;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.sectionOdd .left .leftImage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: .24s all ease;
+  transition: .24s all ease;
+}
+
+.sectionOdd .left .leftImage img:hover {
+  scale: .9;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+}
+
+.sectionOdd .right {
+  width: 350px;
+  max-width: 100%;
+  width: 500px;
+}
+
+.sectionOdd .right .textArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.sectionOdd .right .textArea .largeTitle {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #212121;
+}
+
+.sectionOdd .right .textArea .body {
+  margin-top: 1em;
+  text-align: right;
+}
+
+.sectionOdd .right .textArea .body .list {
+  margin-bottom: .7em;
+}
+
+.sectionOdd .right .textArea .body .list i {
+  color: #6200EA;
+}
+
+.sectionOdd .right .textArea .body .list span {
+  font-size: .9rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+/*# sourceMappingURL=benefits.css.map */

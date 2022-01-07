@@ -98,8 +98,31 @@
 /* ----------- Retina Screens ----------- */
 /* ----------- Apple Watch ----------- */
 /* ----------- Moto 360 Watch ----------- */
-.heading {
-  height: 20vh;
+.footer {
+  background-color: #210070;
+  padding: 2em 0;
+}
+
+.footer .footerContainer1 {
+  width: 1150px;
+  max-width: 95%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.footer .footerContainer1 .company,
+.footer .footerContainer1 .support,
+.footer .footerContainer1 .reachUs,
+.footer .footerContainer1 .stayUpToDate {
+  width: 25%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,32 +130,114 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.footer .footerContainer1 .company p,
+.footer .footerContainer1 .support p,
+.footer .footerContainer1 .reachUs p,
+.footer .footerContainer1 .stayUpToDate p {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.footer .footerContainer1 .company a,
+.footer .footerContainer1 .support a,
+.footer .footerContainer1 .reachUs a,
+.footer .footerContainer1 .stayUpToDate a {
+  color: #fff;
+  font-size: .9rem;
+  text-decoration: none;
+  outline: none;
+  margin-bottom: .8em;
+}
+
+.footer .footerContainer1 .company a i,
+.footer .footerContainer1 .support a i,
+.footer .footerContainer1 .reachUs a i,
+.footer .footerContainer1 .stayUpToDate a i {
+  font-size: 1.5rem;
+}
+
+.footer .footerContainer1 .company .stayUpToDateInput,
+.footer .footerContainer1 .support .stayUpToDateInput,
+.footer .footerContainer1 .reachUs .stayUpToDateInput,
+.footer .footerContainer1 .stayUpToDate .stayUpToDateInput {
+  width: 100%;
+}
+
+.footer .footerContainer1 .company .stayUpToDateInput .vs-input-content,
+.footer .footerContainer1 .support .stayUpToDateInput .vs-input-content,
+.footer .footerContainer1 .reachUs .stayUpToDateInput .vs-input-content,
+.footer .footerContainer1 .stayUpToDate .stayUpToDateInput .vs-input-content {
+  display: none;
+}
+
+.footer .footerContainer1 .company .stayUpToDateInput .vs-input-content .vs-input,
+.footer .footerContainer1 .support .stayUpToDateInput .vs-input-content .vs-input,
+.footer .footerContainer1 .reachUs .stayUpToDateInput .vs-input-content .vs-input,
+.footer .footerContainer1 .stayUpToDate .stayUpToDateInput .vs-input-content .vs-input {
+  width: 100% !important;
+}
+
+.footer .diveider {
+  width: 1150px;
+  max-width: 95%;
+  height: 1px;
+  margin: 2em auto;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer .footerContainer2 {
+  width: 1150px;
+  max-width: 95%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 3em;
 }
 
-.heading h1 {
-  margin-bottom: 0;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 600;
-  color: #212121;
+.footer .footerContainer2 .section1,
+.footer .footerContainer2 .section2,
+.footer .footerContainer2 .section3 {
+  width: 32%;
+  max-width: 100%;
+  color: #fff;
+  font-size: .9rem;
 }
 
-@media (max-width: 768px) {
-  .heading h1 {
-    font-size: 2rem;
-  }
+.footer .footerContainer2 .section1 a,
+.footer .footerContainer2 .section2 a,
+.footer .footerContainer2 .section3 a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.heading p {
-  margin-top: 0;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.7);
+.footer .footerContainer2 .section2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
-/*# sourceMappingURL=heading.css.map */
+
+.footer .footerContainer2 .section3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+/*# sourceMappingURL=footer.css.map */

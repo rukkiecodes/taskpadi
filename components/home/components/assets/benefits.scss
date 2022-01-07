@@ -1,0 +1,167 @@
+@import "./settings//mediaQuery";
+
+.benefits {
+  width: 1150px;
+  max-width: 95%;
+  margin: auto;
+}
+
+.sectionEven {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .left {
+    width: 450px;
+    max-width: 100%;
+
+    .leftImage {
+      overflow: hidden;
+      width: 100%;
+      height: 440px;
+      border-radius: 20px;
+      transition: .24s all ease;
+      overflow: hidden;
+
+      &:hover {
+        scale: .9;
+        transform: scale(.98)
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: .24s all ease;
+
+        &:hover {
+          scale: .9;
+          transform: scale(1.08)
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 350px;
+    max-width: 100%;
+    width: 500px;
+
+    .textArea {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .largeTitle {
+        margin-bottom: 0;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #212121;
+      }
+
+      .body {
+        margin-top: 1em;
+
+        .list {
+          margin-bottom: .7em;
+
+          i {
+            color: #6200EA
+          }
+
+          span {
+            font-size: .9rem;
+            color: rgba(0, 0, 0, 0.7);
+          }
+        }
+      }
+    }
+  }
+}
+
+.sectionOdd {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .left {
+    width: 450px;
+    max-width: 100%;
+
+    .leftImage {
+      overflow: hidden;
+      width: 100%;
+      height: 440px;
+      border-radius: 20px;
+      transition: .24s all ease;
+      overflow: hidden;
+
+      &:hover {
+        scale: .9;
+        transform: scale(.98)
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: .24s all ease;
+
+        &:hover {
+          scale: .9;
+          transform: scale(1.08)
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 350px;
+    max-width: 100%;
+    width: 500px;
+
+    .textArea {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+
+      .largeTitle {
+        margin-bottom: 0;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #212121;
+      }
+
+      .body {
+        margin-top: 1em;
+        text-align: right;
+
+        .list {
+          margin-bottom: .7em;
+
+          i {
+            color: #6200EA
+          }
+
+          span {
+            font-size: .9rem;
+            color: rgba(0, 0, 0, 0.7);
+          }
+        }
+      }
+    }
+  }
+}

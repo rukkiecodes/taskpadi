@@ -17,6 +17,7 @@
 
 ::-webkit-scrollbar {
   width: 5px;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
