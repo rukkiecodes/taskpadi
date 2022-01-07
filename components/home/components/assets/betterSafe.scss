@@ -1,0 +1,25 @@
+@import "./settings//mediaQuery";
+
+.betterSafe {
+  width: 1150px;
+  max-width: 95%;
+  height: 30vh;
+  margin: 4em auto;
+  background: #210070;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+    color: #fff
+  }
+
+  .betterSafeButton {
+    font-weight: 600;
+    padding: .4em 2em;
+  }
+}

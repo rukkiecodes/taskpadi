@@ -4,10 +4,11 @@
     <Head />
     <IntroducingTrustpaddi />
     <HowItWoks />
-    <WhoCanUse />
-    <Benefits />
-    <Testimony />
-    <Footer />
+    <!-- <WhoCanUse /> -->
+    <!-- <Benefits /> -->
+    <!-- <Testimony /> -->
+    <!-- <BetterSafe /> -->
+    <!-- <Footer /> -->
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import HowItWoks from "./components/HowItWorks.vue"
 import WhoCanUse from "./components/WhoCanUse.vue"
 import Benefits from "./components/Benefits.vue"
 import Testimony from "./components/Testimony.vue"
+import BetterSafe from "./components/BetterSafe.vue"
 import Footer from "./components/Footer.vue"
 export default {
   name: "HomeComponent",
@@ -31,6 +33,7 @@ export default {
     WhoCanUse,
     Benefits,
     Testimony,
+    BetterSafe,
     Footer
   }
 };

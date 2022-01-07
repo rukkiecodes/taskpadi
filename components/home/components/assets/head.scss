@@ -89,8 +89,8 @@
       font-size: 3rem;
       color: #000;
 
-      @include mobile {
-        width: 100%;
+      @media (max-width: 768px) {
+        font-size: 2rem;
       }
     }
 
