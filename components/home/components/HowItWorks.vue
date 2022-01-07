@@ -43,9 +43,9 @@
     <div class="buyer" v-show="showBuyer">
       <div class="left">
         <div class="texts" v-for="(text, i) in leftText" :key="i">
-          <div class="avatar">
-            <p v-text="text.index" />
-          </div>
+          <vs-avatar>
+            <template #text> {{ text.index }} </template>
+          </vs-avatar>
 
           <p class="mainText" v-text="text.text" />
         </div>
@@ -60,9 +60,9 @@
     <div class="seller" v-show="showSeller">
       <div class="left">
         <div class="texts" v-for="(text, i) in rightText" :key="i">
-          <div class="avatar">
-            <p v-text="text.index" />
-          </div>
+          <vs-avatar>
+            <template #text> {{ text.index }} </template>
+          </vs-avatar>
 
           <p class="mainText" v-text="text.text" />
         </div>

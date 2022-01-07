@@ -12,6 +12,16 @@
   align-items: flex-start;
   margin-bottom: 4em;
 
+  @include mobile {
+    flex-direction: column;
+    background-color: #6200EA;
+    border-radius: 20px;
+
+    .right {
+      padding: 5px;
+    }
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -70,11 +80,19 @@
         font-size: 2rem;
         font-weight: 600;
         color: #212121;
+
+        @include mobile {
+          color: #fff
+        }
       }
 
       .body {
         color: rgba(0, 0, 0, 0.7);
         font-size: .9rem;
+
+        @include mobile {
+          color: #fff
+        }
       }
     }
   }
@@ -85,6 +103,16 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 4em;
+
+  @include mobile {
+    flex-direction: column-reverse;
+    background-color: #6200EA;
+    border-radius: 20px;
+
+    .left {
+      padding: 5px;
+    }
+  }
 
   .right {
     width: 450px;
@@ -140,11 +168,19 @@
         font-size: 2rem;
         font-weight: 600;
         color: #212121;
+
+        @include mobile {
+          color: #fff
+        }
       }
 
       .body {
         color: rgba(0, 0, 0, 0.7);
         font-size: .9rem;
+
+        @include mobile {
+          color: #fff
+        }
       }
     }
   }

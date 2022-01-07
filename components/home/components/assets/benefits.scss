@@ -12,6 +12,13 @@
   align-items: flex-start;
   margin-bottom: 4em;
 
+  @include mobile {
+    flex-direction: column;
+    background-color: #6200EA;
+    border-radius: 20px;
+    overflow: hidden
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -58,11 +65,19 @@
       align-items: flex-start;
       justify-content: flex-start;
 
+      @include mobile {
+        padding: 5px
+      }
+
       .largeTitle {
         margin-bottom: 0;
         font-size: 2rem;
         font-weight: 600;
         color: #212121;
+
+        @include mobile {
+          color: #fff
+        }
       }
 
       .body {
@@ -72,12 +87,20 @@
           margin-bottom: .7em;
 
           i {
-            color: #6200EA
+            color: #6200EA;
+
+            @include mobile {
+              display: none
+            }
           }
 
           span {
             font-size: .9rem;
             color: rgba(0, 0, 0, 0.7);
+
+            @include mobile {
+              color: #fff
+            }
           }
         }
       }
@@ -91,6 +114,13 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 4em;
+
+  @include mobile {
+    flex-direction: column;
+    background-color: #6200EA;
+    border-radius: 20px;
+    overflow: hidden
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -138,27 +168,52 @@
       align-items: flex-end;
       justify-content: flex-start;
 
+      @include mobile {
+        align-items: flex-start;
+      }
+
       .largeTitle {
         margin-bottom: 0;
         font-size: 2rem;
         font-weight: 600;
         color: #212121;
+
+        @include mobile {
+          color: #fff
+        }
       }
 
       .body {
         margin-top: 1em;
         text-align: right;
 
+        @include mobile {
+          text-align: left;
+          padding: 5px
+        }
+
         .list {
           margin-bottom: .7em;
 
+          @include mobile {
+            text-align: left;
+          }
+
           i {
-            color: #6200EA
+            color: #6200EA;
+
+            @include mobile {
+              display: none
+            }
           }
 
           span {
             font-size: .9rem;
             color: rgba(0, 0, 0, 0.7);
+
+            @include mobile {
+              color: #fff
+            }
           }
         }
       }

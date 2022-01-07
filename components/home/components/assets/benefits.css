@@ -117,6 +117,18 @@
   margin-bottom: 4em;
 }
 
+@media (max-width: 450px) {
+  .sectionEven {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #6200EA;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}
+
 .sectionEven:last-child {
   margin-bottom: 0;
 }
@@ -179,11 +191,23 @@
           justify-content: flex-start;
 }
 
+@media (max-width: 450px) {
+  .sectionEven .right .textArea {
+    padding: 5px;
+  }
+}
+
 .sectionEven .right .textArea .largeTitle {
   margin-bottom: 0;
   font-size: 2rem;
   font-weight: 600;
   color: #212121;
+}
+
+@media (max-width: 450px) {
+  .sectionEven .right .textArea .largeTitle {
+    color: #fff;
+  }
 }
 
 .sectionEven .right .textArea .body {
@@ -198,9 +222,21 @@
   color: #6200EA;
 }
 
+@media (max-width: 450px) {
+  .sectionEven .right .textArea .body .list i {
+    display: none;
+  }
+}
+
 .sectionEven .right .textArea .body .list span {
   font-size: .9rem;
   color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 450px) {
+  .sectionEven .right .textArea .body .list span {
+    color: #fff;
+  }
 }
 
 .sectionOdd {
@@ -218,6 +254,18 @@
       -ms-flex-align: start;
           align-items: flex-start;
   margin-bottom: 4em;
+}
+
+@media (max-width: 450px) {
+  .sectionOdd {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #6200EA;
+    border-radius: 20px;
+    overflow: hidden;
+  }
 }
 
 .sectionOdd:last-child {
@@ -282,6 +330,14 @@
           justify-content: flex-start;
 }
 
+@media (max-width: 450px) {
+  .sectionOdd .right .textArea {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
 .sectionOdd .right .textArea .largeTitle {
   margin-bottom: 0;
   font-size: 2rem;
@@ -289,21 +345,52 @@
   color: #212121;
 }
 
+@media (max-width: 450px) {
+  .sectionOdd .right .textArea .largeTitle {
+    color: #fff;
+  }
+}
+
 .sectionOdd .right .textArea .body {
   margin-top: 1em;
   text-align: right;
+}
+
+@media (max-width: 450px) {
+  .sectionOdd .right .textArea .body {
+    text-align: left;
+    padding: 5px;
+  }
 }
 
 .sectionOdd .right .textArea .body .list {
   margin-bottom: .7em;
 }
 
+@media (max-width: 450px) {
+  .sectionOdd .right .textArea .body .list {
+    text-align: left;
+  }
+}
+
 .sectionOdd .right .textArea .body .list i {
   color: #6200EA;
+}
+
+@media (max-width: 450px) {
+  .sectionOdd .right .textArea .body .list i {
+    display: none;
+  }
 }
 
 .sectionOdd .right .textArea .body .list span {
   font-size: .9rem;
   color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 450px) {
+  .sectionOdd .right .textArea .body .list span {
+    color: #fff;
+  }
 }
 /*# sourceMappingURL=benefits.css.map */

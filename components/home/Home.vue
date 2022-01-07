@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="home">
     <Nav />
     <Head />
     <IntroducingTrustpaddi />
     <HowItWoks />
-    <!-- <WhoCanUse /> -->
-    <!-- <Benefits /> -->
-    <!-- <Testimony /> -->
-    <!-- <BetterSafe /> -->
-    <!-- <Footer /> -->
+    <WhoCanUse />
+    <Benefits />
+    <Testimony />
+    <BetterSafe />
+    <Footer />
   </div>
 </template>
 

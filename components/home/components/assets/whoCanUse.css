@@ -117,6 +117,20 @@
   margin-bottom: 4em;
 }
 
+@media (max-width: 450px) {
+  .sectionEven {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #6200EA;
+    border-radius: 20px;
+  }
+  .sectionEven .right {
+    padding: 5px;
+  }
+}
+
 .sectionEven:last-child {
   margin-bottom: 0;
 }
@@ -193,9 +207,21 @@
   color: #212121;
 }
 
+@media (max-width: 450px) {
+  .sectionEven .right .textArea .largeTitle {
+    color: #fff;
+  }
+}
+
 .sectionEven .right .textArea .body {
   color: rgba(0, 0, 0, 0.7);
   font-size: .9rem;
+}
+
+@media (max-width: 450px) {
+  .sectionEven .right .textArea .body {
+    color: #fff;
+  }
 }
 
 .oddEven {
@@ -209,6 +235,20 @@
       -ms-flex-align: start;
           align-items: flex-start;
   margin-bottom: 4em;
+}
+
+@media (max-width: 450px) {
+  .oddEven {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    background-color: #6200EA;
+    border-radius: 20px;
+  }
+  .oddEven .left {
+    padding: 5px;
+  }
 }
 
 .oddEven .right {
@@ -283,8 +323,20 @@
   color: #212121;
 }
 
+@media (max-width: 450px) {
+  .oddEven .left .textArea .largeTitle {
+    color: #fff;
+  }
+}
+
 .oddEven .left .textArea .body {
   color: rgba(0, 0, 0, 0.7);
   font-size: .9rem;
+}
+
+@media (max-width: 450px) {
+  .oddEven .left .textArea .body {
+    color: #fff;
+  }
 }
 /*# sourceMappingURL=whoCanUse.css.map */

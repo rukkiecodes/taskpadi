@@ -150,7 +150,7 @@
           justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 450px) {
   .IntroducingTrustpaddi .perks .perksCard {
     width: 100%;
   }
