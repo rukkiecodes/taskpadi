@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   height="1602"
+   viewBox="0 0 2769 1602"
+   width="2769"
+   version="1.1"
+   id="svg46"
+   sodipodi:docname="pinkGlow.svg"
+   inkscape:version="1.1.1 (eb90963e84, 2021-10-02)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs50">
+    <filter
+       id="a-3"
+       color-interpolation-filters="sRGB"
+       filterUnits="userSpaceOnUse"
+       height="1044"
+       width="1044"
+       x="1682"
+       y="558">
+      <feFlood
+         flood-opacity="0"
+         result="BackgroundImageFix"
+         id="feFlood2-6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="BackgroundImageFix"
+         mode="normal"
+         result="shape"
+         id="feBlend4-7" />
+      <feGaussianBlur
+         result="effect1_foregroundBlur"
+         stdDeviation="100"
+         id="feGaussianBlur6-5" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="namedview48"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.29400749"
+     inkscape:cx="1386.0191"
+     inkscape:cy="875.82803"
+     inkscape:window-width="1366"
+     inkscape:window-height="731"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg46" />
+  <filter
+     id="a"
+     color-interpolation-filters="sRGB"
+     filterUnits="userSpaceOnUse"
+     height="1044"
+     width="1044"
+     x="1682"
+     y="558">
+    <feFlood
+       flood-opacity="0"
+       result="BackgroundImageFix"
+       id="feFlood2" />
+    <feBlend
+       in="SourceGraphic"
+       in2="BackgroundImageFix"
+       mode="normal"
+       result="shape"
+       id="feBlend4" />
+    <feGaussianBlur
+       result="effect1_foregroundBlur"
+       stdDeviation="100"
+       id="feGaussianBlur6" />
+  </filter>
+  <filter
+     id="b"
+     color-interpolation-filters="sRGB"
+     filterUnits="userSpaceOnUse"
+     height="1044"
+     width="1044"
+     x="1725"
+     y="0">
+    <feFlood
+       flood-opacity="0"
+       result="BackgroundImageFix"
+       id="feFlood9" />
+    <feBlend
+       in="SourceGraphic"
+       in2="BackgroundImageFix"
+       mode="normal"
+       result="shape"
+       id="feBlend11" />
+    <feGaussianBlur
+       result="effect1_foregroundBlur"
+       stdDeviation="100"
+       id="feGaussianBlur13" />
+  </filter>
+  <filter
+     id="c"
+     color-interpolation-filters="sRGB"
+     filterUnits="userSpaceOnUse"
+     height="858"
+     width="982"
+     x="0"
+     y="23">
+    <feFlood
+       flood-opacity="0"
+       result="BackgroundImageFix"
+       id="feFlood16" />
+    <feBlend
+       in="SourceGraphic"
+       in2="BackgroundImageFix"
+       mode="normal"
+       result="shape"
+       id="feBlend18" />
+    <feGaussianBlur
+       result="effect1_foregroundBlur"
+       stdDeviation="100"
+       id="feGaussianBlur20" />
+  </filter>
+  <filter
+     id="d"
+     color-interpolation-filters="sRGB"
+     filterUnits="userSpaceOnUse"
+     height="646"
+     width="982"
+     x="279"
+     y="58">
+    <feFlood
+       flood-opacity="0"
+       result="BackgroundImageFix"
+       id="feFlood23" />
+    <feBlend
+       in="SourceGraphic"
+       in2="BackgroundImageFix"
+       mode="normal"
+       result="shape"
+       id="feBlend25" />
+    <feGaussianBlur
+       result="effect1_foregroundBlur"
+       stdDeviation="100"
+       id="feGaussianBlur27" />
+  </filter>
+  <g
+     filter="url(#a)"
+     opacity="0.34"
+     id="g32"
+     transform="translate(277.7087,128.91625)">
+    <circle
+       cx="2204"
+       cy="1080"
+       fill="#db469f"
+       r="322"
+       id="circle30" />
+  </g>
+  <g
+     filter="url(#a)"
+     opacity="0.34"
+     id="g32-3"
+     transform="translate(-178.7407,319.81021)"
+     style="filter:url(#a-3)">
+    <circle
+       cx="2160.4346"
+       cy="1019.0561"
+       fill="#db469f"
+       r="322"
+       id="circle30-5" />
+  </g>
+</svg>

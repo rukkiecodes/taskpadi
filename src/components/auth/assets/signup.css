@@ -1,0 +1,432 @@
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPhone X ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S3 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy S6 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Google Pixel ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Google Pixel XL ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- HTC One ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Windows Phone ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad 1, 2, Mini and Air ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- iPad Pro 10.5" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* ----------- iPad Pro 12.9" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+/* ----------- Galaxy Tab 2 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Galaxy Tab S ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Nexus 7 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Nexus 9 ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Kindle Fire HD 7" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Kindle Fire HD 8.9" ----------- */
+/* Portrait and Landscape */
+/* Portrait */
+/* Landscape */
+/* ----------- Non-Retina Screens ----------- */
+/* ----------- Retina Screens ----------- */
+/* ----------- Apple Watch ----------- */
+/* ----------- Moto 360 Watch ----------- */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --animation-time: 1s;
+}
+
+.signup {
+  width: 100vw;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, right top, from(#e8efff), to(#ffffff));
+  background: linear-gradient(90deg, #e8efff, #ffffff);
+  position: relative;
+  overflow: hidden;
+}
+
+.splat {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #9ddee549;
+  width: 350px;
+  height: 350px;
+  border-radius: 30%;
+}
+
+.splat:after {
+  content: '';
+  width: 1000px;
+  height: 500%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+          backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 12px;
+  border: none;
+}
+
+.takeOffCOntainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 95%;
+  -webkit-animation: takeOffCOntainer 20s ease-in-out 1s infinite alternate;
+          animation: takeOffCOntainer 20s ease-in-out 1s infinite alternate;
+}
+
+.cash {
+  width: 12%;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  -webkit-animation: bounce 3s infinite alternate;
+          animation: bounce 3s infinite alternate;
+}
+
+.hand {
+  width: 25%;
+  position: absolute;
+  bottom: -20px;
+  right: 50px;
+  -webkit-animation: bounce 3s infinite alternate;
+          animation: bounce 3s infinite alternate;
+}
+
+.check {
+  width: 20%;
+  position: absolute;
+  right: 2%;
+  top: 50px;
+  -webkit-animation: bounceX 3s infinite alternate;
+          animation: bounceX 3s infinite alternate;
+}
+
+.mainSection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 1000px;
+  max-width: 95%;
+  margin-inline: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .mainSection {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.mainSection .textArea {
+  width: 400px;
+  max-width: 95%;
+}
+
+.mainSection .textArea h1 {
+  font-size: 3rem;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .mainSection .textArea h1 {
+    font-size: 2rem;
+  }
+}
+
+.mainSection .textArea p {
+  color: #292A2B;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.mainSection .textArea p a {
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1em;
+  color: #4460F1;
+}
+
+.mainSection .formCard {
+  width: 400px;
+  max-width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .mainSection .formCard {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+.mainSection .formCard .content-inputs {
+  margin-top: 1.5em;
+}
+
+.mainSection .formCard .content-inputs:nth-child(1) {
+  margin-top: 0;
+}
+
+.mainSection .formCard .signupButtonContainer {
+  margin-top: 2em;
+}
+
+.mainSection .formCard .signupButtonContainer .signupButton {
+  font-size: .8rem;
+  font-weight: 600;
+  height: 3em;
+}
+
+.mainSection .formCard .vs-card {
+  background: transparent;
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+          backdrop-filter: blur(10px) saturate(180%);
+  width: 100%;
+  padding-top: 12px;
+}
+
+.mainSection .formCard .vs-card .vs-input-parent .vs-input-content .vs-input {
+  width: 100%;
+  height: 3em;
+}
+
+@-webkit-keyframes takeOffCOntainer {
+  0% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  10% {
+    -webkit-transform: translate(-55%, -50%);
+            transform: translate(-55%, -50%);
+  }
+  20% {
+    -webkit-transform: translate(-50%, -55%);
+            transform: translate(-50%, -55%);
+  }
+  30% {
+    -webkit-transform: translate(-55%, -40%);
+            transform: translate(-55%, -40%);
+  }
+  40% {
+    -webkit-transform: translate(-53%, -45%);
+            transform: translate(-53%, -45%);
+  }
+  50% {
+    -webkit-transform: translate(-58%, -48%);
+            transform: translate(-58%, -48%);
+  }
+  60% {
+    -webkit-transform: translate(-50%, -48%);
+            transform: translate(-50%, -48%);
+  }
+  70% {
+    -webkit-transform: translate(-48%, -60%);
+            transform: translate(-48%, -60%);
+  }
+  80% {
+    -webkit-transform: translate(-43%, -53%);
+            transform: translate(-43%, -53%);
+  }
+  90% {
+    -webkit-transform: translate(-56%, -53%);
+            transform: translate(-56%, -53%);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes takeOffCOntainer {
+  0% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  10% {
+    -webkit-transform: translate(-55%, -50%);
+            transform: translate(-55%, -50%);
+  }
+  20% {
+    -webkit-transform: translate(-50%, -55%);
+            transform: translate(-50%, -55%);
+  }
+  30% {
+    -webkit-transform: translate(-55%, -40%);
+            transform: translate(-55%, -40%);
+  }
+  40% {
+    -webkit-transform: translate(-53%, -45%);
+            transform: translate(-53%, -45%);
+  }
+  50% {
+    -webkit-transform: translate(-58%, -48%);
+            transform: translate(-58%, -48%);
+  }
+  60% {
+    -webkit-transform: translate(-50%, -48%);
+            transform: translate(-50%, -48%);
+  }
+  70% {
+    -webkit-transform: translate(-48%, -60%);
+            transform: translate(-48%, -60%);
+  }
+  80% {
+    -webkit-transform: translate(-43%, -53%);
+            transform: translate(-43%, -53%);
+  }
+  90% {
+    -webkit-transform: translate(-56%, -53%);
+            transform: translate(-56%, -53%);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@-webkit-keyframes bounceX {
+  from {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  to {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+}
+
+@keyframes bounceX {
+  from {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  to {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+}
+
+@-webkit-keyframes bounce {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(-5%);
+            transform: translateY(-5%);
+  }
+}
+
+@keyframes bounce {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(-5%);
+            transform: translateY(-5%);
+  }
+}
+/*# sourceMappingURL=signup.css.map */
