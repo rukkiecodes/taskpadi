@@ -5,9 +5,18 @@
       color="deep-purple accent-4"
       background-color="transparent"
     >
-      <v-tab class="text-capitalize">Good/Products</v-tab>
-      <v-tab class="text-capitalize">Crypto</v-tab>
-      <v-tab class="text-capitalize">Services</v-tab>
+      <v-tab class="text-capitalize text-body-2 font-weight-bold"
+        >Good & Products</v-tab
+      >
+      <v-tab class="text-capitalize text-body-2 font-weight-bold">Crypto</v-tab>
+      <v-tab class="text-capitalize text-body-2 font-weight-bold"
+        >Services</v-tab
+      >
+      <v-btn>Helo</v-btn>
+
+      <v-spacer />
+
+      <CreateTransaction />
     </v-tabs>
 
     <v-tabs-items v-model="tab">
@@ -40,6 +49,7 @@ export default {
     Services,
     ViewDetails: () =>
       import("../../../components/app components/ViewDetails.vue"),
+    CreateTransaction: () => import("./CreateTransaction.vue"),
   },
   computed: {
     ...mapState(["dashboardNavigation"]),
