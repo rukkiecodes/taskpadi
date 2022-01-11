@@ -1,7 +1,7 @@
 <template>
-  <v-card height="100%" color="#fff" flat>
+  <v-card min-height="175" color="#fff" flat>
     <v-toolbar color="transparent" flat dense>
-      <v-toolbar-title>Trust Balance</v-toolbar-title>
+      <v-toolbar-title class="text-body-1">Trust Balance</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
 

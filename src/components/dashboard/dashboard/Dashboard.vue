@@ -2,9 +2,15 @@
   <v-container class="py-9 px-8">
     <v-row justify="space-between" align="start">
       <AllTransactionCarousel />
-      <Activities />
-      <Actions />
-      <TransactionTable />
+
+      <v-row
+        class="mt-2 flex-column-reverse flex-sm-row"
+        justify="space-between"
+        align="start"
+      >
+        <TransactionTable />
+        <Actions />
+      </v-row>
     </v-row>
     <ViewDetails />
   </v-container>
@@ -14,7 +20,6 @@
 export default {
   components: {
     Actions: () => import("./components/Actions.vue"),
-    Activities: () => import("./components/Activities.vue"),
     AllTransactionCarousel: () =>
       import("./components/AllTransactionCarousel.vue"),
     TransactionTable: () => import("./components/TransactionTable.vue"),

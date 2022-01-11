@@ -1,5 +1,5 @@
 <template>
-  <v-col class="pa-0 pr-sm-3" cols="12">
+  <v-col class="pa-0" cols="12">
     <v-row justify="space-between" align="start">
       <v-col cols="12" sm="4">
         <CurrentBallance />
