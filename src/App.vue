@@ -11,10 +11,15 @@
 
 <script>
 import Alert from "./components/app components/Aleart.vue"
+import Vue from "vue";
 export default {
   name: "App",
   components: {
     Alert,
+  },
+
+  created() {
+    Vue.prototype.$vs = this.$vs;
   },
 }
 </script>

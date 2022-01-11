@@ -5,9 +5,12 @@ import Vue from "vue"
 export default {
   state: {
     credential: {
-      name: "",
+      firstname: "",
+      lastname: "",
       email: "",
       password: "",
+      password_confirmation: "",
+      referral_code: "",
     },
 
     loading: false,
@@ -16,13 +19,13 @@ export default {
   mutations: {
     signupUser: (state, response) => {
       console.log(response)
-      if (response.status == 201) {
-        state.loading = false
-        router.push("/signin")
-      } else {
-        state.loading = false
-        router.push("/")
-      }
+      // if (response.status == 201) {
+      //   state.loading = false
+      //   router.push("/signin")
+      // } else {
+      //   state.loading = false
+      //   router.push("/")
+      // }
     },
   },
 
@@ -31,13 +34,16 @@ export default {
       let emailRegEx = /\S+@\S+\.\S+/
       this.state.signup.loading = true
       if (
-        this.state.signup.credential.name != "" &&
+        this.state.signup.credential.firstname != "" &&
+        this.state.signup.credential.lastname != "" &&
         emailRegEx.test(this.state.signup.credential.email) &&
-        this.state.signup.credential.password != ""
+        this.state.signup.credential.password != "" &&
+        this.state.signup.credential.password ===
+          this.state.signup.credential.password_confirmation
       ) {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/signup",
+            "https://dev.trustpaddi.com/api/v1/register",
             this.state.signup.credential
           )
           commit("signupUser", response)

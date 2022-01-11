@@ -1,7 +1,7 @@
 <template>
-  <v-card height="100%" color="#0096B7" flat dark>
+  <v-card min-height="150" color="#0096B7" flat dark>
     <v-toolbar color="transparent" flat dense>
-      <v-toolbar-title>Current Ballance</v-toolbar-title>
+      <v-toolbar-title class="text-body-1">Current Ballance</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-chip color="transparent">
         <v-icon small left>mdi-arrow-top-right</v-icon>

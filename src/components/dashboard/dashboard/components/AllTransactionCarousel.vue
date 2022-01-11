@@ -1,21 +1,16 @@
 <template>
-  <v-col class="pa-0 pr-sm-3" cols="12" sm="6">
-    <v-carousel
-      height="300"
-      hide-delimiters
-      show-arrows-on-hover
-      hide-delimiter-background
-    >
-      <v-carousel-item>
+  <v-col class="pa-0 pr-sm-3" cols="12">
+    <v-row justify="space-between" align="start">
+      <v-col cols="12" sm="4">
         <CurrentBallance />
-      </v-carousel-item>
-      <v-carousel-item>
+      </v-col>
+      <v-col cols="12" sm="4">
         <TrustBallance />
-      </v-carousel-item>
-      <v-carousel-item>
+      </v-col>
+      <v-col cols="12" sm="4">
         <WithdrawableBallance />
-      </v-carousel-item>
-    </v-carousel>
+      </v-col>
+    </v-row>
   </v-col>
 </template>
 
@@ -25,8 +20,6 @@ export default {
     CurrentBallance: () => import("./CurrentBallance.vue"),
     TrustBallance: () => import("./TrustBallance.vue"),
     WithdrawableBallance: () => import("./WithdrawableBallance.vue"),
-    // Activities: () => import("./components/Activities.vue"),
-    // Actions: () => import("./components/Actions.vue"),
   },
 }
 </script>

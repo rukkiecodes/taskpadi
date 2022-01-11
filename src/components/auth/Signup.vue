@@ -18,7 +18,20 @@
       <vs-card class="formCard" type="1">
         <template #text>
           <div class="center content-inputs">
-            <vs-input v-model="signup.credential.name" placeholder="Name">
+            <vs-input
+              v-model="signup.credential.firstname"
+              placeholder="First name"
+            >
+              <template #icon>
+                <i class="las la-user" style="font-size: 1.2rem"></i>
+              </template>
+            </vs-input>
+          </div>
+          <div class="center content-inputs">
+            <vs-input
+              v-model="signup.credential.lastname"
+              placeholder="Last name"
+            >
               <template #icon>
                 <i class="las la-user" style="font-size: 1.2rem"></i>
               </template>
@@ -61,6 +74,17 @@
 
               <template v-if="getProgress >= 100" #message-success>
                 Secure password
+              </template>
+            </vs-input>
+          </div>
+          <div class="center content-inputs">
+            <vs-input
+              v-model="signup.credential.password_confirmation"
+              placeholder="Confirm password"
+              type="password"
+            >
+              <template #icon>
+                <i class="las la-lock" style="font-size: 1.2rem"></i>
               </template>
             </vs-input>
           </div>

@@ -30,7 +30,7 @@
       <ProfileMenu />
     </v-app-bar>
 
-    <v-navigation-drawer app color="white" v-model="drawer">
+    <v-navigation-drawer app color="white" v-model="drawer" :width="210">
       <v-list-item dense>
         <v-card
           flat
