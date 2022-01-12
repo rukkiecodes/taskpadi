@@ -30,33 +30,31 @@
           </v-btn>
         </template>
         <template v-slot:item.productAction="{ item }">
-          <v-btn
-            class="mr-0 mr-sm-2 text-capitalize"
-            color="#1CC8EE"
-            darkg
-            small
-            depressed
-          >
-            Report
-          </v-btn>
-          <v-btn
-            class="text-capitalize"
-            color="#2A00A2"
-            @click="viewTransactionDetails(item)"
-            dark
-            small
-            depressed
-          >
-            View
-          </v-btn>
+          <div class="d-flex">
+            <v-btn
+              class="mr-2 text-capitalize"
+              color="#1CC8EE"
+              dark
+              small
+              depressed
+            >
+              Report
+            </v-btn>
+            <v-btn
+              class="text-capitalize"
+              color="#2A00A2"
+              @click="viewTransactionDetails(item)"
+              dark
+              small
+              depressed
+            >
+              View
+            </v-btn>
+          </div>
         </template>
       </v-data-table>
       <div class="d-flex justify-end align-center pt-2 transparent">
-        <v-pagination
-          v-model="page"
-          :length="pageCount"
-          color="deep-purple accent-4"
-        ></v-pagination>
+        <vs-pagination border square color="#6200EA" v-model="page" :length="pageCount" />
       </div>
     </v-col>
   </v-row>

@@ -88,6 +88,13 @@
               </template>
             </vs-input>
           </div>
+          <div class="center content-inputs">
+            <vs-input
+              v-model="signup.credential.referral_code"
+              placeholder="Referral code"
+            >
+            </vs-input>
+          </div>
           <div class="center signupButtonContainer">
             <vs-button
               class="signupButton"
