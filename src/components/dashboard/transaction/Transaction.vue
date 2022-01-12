@@ -12,22 +12,34 @@
       <v-tab class="text-capitalize text-body-2 font-weight-bold"
         >Services</v-tab
       >
-      <v-btn>Helo</v-btn>
+      <v-menu offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn color="grey darken-2" dark text small class="text-body-2 font-weight-bold text-capitalize mt-3" v-bind="attrs" v-on="on">
+            <i style="font-size: 1.1rem" class="las la-filter"></i>
+            Filter
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="(item, index) in items" :key="index">
+            <v-list-item-title class="text-body-2">{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
 
       <v-spacer />
 
       <CreateTransaction />
     </v-tabs>
 
-    <v-tabs-items v-model="tab">
-      <v-tab-item class="deep-purple lighten-5">
-        <GoodsAndProducts class="deep-purple lighten-5" />
+    <v-tabs-items class="mt-6" v-model="tab">
+      <v-tab-item class="white">
+        <GoodsAndProducts class="white" />
       </v-tab-item>
-      <v-tab-item class="deep-purple lighten-5">
-        <Crypto class="deep-purple lighten-5" />
+      <v-tab-item class="white">
+        <Crypto class="white" />
       </v-tab-item>
-      <v-tab-item class="deep-purple lighten-5">
-        <Services class="deep-purple lighten-5" />
+      <v-tab-item class="white">
+        <Services class="white" />
       </v-tab-item>
     </v-tabs-items>
     <ViewDetails />
@@ -41,7 +53,15 @@ import Services from "../transaction/services/Services.vue"
 import { mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
+    value: "",
     tab: null,
+
+    items: [
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me 2" },
+    ],
   }),
   components: {
     GoodsAndProducts,

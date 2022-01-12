@@ -1,9 +1,6 @@
 <template>
   <v-row justify="start">
     <v-col cols="12">
-      <CreateTransaction />
-    </v-col>
-    <v-col cols="12">
       <v-tabs
         color="deep-purple accent-4"
         v-model="tab"
@@ -50,7 +47,6 @@ export default {
     Pending: () => import("./components/pending/Pending.vue"),
     Failed: () => import("./components/failed/Failed.vue"),
     Canceled: () => import("./components/canceled/Canceled.vue"),
-    CreateTransaction: () => import("./CreateTransaction.vue"),
   },
 }
 </script>
