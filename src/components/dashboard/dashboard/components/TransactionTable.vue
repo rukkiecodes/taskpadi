@@ -19,8 +19,10 @@
             depressed
             class="text-capitalize"
             :class="{
-              'orange lighten-5 orange--text text--accent-3': item.status == 'Pending',
-              'teal lighten-5 teal--text text--darken-1': item.status == 'Successful',
+              'orange lighten-5 orange--text text--accent-3':
+                item.status == 'Pending',
+              'teal lighten-5 teal--text text--darken-1':
+                item.status == 'Successful',
               'red lighten-5 red--text text--darken-1': item.status == 'Failed',
             }"
           >
@@ -122,9 +124,10 @@ export default {
       ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
     )
 
-    for (let i = 0; i <= border.length; i++) {
-      border[i].style.borderColor = "transparent"
-    }
+    if (border)
+      for (let i = 0; i <= border.length; i++) {
+        border[i].style.borderColor = "transparent"
+      }
   },
 
   methods: {

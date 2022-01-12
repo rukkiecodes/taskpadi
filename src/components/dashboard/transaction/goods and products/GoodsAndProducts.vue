@@ -11,6 +11,11 @@
         :items-per-page="itemsPerPage"
         @page-count="pageCount = $event"
       >
+        <template v-slot:item.date="{ item }">
+          <span>
+            {{ item.date }}
+          </span>
+        </template>
         <template v-slot:item.productStatus="{ item }">
           <v-btn
             dark
@@ -54,13 +59,19 @@
         </template>
       </v-data-table>
       <div class="d-flex justify-end align-center pt-2 transparent">
-        <vs-pagination border square color="#6200EA" v-model="page" :length="pageCount" />
+        <vs-pagination
+          square
+          color="#6200EA"
+          v-model="page"
+          :length="pageCount"
+        />
       </div>
     </v-col>
   </v-row>
 </template>
 
 <script>
+// @ts-nocheck
 import { mapActions } from "vuex"
 import header from "./header"
 import transaction from "./transaction"
@@ -82,9 +93,10 @@ export default {
       ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
     )
 
-    for (let i = 0; i <= border.length; i++) {
-      border[i].style.border = "none"
-    }
+    if (border)
+      for (let i = 0; i <= border.length; i++) {
+        border[i].style.border = "none"
+      }
   },
 }
 </script>
