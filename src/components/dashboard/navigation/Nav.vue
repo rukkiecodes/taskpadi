@@ -19,12 +19,11 @@
         <v-icon>mdi-bell-outline</v-icon>
       </v-badge>
       <v-btn
-        class="mx-3 text-capitalize hidden-xs-only"
-        color="deep-purple accent-4"
-        rounded
         dark
         depressed
         to="/dashboard/paddiLink"
+        color="deep-purple accent-4"
+        class="mx-3 text-capitalize text-body-2 font-weight-bold hidden-xs-only"
         >Create paddi link</v-btn
       >
       <ProfileMenu />
