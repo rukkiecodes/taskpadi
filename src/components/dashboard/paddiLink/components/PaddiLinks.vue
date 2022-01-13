@@ -1,106 +1,110 @@
 <template>
-  <v-expansion-panels flat>
-    <v-expansion-panel v-for="(link, i) in paddiLinks" :key="i">
-      <v-expansion-panel-header>
-        <div>
-          <v-avatar>
-            <v-img :src="link.image" :alt="link.title + 'image'" />
-          </v-avatar>
-          <span
-            class="blue--text text-decoration-underline text-body-1 font-weight-bold ml-4"
-            >{{ link.title }}</span
-          >
+  <div>
+    <v-btn
+      dark
+      large
+      depressed
+      color="deep-purple accent-4"
+      @click="paddiLink.dialog = true"
+      class="text-body-2 font-weight-bold text-capitalize"
+      >Create new link</v-btn
+    >
+    <v-data-table
+      :headers="headers"
+      :items="paddiLinks"
+      :items-per-page="5"
+      hide-default-footer
+      class="elevation-0 mt-5"
+    >
+      <template v-slot:item.image="{ item }">
+        <vs-avatar>
+          <img :src="item.image" :alt="item.title + 'image'" alt="" />
+        </vs-avatar>
+      </template>
+      <template v-slot:item.id="{ item }">
+        <span class="grey--text text--darken-1 text-body-2">{{ item.id }}</span>
+      </template>
+      <template v-slot:item.title="{ item }">
+        <span class="grey--text text--darken-1 text-body-2">{{
+          item.title
+        }}</span>
+      </template>
+      <template v-slot:item.action="{ item }">
+        <div class="d-flex">
+          <vs-button icon transparent color="#1CC8EE">
+            <i style="font-size: 1.5rem" class="las la-copy"></i>
+          </vs-button>
+          <vs-button @click="editPaddiLink(item)" icon transparent color="#6E7191">
+            <i style="font-size: 1.5rem" class="las la-edit"></i>
+          </vs-button>
         </div>
-        <template v-slot:actions>
-          <v-btn
-            color="deep-purple accent-4"
-            class="text-capitalize rounded-lg"
-            depressed
-            small
-            dark
-            >view link</v-btn
-          >
-        </template>
-      </v-expansion-panel-header>
-      <v-expansion-panel-content>
-        <v-list>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title
-                >Product Name: <b>{{ link.title }}</b></v-list-item-title
-              >
-              <v-list-item-subtitle
-                >Price: <b>{{ link.price }}</b></v-list-item-subtitle
-              >
-            </v-list-item-content>
-            <v-list-item-action>
-              <div class="d-flex">
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn
-                      v-bind="attrs"
-                      v-on="on"
-                      @click="editPaddiLink(link)"
-                      color="green"
-                      class="text-capitalize mr-3"
-                      small
-                      icon
-                      dark
-                      depressed
-                    >
-                      <v-icon>mdi-pencil</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Edit link</span>
-                </v-tooltip>
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn
-                      v-bind="attrs"
-                      v-on="on"
-                      color="blue"
-                      class="text-capitalize"
-                      small
-                      icon
-                      dark
-                      depressed
-                    >
-                      <v-icon>mdi-content-copy</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Copy link</span>
-                </v-tooltip>
-              </div>
-            </v-list-item-action>
-          </v-list-item>
-        </v-list>
-        <v-row justify="start" align="start">
-          <v-col cols="12" sm="6" lg="4">
-            <v-card max-width="300">
-              <v-img :src="link.image" :alt="link.title + 'image'"></v-img>
-            </v-card>
-          </v-col>
-          <v-col cols="12" sm="6" lg="8">
-            <v-card color="transparent" max-width="100%" flat>
-              <v-card-text class="grey--text text--darken-3 text-body-1">
-                {{ link.description }}
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-  </v-expansion-panels>
+      </template>
+      <template v-slot:item.price="{ item }">
+        <span class="grey--text text--darken-1 text-body-2"
+          >₦{{ item.price }}</span
+        >
+      </template>
+      <template v-slot:item.dateCreated="{ item }">
+        <span class="grey--text text--darken-1 text-body-2">{{
+          item.dateCreated
+        }}</span>
+      </template>
+    </v-data-table>
+  </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex"
+import { mapState, mapActions, mapGetters } from "vuex"
 export default {
+  data: () => ({
+    headers: [
+      {
+        text: "",
+        align: "start",
+        sortable: false,
+        value: "image",
+      },
+      { text: "ID", value: "id" },
+      { text: "Product name", value: "title" },
+      { text: "Amount", value: "price" },
+      { text: "Date created", value: "dateCreated" },
+      { text: "Action", value: "action" },
+    ],
+
+    desserts: [
+      {
+        avatar: "Frozen Yogurt",
+        id: "12695juf",
+        title: "Product name",
+        amount: "25,900",
+        dateCreated: "2021-10-21",
+        action: "",
+      },
+    ],
+  }),
+
+  mounted() {
+    const border = document.querySelectorAll(
+      ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr:last-child > th"
+    )
+
+    if (border)
+      for (let i = 0; i <= border.length; i++) {
+        border[i].style.borderColor = "transparent"
+      }
+  },
+
   methods: {
     ...mapActions(["editPaddiLink"]),
+
+    editItem(item) {
+      console.log(item)
+    }
   },
+
   computed: {
     ...mapGetters(["paddiLinks"]),
+    ...mapState(["paddiLink"]),
   },
 }
 </script>

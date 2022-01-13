@@ -3,9 +3,11 @@ export default {
     dialog: false,
     editDialog: false,
     paddiLinkInputs: {
+      id: "12695juf",
       title: "",
       price: "",
       description: "",
+      dateCreated: "2021-10-21",
       image: null,
     },
     paddiLinks: [],

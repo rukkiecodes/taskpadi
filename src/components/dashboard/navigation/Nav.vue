@@ -15,17 +15,17 @@
       ></v-text-field>
 
       <v-spacer />
-      <v-badge color="red" dot overlap>
-        <v-icon>mdi-bell-outline</v-icon>
-      </v-badge>
       <v-btn
         dark
         depressed
         to="/dashboard/paddiLink"
         color="deep-purple accent-4"
-        class="mx-3 text-capitalize text-body-2 font-weight-bold hidden-xs-only"
+        class="text-capitalize text-body-2 font-weight-bold hidden-xs-only"
         >Create paddi link</v-btn
       >
+      <v-badge class="mx-5" color="red" dot overlap>
+        <v-icon>mdi-bell-outline</v-icon>
+      </v-badge>
       <ProfileMenu />
     </v-app-bar>
 
