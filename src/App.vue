@@ -11,7 +11,7 @@
 
 <script>
 import Alert from "./components/app components/Aleart.vue"
-import Vue from "vue";
+import Vue from "vue"
 export default {
   name: "App",
   components: {
@@ -19,7 +19,9 @@ export default {
   },
 
   created() {
-    Vue.prototype.$vs = this.$vs;
+    Vue.prototype.$vs = this.$vs
+    Vue.prototype.$axios = this.$axios
+    Vue.prototype.$cookies = this.$cookies
   },
 }
 </script>

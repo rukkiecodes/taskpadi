@@ -3,16 +3,16 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
-import VueCountryCode from "vue-country-code";
 import SmoothScrollbar from "vue-smooth-scrollbar";
 import VueMeta from "vue-meta";
 import Vuesax from "vuesax"
-
 import "./vuesax.css"
+import AxiosPlugin from "vue-axios-cors"
+import VueCookies from "vue-cookies"
 
+Vue.use(VueCookies)
+Vue.use(AxiosPlugin)
 Vue.use(Vuesax)
-
-Vue.use(VueCountryCode);
 Vue.use(SmoothScrollbar);
 Vue.use(VueMeta, {
   // optional pluginOptions

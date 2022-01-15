@@ -59,12 +59,16 @@
             v-for="(route, i) in dashboardRoutes"
             :key="i"
             :to="route.route"
+            active-class="font-weight-bold"
           >
             <v-list-item-icon>
               <v-icon v-text="route.icon"></v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title v-text="route.title"></v-list-item-title>
+              <v-list-item-title
+                class="text-body-2 font-weight-regular"
+                v-text="route.title"
+              ></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>

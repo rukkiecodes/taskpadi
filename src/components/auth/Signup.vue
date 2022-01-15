@@ -40,7 +40,7 @@
           <div class="center content-inputs">
             <vs-input
               v-model="signup.credential.email"
-              placeholder="Name"
+              placeholder="Email"
               type="email"
             >
               <template #icon>

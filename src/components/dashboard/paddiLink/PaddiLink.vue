@@ -4,7 +4,6 @@
     <CreateLink />
     <EditLink />
     <PaddiLinks v-if="paddiLink.paddiLinks.length != 0" />
-    <!-- <PaddiLinks /> -->
   </v-container>
 </template>
 

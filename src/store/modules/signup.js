@@ -1,5 +1,4 @@
 import router from "../../router"
-import axios from "axios"
 import Vue from "vue"
 
 export default {
@@ -18,21 +17,29 @@ export default {
 
   mutations: {
     signupUser: (state, response) => {
-      console.log(response)
-      // if (response.status == 201) {
-      //   state.loading = false
-      //   router.push("/signin")
-      // } else {
-      //   state.loading = false
-      //   router.push("/")
-      // }
+      Vue.prototype.$cookies.set("PaddiData", response.data)
+      if (response.status == 201) {
+        state.loading = false
+        router.push("/dashboard/yourPaddiDashboard")
+      } else {
+        state.loading = false
+        router.push("/signup")
+      }
     },
   },
 
   actions: {
     async signupUser({ commit }) {
+      const options = {
+        url: "https://dev.trustpaddi.com/api/v1/register",
+        method: "POST",
+        data: this.state.signup.credential,
+      }
+
       let emailRegEx = /\S+@\S+\.\S+/
+
       this.state.signup.loading = true
+
       if (
         this.state.signup.credential.firstname != "" &&
         this.state.signup.credential.lastname != "" &&
@@ -42,21 +49,18 @@ export default {
           this.state.signup.credential.password_confirmation
       ) {
         try {
-          const response = await axios.post(
-            "https://dev.trustpaddi.com/api/v1/register",
-            this.state.signup.credential
-          )
+          const response = await Vue.prototype.$axios(options)
           commit("signupUser", response)
           this.state.signup.loading = false
         } catch (error) {
-          console.log(error)
+          console.log("Error with try:", error)
           this.state.signup.loading = false
           Vue.prototype.$vs.notification({
             icon: `<i class="las la-exclamation-triangle"></i>`,
             border: "rgb(255, 71, 87)",
             position: "top-right",
             title: "Error !!!",
-            text: `This email is taken try another`,
+            text: "This email exists. Try another.",
           })
         }
       } else {
