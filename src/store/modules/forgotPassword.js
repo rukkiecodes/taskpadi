@@ -8,48 +8,45 @@ export default {
   state: {
     credential: {
       email: "",
-      password: "",
     },
 
     loading: false,
   },
 
   mutations: {
-    signinUser: (state, response) => {
-      Vue.prototype.$cookies.set("PaddiData", response.data)
-      if (response.status == 200) {
-        state.loading = false
-        router.push("/dashboard/yourPaddiDashboard")
-      } else {
-        state.loading = false
-        router.push("/signup")
-      }
+    recoverUserPassword: (state, response) => {
+      console.log(response)
+      // Vue.prototype.$cookies.set("PaddiData", response.data)
+      // if (response.status == 200) {
+      //   state.loading = false
+      //   router.push("/dashboard/yourPaddiDashboard")
+      // } else {
+      //   state.loading = false
+      //   router.push("/signup")
+      // }
     },
   },
 
   actions: {
-    async signinUser ({ commit }) {
+    async recoverUserPassword({ commit }) {
       const options = {
-        url: "https://dev.trustpaddi.com/api/v1/login",
+        url: "https://dev.trustpaddi.com/api/v1/forgot-password",
         method: "POST",
-        data: this.state.signin.credential,
+        data: this.state.forgotPassword.credential,
       }
 
       let emailRegEx = /\S+@\S+\.\S+/
 
-      this.state.signin.loading = true
+      this.state.forgotPassword.loading = true
 
-      if (
-        emailRegEx.test(this.state.signin.credential.email) &&
-        this.state.signin.credential.password != ""
-      ) {
+      if (emailRegEx.test(this.state.forgotPassword.credential.email)) {
         try {
           const response = await Vue.prototype.$axios(options)
-          commit("signinUser", response)
-          this.state.signin.loading = false
+          commit("recoverUserPassword", response)
+          this.state.forgotPassword.loading = false
         } catch (error) {
           console.log(error)
-          this.state.signin.loading = false
+          this.state.forgotPassword.loading = false
           Vue.prototype.$vs.notification({
             icon: `<i class="las la-exclamation-triangle"></i>`,
             border: "rgb(255, 71, 87)",
@@ -59,7 +56,7 @@ export default {
           })
         }
       } else {
-        this.state.signin.loading = false
+        this.state.forgotPassword.loading = false
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",

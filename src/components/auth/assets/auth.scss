@@ -1,4 +1,4 @@
-@import "../../../assets/settings/mediaQuery";
+@import "./mediaQuery";
 
 * {
   box-sizing: border-box;
@@ -9,7 +9,7 @@
 }
 
 
-.signup {
+.auth {
   width: 100vw;
   height: 100vh;
   background: linear-gradient(90deg, #e8efff, #ffffff);
@@ -139,10 +139,23 @@
       }
     }
 
-    .signupButtonContainer {
+    .forgotPassword {
+      width: 100%;
+      margin-top: 1em;
+      margin-bottom: 3em;
+
+      a {
+        float: right;
+        margin-right: .3em;
+        color: #4460F1;
+        text-decoration: none;
+      }
+    }
+
+    .authButtonContainer {
       margin-top: 2em;
 
-      .signupButton {
+      .authButton {
         font-size: .8rem;
         font-weight: 600;
         height: 3em;

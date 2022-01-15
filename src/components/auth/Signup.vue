@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div class="auth">
     <Nav />
     <div class="splat"></div>
     <img src="./assets/images/takeOff.svg" class="takeOffCOntainer" />
@@ -9,7 +9,7 @@
 
     <div class="mainSection">
       <div class="textArea">
-        <h1>Sign Up to Enjoy<br />Free Templates</h1>
+        <h1>Sign Up and<br />Enjoy Safer Transactions</h1>
         <p>
           If you already have an account<br />You can
           <router-link to="/signin">Sign In here!</router-link>
@@ -95,9 +95,9 @@
             >
             </vs-input>
           </div>
-          <div class="center signupButtonContainer">
+          <div class="center authButtonContainer">
             <vs-button
-              class="signupButton"
+              class="authButton"
               size="large"
               @click="signupUser"
               :loading="signup.loading"
@@ -172,5 +172,5 @@ export default {
 </script>
 
 <style scoped>
-@import url(./assets/signup.css);
+@import url(./assets/auth.css);
 </style>

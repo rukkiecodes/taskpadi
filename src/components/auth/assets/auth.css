@@ -107,7 +107,7 @@
   --animation-time: 1s;
 }
 
-.signup {
+.auth {
   width: 100vw;
   height: 100vh;
   background: -webkit-gradient(linear, left top, right top, from(#e8efff), to(#ffffff));
@@ -269,11 +269,24 @@
   margin-top: 0;
 }
 
-.mainSection .formCard .signupButtonContainer {
+.mainSection .formCard .forgotPassword {
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+.mainSection .formCard .forgotPassword a {
+  float: right;
+  margin-right: .3em;
+  color: #4460F1;
+  text-decoration: none;
+}
+
+.mainSection .formCard .authButtonContainer {
   margin-top: 2em;
 }
 
-.mainSection .formCard .signupButtonContainer .signupButton {
+.mainSection .formCard .authButtonContainer .authButton {
   font-size: .8rem;
   font-weight: 600;
   height: 3em;
@@ -429,4 +442,4 @@
             transform: translateY(-5%);
   }
 }
-/*# sourceMappingURL=signup.css.map */
+/*# sourceMappingURL=auth.css.map */

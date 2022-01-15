@@ -1,5 +1,5 @@
 <template>
-  <div class="signin">
+  <div class="auth">
     <Nav />
     <div class="splat"></div>
     <img src="./assets/images/takeOff.svg" class="takeOffCOntainer" />
@@ -9,7 +9,7 @@
 
     <div class="mainSection">
       <div class="textArea">
-        <h1>Sign In to Enjoy<br />Free Templates</h1>
+        <h1>Sign In and<br />Enjoy Safer Transactions</h1>
         <p>
           If you already have an account<br />You can
           <router-link to="/signup">Register here!</router-link>
@@ -57,12 +57,12 @@
               </template>
             </vs-input>
           </div>
-          <div class="recoverPassword">
-            <router-link to="/recoverPassword">Recover Password</router-link>
+          <div class="forgotPassword">
+            <router-link class="font-weight-bold" to="/forgotPassword">Forgot password</router-link>
           </div>
-          <div class="center signinButtonContainer">
+          <div class="center authButtonContainer">
             <vs-button
-              class="signinButton"
+              class="authButton"
               size="large"
               @click="signinUser"
               :loading="signin.loading"
@@ -137,5 +137,5 @@ export default {
 </script>
 
 <style scoped>
-@import url(./assets/signin.css);
+@import url(./assets/auth.css);
 </style>

@@ -27,6 +27,16 @@ export default [
     component: () => import("../views/auth/Signin.vue"),
   },
   {
+    path: "/forgotPassword",
+    name: "ForgotPassword",
+    component: () => import("../views/auth/ForgotPassword.vue"),
+  },
+  {
+    path: "/verifyAccount",
+    name: "VerifyAccount",
+    component: () => import("../views/auth/VerifyAccount.vue"),
+  },
+  {
     path: "/goodAndProductBuyer",
     name: "GoodAndProductBuyer",
     component: () => import("../views/transactions/GoodAndProductBuyer.vue"),
