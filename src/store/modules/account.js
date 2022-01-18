@@ -3,9 +3,7 @@ import axios from "axios"
 import jquery from "jquery"
 
 export default {
-  state: {
-    editAccountDialog: false,
-  },
+  state: {},
   getters: {},
 
   mutations: {
