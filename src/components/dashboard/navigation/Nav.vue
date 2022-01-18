@@ -94,13 +94,14 @@
 <script>
 import { mapState, mapGetters } from "vuex"
 import LogoutDialog from "../components/logoutDialog.vue"
+import ProfileMenu from "./components/ProfileMenu.vue"
 export default {
   data: () => ({
     selectedItem: 1,
     drawer: true,
   }),
   components: {
-    ProfileMenu: () => import("./components/ProfileMenu.vue"),
+    ProfileMenu,
     LogoutDialog,
   },
   mounted() {

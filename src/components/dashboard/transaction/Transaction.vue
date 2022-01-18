@@ -14,14 +14,28 @@
       >
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="grey darken-2" dark text small class="text-body-2 font-weight-bold text-capitalize mt-3" v-bind="attrs" v-on="on">
+          <v-btn
+            color="grey darken-2"
+            dark
+            text
+            small
+            class="text-body-2 font-weight-bold text-capitalize mt-3"
+            v-bind="attrs"
+            v-on="on"
+          >
             <i style="font-size: 1.1rem" class="las la-filter"></i>
             Filter
           </v-btn>
         </template>
         <v-list>
-          <v-list-item v-for="(item, index) in items" :key="index">
-            <v-list-item-title class="text-body-2">{{ item.title }}</v-list-item-title>
+          <v-list-item
+            v-for="(item, index) in transactionFilters"
+            :key="index"
+            @click="checkList(item)"
+          >
+            <v-list-item-title class="text-body-2">{{
+              item.title
+            }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -55,14 +69,9 @@ export default {
   data: () => ({
     value: "",
     tab: null,
-
-    items: [
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" },
-    ],
+    menu: "",
   }),
+
   components: {
     GoodsAndProducts,
     Crypto,
@@ -71,9 +80,20 @@ export default {
       import("../../../components/app components/ViewDetails.vue"),
     CreateTransaction: () => import("./CreateTransaction.vue"),
   },
+
+  methods: {
+    checkList(item) {
+      if (item.title == "All") {
+        this.transaction.search = ""
+      } else {
+        this.transaction.search = item.title
+      }
+    },
+  },
+
   computed: {
-    ...mapState(["dashboardNavigation"]),
-    ...mapGetters(["tabs"]),
+    ...mapState(["dashboardNavigation", "transaction"]),
+    ...mapGetters(["tabs", "transactionFilters"]),
   },
 }
 </script>

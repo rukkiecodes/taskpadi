@@ -17,7 +17,7 @@
             dark
             small
             depressed
-            class="text-capitalize"
+            class="text-capitalize font-weight-bold"
             :class="{
               'orange lighten-5 orange--text text--accent-3':
                 item.status == 'Pending',
@@ -72,7 +72,7 @@ export default {
         action: "mdi-eye-outline",
       },
       {
-        id: "15695juf",
+        id: "19695juf",
         amount: "#25,000",
         dateTime: "2021-10-21",
         status: "Failed",
@@ -100,14 +100,14 @@ export default {
         action: "mdi-eye-outline",
       },
       {
-        id: "15695juf",
+        id: "16695juf",
         amount: "#25,000",
         dateTime: "2021-10-21",
         status: "Successful",
         action: "mdi-eye-outline",
       },
       {
-        id: "15695juf",
+        id: "17695juf",
         amount: "#25,000",
         dateTime: "2021-10-21",
         status: "Failed",
@@ -120,14 +120,16 @@ export default {
   }),
 
   mounted() {
-    const border = document.querySelectorAll(
-      ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
-    )
+    this.$nextTick(() => {
+      const border = document.querySelectorAll(
+        ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
+      )
 
-    if (border)
-      for (let i = 0; i <= border.length; i++) {
-        border[i].style.borderColor = "transparent"
-      }
+      if (border)
+        for (let i = 0; i <= border.length; i++) {
+          border[i].style.borderColor = "transparent"
+        }
+    })
   },
 
   methods: {

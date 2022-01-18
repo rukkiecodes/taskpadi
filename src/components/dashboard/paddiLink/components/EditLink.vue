@@ -1,14 +1,9 @@
 <template>
-  <v-dialog v-model="paddiLink.editDialog" width="500" scrollable>
-    <v-card flat max-height="500">
-      <v-card-title class="grey--text text--darken-4">
-        Edit Paddi link
-        <v-spacer />
-        <v-btn @click="paddiLink.editDialog = false" icon>
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-      </v-card-title>
-
+  <vs-dialog v-model="paddiLink.editDialog" width="400px">
+    <template #header>
+      <h4 class="not-margin">Edit Paddi link</h4>
+    </template>
+    <v-card flat>
       <v-card-text>
         <v-row justify="space-between" align="start">
           <v-col cols="12" sm="6">
@@ -75,21 +70,19 @@
           </v-col>
         </v-row>
       </v-card-text>
-      <v-card-actions>
-        <v-btn
-          dark
-          large
-          block
-          depressed
-          @click="editLink"
-          color="deep-purple accent-4"
-          class="text-body-2 font-weight-bold text-capitalize"
-        >
-          Edit paddi link
-        </v-btn>
-      </v-card-actions>
     </v-card>
-  </v-dialog>
+
+    <template #footer>
+      <vs-button
+        block
+        color="#7E2DEE"
+        @click="editLink"
+        class="text-body-2 font-weight-bold text-capitalize"
+      >
+        Edit paddi link
+      </vs-button>
+    </template>
+  </vs-dialog>
 </template>
 
 <script>

@@ -22,6 +22,8 @@ import paddiLink from "./modules/paddiLink"
 import paddiPay from "./modules/paddiPay"
 import account from "./modules/account"
 import forgotPassword from "./modules/forgotPassword"
+import verifyAccount from "./modules/verifyAccount"
+import transaction from "./modules/transaction"
 
 Vue.use(Vuex);
 
@@ -48,5 +50,7 @@ export default new Vuex.Store({
     paddiPay,
     account,
     forgotPassword,
+    verifyAccount,
+    transaction,
   },
 })

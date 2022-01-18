@@ -4,12 +4,13 @@
       <v-data-table
         :headers="header"
         :page.sync="page"
-        :items="transaction"
+        :items="transactionData"
         hide-default-footer
         :mobile-breakpoint="0"
         class="elevation-0 transparent"
         :items-per-page="itemsPerPage"
         @page-count="pageCount = $event"
+        :search="transaction.search"
       >
         <template v-slot:item.date="{ item }">
           <span>
@@ -21,7 +22,7 @@
             dark
             small
             depressed
-            class="text-capitalize"
+            class="text-capitalize font-weight-bold"
             :class="{
               'orange lighten-5 orange--text text--accent-3':
                 item.productStatus == 'Pending',
@@ -72,21 +73,17 @@
 
 <script>
 // @ts-nocheck
-import { mapActions } from "vuex"
+import { mapActions, mapState } from "vuex"
 import header from "./header"
-import transaction from "./transaction"
+import transactionData from "./transaction"
 export default {
   data: () => ({
     header,
-    transaction,
+    transactionData,
     page: 1,
     pageCount: 0,
     itemsPerPage: 8,
   }),
-
-  methods: {
-    ...mapActions(["viewTransactionDetails"]),
-  },
 
   mounted() {
     const border = document.querySelectorAll(
@@ -97,6 +94,14 @@ export default {
       for (let i = 0; i <= border.length; i++) {
         border[i].style.border = "none"
       }
+  },
+
+  methods: {
+    ...mapActions(["viewTransactionDetails"]),
+  },
+
+  computed: {
+    ...mapState(["transaction"]),
   },
 }
 </script>

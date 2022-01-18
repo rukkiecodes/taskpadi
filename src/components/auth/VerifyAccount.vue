@@ -19,7 +19,7 @@
         <template #text>
           <div class="center content-inputs">
             <vs-input
-              v-model="forgotPassword.credential.email"
+              v-model="verifyAccount.credential.email"
               placeholder="Email"
               type="email"
             >
@@ -32,11 +32,11 @@
             <vs-button
               class="authButton"
               size="large"
-              @click="recoverUserPassword"
-              :loading="forgotPassword.loading"
+              @click="verifyMyAccount"
+              :loading="verifyAccount.loading"
               block
               color="#6E14EC"
-              >Recover password</vs-button
+              >Verify account</vs-button
             >
           </div>
         </template>
@@ -59,11 +59,11 @@ export default {
   },
 
   methods: {
-    ...mapActions(["recoverUserPassword"]),
+    ...mapActions(["verifyMyAccount"]),
   },
 
   computed: {
-    ...mapState(["forgotPassword"]),
+    ...mapState(["verifyAccount"]),
   },
 }
 </script>

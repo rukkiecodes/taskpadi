@@ -1,14 +1,10 @@
 <template>
-  <v-dialog v-model="paddiLink.dialog" width="500" scrollable>
-    <v-card flat max-height="500">
-      <v-card-title class="grey--text text--darken-4">
-        Create Paddi link
-        <v-spacer />
-        <v-btn @click="paddiLink.dialog = false" icon>
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-      </v-card-title>
+  <vs-dialog v-model="paddiLink.dialog" width="400px">
+    <template #header>
+      <h4 class="not-margin">Create Paddi link</h4>
+    </template>
 
+    <v-card flat>
       <v-card-text>
         <v-row justify="space-between" align="start">
           <v-col cols="12" sm="6">
@@ -73,19 +69,6 @@
               background-color="#EFF0F6"
             ></v-file-input>
           </v-col>
-          <v-col cols="12">
-            <v-btn
-              dark
-              large
-              block
-              depressed
-              @click="createPaddiLink"
-              color="deep-purple accent-4"
-              class="text-body-2 font-weight-bold text-capitalize"
-            >
-              Create paddi link
-            </v-btn>
-          </v-col>
         </v-row>
       </v-card-text>
     </v-card>
@@ -94,7 +77,18 @@
         <img :src="paddiLink.paddiLinkInputs.image" alt="" />
       </div>
     </vs-dialog>
-  </v-dialog>
+
+    <template #footer>
+      <vs-button
+        block
+        color="#7E2DEE"
+        @click="createPaddiLink"
+        class="text-body-2 font-weight-bold text-capitalize"
+      >
+        Create paddi link
+      </vs-button>
+    </template>
+  </vs-dialog>
 </template>
 
 <script>
