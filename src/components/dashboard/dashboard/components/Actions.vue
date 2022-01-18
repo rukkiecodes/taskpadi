@@ -4,29 +4,27 @@
       <v-col cols="12">
         <v-card flat>
           <v-card-text class="pa-6">
-            <v-btn
-              dark
+            <vs-button
               block
-              x-large
-              depressed
-              class="text-capitalize"
-              color="deep-purple accent-4"
+              icon
+              square
+              color="#6200EA"
+              class="text-capitalize font-weight-bold"
             >
               Initiate escrow
-              <v-icon right>mdi-arrow-up</v-icon>
-            </v-btn>
-            <v-btn
-              dark
+              <i class="las la-arrow-up"></i>
+            </vs-button>
+            <vs-button
+              icon
               block
-              x-large
-              outlined
-              depressed
-              class="text-capitalize mt-4"
-              color="deep-purple accent-4"
+              square
+              border
+              color="#6200EA"
+              class="text-capitalize font-weight-bold"
             >
               Withdraw
-              <v-icon right>mdi-arrow-down</v-icon>
-            </v-btn>
+              <i class="las la-arrow-down"></i>
+            </vs-button>
 
             <v-card-title>
               <span class="text-body-1">Recent orders</span>
@@ -79,27 +77,27 @@ export default {
         name: "Jummy Drake",
         time: "9 minutes ago",
         amount: "₦2,349",
-        image: require("../../../../assets/trust/Photo.png")
+        image: require("../../../../assets/trust/Photo.png"),
       },
       {
         name: "Driks Denson",
         time: "15 minutes ago",
         amount: "₦1,500",
-        image: require("../../../../assets/trust/Photo2.png")
+        image: require("../../../../assets/trust/Photo2.png"),
       },
       {
         name: "Peter Crouch",
         time: "24 minutes ago",
         amount: "₦1,022",
-        image: require("../../../../assets/trust/Photo3.png")
+        image: require("../../../../assets/trust/Photo3.png"),
       },
       {
         name: "Manual williams",
         time: "35 minutes ago",
         amount: "₦1,220",
-        image: require("../../../../assets/trust/Photo4.png")
+        image: require("../../../../assets/trust/Photo4.png"),
       },
-    ]
+    ],
   }),
 }
 </script>
