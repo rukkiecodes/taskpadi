@@ -3,25 +3,27 @@
     <v-app-bar app flat color="#F8F8FB">
       <v-app-bar-nav-icon @click="drawer = !drawer" class="hidden-lg-and-up" />
 
-      <v-text-field
-        flat
-        solo
-        dense
-        hide-details
+      <vs-input
+        shadow
+        primary
+        icon-after
+        v-model="searchPaddi"
         class="hidden-xs-only"
-        placeholder="Search here"
-        append-icon="mdi-magnify"
-        color="deep-purple accent-4"
-      ></v-text-field>
+        placeholder="Search..."
+      >
+        <template #icon>
+          <i class="las la-search"></i>
+        </template>
+      </vs-input>
 
       <v-spacer />
-      <v-btn
+      <vs-button
         dark
         depressed
+        color="#6200EA"
         to="/dashboard/paddiLink"
-        color="deep-purple accent-4"
         class="text-capitalize text-body-2 font-weight-bold hidden-xs-only"
-        >Create paddi link</v-btn
+        >Create paddi link</vs-button
       >
       <v-badge class="mx-5" color="red" dot overlap>
         <v-icon>mdi-bell-outline</v-icon>
@@ -99,6 +101,7 @@ export default {
   data: () => ({
     selectedItem: 1,
     drawer: true,
+    searchPaddi: "",
   }),
   components: {
     ProfileMenu,
@@ -108,6 +111,8 @@ export default {
     this.$nextTick(() => {
       this.drawerVisibility()
       this.removeBorder()
+
+      document.querySelector(".vs-input").style.width = "300px"
     })
   },
   methods: {
