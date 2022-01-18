@@ -86,23 +86,24 @@ export default {
   }),
 
   mounted() {
-    const border = document.querySelectorAll(
-      ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
-    )
+    this.$nextTick(() => {
+      const border = document.querySelectorAll(
+        ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
+      )
 
-    if (border)
-      for (let i = 0; i <= border.length; i++) {
-        border[i].style.border = "none"
-      }
+      if (border)
+        for (let i = 0; i <= border.length; i++) {
+          border[i].style.border = "none"
+        }
+    })
   },
 
   methods: {
     ...mapActions(["viewTransactionDetails"]),
   },
 
-
   computed: {
-    ...mapState(["transaction"])
-  }
+    ...mapState(["transaction"]),
+  },
 }
 </script>

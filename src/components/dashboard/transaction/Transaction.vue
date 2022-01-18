@@ -92,8 +92,8 @@ export default {
   },
 
   computed: {
-    ...mapState(["dashboardNavigation", "transaction"]),
-    ...mapGetters(["tabs", "transactionFilters"]),
+    ...mapState(["transaction"]),
+    ...mapGetters(["transactionFilters"]),
   },
 }
 </script>
