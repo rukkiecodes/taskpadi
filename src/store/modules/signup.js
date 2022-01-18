@@ -31,7 +31,7 @@ export default {
   actions: {
     async signupUser({ commit }) {
       const options = {
-        url: "https://dev.trustpaddi.com/api/v1/register",
+        url: location.origin + "/register",
         method: "POST",
         data: this.state.signup.credential,
       }

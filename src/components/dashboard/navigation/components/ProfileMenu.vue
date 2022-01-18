@@ -9,15 +9,20 @@
         color="grey darken-3"
         class="text-capitalize text-body-2 font-weight-regular rounded-pill pl-0 ml-4 ml-sm-0"
       >
-        <v-avatar left class="mr-2" size="35">
-          <img src="../../../../assets/trust/Ellipse3.png" />
-        </v-avatar>
-        Eddiong
+        <vs-avatar color="#6E14EC" size="35" class="mr-2">
+          <i v-show="account.userData.avatar == ''" class="las la-user"></i>
+          <img
+            v-show="account.userData.avatar != ''"
+            src="../../../../assets/trust/Ellipse3.png"
+            alt=""
+          />
+        </vs-avatar>
+        {{ account.userData.firstname }}
         <v-icon right>mdi-chevron-down</v-icon>
       </v-btn>
     </template>
     <v-list class="py-0" dense>
-      <v-list-item dense>
+      <v-list-item to="/dashboard/account" dense>
         <v-list-item-icon>
           <v-icon>mdi-account-outline</v-icon>
         </v-list-item-icon>
@@ -37,7 +42,7 @@
 import { mapState } from "vuex"
 export default {
   computed: {
-    ...mapState(["logout"]),
+    ...mapState(["logout", "account"]),
   },
 }
 </script>

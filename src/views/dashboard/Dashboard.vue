@@ -9,11 +9,22 @@
 
 <script>
 import Nav from "../../components/dashboard/navigation/Nav.vue"
+import { mapActions } from "vuex"
 export default {
   name: "Dashboard",
   components: {
     Nav,
   },
+
+  mounted() {
+    this.$nextTick(() => {
+      this.getProfile()
+    })
+  },
+
+  methods: {
+    ...mapActions(["getProfile"])
+  }
 }
 </script>
 

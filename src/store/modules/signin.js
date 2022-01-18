@@ -30,7 +30,7 @@ export default {
   actions: {
     async signinUser ({ commit }) {
       const options = {
-        url: "https://dev.trustpaddi.com/api/v1/login",
+        url: location.origin + "/login",
         method: "POST",
         data: this.state.signin.credential,
       }
