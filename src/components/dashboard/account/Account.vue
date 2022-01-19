@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="account">
     <v-card flat>
       <v-toolbar flat color="white" dark>
         <v-toolbar-title class="grey--text text--darken-3 font-weight-bold"
@@ -18,13 +18,6 @@
           active-class="font-weight-bold"
           class="text-capitalize text-body-2"
         >
-          <span class="hidden-sm-and-down"> Address </span>
-          <v-icon class="hidden-md-and-up">mdi-bus-marker</v-icon>
-        </v-tab>
-        <v-tab
-          active-class="font-weight-bold"
-          class="text-capitalize text-body-2"
-        >
           <span class="hidden-sm-and-down"> Settings </span>
           <v-icon class="hidden-md-and-up">mdi-account-cog-outline</v-icon>
         </v-tab>
@@ -32,15 +25,17 @@
         <v-tab-item>
           <v-card flat width="500" class="mx-auto">
             <v-card-text class="text-center mb-3">
-              <!-- <vs-avatar
-                @click="avatarAction"
-                class="mx-auto"
-                circle
-                size="150"
-              >
-                <img src="../../../assets/trust/me.jpg" />
-              </vs-avatar> -->
+              <v-file-input
+                @change="setImage"
+                class="mainInput"
+                style="display: none"
+                accept="image/*"
+              />
+              <vs-avatar v-if="!account.avatar" @click="selectImage" size="100" class="mx-auto">
+                <i style="font-size: 3rem" class="las la-user"></i>
+              </vs-avatar>
               <v-menu
+                v-if="account.avatar"
                 absolute
                 offset-y
                 style="max-width: 600px"
@@ -48,21 +43,15 @@
                 <template v-slot:activator="{ on, attrs }">
                   <vs-avatar
                     circle
-                    size="150"
                     v-on="on"
+                    size="150"
                     v-bind="attrs"
                     class="mx-auto"
+                    color="#6E14EC"
                   >
-                    <img src="../../../assets/trust/me.jpg" />
+                    <img :src="account.avatar" />
                   </vs-avatar>
                 </template>
-
-                <v-file-input
-                  @change="setImage"
-                  truncate-length="15"
-                  class="mainInput"
-                  style="display: none"
-                ></v-file-input>
 
                 <v-list dense>
                   <v-list-item @click="avatarAction">
@@ -112,46 +101,22 @@
                   v-model="account.credential.lga"
                 />
               </v-col>
-            </v-row>
-
-            <v-card-actions>
-              <vs-button class="text-capitalize mx-auto" color="#6A0DEB" dark
-                >Save</vs-button
-              >
-            </v-card-actions>
-          </v-card>
-        </v-tab-item>
-        <v-tab-item>
-          <v-card flat width="90%" class="mx-auto">
-            <v-row justify="space-between" align="start">
-              <v-col cols="12" sm="4">
-                <p class="grey--text text--darken-3 font-weight-bold mb-0">
-                  Manage Addresses
-                </p>
-              </v-col>
-            </v-row>
-            <v-row class="mb-3" justify="space-between" align="start">
-              <v-col cols="12" sm="4">
-                <v-text-field
-                  flat
-                  solo
-                  hide-details
-                  class="rounded-lg"
-                  label="Product title"
-                  background-color="#EFF0F6"
-                  append-icon="mdi-pencil-outline"
+              <v-col cols="12">
+                <vs-input
+                  placeholder="Address"
                   v-model="account.credential.address"
                 />
               </v-col>
             </v-row>
 
-            <v-card-actions class="pl-0">
-              <v-btn
-                class="text-capitalize"
-                color="deep-purple accent-4"
-                depressed
+            <v-card-actions>
+              <vs-button
                 dark
-                >Save</v-btn
+                color="#6A0DEB"
+                @click="updateProfile"
+                :loading="account.saveLoading"
+                class="text-capitalize mx-auto"
+                >Save</vs-button
               >
             </v-card-actions>
           </v-card>
@@ -200,11 +165,12 @@ export default {
       this.account.editAvatarDialog = true
 
       setTimeout(() => {
-        const input = document.querySelectorAll(".vs-input")
+        const input = document.querySelectorAll(".account .vs-input")
+        console.log(input)
 
-        for (let i = 0; i <= input.length; i++) {
-          input[i].style.width = "100%"
-        }
+        // for (let i = 0; i <= input.length; i++) {
+        //   input[i].style.width = "100%"
+        // }
       }, 100)
     },
 
@@ -212,7 +178,7 @@ export default {
       document.querySelector(".mainInput [type='file']").click()
     },
 
-    ...mapActions(["setImage"]),
+    ...mapActions(["setImage", "updateProfile"]),
   },
 
   computed: {
@@ -220,3 +186,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.hide {
+  display: none;
+}
+</style>

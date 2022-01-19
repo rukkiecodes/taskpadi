@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex"
+import { mapState, mapGetters, mapActions } from "vuex"
 import LogoutDialog from "../components/logoutDialog.vue"
 import ProfileMenu from "./components/ProfileMenu.vue"
 export default {
@@ -111,11 +111,13 @@ export default {
     this.$nextTick(() => {
       this.drawerVisibility()
       this.removeBorder()
+      this.getProfile()
 
       document.querySelector(".vs-input").style.width = "300px"
     })
   },
   methods: {
+    ...mapActions(["getProfile"]),
     setCurrentRoute() {
       this.dashboardNavigation.currentRoute = window.location.pathname
     },
