@@ -15,8 +15,6 @@ export default {
 
   mutations: {
     changePassword: (state, response) => {
-      console.log("response: ", response)
-
       if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -71,7 +69,6 @@ export default {
             this.state.settings.loading = false
           })
           .catch((error) => {
-            console.log("Error: ", error)
             this.state.settings.loading = false
           })
       } else {
