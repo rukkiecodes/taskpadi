@@ -1,6 +1,6 @@
 <template>
   <v-card width="100%" outlined class="rounded-lg banks">
-    <v-card-text class="font-weight-bold">Banks</v-card-text>
+    <v-card-text class="font-weight-bold">Available Banks</v-card-text>
 
     <v-card-text>
       <v-row justify="space-between" align="start">

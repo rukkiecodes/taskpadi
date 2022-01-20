@@ -5,10 +5,13 @@
         <ChangePassword />
       </v-col>
       <v-col cols="12">
-        <Logout />
+        <AddBanksAccount />
       </v-col>
       <v-col cols="12">
         <Banks />
+      </v-col>
+      <v-col cols="12">
+        <Logout />
       </v-col>
     </v-row>
   </v-card>
@@ -19,6 +22,7 @@ import { mapState, mapActions } from "vuex"
 import Logout from "./Logout.vue"
 import ChangePassword from "./ChangePassword.vue"
 import Banks from "./Banks.vue"
+import AddBanksAccount from "./AddBanksAccount.vue"
 export default {
   data: () => ({
     hasVisiblePassword: false,
@@ -27,7 +31,8 @@ export default {
   components: {
     Logout,
     ChangePassword,
-    Banks
+    Banks,
+    AddBanksAccount
   },
 
   mounted() {

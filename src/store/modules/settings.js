@@ -9,8 +9,15 @@ export default {
       password_confirmation: "",
     },
 
+    addBankAccountCredential: {
+      bank_id: "",
+      account_no: "",
+      account_name: "",
+    },
+
     loading: false,
     logoutLoading: false,
+    addBankAccountLoading: false,
 
     banks: [],
   },
@@ -69,6 +76,27 @@ export default {
       let bankData = response.banks
       for (let i = 0; i < bankData.length; i++) {
         state.banks.push(bankData[i])
+      }
+      if (response.success == true) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+    },
+
+    addBackAccount: (state, response) => {
+      if (response.message == "The given data was invalid.") {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.errors.bank_id[0],
+        })
       }
       if (response.success == true) {
         Vue.prototype.$vs.notification({
@@ -152,6 +180,43 @@ export default {
         .catch((error) => {
           console.log(error)
         })
+    },
+
+    addBackAccount({ commit }) {
+      if (
+        this.state.settings.addBankAccountCredential.bank_id != "" &&
+        this.state.settings.addBankAccountCredential.account_no != "" &&
+        this.state.settings.addBankAccountCredential.account_name != ""
+      ) {
+        this.state.settings.addBankAccountLoading = true
+        let token = Vue.prototype.$cookies.get("PaddiData").access_token
+        fetch(location.origin + "/user/add-bank", {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.state.settings.addBankAccountCredential),
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            commit("addBackAccount", response)
+            this.state.settings.addBankAccountLoading = false
+          })
+          .catch((error) => {
+            console.log(error)
+            this.state.settings.addBankAccountLoading = false
+          })
+      } else {
+        this.state.settings.addBankAccountLoading = false
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: `Please complete the form and try again`,
+        })
+      }
     },
   },
 }
