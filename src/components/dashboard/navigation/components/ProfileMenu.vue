@@ -39,17 +39,8 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex"
+import { mapState } from "vuex"
 export default {
-  mounted() {
-    this.$nextTick(() => {
-      this.getProfile()
-    })
-  },
-
-  methods: {
-    ...mapActions(["getProfile"]),
-  },
   computed: {
     ...mapState(["logout", "account"]),
   },

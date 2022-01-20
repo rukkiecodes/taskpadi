@@ -72,45 +72,44 @@
             <v-row class="mb-3" justify="space-between" align="start">
               <v-col cols="12" sm="6">
                 <vs-input
-                  placeholder="First name"
+                  label-placeholder="First name"
                   v-model="account.credential.firstname"
                 />
               </v-col>
               <v-col cols="12" sm="6">
                 <vs-input
-                  placeholder="Last name"
+                  label-placeholder="Last name"
                   v-model="account.credential.lastname"
                 />
               </v-col>
               <v-col cols="12" sm="6">
                 <vs-input
-                  placeholder="Phone number"
+                  label-placeholder="Phone number"
                   v-model="account.credential.phone_number"
                 />
               </v-col>
               <v-col cols="12" sm="6">
                 <vs-input
-                  placeholder="Country"
+                  label-placeholder="Country"
                   v-model="account.credential.country"
                 />
               </v-col>
               <v-col cols="12" sm="6">
                 <vs-input
-                  placeholder="State"
+                  label-placeholder="State"
                   v-model="account.credential.state"
                 />
               </v-col>
               <v-col cols="12" sm="6">
                 <vs-input
-                  placeholder="Local Govenment"
+                  label-placeholder="Local Govenment"
                   v-model="account.credential.lga"
                 />
               </v-col>
               <v-col cols="12">
                 <vs-input
                   icon-after
-                  type="password"
-                  placeholder="Address"
+                  label-placeholder="Address"
                   v-model="account.credential.address"
                 >
                   <template #icon>
