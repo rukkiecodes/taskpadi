@@ -25,6 +25,7 @@ import forgotPassword from "./modules/forgotPassword"
 import verifyAccount from "./modules/verifyAccount"
 import transaction from "./modules/transaction"
 import refunds from "./modules/refunds"
+import settings from "./modules/settings"
 
 Vue.use(Vuex);
 
@@ -54,5 +55,6 @@ export default new Vuex.Store({
     verifyAccount,
     transaction,
     refunds,
+    settings,
   },
 })

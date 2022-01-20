@@ -40,7 +40,7 @@ export default {
   actions: {
     async getProfile({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      await fetch(location.origin + "/user/profile", {
+      fetch(location.origin + "/user/profile", {
         method: "GET",
         headers: {
           Authorization: "Bearer " + token,
