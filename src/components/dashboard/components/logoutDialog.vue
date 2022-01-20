@@ -1,27 +1,39 @@
 <template>
-  <v-dialog v-model="logout.logoutDialog" max-width="290">
-    <v-card>
-      <v-card-title class="text-h5">
-        Are you sure you want to logout?
-      </v-card-title>
+  <vs-dialog v-model="logout.logoutDialog" not-center blur width="300px">
+    <template #header>
+      <h4 class="not-margin">Are you sure you want to logout?</h4>
+    </template>
 
-      <v-card-text>
-        Please not that your saved cookies and sessions will be deleted
-      </v-card-text>
+    <div class="con-content">
+      <p>Please not that your saved cookies and sessions will be deleted</p>
+    </div>
 
-      <v-card-actions>
-        <v-spacer></v-spacer>
-
-        <v-btn color="grey darken-2" text @click="logout.logoutDialog = false">
-          Disagree
-        </v-btn>
-
-        <v-btn color="warning" text @click="logoutUser">
-          Agree
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+    <template #footer>
+      <div class="d-flex justify-end">
+        <vs-button
+          transparent
+          color="#616161"
+          @click="logout.logoutDialog = false"
+        >
+          cancel
+        </vs-button>
+        <vs-button
+          @click="logoutUser"
+          :loading="logout.logoutLoading"
+          color="danger"
+          transparent
+        >
+          Ok
+          <template #animate>
+            <i
+              style="font-size: 1.3rem; transform: scaleX(-1)"
+              class="las la-sign-out-alt"
+            ></i>
+          </template>
+        </vs-button>
+      </div>
+    </template>
+  </vs-dialog>
 </template>
 
 <script>

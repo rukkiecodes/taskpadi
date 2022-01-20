@@ -1,3 +1,4 @@
+import router from "../../router"
 import Vue from "vue"
 
 export default {
@@ -9,6 +10,7 @@ export default {
     },
 
     loading: false,
+    logoutLoading: false,
   },
 
   getters: {},
@@ -41,6 +43,20 @@ export default {
           title: "Oops!!!",
           text: response.message,
         })
+      }
+    },
+
+    logoutOfAccount: (state, response) => {
+      if (response.success == true) {
+        Vue.prototype.$cookies.remove("PaddiData")
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-unlock-alt"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+        router.push("/")
       }
     },
   },
@@ -81,6 +97,26 @@ export default {
           text: `Please complete the form and try again`,
         })
       }
+    },
+
+    async logoutOfAccount({ commit }) {
+      this.state.settings.logoutLoading = true
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(location.origin + "/user/logout", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          commit("logoutOfAccount", response)
+          this.state.settings.logoutLoading = false
+        })
+        .catch((error) => {
+          this.state.settings.logoutLoading = false
+        })
     },
   },
 }
