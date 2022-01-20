@@ -11,9 +11,13 @@ export default {
 
     loading: false,
     logoutLoading: false,
+
+    banks: [],
   },
 
-  getters: {},
+  getters: {
+    banks: (state) => state.banks,
+  },
 
   mutations: {
     changePassword: (state, response) => {
@@ -59,10 +63,27 @@ export default {
         router.push("/")
       }
     },
+
+    getBanks: (state, response) => {
+      state.banks = []
+      let bankData = response.banks
+      for (let i = 0; i < bankData.length; i++) {
+        state.banks.push(bankData[i])
+      }
+      if (response.success == true) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+    },
   },
 
   actions: {
-    async changePassword({ commit }) {
+    changePassword({ commit }) {
       if (
         this.state.settings.credential.password != "" &&
         this.state.settings.credential.password_confirmation != "" &&
@@ -99,7 +120,7 @@ export default {
       }
     },
 
-    async logoutOfAccount({ commit }) {
+    logoutOfAccount({ commit }) {
       this.state.settings.logoutLoading = true
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
       fetch(location.origin + "/user/logout", {
@@ -116,6 +137,20 @@ export default {
         })
         .catch((error) => {
           this.state.settings.logoutLoading = false
+        })
+    },
+
+    getBanks({ commit }) {
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(location.origin + "/banks", {
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          commit("getBanks", response)
+        })
+        .catch((error) => {
+          console.log(error)
         })
     },
   },
