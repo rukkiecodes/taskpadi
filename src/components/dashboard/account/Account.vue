@@ -31,7 +31,12 @@
                 style="display: none"
                 accept="image/*"
               />
-              <vs-avatar v-if="!account.avatar" @click="selectImage" size="100" class="mx-auto">
+              <vs-avatar
+                v-if="!account.avatar"
+                @click="selectImage"
+                size="100"
+                class="mx-auto"
+              >
                 <i style="font-size: 3rem" class="las la-user"></i>
               </vs-avatar>
               <v-menu
@@ -103,9 +108,15 @@
               </v-col>
               <v-col cols="12">
                 <vs-input
+                  icon-after
+                  type="password"
                   placeholder="Address"
                   v-model="account.credential.address"
-                />
+                >
+                  <template #icon>
+                    <i class="las la-pencil-alt"></i>
+                  </template>
+                </vs-input>
               </v-col>
             </v-row>
 
@@ -157,21 +168,29 @@ export default {
   },
 
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {
+      setTimeout(() => {
+        const input = document.querySelectorAll(".account .vs-input")
+        if (input)
+          for (let i = 0; i <= input.length; i++) {
+            input[i].style.width = "100%"
+          }
+      }, 100)
+    })
   },
 
   methods: {
     avatarAction() {
       this.account.editAvatarDialog = true
 
-      setTimeout(() => {
-        const input = document.querySelectorAll(".account .vs-input")
-        console.log(input)
+      // const input = document.querySelectorAll(".account .vs-input")
+      // console.log(input)
+      // setTimeout(() => {
 
-        // for (let i = 0; i <= input.length; i++) {
-        //   input[i].style.width = "100%"
-        // }
-      }, 100)
+      //   // for (let i = 0; i <= input.length; i++) {
+      //   //   input[i].style.width = "100%"
+      //   // }
+      // }, 100)
     },
 
     selectImage() {
