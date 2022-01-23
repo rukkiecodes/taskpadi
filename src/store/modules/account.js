@@ -172,7 +172,6 @@ export default {
       let formData = new FormData()
 
       let myHeaders = new Headers()
-      // myHeaders.append("Accept", "application/json")
       myHeaders.append("Accept", "multipart/form-data")
       myHeaders.append("Authorization", "Bearer " + token)
 
