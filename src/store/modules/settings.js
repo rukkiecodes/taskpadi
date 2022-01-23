@@ -15,9 +15,24 @@ export default {
       account_name: "",
     },
 
+    resolveBankAccountCredential: {
+      bank_id: "",
+      account_no: "",
+    },
+
+    removeBankAccountCredential: {
+      bank_id: "",
+    },
+
     loading: false,
+
     logoutLoading: false,
+
     addBankAccountLoading: false,
+
+    resolveBankAccountLoading: false,
+
+    removeBankAccountLoading: false,
 
     banks: [],
   },
@@ -102,6 +117,68 @@ export default {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-university"></i>`,
           border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+    },
+
+    resolveBackAccount: (state, response) => {
+      console.log(response)
+      if (response.message == "The given data was invalid.") {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.errors.bank_id[0],
+        })
+      }
+      if (response.success == true) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+      if (response.success == false) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+    },
+
+    removeBackAccount: (state, response) => {
+      console.log(response)
+      if (response.message == "The given data was invalid.") {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.errors.bank_id[0],
+        })
+      }
+      if (response.success == true) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+      if (response.success == false) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Yippee!!!",
           text: response.message,
@@ -209,6 +286,77 @@ export default {
           })
       } else {
         this.state.settings.addBankAccountLoading = false
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: `Please complete the form and try again`,
+        })
+      }
+    },
+
+    resolveBackAccount({ commit }) {
+      if (
+        this.state.settings.resolveBankAccountCredential.bank_id != "" &&
+        this.state.settings.resolveBankAccountCredential.account_no != ""
+      ) {
+        this.state.settings.resolveBankAccountLoading = true
+        let token = Vue.prototype.$cookies.get("PaddiData").access_token
+        fetch(location.origin + "/user/resolve-account", {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(
+            this.state.settings.resolveBankAccountCredential
+          ),
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            commit("resolveBackAccount", response)
+            this.state.settings.resolveBankAccountLoading = false
+          })
+          .catch((error) => {
+            console.log(error)
+            this.state.settings.resolveBankAccountLoading = false
+          })
+      } else {
+        this.state.settings.resolveBankAccountLoading = false
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: `Please complete the form and try again`,
+        })
+      }
+    },
+
+    removeBackAccount({ commit }) {
+      if (this.state.settings.removeBankAccountCredential.bank_id != "") {
+        this.state.settings.removeBankAccountLoading = true
+        let token = Vue.prototype.$cookies.get("PaddiData").access_token
+        fetch(location.origin + "/user/remove-bank", {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.state.settings.removeBankAccountCredential),
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            commit("removeBackAccount", response)
+            this.state.settings.removeBankAccountLoading = false
+          })
+          .catch((error) => {
+            console.log(error)
+            this.state.settings.removeBankAccountLoading = false
+          })
+      } else {
+        this.state.settings.removeBankAccountLoading = false
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",

@@ -6,17 +6,19 @@
       <v-row justify="space-between" align="start">
         <v-col cols="12">
           <vs-input
-            v-model="settings.credential.old_password"
+            block
             type="password"
             label-placeholder="Old Password"
+            v-model="settings.credential.old_password"
           >
             <template #icon>
               <i class="las la-lock"></i>
             </template>
           </vs-input>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="12" sm="6">
           <vs-input
+            block
             type="password"
             v-model="settings.credential.password"
             label-placeholder="Password"
@@ -35,8 +37,9 @@
             </template>
           </vs-input>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="12" sm="6">
           <vs-input
+            block
             type="password"
             label-placeholder="Confirm Password"
             v-model="settings.credential.password_confirmation"
@@ -70,15 +73,7 @@ export default {
   }),
 
   mounted() {
-    this.$nextTick(() => {
-      setTimeout(() => {
-        const input = document.querySelectorAll(".changePassword .vs-input")
-        if (input)
-          for (let i = 0; i <= input.length; i++) {
-            input[i].style.width = "100%"
-          }
-      }, 100)
-    })
+    this.$nextTick(() => {})
   },
 
   methods: {

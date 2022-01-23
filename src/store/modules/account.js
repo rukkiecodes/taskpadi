@@ -23,9 +23,11 @@ export default {
 
   mutations: {
     getProfile: (state, response) => {
-      state.userData = null
-      state.userData = response.data
-      console.log(state.userData)
+      setTimeout(() => {
+        state.userData = null
+        state.userData = response.data
+        console.log(state.userData)
+      }, 1000)
     },
 
     setImage: (state, response) => {

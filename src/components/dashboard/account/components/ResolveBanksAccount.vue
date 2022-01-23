@@ -1,10 +1,10 @@
 <template>
-  <v-card width="100%" outlined class="rounded-lg addBankAccount">
-    <v-card-text class="font-weight-bold">Add Bank Account</v-card-text>
+  <v-card width="100%" outlined class="rounded-lg resolveBankAccount">
+    <v-card-text class="font-weight-bold">Resolve Bank Account</v-card-text>
 
     <v-card-text>
       <v-row justify="space-between" align="start">
-        <v-col cols="12" sm="6">
+        <v-col cols="12">
           <vs-select
             block
             color="#6200EA"
@@ -22,27 +22,20 @@
             </vs-option>
           </vs-select>
         </v-col>
-        <v-col cols="12" sm="6">
-          <vs-input
-            block
-            label-placeholder="Account number"
-            v-model="settings.addBankAccountCredential.account_no"
-          />
-        </v-col>
         <v-col cols="12">
           <vs-input
             block
-            label-placeholder="Account name"
-            v-model="settings.addBankAccountCredential.account_name"
+            label-placeholder="Account number"
+            v-model="settings.resolveBankAccountCredential.account_no"
           />
         </v-col>
         <v-col cols="12">
           <vs-button
             block
             color="#6200EA"
-            @click="addBackAccount"
-            :loading="settings.addBankAccountLoading"
-            >Add Account</vs-button
+            @click="resolveBackAccount"
+            :loading="settings.resolveBankAccountLoading"
+            >Resolve Account</vs-button
           >
         </v-col>
       </v-row>
@@ -55,17 +48,18 @@ import { mapState, mapActions, mapGetters } from "vuex"
 
 export default {
   data: () => ({
-    value: ""
+    value: "",
   }),
 
   mounted() {
     this.$nextTick(() => {})
   },
+  
   methods: {
-    ...mapActions(["addBackAccount"]),
+    ...mapActions(["resolveBackAccount"]),
 
     setBankId() {
-      this.settings.addBankAccountCredential.bank_id  = this.value
+      this.settings.resolveBankAccountCredential.bank_id  = this.value
     }
   },
 

@@ -8,12 +8,23 @@
 </template>
 
 <script>
+import { mapActions } from "vuex"
 import Nav from "../../components/dashboard/navigation/Nav.vue"
 export default {
   name: "Dashboard",
   components: {
     Nav,
   },
+
+  mounted() {
+    this.$nextTick(() => {
+      this.getProfile()
+    })
+  },
+
+  methods: {
+    ...mapActions(["getProfile"])
+  }
 }
 </script>
 

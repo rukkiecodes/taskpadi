@@ -7,6 +7,7 @@
         shadow
         primary
         icon-after
+        autocomplete="off"
         v-model="searchPaddi"
         class="hidden-xs-only"
         placeholder="Search..."
@@ -28,7 +29,44 @@
       <v-badge class="mx-5" color="red" dot overlap>
         <v-icon>mdi-bell-outline</v-icon>
       </v-badge>
-      <ProfileMenu />
+
+      <!-- HERE -->
+
+      <v-speed-dial
+        v-model="fab"
+        direction="bottom"
+        :open-on-hover="true"
+        :transition="transition"
+      >
+        <template v-slot:activator>
+          <vs-button
+            v-model="fab"
+            class="font-weight-bold"
+            color="#616161"
+            transparent
+          >
+            <vs-avatar size="30" class="mr-3" color="#6200EA">
+              <i class="las la-user" v-if="account.userData.avatar == ''"></i>
+              <img :src="account.userData.avatar" v-else alt="" />
+            </vs-avatar>
+            {{ account.userData.firstname || "User" }}
+          </vs-button>
+        </template>
+        <v-list class="py-0" width="200" dense>
+          <v-list-item to="/dashboard/account" dense>
+            <v-list-item-icon>
+              <v-icon>mdi-account-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Profile</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="logout.logoutDialog = true" dense>
+            <v-list-item-icon>
+              <v-icon color="red">mdi-power</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title class="red--text">Logout</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-speed-dial>
     </v-app-bar>
 
     <v-navigation-drawer app color="white" v-model="drawer" :width="210">
@@ -96,28 +134,53 @@
 <script>
 import { mapState, mapGetters, mapActions } from "vuex"
 import LogoutDialog from "../components/logoutDialog.vue"
-import ProfileMenu from "./components/ProfileMenu.vue"
 export default {
   data: () => ({
     selectedItem: 1,
     drawer: true,
     searchPaddi: "",
+
+    direction: "top",
+    fab: false,
+    fling: false,
+    hover: false,
+    tabs: null,
+    top: false,
+    right: true,
+    bottom: true,
+    left: false,
+    transition: "slide-y-reverse-transition",
   }),
+
+  watch: {
+    top(val) {
+      this.bottom = !val
+    },
+    right(val) {
+      this.left = !val
+    },
+    bottom(val) {
+      this.top = !val
+    },
+    left(val) {
+      this.right = !val
+    },
+  },
+
   components: {
-    ProfileMenu,
     LogoutDialog,
   },
+
   mounted() {
     this.$nextTick(() => {
       this.drawerVisibility()
       this.removeBorder()
-      this.getProfile()
 
       document.querySelector(".vs-input").style.width = "300px"
     })
   },
+
   methods: {
-    ...mapActions(["getProfile"]),
     setCurrentRoute() {
       this.dashboardNavigation.currentRoute = window.location.pathname
     },
@@ -143,7 +206,18 @@ export default {
   },
   computed: {
     ...mapGetters(["dashboardRoutes"]),
-    ...mapState(["dashboardNavigation", "logout"]),
+    ...mapState(["dashboardNavigation", "logout", "account"]),
   },
 }
 </script>
+
+<style>
+/* This is for documentation purposes and will not be needed in your application */
+#create .v-speed-dial {
+  position: absolute;
+}
+
+#create .v-btn--floating {
+  position: relative;
+}
+</style>

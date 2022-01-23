@@ -5,10 +5,16 @@
         <ChangePassword />
       </v-col>
       <v-col cols="12">
+        <Banks />
+      </v-col>
+      <v-col cols="12">
         <AddBanksAccount />
       </v-col>
       <v-col cols="12">
-        <Banks />
+        <ResolveBanksAccount />
+      </v-col>
+      <v-col cols="12">
+        <RemoveBanksAccount />
       </v-col>
       <v-col cols="12">
         <Logout />
@@ -23,6 +29,8 @@ import Logout from "./Logout.vue"
 import ChangePassword from "./ChangePassword.vue"
 import Banks from "./Banks.vue"
 import AddBanksAccount from "./AddBanksAccount.vue"
+import ResolveBanksAccount from "./ResolveBanksAccount.vue"
+import RemoveBanksAccount from "./RemoveBanksAccount.vue"
 export default {
   data: () => ({
     hasVisiblePassword: false,
@@ -32,7 +40,9 @@ export default {
     Logout,
     ChangePassword,
     Banks,
-    AddBanksAccount
+    AddBanksAccount,
+    ResolveBanksAccount,
+    RemoveBanksAccount
   },
 
   mounted() {
