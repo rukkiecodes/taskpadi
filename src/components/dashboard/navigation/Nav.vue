@@ -18,6 +18,7 @@
       </vs-input>
 
       <v-spacer />
+
       <vs-button
         dark
         depressed
@@ -30,13 +31,11 @@
         <v-icon>mdi-bell-outline</v-icon>
       </v-badge>
 
-      <!-- HERE -->
-
       <v-speed-dial
         v-model="fab"
         direction="bottom"
         :open-on-hover="true"
-        :transition="transition"
+        :transition="'slide-y-reverse-transition'"
       >
         <template v-slot:activator>
           <vs-button
@@ -45,26 +44,67 @@
             color="#616161"
             transparent
           >
-            <vs-avatar size="30" class="mr-3" color="#6200EA">
-              <i class="las la-user" v-if="account.userData.avatar == ''"></i>
-              <img :src="account.userData.avatar" v-else alt="" />
+            <vs-avatar size="30" class="mr-3">
+              <!-- <i class="las la-user" v-if="account.userData.avatar == ''"></i> -->
+              <img
+                src="../../../assets/trust/pl.png"
+                v-if="account.userData.avatar != ''"
+                alt=""
+              />
+              <!-- <img :src="account.avatar" v-else alt="" /> -->
             </vs-avatar>
             {{ account.userData.firstname || "User" }}
           </vs-button>
         </template>
-        <v-list class="py-0" width="200" dense>
-          <v-list-item to="/dashboard/account" dense>
-            <v-list-item-icon>
-              <v-icon>mdi-account-outline</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Profile</v-list-item-title>
-          </v-list-item>
-          <v-list-item @click="logout.logoutDialog = true" dense>
-            <v-list-item-icon>
-              <v-icon color="red">mdi-power</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title class="red--text">Logout</v-list-item-title>
-          </v-list-item>
+
+        <v-list
+          class="py-0"
+          color="transparent"
+          flat
+          style="margin-right: 200px"
+          width="300"
+        >
+          <vs-card type="4">
+            <template #title>
+              <h3
+                v-text="
+                  account.userData.firstname + ' ' + account.userData.lastname
+                "
+              />
+            </template>
+            <template #img>
+              <img src="../../../assets/trust/pl.png" alt="" />
+            </template>
+            <template #text>
+              <div class="d-flex flex-column">
+                <span v-text="account.userData.email" />
+                <span v-text="account.userData.phone_number" />
+                <span
+                  v-text="
+                    account.userData.country +
+                    ' / ' +
+                    account.userData.state +
+                    ' / ' +
+                    account.userData.lga
+                  "
+                />
+              </div>
+            </template>
+            <template #interactions>
+              <vs-button
+                icon
+                color="danger"
+                class="btn-chat"
+                @click="logout.logoutDialog = true"
+              >
+                <i style="font-size: 1.2rem" class="las la-sign-out-alt"></i>
+              </vs-button>
+
+              <vs-button shadow icon class="btn-chat" to="/dashboard/account">
+                <i style="font-size: 1.2rem" class="las la-user"></i>
+              </vs-button>
+            </template>
+          </vs-card>
         </v-list>
       </v-speed-dial>
     </v-app-bar>
@@ -139,33 +179,12 @@ export default {
     selectedItem: 1,
     drawer: true,
     searchPaddi: "",
+    fab: !false,
 
-    direction: "top",
-    fab: false,
-    fling: false,
-    hover: false,
-    tabs: null,
-    top: false,
-    right: true,
-    bottom: true,
-    left: false,
-    transition: "slide-y-reverse-transition",
+    menu: false,
+    message: false,
+    hints: true,
   }),
-
-  watch: {
-    top(val) {
-      this.bottom = !val
-    },
-    right(val) {
-      this.left = !val
-    },
-    bottom(val) {
-      this.top = !val
-    },
-    left(val) {
-      this.right = !val
-    },
-  },
 
   components: {
     LogoutDialog,
@@ -219,5 +238,9 @@ export default {
 
 #create .v-btn--floating {
   position: relative;
+}
+
+.vs-card__text {
+  width: 100%;
 }
 </style>

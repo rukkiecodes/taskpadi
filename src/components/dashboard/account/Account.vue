@@ -48,15 +48,7 @@ export default {
   },
 
   mounted() {
-    this.$nextTick(() => {
-      // setTimeout(() => {
-      //   const input = document.querySelectorAll(".account .vs-input")
-      //   if (input)
-      //     for (let i = 0; i <= input.length; i++) {
-      //       input[i].style.width = "100%"
-      //     }
-      // }, 100)
-    })
+    this.$nextTick(() => {})
   },
 
   methods: {
