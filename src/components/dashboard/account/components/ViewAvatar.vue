@@ -2,7 +2,15 @@
   <v-row justify="center">
     <vs-dialog v-model="account.editAvatarDialog" auto-width not-padding>
       <div class="content">
-        <img src="../../../../assets/trust/me.jpg" alt="" />
+        <img
+          v-if="account.userData.avatar != ''"
+          :src="
+            'https://dev.trustpaddi.com/public/storage/users/avatars/' +
+            account.userData.avatar
+          "
+          alt=""
+        />
+        <img v-else src="../../../../assets/trust/pl.png" alt="" />
       </div>
     </vs-dialog>
   </v-row>

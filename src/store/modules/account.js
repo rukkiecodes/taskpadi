@@ -2,7 +2,7 @@ import Vue from "vue"
 
 export default {
   state: {
-    editAvatarDialog: false,
+    editAvatarDialog: !false,
     credential: {
       firstname: "",
       lastname: "",
@@ -26,6 +26,7 @@ export default {
     getProfile: (state, response) => {
       state.userData = null
       state.userData = response.data
+      state.avatar = response.data.avatar
 
       let number = state.userData.phone_number
       let arr = number.split("4")
@@ -194,22 +195,6 @@ export default {
         redirect: "follow",
       }
 
-      // fetch(location.origin + "/user/profile", {
-      //   method: "POST",
-      //   headers: {
-      //     Authorization: "Bearer " + token,
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     firstname: this.state.account.credential.firstname,
-      //     lastname: this.state.account.credential.lastname,
-      //     phone_number: this.state.account.credential.phone_number,
-      //     country: this.state.account.credential.country,
-      //     state: this.state.account.credential.state,
-      //     lga: this.state.account.credential.lga,
-      //     address: this.state.account.credential.address,
-      //   }),
-      // })
       fetch(location.origin + "/user/profile", requestOptions)
         .then((response) => response.json())
         .then((response) => {

@@ -8,19 +8,11 @@
         style="display: none"
       />
 
-      <vs-avatar
-        size="100"
-        class="mx-auto"
-        @click="selectImage"
-        v-if="!account.avatar"
-      >
-        <img src="../../../../assets/trust/pl.png" alt="" />
-      </vs-avatar>
-
       <v-menu v-if="account.avatar" absolute offset-y style="max-width: 600px">
         <template v-slot:activator="{ on, attrs }">
           <vs-avatar circle v-on="on" size="150" v-bind="attrs" class="mx-auto">
-            <img :src="account.avatar" />
+            <img v-if="account.avatar != ''" :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.avatar}`" />
+            <img v-else src="../../../../assets/trust/pl.png" alt="" />
           </vs-avatar>
         </template>
 

@@ -5,6 +5,11 @@
     <v-card-text>
       <v-row justify="space-between" align="start">
         <v-col cols="12" sm="6">
+          <vs-input
+            block
+            label-placeholder="Bank id"
+            v-model="settings.addBankAccountCredential.account_no"
+          />
           <vs-select
             block
             color="#6200EA"
@@ -13,14 +18,15 @@
             label-placeholder="Bank id"
           >
             <vs-option
-              v-for="(bank, i) in settings.banks"
-              :key="i"
-              :label="bank.abbreviation + ': ' + bank.code"
+              v-for="bank in settings.banks"
+              :key="bank.id"
+              :label="bank.abbreviation"
               :value="bank.code"
             >
               {{ bank.abbreviation }}: {{ bank.code }}
             </vs-option>
           </vs-select>
+          {{ value }}
         </v-col>
         <v-col cols="12" sm="6">
           <vs-input
@@ -55,18 +61,27 @@ import { mapState, mapActions, mapGetters } from "vuex"
 
 export default {
   data: () => ({
-    value: ""
+    value: "",
+    bankCode: [],
+    bankAbbreviation: [],
   }),
 
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {
+      const banks = this.settings.banks
+
+      for (let i = 0; i <= banks.length; i++) {
+        this.bankCode.push(banks[i].code)
+        this.bankAbbreviation.push(banks[i].abbreviation)
+      }
+    })
   },
   methods: {
     ...mapActions(["addBackAccount"]),
 
     setBankId() {
-      this.settings.addBankAccountCredential.bank_id  = this.value
-    }
+      this.settings.addBankAccountCredential.bank_id = this.value
+    },
   },
 
   computed: {

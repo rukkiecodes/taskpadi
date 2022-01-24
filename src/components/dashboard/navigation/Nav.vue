@@ -45,13 +45,20 @@
             transparent
           >
             <vs-avatar size="30" class="mr-3">
-              <!-- <i class="las la-user" v-if="account.userData.avatar == ''"></i> -->
+              <i class="las la-user" v-if="account.userData.avatar == ''"></i>
               <img
                 src="../../../assets/trust/pl.png"
-                v-if="account.userData.avatar != ''"
+                v-if="account.userData.avatar == ''"
                 alt=""
               />
-              <!-- <img :src="account.avatar" v-else alt="" /> -->
+              <img
+                :src="
+                  'https://dev.trustpaddi.com/public/storage/users/avatars/' +
+                  account.userData.avatar
+                "
+                v-else
+                alt=""
+              />
             </vs-avatar>
             {{ account.userData.firstname || "User" }}
           </vs-button>
@@ -73,7 +80,15 @@
               />
             </template>
             <template #img>
-              <img src="../../../assets/trust/pl.png" alt="" />
+              <img
+                v-if="account.userData.avatar != ''"
+                :src="
+                  'https://dev.trustpaddi.com/public/storage/users/avatars/' +
+                  account.userData.avatar
+                "
+                alt=""
+              />
+              <img v-else src="../../../assets/trust/pl.png" alt="" />
             </template>
             <template #text>
               <div class="d-flex flex-column">
@@ -179,11 +194,7 @@ export default {
     selectedItem: 1,
     drawer: true,
     searchPaddi: "",
-    fab: !false,
-
-    menu: false,
-    message: false,
-    hints: true,
+    fab: false,
   }),
 
   components: {

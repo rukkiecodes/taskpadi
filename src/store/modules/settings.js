@@ -126,33 +126,33 @@ export default {
 
     resolveBackAccount: (state, response) => {
       console.log(response)
-      if (response.message == "The given data was invalid.") {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Oops!!!",
-          text: response.errors.bank_id[0],
-        })
-      }
-      if (response.success == true) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
-      if (response.success == false) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
+      // if (response.message == "The given data was invalid.") {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-exclamation-triangle"></i>`,
+      //     border: "rgb(255, 71, 87)",
+      //     position: "top-right",
+      //     title: "Oops!!!",
+      //     text: response.errors.bank_id[0],
+      //   })
+      // }
+      // if (response.success == true) {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-university"></i>`,
+      //     border: "#46C93A",
+      //     position: "top-right",
+      //     title: "Yippee!!!",
+      //     text: response.message,
+      //   })
+      // }
+      // if (response.success == false) {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-university"></i>`,
+      //     border: "rgb(255, 71, 87)",
+      //     position: "top-right",
+      //     title: "Yippee!!!",
+      //     text: response.message,
+      //   })
+      // }
     },
 
     removeBackAccount: (state, response) => {
@@ -309,9 +309,7 @@ export default {
             Authorization: "Bearer " + token,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(
-            this.state.settings.resolveBankAccountCredential
-          ),
+          body: this.state.settings.resolveBankAccountCredential,
         })
           .then((response) => response.json())
           .then((response) => {
@@ -321,6 +319,14 @@ export default {
           .catch((error) => {
             console.log(error)
             this.state.settings.resolveBankAccountLoading = false
+
+            Vue.prototype.$vs.notification({
+              icon: `<i class="las la-exclamation-triangle"></i>`,
+              border: "rgb(255, 71, 87)",
+              position: "top-right",
+              title: "Oops!!!",
+              text: error,
+            })
           })
       } else {
         this.state.settings.resolveBankAccountLoading = false
