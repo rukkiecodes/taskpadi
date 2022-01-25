@@ -8,6 +8,9 @@
         <Banks />
       </v-col>
       <v-col cols="12">
+        <UserBanks />
+      </v-col>
+      <v-col cols="12">
         <AddBanksAccount />
       </v-col>
       <v-col cols="12">
@@ -28,6 +31,7 @@ import { mapState, mapActions } from "vuex"
 import Logout from "./Logout.vue"
 import ChangePassword from "./ChangePassword.vue"
 import Banks from "./Banks.vue"
+import UserBanks from "./UserBanks.vue"
 import AddBanksAccount from "./AddBanksAccount.vue"
 import ResolveBanksAccount from "./ResolveBanksAccount.vue"
 import RemoveBanksAccount from "./RemoveBanksAccount.vue"
@@ -40,6 +44,7 @@ export default {
     Logout,
     ChangePassword,
     Banks,
+    UserBanks,
     AddBanksAccount,
     ResolveBanksAccount,
     RemoveBanksAccount

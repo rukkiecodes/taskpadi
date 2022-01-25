@@ -37,10 +37,13 @@ export default {
     banks: [],
 
     resolvedAccount: {},
+
+    userBanks: [],
   },
 
   getters: {
     banks: (state) => state.banks,
+    userBanks: (state) => state.userBanks,
   },
 
   mutations: {
@@ -108,7 +111,24 @@ export default {
       }
     },
 
-    addBackAccount: (state, response) => {
+    getUserBanks: (state, response) => {
+      state.userBanks = []
+      let bankData = response.banks
+      for (let i = 0; i < bankData.length; i++) {
+        state.userBanks.push(bankData[i])
+      }
+      if (response.success == true) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+    },
+
+    addBankAccount: (state, response) => {
       if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -184,7 +204,6 @@ export default {
     },
 
     removeBackAccount: (state, response) => {
-      console.log(response)
       if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -287,7 +306,25 @@ export default {
         })
     },
 
-    addBackAccount({ commit }) {
+    getUserBanks({ commit }) {
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(location.origin + "/user/user-banks", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          commit("getUserBanks", response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+
+    addBankAccount({ commit }) {
       if (
         this.state.settings.addBankAccountCredential.bank_id != "" &&
         this.state.settings.addBankAccountCredential.account_no != "" &&
@@ -305,7 +342,7 @@ export default {
         })
           .then((response) => response.json())
           .then((response) => {
-            commit("addBackAccount", response)
+            commit("addBankAccount", response)
             this.state.settings.addBankAccountLoading = false
           })
           .catch((error) => {
@@ -370,7 +407,7 @@ export default {
       }
     },
 
-    removeBackAccount({ commit }) {
+    removeBackAccount({ commit, dispatch }) {
       if (this.state.settings.removeBankAccountCredential.bank_id != "") {
         this.state.settings.removeBankAccountLoading = true
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
@@ -385,6 +422,8 @@ export default {
           .then((response) => response.json())
           .then((response) => {
             commit("removeBackAccount", response)
+            this.state.settings.state.userBanks = []
+            dispatch("getUserBanks")
             this.state.settings.removeBankAccountLoading = false
           })
           .catch((error) => {

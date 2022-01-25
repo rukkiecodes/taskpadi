@@ -42,7 +42,7 @@
           <vs-button
             block
             color="#6200EA"
-            @click="addBackAccount"
+            @click="addBankAccount"
             :loading="settings.addBankAccountLoading"
             >Add Account</vs-button
           >
@@ -73,7 +73,7 @@ export default {
     })
   },
   methods: {
-    ...mapActions(["addBackAccount"]),
+    ...mapActions(["addBankAccount"]),
 
     setBankId() {
       this.settings.addBankAccountCredential.bank_id = this.value

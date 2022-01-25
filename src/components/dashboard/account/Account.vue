@@ -6,7 +6,7 @@
           >My Account</v-toolbar-title
         >
       </v-toolbar>
-      <v-tabs :vertical="tabVertical" :centered="tabCentered" :right="tabRight">
+      <v-tabs color="deep-purple accent-4" :vertical="tabVertical" :centered="tabCentered" :right="tabRight">
         <v-tab
           active-class="font-weight-bold"
           class="text-capitalize text-body-2"

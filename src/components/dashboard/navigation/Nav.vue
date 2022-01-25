@@ -27,8 +27,9 @@
         class="text-capitalize text-body-2 font-weight-bold hidden-xs-only"
         >Create paddi link</vs-button
       >
+
       <v-badge class="mx-5" color="red" dot overlap>
-        <v-icon>mdi-bell-outline</v-icon>
+        <i style="font-size: 1.3rem" class="las la-bell"></i>
       </v-badge>
 
       <ProfileMenu />
@@ -109,7 +110,7 @@ export default {
 
   components: {
     LogoutDialog,
-    ProfileMenu
+    ProfileMenu,
   },
 
   mounted() {
