@@ -1,28 +1,23 @@
 <template>
   <v-container class="account">
     <v-card flat>
-      <v-toolbar flat color="white" dark>
+      <v-toolbar flat color="white" dark dense>
         <v-toolbar-title class="grey--text text--darken-3 font-weight-bold"
           >My Account</v-toolbar-title
         >
       </v-toolbar>
-      <v-tabs vertical>
+      <v-tabs :vertical="tabVertical" :centered="tabCentered" :right="tabRight">
         <v-tab
           active-class="font-weight-bold"
           class="text-capitalize text-body-2"
+          v-for="(tab, i) in tabs"
+          :key="i"
         >
-          <span class="hidden-sm-and-down"> User Profile </span>
-          <v-icon class="hidden-md-and-up">mdi-account-outline</v-icon>
-        </v-tab>
-        <v-tab
-          active-class="font-weight-bold"
-          class="text-capitalize text-body-2"
-        >
-          <span class="hidden-sm-and-down"> Settings </span>
-          <v-icon class="hidden-md-and-up">mdi-account-cog-outline</v-icon>
+          <span class="hidden-sm-and-down" v-text="tab.span" />
+          <v-icon class="hidden-md-and-up" v-text="tab.icon" />
         </v-tab>
 
-        <v-tab-item>
+        <v-tab-item class="mt-4 mt-sm-0">
           <UserProfile />
         </v-tab-item>
         <v-tab-item>
@@ -39,7 +34,18 @@ import { mapState, mapActions } from "vuex"
 import UserProfile from "./components/UserProfile.vue"
 import Settings from "./components/Settings.vue"
 export default {
-  data: () => ({}),
+  data: () => ({
+    tabs: [
+      {
+        span: "User Profile",
+        icon: "mdi-account-outline",
+      },
+      {
+        span: "Settings",
+        icon: "mdi-account-cog-outline",
+      },
+    ],
+  }),
 
   components: {
     ViewAvatar: () => import("./components/ViewAvatar.vue"),
@@ -67,6 +73,51 @@ export default {
 
   computed: {
     ...mapState(["account"]),
+
+    tabVertical() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return false
+        case "sm":
+          return true
+        case "md":
+          return true
+        case "lg":
+          return true
+        case "xl":
+          return true
+      }
+    },
+
+    tabCentered() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return false
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
+
+    tabRight() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return false
+        case "sm":
+          return true
+        case "md":
+          return true
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
   },
 }
 </script>

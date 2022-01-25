@@ -1,7 +1,6 @@
 <template>
   <v-card width="100%" outlined class="rounded-lg resolveBankAccount">
     <v-card-text class="font-weight-bold">Resolve Bank Account</v-card-text>
-
     <v-card-text>
       <v-row justify="space-between" align="start">
         <v-col cols="12">
