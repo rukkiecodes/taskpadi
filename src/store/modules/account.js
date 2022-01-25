@@ -2,7 +2,7 @@ import Vue from "vue"
 
 export default {
   state: {
-    editAvatarDialog: !false,
+    editAvatarDialog: false,
     credential: {
       firstname: "",
       lastname: "",

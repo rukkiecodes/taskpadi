@@ -48,7 +48,9 @@ export default {
   },
 
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {
+      this.getBanks()
+    })
   },
 
   methods: {
@@ -60,7 +62,7 @@ export default {
       document.querySelector(".mainInput [type='file']").click()
     },
 
-    ...mapActions(["setImage", "updateProfile"]),
+    ...mapActions(["setImage", "updateProfile", "getBanks"]),
   },
 
   computed: {

@@ -5,28 +5,23 @@
     <v-card-text>
       <v-row justify="space-between" align="start">
         <v-col cols="12" sm="6">
-          <vs-input
-            block
-            label-placeholder="Bank id"
-            v-model="settings.addBankAccountCredential.account_no"
-          />
           <vs-select
             block
             color="#6200EA"
             v-model="value"
+            class="bankSelect"
             @change="setBankId"
             label-placeholder="Bank id"
           >
             <vs-option
               v-for="bank in settings.banks"
               :key="bank.id"
-              :label="bank.abbreviation"
+              :label="bank.abbreviation + ': ' + bank.code"
               :value="bank.code"
             >
               {{ bank.abbreviation }}: {{ bank.code }}
             </vs-option>
           </vs-select>
-          {{ value }}
         </v-col>
         <v-col cols="12" sm="6">
           <vs-input
