@@ -24,6 +24,10 @@ export default {
 
   mutations: {
     getProfile: (state, response) => {
+      console.log(
+        "response: ",
+        Vue.prototype.$cookies.get("PaddiData").access_token
+      )
       state.userData = null
       state.userData = response.data
       state.avatar = response.data.avatar

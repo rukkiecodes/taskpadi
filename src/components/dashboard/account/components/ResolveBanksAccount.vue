@@ -15,10 +15,10 @@
             <vs-option
               v-for="(bank, i) in settings.banks"
               :key="i"
-              :label="bank.abbreviation + ': ' + bank.code"
-              :value="bank.code"
+              :label="bank.abbreviation + ': ' + bank.id"
+              :value="bank.id"
             >
-              {{ bank.abbreviation }}: {{ bank.code }}
+              {{ bank.abbreviation }}: {{ bank.id }}
             </vs-option>
           </vs-select>
         </v-col>
@@ -27,6 +27,14 @@
             block
             label-placeholder="Account number"
             v-model="settings.resolveBankAccountCredential.account_no"
+          />
+        </v-col>
+        <v-col cols="12">
+          <vs-input
+            block
+            readonly
+            label-placeholder="Account name"
+            v-model="settings.resolvedAccount.account_name"
           />
         </v-col>
         <v-col cols="12">
