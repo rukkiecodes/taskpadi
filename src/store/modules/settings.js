@@ -122,6 +122,15 @@ export default {
           text: response.message,
         })
       }
+      if (response.success == false) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.message,
+        })
+      }
     },
 
     resolveBackAccount: (state, response) => {

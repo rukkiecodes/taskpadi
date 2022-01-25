@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex"
+import { mapState, mapActions, mapGetters } from "vuex"
 
 export default {
   data: () => ({
@@ -50,7 +50,14 @@ export default {
     },
   },
 
+  mounted() {
+    this.$nextTick(() => {
+      this.getBanks()
+    })
+  },
   methods: {
+    ...mapActions(["getBanks"]),
+
     setPages() {
       let number_of_pages = Math.ceil(
         this.$store.getters.banks.length / this.perPage
