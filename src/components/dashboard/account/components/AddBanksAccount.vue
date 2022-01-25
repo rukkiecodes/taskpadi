@@ -7,6 +7,7 @@
         <v-col cols="12" sm="6">
           <vs-select
             block
+            filter
             color="#6200EA"
             v-model="value"
             class="bankSelect"

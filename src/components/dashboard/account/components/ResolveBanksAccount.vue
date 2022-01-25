@@ -6,6 +6,7 @@
         <v-col cols="12">
           <vs-select
             block
+            filter
             color="#6200EA"
             v-model="value"
             @change="setBankId"
