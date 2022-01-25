@@ -16,10 +16,10 @@
             <vs-option
               v-for="(bank, i) in settings.banks"
               :key="i"
-              :label="bank.abbreviation + ': ' + bank.code"
-              :value="bank.code"
+              :label="bank.abbreviation + ': ' + bank.id"
+              :value="bank.id"
             >
-              {{ bank.abbreviation }}: {{ bank.code }}
+              {{ bank.abbreviation }}: {{ bank.id }}
             </vs-option>
           </vs-select>
         </v-col>
