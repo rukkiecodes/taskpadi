@@ -35,63 +35,81 @@
       <ProfileMenu />
     </v-app-bar>
 
-    <v-navigation-drawer app color="white" v-model="drawer" :width="210">
-      <v-list-item dense>
-        <v-card
-          flat
-          width="100%"
-          height="200"
-          color="transparent"
-          class="d-flex flex-column justify-center align-center"
+    <v-navigation-drawer app color="transparent" v-model="drawer" :width="200">
+      <vs-sidebar
+        absolute
+        :square="true"
+        v-model="active"
+        open
+        style="width: 100%"
+      >
+        <template style="height: 400px; background: red" #logo>
+          <v-card
+            flat
+            width="100%"
+            height="200"
+            color="transparent"
+            class="d-flex flex-column justify-center align-center"
+          >
+            <vs-avatar size="60">
+              <img src="../../../assets/paddi.png" />
+            </vs-avatar>
+            <span
+              class="text-body-1 mt-4 grey--text text--darken-4 text-uppercase font-weight-bold"
+            >
+              TrustPaddi
+            </span>
+            <span
+              class="text-caption text-center mt-0 grey--text text--darken-3"
+            >
+              Safer Transactions, Happy people
+            </span>
+          </v-card>
+        </template>
+
+        <vs-sidebar-item
+          v-for="(route, i) in dashboardRoutes"
+          :key="i"
+          :id="route.title"
+          :to="route.route"
         >
-          <v-avatar tile size="60">
-            <img src="../../../assets/paddi.png" />
-          </v-avatar>
-          <span
-            class="text-body-1 mt-4 grey--text text--darken-4 text-uppercase font-weight-bold"
-          >
-            TrustPaddi
-          </span>
-          <span class="text-caption text-center mt-0 grey--text text--darken-3">
-            Safer Transactions, Happy people
-          </span>
-        </v-card>
-      </v-list-item>
+          <template #icon>
+            <i style="font-size: 1.3rem" :class="route.icon"></i>
+          </template>
+          <span class="text-body-2">{{ route.title }}</span>
+        </vs-sidebar-item>
 
-      <v-list dense flat>
-        <v-list-item-group v-model="selectedItem" color="deep-purple accent-4">
-          <v-list-item
-            dense
-            v-for="(route, i) in dashboardRoutes"
-            :key="i"
-            :to="route.route"
-            active-class="font-weight-bold"
-          >
-            <v-list-item-icon>
-              <v-icon v-text="route.icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title
-                class="text-body-2 font-weight-regular"
-                v-text="route.title"
-              ></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
+        <template #footer>
+          <vs-row justify="space-between">
+            <vs-avatar size="30" class="mr-3">
+              <i class="las la-user" v-if="account.userData.avatar == ''"></i>
+              <img
+                src="../../../assets/trust/pl.png"
+                v-if="account.userData.avatar == ''"
+                alt=""
+              />
+              <img
+                :src="
+                  'https://dev.trustpaddi.com/public/storage/users/avatars/' +
+                  account.userData.avatar
+                "
+                v-else
+                alt=""
+              />
+            </vs-avatar>
 
-      <template v-slot:append>
-        <v-list class="py-0" dense>
-          <v-list-item dense @click="logout.logoutDialog = true">
-            <v-list-item-icon>
-              <v-icon>mdi-logout</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>Logout</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </template>
+            <vs-avatar badge-color="danger" badge-position="top-right">
+              <i class="lar la-bell"></i>
+
+              <template #badge> 28 </template>
+            </vs-avatar>
+
+            <vs-button icon danger @click="logout.logoutDialog = true">
+              <i style="transform: scaleX(-1);" class="las la-sign-out-alt"></i>
+            </vs-button>
+          </vs-row>
+        </template>
+      </vs-sidebar>
       <LogoutDialog />
     </v-navigation-drawer>
   </nav>
@@ -106,6 +124,7 @@ export default {
     selectedItem: 1,
     drawer: true,
     searchPaddi: "",
+    active: "Dashboard",
   }),
 
   components: {
@@ -152,3 +171,17 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.vs-sidebar-content .vs-sidebar__logo img {
+  max-height: 59px;
+}
+
+.vs-sidebar__item:after {
+  background-color: #6200ea;
+}
+
+.vs-sidebar__item.active {
+  color: #6200ea;
+}
+</style>
