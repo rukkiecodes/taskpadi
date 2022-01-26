@@ -6,13 +6,13 @@ export default {
       {
         icon: "las la-home",
         title: "Dashboard",
-        route: "/dashboard/yourPaddiDashboard",
+        route: "/dashboard/dashboard",
         location: window.location.pathname,
       },
       {
         icon: "las la-exchange-alt",
         title: "Transactions",
-        route: "/dashboard/transaction",
+        route: "/dashboard/transactions",
         location: window.location.pathname,
       },
       {
@@ -30,7 +30,7 @@ export default {
       {
         icon: "las la-link",
         title: "Create paddi link",
-        route: "/dashboard/paddiLink",
+        route: "/dashboard/createpaddilink",
         location: window.location.pathname,
       },
       {
@@ -41,8 +41,8 @@ export default {
       },
       {
         icon: "las la-question-circle",
-        title: "Customer support",
-        route: "/dashboard/customerSupport",
+        title: "Support",
+        route: "/dashboard/support",
         location: window.location.pathname,
       },
       {

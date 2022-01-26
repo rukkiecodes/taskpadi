@@ -2,7 +2,7 @@ import Vue from "vue"
 
 export default {
   state: {
-    withdrawDialog: true,
+    withdrawDialog: false,
     loading: false,
     banks: [],
   },

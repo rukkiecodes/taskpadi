@@ -38,7 +38,7 @@
               :maxlength="max"
               class="rounded-lg"
               background-color="#EFF0F6"
-              label="Product Product Description"
+              placeholder="Product Description"
               v-model="paddiLink.paddiLinkInputs.description"
             ></v-textarea>
           </v-col>

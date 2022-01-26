@@ -1,18 +1,22 @@
 <template>
   <v-container>
-    <v-row justify="space-between" align="start">
-      <Form />
-      <Table />
-    </v-row>
+    <NoTicket />
+    <CreateTicket />
   </v-container>
 </template>
 
 <script>
-import Table from "./components/Table.vue"
-import Form from "./components/Form.vue"
+import { mapState } from "vuex"
+import NoTicket from "./components/NoTicket.vue"
+import CreateTicket from "./components/CreateTicket.vue"
 export default {
   components: {
-    Table,Form
-  }
+    NoTicket,
+    CreateTicket
+  },
+
+  computed: {
+    ...mapState(["customerSupport"]),
+  },
 }
 </script>

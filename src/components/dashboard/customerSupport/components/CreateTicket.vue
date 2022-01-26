@@ -1,7 +1,7 @@
 <template>
-  <vs-dialog v-model="paddiLink.dialog" width="400px">
+  <vs-dialog v-model="customerSupport.customerDialog" width="400px">
     <template #header>
-      <h4 class="not-margin">Create Paddi link</h4>
+      <h4 class="not-margin">Create support ticket</h4>
     </template>
 
     <v-card flat>
@@ -10,15 +10,15 @@
           <v-col cols="12" sm="6">
             <vs-input
               block
-              v-model="paddiLink.paddiLinkInputs.title"
-              placeholder="Product title"
+              v-model="customerSupport.createTicketCridentials.subject"
+              placeholder="Subject"
             />
           </v-col>
           <v-col cols="12" sm="6">
             <vs-input
               block
-              v-model="paddiLink.paddiLinkInputs.price"
-              placeholder="Price"
+              v-model="customerSupport.createTicketCridentials.department"
+              placeholder="Department"
             />
           </v-col>
           <v-col cols="12">
@@ -31,21 +31,9 @@
               :maxlength="max"
               class="rounded-lg"
               background-color="#F4F7F8"
-              placeholder="Product Description"
-              v-model="paddiLink.paddiLinkInputs.description"
+              placeholder="Description"
+              v-model="customerSupport.createTicketCridentials.description"
             ></v-textarea>
-          </v-col>
-          <v-col cols="12" sm="6">
-            <vs-select block placeholder="Select" v-model="value">
-              <vs-option
-                v-for="(item, i) in items"
-                :key="i"
-                :label="item"
-                :value="item"
-              >
-                {{ item }}
-              </vs-option>
-            </vs-select>
           </v-col>
           <v-col cols="12" sm="6">
             <v-file-input
@@ -59,26 +47,20 @@
               v-model="fileName"
               readonly
               block
-              placeholder="Add image"
+              placeholder="Add image **/Optional"
             />
           </v-col>
         </v-row>
       </v-card-text>
     </v-card>
-    <vs-dialog auto-width not-padding v-model="showImageDialoge">
-      <div class="con-image">
-        <img :src="paddiLink.paddiLinkInputs.image" alt="" />
-      </div>
-    </vs-dialog>
 
     <template #footer>
       <vs-button
         block
         color="#7E2DEE"
-        @click="createPaddiLink"
         class="text-body-2 font-weight-bold text-capitalize"
       >
-        Create paddi link
+        Create support ticket
       </vs-button>
     </template>
   </vs-dialog>
@@ -93,7 +75,6 @@ export default {
     value: "",
     fileName: "",
     showImageDialoge: false,
-    items: ["Foo", "Bar", "Fizz", "Buzz"],
   }),
 
   methods: {
@@ -105,28 +86,16 @@ export default {
       if (image) {
         this.showImageDialoge = true
         this.fileName = image.name
-        this.paddiLink.paddiLinkInputs.image = URL.createObjectURL(image)
       }
     },
 
-    ...mapActions(["createPaddiLink"]),
+    ...mapActions([""]),
   },
 
   computed: {
-    ...mapState(["paddiLink"]),
+    ...mapState(["customerSupport"]),
   },
 }
 </script>
 
 <style scoped>
-.con-image {
-  border-radius: inherit;
-}
-
-.con-image img {
-  display: block;
-  position: relative;
-  border-radius: inherit;
-  max-width: 350px;
-}
-</style>

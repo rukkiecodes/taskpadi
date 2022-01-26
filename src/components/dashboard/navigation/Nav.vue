@@ -43,7 +43,7 @@
         open
         style="width: 100%"
       >
-        <template style="height: 400px;" #logo>
+        <template style="height: 400px" #logo>
           <v-card
             flat
             width="100%"
@@ -105,7 +105,7 @@
             </vs-avatar>
 
             <vs-button icon danger @click="logout.logoutDialog = true">
-              <i style="transform: scaleX(-1);" class="las la-sign-out-alt"></i>
+              <i style="transform: scaleX(-1)" class="las la-sign-out-alt"></i>
             </vs-button>
           </vs-row>
         </template>
@@ -124,7 +124,7 @@ export default {
     selectedItem: 1,
     drawer: true,
     searchPaddi: "",
-    active: "Dashboard",
+    active: "",
   }),
 
   components: {
@@ -138,6 +138,27 @@ export default {
       this.removeBorder()
 
       document.querySelector(".vs-input").style.width = "300px"
+
+      var fullLocation = location.pathname
+      var arr = fullLocation.split("/")
+      arr.shift()
+      fullLocation = arr.join("/")
+
+      var cutFullLocation = fullLocation
+      var arr2 = cutFullLocation.split("/")
+      arr2.shift()
+      cutFullLocation = arr2.join("/")
+
+      function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1)
+      }
+
+      this.active = capitalizeFirstLetter(cutFullLocation)
+
+      if (this.active == "Createpaddilink") {
+        this.active = "Create paddi link"
+        console.log(this.active)
+      }
     })
   },
 

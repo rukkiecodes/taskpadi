@@ -4,12 +4,12 @@ export default {
   component: () => import("../../../views/dashboard/Dashboard.vue"),
   children: [
     {
-      path: "yourPaddiDashboard",
+      path: "dashboard",
       name: "Your Paddi Dashboard",
       component: () => import("../../../views/dashboard/PaddiDashboard.vue"),
     },
     {
-      path: "transaction",
+      path: "transactions",
       name: "Transaction",
       component: () =>
         import("../../../views/dashboard/transactions/Transactions.vue"),
@@ -25,7 +25,7 @@ export default {
       component: () => import("../../../views/dashboard/Withdraws.vue"),
     },
     {
-      path: "paddiLink",
+      path: "createpaddilink",
       name: "PaddiLink",
       component: () => import("../../../views/dashboard/PaddiLink.vue"),
     },
@@ -40,7 +40,7 @@ export default {
       component: () => import("../../../views/dashboard/Refunds.vue"),
     },
     {
-      path: "customerSupport",
+      path: "support",
       name: "CustomerSupport",
       component: () => import("../../../views/dashboard/CustomerSupport.vue"),
     },

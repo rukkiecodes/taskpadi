@@ -10,15 +10,15 @@
       flat
     >
       <v-card-text>
-        You have no Paddi link yet.<br />Click on the button bellow to create a
-        Paddi link in seconds.
+        You have no Support ticket yet.<br />Click on the button bellow to
+        create a Support ticket in seconds.
       </v-card-text>
     </v-card>
     <vs-button
       color="#6200EA"
-      @click="paddiLink.dialog = true"
+      @click="customerSupport.customerDialog = true"
       class="mt-4 text-body-2 text-capitalize font-weight-bold"
-      >Create Paddi link</vs-button
+      >Create Support ticket</vs-button
     >
   </v-sheet>
 </template>
@@ -27,7 +27,7 @@
 import { mapState } from "vuex"
 export default {
   computed: {
-    ...mapState(["paddiLink"]),
+    ...mapState(["customerSupport"]),
   },
 }
 </script>

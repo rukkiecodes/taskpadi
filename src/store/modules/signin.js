@@ -19,7 +19,7 @@ export default {
       Vue.prototype.$cookies.set("PaddiData", response.data)
       if (response.status == 200) {
         state.loading = false
-        router.push("/dashboard/yourPaddiDashboard")
+        router.push("/dashboard/dashboard")
       } else {
         state.loading = false
         router.push("/signup")
