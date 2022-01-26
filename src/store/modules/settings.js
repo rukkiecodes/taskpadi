@@ -100,15 +100,6 @@ export default {
       for (let i = 0; i < bankData.length; i++) {
         state.banks.push(bankData[i])
       }
-      if (response.success == true) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
     },
 
     getUserBanks: (state, response) => {

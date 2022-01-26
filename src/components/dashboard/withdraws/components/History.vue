@@ -1,6 +1,5 @@
 <template>
-  <v-col cols="12" sm="8" class="px-0 px-sm-4">
-    <v-card-title> Transaction Summary </v-card-title>
+  <v-col cols="12">
     <v-data-table
       :search="search"
       :headers="headers"
@@ -17,7 +16,7 @@
           dark
           small
           depressed
-          class="text-capitalize font-weight-bold"
+          class="text-capitalize rounded-lg"
           :class="{
             'orange lighten-5 orange--text text--accent-3':
               item.status == 'Pending',
@@ -29,93 +28,88 @@
           {{ item.status }}
         </v-btn>
       </template>
-      <template v-slot:item.action="{ item }">
-        <v-btn
-          dark
-          icon
-          x-small
-          depressed
-          color="grey darken-2"
-          @click="viewTransactionDetails(item)"
-        >
-          <v-icon>{{ item.action }}</v-icon>
-        </v-btn>
-      </template>
     </v-data-table>
+    <div class="d-flex justify-end align-center pt-2 transparent">
+      <vs-pagination
+        square
+        color="#6200EA"
+        v-model="page"
+        :length="pageCount"
+      />
+    </div>
   </v-col>
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     search: "",
+    page: 1,
+    pageCount: 0,
+    itemsPerPage: 7,
     headers: [
       {
-        text: "Transaction ID",
+        text: "ID",
         align: "start",
         sortable: false,
         value: "id",
       },
-      { text: "Amount", value: "amount" },
-      { text: "Date & Time", value: "dateTime" },
+      { text: "Account name", value: "accountName" },
+      { text: "Account number", value: "accountNumber" },
+      { text: "Date", value: "date" },
       { text: "Status", value: "status" },
-      { text: "Action", value: "action", sortable: false },
     ],
     transactions: [
       {
         id: "12625juf",
-        amount: "#45,000",
-        dateTime: "2021-10-24",
+        accountName: "James Cannon",
+        accountNumber: "0216732026",
+        date: "2021-10-21",
         status: "Pending",
-        action: "mdi-eye-outline",
       },
       {
         id: "19695juf",
-        amount: "#25,000",
-        dateTime: "2021-10-21",
+        accountName: "James Cannon",
+        accountNumber: "0216732026",
+        date: "2021-10-21",
         status: "Failed",
-        action: "mdi-eye-outline",
       },
       {
         id: "12691juf",
-        amount: "#25,900",
-        dateTime: "2021-10-21",
+        accountName: "James Cannon",
+        accountNumber: "0216732026",
+        date: "2021-10-21",
         status: "Successful",
-        action: "mdi-eye-outline",
       },
       {
         id: "12645juf",
-        amount: "#45,000",
-        dateTime: "2021-10-24",
+        accountName: "James Cannon",
+        accountNumber: "0216732026",
+        date: "2021-10-21",
         status: "Pending",
-        action: "mdi-eye-outline",
       },
       {
         id: "15695juf",
-        amount: "#25,000",
-        dateTime: "2021-10-21",
+        accountName: "James Cannon",
+        accountNumber: "0216732026",
+        date: "2021-10-21",
         status: "Failed",
-        action: "mdi-eye-outline",
       },
       {
         id: "16695juf",
-        amount: "#25,000",
-        dateTime: "2021-10-21",
+        accountName: "James Cannon",
+        accountNumber: "0216732026",
+        date: "2021-10-21",
         status: "Successful",
-        action: "mdi-eye-outline",
       },
       {
         id: "17695juf",
-        amount: "#25,000",
-        dateTime: "2021-10-21",
+        accountName: "James Cannon",
+        accountNumber: "0216732026",
+        date: "2021-10-21",
         status: "Failed",
-        action: "mdi-eye-outline",
       },
     ],
-    page: 1,
-    pageCount: 0,
-    itemsPerPage: 7,
   }),
 
   mounted() {
@@ -126,31 +120,11 @@ export default {
 
       if (border)
         for (let i = 0; i <= border.length - 1; i++) {
-          border[i].style.borderColor = "transparent"
+          setTimeout(() => {
+            border[i].style.borderColor = "transparent"
+          }, 100)
         }
     })
-  },
-
-  methods: {
-    ...mapActions(["viewTransactionDetails"]),
-  },
-
-  computed: {
-    ...mapState(["viewDetailsDialog"]),
-    tableWidth() {
-      switch (this.$vuetify.breakpoint.name) {
-        case "xs":
-          return "600px"
-        case "sm":
-          return 400
-        case "md":
-          return 500
-        case "lg":
-          return 600
-        case "xl":
-          return 800
-      }
-    },
   },
 }
 </script>

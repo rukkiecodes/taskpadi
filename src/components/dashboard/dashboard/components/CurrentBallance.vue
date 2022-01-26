@@ -3,7 +3,7 @@
     <v-toolbar color="transparent" flat dense>
       <v-toolbar-title class="text-body-1">Current Ballance</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-chip color="transparent">
+      <v-chip label small color="transparent">
         <v-icon small left>mdi-arrow-top-right</v-icon>
         <span class="text-body-2">-13.34%</span>
       </v-chip>

@@ -1,20 +1,28 @@
 <template>
-  <v-col cols="12" sm="5">
-    <v-card min-height="195" color="#0096B7" flat dark>
+  <v-col cols="12" sm="4">
+    <v-card
+      min-height="150"
+      class="rounded-lg"
+      color="deep-purple accent-4"
+      flat
+      dark
+    >
       <v-toolbar color="transparent" flat dense>
-        <v-toolbar-title>Current Ballance</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-chip color="transparent">
-          <v-icon small left>mdi-arrow-top-right</v-icon>
-          <span class="text-body-2">-13.34%</span>
-        </v-chip>
+        <v-spacer />
+        <v-btn color="deep-purple accent-2" dark x-small depressed>
+          NGN
+          <v-icon right>mdi-chevron-down</v-icon>
+        </v-btn>
       </v-toolbar>
 
-      <v-card-text class="text-h4 white--text font-weight-bold"
+      <v-card-text class="text-body-2 white--text pb-0 font-weight-light"
+        >Withdrawable balance</v-card-text
+      >
+      <v-card-text class="text-h4 white--text font-weight-bold py-1"
         >₦1,200,000.90</v-card-text
       >
-      <v-card-text class="text-subtitle-2 white--text"
-        >Ledger Balance : $1,229</v-card-text
+      <v-card-text class="text-subtitle-2 white--text pt-2 font-weight-light"
+        >Money here are available for withdrawals</v-card-text
       >
     </v-card>
   </v-col>

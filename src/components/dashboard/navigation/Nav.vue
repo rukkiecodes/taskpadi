@@ -43,11 +43,11 @@
         open
         style="width: 100%"
       >
-        <template style="height: 400px; background: red" #logo>
+        <template style="height: 400px;" #logo>
           <v-card
             flat
             width="100%"
-            height="200"
+            height="150"
             color="transparent"
             class="d-flex flex-column justify-center align-center"
           >

@@ -8,9 +8,10 @@
         justify="space-between"
         align="start"
       >
-        <TransactionTable />
+        <TransactionTable v-if="tableBig" />
         <Actions />
       </v-row>
+      <TransactionTable v-if="tableSmall" />
     </v-row>
     <ViewDetails />
   </v-container>
@@ -25,6 +26,37 @@ export default {
     TransactionTable: () => import("./components/TransactionTable.vue"),
     ViewDetails: () =>
       import("../../../components/app components/ViewDetails.vue"),
+  },
+
+  computed: {
+    tableSmall() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return false
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
+    tableBig() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return false
+        case "sm":
+          return true
+        case "md":
+          return true
+        case "lg":
+          return true
+        case "xl":
+          return true
+      }
+    },
   },
 }
 </script>
