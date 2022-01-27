@@ -4,6 +4,7 @@ export default {
   state: {
     customerDialog: false,
     createLoading: false,
+
     search: "",
 
     createTicketCredential: {
@@ -15,14 +16,17 @@ export default {
 
     ticketFilters: [
       { title: "All" },
-      { title: "Resolved" },
-      { title: "Unresolved" },
+      { title: "pending" },
+      { title: "successful" },
     ],
 
     tickets: [],
 
     file: "",
     fileName: "",
+
+    viewDialog: false,
+    viewTicket: {}
   },
 
   getters: {
@@ -52,6 +56,20 @@ export default {
           text: response.message,
         })
       }
+    },
+
+    getTickets: (state, response) => {
+      state.tickets = []
+      let bankData = response.data
+      for (let i = 0; i < bankData.length; i++) {
+        state.tickets.push(bankData[i])
+      }
+      console.log("Tickets: ", state.tickets)
+    },
+
+    viewTicket: (state, ticket) => {
+      state.viewDialog = true
+      state.viewTicket = ticket
     },
   },
 
@@ -128,8 +146,29 @@ export default {
       if (file) {
         this.state.customerSupport.createTicketCredential.file = file
         this.state.customerSupport.fileName = file.name
-        console.log(this.state.customerSupport.createTicketCredential.file)
       }
+    },
+
+    getTickets({ commit }) {
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(location.origin + "/user/tickets", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          commit("getTickets", response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+
+    viewTicket({ commit }, ticket) {
+      commit("viewTicket", ticket)
     },
   },
 }

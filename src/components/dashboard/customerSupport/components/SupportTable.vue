@@ -35,54 +35,75 @@
       </v-list>
     </v-menu>
 
-    <v-data-table
-      :search="customerSupport.search"
-      :headers="headers"
-      :page.sync="page"
-      :items="transactions"
-      :mobile-breakpoint="0"
-      hide-default-footer
-      class="elevation-0"
-      :items-per-page="itemsPerPage"
-      @page-count="pageCount = $event"
-    >
-      <template v-slot:item.id="{ item }">
-        <span class="text-caption grey--text text--darken-2">{{
-          item.id
-        }}</span>
+    <vs-table class="white">
+      <template #thead>
+        <vs-tr style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+          <vs-th class="white" v-for="(head, i) in headers" :key="i">
+            {{ head.text }}
+          </vs-th>
+        </vs-tr>
       </template>
-      <template v-slot:item.subject="{ item }">
-        <span class="text-uppercase text-caption grey--text text--darken-2">{{
-          item.subject
-        }}</span>
-      </template>
-      <template v-slot:item.date="{ item }">
-        <span class="text-uppercase text-caption grey--text text--darken-2">{{
-          item.date
-        }}</span>
-      </template>
-      <template v-slot:item.status="{ item }">
-        <v-btn
-          dark
-          small
-          depressed
-          class="text-capitalize"
-          :class="{
-            'orange lighten-5 orange--text text--accent-3':
-              item.status == 'Unresolved',
-            'teal lighten-5 teal--text text--darken-1':
-              item.status == 'Resolved',
-          }"
+      <template #tbody>
+        <vs-tr
+          :key="i"
+          :data="ticket"
+          v-for="(ticket, i) in $vs.getPage(
+            $vs.getSearch(tickets, customerSupport.search),
+            page,
+            max
+          )"
         >
-          {{ item.status }}
-        </v-btn>
+          <!-- v-for="(ticket, i) in $vs.getSearch(tickets, customerSupport.search)" -->
+          <vs-td>
+            {{ ticket.unique_code }}
+          </vs-td>
+          <vs-td class="table_subject">
+            {{ ticket.subject }}
+          </vs-td>
+          <vs-td>
+            {{
+              new Date(ticket.created_at)
+                .toLocaleDateString()
+                .replace("/", "-")
+                .replace("/", "-")
+            }}
+          </vs-td>
+          <vs-td>
+            <v-btn
+              dark
+              small
+              depressed
+              class="text-capitalize rounded-lg"
+              :class="{
+                'orange lighten-5 orange--text text--accent-3':
+                  ticket.status == 'pending',
+                'teal lighten-5 teal--text text--darken-1':
+                  ticket.status == 'Resolved',
+              }"
+            >
+              {{ ticket.status }}
+            </v-btn>
+          </vs-td>
+          <vs-td>
+            <vs-button
+              @click="viewTicket(ticket)"
+              icon
+              transparent
+              color="#292D32"
+            >
+              <i class="las la-eye"></i>
+            </vs-button>
+          </vs-td>
+        </vs-tr>
       </template>
-      <template v-slot:item.action="{ item }">
-        <vs-button icon transparent color="#292D32">
-          <i class="las la-eye"></i>
-        </vs-button>
+      <template #footer>
+        <vs-pagination
+          v-model="page"
+          color="#6200EA"
+          :length="$vs.getLength($vs.getSearch(tickets, customerSupport.search), max)"
+        />
       </template>
-    </v-data-table>
+    </vs-table>
   </div>
 </template>
 
@@ -90,92 +111,44 @@
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
+    page: 1,
+    max: 7,
     headers: [
       {
         text: "ID",
-        align: "start",
-        sortable: false,
-        value: "id",
+        value: "unique_code",
       },
-      { text: "Subject", value: "subject" },
-      { text: "Date", value: "date" },
+      { text: "Ticket subject", value: "subject" },
+      { text: "Date", value: "created_at" },
       { text: "Status", value: "status" },
-      { text: "Response", value: "action", sortable: false },
+      { text: "Response", value: "action" },
     ],
-    transactions: [
-      {
-        id: "12625juf",
-        subject: "general complain",
-        date: "2021-10-24",
-        status: "Unresolved",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "19695juf",
-        subject: "general complain",
-        date: "2021-10-21",
-        status: "Unresolved",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "12691juf",
-        subject: "general complain",
-        date: "2021-10-21",
-        status: "Resolved",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "12645juf",
-        subject: "general complain",
-        date: "2021-10-24",
-        status: "Unresolved",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "15695juf",
-        subject: "general complain",
-        date: "2021-10-21",
-        status: "Unresolved",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "16695juf",
-        subject: "general complain",
-        date: "2021-10-21",
-        status: "Resolved",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "17695juf",
-        subject: "general complain",
-        date: "2021-10-21",
-        status: "Unresolved",
-        action: "mdi-eye-outline",
-      },
-    ],
-    page: 1,
-    pageCount: 0,
-    itemsPerPage: 7,
   }),
 
   mounted() {
     this.$nextTick(() => {
-      const border = document.querySelectorAll(
-        ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
-      )
+      const tb = document.querySelectorAll(".vs-table__td")
 
-      if (border)
-        for (let i = 0; i <= border.length - 1; i++) {
+      if (tb) {
+        for (let i = 0; i <= tb.length - 1; i++) {
           setTimeout(() => {
-            border[i].style.borderColor = "transparent"
+            tb[i].style.padding = "0 8px"
           }, 100)
         }
+      }
+
+      const footer = document.querySelector(".vs-table__footer")
+
+      if (footer) {
+        footer.style.background = "none"
+      }
     })
   },
 
   methods: {
+    ...mapActions(["viewTicket"]),
+
     sortSupport(item) {
-      console.log(item.title)
       if (item.title == "All") {
         this.customerSupport.search = ""
       } else {
@@ -186,21 +159,7 @@ export default {
 
   computed: {
     ...mapState(["customerSupport"]),
-    ...mapGetters(["ticketFilters"]),
-    tableWidth() {
-      switch (this.$vuetify.breakpoint.name) {
-        case "xs":
-          return "600px"
-        case "sm":
-          return 400
-        case "md":
-          return 500
-        case "lg":
-          return 600
-        case "xl":
-          return 800
-      }
-    },
+    ...mapGetters(["ticketFilters", "tickets"]),
   },
 }
 </script>

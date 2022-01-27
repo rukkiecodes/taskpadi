@@ -42,12 +42,6 @@ export default {
         lga: state.userData.lga,
         address: state.userData.address,
       }
-
-      console.log(state.userData)
-    },
-
-    setImage: (state, response) => {
-      console.log(response)
     },
 
     updateProfile: (state, response) => {
@@ -217,7 +211,6 @@ export default {
     setImage({ commit }, file) {
       this.state.account.credential.avatar = file
       this.state.account.avatar = URL.createObjectURL(file)
-      console.log(this.state.account.credential.avatar)
     },
   },
 }

@@ -49,9 +49,9 @@
             width="100%"
             height="150"
             color="transparent"
-            class="d-flex flex-column justify-center align-center"
+            class="d-flex flex-column justify-center align-center px-2"
           >
-            <vs-avatar size="60">
+            <vs-avatar size="60" color="#fff">
               <img src="../../../assets/paddi.png" />
             </vs-avatar>
             <span

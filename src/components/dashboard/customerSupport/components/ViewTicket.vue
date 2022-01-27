@@ -1,53 +1,52 @@
 <template>
-  <vs-dialog v-model="customerSupport.customerDialog" width="400px">
+  <vs-dialog
+    v-model="customerSupport.viewDialog"
+    :not-center="true"
+    width="400px"
+  >
     <template #header>
-      <h4 class="not-margin">Create support ticket</h4>
+      <h4 class="not-margin">Response</h4>
+      <span class="not-margin text-caption"
+        >{{ customerSupport.viewTicket.name }} (support)</span
+      >
     </template>
 
     <v-row justify="space-between" align="start">
-      <v-col cols="12" sm="6">
+      <v-col cols="12">
         <vs-input
           block
-          v-model="customerSupport.createTicketCredential.subject"
+          readonly
+          v-model="customerSupport.viewTicket.subject"
           placeholder="Subject"
         />
       </v-col>
-      <v-col cols="12" sm="6">
-        <vs-input
-          block
-          v-model="customerSupport.createTicketCredential.department"
-          placeholder="Department"
-        />
+      <v-col cols="12" class="py-0">
+        <v-divider />
       </v-col>
       <v-col cols="12">
-        <v-textarea
-          flat
-          solo
-          counter
-          no-resize
-          full-width
-          :rules="rules"
-          :maxlength="max"
-          class="rounded-xl"
-          placeholder="Description"
-          background-color="#F4F7F8"
-          v-model="customerSupport.createTicketCredential.description"
-        ></v-textarea>
+        <p
+          class="text-body-2 grey--text text--darken-2 font-weight-light"
+          v-text="customerSupport.viewTicket.description"
+        />
       </v-col>
       <v-col cols="12">
         <v-file-input
           class="addImage"
-          style="display: none"
           @change="setImage"
-          background-color="#EFF0F6"
+          style="display: none"
         ></v-file-input>
         <vs-input
+          block
+          readonly
+          icon-after
+          placeholder="Reply"
           @click="clickOnFileChange"
           v-model="customerSupport.fileName"
-          readonly
-          block
-          placeholder="Add image **/Optional"
-        />
+        >
+          <template #icon>
+            <i class="lar la-image"></i>
+          </template>
+        </vs-input>
       </v-col>
     </v-row>
 
@@ -59,7 +58,7 @@
         @click="createTicket"
         class="text-body-2 font-weight-bold text-capitalize"
       >
-        Create support ticket
+        Reply
       </vs-button>
     </template>
   </vs-dialog>
