@@ -126,7 +126,9 @@ export default {
 
       if (border)
         for (let i = 0; i <= border.length - 1; i++) {
-          border[i].style.borderColor = "transparent"
+          setTimeout(() => {
+            border[i].style.borderColor = "transparent"
+          }, 100)
         }
     })
   },

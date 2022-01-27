@@ -20,6 +20,7 @@
               square
               border
               color="#6200EA"
+              to="/dashboard/withdraws"
               class="text-capitalize font-weight-bold"
             >
               Withdraw

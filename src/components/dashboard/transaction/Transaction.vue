@@ -14,26 +14,25 @@
       >
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            color="grey darken-2"
-            dark
-            text
-            small
-            class="text-body-2 font-weight-bold text-capitalize mt-3"
+          <vs-button
+            transparent
+            color="#616182"
+            class="text-body-2 font-weight-bold text-capitalize mt-2"
             v-bind="attrs"
             v-on="on"
           >
             <i style="font-size: 1.1rem" class="las la-filter"></i>
             Filter
-          </v-btn>
+          </vs-button>
         </template>
-        <v-list>
+        <v-list dense class="py-0">
           <v-list-item
+            dense
             v-for="(item, index) in transactionFilters"
             :key="index"
             @click="checkList(item)"
           >
-            <v-list-item-title class="text-body-2">{{
+            <v-list-item-title class="text-body-2 grey--text text--darken-2 font-weight-light">{{
               item.title
             }}</v-list-item-title>
           </v-list-item>

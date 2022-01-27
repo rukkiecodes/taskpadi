@@ -18,7 +18,7 @@
       color="#6200EA"
       @click="customerSupport.customerDialog = true"
       class="mt-4 text-body-2 text-capitalize font-weight-bold"
-      >Create Support ticket</vs-button
+      >Submit ticket</vs-button
     >
   </v-sheet>
 </template>
