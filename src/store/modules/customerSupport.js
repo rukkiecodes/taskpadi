@@ -3,6 +3,7 @@ import Vue from "vue"
 export default {
   state: {
     customerDialog: false,
+
     createLoading: false,
 
     search: "",
@@ -23,10 +24,14 @@ export default {
     tickets: [],
 
     file: "",
+
     fileName: "",
 
     viewDialog: false,
-    viewTicket: {}
+
+    viewTicket: {},
+
+    viewSingleTicketDialog: false,
   },
 
   getters: {
@@ -70,7 +75,13 @@ export default {
     viewTicket: (state, ticket) => {
       state.viewDialog = true
       state.viewTicket = ticket
-      console.log(ticket)
+    },
+
+    viewSingleTicket: (state, response) => {
+      if (response.success) {
+        state.viewSingleTicketDialog = true
+        state.viewTicket = response.data
+      }
     },
   },
 
@@ -170,6 +181,25 @@ export default {
 
     viewTicket({ commit }, ticket) {
       commit("viewTicket", ticket)
+    },
+
+    viewSingleTicket({ commit }, ticket) {
+      let id = ticket.unique_code
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(`${location.origin}/user/ticket/${id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          commit("viewSingleTicket", response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
   },
 }

@@ -4,6 +4,7 @@
     <SupportTable v-if="tickets.length != 0" />
     <CreateTicket />
     <ViewTicket />
+    <ViewSingleTicket />
   </v-container>
 </template>
 
@@ -17,7 +18,8 @@ export default {
     NoTicket,
     CreateTicket,
     SupportTable,
-    ViewTicket: () => import("./components/ViewTicket.vue")
+    ViewTicket: () => import("./components/ViewTicket.vue"),
+    ViewSingleTicket: () => import("./components/ViewSingleTicket.vue")
   },
 
   mounted() {

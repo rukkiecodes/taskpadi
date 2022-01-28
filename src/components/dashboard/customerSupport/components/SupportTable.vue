@@ -137,7 +137,11 @@
                 "
               >
                 <vs-tooltip dark>
-                  <vs-button icon color="#6200EA">
+                  <vs-button
+                    icon
+                    color="#6200EA"
+                    @click="viewSingleTicket(ticket)"
+                  >
                     <i class="lar la-eye"></i>
                   </vs-button>
                   <template #tooltip> View Ticket </template>
@@ -212,7 +216,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["viewTicket"]),
+    ...mapActions(["viewTicket", "viewSingleTicket"]),
 
     sortSupport(item) {
       if (item.title == "All") {
