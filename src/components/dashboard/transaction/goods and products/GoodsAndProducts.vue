@@ -73,9 +73,9 @@
     <template #thead>
       <vs-tr class="white">
         <vs-th class="white"> ID </vs-th>
-        <vs-th class="white"> Product </vs-th>
+        <vs-th class="white"> Type </vs-th>
         <vs-th class="white"> Amount </vs-th>
-        <vs-th class="white"> Date </vs-th>
+        <vs-th class="white"> Duration </vs-th>
         <vs-th class="white"> Status </vs-th>
         <vs-th class="white"> View </vs-th>
       </vs-tr>
@@ -85,22 +85,22 @@
         :key="i"
         :data="transaction"
         v-for="(transaction, i) in $vs.getPage(
-          $vs.getSearch(transactionData, transaction.search),
+          $vs.getSearch(transactions, transaction.search),
           page,
           max
         )"
       >
         <vs-td>
-          {{ transaction.Transaction_id }}
+          {{ transaction.code }}
         </vs-td>
         <vs-td>
-          {{ transaction.product }}
+          {{ transaction.type }}
         </vs-td>
         <vs-td>
-          {{ transaction.product_amount }}
+          {{ transaction.amount }}
         </vs-td>
         <vs-td>
-          {{ transaction.date }}
+          {{ transaction.duration }}
         </vs-td>
         <vs-td>
           <v-btn
@@ -110,14 +110,12 @@
             class="text-capitalize rounded-lg"
             :class="{
               'orange lighten-5 orange--text text--accent-3':
-                transaction.productStatus == 'Pending',
+                transaction.success == 'pending',
               'teal lighten-5 teal--text text--darken-1':
-                transaction.productStatus == 'Successful',
-              'red lighten-5 red--text text--darken-1':
-                transaction.productStatus == 'Failed',
+                transaction.success == 'success',
             }"
           >
-            {{ transaction.productStatus }}
+            {{ transaction.success }}
           </v-btn>
         </vs-td>
         <vs-td>
@@ -143,7 +141,7 @@
         v-model="page"
         color="#6200EA"
         :length="
-          $vs.getLength($vs.getSearch(transactionData, transaction.search), max)
+          $vs.getLength($vs.getSearch(transactions, transaction.search), max)
         "
       />
     </template>
@@ -152,7 +150,7 @@
 
 <script>
 // @ts-nocheck
-import { mapActions, mapState } from "vuex"
+import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
     page: 1,
@@ -320,6 +318,7 @@ export default {
 
   computed: {
     ...mapState(["transaction"]),
+    ...mapGetters(["transactions"]),
   },
 }
 </script>

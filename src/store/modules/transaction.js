@@ -28,9 +28,12 @@ export default {
       image: "",
       duration: "",
     },
+
+    transactions: [],
   },
   getters: {
     transactionFilters: (state) => state.transactionFilters,
+    transactions: (state) => state.transactions,
   },
 
   mutations: {
@@ -58,6 +61,15 @@ export default {
           text: response.message,
         })
       }
+    },
+
+    getTransactions: (state, response) => {
+      state.transactions = []
+      let transactionsData = response.data
+      for (let i = 0; i < transactionsData.length; i++) {
+        state.transactions.push(transactionsData[i])
+      }
+      console.log("getTransactions: ", state.transactions)
     },
   },
 
@@ -131,8 +143,10 @@ export default {
       fetch(location.origin + "/user/transaction", requestOptions)
         .then((response) => response.json())
         .then((response) => {
-          this.state.transaction.createTransactionLoading = false
-          commit("createTransaction", response)
+          return dispatch("getTransactions").then(() => {
+            this.state.transaction.createTransactionLoading = false
+            commit("createTransaction", response)
+          })
         })
         .catch((error) => {
           console.log("Error: ", error)
@@ -144,6 +158,24 @@ export default {
             title: "Error !!!",
             text: error,
           })
+        })
+    },
+
+    async getTransactions({ commit }) {
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(location.origin + "/user/transactions", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          commit("getTransactions", response)
+        })
+        .catch((error) => {
+          console.log("Error: ", error)
         })
     },
   },

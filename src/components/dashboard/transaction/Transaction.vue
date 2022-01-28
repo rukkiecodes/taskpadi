@@ -104,7 +104,7 @@
 import GoodsAndProducts from "../transaction/goods and products/GoodsAndProducts.vue"
 import Crypto from "../transaction/crypto/Crypto.vue"
 import Services from "../transaction/services/Services.vue"
-import { mapGetters, mapState } from "vuex"
+import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
     active: "GoodAndProducts",
@@ -124,6 +124,7 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
+      this.getTransactions()
       this.active = "GoodAndProducts"
       const tab = document.querySelector(".v-slide-group__content")
 
@@ -135,6 +136,8 @@ export default {
   },
 
   methods: {
+    ...mapActions(["getTransactions"]),
+
     checkList(item) {
       if (item.title == "All") {
         this.transaction.search = ""
