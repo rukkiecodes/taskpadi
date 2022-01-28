@@ -1,82 +1,62 @@
 <template>
-  <vs-dialog
-    v-model="viewDetailsDialog.dialog"
-    persistent
-    scrollable
-    width="450"
-  >
+  <vs-dialog not-center width="350" v-model="viewDetailsDialog.dialog">
     <template #header>
       <h4 class="not-margin">Transaction Details</h4>
     </template>
 
-    <v-card class="pa-0 ma-0" flat>
-      <v-card-text class="pa-0">
-        <v-card-text class="mt-5 pb-0">
-          Product id:
-          <router-link
-            class="text-decoration-none"
-            to="/dashboard/yourPaddiDashboard"
-            >#SK2540</router-link
-          >
-        </v-card-text>
-        <v-card-text class="pt-0">
-          Billing Name:
-          <router-link
-            class="text-decoration-none"
-            to="/dashboard/yourPaddiDashboard"
-            >Neal Matthews</router-link
-          >
-        </v-card-text>
-        <v-card-text>
-          <v-simple-table>
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-left">Product</th>
-                  <th class="text-left">Product Name</th>
-                  <th class="text-left">Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in desserts" :key="item.product">
-                  <td>
-                    <v-avatar color="transparent" tile>
-                      <img :src="item.product" alt="" />
-                    </v-avatar>
-                  </td>
-                  <td>{{ item.productName }}</td>
-                  <td>{{ item.price }}</td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
-        </v-card-text>
+    <div class="d-flex flex-column">
+      <p class="text-body-2 grey--text text--darken-1 font-weight-regular">
+        Product id:
+        <span class="blue--text">#SK2540</span>
+      </p>
+      <p class="text-body-2 grey--text text--darken-1 font-weight-regular">
+        Billing Name:
+        <span class="blue--text">Name</span>
+      </p>
 
-        <v-card-text class="py-2">
-          <v-system-bar color="transparent">
-            Sub Total:
-            <v-spacer />
-            $ 400
-          </v-system-bar>
-        </v-card-text>
-        <v-divider />
-        <v-card-text class="py-2">
-          <v-system-bar color="transparent">
-            Shipping:
-            <v-spacer />
-            Free
-          </v-system-bar>
-        </v-card-text>
-        <v-divider />
-        <v-card-text class="py-2">
-          <v-system-bar color="transparent">
-            Total:
-            <v-spacer />
-            $ 400
-          </v-system-bar>
-        </v-card-text>
-      </v-card-text>
-    </v-card>
+      <vs-table class="my-4">
+        <template #thead>
+          <vs-tr>
+            <vs-th> Image </vs-th>
+            <vs-th> Product Name </vs-th>
+            <vs-th> Price </vs-th>
+          </vs-tr>
+        </template>
+        <template #tbody>
+          <vs-tr v-for="(item, i) in desserts" :key="i" :data="item">
+            <vs-td>
+              <vs-avatar color="transparent">
+                <img :src="item.product" alt="" />
+              </vs-avatar>
+            </vs-td>
+            <vs-td>
+              {{ item.productName }}
+            </vs-td>
+            <vs-td>
+              {{ item.price }}
+            </vs-td>
+          </vs-tr>
+        </template>
+      </vs-table>
+
+      <v-system-bar class="mb-3 text-body-2" color="transparent">
+        Sub Total:
+        <v-spacer />
+        $ 400
+      </v-system-bar>
+
+      <v-system-bar class="mb-3 text-body-2" color="transparent">
+        Shipping:
+        <v-spacer />
+        Free
+      </v-system-bar>
+
+      <v-system-bar class="text-body-2" color="transparent">
+        Total:
+        <v-spacer />
+        $ 400
+      </v-system-bar>
+    </div>
   </vs-dialog>
 </template>
 

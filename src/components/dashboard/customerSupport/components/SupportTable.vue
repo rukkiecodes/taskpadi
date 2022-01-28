@@ -65,12 +65,7 @@
             {{ ticket.subject }}
           </vs-td>
           <vs-td>
-            {{
-              new Date(ticket.created_at)
-                .toLocaleDateString()
-                .replace("/", "-")
-                .replace("/", "-")
-            }}
+            {{ new Date(ticket.created_at).toLocaleDateString() }}
           </vs-td>
           <vs-td>
             <v-btn

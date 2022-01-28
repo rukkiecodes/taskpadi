@@ -4,15 +4,15 @@ export default {
   },
 
   mutations: {
-    viewTransactionDetails: (state, item) => {
-      console.log("viewTransactionDetails: ", item)
+    viewTransactionDetails: (state, transaction) => {
+      console.log("viewTransactionDetails: ", transaction)
       state.dialog = true
     },
   },
 
   actions: {
-    viewTransactionDetails({ commit }, item) {
-      commit("viewTransactionDetails", item)
+    viewTransactionDetails({ commit }, transaction) {
+      commit("viewTransactionDetails", transaction)
     },
   },
 }

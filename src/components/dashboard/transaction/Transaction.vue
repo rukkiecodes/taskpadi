@@ -1,60 +1,101 @@
 <template>
   <v-container>
-    <v-tabs
-      v-model="tab"
-      color="deep-purple accent-4"
-      background-color="transparent"
-    >
-      <v-tab class="text-capitalize text-body-2 font-weight-bold"
-        >Good & Products</v-tab
+    <CreateTransaction class="mb-5" />
+
+    <v-tabs>
+      <vs-navbar
+        square
+        hide-scroll
+        color="#F8F8FB"
+        v-model="active"
+        center-collapsed
+        target-scroll="#hide-scroll-content"
       >
-      <v-tab class="text-capitalize text-body-2 font-weight-bold">Crypto</v-tab>
-      <v-tab class="text-capitalize text-body-2 font-weight-bold"
-        >Services</v-tab
-      >
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <vs-button
-            transparent
-            color="#616182"
-            class="text-body-2 font-weight-bold text-capitalize mt-2"
-            v-bind="attrs"
-            v-on="on"
+        <template #left>
+          <vs-navbar-item
+            id="GoodAndProducts"
+            :active="active == 'GoodAndProducts'"
+            @click="
+              () => {
+                active = 'GoodAndProducts'
+                showGoodAndProduct = true
+                showCrypto = false
+                showServices = false
+              }
+            "
           >
-            <i style="font-size: 1.1rem" class="las la-filter"></i>
-            Filter
-          </vs-button>
+            Good & Products
+          </vs-navbar-item>
+          <vs-navbar-item
+            :active="active == 'Crypto'"
+            id="Crypto"
+            @click="
+              () => {
+                active = 'Crypto'
+                showGoodAndProduct = false
+                showCrypto = true
+                showServices = false
+              }
+            "
+          >
+            Crypto
+          </vs-navbar-item>
+          <vs-navbar-item
+            :active="active == 'Services'"
+            id="Services"
+            @click="
+              () => {
+                active = 'Services'
+                showGoodAndProduct = false
+                showCrypto = false
+                showServices = true
+              }
+            "
+          >
+            Services
+          </vs-navbar-item>
+
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <vs-button
+                transparent
+                color="#616182"
+                class="text-body-2 font-weight-bold text-capitalize mt-2"
+                v-bind="attrs"
+                v-on="on"
+              >
+                <i style="font-size: 1.1rem" class="las la-filter"></i>
+                Filter
+              </vs-button>
+            </template>
+            <v-list dense class="py-0">
+              <v-list-item
+                dense
+                v-for="(item, index) in transactionFilters"
+                :key="index"
+                @click="checkList(item)"
+              >
+                <v-list-item-title
+                  class="text-body-2 grey--text text--darken-2 font-weight-light"
+                  >{{ item.title }}</v-list-item-title
+                >
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </template>
-        <v-list dense class="py-0">
-          <v-list-item
-            dense
-            v-for="(item, index) in transactionFilters"
-            :key="index"
-            @click="checkList(item)"
-          >
-            <v-list-item-title class="text-body-2 grey--text text--darken-2 font-weight-light">{{
-              item.title
-            }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-
-      <v-spacer />
-
-      <CreateTransaction />
+      </vs-navbar>
     </v-tabs>
 
-    <v-tabs-items class="mt-6" v-model="tab">
-      <v-tab-item class="white">
-        <GoodsAndProducts class="white" />
-      </v-tab-item>
-      <v-tab-item class="white">
-        <Crypto class="white" />
-      </v-tab-item>
-      <v-tab-item class="white">
-        <Services class="white" />
-      </v-tab-item>
-    </v-tabs-items>
+    <v-fade-transition>
+      <GoodsAndProducts v-show="showGoodAndProduct" class="white mt-10" />
+    </v-fade-transition>
+    <v-fade-transition>
+      <Crypto v-show="showCrypto" class="white mt-16" />
+    </v-fade-transition>
+    <v-fade-transition>
+      <Services v-show="showServices" class="white mt-16" />
+    </v-fade-transition>
+
     <ViewDetails />
   </v-container>
 </template>
@@ -66,9 +107,10 @@ import Services from "../transaction/services/Services.vue"
 import { mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
-    value: "",
-    tab: null,
-    menu: "",
+    active: "GoodAndProducts",
+    showGoodAndProduct: true,
+    showCrypto: false,
+    showServices: false,
   }),
 
   components: {
@@ -78,6 +120,18 @@ export default {
     ViewDetails: () =>
       import("../../../components/app components/ViewDetails.vue"),
     CreateTransaction: () => import("./CreateTransaction.vue"),
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      this.active = "GoodAndProducts"
+      const tab = document.querySelector(".v-slide-group__content")
+
+      if (tab) {
+        tab.style.overflowX = "auto"
+        tab.style.overflowY = "hidden"
+      }
+    })
   },
 
   methods: {
@@ -96,3 +150,10 @@ export default {
   },
 }
 </script>
+
+<style>
+.v-slide-group__content::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+</style>
