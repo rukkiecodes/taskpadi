@@ -13,9 +13,9 @@ export default {
       address: "",
     },
 
-    userData: null,
+    userData: {},
 
-    avatar: null,
+    avatar: "",
 
     saveLoading: false,
   },

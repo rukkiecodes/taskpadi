@@ -70,6 +70,7 @@ export default {
     viewTicket: (state, ticket) => {
       state.viewDialog = true
       state.viewTicket = ticket
+      console.log(ticket)
     },
   },
 

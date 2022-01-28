@@ -35,7 +35,7 @@
       <ProfileMenu />
     </v-app-bar>
 
-    <v-navigation-drawer app color="transparent" v-model="drawer" :width="200">
+    <v-navigation-drawer app style="z-index: 101" color="transparent" v-model="drawer" :width="200">
       <vs-sidebar
         absolute
         :square="true"
@@ -82,17 +82,9 @@
         <template #footer>
           <vs-row justify="space-between">
             <vs-avatar size="30" class="mr-3">
-              <i class="las la-user" v-if="account.userData.avatar == ''"></i>
+              <i class="las la-user" v-if="account.userData.avatar == null"></i>
               <img
-                src="../../../assets/trust/pl.png"
-                v-if="account.userData.avatar == ''"
-                alt=""
-              />
-              <img
-                :src="
-                  'https://dev.trustpaddi.com/public/storage/users/avatars/' +
-                  account.userData.avatar
-                "
+                :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.userData.avatar}`"
                 v-else
                 alt=""
               />

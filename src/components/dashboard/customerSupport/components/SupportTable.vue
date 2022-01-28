@@ -37,10 +37,15 @@
 
     <vs-table class="white">
       <template #thead>
-        <vs-tr style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
-          <vs-th class="white" v-for="(head, i) in headers" :key="i">
-            {{ head.text }}
-          </vs-th>
+        <vs-tr
+          class="white"
+          style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)"
+        >
+          <vs-th class="white"> Id </vs-th>
+          <vs-th class="white"> Subject </vs-th>
+          <vs-th class="white"> Date </vs-th>
+          <vs-th class="white"> Status </vs-th>
+          <vs-th class="white"> Response </vs-th>
         </vs-tr>
       </template>
       <template #tbody>
@@ -53,7 +58,6 @@
             max
           )"
         >
-          <!-- v-for="(ticket, i) in $vs.getSearch(tickets, customerSupport.search)" -->
           <vs-td>
             {{ ticket.unique_code }}
           </vs-td>
@@ -86,21 +90,83 @@
           </vs-td>
           <vs-td>
             <vs-button
-              @click="viewTicket(ticket)"
               icon
               transparent
               color="#292D32"
+              @click="viewTicket(ticket)"
             >
-              <i class="las la-eye"></i>
+              <i class="las la-book-reader"></i>
             </vs-button>
           </vs-td>
+
+          <template #expand>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: flex-start;
+                  align-items: center;
+                "
+              >
+                <vs-avatar v-if="ticket.file != null">
+                  <img
+                    :src="`https://dev.trustpaddi.com/public/storage/images/transactions/${ticket.file}`"
+                    alt=""
+                  />
+                </vs-avatar>
+                <vs-avatar color="#6200EA" v-else>
+                  <template #text>
+                    {{ ticket.subject.toUpperCase() }}
+                  </template>
+                </vs-avatar>
+                <p style="margin-top: 23px; margin-left: 5px">
+                  {{ ticket.subject }}
+                </p>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: flex-start;
+                  align-items: center;
+                "
+              >
+                <vs-tooltip dark>
+                  <vs-button icon color="#6200EA">
+                    <i class="lar la-eye"></i>
+                  </vs-button>
+                  <template #tooltip> View Ticket </template>
+                </vs-tooltip>
+                <vs-tooltip dark>
+                  <vs-button icon warn>
+                    <i class="las la-times"></i>
+                  </vs-button>
+                  <template #tooltip> Close Ticket </template>
+                </vs-tooltip>
+                <vs-tooltip left dark>
+                  <vs-button icon danger>
+                    <i class="lar la-trash-alt"></i>
+                  </vs-button>
+                  <template #tooltip> Delete Ticket </template>
+                </vs-tooltip>
+              </div>
+            </div>
+          </template>
         </vs-tr>
       </template>
+
       <template #footer>
         <vs-pagination
           v-model="page"
           color="#6200EA"
-          :length="$vs.getLength($vs.getSearch(tickets, customerSupport.search), max)"
+          :length="
+            $vs.getLength($vs.getSearch(tickets, customerSupport.search), max)
+          "
         />
       </template>
     </vs-table>
@@ -118,7 +184,7 @@ export default {
         text: "ID",
         value: "unique_code",
       },
-      { text: "Ticket subject", value: "subject" },
+      { text: "Subject", value: "subject" },
       { text: "Date", value: "created_at" },
       { text: "Status", value: "status" },
       { text: "Response", value: "action" },

@@ -20,10 +20,7 @@
             alt=""
           />
           <img
-            :src="
-              'https://dev.trustpaddi.com/public/storage/users/avatars/' +
-              account.userData.avatar
-            "
+            :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.userData.avatar}`"
             v-else
             alt=""
           />
@@ -80,7 +77,10 @@
             class="btn-chat"
             @click="logout.logoutDialog = true"
           >
-            <i style="font-size: 1.2rem; transform: scaleX(-1);" class="las la-sign-out-alt"></i>
+            <i
+              style="font-size: 1.2rem; transform: scaleX(-1)"
+              class="las la-sign-out-alt"
+            ></i>
           </vs-button>
 
           <vs-button shadow icon class="btn-chat" to="/dashboard/account">
