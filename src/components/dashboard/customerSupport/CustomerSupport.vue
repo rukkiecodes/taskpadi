@@ -1,10 +1,11 @@
 <template>
   <v-container>
-    <NoTicket v-if="tickets.length == 0"/>
+    <NoTicket v-if="tickets.length == 0" />
     <SupportTable v-if="tickets.length != 0" />
     <CreateTicket />
     <ViewTicket />
     <ViewSingleTicket />
+    <ConfirmDelete />
   </v-container>
 </template>
 
@@ -19,7 +20,8 @@ export default {
     CreateTicket,
     SupportTable,
     ViewTicket: () => import("./components/ViewTicket.vue"),
-    ViewSingleTicket: () => import("./components/ViewSingleTicket.vue")
+    ViewSingleTicket: () => import("./components/ViewSingleTicket.vue"),
+    ConfirmDelete: () => import("./components/ConfirmDelete.vue"),
   },
 
   mounted() {
@@ -29,12 +31,12 @@ export default {
   },
 
   methods: {
-    ...mapActions(["getTickets"])
+    ...mapActions(["getTickets"]),
   },
 
   computed: {
     ...mapState(["customerSupport"]),
-    ...mapGetters(["tickets"])
+    ...mapGetters(["tickets"]),
   },
 }
 </script>

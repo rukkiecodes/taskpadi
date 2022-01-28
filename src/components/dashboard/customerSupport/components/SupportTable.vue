@@ -153,7 +153,7 @@
                   <template #tooltip> Close Ticket </template>
                 </vs-tooltip>
                 <vs-tooltip left dark>
-                  <vs-button icon danger>
+                  <vs-button @click="deleteSingleTicket(ticket)" icon danger>
                     <i class="lar la-trash-alt"></i>
                   </vs-button>
                   <template #tooltip> Delete Ticket </template>
@@ -216,7 +216,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["viewTicket", "viewSingleTicket"]),
+    ...mapActions(["viewTicket", "viewSingleTicket", "deleteSingleTicket"]),
 
     sortSupport(item) {
       if (item.title == "All") {

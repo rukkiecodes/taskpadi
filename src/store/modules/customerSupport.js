@@ -32,11 +32,18 @@ export default {
     viewTicket: {},
 
     viewSingleTicketDialog: false,
+
+    confirmDeleteDialog: false,
+
+    selectedTicketToDelete: [],
+
+    deleteLoading: false,
   },
 
   getters: {
     ticketFilters: (state) => state.ticketFilters,
     tickets: (state) => state.tickets,
+    selectedTicketToDelete: (state) => state.selectedTicketToDelete,
   },
 
   mutations: {
@@ -83,6 +90,26 @@ export default {
         state.viewTicket = response.data
       }
     },
+
+    deleteSingleTicket: (state, ticket) => {
+      console.log(ticket)
+      state.confirmDeleteDialog = true
+      state.selectedTicketToDelete = []
+      state.selectedTicketToDelete.push(ticket)
+    },
+
+    confirmDelete: (state, response) => {
+      if (response.success) {
+        state.confirmDeleteDialog = false
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-trash-alt"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+    },
   },
 
   actions: {
@@ -99,7 +126,6 @@ export default {
 
         let myHeaders = new Headers()
         myHeaders.append("Accept", "multipart/form-data")
-        // myHeaders.append("Accept", "application/json")
         myHeaders.append("Authorization", "Bearer " + token)
 
         formData.append(
@@ -199,6 +225,34 @@ export default {
         })
         .catch((error) => {
           console.log(error)
+        })
+    },
+
+    deleteSingleTicket({ commit }, ticket) {
+      commit("deleteSingleTicket", ticket)
+    },
+
+    confirmDelete({ commit, dispatch }, ticket) {
+      this.state.customerSupport.deleteLoading = true
+      let id = ticket.unique_code
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(`${location.origin}/user/ticket/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          return dispatch("getTickets").then(() => {
+            commit("confirmDelete", response)
+            this.state.customerSupport.deleteLoading = false
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+          this.state.customerSupport.deleteLoading = false
         })
     },
   },
