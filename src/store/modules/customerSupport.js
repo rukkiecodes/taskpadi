@@ -110,6 +110,30 @@ export default {
         })
       }
     },
+
+    confirmDelete: (state, response) => {
+      if (response.success) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="lar la-check-circle"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+    },
+
+    closeSingleTicket: (state, response) => {
+      if (response.success) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="lar la-check-circle"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+    },
   },
 
   actions: {
@@ -253,6 +277,27 @@ export default {
         .catch((error) => {
           console.log(error)
           this.state.customerSupport.deleteLoading = false
+        })
+    },
+
+    closeSingleTicket({ commit, dispatch }, ticket) {
+      let id = ticket.unique_code
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(`${location.origin}/user/close-ticket/${id}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          return dispatch("getTickets").then(() => {
+            commit("closeSingleTicket", response)
+          })
+        })
+        .catch((error) => {
+          console.log(error)
         })
     },
   },

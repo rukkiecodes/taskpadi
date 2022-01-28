@@ -82,7 +82,7 @@
                 'orange lighten-5 orange--text text--accent-3':
                   ticket.status == 'pending',
                 'teal lighten-5 teal--text text--darken-1':
-                  ticket.status == 'Resolved',
+                  ticket.status == 'closed',
               }"
             >
               {{ ticket.status }}
@@ -147,7 +147,7 @@
                   <template #tooltip> View Ticket </template>
                 </vs-tooltip>
                 <vs-tooltip dark>
-                  <vs-button icon warn>
+                  <vs-button @click="closeSingleTicket(ticket)" icon warn>
                     <i class="las la-times"></i>
                   </vs-button>
                   <template #tooltip> Close Ticket </template>
@@ -216,7 +216,12 @@ export default {
   },
 
   methods: {
-    ...mapActions(["viewTicket", "viewSingleTicket", "deleteSingleTicket"]),
+    ...mapActions([
+      "viewTicket",
+      "viewSingleTicket",
+      "deleteSingleTicket",
+      "closeSingleTicket",
+    ]),
 
     sortSupport(item) {
       if (item.title == "All") {

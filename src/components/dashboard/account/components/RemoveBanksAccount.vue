@@ -27,7 +27,7 @@
           <vs-button
             block
             color="#6200EA"
-            @click="removeBackAccount"
+            @click="removeBankAccount"
             :loading="settings.removeBankAccountLoading"
             >Remove Account</vs-button
           >
@@ -50,7 +50,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["removeBackAccount"]),
+    ...mapActions(["removeBankAccount"]),
 
     setBankId() {
       this.settings.removeBankAccountCredential.bank_id = this.value

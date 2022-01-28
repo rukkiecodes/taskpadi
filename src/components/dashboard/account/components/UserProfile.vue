@@ -8,10 +8,10 @@
         style="display: none"
       />
 
-      <v-menu v-if="account.avatar" absolute offset-y style="max-width: 600px">
+      <v-menu v-if="account.userData.avatar" absolute offset-y style="max-width: 600px">
         <template v-slot:activator="{ on, attrs }">
           <vs-avatar circle v-on="on" size="150" v-bind="attrs" class="mx-auto">
-            <img v-if="account.avatar != ''" :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.avatar}`" />
+            <img v-if="account.userData.avatar != ''" :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.userData.avatar}`" />
             <img v-else src="../../../../assets/trust/pl.png" alt="" />
           </vs-avatar>
         </template>

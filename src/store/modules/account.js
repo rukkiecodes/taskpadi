@@ -159,7 +159,7 @@ export default {
         })
     },
 
-    async updateProfile({ commit }) {
+    async updateProfile({ commit, dispatch }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
 
       this.state.account.saveLoading = true
@@ -192,8 +192,10 @@ export default {
       fetch(location.origin + "/user/profile", requestOptions)
         .then((response) => response.json())
         .then((response) => {
-          commit("updateProfile", response)
-          this.state.account.saveLoading = false
+          return dispatch("getProfile").then(() => {
+            commit("updateProfile", response)
+            this.state.account.saveLoading = false
+          })
         })
         .catch((error) => {
           console.log("Error: ", error)
