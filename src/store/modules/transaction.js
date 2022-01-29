@@ -53,10 +53,17 @@ export default {
     updateTransactionLoading: false,
 
     selectedTransactionToUpdate: {},
+
+    approveTransactionDialog: false,
+
+    approveTransactionLoading: false,
+
+    selectedTransactionToApprove: [],
   },
   getters: {
     transactionFilters: (state) => state.transactionFilters,
     transactions: (state) => state.transactions,
+    selectedTransactionToApprove: (state) => state.selectedTransactionToApprove,
   },
 
   mutations: {
@@ -140,6 +147,36 @@ export default {
       if (response.success == false) {
         state.updateTransactionDialog = false
         state.updateTransactionLoading = false
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.message,
+        })
+      }
+    },
+
+    openApprovalTransactionDialog: (state, transaction) => {
+      console.log(transaction)
+      state.selectedTransactionToApprove = []
+      state.selectedTransactionToApprove.push(transaction)
+      state.approveTransactionDialog = true
+    },
+
+    confirmApprove: (state, response) => {
+      console.log(response)
+      if (response.success == true) {
+        Vue.prototype.$vs.notification({
+          duration: "none",
+          icon: `<i class="lar la-check-circle"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+      if (response.success == false) {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
@@ -375,6 +412,37 @@ export default {
           text: `Please complete the form and try again`,
         })
       }
+    },
+
+    openApprovalTransactionDialog({ commit }, transaction) {
+      commit("openApprovalTransactionDialog", transaction)
+    },
+
+    confirmApprove({ commit, dispatch }, transaction) {
+      this.state.transaction.approveTransactionLoading = true
+      setTimeout(() => {
+        let code = transaction.code
+        let token = Vue.prototype.$cookies.get("PaddiData").access_token
+        fetch(`${location.origin}/user/approve-transaction/${code}`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            return dispatch("getTransactions").then(() => {
+              commit("confirmApprove", response)
+              this.state.transaction.approveTransactionLoading = false
+              this.state.transaction.approveTransactionDialog = false
+            })
+          })
+          .catch((error) => {
+            console.log("Error: ", error)
+            this.state.transaction.approveTransactionLoading = false
+          })
+      }, 1000)
     },
   },
 }

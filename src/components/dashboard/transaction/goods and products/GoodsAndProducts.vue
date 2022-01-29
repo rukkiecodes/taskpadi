@@ -44,7 +44,7 @@
               'orange lighten-5 orange--text text--accent-3':
                 transaction.status == 'pending',
               'teal lighten-5 teal--text text--darken-1':
-                transaction.status == 'success',
+                transaction.status == 'completed',
             }"
           >
             {{ transaction.status }}
@@ -114,16 +114,20 @@
                 <template #tooltip> Update Transaction </template>
               </vs-tooltip>
               <vs-tooltip dark>
-                <vs-button icon warn>
-                  <i class="las la-times"></i>
+                <vs-button
+                  @click="openApprovalTransactionDialog(transaction)"
+                  icon
+                  warn
+                >
+                  <i class="lar la-check-circle"></i>
                 </vs-button>
-                <template #tooltip> Close Ticket </template>
+                <template #tooltip> Approve transaction </template>
               </vs-tooltip>
               <vs-tooltip left dark>
                 <vs-button icon danger>
                   <i class="lar la-trash-alt"></i>
                 </vs-button>
-                <template #tooltip> Delete Ticket </template>
+                <template #tooltip> Delete transaction </template>
               </vs-tooltip>
             </div>
           </div>
@@ -181,7 +185,11 @@ export default {
   },
 
   methods: {
-    ...mapActions(["viewTransactionDetails", "openUpdateTransactionDialog"]),
+    ...mapActions([
+      "viewTransactionDetails",
+      "openUpdateTransactionDialog",
+      "openApprovalTransactionDialog",
+    ]),
   },
 
   computed: {

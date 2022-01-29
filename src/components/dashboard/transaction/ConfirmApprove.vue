@@ -2,30 +2,28 @@
   <vs-dialog
     not-center
     width="400px"
-    v-model="customerSupport.confirmDeleteDialog"
+    v-model="transaction.approveTransactionDialog"
   >
     <template #header>
-      <h4 class="not-margin">Confirm delete</h4>
+      <h4 class="not-margin">Confirm approval</h4>
     </template>
 
     <div class="con-content">
-      <p>Are you sure you want to delete this ticket?</p>
+      <p>Are you sure you want to approval this transaction?</p>
     </div>
 
     <template #footer>
       <div
-        class="d-flex justify-end"
-        v-for="(ticket, i) in selectedTicketToDelete"
         :key="i"
+        class="d-flex justify-end"
+        v-for="(transaction, i) in selectedTransactionToApprove"
       >
-        <vs-button shadow @click="active = false"> Cancel </vs-button>
         <vs-button
-          danger
-          transparent
-          @click="confirmDelete(ticket)"
-          :loading="customerSupport.deleteLoading"
+          warn
+          @click="confirmApprove(transaction)"
+          :loading="transaction.approveTransactionLoading"
         >
-          Delete
+          Approve
         </vs-button>
       </div>
     </template>
@@ -56,12 +54,12 @@ export default {
       }
     },
 
-    ...mapActions(["createTicket", "setImage", "confirmDelete"]),
+    ...mapActions(["confirmApprove"]),
   },
 
   computed: {
-    ...mapState(["customerSupport"]),
-    ...mapGetters(["selectedTicketToDelete"]),
+    ...mapState(["transaction"]),
+    ...mapGetters(["selectedTransactionToApprove"]),
   },
 }
 </script>
