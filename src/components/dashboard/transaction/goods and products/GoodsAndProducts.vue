@@ -45,6 +45,8 @@
                 transaction.status == 'pending',
               'teal lighten-5 teal--text text--darken-1':
                 transaction.status == 'completed',
+              'deep-purple lighten-5 deep-purple--text text--darken-1':
+                transaction.status == 'ongoing',
             }"
           >
             {{ transaction.status }}
@@ -52,12 +54,12 @@
         </vs-td>
         <vs-td>
           <div class="d-flex">
-            <vs-button icon flat class="mr-2" color="#1CC8EE">
+            <vs-button icon transparent class="mr-2" color="#1CC8EE">
               <i class="las la-reply"></i>
             </vs-button>
             <vs-button
               icon
-              flat
+              transparent
               color="#2A00A2"
               @click="viewTransactionDetails(transaction)"
             >
@@ -105,27 +107,43 @@
             >
               <vs-tooltip dark>
                 <vs-button
-                  @click="openUpdateTransactionDialog(transaction)"
                   icon
-                  color="#6200EA"
+                  dark
+                  transparent
+                  @click="openUpdateTransactionDialog(transaction)"
                 >
-                  <i class="lar la-edit"></i>
+                  <i style="font-size: 1.3rem" class="lar la-edit"></i>
+                  Edit
                 </vs-button>
                 <template #tooltip> Update Transaction </template>
               </vs-tooltip>
               <vs-tooltip dark>
                 <vs-button
-                  @click="openApprovalTransactionDialog(transaction)"
                   icon
-                  warn
+                  dark
+                  transparent
+                  @click="openApprovalTransactionDialog(transaction)"
                 >
-                  <i class="lar la-check-circle"></i>
+                  <i style="font-size: 1.3rem" class="lar la-check-circle"></i>
+                  Approve
                 </vs-button>
                 <template #tooltip> Approve transaction </template>
               </vs-tooltip>
+              <vs-tooltip dark>
+                <vs-button
+                  icon
+                  dark
+                  transparent
+                  @click="openConfirmTransactionDialog(transaction)"
+                >
+                  <i style="font-size: 1.3rem" class="las la-check-double"></i>
+                  Confirm
+                </vs-button>
+                <template #tooltip> Confirm transaction </template>
+              </vs-tooltip>
               <vs-tooltip left dark>
-                <vs-button icon danger>
-                  <i class="lar la-trash-alt"></i>
+                <vs-button icon danger flat>
+                  <i style="font-size: 1.3rem" class="lar la-trash-alt"></i>
                 </vs-button>
                 <template #tooltip> Delete transaction </template>
               </vs-tooltip>
@@ -188,7 +206,7 @@ export default {
     ...mapActions([
       "viewTransactionDetails",
       "openUpdateTransactionDialog",
-      "openApprovalTransactionDialog",
+      "openConfirmTransactionDialog",
     ]),
   },
 

@@ -59,11 +59,18 @@ export default {
     approveTransactionLoading: false,
 
     selectedTransactionToApprove: [],
+
+    selectedTransactionToConfirm: [],
+
+    confirmTransactionDialog: false,
+
+    confirmTransactionLoading: false,
   },
   getters: {
     transactionFilters: (state) => state.transactionFilters,
     transactions: (state) => state.transactions,
     selectedTransactionToApprove: (state) => state.selectedTransactionToApprove,
+    selectedTransactionToConfirm: (state) => state.selectedTransactionToConfirm,
   },
 
   mutations: {
@@ -165,6 +172,36 @@ export default {
     },
 
     confirmApprove: (state, response) => {
+      console.log(response)
+      if (response.success == true) {
+        Vue.prototype.$vs.notification({
+          duration: "none",
+          icon: `<i class="lar la-check-circle"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+      if (response.success == false) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.message,
+        })
+      }
+    },
+
+    openConfirmTransactionDialog: (state, transaction) => {
+      console.log(transaction)
+      state.selectedTransactionToConfirm = []
+      state.selectedTransactionToConfirm.push(transaction)
+      state.confirmTransactionDialog = true
+    },
+
+    confirmConfirm: (state, response) => {
       console.log(response)
       if (response.success == true) {
         Vue.prototype.$vs.notification({
@@ -418,31 +455,58 @@ export default {
       commit("openApprovalTransactionDialog", transaction)
     },
 
+    openConfirmTransactionDialog({ commit }, transaction) {
+      commit("openConfirmTransactionDialog", transaction)
+    },
+
     confirmApprove({ commit, dispatch }, transaction) {
       this.state.transaction.approveTransactionLoading = true
-      setTimeout(() => {
-        let code = transaction.code
-        let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch(`${location.origin}/user/approve-transaction/${code}`, {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            return dispatch("getTransactions").then(() => {
-              commit("confirmApprove", response)
-              this.state.transaction.approveTransactionLoading = false
-              this.state.transaction.approveTransactionDialog = false
-            })
-          })
-          .catch((error) => {
-            console.log("Error: ", error)
+      let code = transaction.code
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(`${location.origin}/user/approve-transaction/${code}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          return dispatch("getTransactions").then(() => {
+            commit("confirmApprove", response)
             this.state.transaction.approveTransactionLoading = false
+            this.state.transaction.approveTransactionDialog = false
           })
-      }, 1000)
+        })
+        .catch((error) => {
+          console.log("Error: ", error)
+          this.state.transaction.approveTransactionLoading = false
+        })
+    },
+
+    confirmConfirm({ commit, dispatch }, transaction) {
+      this.state.transaction.confirmTransactionLoading = true
+      let code = transaction.code
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(`${location.origin}/user/confirm-transaction/${code}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          return dispatch("getTransactions").then(() => {
+            commit("confirmConfirm", response)
+            this.state.transaction.confirmTransactionLoading = false
+            this.state.transaction.confirmTransactionDialog = false
+          })
+        })
+        .catch((error) => {
+          console.log("Error: ", error)
+          this.state.transaction.confirmTransactionLoading = false
+        })
     },
   },
 }

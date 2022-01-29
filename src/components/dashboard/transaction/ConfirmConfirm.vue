@@ -2,28 +2,28 @@
   <vs-dialog
     not-center
     width="400px"
-    v-model="transaction.approveTransactionDialog"
+    v-model="transaction.confirmTransactionDialog"
   >
     <template #header>
-      <h4 class="not-margin">Confirm approval</h4>
+      <h4 class="not-margin">Confirm transaction</h4>
     </template>
 
     <div class="con-content">
-      <p>Are you sure you want to approval this transaction?</p>
+      <p>Are you sure you want to confirm this transaction?</p>
     </div>
 
     <template #footer>
       <div
         :key="i"
         class="d-flex justify-end"
-        v-for="(transaction, i) in selectedTransactionToApprove"
+        v-for="(transaction, i) in selectedTransactionToConfirm"
       >
         <vs-button
           color="#6200EA"
-          @click="confirmApprove(transaction)"
-          :loading="transaction.approveTransactionLoading"
+          @click="confirmConfirm(transaction)"
+          :loading="transaction.confirmTransactionLoading"
         >
-          Approve
+          Confirm
         </vs-button>
       </div>
     </template>
@@ -54,12 +54,12 @@ export default {
       }
     },
 
-    ...mapActions(["confirmApprove"]),
+    ...mapActions(["confirmConfirm"]),
   },
 
   computed: {
     ...mapState(["transaction"]),
-    ...mapGetters(["selectedTransactionToApprove"]),
+    ...mapGetters(["selectedTransactionToConfirm"]),
   },
 }
 </script>
