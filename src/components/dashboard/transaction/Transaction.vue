@@ -96,6 +96,8 @@
       <Services v-show="showServices" class="white mt-16" />
     </v-fade-transition>
 
+    <UpdateTransaction />
+    <ConfirmApprove />
     <ViewDetails />
   </v-container>
 </template>
@@ -118,8 +120,10 @@ export default {
     Crypto,
     Services,
     ViewDetails: () =>
-      import("../../../components/app components/ViewDetails.vue"),
+      import("./ViewDetails.vue"),
     CreateTransaction: () => import("./CreateTransaction.vue"),
+    UpdateTransaction: () => import("./UpdateTransaction.vue"),
+    ConfirmApprove: () => import("./ConfirmApprove.vue"),
   },
 
   mounted() {

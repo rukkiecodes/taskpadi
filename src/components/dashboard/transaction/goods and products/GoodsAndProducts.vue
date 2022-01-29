@@ -1,80 +1,11 @@
 <template>
-  <!-- <v-row justify="start">
-    <v-col cols="12">
-      <v-data-table
-        :headers="header"
-        :page.sync="page"
-        :items="transactionData"
-        hide-default-footer
-        :mobile-breakpoint="0"
-        class="elevation-0 transparent"
-        :items-per-page="itemsPerPage"
-        @page-count="pageCount = $event"
-        :search="transaction.search"
-      >
-        <template v-slot:item.date="{ item }">
-          <span>
-            {{ item.date }}
-          </span>
-        </template>
-        <template v-slot:item.productStatus="{ item }">
-          <v-btn
-            dark
-            small
-            depressed
-            class="text-capitalize font-weight-bold"
-            :class="{
-              'orange lighten-5 orange--text text--accent-3':
-                item.productStatus == 'Pending',
-              'teal lighten-5 teal--text text--darken-1':
-                item.productStatus == 'Successful',
-              'red lighten-5 red--text text--darken-1':
-                item.productStatus == 'Failed',
-            }"
-          >
-            {{ item.productStatus }}
-          </v-btn>
-        </template>
-        <template v-slot:item.productAction="{ item }">
-          <div class="d-flex">
-            <v-btn
-              class="mr-2 text-capitalize"
-              color="#1CC8EE"
-              dark
-              small
-              depressed
-            >
-              Report
-            </v-btn>
-            <v-btn
-              class="text-capitalize"
-              color="#2A00A2"
-              @click="viewTransactionDetails(item)"
-              dark
-              small
-              depressed
-            >
-              View
-            </v-btn>
-          </div>
-        </template>
-      </v-data-table>
-      <div class="d-flex justify-end align-center pt-2 transparent">
-        <vs-pagination
-          square
-          color="#6200EA"
-          v-model="page"
-          :length="pageCount"
-        />
-      </div>
-    </v-col>
-  </v-row> -->
   <vs-table class="white">
     <template #thead>
       <vs-tr class="white">
         <vs-th class="white"> ID </vs-th>
+        <vs-th class="white"> Phone number </vs-th>
         <vs-th class="white"> Type </vs-th>
-        <vs-th class="white"> Amount </vs-th>
+        <vs-th class="white"> Price </vs-th>
         <vs-th class="white"> Duration </vs-th>
         <vs-th class="white"> Status </vs-th>
         <vs-th class="white"> View </vs-th>
@@ -94,11 +25,12 @@
           {{ transaction.code }}
         </vs-td>
         <vs-td>
-          {{ transaction.type }}
+          {{ transaction.recipientPhone }}
         </vs-td>
         <vs-td>
-          {{ transaction.amount }}
+          {{ transaction.type }}
         </vs-td>
+        <vs-td> ₦ {{ transaction.price }} </vs-td>
         <vs-td>
           {{ transaction.duration }}
         </vs-td>
@@ -110,12 +42,12 @@
             class="text-capitalize rounded-lg"
             :class="{
               'orange lighten-5 orange--text text--accent-3':
-                transaction.success == 'pending',
+                transaction.status == 'pending',
               'teal lighten-5 teal--text text--darken-1':
-                transaction.success == 'success',
+                transaction.status == 'success',
             }"
           >
-            {{ transaction.success }}
+            {{ transaction.status }}
           </v-btn>
         </vs-td>
         <vs-td>
@@ -133,6 +65,69 @@
             </vs-button>
           </div>
         </vs-td>
+
+        <template #expand>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+              "
+            >
+              <vs-avatar v-if="transaction.image != null">
+                <img
+                  :src="`https://dev.trustpaddi.com/public/storage/images/transactions/${transaction.image}`"
+                  alt=""
+                />
+              </vs-avatar>
+              <vs-avatar color="#6200EA" v-else>
+                <template #text>
+                  {{ transaction.recipientName.toUpperCase() }}
+                </template>
+              </vs-avatar>
+              <p style="margin-top: 23px; margin-left: 5px">
+                {{ transaction.recipientName }}
+              </p>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+              "
+            >
+              <vs-tooltip dark>
+                <vs-button
+                  @click="openUpdateTransactionDialog(transaction)"
+                  icon
+                  color="#6200EA"
+                >
+                  <i class="lar la-edit"></i>
+                </vs-button>
+                <template #tooltip> Update Transaction </template>
+              </vs-tooltip>
+              <vs-tooltip dark>
+                <vs-button icon warn>
+                  <i class="las la-times"></i>
+                </vs-button>
+                <template #tooltip> Close Ticket </template>
+              </vs-tooltip>
+              <vs-tooltip left dark>
+                <vs-button icon danger>
+                  <i class="lar la-trash-alt"></i>
+                </vs-button>
+                <template #tooltip> Delete Ticket </template>
+              </vs-tooltip>
+            </div>
+          </div>
+        </template>
       </vs-tr>
     </template>
 
@@ -150,160 +145,33 @@
 
 <script>
 // @ts-nocheck
+import UpdateTransaction from "../UpdateTransaction.vue"
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
     page: 1,
     max: 7,
-    header: [
-      {
-        text: "Transaction ID",
-        value: "Transaction_id",
-      },
-      { text: "Product", value: "product" },
-      { text: "Amount", value: "product_amount" },
-      { text: "Date", value: "date" },
-      { text: "Status", value: "productStatus" },
-      { text: "View", value: "productAction" },
-    ],
-
-    transactionData: [
-      {
-        Transaction_id: "12695juf",
-        product: "Shoe",
-        product_amount: 4.3,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Successful",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "13695juf",
-        product: "IPhone X",
-        product_amount: 4.3,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Failed",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "11695juf",
-        product: "Zink",
-        product_amount: 4.9,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Pending",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "22695juf",
-        product: "IPhone X",
-        product_amount: 4.3,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Successful",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "16695juf",
-        product: "Gold bar",
-        product_amount: 7,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Failed",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "32695juf",
-        product: "Broiler Chicken",
-        product_amount: 0.0,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Successful",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "92695juf",
-        product: "Television",
-        product_amount: 0,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Pending",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "42695juf",
-        product: "Refridgirator",
-        product_amount: 6.5,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Successful",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "52695juf",
-        product: "Gold bar",
-        product_amount: 7,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Successful",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "62695juf",
-        product: "Bag",
-        product_amount: 4.0,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Pending",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "72695juf",
-        product: "Apple",
-        product_amount: 6.0,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Pending",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "15695juf",
-        product: "Refridgirator",
-        product_amount: 6.5,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Failed",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "82695juf",
-        product: "Eva wine",
-        product_amount: 3.9,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Pending",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "14695juf",
-        product: "Broiler Chicken",
-        product_amount: 0.0,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Failed",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "10695juf",
-        product: "Zink",
-        product_amount: 4.9,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Pending",
-        productAction: "mdi-eye-outline",
-      },
-      {
-        Transaction_id: "12695juf",
-        product: "Shoe",
-        product_amount: 4.3,
-        date: new Date().toLocaleDateString(),
-        productStatus: "Failed",
-        productAction: "mdi-eye-outline",
-      },
-    ],
     page: 1,
     pageCount: 0,
     itemsPerPage: 8,
   }),
 
+  components: {
+    UpdateTransaction,
+  },
+
   mounted() {
     this.$nextTick(() => {
+      const tb = document.querySelectorAll(".vs-table__td")
+
+      if (tb) {
+        for (let i = 0; i <= tb.length - 1; i++) {
+          setTimeout(() => {
+            tb[i].style.padding = "0 8px"
+          }, 100)
+        }
+      }
+
       const footer = document.querySelector(".vs-table__footer")
 
       if (footer) {
@@ -313,7 +181,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["viewTransactionDetails"]),
+    ...mapActions(["viewTransactionDetails", "openUpdateTransactionDialog"]),
   },
 
   computed: {

@@ -13,6 +13,22 @@
     sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  padding: .3em;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  padding: .3em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2C3E50;
+  border-radius: 10px;
+}
+
+
 .vs-button {
   --vs-color: "";
   --vs-color-rotate: var(--vs-primary);

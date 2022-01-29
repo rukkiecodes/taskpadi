@@ -91,10 +91,11 @@
             <v-textarea
               flat
               solo
-              height="100"
+              counter
               no-resize
               full-width
-              hide-details
+              height="100"
+              :rules="rules"
               :maxlength="max"
               class="rounded-lg"
               background-color="#F4F7F8"
@@ -146,7 +147,8 @@ import { mapActions, mapState } from "vuex"
 
 export default {
   data: () => ({
-    max: 130,
+    max: 180,
+    rules: [v => v.length <= 180 || 'Max 25 characters'],
   }),
 
   methods: {

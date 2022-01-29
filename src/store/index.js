@@ -17,7 +17,6 @@ import signup from "./modules/signup"
 import signin from "./modules/signin"
 import logout from "./modules/logout"
 import restrict from "./modules/restrict"
-import viewDetailsDialog from "./modules/viewDetailsDialog"
 import paddiLink from "./modules/paddiLink"
 import paddiPay from "./modules/paddiPay"
 import account from "./modules/account"
@@ -49,7 +48,6 @@ export default new Vuex.Store({
     signin,
     logout,
     restrict,
-    viewDetailsDialog,
     paddiLink,
     paddiPay,
     account,

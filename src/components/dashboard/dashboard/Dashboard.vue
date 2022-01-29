@@ -13,7 +13,6 @@
       </v-row>
       <TransactionTable v-if="tableSmall" />
     </v-row>
-    <ViewDetails />
   </v-container>
 </template>
 
@@ -24,8 +23,6 @@ export default {
     AllTransactionCarousel: () =>
       import("./components/AllTransactionCarousel.vue"),
     TransactionTable: () => import("./components/TransactionTable.vue"),
-    ViewDetails: () =>
-      import("../../../components/app components/ViewDetails.vue"),
   },
 
   computed: {
