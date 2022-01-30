@@ -1,144 +1,130 @@
 <template>
   <v-col cols="12" sm="8" class="px-0 px-sm-4">
-    <v-card-title> Transaction Summary </v-card-title>
-    <v-data-table
-      :search="search"
-      :headers="headers"
-      :page.sync="page"
-      :items="transactions"
-      :mobile-breakpoint="0"
-      hide-default-footer
-      class="elevation-0"
-      :items-per-page="itemsPerPage"
-      @page-count="pageCount = $event"
-    >
-      <template v-slot:item.status="{ item }">
-        <v-btn
-          dark
-          small
-          depressed
-          class="text-capitalize font-weight-bold"
-          :class="{
-            'orange lighten-5 orange--text text--accent-3':
-              item.status == 'Pending',
-            'teal lighten-5 teal--text text--darken-1':
-              item.status == 'Successful',
-            'red lighten-5 red--text text--darken-1': item.status == 'Failed',
-          }"
-        >
-          {{ item.status }}
-        </v-btn>
+    <vs-table class="white">
+      <template #header>
+        <vs-input block placeholder="Search transactions" v-model="transaction.search">
+          <template #icon>
+            <i class="las la-search"></i>
+          </template>
+        </vs-input>
       </template>
-      <template v-slot:item.action="{ item }">
-        <v-btn
-          dark
-          icon
-          x-small
-          depressed
-          color="grey darken-2"
-          @click="viewTransactionDetails(item)"
-        >
-          <v-icon>{{ item.action }}</v-icon>
-        </v-btn>
+      <template class="white" #thead>
+        <vs-tr class="white">
+          <vs-th class="white"> Id </vs-th>
+          <vs-th class="white"> Price </vs-th>
+          <vs-th class="white"> Type </vs-th>
+          <vs-th class="white"> Status </vs-th>
+          <vs-th class="white"> Action </vs-th>
+        </vs-tr>
       </template>
-    </v-data-table>
+      <template #tbody>
+        <vs-tr
+          :key="i"
+          :data="transaction"
+          v-for="(transaction, i) in $vs.getPage(
+            $vs.getSearch(transactions, transaction.search),
+            page,
+            max
+          )"
+        >
+          <vs-td>
+            {{ transaction.code }}
+          </vs-td>
+          <vs-td> ₦ {{ transaction.price }} </vs-td>
+          <vs-td>
+            {{ transaction.type }}
+          </vs-td>
+          <vs-td>
+            <v-btn
+              dark
+              small
+              depressed
+              class="text-capitalize rounded-lg"
+              :class="{
+                'orange lighten-5 orange--text text--accent-3':
+                  transaction.status == 'pending',
+                'teal lighten-5 teal--text text--darken-1':
+                  transaction.status == 'completed',
+                'deep-purple lighten-5 deep-purple--text text--darken-1':
+                  transaction.status == 'ongoing',
+              }"
+            >
+              {{ transaction.status }}
+            </v-btn>
+          </vs-td>
+          <vs-td>
+            <vs-button
+              icon
+              transparent
+              color="#2A00A2"
+              @click="viewTransactionDetails(transaction)"
+            >
+              <i class="lar la-eye"></i>
+            </vs-button>
+          </vs-td>
+        </vs-tr>
+      </template>
+
+      <template #footer>
+        <vs-pagination
+          v-model="page"
+          color="#6200EA"
+          :length="
+            $vs.getLength($vs.getSearch(transactions, transaction.search), max)
+          "
+        />
+      </template>
+    </vs-table>
+    <ViewDetails />
   </v-col>
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex"
+import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
     search: "",
-    headers: [
-      {
-        text: "Transaction ID",
-        align: "start",
-        sortable: false,
-        value: "id",
-      },
-      { text: "Amount", value: "amount" },
-      { text: "Date & Time", value: "dateTime" },
-      { text: "Status", value: "status" },
-      { text: "Action", value: "action", sortable: false },
-    ],
-    transactions: [
-      {
-        id: "12625juf",
-        amount: "#45,000",
-        dateTime: "2021-10-24",
-        status: "Pending",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "19695juf",
-        amount: "#25,000",
-        dateTime: "2021-10-21",
-        status: "Failed",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "12691juf",
-        amount: "#25,900",
-        dateTime: "2021-10-21",
-        status: "Successful",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "12645juf",
-        amount: "#45,000",
-        dateTime: "2021-10-24",
-        status: "Pending",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "15695juf",
-        amount: "#25,000",
-        dateTime: "2021-10-21",
-        status: "Failed",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "16695juf",
-        amount: "#25,000",
-        dateTime: "2021-10-21",
-        status: "Successful",
-        action: "mdi-eye-outline",
-      },
-      {
-        id: "17695juf",
-        amount: "#25,000",
-        dateTime: "2021-10-21",
-        status: "Failed",
-        action: "mdi-eye-outline",
-      },
-    ],
     page: 1,
-    pageCount: 0,
-    itemsPerPage: 7,
+    max: 7,
   }),
+
+  components: {
+    ViewDetails: () => import("./ViewDetails.vue"),
+  },
 
   mounted() {
     this.$nextTick(() => {
-      const border = document.querySelectorAll(
-        ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
-      )
+      const tb = document.querySelectorAll(".vs-table__td")
 
-      if (border)
-        for (let i = 0; i <= border.length - 1; i++) {
+      if (tb) {
+        for (let i = 0; i <= tb.length - 1; i++) {
           setTimeout(() => {
-            border[i].style.borderColor = "transparent"
+            tb[i].style.padding = "0 8px"
           }, 100)
         }
+      }
+
+      const footer = document.querySelector(".vs-table__footer")
+
+      if (footer) {
+        footer.style.background = "none"
+      }
+
+      const header = document.querySelector(".vs-table__header")
+
+      if (header) {
+        header.style.background = "none"
+      }
     })
   },
 
   methods: {
-    ...mapActions(["viewTransactionDetails"]),
+    ...mapActions(["viewTransactionDetails", "viewTransactionDetails"]),
   },
 
   computed: {
-    ...mapState(["viewDetailsDialog"]),
+    ...mapState(["viewDetailsDialog", "transaction"]),
+    ...mapGetters(["transactions"]),
     tableWidth() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":

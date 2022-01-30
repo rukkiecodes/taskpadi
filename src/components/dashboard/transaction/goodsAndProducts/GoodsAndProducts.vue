@@ -192,7 +192,6 @@ export default {
   data: () => ({
     page: 1,
     max: 7,
-    page: 1,
     pageCount: 0,
     itemsPerPage: 8,
     fab: true,

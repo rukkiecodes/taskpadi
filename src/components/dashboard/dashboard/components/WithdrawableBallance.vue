@@ -1,5 +1,5 @@
 <template>
-  <v-card flat dark min-height="175" color="deep-purple accent-4">
+  <v-card flat dark min-height="175" class="rounded-lg" color="deep-purple accent-4">
     <v-card-title>
       <v-spacer></v-spacer>
       <v-btn color="deep-purple accent-2" dark x-small depressed>

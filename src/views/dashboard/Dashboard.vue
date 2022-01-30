@@ -19,11 +19,12 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.getProfile()
+      this.getTransactions()
     })
   },
 
   methods: {
-    ...mapActions(["getProfile"])
+    ...mapActions(["getProfile", 'getTransactions'])
   }
 }
 </script>
