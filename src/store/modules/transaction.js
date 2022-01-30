@@ -65,12 +65,19 @@ export default {
     confirmTransactionDialog: false,
 
     confirmTransactionLoading: false,
+
+    declineTransactionDialog: false,
+
+    declineTransactionLoading: false,
+
+    selectedTransactionToDecline: [],
   },
   getters: {
     transactionFilters: (state) => state.transactionFilters,
     transactions: (state) => state.transactions,
     selectedTransactionToApprove: (state) => state.selectedTransactionToApprove,
     selectedTransactionToConfirm: (state) => state.selectedTransactionToConfirm,
+    selectedTransactionToDecline: (state) => state.selectedTransactionToDecline,
   },
 
   mutations: {
@@ -202,6 +209,36 @@ export default {
     },
 
     confirmConfirm: (state, response) => {
+      console.log(response)
+      if (response.success == true) {
+        Vue.prototype.$vs.notification({
+          duration: "none",
+          icon: `<i class="lar la-check-circle"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+      if (response.success == false) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.message,
+        })
+      }
+    },
+
+    openDeclineTransactionDialog: (state, transaction) => {
+      console.log(transaction)
+      state.selectedTransactionToDecline = []
+      state.selectedTransactionToDecline.push(transaction)
+      state.declineTransactionDialog = true
+    },
+
+    confirmDecline: (state, response) => {
       console.log(response)
       if (response.success == true) {
         Vue.prototype.$vs.notification({
@@ -506,6 +543,35 @@ export default {
         .catch((error) => {
           console.log("Error: ", error)
           this.state.transaction.confirmTransactionLoading = false
+        })
+    },
+
+    openDeclineTransactionDialog({ commit }, transaction) {
+      commit("openDeclineTransactionDialog", transaction)
+    },
+
+    confirmDecline({ commit, dispatch }, transaction) {
+      this.state.transaction.declineTransactionLoading = true
+      let code = transaction.code
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      fetch(`${location.origin}/user/decline-transaction/${code}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          return dispatch("getTransactions").then(() => {
+            commit("confirmDecline", response)
+            this.state.transaction.declineTransactionLoading = false
+            this.state.transaction.declineTransactionDialog = false
+          })
+        })
+        .catch((error) => {
+          console.log("Error: ", error)
+          this.state.transaction.declineTransactionLoading = false
         })
     },
   },

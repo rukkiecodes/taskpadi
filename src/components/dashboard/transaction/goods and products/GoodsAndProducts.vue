@@ -105,33 +105,28 @@
                 align-items: center;
               "
             >
-              <vs-tooltip dark>
-                <vs-button
-                  icon
-                  dark
-                  transparent
-                  @click="openUpdateTransactionDialog(transaction)"
-                >
-                  <i style="font-size: 1.3rem" class="lar la-edit"></i>
-                  Edit
+              <v-speed-dial
+                v-model="fab"
+                direction="left"
+                :open-on-hover="false"
+                transition="slide-x-reverse-transition"
+              >
+                <template v-slot:activator>
+                  <vs-button v-model="fab" color="#6200EA" dark icon>
+                    <i v-show="fab != true" class="las la-ellipsis-v"></i>
+                    <i v-show="fab == true" class="las la-times"></i>
+                  </vs-button>
+                </template>
+                <vs-button danger transparent>
+                  <i style="font-size: 1.3rem" class="lar la-trash-alt"></i>
+                  Delete
                 </vs-button>
-                <template #tooltip> Update Transaction </template>
-              </vs-tooltip>
-              <vs-tooltip dark>
-                <vs-button
-                  icon
-                  dark
-                  transparent
-                  @click="openApprovalTransactionDialog(transaction)"
-                >
-                  <i style="font-size: 1.3rem" class="lar la-check-circle"></i>
-                  Approve
+                <vs-button dark transparent> POP </vs-button>
+                <vs-button @click="openDeclineTransactionDialog(transaction)" dark transparent>
+                  <i style="font-size: 1.3rem" class="las la-minus-circle"></i>
+                  Decline
                 </vs-button>
-                <template #tooltip> Approve transaction </template>
-              </vs-tooltip>
-              <vs-tooltip dark>
                 <vs-button
-                  icon
                   dark
                   transparent
                   @click="openConfirmTransactionDialog(transaction)"
@@ -139,14 +134,23 @@
                   <i style="font-size: 1.3rem" class="las la-check-double"></i>
                   Confirm
                 </vs-button>
-                <template #tooltip> Confirm transaction </template>
-              </vs-tooltip>
-              <vs-tooltip left dark>
-                <vs-button icon danger flat>
-                  <i style="font-size: 1.3rem" class="lar la-trash-alt"></i>
+                <vs-button
+                  dark
+                  transparent
+                  @click="openApprovalTransactionDialog(transaction)"
+                >
+                  <i style="font-size: 1.3rem" class="lar la-check-circle"></i>
+                  Approve
                 </vs-button>
-                <template #tooltip> Delete transaction </template>
-              </vs-tooltip>
+                <vs-button
+                  dark
+                  transparent
+                  @click="openUpdateTransactionDialog(transaction)"
+                >
+                  <i style="font-size: 1.3rem" class="lar la-edit"></i>
+                  Edit
+                </vs-button>
+              </v-speed-dial>
             </div>
           </div>
         </template>
@@ -176,6 +180,7 @@ export default {
     page: 1,
     pageCount: 0,
     itemsPerPage: 8,
+    fab: true,
   }),
 
   components: {
@@ -207,6 +212,7 @@ export default {
       "viewTransactionDetails",
       "openUpdateTransactionDialog",
       "openConfirmTransactionDialog",
+      "openDeclineTransactionDialog"
     ]),
   },
 

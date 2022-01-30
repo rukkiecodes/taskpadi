@@ -97,6 +97,7 @@
     </v-fade-transition>
 
     <UpdateTransaction />
+    <ConfirmDecline />
     <ConfirmConfirm />
     <ConfirmApprove />
     <ViewDetails />
@@ -126,6 +127,7 @@ export default {
     UpdateTransaction: () => import("./UpdateTransaction.vue"),
     ConfirmApprove: () => import("./ConfirmApprove.vue"),
     ConfirmConfirm: () => import("./ConfirmConfirm.vue"),
+    ConfirmDecline: () => import("./ConfirmDecline.vue"),
   },
 
   mounted() {
