@@ -1,19 +1,41 @@
 <template>
-  <v-card flat dark min-height="175" class="rounded-xl" color="deep-purple accent-4">
-    <v-card-title>
-      <v-spacer></v-spacer>
-      <v-btn color="deep-purple accent-2" dark x-small depressed>
-        NGN
-        <v-icon right>mdi-chevron-down</v-icon>
-      </v-btn>
-    </v-card-title>
-    <v-card-text
-      class="pa-4 pt-4 pb-10 d-flex flex-column justify-start align-center"
-    >
-      <v-card-text class="pa-0 text-body-1 white--text">Withdrawable balance</v-card-text>
-      <v-card-text class="pa-0 text-h5 font-weight-bold white--text"
-        >₦480,000.90</v-card-text
+  <v-card flat outlined min-height="150" class="rounded-lg withdrawableBallance">
+    <img
+      class="cardImage"
+      src="../../../../assets/trust/withdrawableBallance.png"
+      alt=""
+    />
+
+    <div class="content d-flex flex-column">
+      <span class="text-body-1 font-weight-bold grey--text text--darken-1"
+        >Withdrawable Balance</span
       >
-    </v-card-text>
+      <span class="text-h6 grey--text text--darken-1">₦ 480,000.90</span>
+    </div>
   </v-card>
 </template>
+
+
+<style scoped>
+.withdrawableBallance {
+  position: relative;
+}
+
+.withdrawableBallance .cardImage {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  width: 30%;
+}
+
+.withdrawableBallance .content {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(10px, -50%);
+}
+
+.v-card {
+  background-color: transparent;
+}
+</style>
