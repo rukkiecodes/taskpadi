@@ -2,7 +2,7 @@
   <v-col class="px-0" cols="12" sm="4">
     <v-row justify="space-between" align="start">
       <v-col cols="12">
-        <v-card class="rounded-lg" flat>
+        <v-card class="rounded-xl" flat>
           <v-card-text class="pa-6">
             <vs-button
               block

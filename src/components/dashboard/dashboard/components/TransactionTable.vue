@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" sm="8" class="px-0 px-sm-4">
-    <vs-table class="white">
+    <vs-table class="white rounded-xl">
       <template #header>
         <vs-input block placeholder="Search transactions" v-model="transaction.search">
           <template #icon>

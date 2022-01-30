@@ -1,10 +1,10 @@
 <template>
   <v-card
-    min-height="150"
-    class="rounded-lg"
-    color="#0096B7"
     flat
     dark
+    color="#0096B7"
+    min-height="150"
+    class="rounded-xl"
   >
     <v-toolbar color="transparent" flat dense>
       <v-toolbar-title class="text-body-1">Current Ballance</v-toolbar-title>
