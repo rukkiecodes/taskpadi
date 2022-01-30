@@ -98,6 +98,7 @@
 
     <ConfirmPop />
     <ViewDetails />
+    <ConfirmDelete />
     <ConfirmDecline />
     <ConfirmConfirm />
     <ConfirmApprove />
@@ -130,6 +131,7 @@ export default {
     ConfirmConfirm: () => import("./ConfirmConfirm.vue"),
     ConfirmDecline: () => import("./ConfirmDecline.vue"),
     ConfirmPop: () => import("./ConfirmPop.vue"),
+    ConfirmDelete: () => import("./ConfirmDelete.vue"),
   },
 
   mounted() {

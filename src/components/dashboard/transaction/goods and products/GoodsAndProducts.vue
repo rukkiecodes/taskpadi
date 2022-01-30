@@ -117,7 +117,11 @@
                     <i v-show="fab == true" class="las la-times"></i>
                   </vs-button>
                 </template>
-                <vs-button danger transparent>
+                <vs-button
+                  @click="openDeleteTransactionDialog(transaction)"
+                  danger
+                  transparent
+                >
                   <i style="font-size: 1.3rem" class="lar la-trash-alt"></i>
                   Delete
                 </vs-button>
@@ -225,6 +229,7 @@ export default {
       "openConfirmTransactionDialog",
       "openDeclineTransactionDialog",
       "openPopTransactionDialog",
+      "openDeleteTransactionDialog",
     ]),
   },
 

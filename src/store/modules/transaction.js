@@ -72,8 +72,15 @@ export default {
     popTransactionLoading: false,
     selectedTransactionToPop: [],
 
+    deleteTransactionDialog: false,
+    deleteTransactionLoading: false,
+    selectedTransactionToDelete: [],
+
     pop: "",
     popName: "",
+
+    delete: "",
+    deleteName: "",
   },
   getters: {
     transactionFilters: (state) => state.transactionFilters,
@@ -82,6 +89,7 @@ export default {
     selectedTransactionToConfirm: (state) => state.selectedTransactionToConfirm,
     selectedTransactionToDecline: (state) => state.selectedTransactionToDecline,
     selectedTransactionToPop: (state) => state.selectedTransactionToPop,
+    selectedTransactionToDelete: (state) => state.selectedTransactionToDelete,
   },
 
   mutations: {
@@ -276,7 +284,7 @@ export default {
     confirmPop: (state, response) => {
       console.log(response)
       if (response.success == true) {
-        state.openPopTransactionDialog = false
+        state.popTransactionDialog = false
         Vue.prototype.$vs.notification({
           duration: "none",
           icon: `<i class="lar la-check-circle"></i>`,
@@ -288,7 +296,7 @@ export default {
       }
       if (response.success == false) {
         Vue.prototype.$vs.notification({
-          duration: 'none',
+          duration: "none",
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
@@ -298,7 +306,50 @@ export default {
       }
       if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
-          duration: 'none',
+          duration: "none",
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.errors.pop[0],
+        })
+      }
+    },
+
+    openDeleteTransactionDialog: (state, transaction) => {
+      console.log("delete transaction: ", transaction)
+      state.selectedTransactionToDelete = []
+      state.selectedTransactionToDelete.push(transaction)
+      state.pop = transaction.pop
+      state.deleteTransactionDialog = true
+    },
+
+    confirmDelete: (state, response) => {
+      console.log(response)
+      if (response.success == true) {
+        state.popTransactionDialog = false
+        Vue.prototype.$vs.notification({
+          duration: "none",
+          icon: `<i class="lar la-check-circle"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+      if (response.success == false) {
+        Vue.prototype.$vs.notification({
+          duration: "none",
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.message,
+        })
+      }
+      if (response.message == "The given data was invalid.") {
+        Vue.prototype.$vs.notification({
+          duration: "none",
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
@@ -626,7 +677,7 @@ export default {
       commit("openPopTransactionDialog", transaction)
     },
 
-    onPOPChange ({ commit }, image) {
+    onPOPChange({ commit }, image) {
       this.state.transaction.pop = image
       this.state.transaction.popName = image.name
     },
@@ -659,13 +710,69 @@ export default {
           .then((response) => {
             return dispatch("getTransactions").then(() => {
               commit("confirmPop", response)
-              this.state.transaction.openPopTransactionDialog = false
+              this.state.transaction.popTransactionDialog = false
               this.state.transaction.popTransactionLoading = false
             })
           })
           .catch((error) => {
             console.log("Error: ", error)
             this.state.transaction.popTransactionLoading = false
+          })
+      } else {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Error !!!",
+          text: `Please complete the form and try again`,
+        })
+      }
+    },
+
+    openDeleteTransactionDialog({ commit }, transaction) {
+      commit("openDeleteTransactionDialog", transaction)
+    },
+
+    onDeleteChange({ commit }, image) {
+      this.state.transaction.delete = image
+      this.state.transaction.deleteName = image.name
+    },
+
+    confirmDelete({ commit, dispatch }, transaction) {
+      const pop = this.state.transaction.pop
+      console.log(pop)
+      if (pop != "") {
+        this.state.transaction.deleteTransactionLoading = true
+        let code = transaction.code
+        let token = Vue.prototype.$cookies.get("PaddiData").access_token
+
+        let formData = new FormData()
+
+        let myHeaders = new Headers()
+        myHeaders.append("Accept", "multipart/form-data")
+        myHeaders.append("Authorization", `Bearer ${token}`)
+
+        formData.append("pop", pop)
+
+        let requestOptions = {
+          method: "DELETE",
+          headers: myHeaders,
+          body: formData,
+          redirect: "follow",
+        }
+
+        fetch(`${location.origin}/user/transaction/${code}`, requestOptions)
+          .then((response) => response.json())
+          .then((response) => {
+            return dispatch("getTransactions").then(() => {
+              commit("confirmDelete", response)
+              this.state.transaction.deleteTransactionDialog = false
+              this.state.transaction.deleteTransactionLoading = false
+            })
+          })
+          .catch((error) => {
+            console.log("Error: ", error)
+            this.state.transaction.deleteTransactionLoading = false
           })
       } else {
         Vue.prototype.$vs.notification({
