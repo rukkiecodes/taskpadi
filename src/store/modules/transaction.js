@@ -61,16 +61,19 @@ export default {
     selectedTransactionToApprove: [],
 
     selectedTransactionToConfirm: [],
-
     confirmTransactionDialog: false,
-
     confirmTransactionLoading: false,
 
     declineTransactionDialog: false,
-
     declineTransactionLoading: false,
-
     selectedTransactionToDecline: [],
+
+    popTransactionDialog: false,
+    popTransactionLoading: false,
+    selectedTransactionToPop: [],
+
+    pop: "",
+    popName: "",
   },
   getters: {
     transactionFilters: (state) => state.transactionFilters,
@@ -78,6 +81,7 @@ export default {
     selectedTransactionToApprove: (state) => state.selectedTransactionToApprove,
     selectedTransactionToConfirm: (state) => state.selectedTransactionToConfirm,
     selectedTransactionToDecline: (state) => state.selectedTransactionToDecline,
+    selectedTransactionToPop: (state) => state.selectedTransactionToPop,
   },
 
   mutations: {
@@ -257,6 +261,49 @@ export default {
           position: "top-right",
           title: "Oops!!!",
           text: response.message,
+        })
+      }
+    },
+
+    openPopTransactionDialog: (state, transaction) => {
+      console.log("pop transaction: ", transaction)
+      state.selectedTransactionToPop = []
+      state.selectedTransactionToPop.push(transaction)
+      state.pop = transaction.pop
+      state.popTransactionDialog = true
+    },
+
+    confirmPop: (state, response) => {
+      console.log(response)
+      if (response.success == true) {
+        state.openPopTransactionDialog = false
+        Vue.prototype.$vs.notification({
+          duration: "none",
+          icon: `<i class="lar la-check-circle"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.message,
+        })
+      }
+      if (response.success == false) {
+        Vue.prototype.$vs.notification({
+          duration: 'none',
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.message,
+        })
+      }
+      if (response.message == "The given data was invalid.") {
+        Vue.prototype.$vs.notification({
+          duration: 'none',
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.errors.pop[0],
         })
       }
     },
@@ -573,6 +620,62 @@ export default {
           console.log("Error: ", error)
           this.state.transaction.declineTransactionLoading = false
         })
+    },
+
+    openPopTransactionDialog({ commit }, transaction) {
+      commit("openPopTransactionDialog", transaction)
+    },
+
+    onPOPChange ({ commit }, image) {
+      this.state.transaction.pop = image
+      this.state.transaction.popName = image.name
+    },
+
+    confirmPop({ commit, dispatch }, transaction) {
+      const pop = this.state.transaction.pop
+      console.log(pop)
+      if (pop != "") {
+        this.state.transaction.popTransactionLoading = true
+        let code = transaction.code
+        let token = Vue.prototype.$cookies.get("PaddiData").access_token
+
+        let formData = new FormData()
+
+        let myHeaders = new Headers()
+        myHeaders.append("Accept", "multipart/form-data")
+        myHeaders.append("Authorization", `Bearer ${token}`)
+
+        formData.append("pop", pop)
+
+        let requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: formData,
+          redirect: "follow",
+        }
+
+        fetch(`${location.origin}/user/upload-pop/${code}`, requestOptions)
+          .then((response) => response.json())
+          .then((response) => {
+            return dispatch("getTransactions").then(() => {
+              commit("confirmPop", response)
+              this.state.transaction.openPopTransactionDialog = false
+              this.state.transaction.popTransactionLoading = false
+            })
+          })
+          .catch((error) => {
+            console.log("Error: ", error)
+            this.state.transaction.popTransactionLoading = false
+          })
+      } else {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Error !!!",
+          text: `Please complete the form and try again`,
+        })
+      }
     },
   },
 }

@@ -96,11 +96,12 @@
       <Services v-show="showServices" class="white mt-16" />
     </v-fade-transition>
 
-    <UpdateTransaction />
+    <ConfirmPop />
+    <ViewDetails />
     <ConfirmDecline />
     <ConfirmConfirm />
     <ConfirmApprove />
-    <ViewDetails />
+    <UpdateTransaction />
   </v-container>
 </template>
 
@@ -128,6 +129,7 @@ export default {
     ConfirmApprove: () => import("./ConfirmApprove.vue"),
     ConfirmConfirm: () => import("./ConfirmConfirm.vue"),
     ConfirmDecline: () => import("./ConfirmDecline.vue"),
+    ConfirmPop: () => import("./ConfirmPop.vue"),
   },
 
   mounted() {

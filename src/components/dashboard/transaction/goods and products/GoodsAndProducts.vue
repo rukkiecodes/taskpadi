@@ -121,8 +121,19 @@
                   <i style="font-size: 1.3rem" class="lar la-trash-alt"></i>
                   Delete
                 </vs-button>
-                <vs-button dark transparent> POP </vs-button>
-                <vs-button @click="openDeclineTransactionDialog(transaction)" dark transparent>
+                <vs-button
+                  @click="openPopTransactionDialog(transaction)"
+                  dark
+                  transparent
+                >
+                  <i style="font-size: 1.3rem" class="lar la-image"></i>
+                  POP
+                </vs-button>
+                <vs-button
+                  @click="openDeclineTransactionDialog(transaction)"
+                  dark
+                  transparent
+                >
                   <i style="font-size: 1.3rem" class="las la-minus-circle"></i>
                   Decline
                 </vs-button>
@@ -212,7 +223,8 @@ export default {
       "viewTransactionDetails",
       "openUpdateTransactionDialog",
       "openConfirmTransactionDialog",
-      "openDeclineTransactionDialog"
+      "openDeclineTransactionDialog",
+      "openPopTransactionDialog",
     ]),
   },
 
