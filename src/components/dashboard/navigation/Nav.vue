@@ -1,7 +1,21 @@
 <template>
   <nav>
-    <v-app-bar app flat color="#F8F8FB">
+    <v-app-bar app flat color="#F8F8FB" style="z-index: 101">
       <v-app-bar-nav-icon @click="drawer = !drawer" class="hidden-lg-and-up" />
+
+      <v-list dense class="py-0" color="transparent" v-if="appbarHeadingLogo">
+        <v-list-item dense class="py-0">
+          <v-avatar size="30" color="transparent" tile>
+            <img src="../../../assets/paddi.png" />
+          </v-avatar>
+          <v-list-item-content>
+            <v-list-item-title
+              class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3"
+              >TrustPaddi</v-list-item-title
+            >
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
 
       <vs-input
         shadow
@@ -23,7 +37,7 @@
         dark
         depressed
         color="#6200EA"
-        to="/dashboard/paddiLink"
+        to="/dashboard/createpaddilink"
         class="text-capitalize text-body-2 font-weight-bold hidden-xs-only"
         >Create paddi link</vs-button
       >
@@ -35,7 +49,13 @@
       <ProfileMenu />
     </v-app-bar>
 
-    <v-navigation-drawer app style="z-index: 101" color="transparent" v-model="drawer" :width="200">
+    <v-navigation-drawer
+      app
+      :width="200"
+      v-model="drawer"
+      color="transparent"
+      style="z-index: 101"
+    >
       <vs-sidebar
         absolute
         :square="true"
@@ -43,28 +63,61 @@
         open
         style="width: 100%"
       >
-        <template style="height: 400px" #logo>
-          <v-card
-            flat
-            width="100%"
-            height="150"
-            color="transparent"
-            class="d-flex flex-column justify-center align-center px-2"
-          >
-            <vs-avatar size="60" color="#fff">
-              <img src="../../../assets/paddi.png" />
-            </vs-avatar>
-            <span
-              class="text-body-1 mt-4 grey--text text--darken-4 text-uppercase font-weight-bold"
+        <template #logo>
+          <div class="d-flex flex-column align-start justify-center">
+            <v-list
+              dense
+              class="pa-0 ml-n10 mt-n5"
+              color="transparent"
+              v-if="navbarHeadingLogo"
             >
-              TrustPaddi
-            </span>
-            <span
-              class="text-caption text-center mt-0 grey--text text--darken-3"
+              <v-list-item dense class="py-0">
+                <v-avatar size="30" color="transparent" tile>
+                  <img src="../../../assets/paddi.png" />
+                </v-avatar>
+                <v-list-item-content>
+                  <v-list-item-title
+                    class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3"
+                    >TrustPaddi</v-list-item-title
+                  >
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+
+            <v-list
+              dense
+              class="pa-0"
+              v-if="navbarHeadingProfile"
+              color="transparent"
             >
-              Safer Transactions, Happy people
-            </span>
-          </v-card>
+              <v-list-item dense class="py-0">
+                <vs-avatar size="35" color="transparent" tile>
+                  <img
+                    :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.userData.avatar}`"
+                  />
+                </vs-avatar>
+                <v-list-item-content>
+                  <v-list-item-title
+                    class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3"
+                    >{{ account.userData.firstname }}</v-list-item-title
+                  >
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+
+            <vs-input
+              shadow
+              primary
+              autocomplete="off"
+              v-if="headingSearch"
+              v-model="searchPaddi"
+              placeholder="Search..."
+            >
+              <template #icon>
+                <i class="las la-search"></i>
+              </template>
+            </vs-input>
+          </div>
         </template>
 
         <vs-sidebar-item
@@ -80,25 +133,22 @@
         </vs-sidebar-item>
 
         <template #footer>
-          <vs-row justify="space-between">
-            <vs-avatar size="30" class="mr-3">
-              <i class="las la-user" v-if="account.userData.avatar == null"></i>
-              <img
-                :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.userData.avatar}`"
-                v-else
-                alt=""
-              />
-            </vs-avatar>
-
+          <vs-row justify="space-between" align="center">
             <vs-avatar badge-color="danger" badge-position="top-right">
               <i class="lar la-bell"></i>
-
               <template #badge> 28 </template>
             </vs-avatar>
 
             <vs-button icon danger @click="logout.logoutDialog = true">
               <i style="transform: scaleX(-1)" class="las la-sign-out-alt"></i>
             </vs-button>
+
+            <vs-switch dark v-model="active5">
+              <template #circle>
+                <i v-if="!active5" class="lar la-sun"></i>
+                <i v-else class="lar la-moon"></i>
+              </template>
+            </vs-switch>
           </vs-row>
         </template>
       </vs-sidebar>
@@ -117,6 +167,7 @@ export default {
     drawer: true,
     searchPaddi: "",
     active: "",
+    active5: false,
   }),
 
   components: {
@@ -181,6 +232,66 @@ export default {
   computed: {
     ...mapGetters(["dashboardRoutes"]),
     ...mapState(["dashboardNavigation", "logout", "account"]),
+
+    appbarHeadingLogo() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return true
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
+
+    navbarHeadingLogo() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return false
+        case "sm":
+          return false
+        case "md":
+          return true
+        case "lg":
+          return true
+        case "xl":
+          return true
+      }
+    },
+
+    headingSearch() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return true
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
+
+    navbarHeadingProfile() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return true
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
   },
 }
 </script>

@@ -107,7 +107,7 @@
 </template>
 
 <script>
-import GoodsAndProducts from "../transaction/goods and products/GoodsAndProducts.vue"
+import GoodsAndProducts from "../transaction/goodsAndProducts/GoodsAndProducts.vue"
 import Crypto from "../transaction/crypto/Crypto.vue"
 import Services from "../transaction/services/Services.vue"
 import { mapActions, mapGetters, mapState } from "vuex"
