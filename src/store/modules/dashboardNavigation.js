@@ -16,6 +16,12 @@ export default {
         location: window.location.pathname,
       },
       {
+        icon: "las la-exchange-alt",
+        title: "Product",
+        route: "/dashboard/product",
+        location: window.location.pathname,
+      },
+      {
         icon: "las la-store-alt",
         title: "Store",
         route: "/dashboard/store",

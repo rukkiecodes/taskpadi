@@ -12,7 +12,12 @@ export default {
       path: "transactions",
       name: "Transaction",
       component: () =>
-        import("../../../views/dashboard/transactions/Transactions.vue"),
+        import("../../../views/dashboard/Transactions.vue"),
+    },
+    {
+      path: "product",
+      name: "Product",
+      component: () => import("../../../views/dashboard/Product.vue"),
     },
     {
       path: "store",
@@ -48,7 +53,7 @@ export default {
       path: "account",
       name: "Account",
       // @ts-ignore
-      component: () => import("../../../views/dashboard/account/Account.vue"),
+      component: () => import("../../../views/dashboard/Account.vue"),
     },
   ],
 }

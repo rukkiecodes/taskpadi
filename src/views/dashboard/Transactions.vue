@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Transaction from "../../../components/dashboard/transaction/Transaction.vue"
+import Transaction from "../../components/dashboard/transaction/Transaction.vue"
 export default {
   components: {
     Transaction
