@@ -22,6 +22,7 @@ export default {
     Vue.prototype.$vs = this.$vs
     Vue.prototype.$axios = this.$axios
     Vue.prototype.$cookies = this.$cookies
+    Vue.prototype.$vuetify = this.$vuetify
   },
 }
 </script>

@@ -8,15 +8,15 @@
         style="display: none"
       />
 
-      <v-menu v-if="account.userData.avatar" absolute offset-y style="max-width: 600px">
+      <v-menu absolute offset-y style="max-width: 600px">
         <template v-slot:activator="{ on, attrs }">
           <vs-avatar circle v-on="on" size="150" v-bind="attrs" class="mx-auto">
-            <img v-if="account.userData.avatar != ''" :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.userData.avatar}`" />
-            <img v-else src="../../../../assets/trust/pl.png" alt="" />
+            <img v-if="account.userData.image == ''" src="../../../../assets/trust/pl.png" alt="" />
+            <img v-else :src="account.userData.image" />
           </vs-avatar>
         </template>
 
-        <v-list dense>
+        <v-list dense class="py-0">
           <v-list-item @click="avatarAction">
             <v-list-item-title>View profile image</v-list-item-title>
           </v-list-item>

@@ -42,9 +42,45 @@
         >Create paddi link</vs-button
       >
 
-      <v-badge class="mx-5" color="red" dot overlap>
-        <i style="font-size: 1.3rem" class="las la-bell"></i>
-      </v-badge>
+      <v-speed-dial
+        v-model="fab"
+        direction="bottom"
+        :open-on-hover="true"
+        transition="slide-y-reverse-transition"
+      >
+        <template v-slot:activator>
+          <vs-avatar
+            class="mx-5"
+            badge-color="danger"
+            badge-position="top-right"
+          >
+            <i class="lar la-bell"></i>
+            <template #badge> 28 </template>
+          </vs-avatar>
+        </template>
+        <v-list
+          flat
+          width="400"
+          color="transparent"
+          class="py-0 rounded-lg"
+          style="margin-right: 100px"
+        >
+          <v-card class="rounded-lg">
+            <v-subheader>Notifications</v-subheader>
+            <v-list-item>
+              <vs-avatar class="mr-3">
+                <i class="las la-exclamation"></i>
+              </vs-avatar>
+              <v-list-item-content>
+                <v-list-item-title>Profile photo</v-list-item-title>
+                <v-list-item-subtitle
+                  >Change your Google+ profile photo</v-list-item-subtitle
+                >
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
+        </v-list>
+      </v-speed-dial>
 
       <ProfileMenu />
     </v-app-bar>
@@ -57,10 +93,10 @@
       style="z-index: 101"
     >
       <vs-sidebar
+        open
         absolute
         :square="true"
         v-model="active"
-        open
         style="width: 100%"
       >
         <template #logo>
@@ -93,13 +129,17 @@
               <v-list-item dense class="py-0">
                 <vs-avatar size="35" color="transparent" tile>
                   <img
-                    :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.userData.avatar}`"
+                    v-if="account.userData.image == ''"
+                    src="../../../assets/trust/pl.png"
                   />
+                  <img v-else :src="account.userData.image" />
                 </vs-avatar>
                 <v-list-item-content>
                   <v-list-item-title
                     class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3"
-                    >{{ account.userData.firstname }}</v-list-item-title
+                    >{{
+                      account.userData.firstname || "User"
+                    }}</v-list-item-title
                   >
                 </v-list-item-content>
               </v-list-item>
@@ -142,13 +182,6 @@
             <vs-button icon danger @click="logout.logoutDialog = true">
               <i style="transform: scaleX(-1)" class="las la-sign-out-alt"></i>
             </vs-button>
-
-            <vs-switch dark v-model="active5">
-              <template #circle>
-                <i v-if="!active5" class="lar la-sun"></i>
-                <i v-else class="lar la-moon"></i>
-              </template>
-            </vs-switch>
           </vs-row>
         </template>
       </vs-sidebar>
@@ -167,7 +200,7 @@ export default {
     drawer: true,
     searchPaddi: "",
     active: "",
-    active5: false,
+    fab: false,
   }),
 
   components: {
@@ -209,6 +242,7 @@ export default {
     setCurrentRoute() {
       this.dashboardNavigation.currentRoute = window.location.pathname
     },
+
     removeBorder() {
       const border = document.querySelector(".v-navigation-drawer__border")
       if (border) border.style.display = "none"
@@ -229,6 +263,7 @@ export default {
       }
     },
   },
+
   computed: {
     ...mapGetters(["dashboardRoutes"]),
     ...mapState(["dashboardNavigation", "logout", "account"]),

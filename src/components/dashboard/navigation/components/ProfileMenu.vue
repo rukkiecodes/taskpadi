@@ -13,19 +13,10 @@
         transparent
       >
         <vs-avatar size="30" class="mr-3">
-          <i class="las la-user" v-if="account.userData.avatar == ''"></i>
-          <img
-            src="../../../../assets/trust/pl.png"
-            v-if="account.userData.avatar == ''"
-            alt=""
-          />
-          <img
-            :src="`https://dev.trustpaddi.com/public/storage/users/avatars/${account.userData.avatar}`"
-            v-else
-            alt=""
-          />
+          <img v-if="account.userData.image == ''" src="../../../../assets/trust/pl.png" alt="" />
+          <img v-else :src="account.userData.image" alt="" />
         </vs-avatar>
-        {{ account.userData.firstname || "User" }}
+        {{ account.userData.firstName || "User" }}
       </vs-button>
     </template>
 
@@ -40,25 +31,18 @@
         <template #title>
           <h3
             v-text="
-              account.userData.firstname + ' ' + account.userData.lastname
+              account.userData.firstName + ' ' + account.userData.lastName
             "
           />
         </template>
         <template #img>
-          <img
-            v-if="account.userData.avatar != ''"
-            :src="
-              'https://dev.trustpaddi.com/public/storage/users/avatars/' +
-              account.userData.avatar
-            "
-            alt=""
-          />
-          <img v-else src="../../../../assets/trust/pl.png" alt="" />
+          <img v-if="account.userData.image == ''" src="../../../../assets/trust/pl.png" alt="" />
+          <img v-else :src="account.userData.image" alt="" />
         </template>
         <template #text>
           <div class="d-flex flex-column">
             <span v-text="account.userData.email" />
-            <span v-text="account.userData.phone_number" />
+            <span v-text="account.userData.phone" />
             <span
               v-text="
                 account.userData.country +
@@ -98,6 +82,12 @@ export default {
   data: () => ({
     fab: false,
   }),
+
+  mounted() {
+    this.$nextTick(() => {
+      console.log(this.account)
+    })
+  },
 
   computed: {
     ...mapState(["logout", "account"]),
