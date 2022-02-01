@@ -16,7 +16,7 @@
             placeholder="Bank name"
           >
             <vs-option
-              v-for="bank in banks"
+              v-for="bank in withdrawBanks"
               :key="bank.id"
               :label="bank.abbreviation + ': ' + bank.code"
               :value="bank.code"
@@ -52,7 +52,7 @@ export default {
 
   computed: {
     ...mapState(["withdraw"]),
-    ...mapGetters(["banks"]),
+    ...mapGetters(["withdrawBanks"]),
   },
 }
 </script>

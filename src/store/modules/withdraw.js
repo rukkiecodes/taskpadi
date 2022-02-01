@@ -4,11 +4,11 @@ export default {
   state: {
     withdrawDialog: false,
     loading: false,
-    banks: [],
+    withdrawBanks: [],
   },
 
   getters: {
-    banks: (state) => state.banks,
+    withdrawBanks: (state) => state.banks,
   },
 
   mutations: {
@@ -16,10 +16,10 @@ export default {
       state.resolvedAccount = Vue.prototype.$cookies.get("PaddiResolved")
       state.resolveBankAccountCredential =
         Vue.prototype.$cookies.get("PaddiResolved")
-      state.banks = []
-      let bankData = response.banks
+      state.withdrawBanks = []
+      let bankData = response.withdrawBanks
       for (let i = 0; i < bankData.length; i++) {
-        state.banks.push(bankData[i])
+        state.withdrawBanks.push(bankData[i])
       }
     },
   },
