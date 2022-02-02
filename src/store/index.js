@@ -28,6 +28,7 @@ import settings from "./modules/settings"
 import withdraw from "./modules/withdraw"
 import customerSupport from "./modules/customerSupport"
 import product from "./modules/product"
+import orders from "./modules/orders"
 
 Vue.use(Vuex);
 
@@ -60,5 +61,6 @@ export default new Vuex.Store({
     withdraw,
     customerSupport,
     product,
+    orders,
   },
 })

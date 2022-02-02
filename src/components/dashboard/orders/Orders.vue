@@ -7,3 +7,18 @@
     Similique!
   </v-container>
 </template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  mounted() {
+    this.$nextTick(() => {
+      this.getOrders()
+    })
+  },
+  methods: {
+    ...mapActions(["getOrders"])
+  }
+}
+</script>
