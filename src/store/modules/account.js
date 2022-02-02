@@ -1,4 +1,5 @@
 import Vue from "vue"
+import axios from "axios"
 
 export default {
   state: {
@@ -51,92 +52,92 @@ export default {
 
     getStates: (state, response) => {
       state.nigerianStates = []
-      state.nigerianStates.push(...response.banks)
+      state.nigerianStates.push(...response.data.banks)
 
       console.log("states in nigeria: ", state.nigerianStates)
     },
 
     updateProfile: (state, response) => {
       console.log(response)
-      if (response.message == "The given data was invalid.") {
+      if (response.data.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.errors.phone_number[0],
+          text: response.data.errors.phone_number[0],
         })
       }
-      if (response.message == "The given data was invalid.") {
+      if (response.data.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.errors.country[0],
+          text: response.data.errors.country[0],
         })
       }
-      if (response.message == "The given data was invalid.") {
+      if (response.data.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.errors.address[0],
+          text: response.data.errors.address[0],
         })
       }
-      if (response.message == "The given data was invalid.") {
+      if (response.data.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.errors.firstname[0],
+          text: response.data.errors.firstname[0],
         })
       }
-      if (response.message == "The given data was invalid.") {
+      if (response.data.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.errors.lastname[0],
+          text: response.data.errors.lastname[0],
         })
       }
-      if (response.message == "The given data was invalid.") {
+      if (response.data.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.errors.lga[0],
+          text: response.data.errors.lga[0],
         })
       }
-      if (response.message == "The given data was invalid.") {
+      if (response.data.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.errors.state[0],
+          text: response.data.errors.state[0],
         })
       }
-      if (response.success == false) {
+      if (response.data.success == false) {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.message,
+          text: response.data.message,
         })
       }
-      if (response.success == true) {
+      if (response.data.success == true) {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-user"></i>`,
           border: "#46C93A",
           position: "top-right",
           title: "Yippee!!!",
-          text: response.message,
+          text: response.data.message,
         })
       }
     },
@@ -154,8 +155,7 @@ export default {
           "Content-Type": "application/json",
         },
       }
-      await Vue.prototype
-        .$axios(options)
+      await axios(options)
         .then((response) => {
           commit("getProfile", response)
         })
@@ -165,10 +165,8 @@ export default {
     },
 
     async getStates({ commit }) {
-      fetch(`${location.origin}/states`, {
-        method: "GET",
-      })
-        .then((response) => response.json())
+      axios
+        .get(`${location.origin}/states`)
         .then((response) => {
           commit("getStates", response)
         })
@@ -182,12 +180,11 @@ export default {
 
       this.state.account.saveLoading = true
 
-      let formData = new FormData()
-
       let myHeaders = new Headers()
       myHeaders.append("Accept", "multipart/form-data")
       myHeaders.append("Authorization", `Bearer ${token}`)
 
+      let formData = new FormData()
       formData.append("firstname", this.state.account.credential.firstname)
       formData.append("lastname", this.state.account.credential.lastname)
       formData.append(
@@ -201,13 +198,16 @@ export default {
       formData.append("avatar", this.state.account.credential.image)
 
       let requestOptions = {
+        url: `${location.origin}/user/profile`,
         method: "POST",
-        headers: myHeaders,
-        body: formData,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+        data: formData,
       }
-
-      fetch(`${location.origin}/user/profile`, requestOptions)
-        .then((response) => response.json())
+      
+      await axios(requestOptions)
         .then((response) => {
           return dispatch("getProfile").then(() => {
             commit("updateProfile", response)
