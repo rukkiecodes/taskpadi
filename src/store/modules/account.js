@@ -29,9 +29,9 @@ export default {
   mutations: {
     getProfile: (state, response) => {
       state.userData = {}
-      state.userData = response.data
+      state.userData = response.data.data
 
-      console.log("User: ", state.userData)
+      console.log("User data: ", response.data.data)
 
       let number = state.userData.phone
       let arr = number.split("4")
@@ -146,14 +146,16 @@ export default {
     async getProfile({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
       console.log(token)
-      fetch(`${location.origin}/user/profile`, {
+      const options = {
+        url: `${location.origin}/user/profile`,
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-      })
-        .then((response) => response.json())
+      }
+      await Vue.prototype
+        .$axios(options)
         .then((response) => {
           commit("getProfile", response)
         })
