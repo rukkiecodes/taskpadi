@@ -11,13 +11,17 @@ export default {
     {
       path: "transactions",
       name: "Transaction",
-      component: () =>
-        import("../../../views/dashboard/Transactions.vue"),
+      component: () => import("../../../views/dashboard/Transactions.vue"),
     },
     {
       path: "product",
       name: "Product",
       component: () => import("../../../views/dashboard/Product.vue"),
+    },
+    {
+      path: "orders",
+      name: "Orders",
+      component: () => import("../../../views/dashboard/Orders.vue"),
     },
     {
       path: "store",
