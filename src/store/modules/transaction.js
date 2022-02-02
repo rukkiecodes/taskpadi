@@ -1,4 +1,5 @@
 import Vue from "vue"
+import axios from "axios"
 
 export default {
   state: {
@@ -121,10 +122,7 @@ export default {
 
     getTransactions: (state, response) => {
       state.transactions = []
-      let transactionsData = response.data
-      for (let i = 0; i < transactionsData.length; i++) {
-        state.transactions.push(transactionsData[i])
-      }
+      state.transactions.push(...response.data.data)
       console.log("getTransactions: ", state.transactions)
     },
 
@@ -449,14 +447,23 @@ export default {
 
     async getTransactions({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/transactions`, {
+      // fetch(`${location.origin}/user/transactions`, {
+      //   method: "GET",
+      //   headers: {
+      //     Authorization: `Bearer ${token}`,
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      //   .then((response) => response.json())
+      const options = {
+        url: `${location.origin}/user/transactions`,
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-      })
-        .then((response) => response.json())
+      }
+      await axios(options)
         .then((response) => {
           commit("getTransactions", response)
         })
