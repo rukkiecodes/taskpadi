@@ -18,9 +18,13 @@ export default {
     avatar: "",
 
     saveLoading: false,
+
+    nigerianStates: [],
   },
 
-  getters: {},
+  getters: {
+    nigerianStates: (state) => state.nigerianStates,
+  },
 
   mutations: {
     getProfile: (state, response) => {
@@ -43,6 +47,13 @@ export default {
         lga: state.userData.lga,
         address: state.userData.address,
       }
+    },
+
+    getStates: (state, response) => {
+      state.nigerianStates = []
+      state.nigerianStates.push(...response.banks)
+
+      console.log("states in nigeria: ", state.nigerianStates)
     },
 
     updateProfile: (state, response) => {
@@ -135,7 +146,7 @@ export default {
     async getProfile({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
       console.log(token)
-      fetch(location.origin + "/user/profile", {
+      fetch(`${location.origin}/user/profile`, {
         method: "GET",
         headers: {
           Authorization: "Bearer " + token,
@@ -145,6 +156,19 @@ export default {
         .then((response) => response.json())
         .then((response) => {
           commit("getProfile", response)
+        })
+        .catch((error) => {
+          console.log("Error: ", error)
+        })
+    },
+
+    async getStates({ commit }) {
+      fetch(`${location.origin}/states`, {
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          commit("getStates", response)
         })
         .catch((error) => {
           console.log("Error: ", error)

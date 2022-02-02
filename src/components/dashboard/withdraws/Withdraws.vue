@@ -44,7 +44,7 @@ export default {
     TotalTransactions,
     TotalWithdrawals,
     History,
-    Form: () => import("./components/Form.vue")
+    Form: () => import("./components/Form.vue"),
   },
 
   mounted() {

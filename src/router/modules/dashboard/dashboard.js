@@ -55,5 +55,11 @@ export default {
       // @ts-ignore
       component: () => import("../../../views/dashboard/Account.vue"),
     },
+    {
+      path: "*",
+      name: "Error",
+      // @ts-ignore
+      component: () => import("../../../views/Error404.vue"),
+    },
   ],
 }

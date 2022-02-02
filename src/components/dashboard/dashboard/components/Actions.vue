@@ -9,9 +9,9 @@
               icon
               square
               color="#6200EA"
-              class="text-capitalize font-weight-bold"
+              class="text-capitalize font-weight-bold rounded-lg"
             >
-              Initiate escrow
+              Create Escrow
               <i class="las la-arrow-up"></i>
             </vs-button>
             <vs-button
@@ -21,7 +21,7 @@
               border
               color="#6200EA"
               to="/dashboard/withdraws"
-              class="text-capitalize font-weight-bold"
+              class="text-capitalize font-weight-bold rounded-lg"
             >
               Withdraw
               <i class="las la-arrow-down"></i>

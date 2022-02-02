@@ -17,10 +17,7 @@ export default {
       state.resolveBankAccountCredential =
         Vue.prototype.$cookies.get("PaddiResolved")
       state.withdrawBanks = []
-      let bankData = response.withdrawBanks
-      for (let i = 0; i < bankData.length; i++) {
-        state.withdrawBanks.push(bankData[i])
-      }
+      state.withdrawBanks.push(...response.banks)
     },
   },
 

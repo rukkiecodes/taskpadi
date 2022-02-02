@@ -16,6 +16,7 @@ export default {
     EditLink: () => import("./components/EditLink.vue"),
     PaddiLinks: () => import("./components/PaddiLinks.vue"),
   },
+
   computed: {
     ...mapState(["paddiLink"]),
   },

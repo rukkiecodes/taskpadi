@@ -97,9 +97,9 @@
               "
             >
               <vs-button
-                dark
-                transparent
-                @click="openUpdateProductDialog(product)"
+                flat
+                color="#6200EA"
+                @click="openEditProductDialog(product)"
               >
                 <i style="font-size: 1.3rem" class="lar la-edit"></i>
                 Edit
@@ -170,7 +170,6 @@
 
 <script>
 // @ts-nocheck
-import UpdateTransaction from "./UpdateTransaction.vue"
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
@@ -180,10 +179,6 @@ export default {
     itemsPerPage: 8,
     fab: true,
   }),
-
-  components: {
-    UpdateTransaction,
-  },
 
   mounted() {
     this.$nextTick(() => {
@@ -206,7 +201,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["viewProductDetails", "openUpdateProductDialog"]),
+    ...mapActions(["viewProductDetails", "openEditProductDialog"]),
   },
 
   computed: {

@@ -5,14 +5,12 @@
     <ProductTable class="white mt-10" />
 
     <ViewDetails />
-    <UpdateTransaction />
-    <PageLoad />
+    <EditProduct />
   </v-container>
 </template>
 
 <script>
 import ProductTable from "./ProductTable.vue"
-import PageLoad from "../../app components/PageLoad.vue"
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
@@ -24,8 +22,7 @@ export default {
     ProductTable,
     ViewDetails: () => import("./ViewDetails.vue"),
     AddNewProduct: () => import("./AddNewProduct.vue"),
-    UpdateTransaction: () => import("./UpdateTransaction.vue"),
-    PageLoad
+    EditProduct: () => import("./EditProduct.vue"),
   },
 
   mounted() {

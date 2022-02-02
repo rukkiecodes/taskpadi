@@ -2,18 +2,9 @@ import Vue from "vue"
 
 export default {
   state: {
-    transactionFilters: [
-      { title: "All" },
-      { title: "Successful" },
-      { title: "Pending" },
-      { title: "Failed" },
-    ],
-    search: "",
-
     imageName: "",
 
     createProductDialog: false,
-
     createProductLoading: false,
 
     createProductCredential: {
@@ -24,55 +15,27 @@ export default {
       image: "",
     },
 
-    updateTransactionCredential: {
-      recipient_name: "",
-      recipient_email: "",
-      recipient_phone: "",
-      transaction_type: "",
-      price: "",
-      quantity: "",
-      role: "",
+    editProductCredential: {
+      name: "",
       description: "",
+      quantity: "",
+      price: "",
       image: "",
-      duration: "",
     },
 
     products: [],
 
     viewDetailsDialoge: false,
-
     selectedTransaction: {},
 
-    updateTransactionDialog: false,
+    editProductDialog: false,
 
-    updateTransactionLoading: false,
+    editProductLoading: false,
 
-    selectedTransactionToUpdate: {},
-
-    approveTransactionDialog: false,
-
-    approveTransactionLoading: false,
-
-    confirmTransactionDialog: false,
-    confirmTransactionLoading: false,
-
-    declineTransactionDialog: false,
-    declineTransactionLoading: false,
-
-    popTransactionDialog: false,
-    popTransactionLoading: false,
-
-    deleteTransactionDialog: false,
-    deleteTransactionLoading: false,
-
-    pop: "",
-    popName: "",
-
-    delete: "",
-    deleteName: "",
+    selectedProductToEdit: {},
   },
+  
   getters: {
-    transactionFilters: (state) => state.transactionFilters,
     products: (state) => state.products,
   },
 
@@ -117,33 +80,26 @@ export default {
       state.viewDetailsDialoge = true
     },
 
-    openUpdateProductDialog: (state, transaction) => {
-      console.log("update: ", transaction)
-      state.selectedTransactionToUpdate = transaction
-      var number = transaction.recipientPhone
-      var arr = number.split("4")
-      arr.shift()
-      number = arr.join("4")
-      state.updateTransactionCredential = {
-        recipient_name: transaction.recipientName,
-        recipient_email: transaction.buyerEmail,
-        recipient_phone: 0 + number,
-        transaction_type: transaction.type,
-        price: transaction.price,
-        quantity: transaction.quantity,
-        role: "",
-        description: transaction.description,
+    openEditProductDialog: (state, product) => {
+      console.log("update: ", product)
+
+      state.selectedProductToEdit = product
+
+      state.editProductCredential = {
+        name: product.name,
+        description: product.description,
+        quantity: product.quantity,
+        price: product.initialPrice,
         image: "",
-        duration: transaction.duration,
       }
-      state.updateTransactionDialog = true
+      state.editProductDialog = true
     },
 
-    updateTransaction: (state, response) => {
+    editProduct: (state, response) => {
       console.log(response)
       if (response.success == true) {
-        state.updateTransactionDialog = false
-        state.updateTransactionLoading = false
+        state.editProductDialog = false
+        state.editProductLoading = false
         Vue.prototype.$vs.notification({
           duration: "none",
           icon: `<i class="lar la-check-circle"></i>`,
@@ -154,8 +110,8 @@ export default {
         })
       }
       if (response.success == false) {
-        state.updateTransactionDialog = false
-        state.updateTransactionLoading = false
+        state.editProductDialog = false
+        state.editProductLoading = false
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
@@ -246,103 +202,59 @@ export default {
       commit("viewProductDetails", product)
     },
 
-    openUpdateProductDialog({ commit }, transaction) {
-      commit("openUpdateProductDialog", transaction)
+    openEditProductDialog({ commit }, product) {
+      commit("openEditProductDialog", product)
     },
 
-    setUpdateTransactionImage({ commit }, image) {
-      this.state.transaction.imageName = image.name
-      this.state.transaction.updateTransactionCredential.image = image
+    setEditProductImage({ commit }, image) {
+      this.state.product.imageName = image.name
+      this.state.product.editProductCredential.image = image
       console.log("state: ", image)
     },
 
-    async updateTransaction({ commit, dispatch }) {
-      let input = this.state.transaction.updateTransactionCredential
-      let code = this.state.transaction.selectedTransactionToUpdate.code
+    async editProduct({ commit, dispatch }) {
+      let input = this.state.product.editProductCredential
+      let slug = this.state.product.selectedProductToEdit.slug
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
 
       if (
-        input.recipient_name != "" &&
-        input.recipient_email != "" &&
-        input.recipient_phone &&
-        input.transaction_type != "" &&
-        input.price != "" &&
-        input.quantity != "" &&
-        input.role != "" &&
+        input.name != "" &&
         input.description != "" &&
-        input.image != "" &&
-        input.duration != ""
+        input.quantity &&
+        input.price != "" &&
+        input.image != ""
       ) {
-        this.state.transaction.updateTransactionLoading = true
+        this.state.product.editProductLoading = true
 
         let formData = new FormData()
 
         let myHeaders = new Headers()
         myHeaders.append("Accept", "multipart/form-data")
-        myHeaders.append("Authorization", "Bearer " + token)
+        myHeaders.append("Authorization", `Bearer ${token}`)
 
-        formData.append(
-          "recipient_name",
-          this.state.transaction.updateTransactionCredential.recipient_name
-        )
-        formData.append(
-          "recipient_email",
-          this.state.transaction.updateTransactionCredential.recipient_email
-        )
-        formData.append(
-          "recipient_phone",
-          this.state.transaction.updateTransactionCredential.recipient_phone
-        )
-        formData.append(
-          "transaction_type",
-          this.state.transaction.updateTransactionCredential.transaction_type
-        )
-        formData.append(
-          "price",
-          this.state.transaction.updateTransactionCredential.price
-        )
-        formData.append(
-          "quantity",
-          this.state.transaction.updateTransactionCredential.quantity
-        )
-        formData.append(
-          "role",
-          this.state.transaction.updateTransactionCredential.role
-        )
-        formData.append(
-          "description",
-          this.state.transaction.updateTransactionCredential.description
-        )
-        formData.append(
-          "image",
-          this.state.transaction.updateTransactionCredential.image
-        )
-        formData.append(
-          "duration",
-          this.state.transaction.updateTransactionCredential.duration
-        )
+        formData.append("name", input.name)
+        formData.append("description", input.description)
+        formData.append("quantity", input.quantity)
+        formData.append("price", input.price)
+        formData.append("image", input.image)
 
         let requestOptions = {
           method: "POST",
           headers: myHeaders,
           body: formData,
-          redirect: "follow",
         }
 
-        fetch(
-          `${location.origin}/user/update-transaction/${code}`,
-          requestOptions
-        )
+        fetch(`${location.origin}/user/product/${slug}`, requestOptions)
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getProducts").then(() => {
-              this.state.transaction.updateTransactionLoading = false
-              commit("updateTransaction", response)
+              this.state.product.editProductLoading = false
+              commit("editProduct", response)
             })
           })
           .catch((error) => {
             console.log("Error: ", error)
-            this.state.transaction.updateTransactionLoading = false
+            this.state.product.editProductLoading = false
             Vue.prototype.$vs.notification({
               icon: `<i class="las la-exclamation-triangle"></i>`,
               border: "rgb(255, 71, 87)",
@@ -352,7 +264,7 @@ export default {
             })
           })
       } else {
-        this.state.transaction.updateTransactionLoading = false
+        this.state.transaction.editProductLoading = false
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
@@ -361,11 +273,6 @@ export default {
           text: `Please complete the form and try again`,
         })
       }
-    },
-
-    onDeleteChange({ commit }, image) {
-      this.state.transaction.delete = image
-      this.state.transaction.deleteName = image.name
     },
   },
 }

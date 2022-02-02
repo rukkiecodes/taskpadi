@@ -123,8 +123,7 @@ export default {
     GoodsAndProducts,
     Crypto,
     Services,
-    ViewDetails: () =>
-      import("./ViewDetails.vue"),
+    ViewDetails: () => import("./ViewDetails.vue"),
     CreateTransaction: () => import("./CreateTransaction.vue"),
     UpdateTransaction: () => import("./UpdateTransaction.vue"),
     ConfirmApprove: () => import("./ConfirmApprove.vue"),

@@ -18,14 +18,15 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
+      this.getStates()
       this.getProfile()
       this.getTransactions()
     })
   },
 
   methods: {
-    ...mapActions(["getProfile", 'getTransactions'])
-  }
+    ...mapActions(["getProfile", "getTransactions", "getStates"]),
+  },
 }
 </script>
 
@@ -44,6 +45,6 @@ export default {
 }
 
 .dashboardColor {
-  background: #F8F8FB !important
+  background: #f8f8fb !important;
 }
 </style>

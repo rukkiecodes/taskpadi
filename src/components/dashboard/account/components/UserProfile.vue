@@ -11,7 +11,11 @@
       <v-menu absolute offset-y style="max-width: 600px">
         <template v-slot:activator="{ on, attrs }">
           <vs-avatar circle v-on="on" size="150" v-bind="attrs" class="mx-auto">
-            <img v-if="account.userData.image == ''" src="../../../../assets/trust/pl.png" alt="" />
+            <img
+              v-if="account.userData.image == ''"
+              src="../../../../assets/trust/pl.png"
+              alt=""
+            />
             <img v-else :src="account.userData.image" />
           </vs-avatar>
         </template>
@@ -61,12 +65,22 @@
         />
       </v-col>
       <v-col cols="12" sm="6">
-        <vs-input
+        <vs-select
           block
-          class="mt-3"
+          filter
+          @change="setState"
+          v-model="selectValue"
           label-placeholder="State"
-          v-model="account.credential.state"
-        />
+        >
+          <vs-option
+            :key="i"
+            :label="state.name"
+            :value="state.name"
+            v-for="(state, i) in nigerianStates"
+          >
+            {{ state.name }}
+          </vs-option>
+        </vs-select>
       </v-col>
       <v-col cols="12" sm="6">
         <vs-input
@@ -105,14 +119,24 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapMutations } from "vuex"
+import { mapState, mapActions, mapGetters } from "vuex"
 
 export default {
+  data: () => ({
+    selectValue: "",
+  }),
+
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {
+      this.getStates()
+    })
   },
 
   methods: {
+    setState() {
+      this.account.credential.state = this.selectValue
+    },
+
     avatarAction() {
       this.account.editAvatarDialog = true
     },
@@ -121,11 +145,12 @@ export default {
       document.querySelector(".mainInput [type='file']").click()
     },
 
-    ...mapActions(["setImage", "updateProfile"]),
+    ...mapActions(["setImage", "updateProfile", "getStates"]),
   },
 
   computed: {
     ...mapState(["account"]),
+    ...mapGetters(["nigerianStates"]),
   },
 }
 </script>

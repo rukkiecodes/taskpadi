@@ -22,6 +22,12 @@ export default {
         location: window.location.pathname,
       },
       {
+        icon: "las la-shopping-bag",
+        title: "Orders",
+        route: "/dashboard/orders",
+        location: window.location.pathname,
+      },
+      {
         icon: "las la-store-alt",
         title: "Store",
         route: "/dashboard/store",

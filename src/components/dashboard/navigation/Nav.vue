@@ -21,6 +21,7 @@
         shadow
         primary
         icon-after
+        color="#6200EA"
         autocomplete="off"
         v-model="searchPaddi"
         class="hidden-xs-only"
@@ -148,6 +149,7 @@
             <vs-input
               shadow
               primary
+              color="#6200EA"
               autocomplete="off"
               v-if="headingSearch"
               v-model="searchPaddi"
