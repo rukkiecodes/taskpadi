@@ -95,8 +95,8 @@ export default {
 
   mutations: {
     createTransaction: (state, response) => {
-      console.log(response)
-      if (response.success == true) {
+      console.log("multipart/form-data: ", response)
+      if (response.data.success == true) {
         state.createTransactionDialog = false
         Vue.prototype.$vs.notification({
           duration: "none",
@@ -104,10 +104,10 @@ export default {
           border: "#46C93A",
           position: "top-right",
           title: "Yippee!!!",
-          text: response.message,
+          text: response.data.message,
         })
       }
-      if (response.success == false) {
+      if (response.data.success == false) {
         state.createTransactionDialog = false
         state.createTransactionLoading = false
         Vue.prototype.$vs.notification({
@@ -115,7 +115,7 @@ export default {
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.message,
+          text: response.data.message,
         })
       }
     },
@@ -371,11 +371,6 @@ export default {
       this.state.transaction.createTransactionLoading = true
 
       let formData = new FormData()
-
-      let myHeaders = new Headers()
-      myHeaders.append("Accept", "multipart/form-data")
-      myHeaders.append("Authorization", `Bearer ${token}`)
-
       formData.append(
         "recipient_name",
         this.state.transaction.createTransactionCredential.recipient_name
@@ -418,14 +413,16 @@ export default {
       )
 
       let requestOptions = {
+        url: `${location.origin}/user/transaction`,
         method: "POST",
-        headers: myHeaders,
-        body: formData,
-        redirect: "follow",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+        data: formData,
       }
 
-      fetch(`${location.origin}/user/transaction`, requestOptions)
-        .then((response) => response.json())
+      await axios(requestOptions)
         .then((response) => {
           return dispatch("getTransactions").then(() => {
             this.state.transaction.createTransactionLoading = false
@@ -447,14 +444,6 @@ export default {
 
     async getTransactions({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      // fetch(`${location.origin}/user/transactions`, {
-      //   method: "GET",
-      //   headers: {
-      //     Authorization: `Bearer ${token}`,
-      //     "Content-Type": "application/json",
-      //   },
-      // })
-      //   .then((response) => response.json())
       const options = {
         url: `${location.origin}/user/transactions`,
         method: "GET",
