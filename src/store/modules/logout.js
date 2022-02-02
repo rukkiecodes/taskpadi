@@ -11,10 +11,10 @@ export default {
     logoutUser() {
       this.state.logout.logoutLoading = true
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(location.origin + "/user/logout", {
+      fetch(`${location.origin}/user/logout`, {
         method: "POST",
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       })

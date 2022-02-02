@@ -24,7 +24,7 @@ export default {
   actions: {
     getBanks({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(location.origin + "/banks", {
+      fetch(`${location.origin}/banks`, {
         method: "GET",
       })
         .then((response) => response.json())

@@ -30,7 +30,7 @@ export default {
   actions: {
     async signinUser ({ commit }) {
       const options = {
-        url: location.origin + "/login",
+        url: `${location.origin}/login`,
         method: "POST",
         data: this.state.signin.credential,
       }

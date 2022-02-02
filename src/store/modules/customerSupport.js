@@ -150,7 +150,7 @@ export default {
 
         let myHeaders = new Headers()
         myHeaders.append("Accept", "multipart/form-data")
-        myHeaders.append("Authorization", "Bearer " + token)
+        myHeaders.append("Authorization", `Bearer ${token}`)
 
         formData.append(
           "subject",
@@ -175,7 +175,7 @@ export default {
           body: formData,
         }
 
-        fetch(location.origin + "/user/ticket", requestOptions)
+        fetch(`${location.origin}/user/ticket`, requestOptions)
           .then((response) => response.json())
           .then((response) => {
             commit("createTicket", response)
@@ -213,10 +213,10 @@ export default {
 
     getTickets({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(location.origin + "/user/tickets", {
+      fetch(`${location.origin}/user/tickets`, {
         method: "GET",
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       })

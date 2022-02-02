@@ -376,7 +376,7 @@ export default {
 
       let myHeaders = new Headers()
       myHeaders.append("Accept", "multipart/form-data")
-      myHeaders.append("Authorization", "Bearer " + token)
+      myHeaders.append("Authorization", `Bearer ${token}`)
 
       formData.append(
         "recipient_name",
@@ -426,7 +426,7 @@ export default {
         redirect: "follow",
       }
 
-      fetch(location.origin + "/user/transaction", requestOptions)
+      fetch(`${location.origin}/user/transaction`, requestOptions)
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getTransactions").then(() => {
@@ -449,10 +449,10 @@ export default {
 
     async getTransactions({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(location.origin + "/user/transactions", {
+      fetch(`${location.origin}/user/transactions`, {
         method: "GET",
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       })
@@ -502,7 +502,7 @@ export default {
 
         let myHeaders = new Headers()
         myHeaders.append("Accept", "multipart/form-data")
-        myHeaders.append("Authorization", "Bearer " + token)
+        myHeaders.append("Authorization", `Bearer ${token}`)
 
         formData.append(
           "recipient_name",
