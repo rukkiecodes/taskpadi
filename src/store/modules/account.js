@@ -1,5 +1,6 @@
 import Vue from "vue"
 import axios from "axios"
+import location from "./location"
 
 export default {
   state: {
@@ -30,9 +31,9 @@ export default {
   mutations: {
     getProfile: (state, response) => {
       state.userData = {}
-      state.userData = response.data.data
+      state.userData = response.data
 
-      console.log("User data: ", response.data.data)
+      console.log("axios user data: ", response)
 
       let number = state.userData.phone
       let arr = number.split("4")
@@ -146,43 +147,32 @@ export default {
   actions: {
     async getProfile({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      console.log(token)
-      const options = {
-        url: `${location.origin}/user/profile`,
+
+      let myHeaders = new Headers()
+      myHeaders.append("Accept", "application/json")
+      myHeaders.append("Authorization", `Bearer ${token}`)
+
+      var requestOptions = {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
+        headers: myHeaders,
       }
-      await axios(options)
+
+      fetch(location + "/user/profile", requestOptions)
+        .then((response) => response.json())
         .then((response) => {
           commit("getProfile", response)
         })
-        .catch((error) => {
-          console.log("Error: ", error)
-        })
+        .catch((error) => console.log("error", error))
     },
 
     async getStates({ commit }) {
-      axios
-        .get(`${location.origin}/states`)
-        .then((response) => {
-          commit("getStates", response)
-        })
-        .catch((error) => {
-          console.log("Error: ", error)
-        })
+      const response = await Vue.prototype.$axios.get(location + "/states")
+      commit("getStates", response)
     },
 
     async updateProfile({ commit, dispatch }) {
-      let token = Vue.prototype.$cookies.get("PaddiData").access_token
-
       this.state.account.saveLoading = true
-
-      let myHeaders = new Headers()
-      myHeaders.append("Accept", "multipart/form-data")
-      myHeaders.append("Authorization", `Bearer ${token}`)
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
 
       let formData = new FormData()
       formData.append("firstname", this.state.account.credential.firstname)
@@ -197,17 +187,17 @@ export default {
       formData.append("address", this.state.account.credential.address)
       formData.append("avatar", this.state.account.credential.image)
 
-      let requestOptions = {
-        url: `${location.origin}/user/profile`,
+      let options = {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
+          Accept: "multipart/form-data",
         },
-        data: formData,
+        body: formData,
       }
-      
-      await axios(requestOptions)
+
+      fetch(location + "/user/profile", options)
+        .then((response) => response.json())
         .then((response) => {
           return dispatch("getProfile").then(() => {
             commit("updateProfile", response)

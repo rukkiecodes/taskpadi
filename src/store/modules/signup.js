@@ -1,5 +1,6 @@
 import router from "../../router"
 import Vue from "vue"
+import location from "./location"
 
 export default {
   state: {
@@ -30,12 +31,6 @@ export default {
 
   actions: {
     async signupUser({ commit }) {
-      const options = {
-        url: `${location.origin}/register`,
-        method: "POST",
-        data: this.state.signup.credential,
-      }
-
       let emailRegEx = /\S+@\S+\.\S+/
 
       this.state.signup.loading = true
@@ -49,6 +44,12 @@ export default {
           this.state.signup.credential.password_confirmation
       ) {
         try {
+          const options = {
+            url: location + "/register",
+            method: "POST",
+            data: this.state.signup.credential,
+          }
+          
           const response = await Vue.prototype.$axios(options)
           commit("signupUser", response)
           this.state.signup.loading = false

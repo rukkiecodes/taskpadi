@@ -65,7 +65,13 @@
         />
       </v-col>
       <v-col cols="12" sm="6">
-        <vs-select
+        <vs-input
+          block
+          class="mt-3"
+          label-placeholder="Country"
+          v-model="account.credential.state"
+        />
+        <!-- <vs-select
           block
           filter
           @change="setState"
@@ -80,7 +86,7 @@
           >
             {{ state.name }}
           </vs-option>
-        </vs-select>
+        </vs-select> -->
       </v-col>
       <v-col cols="12" sm="6">
         <vs-input

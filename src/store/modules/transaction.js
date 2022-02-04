@@ -546,6 +546,7 @@ export default {
           headers: myHeaders,
           body: formData,
           redirect: "follow",
+          mode: "no-cors", // 'cors' by default
         }
 
         fetch(
