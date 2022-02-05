@@ -16,7 +16,7 @@
                 <v-list-item-subtitle v-text="bank.abbreviation" />
               </v-list-item-content>
 
-              <v-list-item-action-text v-text="`(${bank.code}) ${bank.id}`" />
+              <v-list-item-action-text v-text="bank.code" />
             </v-list-item>
           </v-list>
           <div>

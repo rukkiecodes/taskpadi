@@ -55,90 +55,90 @@ export default {
       state.nigerianStates = []
       state.nigerianStates.push(...response.data.banks)
 
-      console.log("states in nigeria: ", state.nigerianStates)
+      console.log("states in nigeria: ", response)
     },
 
     updateProfile: (state, response) => {
       console.log(response)
-      if (response.data.message == "The given data was invalid.") {
+      if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.data.errors.phone_number[0],
+          text: response.errors.phone_number[0],
         })
       }
-      if (response.data.message == "The given data was invalid.") {
+      if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.data.errors.country[0],
+          text: response.errors.country[0],
         })
       }
-      if (response.data.message == "The given data was invalid.") {
+      if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.data.errors.address[0],
+          text: response.errors.address[0],
         })
       }
-      if (response.data.message == "The given data was invalid.") {
+      if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.data.errors.firstname[0],
+          text: response.errors.firstname[0],
         })
       }
-      if (response.data.message == "The given data was invalid.") {
+      if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.data.errors.lastname[0],
+          text: response.errors.lastname[0],
         })
       }
-      if (response.data.message == "The given data was invalid.") {
+      if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.data.errors.lga[0],
+          text: response.errors.lga[0],
         })
       }
-      if (response.data.message == "The given data was invalid.") {
+      if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.data.errors.state[0],
+          text: response.errors.state[0],
         })
       }
-      if (response.data.success == false) {
+      if (response.success == false) {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
           title: "Oops!!!",
-          text: response.data.message,
+          text: response.message,
         })
       }
-      if (response.data.success == true) {
+      if (response.success == true) {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-user"></i>`,
           border: "#46C93A",
           position: "top-right",
           title: "Yippee!!!",
-          text: response.data.message,
+          text: response.message,
         })
       }
     },
@@ -147,6 +147,8 @@ export default {
   actions: {
     async getProfile({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
+
+      console.log(token)
 
       let myHeaders = new Headers()
       myHeaders.append("Accept", "application/json")
@@ -185,7 +187,8 @@ export default {
       formData.append("state", this.state.account.credential.state)
       formData.append("lga", this.state.account.credential.lga)
       formData.append("address", this.state.account.credential.address)
-      formData.append("avatar", this.state.account.credential.image)
+      if (this.state.account.credential.image)
+        formData.append("avatar", this.state.account.credential.image)
 
       let options = {
         method: "POST",

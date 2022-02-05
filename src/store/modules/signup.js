@@ -1,6 +1,5 @@
 import router from "../../router"
 import Vue from "vue"
-import location from "./location"
 
 export default {
   state: {
@@ -34,46 +33,73 @@ export default {
       let emailRegEx = /\S+@\S+\.\S+/
 
       this.state.signup.loading = true
+      let input = this.state.signup.credential
 
-      if (
-        this.state.signup.credential.firstname != "" &&
-        this.state.signup.credential.lastname != "" &&
-        emailRegEx.test(this.state.signup.credential.email) &&
-        this.state.signup.credential.password != "" &&
-        this.state.signup.credential.password ===
-          this.state.signup.credential.password_confirmation
-      ) {
-        try {
-          const options = {
-            url: location + "/register",
-            method: "POST",
-            data: this.state.signup.credential,
-          }
-          
-          const response = await Vue.prototype.$axios(options)
-          commit("signupUser", response)
-          this.state.signup.loading = false
-        } catch (error) {
-          console.log("Error with try:", error)
-          this.state.signup.loading = false
-          Vue.prototype.$vs.notification({
-            icon: `<i class="las la-exclamation-triangle"></i>`,
-            border: "rgb(255, 71, 87)",
-            position: "top-right",
-            title: "Error !!!",
-            text: "This email exists. Try another.",
-          })
-        }
-      } else {
-        this.state.signup.loading = false
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Error !!!",
-          text: `Please complete the form and try again`,
-        })
+      // var myHeaders = new Headers()
+      // myHeaders.append("Accept", "application/json")
+
+      var formdata = new FormData()
+      formdata.append("firstname", "Terry")
+      formdata.append("lastname", "Friday")
+      formdata.append("email", "rukkiecodes6@gmail.com")
+      formdata.append("password", "amagboro")
+      formdata.append("password_confirmation", "amagboro")
+      formdata.append("referral_code", "1")
+
+      var requestOptions = {
+        method: "POST",
+        // headers: myHeaders,
+        body: formdata,
       }
+
+      fetch("https://dev.trustpaddi.com/api/v1/register", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result)
+          this.state.signup.loading = false
+        })
+        .catch((error) => {
+          console.log("error", error)
+          this.state.signup.loading = false
+        })
+
+      // if (
+      //   input.firstname != "" &&
+      //   input.lastname != "" &&
+      //   emailRegEx.test(input.email) &&
+      //   input.password != "" &&
+      //   input.password === input.password_confirmation
+      // ) {
+      //   // try {
+      //   //   const options = {
+      //   //     url: `${location.origin}/register`,
+      //   //     method: "POST",
+      //   //     data: this.state.signup.credential,
+      //   //   }
+      //   //   const response = await Vue.prototype.$axios(options)
+      //   //   commit("signupUser", response)
+      //   //   this.state.signup.loading = false
+      //   // } catch (error) {
+      //   //   console.log("Error with try:", error)
+      //   //   this.state.signup.loading = false
+      //   //   Vue.prototype.$vs.notification({
+      //   //     icon: `<i class="las la-exclamation-triangle"></i>`,
+      //   //     border: "rgb(255, 71, 87)",
+      //   //     position: "top-right",
+      //   //     title: "Error !!!",
+      //   //     text: error,
+      //   //   })
+      //   // }
+      // } else {
+      //   this.state.signup.loading = false
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-exclamation-triangle"></i>`,
+      //     border: "rgb(255, 71, 87)",
+      //     position: "top-right",
+      //     title: "Error !!!",
+      //     text: `Please complete the form and try again`,
+      //   })
+      // }
     },
   },
 }

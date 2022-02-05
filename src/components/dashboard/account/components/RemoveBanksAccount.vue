@@ -5,7 +5,12 @@
     <v-card-text>
       <v-row justify="space-between" align="start">
         <v-col cols="12">
-          <vs-select
+          <vs-input
+            block
+            label-placeholder="Account number"
+            v-model="settings.removeBankAccountCredential.bank_id"
+          />
+          <!-- <vs-select
             block
             filter
             color="#6200EA"
@@ -21,7 +26,7 @@
             >
               {{ bank.abbreviation }}: {{ bank.id }}
             </vs-option>
-          </vs-select>
+          </vs-select> -->
         </v-col>
         <v-col cols="12">
           <vs-button

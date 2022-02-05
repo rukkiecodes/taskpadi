@@ -1,7 +1,6 @@
 // @ts-nocheck
 import router from "../../router"
 import Vue from "vue"
-import location from "./location"
 
 export default {
   state: {
@@ -17,7 +16,7 @@ export default {
     signinUser: (state, response) => {
       state.loading = false
       console.log("login user: ", response)
-      Vue.prototype.$cookies.set("PaddiData", response.user)
+      Vue.prototype.$cookies.set("PaddiData", response)
       if (response.success == true) {
         state.loading = false
         router.push("/dashboard/dashboard")
@@ -55,7 +54,7 @@ export default {
           body: formdata,
         }
 
-        fetch(location + "/login", options)
+        fetch("https://dev.trustpaddi.com/api/v1/login", options)
           .then((response) => response.json())
           .then((response) => {
             commit("signinUser", response)
@@ -68,7 +67,7 @@ export default {
               border: "rgb(255, 71, 87)",
               position: "top-right",
               title: "Error !!!",
-              text: `Sign in error. Check your details the try again. ${error}`,
+              text: error,
             })
           })
       } else {
