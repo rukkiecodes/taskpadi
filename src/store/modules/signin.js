@@ -1,6 +1,7 @@
 // @ts-nocheck
 import router from "../../router"
 import Vue from "vue"
+import location from "./location"
 
 export default {
   state: {
@@ -54,22 +55,41 @@ export default {
           body: formdata,
         }
 
-        fetch("https://dev.trustpaddi.com/api/v1/login", options)
-          .then((response) => response.json())
-          .then((response) => {
-            commit("signinUser", response)
-            this.state.signin.loading = false
-          })
-          .catch((error) => {
-            this.state.signin.loading = false
-            Vue.prototype.$vs.notification({
-              icon: `<i class="las la-exclamation-triangle"></i>`,
-              border: "rgb(255, 71, 87)",
-              position: "top-right",
-              title: "Error !!!",
-              text: error,
+        if (process.env.NODE_ENV == "development") {
+          fetch(`${location}/login`, options)
+            .then((response) => response.json())
+            .then((response) => {
+              commit("signinUser", response)
+              this.state.signin.loading = false
             })
-          })
+            .catch((error) => {
+              this.state.signin.loading = false
+              Vue.prototype.$vs.notification({
+                icon: `<i class="las la-exclamation-triangle"></i>`,
+                border: "rgb(255, 71, 87)",
+                position: "top-right",
+                title: "Error !!!",
+                text: error,
+              })
+            })
+        } else if (process.env.NODE_ENV == "production") {
+          fetch("https://dev.trustpaddi.com/api/v1/login", options)
+            .then((response) => response.json())
+            .then((response) => {
+              commit("signinUser", response)
+              this.state.signin.loading = false
+            })
+            .catch((error) => {
+              this.state.signin.loading = false
+              Vue.prototype.$vs.notification({
+                icon: `<i class="las la-exclamation-triangle"></i>`,
+                border: "rgb(255, 71, 87)",
+                position: "top-right",
+                title: "Error !!!",
+                text: error,
+              })
+            })
+        }
       } else {
         this.state.signin.loading = false
         Vue.prototype.$vs.notification({

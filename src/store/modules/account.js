@@ -159,21 +159,17 @@ export default {
         headers: myHeaders,
       }
 
-      if (process.env.NODE_ENV == "development") {
-        fetch(`${location}/user/profile`, requestOptions)
-          .then((response) => response.json())
-          .then((response) => {
-            commit("getProfile", response)
-          })
-          .catch((error) => console.log("error", error))
-      } else if (process.env.NODE_ENV == "production") {
-        fetch("https://dev.trustpaddi.com/api/v1/user/profile", requestOptions)
-          .then((response) => response.json())
-          .then((response) => {
-            commit("getProfile", response)
-          })
-          .catch((error) => console.log("error", error))
-      }
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? "https://trustpaddi.netlify.app/user/profile"
+          : "http://localhost:8081/user/profile",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          commit("getProfile", response)
+        })
+        .catch((error) => console.log("error", error))
     },
 
     async getStates({ commit }) {

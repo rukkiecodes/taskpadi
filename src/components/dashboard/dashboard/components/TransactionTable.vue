@@ -85,7 +85,7 @@ export default {
   data: () => ({
     search: "",
     page: 1,
-    max: 7,
+    max: 5,
   }),
 
   components: {

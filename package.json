@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://rukkiecodes.github.io/taskpadi",
   "dependencies": {
     "aos": "^2.3.4",
     "apexcharts": "^3.32.1",
@@ -14,6 +16,7 @@
     "core-js": "^3.6.5",
     "dat.gui": "^0.7.7",
     "dotenv": "^12.0.1",
+    "gh-pages": "^3.2.3",
     "gsap": "^3.9.1",
     "jquery": "^3.6.0",
     "morris.js": "^0.5.0",
