@@ -159,12 +159,21 @@ export default {
         headers: myHeaders,
       }
 
-      fetch(location + "/user/profile", requestOptions)
-        .then((response) => response.json())
-        .then((response) => {
-          commit("getProfile", response)
-        })
-        .catch((error) => console.log("error", error))
+      if (process.env.NODE_ENV == "development") {
+        fetch(`${location}/user/profile`, requestOptions)
+          .then((response) => response.json())
+          .then((response) => {
+            commit("getProfile", response)
+          })
+          .catch((error) => console.log("error", error))
+      } else if (process.env.NODE_ENV == "production") {
+        fetch("https://dev.trustpaddi.com/api/v1/user/profile", requestOptions)
+          .then((response) => response.json())
+          .then((response) => {
+            commit("getProfile", response)
+          })
+          .catch((error) => console.log("error", error))
+      }
     },
 
     async getStates({ commit }) {
