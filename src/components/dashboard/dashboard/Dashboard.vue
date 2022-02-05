@@ -13,19 +13,16 @@
       </v-row>
       <TransactionTable v-if="tableSmall" />
     </v-row>
-    <PageLoad />
   </v-container>
 </template>
 
 <script>
-import PageLoad from "../../app components/PageLoad.vue"
 export default {
   components: {
     Actions: () => import("./components/Actions.vue"),
     AllTransactionCarousel: () =>
       import("./components/AllTransactionCarousel.vue"),
     TransactionTable: () => import("./components/TransactionTable.vue"),
-    PageLoad
   },
 
   computed: {

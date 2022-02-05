@@ -13,11 +13,8 @@
 
               <v-list-item-content>
                 <v-list-item-title v-text="bank.accountName" />
-                <!-- <v-list-item-subtitle
-                  v-text="bank.bankName +' '+ bank.bankName + ' ' + bank.accountNumber"
-                /> -->
                 <v-list-item-subtitle>
-                  {{ bank.id }} {{ bank.bankName }} {{ bank.accountNumber }}
+                  {{ bank.bankName }} {{ bank.accountNumber }}
                 </v-list-item-subtitle>
               </v-list-item-content>
 

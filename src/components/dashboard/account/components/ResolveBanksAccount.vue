@@ -3,7 +3,7 @@
     <v-card-text class="font-weight-bold">Resolve Bank Account</v-card-text>
     <v-card-text>
       <v-row justify="space-between" align="start">
-        <v-col cols="12">
+        <v-col cols="12" sm="6">
           <vs-select
             block
             filter
@@ -15,14 +15,14 @@
             <vs-option
               v-for="(bank, i) in settings.banks"
               :key="i"
-              :label="bank.abbreviation + ': ' + bank.id"
+              :label="bank.abbreviation"
               :value="bank.id"
             >
-              {{ bank.abbreviation }}: {{ bank.id }}
+              {{ bank.abbreviation }}
             </vs-option>
           </vs-select>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="12" sm="6">
           <vs-input
             block
             label-placeholder="Account number"

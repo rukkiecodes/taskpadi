@@ -144,43 +144,45 @@ export default {
     },
 
     resolveBackAccount: (state, response) => {
-      state.resolvedAccount = Vue.prototype.$cookies.get("PaddiResolved")
-      if (response.message == "The given data was invalid.") {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Oops!!!",
-          text: response.errors.account_no[0],
-        })
-      }
-      if (response.message == "The given data was invalid.") {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Oops!!!",
-          text: response.errors.bank_id[0],
-        })
-      }
-      if (response.success == true) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
-      if (response.success == false) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
+      console.log("resolveBackAccount: ", response)
+      // state.resolvedAccount = Vue.prototype.$cookies.get("PaddiResolved")
+      // state.resolveBankAccountLoading = false
+      // if (response.message == "The given data was invalid.") {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-exclamation-triangle"></i>`,
+      //     border: "rgb(255, 71, 87)",
+      //     position: "top-right",
+      //     title: "Oops!!!",
+      //     text: response.errors.account_no[0],
+      //   })
+      // }
+      // if (response.message == "The given data was invalid.") {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-exclamation-triangle"></i>`,
+      //     border: "rgb(255, 71, 87)",
+      //     position: "top-right",
+      //     title: "Oops!!!",
+      //     text: response.errors.bank_id[0],
+      //   })
+      // }
+      // if (response.success == true) {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-university"></i>`,
+      //     border: "#46C93A",
+      //     position: "top-right",
+      //     title: "Yippee!!!",
+      //     text: response.message,
+      //   })
+      // }
+      // if (response.success == false) {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-university"></i>`,
+      //     border: "rgb(255, 71, 87)",
+      //     position: "top-right",
+      //     title: "Yippee!!!",
+      //     text: response.message,
+      //   })
+      // }
     },
 
     removeBankAccount: (state, response) => {
@@ -194,6 +196,7 @@ export default {
         })
       }
       if (response.success == true) {
+        state.resolveBankAccountLoading = false
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-university"></i>`,
           border: "#46C93A",
@@ -304,10 +307,11 @@ export default {
     },
 
     addBankAccount({ commit, dispatch }) {
+      let input = this.state.settings.addBankAccountCredential
       if (
-        this.state.settings.addBankAccountCredential.bank_id != "" &&
-        this.state.settings.addBankAccountCredential.account_no != "" &&
-        this.state.settings.addBankAccountCredential.account_name != ""
+        input.bank_id != "" &&
+        input.account_no != "" &&
+        input.account_name != ""
       ) {
         this.state.settings.addBankAccountLoading = true
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
@@ -317,7 +321,7 @@ export default {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(this.state.settings.addBankAccountCredential),
+          body: JSON.stringify(input),
         })
           .then((response) => response.json())
           .then((response) => {
@@ -343,21 +347,17 @@ export default {
     },
 
     resolveBackAccount({ commit }) {
-      if (
-        this.state.settings.resolveBankAccountCredential.bank_id != "" &&
-        this.state.settings.resolveBankAccountCredential.account_no != ""
-      ) {
+      let input = this.state.settings.resolveBankAccountCredential
+      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      if (input.bank_id != "" && input.account_no != "") {
         this.state.settings.resolveBankAccountLoading = true
-        let token = Vue.prototype.$cookies.get("PaddiData").access_token
         fetch(location + "/user/resolve-account", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(
-            this.state.settings.resolveBankAccountCredential
-          ),
+          body: JSON.stringify(input),
         })
           .then((response) => response.json())
           .then((response) => {

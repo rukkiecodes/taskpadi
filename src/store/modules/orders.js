@@ -1,26 +1,10 @@
 import Vue from "vue"
+import location from "./location"
 
 export default {
-  state: {
-    // editAvatarDialog: false,
-    // credential: {
-    //   firstname: "",
-    //   lastname: "",
-    //   phone_number: "",
-    //   country: "",
-    //   state: "",
-    //   lga: "",
-    //   address: "",
-    // },
-    // userData: {},
-    // avatar: "",
-    // saveLoading: false,
-    // nigerianStates: [],
-  },
+  state: {},
 
-  getters: {
-    // nigerianStates: (state) => state.nigerianStates,
-  },
+  getters: {},
 
   mutations: {
     getOrders: (state, response) => {

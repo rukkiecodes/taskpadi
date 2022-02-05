@@ -105,14 +105,14 @@
           </v-col>
           <v-col cols="12">
             <v-file-input
-              @change="setTransactionImage"
               class="realFileInput"
               style="display: none"
+              @change="setTransactionImage"
             ></v-file-input>
             <vs-input
               block
-              @click="clickOnInput"
               placeholder="Image"
+              @click="clickOnInput"
               v-model="transaction.imageName"
             >
             </vs-input>
@@ -124,15 +124,15 @@
         <v-spacer />
         <div class="con-footer d-flex justify-end">
           <vs-button
-            @click="transaction.createTransactionDialog = false"
             transparent
+            @click="transaction.createTransactionDialog = false"
           >
-            Cansel
+            Cancel
           </vs-button>
           <vs-button
+            color="#6200EA"
             @click="createTransaction"
             :loading="transaction.createTransactionLoading"
-            color="#6200EA"
           >
             Create transaction</vs-button
           >
