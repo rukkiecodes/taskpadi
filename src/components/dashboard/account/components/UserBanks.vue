@@ -33,7 +33,7 @@
           <div class="text-center mt-n8" v-show="pages.length < 1">
             <span>No registered banks</span>
           </div>
-          <div v-show="pages.length >= 5">
+          <div>
             <vs-pagination
               not-margin
               color="#6200EA"
