@@ -1,5 +1,4 @@
 import Vue from "vue"
-import axios from "axios"
 import location from "./location"
 
 export default {
@@ -31,7 +30,7 @@ export default {
   mutations: {
     getProfile: (state, response) => {
       state.userData = {}
-      state.userData = response.data
+      state.userData = response.data.data
 
       console.log("axios user data: ", response)
 
@@ -148,24 +147,18 @@ export default {
     async getProfile({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
 
-      console.log(token)
-
-      let myHeaders = new Headers()
-      myHeaders.append("Accept", "application/json")
-      myHeaders.append("Authorization", `Bearer ${token}`)
-
-      var requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-      }
-
-      fetch(
-        process.env.NODE_ENV === "production"
-          ? "https://trustpaddi.netlify.app/user/profile"
-          : "http://localhost:8081/user/profile",
-        requestOptions
-      )
-        .then((response) => response.json())
+      await Vue.prototype.$axios
+        .get(
+          process.env.NODE_ENV === "production"
+            ? "https://dev.trustpaddi.com/api/v1/user/profile"
+            : "/user/profile",
+          {
+            headers: {
+              "Content-type": "application/json;charset=utf-8",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((response) => {
           commit("getProfile", response)
         })

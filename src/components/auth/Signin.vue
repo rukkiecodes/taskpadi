@@ -20,7 +20,7 @@
           <div class="center content-inputs">
             <vs-input
               v-model="signin.credential.email"
-              placeholder="Name"
+              placeholder="Email"
               type="email"
             >
               <template #icon>
