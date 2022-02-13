@@ -421,7 +421,7 @@ export default {
         redirect: "follow",
       }
 
-      fetch(`${location.origin}/user/transaction`, requestOptions)
+      fetch(`https://dev.trustpaddi.com/api/v1/user/transaction`, requestOptions)
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getTransactions").then(() => {
@@ -452,7 +452,7 @@ export default {
         },
       }
 
-      fetch(`${location.origin}/user/transactions`, options)
+      fetch(`https://dev.trustpaddi.com/api/v1/user/transactions`, options)
         .then((response) => response.json())
         .then((response) => {
           commit("getTransactions", response)
@@ -551,7 +551,7 @@ export default {
         }
 
         fetch(
-          `${location.origin}/user/update-transaction/${code}`,
+          `https://dev.trustpaddi.com/api/v1/user/update-transaction/${code}`,
           requestOptions
         )
           .then((response) => response.json())
@@ -596,7 +596,7 @@ export default {
       this.state.transaction.approveTransactionLoading = true
       let code = transaction.code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/approve-transaction/${code}`, {
+      fetch(`https://dev.trustpaddi.com/api/v1/user/approve-transaction/${code}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -621,7 +621,7 @@ export default {
       this.state.transaction.confirmTransactionLoading = true
       let code = transaction.code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/confirm-transaction/${code}`, {
+      fetch(`https://dev.trustpaddi.com/api/v1/user/confirm-transaction/${code}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -650,7 +650,7 @@ export default {
       this.state.transaction.declineTransactionLoading = true
       let code = transaction.code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/decline-transaction/${code}`, {
+      fetch(`https://dev.trustpaddi.com/api/v1/user/decline-transaction/${code}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -703,7 +703,7 @@ export default {
           redirect: "follow",
         }
 
-        fetch(`${location.origin}/user/upload-pop/${code}`, requestOptions)
+        fetch(`https://dev.trustpaddi.com/api/v1/user/upload-pop/${code}`, requestOptions)
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getTransactions").then(() => {
@@ -759,7 +759,7 @@ export default {
           redirect: "follow",
         }
 
-        fetch(`${location.origin}/user/transaction/${code}`, requestOptions)
+        fetch(`https://dev.trustpaddi.com/api/v1/user/transaction/${code}`, requestOptions)
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getTransactions").then(() => {
