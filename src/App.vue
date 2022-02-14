@@ -23,6 +23,7 @@ export default {
     Vue.prototype.$axios = this.$axios
     Vue.prototype.$cookies = this.$cookies
     Vue.prototype.$vuetify = this.$vuetify
+    // Vue.prototype.$http = this.$http
   },
 }
 </script>

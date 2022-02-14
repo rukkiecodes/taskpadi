@@ -452,7 +452,12 @@ export default {
         },
       }
 
-      fetch(`${location.origin}/user/transactions`, options)
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/transactions"
+          : "/api/user/transactions",
+        options
+      )
         .then((response) => response.json())
         .then((response) => {
           commit("getTransactions", response)

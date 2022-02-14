@@ -1,4 +1,16 @@
 import Vue from "vue"
+import VueResource from "vue-resource"
+Vue.use(VueResource)
+// Vue.http.options.emulateJSON = true
+
+// Vue.http.headers.common["Content-Type"] = "application/json"
+// Vue.http.headers.common["Access-Control-Allow-Origin"] = "*"
+// Vue.http.headers.common["Accept"] = "application/json, text/plain, */*"
+// Vue.http.headers.common["Access-Control-Allow-Headers"] =
+//   "Origin, Accept, Content-Type, Authorization, Access-Control-Allow-Origin"
+
+const http = Vue.http
+
 import location from "./location"
 
 export default {
@@ -147,18 +159,22 @@ export default {
     async getProfile({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
 
-      await Vue.prototype.$axios
-        .get(
+      let options = {
+        url:
           process.env.NODE_ENV === "production"
-            ? "https://dev.trustpaddi.com/api/v1/user/profile"
-            : "/user/profile",
-          {
-            headers: {
-              "Content-type": "application/json;charset=utf-8",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/profile"
+            : "/api/user/profile",
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+
+      await Vue.prototype
+        .$axios(options)
         .then((response) => {
           commit("getProfile", response)
         })
@@ -166,7 +182,11 @@ export default {
     },
 
     async getStates({ commit }) {
-      const response = await Vue.prototype.$axios.get(location + "/states")
+      const response = await Vue.prototype.$axios.get(
+        process.env.NODE_ENV === "production"
+          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/states"
+          : "/api/states"
+      )
       commit("getStates", response)
     },
 
@@ -197,7 +217,12 @@ export default {
         body: formData,
       }
 
-      fetch(location + "/user/profile", options)
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/profile"
+          : "/api/user/profile",
+        options
+      )
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getProfile").then(() => {

@@ -27,6 +27,7 @@
     "vue-country-code": "^1.1.2",
     "vue-meta": "^2.4.0",
     "vue-morris": "^1.1.0",
+    "vue-resource": "^1.5.3",
     "vue-router": "^3.2.0",
     "vue-smooth-scrollbar": "^1.0.3",
     "vuesax": "^4.0.1-alpha.25",

@@ -47,11 +47,10 @@ export default {
           url:
             process.env.NODE_ENV === "production"
               ? "https://dev.trustpaddi.com/api/v1/login"
-              : "/login",
+              : "/api/login",
           method: "POST",
           headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json;charset=UTF-8",
+            "Content-Type": "application/json",
           },
           data: input,
         }
@@ -72,55 +71,6 @@ export default {
               text: error,
             })
           })
-
-        // let myHeaders = new Headers()
-        // myHeaders.append("Accept", "application/json")
-
-        // let formdata = new FormData()
-        // formdata.append("email", input.email)
-        // formdata.append("password", input.password)
-
-        // const options = {
-        //   method: "POST",
-        //   headers: myHeaders,
-        //   body: formdata,
-        // }
-
-        // if (process.env.NODE_ENV == "development") {
-        //   fetch(`/login`, options)
-        //     .then((response) => response.json())
-        //     .then((response) => {
-        //       commit("signinUser", response)
-        //       this.state.signin.loading = false
-        //     })
-        //     .catch((error) => {
-        //       this.state.signin.loading = false
-        //       Vue.prototype.$vs.notification({
-        //         icon: `<i class="las la-exclamation-triangle"></i>`,
-        //         border: "rgb(255, 71, 87)",
-        //         position: "top-right",
-        //         title: "Error !!!",
-        //         text: error,
-        //       })
-        //     })
-        // } else if (process.env.NODE_ENV == "production") {
-        //   fetch("https://dev.trustpaddi.com/api/v1/login", options)
-        //     .then((response) => response.json())
-        //     .then((response) => {
-        //       commit("signinUser", response)
-        //       this.state.signin.loading = false
-        //     })
-        //     .catch((error) => {
-        //       this.state.signin.loading = false
-        //       Vue.prototype.$vs.notification({
-        //         icon: `<i class="las la-exclamation-triangle"></i>`,
-        //         border: "rgb(255, 71, 87)",
-        //         position: "top-right",
-        //         title: "Error !!!",
-        //         text: error,
-        //       })
-        //     })
-        // }
       } else {
         this.state.signin.loading = false
         Vue.prototype.$vs.notification({
