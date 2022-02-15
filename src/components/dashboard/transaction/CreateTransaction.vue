@@ -1,16 +1,18 @@
 <template>
   <div class="center">
     <vs-button
-      @click="transaction.createTransactionDialog = true"
-      style="font-weight: bold"
       color="#6200EA"
+      style="font-weight: bold"
+      @click="transaction.createTransactionDialog = true"
     >
       Create transaction</vs-button
     >
 
     <vs-dialog
-      width="457px"
+      blur
       not-center
+      width="457px"
+      prevent-close
       v-model="transaction.createTransactionDialog"
     >
       <template #header>
@@ -148,7 +150,7 @@ import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     max: 180,
-    rules: [v => v.length <= 180 || 'Max 25 characters'],
+    rules: [(v) => v.length <= 180 || "Max 25 characters"],
   }),
 
   methods: {

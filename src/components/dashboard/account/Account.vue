@@ -58,11 +58,9 @@ export default {
     Settings,
   },
 
-  mounted() {
-    this.$nextTick(() => {
-      this.getBanks()
-      this.getStates()
-    })
+  created() {
+    this.getBanks()
+    this.getStates()
   },
 
   methods: {

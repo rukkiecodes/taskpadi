@@ -421,7 +421,12 @@ export default {
         redirect: "follow",
       }
 
-      fetch(`${location.origin}/user/transaction`, requestOptions)
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/transaction"
+          : "/api/user/transaction",
+        requestOptions
+      )
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getTransactions").then(() => {
