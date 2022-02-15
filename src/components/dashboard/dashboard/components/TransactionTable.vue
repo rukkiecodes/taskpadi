@@ -2,7 +2,11 @@
   <v-col cols="12" sm="8" class="px-0 px-sm-4">
     <vs-table class="white rounded-xl">
       <template #header>
-        <vs-input block placeholder="Search transactions" v-model="transaction.search">
+        <vs-input
+          block
+          placeholder="Search transactions"
+          v-model="transaction.search"
+        >
           <template #icon>
             <i class="las la-search"></i>
           </template>
@@ -30,16 +34,14 @@
           <vs-td>
             {{ transaction.code }}
           </vs-td>
-          <vs-td> ₦ {{ transaction.price }} </vs-td>
+          <vs-td> ₦{{ transaction.price }} </vs-td>
           <vs-td>
             {{ transaction.type }}
           </vs-td>
           <vs-td>
-            <v-btn
-              dark
+            <v-chip
+              label
               small
-              depressed
-              class="text-capitalize rounded-lg"
               :class="{
                 'orange lighten-5 orange--text text--accent-3':
                   transaction.status == 'pending',
@@ -48,9 +50,8 @@
                 'deep-purple lighten-5 deep-purple--text text--darken-1':
                   transaction.status == 'ongoing',
               }"
+              >{{ transaction.status }}</v-chip
             >
-              {{ transaction.status }}
-            </v-btn>
           </vs-td>
           <vs-td>
             <vs-button
@@ -75,7 +76,6 @@
         />
       </template>
     </vs-table>
-    <ViewDetails />
   </v-col>
 </template>
 
@@ -87,10 +87,6 @@ export default {
     page: 1,
     max: 5,
   }),
-
-  components: {
-    ViewDetails: () => import("./ViewDetails.vue"),
-  },
 
   mounted() {
     this.$nextTick(() => {

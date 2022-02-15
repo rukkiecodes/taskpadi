@@ -1,5 +1,11 @@
 <template>
-  <vs-dialog not-center width="350" v-model="transaction.viewDetailsDialoge">
+  <vs-dialog
+    blur
+    not-center
+    width="350"
+    prevent-close
+    v-model="transaction.viewDetailsDialoge"
+  >
     <template #header>
       <h4 class="not-margin">Transaction Details</h4>
       <p class="text-caption grey--text text--darken-1 font-weight-regular">

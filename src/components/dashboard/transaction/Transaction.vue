@@ -97,7 +97,6 @@
     </v-fade-transition>
 
     <ConfirmPop />
-    <ViewDetails />
     <ConfirmDelete />
     <ConfirmDecline />
     <ConfirmConfirm />
@@ -123,7 +122,6 @@ export default {
     GoodsAndProducts,
     Crypto,
     Services,
-    ViewDetails: () => import("./ViewDetails.vue"),
     CreateTransaction: () => import("./CreateTransaction.vue"),
     UpdateTransaction: () => import("./UpdateTransaction.vue"),
     ConfirmApprove: () => import("./ConfirmApprove.vue"),

@@ -4,6 +4,12 @@ export default {
   component: () => import("../../../views/dashboard/Dashboard.vue"),
   children: [
     {
+      path: "viewTransaction",
+      name: "ViewTransaction",
+      component: () =>
+        import("../../../components/dashboard/transaction/ViewTransaction.vue"),
+    },
+    {
       path: "dashboard",
       name: "Your Paddi Dashboard",
       component: () => import("../../../views/dashboard/PaddiDashboard.vue"),

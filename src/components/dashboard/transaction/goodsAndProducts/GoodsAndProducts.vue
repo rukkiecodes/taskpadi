@@ -35,10 +35,9 @@
           {{ transaction.duration }}
         </vs-td>
         <vs-td>
-          <v-btn
-            dark
+          <v-chip
             small
-            depressed
+            label
             class="text-capitalize rounded-lg"
             :class="{
               'orange lighten-5 orange--text text--accent-3':
@@ -50,7 +49,7 @@
             }"
           >
             {{ transaction.status }}
-          </v-btn>
+          </v-chip>
         </vs-td>
         <vs-td>
           <div class="d-flex">
@@ -68,7 +67,7 @@
           </div>
         </vs-td>
 
-        <template #expand>
+        <!-- <template #expand>
           <div
             style="
               display: flex;
@@ -168,7 +167,7 @@
               </v-speed-dial>
             </div>
           </div>
-        </template>
+        </template> -->
       </vs-tr>
     </template>
 

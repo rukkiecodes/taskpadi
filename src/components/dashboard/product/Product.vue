@@ -4,7 +4,6 @@
 
     <ProductTable class="white mt-10" />
 
-    <ViewDetails />
     <EditProduct />
   </v-container>
 </template>
@@ -20,7 +19,6 @@ export default {
 
   components: {
     ProductTable,
-    ViewDetails: () => import("./ViewDetails.vue"),
     AddNewProduct: () => import("./AddNewProduct.vue"),
     EditProduct: () => import("./EditProduct.vue"),
   },
