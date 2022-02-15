@@ -159,7 +159,12 @@ export default {
         body: formData,
       }
 
-      fetch(`${location.origin}/user/product`, requestOptions)
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/product`
+          : `/api/user/product`,
+        requestOptions
+      )
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getProducts").then(() => {
@@ -182,13 +187,18 @@ export default {
 
     async getProducts({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/products`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/products`
+          : `/api/user/products`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           commit("getProducts", response)
@@ -244,7 +254,12 @@ export default {
           body: formData,
         }
 
-        fetch(`${location.origin}/user/product/${slug}`, requestOptions)
+        fetch(
+          process.env.NODE_ENV === "production"
+            ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/product/${slug}`
+            : `/api/user/product/${slug}`,
+          requestOptions
+        )
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getProducts").then(() => {

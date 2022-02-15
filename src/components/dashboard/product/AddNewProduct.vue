@@ -1,16 +1,18 @@
 <template>
   <div class="center">
     <vs-button
-      @click="product.createProductDialog = true"
-      style="font-weight: bold"
       color="#6200EA"
+      style="font-weight: bold"
+      @click="product.createProductDialog = true"
     >
       Add new product</vs-button
     >
 
     <vs-dialog
-      width="457px"
+      blur
       not-center
+      width="457px"
+      prevent-close
       v-model="product.createProductDialog"
     >
       <template #header>
@@ -79,10 +81,7 @@
       <template #footer>
         <v-spacer />
         <div class="con-footer d-flex justify-end">
-          <vs-button
-            @click="product.createProductDialog = false"
-            transparent
-          >
+          <vs-button @click="product.createProductDialog = false" transparent>
             Cancel
           </vs-button>
           <vs-button
@@ -104,7 +103,7 @@ import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     max: 180,
-    rules: [v => v.length <= 180 || 'Max 25 characters'],
+    rules: [(v) => v.length <= 180 || "Max 25 characters"],
   }),
 
   methods: {

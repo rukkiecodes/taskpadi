@@ -561,7 +561,9 @@ export default {
         }
 
         fetch(
-          `${location.origin}/user/update-transaction/${code}`,
+          process.env.NODE_ENV === "production"
+            ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/update-transaction/${code}`
+            : `/api/user/update-transaction/${code}`,
           requestOptions
         )
           .then((response) => response.json())
@@ -606,13 +608,18 @@ export default {
       this.state.transaction.approveTransactionLoading = true
       let code = transaction.code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/approve-transaction/${code}`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/approve-transaction/${code}`
+          : `/api/user/approve-transaction/${code}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getTransactions").then(() => {
@@ -631,13 +638,18 @@ export default {
       this.state.transaction.confirmTransactionLoading = true
       let code = transaction.code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/confirm-transaction/${code}`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/confirm-transaction/${code}`
+          : `/api/user/confirm-transaction/${code}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getTransactions").then(() => {
@@ -660,13 +672,18 @@ export default {
       this.state.transaction.declineTransactionLoading = true
       let code = transaction.code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/decline-transaction/${code}`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/decline-transaction/${code}`
+          : `/api/user/decline-transaction/${code}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getTransactions").then(() => {
@@ -713,7 +730,12 @@ export default {
           redirect: "follow",
         }
 
-        fetch(`${location.origin}/user/upload-pop/${code}`, requestOptions)
+        fetch(
+          process.env.NODE_ENV === "production"
+            ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/upload-pop/${code}`
+            : `/api/user/upload-pop/${code}`,
+          requestOptions
+        )
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getTransactions").then(() => {
@@ -769,7 +791,12 @@ export default {
           redirect: "follow",
         }
 
-        fetch(`${location.origin}/user/transaction/${code}`, requestOptions)
+        fetch(
+          process.env.NODE_ENV === "production"
+            ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/transaction/${code}`
+            : `/api/user/transaction/${code}`,
+          requestOptions
+        )
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getTransactions").then(() => {

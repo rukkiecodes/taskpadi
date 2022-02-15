@@ -1,7 +1,12 @@
 <template>
   <v-container>
-    <NoTicket v-if="tickets.length == 0" />
-    <SupportTable v-if="tickets.length != 0" />
+    <vs-button
+      color="#6200EA"
+      class="px-4 mb-5"
+      @click="customerSupport.customerDialog = true"
+      >Submit ticket</vs-button
+    >
+    <SupportTable />
     <CreateTicket />
     <ViewTicket />
     <ViewSingleTicket />
@@ -11,12 +16,10 @@
 
 <script>
 import { mapGetters, mapState, mapActions } from "vuex"
-import NoTicket from "./components/NoTicket.vue"
 import CreateTicket from "./components/CreateTicket.vue"
 import SupportTable from "./components/SupportTable.vue"
 export default {
   components: {
-    NoTicket,
     CreateTicket,
     SupportTable,
     ViewTicket: () => import("./components/ViewTicket.vue"),

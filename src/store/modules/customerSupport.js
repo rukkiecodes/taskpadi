@@ -175,7 +175,12 @@ export default {
           body: formData,
         }
 
-        fetch(`${location.origin}/user/ticket`, requestOptions)
+        fetch(
+          process.env.NODE_ENV === "production"
+            ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/ticket`
+            : `/api/user/ticket`,
+          requestOptions
+        )
           .then((response) => response.json())
           .then((response) => {
             commit("createTicket", response)
@@ -213,13 +218,18 @@ export default {
 
     getTickets({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/tickets`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/tickets"
+          : "/api/user/tickets",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           commit("getTickets", response)
@@ -236,13 +246,18 @@ export default {
     viewSingleTicket({ commit }, ticket) {
       let id = ticket.unique_code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/ticket/${id}`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/ticket/${id}`
+          : `/api/user/ticket/${id}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           commit("viewSingleTicket", response)
@@ -260,13 +275,18 @@ export default {
       this.state.customerSupport.deleteLoading = true
       let id = ticket.unique_code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/ticket/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/ticket/${id}`
+          : `/api/user/ticket/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getTickets").then(() => {
@@ -283,13 +303,18 @@ export default {
     closeSingleTicket({ commit, dispatch }, ticket) {
       let id = ticket.unique_code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(`${location.origin}/user/close-ticket/${id}`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/close-ticket/${id}`
+          : `/api/user/close-ticket/${id}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           return dispatch("getTickets").then(() => {

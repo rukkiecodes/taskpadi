@@ -1,5 +1,10 @@
 <template>
-  <vs-dialog v-model="customerSupport.customerDialog" width="400px">
+  <vs-dialog
+    blur
+    width="400px"
+    prevent-close
+    v-model="customerSupport.customerDialog"
+  >
     <template #header>
       <h4 class="not-margin">Create support ticket</h4>
     </template>

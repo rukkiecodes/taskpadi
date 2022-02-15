@@ -1,12 +1,5 @@
 <template>
   <div>
-    <vs-button
-      @click="customerSupport.customerDialog = true"
-      class="px-4 mb-5"
-      size="large"
-      color="#6200EA"
-      >Submit ticket</vs-button
-    >
     <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
         <vs-button
@@ -44,7 +37,6 @@
           <vs-th class="white"> Id </vs-th>
           <vs-th class="white"> Subject </vs-th>
           <vs-th class="white"> Date </vs-th>
-          <vs-th class="white"> Status </vs-th>
           <vs-th class="white"> Response </vs-th>
         </vs-tr>
       </template>
@@ -66,22 +58,6 @@
           </vs-td>
           <vs-td>
             {{ new Date(ticket.created_at).toLocaleDateString() }}
-          </vs-td>
-          <vs-td>
-            <v-btn
-              dark
-              small
-              depressed
-              class="text-capitalize rounded-lg"
-              :class="{
-                'orange lighten-5 orange--text text--accent-3':
-                  ticket.status == 'pending',
-                'teal lighten-5 teal--text text--darken-1':
-                  ticket.status == 'closed',
-              }"
-            >
-              {{ ticket.status }}
-            </v-btn>
           </vs-td>
           <vs-td>
             <vs-button
