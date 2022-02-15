@@ -1,6 +1,5 @@
 import router from "../../router"
 import Vue from "vue"
-import location from "./location"
 
 export default {
   state: {
@@ -227,7 +226,7 @@ export default {
       ) {
         this.state.settings.loading = true
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch(location + "/user/change-password", {
+        fetch("/api/user/change-password", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -258,7 +257,7 @@ export default {
     logoutOfAccount({ commit }) {
       this.state.settings.logoutLoading = true
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(location + "/user/logout", {
+      fetch("/api/user/logout", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -276,7 +275,7 @@ export default {
     },
 
     getBanks({ commit }) {
-      fetch(location + "/banks", {
+      fetch("/api/banks", {
         method: "GET",
       })
         .then((response) => response.json())
@@ -290,7 +289,7 @@ export default {
 
     getUserBanks({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(location + "/user/user-banks", {
+      fetch("/api/user/user-banks", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -315,7 +314,7 @@ export default {
       ) {
         this.state.settings.addBankAccountLoading = true
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch(location + "/user/add-bank", {
+        fetch("/api/user/add-bank", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -351,7 +350,7 @@ export default {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
       if (input.bank_id != "" && input.account_no != "") {
         this.state.settings.resolveBankAccountLoading = true
-        fetch(location + "/user/resolve-account", {
+        fetch("/api/user/resolve-account", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -393,7 +392,7 @@ export default {
         console.log(this.state.settings.removeBankAccountCredential)
         this.state.settings.removeBankAccountLoading = true
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch(location + "/user/remove-bank", {
+        fetch("/api/user/remove-bank", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
