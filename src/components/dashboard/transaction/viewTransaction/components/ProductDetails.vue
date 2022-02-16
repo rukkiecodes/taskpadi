@@ -123,24 +123,51 @@
           @click="openDeleteTransactionDialog(transaction.selectedTransaction)"
           >Delete</vs-button
         >
-        <vs-button flat color="#6200EA" class="text-capitalize mr-3"
+        <vs-button
+          flat
+          color="#6200EA"
+          class="text-capitalize mr-3"
+          @click="openPopTransactionDialog(transaction.selectedTransaction)"
           >POP</vs-button
         >
-        <vs-button flat color="#6200EA" class="text-capitalize mr-3"
+        <vs-button
+          flat
+          color="#6200EA"
+          class="text-capitalize mr-3"
+          @click="openDeclineTransactionDialog(transaction.selectedTransaction)"
           >Decline</vs-button
         >
-        <vs-button flat color="#6200EA" class="text-capitalize mr-3"
+        <vs-button
+          flat
+          color="#6200EA"
+          class="text-capitalize mr-3"
+          @click="openConfirmTransactionDialog(transaction.selectedTransaction)"
           >Confirm</vs-button
         >
-        <vs-button flat color="#6200EA" class="text-capitalize mr-3"
+        <vs-button
+          flat
+          color="#6200EA"
+          class="text-capitalize mr-3"
+          @click="
+            openApprovalTransactionDialog(transaction.selectedTransaction)
+          "
           >Approve</vs-button
         >
-        <vs-button flat color="#6200EA" class="text-capitalize mr-3"
+        <vs-button
+          flat
+          color="#6200EA"
+          class="text-capitalize mr-3"
+          @click="openUpdateTransactionDialog(transaction.selectedTransaction)"
           >Edit</vs-button
         >
       </v-card-text>
     </v-card>
     <ConfirmDelete />
+    <ConfirmPop />
+    <ConfirmApprove />
+    <ConfirmConfirm />
+    <ConfirmDecline />
+    <UpdateTransaction />
   </v-col>
 </template>
 
@@ -153,11 +180,23 @@ export default {
   }),
 
   components: {
-    ConfirmDelete: () => import("../../ConfirmDelete.vue")
+    ConfirmDelete: () => import("../../ConfirmDelete.vue"),
+    ConfirmPop: () => import("../../ConfirmPop.vue"),
+    ConfirmApprove: () => import("../../ConfirmApprove.vue"),
+    ConfirmConfirm: () => import("../../ConfirmConfirm.vue"),
+    ConfirmDecline: () => import("../../ConfirmDecline.vue"),
+    UpdateTransaction: () => import("../../UpdateTransaction.vue"),
   },
 
   methods: {
-    ...mapActions(["openDeleteTransactionDialog"])
+    ...mapActions([
+      "openDeleteTransactionDialog",
+      "openPopTransactionDialog",
+      "openDeclineTransactionDialog",
+      "openConfirmTransactionDialog",
+      "openApprovalTransactionDialog",
+      "openUpdateTransactionDialog",
+    ]),
   },
 
   computed: {
