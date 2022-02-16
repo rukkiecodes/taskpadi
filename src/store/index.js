@@ -1,18 +1,19 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from "vue"
+import Vuex from "vuex"
+import createPersistedState from "vuex-persistedstate"
 
-import nav from "./modules/nav";
+import nav from "./modules/nav"
 import snackbar from "./modules/snackbar"
 import faq from "./modules/faq"
-import goodAndProductBuyer from "./modules/goodAndProductBuyer";
-import deliveryInfo from "./modules/deliveryInfo";
-import traderCrypto from "./modules/traderCrypto";
-import clientServices from "./modules/clientServices";
-import custumerCrypto from "./modules/custumerCrypto";
-import goodAndProductSeller from "./modules/goodAndProductSeller";
-import proofOfPayment from "./modules/proofOfPayment";
-import providerServices from "./modules/providerServices";
-import dashboardNavigation from "./modules/dashboardNavigation";
+import goodAndProductBuyer from "./modules/goodAndProductBuyer"
+import deliveryInfo from "./modules/deliveryInfo"
+import traderCrypto from "./modules/traderCrypto"
+import clientServices from "./modules/clientServices"
+import custumerCrypto from "./modules/custumerCrypto"
+import goodAndProductSeller from "./modules/goodAndProductSeller"
+import proofOfPayment from "./modules/proofOfPayment"
+import providerServices from "./modules/providerServices"
+import dashboardNavigation from "./modules/dashboardNavigation"
 import signup from "./modules/signup"
 import signin from "./modules/signin"
 import logout from "./modules/logout"
@@ -30,9 +31,15 @@ import customerSupport from "./modules/customerSupport"
 import product from "./modules/product"
 import orders from "./modules/orders"
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
+  plugins: [
+    createPersistedState({
+      storage: window.sessionStorage,
+    }),
+  ],
+  
   modules: {
     nav,
     snackbar,

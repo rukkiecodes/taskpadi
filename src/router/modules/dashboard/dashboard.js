@@ -7,7 +7,7 @@ export default {
       path: "viewTransaction",
       name: "ViewTransaction",
       component: () =>
-        import("../../../components/dashboard/transaction/ViewTransaction.vue"),
+        import("../../../components/dashboard/transaction/viewTransaction/ViewTransaction.vue"),
     },
     {
       path: "dashboard",

@@ -1,4 +1,5 @@
 import Vue from "vue"
+import router from "../../router"
 
 export default {
   state: {
@@ -128,6 +129,7 @@ export default {
     viewTransactionDetails: (state, transaction) => {
       console.log("view transaction details: ", transaction)
       state.selectedTransaction = transaction
+      router.push("/dashboard/viewTransaction")
       state.viewDetailsDialoge = true
     },
 
@@ -774,6 +776,7 @@ export default {
       if (pop != "") {
         this.state.transaction.deleteTransactionLoading = true
         let code = transaction.code
+        console.log(code)
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
 
         let formData = new FormData()
