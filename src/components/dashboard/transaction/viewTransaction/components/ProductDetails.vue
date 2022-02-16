@@ -90,26 +90,6 @@
                 }}</span>
               </p>
             </v-col>
-            <!-- <v-col
-              sm="6"
-              cols="12"
-              class="d-flex justify-center justify-sm-end"
-            >
-              <v-progress-circular
-                :rotate="-90"
-                :size="90"
-                :width="10"
-                :value="value"
-                color="amber"
-              >
-                <span class="grey--text text--darken-3 text-center text-caption"
-                  >Trust Level<br /><span
-                    class="amber--text text--darken-4 font-weight-bold"
-                    >{{ value }}%</span
-                  ></span
-                >
-              </v-progress-circular>
-            </v-col> -->
           </v-row>
         </v-card-text>
       </v-card>

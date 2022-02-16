@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ProductTable from "./ProductTable.vue"
+import ProductTable from "./components/ProductTable.vue"
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
@@ -19,8 +19,8 @@ export default {
 
   components: {
     ProductTable,
-    AddNewProduct: () => import("./AddNewProduct.vue"),
-    EditProduct: () => import("./EditProduct.vue"),
+    AddNewProduct: () => import("./components/AddNewProduct.vue"),
+    EditProduct: () => import("./components/EditProduct.vue"),
   },
 
   mounted() {

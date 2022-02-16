@@ -7,7 +7,17 @@ export default {
       path: "viewTransaction",
       name: "ViewTransaction",
       component: () =>
-        import("../../../components/dashboard/transaction/viewTransaction/ViewTransaction.vue"),
+        import(
+          "../../../components/dashboard/transaction/viewTransaction/ViewTransaction.vue"
+        ),
+    },
+    {
+      path: "viewProducts",
+      name: "viewProducts",
+      component: () =>
+        import(
+          "../../../components/dashboard/product/viewProduct/ViewProduct.vue"
+        ),
     },
     {
       path: "dashboard",

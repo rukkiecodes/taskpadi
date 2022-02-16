@@ -1,8 +1,10 @@
 <template>
   <vs-dialog
+    blur
     scroll
     not-center
     width="457px"
+    prevent-close
     overflow-hidden
     class="editProduct"
     v-model="product.editProductDialog"
@@ -73,10 +75,7 @@
     <template #footer>
       <v-spacer />
       <div class="con-footer d-flex justify-end">
-        <vs-button
-          transparent
-          @click="product.editProductDialog = false"
-        >
+        <vs-button transparent @click="product.editProductDialog = false">
           Cancel
         </vs-button>
         <vs-button

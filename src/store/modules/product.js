@@ -1,4 +1,5 @@
 import Vue from "vue"
+import router from "../../router"
 
 export default {
   state: {
@@ -77,6 +78,7 @@ export default {
     viewProductDetails: (state, product) => {
       console.log("view transaction details: ", product)
       state.selectedTransaction = product
+      router.push("/dashboard/viewProducts")
       state.viewDetailsDialoge = true
     },
 

@@ -3,10 +3,11 @@
     <template #thead>
       <vs-tr class="white">
         <vs-th class="white"> ID </vs-th>
-        <vs-th class="white"> Phone number </vs-th>
-        <vs-th class="white"> Type </vs-th>
-        <vs-th class="white"> Price </vs-th>
-        <vs-th class="white"> Duration </vs-th>
+        <vs-th class="white"> Product name </vs-th>
+        <vs-th class="white"> Final price </vs-th>
+        <vs-th class="white"> Initial price </vs-th>
+        <vs-th class="white"> Charge </vs-th>
+        <vs-th class="white"> Quantity </vs-th>
         <vs-th class="white"> Status </vs-th>
         <vs-th class="white"> View </vs-th>
       </vs-tr>
@@ -14,25 +15,20 @@
     <template #tbody>
       <vs-tr
         :key="i"
-        :data="transaction"
-        v-for="(transaction, i) in $vs.getPage(
-          $vs.getSearch(transactions, transaction.search),
-          page,
-          max
-        )"
+        :data="product"
+        v-for="(product, i) in $vs.getPage(products, page, max)"
       >
         <vs-td>
-          {{ transaction.code }}
+          {{ product.slug }}
         </vs-td>
         <vs-td>
-          {{ transaction.recipientPhone }}
+          {{ product.name }}
         </vs-td>
+        <vs-td> ₦{{ product.finalPrice }} </vs-td>
+        <vs-td> ₦{{ product.initialPrice }} </vs-td>
+        <vs-td> ₦{{ product.transactionCharge }} </vs-td>
         <vs-td>
-          {{ transaction.type }}
-        </vs-td>
-        <vs-td> ₦{{ transaction.price }} </vs-td>
-        <vs-td>
-          {{ transaction.duration }}
+          {{ product.quantity }}
         </vs-td>
         <vs-td>
           <v-chip
@@ -41,26 +37,23 @@
             class="text-capitalize rounded-lg"
             :class="{
               'orange lighten-5 orange--text text--accent-3':
-                transaction.status == 'pending',
-              'teal lighten-5 teal--text text--darken-1':
-                transaction.status == 'completed',
+                product.status == 'inactive',
+              'green lighten-5 green--text text--darken-1':
+                product.status == 'completed',
               'deep-purple lighten-5 deep-purple--text text--darken-1':
-                transaction.status == 'ongoing',
+                product.status == 'ongoing',
             }"
           >
-            {{ transaction.status }}
+            {{ product.status }}
           </v-chip>
         </vs-td>
         <vs-td>
           <div class="d-flex">
-            <vs-button icon transparent class="mr-2" color="#1CC8EE">
-              <i class="las la-reply"></i>
-            </vs-button>
             <vs-button
               icon
               transparent
               color="#2A00A2"
-              @click="viewTransactionDetails(transaction)"
+              @click="viewProductDetails(product)"
             >
               <i class="lar la-eye"></i>
             </vs-button>
@@ -73,9 +66,7 @@
       <vs-pagination
         v-model="page"
         color="#6200EA"
-        :length="
-          $vs.getLength($vs.getSearch(transactions, transaction.search), max)
-        "
+        :length="$vs.getLength(products, max)"
       />
     </template>
   </vs-table>
@@ -83,20 +74,12 @@
 
 <script>
 // @ts-nocheck
-import UpdateTransaction from "../UpdateTransaction.vue"
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
     page: 1,
     max: 7,
-    pageCount: 0,
-    itemsPerPage: 8,
-    fab: true,
   }),
-
-  components: {
-    UpdateTransaction,
-  },
 
   mounted() {
     this.$nextTick(() => {
@@ -119,19 +102,12 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      "viewTransactionDetails",
-      "openUpdateTransactionDialog",
-      "openConfirmTransactionDialog",
-      "openDeclineTransactionDialog",
-      "openPopTransactionDialog",
-      "openDeleteTransactionDialog",
-    ]),
+    ...mapActions(["viewProductDetails"]),
   },
 
   computed: {
-    ...mapState(["transaction"]),
-    ...mapGetters(["transactions"]),
+    ...mapState(["product"]),
+    ...mapGetters(["products"]),
   },
 }
 </script>
