@@ -1,6 +1,5 @@
 import router from "../../router"
 import Vue from "vue"
-import axios from "axios"
 
 export default {
   state: {
@@ -19,7 +18,6 @@ export default {
   mutations: {
     signupUser: (state, response) => {
       console.log("response: ", response)
-      Vue.prototype.$cookies.set("PaddiData", response)
       if (response.message == "The given data was invalid.") {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -28,6 +26,10 @@ export default {
           title: "Oops!!!",
           text: response.errors.email[0],
         })
+      }
+      if (response.success == true) {
+        Vue.prototype.$cookies.set("PaddiData", response)
+        router.push("/verifyAccount")
       }
     },
   },
@@ -46,36 +48,6 @@ export default {
         input.password != "" &&
         input.password === input.password_confirmation
       ) {
-        // let options = {
-        //   url:
-        //     process.env.NODE_ENV === "production"
-        //       ? "https://dev.trustpaddi.com/api/v1/register"
-        //       : "/api/register",
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   data: {
-        //     firstname: input.firstname,
-        //     lastname: input.lastname,
-        //     email: input.email,
-        //     password: input.password,
-        //     password_confirmation: input.password_confirmation,
-        //     referral_code: input.referral_code,
-        //   },
-        // }
-
-        // await Vue.prototype
-        //   .$axios(options)
-        //   .then((response) => {
-        //     commit("signupUser", response)
-        //     this.state.signup.loading = false
-        //   })
-        //   .catch((error) => {
-        //     this.state.signup.loading = false
-        //     console.log(error)
-        //   })
-
         var myHeaders = new Headers()
         myHeaders.append("Accept", "application/json")
 
@@ -85,7 +57,8 @@ export default {
         formdata.append("email", input.email)
         formdata.append("password", input.password)
         formdata.append("password_confirmation", input.password_confirmation)
-        formdata.append("referral_code", input.referral_code)
+        if (input.referral_code)
+          formdata.append("referral_code", input.referral_code)
 
         var requestOptions = {
           method: "POST",

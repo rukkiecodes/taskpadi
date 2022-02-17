@@ -1,47 +1,82 @@
 <template>
-  <div class="auth">
-    <div class="splat"></div>
-    <img src="./assets/images/takeOff.svg" class="takeOffCOntainer" />
-    <img class="cash" src="./assets/images/cash.svg" alt="" />
-    <img class="hand" src="./assets/images/hand.svg" alt="" />
-    <img class="check" src="./assets/images/check.svg" alt="" />
-
-    <div class="mainSection">
-      <div class="textArea">
-        <h1>Forgot your password?</h1>
-        <p>
-          If you don't have an account<br />You can
-          <router-link to="/signup">Register here!</router-link>
-        </p>
-      </div>
-      <vs-card class="formCard" type="1">
-        <template #text>
-          <div class="center content-inputs">
+  <v-container fluid class="auth ma-0 pa-0">
+    <v-row no-gutters>
+      <v-col cols="12" class="hidden-sm-and-up">
+        <v-toolbar flat dense src="../../assets/login_promo_mobile.png">
+          <v-spacer />
+          <vs-button color="#fff" transparent to="/"
+            >Learn more <i class="las la-arrow-right ml-2"></i
+          ></vs-button>
+          <v-spacer />
+        </v-toolbar>
+      </v-col>
+      <v-col cols="12" sm="4" class="pa-10 px-4 pa-lg-10">
+        <v-row>
+          <v-col cols="12">
+            <div class="logo">
+              <v-avatar size="40" tile>
+                <img src="../../assets/paddi.png" />
+              </v-avatar>
+              <span
+                class="ml-2 font-weight-bold text-body-2 grey--text text--darken-3"
+                >Trustpaddi</span
+              >
+            </div>
+          </v-col>
+          <v-col cols="12">
+            <span
+              class="text text-h4 text-sm-h6 font-weight-bold grey--text text--darken-4"
+            >
+              Verify your account
+            </span>
+          </v-col>
+          <v-col cols="12" class="mt-8">
             <vs-input
-              v-model="verifyAccount.credential.email"
-              placeholder="Email"
-              type="email"
-            >
-              <template #icon>
-                <i class="las la-at" style="font-size: 1.2rem"></i>
-              </template>
-            </vs-input>
-          </div>
-          <div class="center authButtonContainer">
-            <vs-button
-              class="authButton"
-              size="large"
-              @click="verifyMyAccount"
-              :loading="verifyAccount.loading"
               block
-              color="#6E14EC"
-              >Verify account</vs-button
-            >
-          </div>
-        </template>
-      </vs-card>
-    </div>
-  </div>
+              type="email"
+              label="Email"
+              v-model="verifyAccount.credential.email"
+            />
+
+            <v-row class="mt-2" justify="space-between" align="center">
+              <v-col cols="12">
+                <vs-button
+                  block
+                  color="#6E14EC"
+                  class="authButton"
+                  @click="verifyMyAccount"
+                  :loading="verifyAccount.loading"
+                  >Verify account</vs-button
+                >
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-col>
+      <v-col cols="12" sm="8" class="rightSide hidden-xs-only">
+        <img class="img1" src="../../assets/img1.png" alt="" />
+        <img class="img2" src="../../assets/img2.png" alt="" />
+        <img class="img3" src="../../assets/img3.png" alt="" />
+        <v-row class="pa-10 rightSideText">
+          <v-col cols="12">
+            <p class="text-h4 font-weight-bold white--text">
+              Enjoy safer Transactions, and faster deliveries with Trustpaddi
+            </p>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <p class="white--text">
+              TrustPaddi is a payment solution built with escrow protection,
+              which ensures safer and scam free transactions between online
+              vendors, service providers and individuals online.
+            </p>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <vs-button to="/" color="#6E14EC">Learn more</vs-button>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
