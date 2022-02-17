@@ -14,14 +14,7 @@ export default {
   mutations: {
     verifyMyAccount: (state, response) => {
       console.log(response.data.message)
-      Vue.prototype.$vs.notification({
-        icon: `<i class="las la-exclamation-triangle"></i>`,
-        border: "rgb(255, 71, 87)",
-        position: "top-right",
-        title: "Error !!!",
-        text: response.data.message,
-      })
-      router.push("/dashboard/yourPaddiDashboard")
+      router.push("/dashboard/dashboard")
     },
   },
 
