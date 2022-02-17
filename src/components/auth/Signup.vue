@@ -1,63 +1,66 @@
 <template>
-  <div class="auth">
-    <Nav />
-    <div class="splat"></div>
-    <img src="./assets/images/takeOff.svg" class="takeOffCOntainer" />
-    <img class="cash" src="./assets/images/cash.svg" alt="" />
-    <img class="hand" src="./assets/images/hand.svg" alt="" />
-    <img class="check" src="./assets/images/check.svg" alt="" />
-
-    <div class="mainSection">
-      <div class="textArea">
-        <h1>Sign Up and<br />Enjoy Safer Transactions</h1>
-        <p>
-          If you already have an account<br />You can
-          <router-link to="/signin">Sign In here!</router-link>
-        </p>
-      </div>
-      <vs-card class="formCard" type="1">
-        <template #text>
-          <div class="center content-inputs">
+  <v-container fluid class="auth pa-0 ma-0">
+    <v-row no-gutters>
+      <v-col cols="12" class="hidden-sm-and-up">
+        <v-toolbar flat dense src="../../assets/login_promo_mobile.png">
+          <v-spacer />
+          <vs-button color="#fff" transparent to="/"
+            >Learn more <i class="las la-arrow-right ml-2"></i
+          ></vs-button>
+          <v-spacer />
+        </v-toolbar>
+      </v-col>
+      <v-col cols="12" sm="4" class="pa-10 px-4 pa-lg-10 leftSide">
+        <v-row>
+          <v-col cols="12">
+            <div class="logo">
+              <v-avatar size="40" tile>
+                <img src="../../assets/paddi.png" />
+              </v-avatar>
+              <span
+                class="ml-2 font-weight-bold text-body-2 grey--text text--darken-3"
+                >Trustpaddi</span
+              >
+            </div>
+          </v-col>
+          <v-col cols="12">
+            <span
+              class="text text-h4 text-sm-h6 font-weight-bold grey--text text--darken-4"
+            >
+              Create your account
+            </span>
+          </v-col>
+          <v-col cols="12" class="mt-8">
             <vs-input
+              block
+              label="First name"
               v-model="signup.credential.firstname"
-              placeholder="First name"
-            >
-              <template #icon>
-                <i class="las la-user" style="font-size: 1.2rem"></i>
-              </template>
-            </vs-input>
-          </div>
-          <div class="center content-inputs">
+            />
             <vs-input
+              block
+              class="mt-10"
+              label="Last name"
               v-model="signup.credential.lastname"
-              placeholder="Last name"
-            >
-              <template #icon>
-                <i class="las la-user" style="font-size: 1.2rem"></i>
-              </template>
-            </vs-input>
-          </div>
-          <div class="center content-inputs">
+            />
             <vs-input
-              v-model="signup.credential.email"
-              placeholder="Email"
+              block
               type="email"
-            >
-              <template #icon>
-                <i class="las la-at" style="font-size: 1.2rem"></i>
-              </template>
-            </vs-input>
-          </div>
-          <div class="center content-inputs">
+              class="mt-10"
+              label="Email"
+              v-model="signup.credential.email"
+            />
+
             <vs-input
-              type="password"
-              v-model="signup.credential.password"
-              placeholder="Password"
-              :progress="getProgress"
-              :visiblePassword="hasVisiblePassword"
+              block
               icon-after
-              @click-icon="hasVisiblePassword = !hasVisiblePassword"
+              class="mt-10"
+              type="password"
+              label="Password"
+              :progress="getProgress"
               @keypress.enter="signupUser"
+              v-model="signup.credential.password"
+              :visiblePassword="hasVisiblePassword"
+              @click-icon="hasVisiblePassword = !hasVisiblePassword"
             >
               <template #icon>
                 <i
@@ -76,54 +79,79 @@
                 Secure password
               </template>
             </vs-input>
-          </div>
-          <div class="center content-inputs">
+
             <vs-input
-              v-model="signup.credential.password_confirmation"
-              placeholder="Confirm password"
-              type="password"
-            >
-              <template #icon>
-                <i class="las la-lock" style="font-size: 1.2rem"></i>
-              </template>
-            </vs-input>
-          </div>
-          <div class="center content-inputs">
-            <vs-input
-              v-model="signup.credential.referral_code"
-              placeholder="Referral code"
-            >
-            </vs-input>
-          </div>
-          <div class="center authButtonContainer">
-            <vs-button
-              class="authButton"
-              size="large"
-              @click="signupUser"
-              :loading="signup.loading"
               block
-              color="#6E14EC"
-              >Sign Up</vs-button
+              class="mt-10"
+              type="password"
+              label="Confirm password"
+              v-model="signup.credential.password_confirmation"
+            />
+
+            <vs-input
+              block
+              class="mt-10"
+              label="Referral code"
+              v-model="signup.credential.referral_code"
+            />
+
+            <v-row class="mt-2 mb-5" justify="space-between" align="center">
+              <v-col cols="12" md="4">
+                <vs-button
+                  block
+                  color="#6E14EC"
+                  @click="signupUser"
+                  :loading="signup.loading"
+                  >Register</vs-button
+                >
+              </v-col>
+              <v-col cols="12" md="8" class="text-lg-right">
+                <span class="text-body-2 text-md-caption text-lg-body-2 ml-2"
+                  >Already have an account?
+                  <router-link class="text-decoration-none" to="/signin"
+                    >Login</router-link
+                  >
+                </span>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-col>
+      <v-col cols="12" sm="8" class="rightSide hidden-xs-only">
+        <img class="img1" src="../../assets/img1.png" alt="" />
+        <img class="img2" src="../../assets/img2.png" alt="" />
+        <img class="img3" src="../../assets/img3.png" alt="" />
+        <v-row class="pa-10 rightSideText">
+          <v-col cols="12">
+            <p class="text-h4 font-weight-bold white--text">
+              Enjoy safer Transactions, and faster deliveries with Trustpaddi
+            </p>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <p class="white--text">
+              TrustPaddi is a payment solution built with escrow protection,
+              which ensures safer and scam free transactions between online
+              vendors, service providers and individuals online.
+            </p>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <vs-button to="/" color="#6E14EC" :loading="signup.loading"
+              >Learn more</vs-button
             >
-          </div>
-        </template>
-      </vs-card>
-    </div>
-  </div>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 // @ts-nocheck
-import Nav from "./Nav.vue"
 import { mapState, mapActions } from "vuex"
 export default {
   data: () => ({
     hasVisiblePassword: false,
   }),
-
-  components: {
-    Nav,
-  },
 
   methods: {
     ...mapActions(["signupUser"]),

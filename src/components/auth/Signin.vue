@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="auth pa-0">
+  <v-container fluid class="auth pa-0 ma-0">
     <v-row no-gutters>
       <v-col cols="12" class="hidden-sm-and-up">
         <v-toolbar flat dense src="../../assets/login_promo_mobile.png">
@@ -31,65 +31,65 @@
             </span>
           </v-col>
           <v-col cols="12" class="mt-8">
-            <v-form>
-              <vs-input
-                block
-                type="email"
-                label="Email Address"
-                v-model="signin.credential.email"
-              />
+            <vs-input
+              block
+              type="email"
+              label="Email Address"
+              v-model="signin.credential.email"
+            />
 
-              <vs-input
-                block
-                icon-after
-                class="mt-10"
-                type="password"
-                label="Password"
-                :progress="getProgress"
-                @keypress.enter="signinUser"
-                v-model="signin.credential.password"
-                :visiblePassword="hasVisiblePassword"
-                @click-icon="hasVisiblePassword = !hasVisiblePassword"
-              >
-                <template #icon>
-                  <i
-                    v-if="!hasVisiblePassword"
-                    class="las la-eye"
-                    style="font-size: 1.2rem"
-                  ></i>
-                  <i
-                    v-else
-                    class="las la-eye-slash"
-                    style="font-size: 1.2rem"
-                  ></i>
-                </template>
+            <vs-input
+              block
+              icon-after
+              class="mt-10"
+              type="password"
+              label="Password"
+              :progress="getProgress"
+              @keypress.enter="signinUser"
+              v-model="signin.credential.password"
+              :visiblePassword="hasVisiblePassword"
+              @click-icon="hasVisiblePassword = !hasVisiblePassword"
+            >
+              <template #icon>
+                <i
+                  v-if="!hasVisiblePassword"
+                  class="las la-eye"
+                  style="font-size: 1.2rem"
+                ></i>
+                <i
+                  v-else
+                  class="las la-eye-slash"
+                  style="font-size: 1.2rem"
+                ></i>
+              </template>
 
-                <template v-if="getProgress >= 100" #message-success>
-                  Secure password
-                </template>
-              </vs-input>
+              <template v-if="getProgress >= 100" #message-success>
+                Secure password
+              </template>
+            </vs-input>
 
-              <v-row class="mt-2" justify="space-between" align="center">
-                <v-col cols="12">
-                  <router-link
-                    class="text-body-2 text-decoration-none ml-2"
-                    to="/forgotPassword"
-                    >Forgot password</router-link
+            <v-row class="mt-2" justify="space-between" align="center">
+              <v-col cols="12">
+                <router-link
+                  class="text-body-2 text-decoration-none ml-2"
+                  to="/forgotPassword"
+                  >Forgot password</router-link
+                >
+              </v-col>
+              <v-col cols="12" md="4">
+                <vs-button block color="#6E14EC" @click="signinUser">
+                  Login
+                </vs-button>
+              </v-col>
+              <v-col cols="12" md="8" class="text-lg-right">
+                <span class="text-body-2 text-md-caption text-lg-body-2 ml-2"
+                  >Don't have an account?
+                  <router-link class="text-decoration-none" to="/signup"
+                    >Sign Up</router-link
                   >
-                </v-col>
-                <v-col cols="12">
-                  <vs-button block color="#6E14EC"> Login </vs-button>
-                </v-col>
-                <v-col cols="12" class="text-lg-right">
-                  <span class="text-body-2 ml-2"
-                    >Don't have an account?
-                    <router-link class="text-decoration-none" to="/signup"
-                      >Sign Up</router-link
-                    >
-                  </span>
-                </v-col>
-              </v-row>
-            </v-form>
+                </span>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-col>
@@ -111,7 +111,9 @@
             </p>
           </v-col>
           <v-col cols="12" class="pt-0">
-            <vs-button color="#6E14EC" to="/">Learn more</vs-button>
+            <vs-button to="/" color="#6E14EC" :loading="signin.loading"
+              >Learn more</vs-button
+            >
           </v-col>
         </v-row>
       </v-col>
@@ -121,16 +123,11 @@
 
 <script>
 // @ts-nocheck
-import Nav from "./Nav.vue"
 import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     hasVisiblePassword: false,
   }),
-
-  components: {
-    Nav,
-  },
 
   methods: {
     ...mapActions(["signinUser"]),

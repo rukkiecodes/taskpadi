@@ -110,6 +110,11 @@
   overflow: hidden;
 }
 
+.auth .leftSide {
+  overflow-y: auto;
+  height: 100vh;
+}
+
 .auth .rightSide {
   background-color: #001E2B;
   height: 100vh;

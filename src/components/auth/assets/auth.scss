@@ -11,6 +11,11 @@
   position: relative;
   overflow: hidden;
 
+  .leftSide {
+    overflow-y: auto;
+    height: 100vh;
+  }
+
   .rightSide {
     background-color: #001E2B;
     height: 100vh;
