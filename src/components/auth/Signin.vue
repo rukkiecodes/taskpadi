@@ -1,80 +1,122 @@
 <template>
-  <div class="auth">
-    <Nav />
-    <div class="splat"></div>
-    <img src="./assets/images/takeOff.svg" class="takeOffCOntainer" />
-    <img class="cash" src="./assets/images/cash.svg" alt="" />
-    <img class="hand" src="./assets/images/hand.svg" alt="" />
-    <img class="check" src="./assets/images/check.svg" alt="" />
+  <v-container fluid class="auth pa-0">
+    <v-row no-gutters>
+      <v-col cols="12" class="hidden-sm-and-up">
+        <v-toolbar flat dense src="../../assets/login_promo_mobile.png">
+          <v-spacer />
+          <vs-button color="#fff" transparent to="/"
+            >Learn more <i class="las la-arrow-right ml-2"></i
+          ></vs-button>
+          <v-spacer />
+        </v-toolbar>
+      </v-col>
+      <v-col cols="12" sm="4" class="pa-10 px-4 pa-lg-10">
+        <v-row>
+          <v-col cols="12">
+            <div class="logo">
+              <v-avatar size="40" tile>
+                <img src="../../assets/paddi.png" />
+              </v-avatar>
+              <span
+                class="ml-2 font-weight-bold text-body-2 grey--text text--darken-3"
+                >Trustpaddi</span
+              >
+            </div>
+          </v-col>
+          <v-col cols="12">
+            <span
+              class="text text-h4 text-sm-h6 font-weight-bold grey--text text--darken-4"
+            >
+              Log in to your account
+            </span>
+          </v-col>
+          <v-col cols="12" class="mt-8">
+            <v-form>
+              <vs-input
+                block
+                type="email"
+                label="Email Address"
+                v-model="signin.credential.email"
+              />
 
-    <div class="mainSection">
-      <div class="textArea">
-        <h1>Sign In and<br />Enjoy Safer Transactions</h1>
-        <p>
-          If you already have an account<br />You can
-          <router-link to="/signup">Register here!</router-link>
-        </p>
-      </div>
-      <vs-card class="formCard" type="1">
-        <template #text>
-          <div class="center content-inputs">
-            <vs-input
-              v-model="signin.credential.email"
-              placeholder="Email"
-              type="email"
-            >
-              <template #icon>
-                <i class="las la-at" style="font-size: 1.2rem"></i>
-              </template>
-            </vs-input>
-          </div>
-          <div class="center content-inputs">
-            <vs-input
-              type="password"
-              v-model="signin.credential.password"
-              placeholder="Password"
-              :progress="getProgress"
-              :visiblePassword="hasVisiblePassword"
-              icon-after
-              @click-icon="hasVisiblePassword = !hasVisiblePassword"
-              @keypress.enter="signinUser"
-            >
-              <template #icon>
-                <i
-                  v-if="!hasVisiblePassword"
-                  class="las la-eye"
-                  style="font-size: 1.2rem"
-                ></i>
-                <i
-                  v-else
-                  class="las la-eye-slash"
-                  style="font-size: 1.2rem"
-                ></i>
-              </template>
+              <vs-input
+                block
+                icon-after
+                class="mt-10"
+                type="password"
+                label="Password"
+                :progress="getProgress"
+                @keypress.enter="signinUser"
+                v-model="signin.credential.password"
+                :visiblePassword="hasVisiblePassword"
+                @click-icon="hasVisiblePassword = !hasVisiblePassword"
+              >
+                <template #icon>
+                  <i
+                    v-if="!hasVisiblePassword"
+                    class="las la-eye"
+                    style="font-size: 1.2rem"
+                  ></i>
+                  <i
+                    v-else
+                    class="las la-eye-slash"
+                    style="font-size: 1.2rem"
+                  ></i>
+                </template>
 
-              <template v-if="getProgress >= 100" #message-success>
-                Secure password
-              </template>
-            </vs-input>
-          </div>
-          <div class="forgotPassword">
-            <router-link class="font-weight-bold" to="/forgotPassword">Forgot password</router-link>
-          </div>
-          <div class="center authButtonContainer">
-            <vs-button
-              class="authButton"
-              size="large"
-              @click="signinUser"
-              :loading="signin.loading"
-              block
-              color="#6E14EC"
-              >Sign In</vs-button
-            >
-          </div>
-        </template>
-      </vs-card>
-    </div>
-  </div>
+                <template v-if="getProgress >= 100" #message-success>
+                  Secure password
+                </template>
+              </vs-input>
+
+              <v-row class="mt-2" justify="space-between" align="center">
+                <v-col cols="12">
+                  <router-link
+                    class="text-body-2 text-decoration-none ml-2"
+                    to="/forgotPassword"
+                    >Forgot password</router-link
+                  >
+                </v-col>
+                <v-col cols="12">
+                  <vs-button block color="#6E14EC"> Login </vs-button>
+                </v-col>
+                <v-col cols="12" class="text-lg-right">
+                  <span class="text-body-2 ml-2"
+                    >Don't have an account?
+                    <router-link class="text-decoration-none" to="/signup"
+                      >Sign Up</router-link
+                    >
+                  </span>
+                </v-col>
+              </v-row>
+            </v-form>
+          </v-col>
+        </v-row>
+      </v-col>
+      <v-col cols="12" sm="8" class="rightSide hidden-xs-only">
+        <img class="img1" src="../../assets/img1.png" alt="" />
+        <img class="img2" src="../../assets/img2.png" alt="" />
+        <img class="img3" src="../../assets/img3.png" alt="" />
+        <v-row class="pa-10 rightSideText">
+          <v-col cols="12">
+            <p class="text-h4 font-weight-bold white--text">
+              Enjoy safer Transactions, and faster deliveries with Trustpaddi
+            </p>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <p class="white--text">
+              TrustPaddi is a payment solution built with escrow protection,
+              which ensures safer and scam free transactions between online
+              vendors, service providers and individuals online.
+            </p>
+          </v-col>
+          <v-col cols="12" class="pt-0">
+            <vs-button color="#6E14EC" to="/">Learn more</vs-button>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
