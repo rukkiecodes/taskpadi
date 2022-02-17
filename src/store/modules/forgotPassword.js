@@ -16,14 +16,19 @@ export default {
   mutations: {
     recoverUserPassword: (state, response) => {
       console.log(response)
-      // Vue.prototype.$cookies.set("PaddiData", response.data)
-      // if (response.status == 200) {
-      //   state.loading = false
-      //   router.push("/dashboard/yourPaddiDashboard")
-      // } else {
-      //   state.loading = false
-      //   router.push("/signup")
-      // }
+      if (response.status == 200) {
+        state.loading = false
+        Vue.prototype.$vs.notification({
+          duration: "none",
+          icon: `<i class="lar la-check-circle"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.data.message,
+        })
+      } else {
+        state.loading = false
+      }
     },
   },
 

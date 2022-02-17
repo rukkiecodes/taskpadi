@@ -71,13 +71,18 @@
             <v-row class="mt-2" justify="space-between" align="center">
               <v-col cols="12">
                 <router-link
-                  class="text-body-2 text-decoration-none ml-2"
                   to="/forgotPassword"
+                  class="text-body-2 text-decoration-none ml-2"
                   >Forgot password</router-link
                 >
               </v-col>
               <v-col cols="12" md="4">
-                <vs-button block color="#6E14EC" @click="signinUser">
+                <vs-button
+                  block
+                  color="#6E14EC"
+                  @click="signinUser"
+                  :loading="signin.loading"
+                >
                   Login
                 </vs-button>
               </v-col>
@@ -111,9 +116,7 @@
             </p>
           </v-col>
           <v-col cols="12" class="pt-0">
-            <vs-button to="/" color="#6E14EC" :loading="signin.loading"
-              >Learn more</vs-button
-            >
+            <vs-button to="/" color="#6E14EC">Learn more</vs-button>
           </v-col>
         </v-row>
       </v-col>

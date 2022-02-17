@@ -135,7 +135,7 @@
             </p>
           </v-col>
           <v-col cols="12" class="pt-0">
-            <vs-button to="/" color="#6E14EC" :loading="signup.loading"
+            <vs-button to="/" color="#6E14EC"
               >Learn more</vs-button
             >
           </v-col>

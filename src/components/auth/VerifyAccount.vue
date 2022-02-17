@@ -1,6 +1,5 @@
 <template>
   <div class="auth">
-    <Nav />
     <div class="splat"></div>
     <img src="./assets/images/takeOff.svg" class="takeOffCOntainer" />
     <img class="cash" src="./assets/images/cash.svg" alt="" />
@@ -47,16 +46,11 @@
 
 <script>
 // @ts-nocheck
-import Nav from "./Nav.vue"
 import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     hasVisiblePassword: false,
   }),
-
-  components: {
-    Nav,
-  },
 
   methods: {
     ...mapActions(["verifyMyAccount"]),
