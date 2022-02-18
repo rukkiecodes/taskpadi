@@ -422,14 +422,21 @@ export default {
         console.log(this.state.settings.removeBankAccountCredential)
         this.state.settings.removeBankAccountLoading = true
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch("/api/user/remove-bank", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(this.state.settings.removeBankAccountCredential),
-        })
+        fetch(
+          process.env.NODE_ENV === "production"
+            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/remove-bank"
+            : "/api/user/remove-bank",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+              this.state.settings.removeBankAccountCredential
+            ),
+          }
+        )
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getUserBanks").then(() => {
