@@ -334,14 +334,19 @@ export default {
       ) {
         this.state.settings.addBankAccountLoading = true
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch("/api/user/add-bank", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(input),
-        })
+        fetch(
+          process.env.NODE_ENV === "production"
+            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/add-bank"
+            : "/api/user/add-bank",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(input),
+          }
+        )
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getUserBanks").then(() => {
