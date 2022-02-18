@@ -304,13 +304,18 @@ export default {
 
     getUserBanks({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch("/api/user/user-banks", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/user-banks"
+          : "/api/user/user-banks",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           commit("getUserBanks", response)
