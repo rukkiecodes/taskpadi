@@ -2,9 +2,6 @@ import Vue from "vue"
 import Vuex from "vuex"
 import createPersistedState from "vuex-persistedstate"
 
-import nav from "./modules/nav"
-import snackbar from "./modules/snackbar"
-import faq from "./modules/faq"
 import goodAndProductBuyer from "./modules/goodAndProductBuyer"
 import deliveryInfo from "./modules/deliveryInfo"
 import traderCrypto from "./modules/traderCrypto"
@@ -41,9 +38,6 @@ export default new Vuex.Store({
   ],
   
   modules: {
-    nav,
-    snackbar,
-    faq,
     goodAndProductBuyer,
     deliveryInfo,
     traderCrypto,

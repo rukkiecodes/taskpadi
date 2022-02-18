@@ -1,4 +1,3 @@
-import snackbar from "./snackbar";
 export default {
   state: {
     steps: 1,
@@ -18,10 +17,6 @@ export default {
       if (state.goodAndProductBuyerInputs.email.match(emailRegex)) {
         state.steps = 2;
       } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please enter a valid email`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
         state.steps = 1;
       }
     },
@@ -29,10 +24,6 @@ export default {
       if (state.goodAndProductBuyerInputs.phone != "") {
         state.steps = 3;
       } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please enter a Phone number`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
         state.steps = 2;
       }
     },
@@ -40,10 +31,6 @@ export default {
       if (state.goodAndProductBuyerInputs.name != "") {
         state.steps = 4;
       } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please enter product name`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
         state.steps = 3;
       }
     },
@@ -51,10 +38,6 @@ export default {
       if (state.goodAndProductBuyerInputs.price != "") {
         state.steps = 5;
       } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please enter product price`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
         state.steps = 4;
       }
     },
@@ -62,10 +45,6 @@ export default {
       if (state.goodAndProductBuyerInputs.description != "") {
         state.steps = 6;
       } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please enter product description`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
         state.steps = 5;
       }
     },
@@ -73,10 +52,6 @@ export default {
       if (state.goodAndProductBuyerInputs.condition != "") {
         state.steps = 7;
       } else {
-        snackbar.state.snack = true;
-        snackbar.state.text = `Please select the product condition`;
-        snackbar.state.color = "error";
-        snackbar.state.buttonColor = "error";
         state.steps = 6;
       }
     },

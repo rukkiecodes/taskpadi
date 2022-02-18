@@ -193,7 +193,7 @@ export default {
               icon: `<i class="las la-exclamation-triangle"></i>`,
               border: "rgb(255, 71, 87)",
               position: "top-right",
-              title: "Error !!!",
+              title: "Error!!!",
               text: `Update error. Check your details the try again.`,
             })
           })

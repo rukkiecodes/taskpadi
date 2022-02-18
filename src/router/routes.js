@@ -2,27 +2,12 @@ import dashboard from "./modules/dashboard/dashboard";
 import admin from "./modules/admin/admin"
 export default [
   {
-    path: "/",
-    name: "Home",
-    component: () => import("../views/Home.vue"),
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: () => import("../views/About.vue"),
-  },
-  {
-    path: "/faq",
-    name: "Faq",
-    component: () => import("../views/Faq.vue"),
-  },
-  {
     path: "/signup",
     name: "Signup",
     component: () => import("../views/auth/Signup.vue"),
   },
   {
-    path: "/signin",
+    path: "/",
     name: "Signin",
     component: () => import("../views/auth/Signin.vue"),
   },

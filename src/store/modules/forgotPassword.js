@@ -56,7 +56,7 @@ export default {
             icon: `<i class="las la-exclamation-triangle"></i>`,
             border: "rgb(255, 71, 87)",
             position: "top-right",
-            title: "Error !!!",
+            title: "Error!!!",
             text: `Sign in error. Check your details the try again.`,
           })
         }
@@ -66,7 +66,7 @@ export default {
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
           position: "top-right",
-          title: "Error !!!",
+          title: "Error!!!",
           text: `Please complete the form and try again`,
         })
       }

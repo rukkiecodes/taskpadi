@@ -1,6 +1,5 @@
 <template>
   <v-app id="paddi_app">
-    <Alert />
     <v-main class="white">
       <transition name="fade" mode="out-in">
         <router-view />
@@ -10,20 +9,15 @@
 </template>
 
 <script>
-import Alert from "./components/app components/Aleart.vue"
 import Vue from "vue"
 export default {
   name: "App",
-  components: {
-    Alert,
-  },
 
   created() {
     Vue.prototype.$vs = this.$vs
     Vue.prototype.$axios = this.$axios
     Vue.prototype.$cookies = this.$cookies
     Vue.prototype.$vuetify = this.$vuetify
-    // Vue.prototype.$http = this.$http
   },
 }
 </script>
