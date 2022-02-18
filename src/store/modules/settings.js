@@ -375,14 +375,19 @@ export default {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
       if (input.bank_id != "" && input.account_no != "") {
         this.state.settings.resolveBankAccountLoading = true
-        fetch("/api/user/resolve-account", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(input),
-        })
+        fetch(
+          process.env.NODE_ENV === "production"
+            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/resolve-account"
+            : "/api/user/resolve-account",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(input),
+          }
+        )
           .then((response) => response.json())
           .then((response) => {
             commit("resolveBackAccount", response)
