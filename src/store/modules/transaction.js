@@ -95,7 +95,7 @@ export default {
 
   mutations: {
     createTransaction: (state, response) => {
-      console.log("multipart/form-data: ", response)
+      console.log("created transaction: ", response)
       if (response.success == true) {
         state.createTransactionDialog = false
         Vue.prototype.$vs.notification({
@@ -361,12 +361,16 @@ export default {
 
   actions: {
     setTransactionImage({ commit }, image) {
+      this.state.transaction.imageName = ""
       this.state.transaction.imageName = image.name
       this.state.transaction.createTransactionCredential.image = image
-      console.log("state: ", image)
+      console.log(
+        "state: ",
+        this.state.transaction.createTransactionCredential.image
+      )
     },
 
-    async createTransaction({ commit, dispatch }) {
+    createTransaction({ commit, dispatch }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
       this.state.transaction.createTransactionLoading = true
 
@@ -374,47 +378,19 @@ export default {
       myHeaders.append("Accept", "multipart/form-data")
       myHeaders.append("Authorization", `Bearer ${token}`)
 
+      let input = this.state.transaction.createTransactionCredential
+
       let formData = new FormData()
-      formData.append(
-        "recipient_name",
-        this.state.transaction.createTransactionCredential.recipient_name
-      )
-      formData.append(
-        "recipient_email",
-        this.state.transaction.createTransactionCredential.recipient_email
-      )
-      formData.append(
-        "recipient_phone",
-        this.state.transaction.createTransactionCredential.recipient_phone
-      )
-      formData.append(
-        "transaction_type",
-        this.state.transaction.createTransactionCredential.transaction_type
-      )
-      formData.append(
-        "price",
-        this.state.transaction.createTransactionCredential.price
-      )
-      formData.append(
-        "quantity",
-        this.state.transaction.createTransactionCredential.quantity
-      )
-      formData.append(
-        "role",
-        this.state.transaction.createTransactionCredential.role
-      )
-      formData.append(
-        "description",
-        this.state.transaction.createTransactionCredential.description
-      )
-      formData.append(
-        "image",
-        this.state.transaction.createTransactionCredential.image
-      )
-      formData.append(
-        "duration",
-        this.state.transaction.createTransactionCredential.duration
-      )
+      formData.append("recipient_name", input.recipient_name)
+      formData.append("recipient_email", input.recipient_email)
+      formData.append("recipient_phone", input.recipient_phone)
+      formData.append("transaction_type", input.transaction_type)
+      formData.append("price", input.price)
+      formData.append("quantity", input.quantity)
+      formData.append("role", input.role)
+      formData.append("description", input.description)
+      formData.append("image", input.image)
+      formData.append("duration", input.duration)
 
       var requestOptions = {
         method: "POST",
@@ -449,7 +425,7 @@ export default {
         })
     },
 
-    async getTransactions({ commit }) {
+    getTransactions({ commit }) {
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
       var options = {
         method: "GET",
@@ -488,7 +464,7 @@ export default {
       console.log("state: ", image)
     },
 
-    async updateTransaction({ commit, dispatch }) {
+    updateTransaction({ commit, dispatch }) {
       let input = this.state.transaction.updateTransactionCredential
       let code = this.state.transaction.selectedTransactionToUpdate.code
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
@@ -502,7 +478,6 @@ export default {
         input.quantity != "" &&
         input.role != "" &&
         input.description != "" &&
-        input.image != "" &&
         input.duration != ""
       ) {
         this.state.transaction.updateTransactionLoading = true
@@ -513,46 +488,16 @@ export default {
         myHeaders.append("Accept", "multipart/form-data")
         myHeaders.append("Authorization", `Bearer ${token}`)
 
-        formData.append(
-          "recipient_name",
-          this.state.transaction.updateTransactionCredential.recipient_name
-        )
-        formData.append(
-          "recipient_email",
-          this.state.transaction.updateTransactionCredential.recipient_email
-        )
-        formData.append(
-          "recipient_phone",
-          this.state.transaction.updateTransactionCredential.recipient_phone
-        )
-        formData.append(
-          "transaction_type",
-          this.state.transaction.updateTransactionCredential.transaction_type
-        )
-        formData.append(
-          "price",
-          this.state.transaction.updateTransactionCredential.price
-        )
-        formData.append(
-          "quantity",
-          this.state.transaction.updateTransactionCredential.quantity
-        )
-        formData.append(
-          "role",
-          this.state.transaction.updateTransactionCredential.role
-        )
-        formData.append(
-          "description",
-          this.state.transaction.updateTransactionCredential.description
-        )
-        formData.append(
-          "image",
-          this.state.transaction.updateTransactionCredential.image
-        )
-        formData.append(
-          "duration",
-          this.state.transaction.updateTransactionCredential.duration
-        )
+        formData.append("recipient_name", input.recipient_name)
+        formData.append("recipient_email", input.recipient_email)
+        formData.append("recipient_phone", input.recipient_phone)
+        formData.append("transaction_type", input.transaction_type)
+        formData.append("price", input.price)
+        formData.append("quantity", input.quantity)
+        formData.append("role", input.role)
+        formData.append("description", input.description)
+        if (input.image) formData.append("image", input.image)
+        formData.append("duration", input.duration)
 
         let requestOptions = {
           method: "POST",

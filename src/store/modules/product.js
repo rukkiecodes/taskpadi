@@ -129,7 +129,7 @@ export default {
     setProductImage({ commit }, image) {
       this.state.product.imageName = image.name
       this.state.product.createProductCredential.image = image
-      console.log("state: ", image)
+      console.log("state: ", this.state.product.createProductCredential.image)
     },
 
     async createProduct({ commit, dispatch }) {

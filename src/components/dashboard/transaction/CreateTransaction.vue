@@ -10,9 +10,11 @@
 
     <vs-dialog
       blur
+      scroll
       not-center
       width="457px"
       prevent-close
+      overflow-hidden
       v-model="transaction.createTransactionDialog"
     >
       <template #header>

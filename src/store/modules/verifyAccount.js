@@ -13,8 +13,31 @@ export default {
 
   mutations: {
     verifyMyAccount: (state, response) => {
-      console.log(response.data.message)
-      router.push("/dashboard/dashboard")
+      console.log(response)
+      if (response.data.message == "Email already verified") {
+        Vue.prototype.$vs.notification({
+          duration: 3000,
+          progress: "auto",
+          border: "#46C93A",
+          title: "Yippee!!!",
+          position: "top-right",
+          text: response.data.message,
+          icon: `<i class="lar la-check-circle"></i>`,
+        })
+        setTimeout(() => {
+          router.push("/signin")
+        }, 3000)
+      }
+      if (response.data.message == "Verification email sent") {
+        Vue.prototype.$vs.notification({
+          duration: "none",
+          border: "#46C93A",
+          title: "Yippee!!!",
+          position: "top-right",
+          text: response.data.message,
+          icon: `<i class="lar la-envelope"></i>`,
+        })
+      }
     },
   },
 
