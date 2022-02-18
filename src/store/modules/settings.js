@@ -226,14 +226,19 @@ export default {
       ) {
         this.state.settings.loading = true
         let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch("/api/user/change-password", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(this.state.settings.credential),
-        })
+        fetch(
+          process.env.NODE_ENV === "production"
+            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/change-password"
+            : "/api/user/change-password",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(this.state.settings.credential),
+          }
+        )
           .then((response) => response.json())
           .then((response) => {
             commit("changePassword", response)

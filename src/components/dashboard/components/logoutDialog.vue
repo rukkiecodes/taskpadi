@@ -1,5 +1,11 @@
 <template>
-  <vs-dialog v-model="logout.logoutDialog" not-center width="300px">
+  <vs-dialog
+    blur
+    not-center
+    width="300px"
+    prevent-close
+    v-model="logout.logoutDialog"
+  >
     <template #header>
       <h4 class="not-margin">Are you sure you want to logout?</h4>
     </template>
