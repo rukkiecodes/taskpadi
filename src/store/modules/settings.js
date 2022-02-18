@@ -262,13 +262,18 @@ export default {
     logoutOfAccount({ commit }) {
       this.state.settings.logoutLoading = true
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch("/api/user/logout", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/logout"
+          : "/api/user/logout",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           commit("logoutOfAccount", response)
@@ -280,9 +285,14 @@ export default {
     },
 
     getBanks({ commit }) {
-      fetch("/api/banks", {
-        method: "GET",
-      })
+      fetch(
+        process.env.NODE_ENV === "production"
+          ? "https://dev.trustpaddi.com/api/v1/banks"
+          : "/api/banks",
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((response) => {
           commit("getBanks", response)
