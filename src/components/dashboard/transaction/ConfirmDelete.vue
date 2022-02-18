@@ -1,7 +1,9 @@
 <template>
   <vs-dialog
+    blur
     not-center
     width="400px"
+    prevent-close
     v-model="transaction.deleteTransactionDialog"
   >
     <template #header>
