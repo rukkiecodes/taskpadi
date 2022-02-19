@@ -14,7 +14,7 @@
           class="text-uppercase black--text"
         >
           Month
-          <v-icon right>mdi-chevron-down</v-icon>
+          <!-- <v-icon right>mdi-chevron-down</v-icon> -->
         </v-btn>
       </v-toolbar>
 

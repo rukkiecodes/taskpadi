@@ -11,7 +11,7 @@
         <v-spacer />
         <v-btn color="deep-purple accent-2" dark x-small depressed>
           NGN
-          <v-icon right>mdi-chevron-down</v-icon>
+          <!-- <v-icon right>mdi-chevron-down</v-icon> -->
         </v-btn>
       </v-toolbar>
 

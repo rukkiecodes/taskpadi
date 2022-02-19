@@ -30,7 +30,7 @@
           <v-col cols="2">
             <p class="text-body-1" :class="sell.textColor">
               {{ sell.rate }}
-              <v-icon :color="sell.color" small>{{ sell.icon }}</v-icon>
+              <!-- <v-icon :color="sell.color" small>{{ sell.icon }}</v-icon> -->
             </p>
           </v-col>
         </v-row>

@@ -65,26 +65,30 @@
           >
             <v-col cols="12" sm="6">
               <p class="grey--text text--darken-4 mt-n2">
-                <v-icon small color="amber">mdi-star-circle</v-icon> Transaction
+                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> -->
+                Transaction
                 code :
                 <span class="font-weight-bold">{{
                   transaction.selectedTransaction.code
                 }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-2">
-                <v-icon small color="amber">mdi-star-circle</v-icon> Location :
+                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> -->
+                Location :
                 <span class="font-weight-bold">{{
                   transaction.selectedTransaction.price
                 }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-n2">
-                <v-icon small color="amber">mdi-star-circle</v-icon> Charge :
+                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> -->
+                Charge :
                 <span class="font-weight-bold">{{
                   transaction.selectedTransaction.charge
                 }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-n2">
-                <v-icon small color="amber">mdi-star-circle</v-icon> Duration :
+                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> -->
+                Duration :
                 <span class="font-weight-bold">{{
                   transaction.selectedTransaction.duration
                 }}</span>

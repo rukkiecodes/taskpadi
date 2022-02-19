@@ -65,21 +65,26 @@
           <span
             class="deep-purple--text text--accent-4 text-body-2 font-weight-bold"
             >Verified
-            <v-icon color="green"
+            <!-- <v-icon color="green"
               >mdi-checkbox-marked-circle-outline</v-icon
-            ></span
-          >
+            > -->
+          </span>
         </v-card-title>
 
         <v-card-text class="text-center text-sm-left">
-          <v-row no-gutters justify="space-between" align="center" class="flex-column-reverse flex-sm-row">
+          <v-row
+            no-gutters
+            justify="space-between"
+            align="center"
+            class="flex-column-reverse flex-sm-row"
+          >
             <v-col cols="12" sm="6">
               <p class="grey--text text--darken-4 mt-2">
-                <v-icon small color="amber">mdi-star-circle</v-icon> Location :
+                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> Location : -->
                 <span class="font-weight-bold">Yaba, Lagos</span>
               </p>
               <p class="grey--text text--darken-4 mt-n2">
-                <v-icon small color="amber">mdi-star-circle</v-icon> Category :
+                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> Category : -->
                 <span class="font-weight-bold">Fashion</span>
               </p>
             </v-col>

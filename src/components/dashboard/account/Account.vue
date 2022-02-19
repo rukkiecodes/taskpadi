@@ -19,7 +19,7 @@
           :key="i"
         >
           <span class="hidden-sm-and-down" v-text="tab.span" />
-          <v-icon class="hidden-md-and-up" v-text="tab.icon" />
+          <!-- <v-icon class="hidden-md-and-up" v-text="tab.icon" /> -->
         </v-tab>
 
         <v-tab-item class="mt-4 mt-sm-0">

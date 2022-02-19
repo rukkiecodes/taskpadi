@@ -15,9 +15,9 @@
               class="rounded-lg"
               rounded
             >
-              <v-icon :color="transaction.color" size="34">{{
+              <!-- <v-icon :color="transaction.color" size="34">{{
                 transaction.icon
-              }}</v-icon>
+              }}</v-icon> -->
             </v-avatar>
           </v-col>
           <v-col cols="9">

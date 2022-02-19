@@ -21,7 +21,6 @@ export default {
 </script>
 
 <style>
-@import url(../../assets/icon/css/materialdesignicons.min.css);
 .fade-enter-active,
 .fade-leave-active {
   transition-duration: 0.3s;

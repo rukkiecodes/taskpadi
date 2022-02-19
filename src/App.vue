@@ -24,8 +24,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-@import url(./assets/icon/css/materialdesignicons.min.css);
-@import url(./assets/icon2/css/line-awesome.min.css);
+@import url(./assets/icon/css/line-awesome.min.css);
 
 html {
   scroll-behavior: smooth;

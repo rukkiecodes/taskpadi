@@ -6,7 +6,7 @@
         <v-list-item-subtitle>1,235</v-list-item-subtitle>
       </v-list-item-content>
       <v-list-item-avatar class="rounded-lg" color="#F4F0FF" rounded>
-        <v-icon color="#9267FF">mdi-content-copy</v-icon>
+        <i style="font-size: 1.3rem; color: #9267FF" class="lar la-copy"></i>
       </v-list-item-avatar>
     </v-list-item>
   </v-list>

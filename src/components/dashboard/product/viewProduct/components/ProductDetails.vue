@@ -70,14 +70,14 @@
           >
             <v-col cols="12" sm="6">
               <p class="grey--text text--darken-4 mt-2">
-                <v-icon small color="amber">mdi-star-circle</v-icon> Location :
+                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> Location : -->
                 <span class="font-weight-bold"
                   >{{ product.selectedTransaction.seller.lga }},
                   {{ product.selectedTransaction.seller.country }}</span
                 >
               </p>
               <p class="grey--text text--darken-4 mt-n2">
-                <v-icon small color="amber">mdi-star-circle</v-icon> Category :
+                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> Category : -->
                 <span class="font-weight-bold">{{
                   product.selectedTransaction.seller.type
                 }}</span>

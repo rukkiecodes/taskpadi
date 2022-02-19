@@ -59,7 +59,7 @@
             </template>
             <template v-slot:item.productAction="{ item }">
               <v-btn @click="viewData(item)" icon>
-                <v-icon small v-text="item.productAction" />
+                <!-- <v-icon small v-text="item.productAction" /> -->
               </v-btn>
             </template>
           </v-data-table>
