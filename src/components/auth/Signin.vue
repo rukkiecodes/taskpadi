@@ -4,7 +4,7 @@
       <v-col cols="12" class="hidden-sm-and-up">
         <v-toolbar flat dense src="../../assets/login_promo_mobile.png">
           <v-spacer />
-          <vs-button color="#fff" transparent to="/"
+          <vs-button color="#fff" transparent
             >Learn more <i class="las la-arrow-right ml-2"></i
           ></vs-button>
           <v-spacer />
@@ -116,7 +116,7 @@
             </p>
           </v-col>
           <v-col cols="12" class="pt-0">
-            <vs-button to="/" color="#6E14EC">Learn more</vs-button>
+            <vs-button color="#6E14EC">Learn more</vs-button>
           </v-col>
         </v-row>
       </v-col>

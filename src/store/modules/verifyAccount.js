@@ -25,7 +25,7 @@ export default {
           icon: `<i class="lar la-check-circle"></i>`,
         })
         setTimeout(() => {
-          router.push("/signin")
+          router.push("/")
         }, 3000)
       }
       if (response.data.message == "Verification email sent") {

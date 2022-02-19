@@ -4,7 +4,7 @@
       <v-col cols="12" class="hidden-sm-and-up">
         <v-toolbar flat dense src="../../assets/login_promo_mobile.png">
           <v-spacer />
-          <vs-button color="#fff" transparent to="/"
+          <vs-button color="#fff" transparent
             >Learn more <i class="las la-arrow-right ml-2"></i
           ></vs-button>
           <v-spacer />
@@ -52,7 +52,8 @@
                 <span class="text-body-2 text-md-caption text-lg-body-2 ml-2">
                   <router-link class="text-decoration-none" to="/signup"
                     >Sign Up</router-link
-                  > Instead
+                  >
+                  Instead
                 </span>
               </v-col>
             </v-row>
@@ -78,52 +79,11 @@
             </p>
           </v-col>
           <v-col cols="12" class="pt-0">
-            <vs-button to="/" color="#6E14EC">Learn more</vs-button>
+            <vs-button color="#6E14EC">Learn more</vs-button>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
-    <!-- <div class="splat"></div>
-    <img src="./assets/images/takeOff.svg" class="takeOffCOntainer" />
-    <img class="cash" src="./assets/images/cash.svg" alt="" />
-    <img class="hand" src="./assets/images/hand.svg" alt="" />
-    <img class="check" src="./assets/images/check.svg" alt="" />
-
-    <div class="mainSection">
-      <div class="textArea">
-        <h1>Forgot your password?</h1>
-        <p>
-          If you don't have an account<br />You can
-          <router-link to="/signup">Register here!</router-link>
-        </p>
-      </div>
-      <vs-card class="formCard" type="1">
-        <template #text>
-          <div class="center content-inputs">
-            <vs-input
-              v-model="forgotPassword.credential.email"
-              placeholder="Email"
-              type="email"
-            >
-              <template #icon>
-                <i class="las la-at" style="font-size: 1.2rem"></i>
-              </template>
-            </vs-input>
-          </div>
-          <div class="center authButtonContainer">
-            <vs-button
-              block
-              size="large"
-              color="#6E14EC"
-              class="authButton"
-              @click="recoverUserPassword"
-              :loading="forgotPassword.loading"
-              >Recover password</vs-button
-            >
-          </div>
-        </template>
-      </vs-card>
-    </div> -->
   </v-container>
 </template>
 

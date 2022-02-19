@@ -30,7 +30,7 @@ export default {
           title: "Error!!!",
           text: response.data.message,
         })
-        router.push("/signin")
+        router.push("/")
       }
     },
   },
