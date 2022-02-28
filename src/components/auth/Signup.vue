@@ -155,6 +155,18 @@ export default {
     ...mapActions(["signupUser"]),
   },
 
+  mounted() {
+    this.$nextTick(() => {
+      const html = document.querySelector("html")
+      html.style.overflowY = "hidden"
+    })
+  },
+
+  beforeDestroy() {
+    const html = document.querySelector("html")
+      html.style.overflowY = ""
+  },
+
   computed: {
     getProgress() {
       let progress = 0

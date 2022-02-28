@@ -91,6 +91,18 @@ export default {
     ...mapActions(["verifyMyAccount"]),
   },
 
+  mounted() {
+    this.$nextTick(() => {
+      const html = document.querySelector("html")
+      html.style.overflowY = "hidden"
+    })
+  },
+
+  beforeDestroy() {
+    const html = document.querySelector("html")
+      html.style.overflowY = ""
+  },
+
   computed: {
     ...mapState(["verifyAccount"]),
   },
