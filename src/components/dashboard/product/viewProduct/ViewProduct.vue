@@ -10,10 +10,19 @@
 <script>
 import ProductImages from "./components/ProductImages.vue"
 import ProductDetails from "./components/ProductDetails.vue"
+import { mapActions } from "vuex"
 export default {
   components: {
     ProductImages,
     ProductDetails
+  },
+
+  created() {
+    this.setProductDetails()
+  },
+
+  methods: {
+    ...mapActions(["setProductDetails"])
   },
 
   computed: {

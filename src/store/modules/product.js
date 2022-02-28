@@ -35,7 +35,7 @@ export default {
 
     selectedProductToEdit: {},
   },
-  
+
   getters: {
     products: (state) => state.products,
   },
@@ -76,10 +76,17 @@ export default {
     },
 
     viewProductDetails: (state, product) => {
-      console.log("view transaction details: ", product)
-      state.selectedTransaction = product
+      Vue.prototype.$cookies.set("view product details", product)
       router.push("/dashboard/viewProducts")
-      state.viewDetailsDialoge = true
+      // console.log("view transaction details: ", product)
+      // state.selectedTransaction = product
+      // state.viewDetailsDialoge = true
+    },
+
+    setProductDetails: (state) => {
+      state.selectedTransaction = Vue.prototype.$cookies.get(
+        "view product details"
+      )
     },
 
     openEditProductDialog: (state, product) => {
@@ -212,6 +219,10 @@ export default {
 
     viewProductDetails({ commit }, product) {
       commit("viewProductDetails", product)
+    },
+
+    setProductDetails({ commit }) {
+      commit("setProductDetails")
     },
 
     openEditProductDialog({ commit }, product) {
