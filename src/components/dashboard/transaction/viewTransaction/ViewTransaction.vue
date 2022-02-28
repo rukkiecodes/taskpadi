@@ -9,7 +9,7 @@
 
 <script>
 // @ts-nocheck
-import { mapState } from "vuex"
+import { mapActions, mapState } from "vuex"
 import ProductImages from "./components/ProductImages.vue"
 import ProductDetails from "./components/ProductDetails.vue"
 export default {
@@ -17,6 +17,15 @@ export default {
     ProductImages,
     ProductDetails
   },
+
+  created() {
+    this.setTransactionDetails()
+  },
+
+  methods: {
+    ...mapActions(["setTransactionDetails"])
+  },
+
   computed: {
     ...mapState(["transaction"]),
     

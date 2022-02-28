@@ -6,7 +6,7 @@
           <v-img
             contain
             height="300"
-            :src="transaction.image"
+            :src="transaction.selectedTransaction.image"
           ></v-img>
         </v-card>
       </v-col>

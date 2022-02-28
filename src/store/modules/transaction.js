@@ -127,10 +127,19 @@ export default {
     },
 
     viewTransactionDetails: (state, transaction) => {
-      console.log("view transaction details: ", transaction)
-      state.selectedTransaction = transaction
+      // console.log("view transaction details: ", transaction)
+      Vue.prototype.$cookies.set("view transaction details", transaction)
+      // console.log(
+      //   Vue.prototype.$cookies.get("view transaction details")
+      // )
+      // state.selectedTransaction = transaction
       router.push("/dashboard/viewTransaction")
-      state.viewDetailsDialoge = true
+      // state.viewDetailsDialoge = true
+    },
+
+    setTransactionDetails: (state) => {
+      state.selectedTransaction = Vue.prototype.$cookies.get("view transaction details")
+      console.log("state.selectedTransaction", state.selectedTransaction)
     },
 
     openUpdateTransactionDialog: (state, transaction) => {
@@ -452,6 +461,10 @@ export default {
 
     viewTransactionDetails({ commit }, transaction) {
       commit("viewTransactionDetails", transaction)
+    },
+
+    setTransactionDetails({ commit }) {
+      commit("setTransactionDetails")
     },
 
     openUpdateTransactionDialog({ commit }, transaction) {
