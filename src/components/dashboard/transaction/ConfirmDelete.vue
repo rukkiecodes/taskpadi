@@ -16,15 +16,15 @@
 
     <div>
       <vs-input
-        @click="clickOnPOPFile"
-        v-model="transaction.deleteName"
         block
-        placeholder="POP"
+        @click="clickOnPOPFile"
+        placeholder="Proof of payment"
+        v-model="transaction.deleteName"
       />
       <v-file-input
-        @change="onDeleteChange"
         class="POPFile"
         style="display: none"
+        @change="onDeleteChange"
       ></v-file-input>
     </div>
 

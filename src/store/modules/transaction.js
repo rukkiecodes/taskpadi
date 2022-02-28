@@ -127,19 +127,12 @@ export default {
     },
 
     viewTransactionDetails: (state, transaction) => {
-      // console.log("view transaction details: ", transaction)
       Vue.prototype.$cookies.set("view transaction details", transaction)
-      // console.log(
-      //   Vue.prototype.$cookies.get("view transaction details")
-      // )
-      // state.selectedTransaction = transaction
       router.push("/dashboard/viewTransaction")
-      // state.viewDetailsDialoge = true
     },
 
     setTransactionDetails: (state) => {
       state.selectedTransaction = Vue.prototype.$cookies.get("view transaction details")
-      console.log("state.selectedTransaction", state.selectedTransaction)
     },
 
     openUpdateTransactionDialog: (state, transaction) => {
@@ -165,7 +158,7 @@ export default {
     },
 
     updateTransaction: (state, response) => {
-      console.log(response)
+      console.log("response: ", response)
       if (response.success == true) {
         state.updateTransactionDialog = false
         state.updateTransactionLoading = false
@@ -517,7 +510,6 @@ export default {
           headers: myHeaders,
           body: formData,
           redirect: "follow",
-          mode: "no-cors", // 'cors' by default
         }
 
         fetch(

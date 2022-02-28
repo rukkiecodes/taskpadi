@@ -7,7 +7,7 @@
     v-model="transaction.popTransactionDialog"
   >
     <template #header>
-      <h4 class="not-margin">Pop transaction</h4>
+      <h4 class="not-margin">Proof of payment</h4>
     </template>
 
     <div class="con-content">
@@ -16,10 +16,10 @@
 
     <div>
       <vs-input
+        block
         @click="clickOnPOPFile"
         v-model="transaction.popName"
-        block
-        placeholder="POP"
+        placeholder="Proof of payment"
       />
       <v-file-input
         @change="onPOPChange"

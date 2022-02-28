@@ -1,8 +1,10 @@
 <template>
   <vs-dialog
+    blur
     scroll
     not-center
     width="457px"
+    prevent-close
     overflow-hidden
     class="updateTransaction"
     v-model="transaction.updateTransactionDialog"
