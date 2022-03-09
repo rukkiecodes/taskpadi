@@ -1,5 +1,6 @@
 import router from "../../router"
 import Vue from "vue"
+import axios from "axios"
 
 export default {
   state: {
@@ -48,31 +49,14 @@ export default {
 
   mutations: {
     changePassword: (state, response) => {
-      if (response.message == "The given data was invalid.") {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Oops!!!",
-          text: response.errors.password[0],
-        })
-      }
-      if (response.success == true) {
+      console.log("New password: ", response)
+      if (response.data.success == true) {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-unlock-alt"></i>`,
           border: "#46C93A",
           position: "top-right",
           title: "Yippee!!!",
-          text: response.message,
-        })
-      }
-      if (response.success == false) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Oops!!!",
-          text: response.message,
+          text: response.data.message,
         })
       }
     },
@@ -217,7 +201,7 @@ export default {
   },
 
   actions: {
-    changePassword({ commit }) {
+    async changePassword({ commit }) {
       if (
         this.state.settings.credential.password != "" &&
         this.state.settings.credential.password_confirmation != "" &&
@@ -225,28 +209,24 @@ export default {
           this.state.settings.credential.password_confirmation
       ) {
         this.state.settings.loading = true
-        let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch(
-          process.env.NODE_ENV === "production"
-            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/change-password"
-            : "/api/user/change-password",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(this.state.settings.credential),
-          }
-        )
-          .then((response) => response.json())
-          .then((response) => {
-            commit("changePassword", response)
-            this.state.settings.loading = false
-          })
-          .catch((error) => {
-            this.state.settings.loading = false
-          })
+        let token = Vue.prototype.$cookies.get("PaddiData").token
+        let email = Vue.prototype.$cookies.get("PaddiData").user.email
+        let input = this.state.settings.credential
+
+        try {
+          let password = await axios.post(
+            "https://trustpaddi.herokuapp.com/auth/changePassword",
+            {
+              email,
+              token,
+              password: input.password,
+            }
+          )
+          commit("changePassword", password)
+          this.state.settings.loading = false
+        } catch (error) {
+          this.state.settings.loading = false
+        }
       } else {
         this.state.settings.loading = false
         Vue.prototype.$vs.notification({

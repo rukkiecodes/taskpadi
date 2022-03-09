@@ -43,45 +43,10 @@
         >Create paddi link</vs-button
       >
 
-      <v-speed-dial
-        v-model="fab"
-        direction="bottom"
-        :open-on-hover="true"
-        transition="slide-y-reverse-transition"
-      >
-        <template v-slot:activator>
-          <vs-avatar
-            class="mx-5"
-            badge-color="danger"
-            badge-position="top-right"
-          >
-            <i class="lar la-bell"></i>
-            <template #badge> 28 </template>
-          </vs-avatar>
-        </template>
-        <v-list
-          flat
-          width="400"
-          color="transparent"
-          class="py-0 rounded-lg"
-          style="margin-right: 100px"
-        >
-          <v-card class="rounded-lg">
-            <v-subheader>Notifications</v-subheader>
-            <v-list-item>
-              <vs-avatar class="mr-3">
-                <i class="las la-exclamation"></i>
-              </vs-avatar>
-              <v-list-item-content>
-                <v-list-item-title>Profile photo</v-list-item-title>
-                <v-list-item-subtitle
-                  >Change your Google+ profile photo</v-list-item-subtitle
-                >
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
-        </v-list>
-      </v-speed-dial>
+      <vs-avatar class="mx-5" badge-color="danger" badge-position="top-right">
+        <i class="lar la-bell"></i>
+        <template #badge> 28 </template>
+      </vs-avatar>
 
       <ProfileMenu />
     </v-app-bar>
@@ -130,10 +95,10 @@
               <v-list-item dense class="py-0">
                 <vs-avatar size="35" color="transparent" tile>
                   <img
-                    v-if="account.userData.image == ''"
+                    v-if="!account.userData.avatar"
                     src="../../../assets/trust/pl.png"
                   />
-                  <img v-else :src="account.userData.image" />
+                  <img v-else :src="`https://trustpaddi.herokuapp.com/${account.userData.avatar}`" />
                 </vs-avatar>
                 <v-list-item-content>
                   <v-list-item-title

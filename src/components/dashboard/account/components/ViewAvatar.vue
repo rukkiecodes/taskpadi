@@ -3,12 +3,9 @@
     <vs-dialog v-model="account.editAvatarDialog" auto-width not-padding>
       <div class="content">
         <img
-          v-if="account.userData.avatar != ''"
-          :src="
-            'https://dev.trustpaddi.com/public/storage/users/avatars/' +
-            account.userData.avatar
-          "
           alt=""
+          v-if="account.userData.avatar"
+          :src="`https://trustpaddi.herokuapp.com/${account.userData.avatar}`"
         />
         <img v-else src="../../../../assets/trust/pl.png" alt="" />
       </div>

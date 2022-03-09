@@ -56,7 +56,7 @@
           block
           class="mt-3"
           label-placeholder="Phone number"
-          v-model="account.credential.phone_number"
+          v-model="account.credential.phone"
         />
       </v-col>
       <v-col cols="12" sm="6">
@@ -68,28 +68,16 @@
         />
       </v-col>
       <v-col cols="12" sm="6">
-        <!-- <vs-input
-          block
-          class="mt-3"
-          label-placeholder="Country"
+        <v-select
+          solo
+          flat
+          dense
+          label="State"
+          class="rounded-lg mt-3"
+          :items="nigerianStates"
+          background-color="#F4F7F8"
           v-model="account.credential.state"
-        /> -->
-        <vs-select
-          block
-          filter
-          @change="setState"
-          v-model="selectValue"
-          label-placeholder="State"
-        >
-          <vs-option
-            :key="i"
-            :label="state.name"
-            :value="state.name"
-            v-for="(state, i) in nigerianStates"
-          >
-            {{ state.name }}
-          </vs-option>
-        </vs-select>
+        ></v-select>
       </v-col>
       <v-col cols="12" sm="6">
         <vs-input
@@ -116,7 +104,9 @@
 
     <v-card-actions>
       <vs-button
+        flat
         dark
+        active
         color="#6A0DEB"
         @click="updateProfile"
         :loading="account.saveLoading"

@@ -1,86 +1,73 @@
 <template>
-  <v-speed-dial
-    v-model="fab"
-    direction="bottom"
-    :open-on-hover="true"
-    :transition="'slide-y-reverse-transition'"
+  <v-menu
+    offset-y
+    rounded="lg"
+    open-on-hover
+    v-model="menu"
+    :close-on-content-click="false"
   >
-    <template v-slot:activator>
-      <vs-button
-        v-model="fab"
-        class="font-weight-bold"
-        color="#616161"
-        transparent
-      >
-        <vs-avatar size="30" class="mr-3">
-          <img v-if="account.userData.image == ''" src="../../../../assets/trust/pl.png" alt="" />
-          <img v-else :src="account.userData.image" alt="" />
+    <template v-slot:activator="{ on, attrs }">
+      <v-chip v-on="on" v-bind="attrs" color="transparent" class="pl-0">
+        <vs-avatar
+          dark
+          circle
+          size="30"
+          class="mr-2"
+          @click="menu = !menu"
+          badge-position="top-right"
+          v-show="!account.userData.avatar"
+        >
+          <template #text>
+            {{ account.userData.firstname }} {{ account.userData.lastname }}
+          </template>
         </vs-avatar>
-        {{ account.userData.firstName || "User" }}
-      </vs-button>
-    </template>
-
-    <v-list
-      class="py-0"
-      color="transparent"
-      flat
-      style="margin-right: 200px"
-      width="300"
-    >
-      <vs-card type="4">
-        <template #title>
-          <h3
-            v-text="
-              account.userData.firstName + ' ' + account.userData.lastName
-            "
+        <vs-avatar
+          circle
+          size="30"
+          class="mr-2"
+          @click="menu = !menu"
+          badge-position="top-right"
+          v-show="account.userData.avatar"
+        >
+          <img
+            alt=""
+            :src="`https://trustpaddi.herokuapp.com/${account.userData.avatar}`"
           />
-        </template>
-        <template #img>
-          <img v-if="account.userData.image == ''" src="../../../../assets/trust/pl.png" alt="" />
-          <img v-else :src="account.userData.image" alt="" />
-        </template>
-        <template #text>
-          <div class="d-flex flex-column">
-            <span v-text="account.userData.email" />
-            <span v-text="account.userData.phone" />
-            <span
-              v-text="
-                account.userData.country +
-                ' / ' +
-                account.userData.state +
-                ' / ' +
-                account.userData.lga
-              "
-            />
-          </div>
-        </template>
-        <template #interactions>
-          <vs-button
-            icon
-            color="danger"
-            class="btn-chat"
-            @click="logout.logoutDialog = true"
-          >
-            <i
-              style="font-size: 1.2rem; transform: scaleX(-1)"
-              class="las la-sign-out-alt"
-            ></i>
-          </vs-button>
+        </vs-avatar>
 
-          <vs-button shadow icon class="btn-chat" to="/dashboard/account">
-            <i style="font-size: 1.2rem" class="las la-user"></i>
-          </vs-button>
-        </template>
-      </vs-card>
+        {{ account.userData.firstname }}
+      </v-chip>
+    </template>
+    <v-list dense class="py-0">
+      <v-list-item dense to="/dashboard/account">
+        <v-list-item-icon>
+          <v-icon>mdi-account-outline</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content class="ml-n6">
+          <v-list-item-title>My Account</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item @click="logout.logoutDialog = true" dense>
+        <v-list-item-icon>
+          <v-icon
+            class="red--text"
+            style="font-size: 1.2rem; transform: scaleX(-1)"
+            >mdi-location-exit</v-icon
+          >
+        </v-list-item-icon>
+        <v-list-item-content class="ml-n6">
+          <v-list-item-title>Logout</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
-  </v-speed-dial>
+  </v-menu>
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from "vuex"
+import { mapState } from "vuex"
 export default {
   data: () => ({
-    fab: false,
+    menu: false,
   }),
 
   mounted() {
@@ -94,18 +81,3 @@ export default {
   },
 }
 </script>
-
-<style>
-/* This is for documentation purposes and will not be needed in your application */
-#create .v-speed-dial {
-  position: absolute;
-}
-
-#create .v-btn--floating {
-  position: relative;
-}
-
-.vs-card__text {
-  width: 100%;
-}
-</style>

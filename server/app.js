@@ -34,7 +34,10 @@ app.use("/auth", [
   require("./routes/auth/signin"),
   require("./routes/auth/avatar"),
   require("./routes/auth/getProfile"),
+  require("./routes/auth/updateProfile"),
+  require("./routes/auth/changePassword"),
 ])
+app.use("/states", [require("./routes/states")])
 
 const PORT = process.env.PORT || 3000
 app.listen(
