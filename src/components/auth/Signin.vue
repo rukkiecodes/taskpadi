@@ -89,7 +89,7 @@
               <v-col cols="12" md="8" class="text-lg-right">
                 <span class="text-body-2 text-md-caption text-lg-body-2 ml-2"
                   >Don't have an account?
-                  <router-link class="text-decoration-none" to="/signup"
+                  <router-link class="text-decoration-none font-weight-bold" to="/signup"
                     >Sign Up</router-link
                   >
                 </span>

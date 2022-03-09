@@ -33,29 +33,29 @@
           <v-col cols="12" class="mt-8">
             <vs-input
               block
-              label="First name"
+              placeholder="First name"
               v-model="signup.credential.firstname"
             />
             <vs-input
               block
-              class="mt-10"
-              label="Last name"
+              class="mt-5"
+              placeholder="Last name"
               v-model="signup.credential.lastname"
             />
             <vs-input
               block
               type="email"
-              class="mt-10"
-              label="Email"
+              class="mt-5"
+              placeholder="Email"
               v-model="signup.credential.email"
             />
 
             <vs-input
               block
               icon-after
-              class="mt-10"
+              class="mt-5"
               type="password"
-              label="Password"
+              placeholder="Password"
               :progress="getProgress"
               @keypress.enter="signupUser"
               v-model="signup.credential.password"
@@ -82,16 +82,16 @@
 
             <vs-input
               block
-              class="mt-10"
+              class="mt-5"
               type="password"
-              label="Confirm password"
+              placeholder="Confirm password"
               v-model="signup.credential.password_confirmation"
             />
 
             <vs-input
               block
-              class="mt-10"
-              label="Referral code"
+              class="mt-5"
+              placeholder="Referral code"
               v-model="signup.credential.referral_code"
             />
 
@@ -108,7 +108,7 @@
               <v-col cols="12" md="8" class="text-lg-right">
                 <span class="text-body-2 text-md-caption text-lg-body-2 ml-2"
                   >Already have an account?
-                  <router-link class="text-decoration-none" to="/"
+                  <router-link class="text-decoration-none font-weight-bold" to="/"
                     >Login</router-link
                   >
                 </span>

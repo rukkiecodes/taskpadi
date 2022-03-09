@@ -3,7 +3,8 @@ module.exports = {
   devServer: {
     proxy: {
       "/api": {
-        target: "https://dev.trustpaddi.com/api/v1",
+        target: "https://trustpaddi.herokuapp.com",
+        // target: "http://localhost:3000",
         changeOrigin: true,
         pathRewrite: {
           "^/api": "",
@@ -11,4 +12,4 @@ module.exports = {
       },
     },
   },
-};
+}

@@ -206,7 +206,7 @@ export default {
 
       fetch(
         process.env.NODE_ENV === "production"
-          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/profile"
+          ? `https://cors-anywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/profile`
           : "/api/user/profile",
         options
       )

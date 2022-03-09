@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+/server/config/config.env
 
 # firebase
 /firebase
@@ -10,8 +11,11 @@ firebase.json
 
 
 # local env files
+.env
 .env.local
 .env.*.local
+vue.config.js
+
 
 # Log files
 npm-debug.log*
