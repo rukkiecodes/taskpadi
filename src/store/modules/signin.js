@@ -18,11 +18,8 @@ export default {
       state.loading = false
       console.log("login user: ", response.data)
       Vue.prototype.$cookies.set("PaddiData", response.data)
-      if (response.data.success == true) {
-        state.loading = false
-        router.push("/dashboard/dashboard")
-      } else {
-        state.loading = false
+      if (response.data.success == true) router.push("/dashboard/dashboard")
+      else {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
@@ -43,22 +40,13 @@ export default {
       if (emailRegEx.test(input.email) && input.password != "") {
         this.state.signin.loading = true
 
-        let options = {
-          url:
-            process.env.NODE_ENV === "production"
-              ? "https://dev.trustpaddi.com/api/v1/login"
-              : "/api/login",
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          data: input,
-        }
-
-        await Vue.prototype
-          .$axios(options)
-          .then((response) => {
-            commit("signinUser", response)
+        axios
+          .post("https://trustpaddi.herokuapp.com/auth/signin", {
+            email: input.email,
+            password: input.password,
+          })
+          .then((user) => {
+            commit("signinUser", user)
             this.state.signin.loading = false
           })
           .catch((error) => {
