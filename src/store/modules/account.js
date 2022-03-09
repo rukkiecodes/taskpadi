@@ -1,4 +1,5 @@
 import Vue from "vue"
+import axios from "axios"
 
 export default {
   state: {
@@ -29,24 +30,24 @@ export default {
   mutations: {
     getProfile: (state, response) => {
       state.userData = {}
-      state.userData = response.data.data
+      state.userData = response.data.user
 
-      console.log("axios user data: ", response)
+      console.log("axios user data: ", response.data.user)
 
-      let number = state.userData.phone
-      let arr = number.split("4")
-      arr.shift()
-      number = arr.join("4")
+      // let number = state.userData.phone
+      // let arr = number.split("4")
+      // arr.shift()
+      // number = arr.join("4")
 
-      state.credential = {
-        firstname: state.userData.firstName,
-        lastname: state.userData.lastName,
-        phone_number: `0${number}`,
-        country: state.userData.country,
-        state: state.userData.state,
-        lga: state.userData.lga,
-        address: state.userData.address,
-      }
+      // state.credential = {
+      //   firstname: state.userData.firstName,
+      //   lastname: state.userData.lastName,
+      //   phone_number: `0${number}`,
+      //   country: state.userData.country,
+      //   state: state.userData.state,
+      //   lga: state.userData.lga,
+      //   address: state.userData.address,
+      // }
     },
 
     getStates: (state, response) => {
@@ -144,28 +145,22 @@ export default {
 
   actions: {
     async getProfile({ commit }) {
-      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      let token = Vue.prototype.$cookies.get("PaddiData").token
+      let email = Vue.prototype.$cookies.get("PaddiData").user.email
 
-      let options = {
-        url:
-          process.env.NODE_ENV === "production"
-            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/profile"
-            : "/api/user/profile",
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
+      console.log("token: ", token)
+      try {
+        let user = await axios.post(
+          "https://trustpaddi.herokuapp.com/auth/profile",
+          {
+            token,
+            email,
+          }
+        )
+        commit("getProfile", user)
+      } catch (error) {
+        console.log("error", error)
       }
-
-      await Vue.prototype
-        .$axios(options)
-        .then((response) => {
-          commit("getProfile", response)
-        })
-        .catch((error) => console.log("error", error))
     },
 
     async getStates({ commit }) {
@@ -230,18 +225,31 @@ export default {
         })
     },
 
-    setImage({ commit }, file) {
-      this.state.account.credential.image = file
-      this.state.account.image = URL.createObjectURL(file)
+    setImage({ commit, dispatch }, file) {
+      let token = Vue.prototype.$cookies.get("PaddiData").token
+      let email = Vue.prototype.$cookies.get("PaddiData").user.email
 
-      Vue.prototype.$vs.notification({
-        icon: `<i class="lar la-image"></i>`,
-        border: "#46C93A",
-        position: "top-right",
-        title: "Yippee!!!",
-        text: "Image selected ",
-      })
-      console.log(this.state.account.credential.image)
+      var myHeaders = new Headers()
+      myHeaders.append("Accept", "application/json")
+
+      var formdata = new FormData()
+      formdata.append("token", token)
+      formdata.append("email", email)
+      formdata.append("avatar", file)
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow",
+      }
+
+      fetch("https://trustpaddi.herokuapp.com/auth/avatar", requestOptions)
+        .then((response) => response.text())
+        .then((result) => {
+          dispatch("getProfile")
+        })
+        .catch((error) => console.log("error", error))
     },
   },
 }

@@ -21,6 +21,24 @@ const UserSchema = new mongoose.Schema({
   referral_code: {
     type: String,
   },
+  avatar: {
+    type: String,
+  },
+  phone: {
+    type: String,
+  },
+  country: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  lga: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

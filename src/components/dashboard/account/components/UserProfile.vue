@@ -12,11 +12,14 @@
         <template v-slot:activator="{ on, attrs }">
           <vs-avatar circle v-on="on" size="150" v-bind="attrs" class="mx-auto">
             <img
-              v-if="account.userData.image == ''"
+              v-if="!account.userData.avatar"
               src="../../../../assets/trust/pl.png"
               alt=""
             />
-            <img v-else :src="account.userData.image" />
+            <img
+              v-else
+              :src="`https://trustpaddi.herokuapp.com/${account.userData.avatar}`"
+            />
           </vs-avatar>
         </template>
 
