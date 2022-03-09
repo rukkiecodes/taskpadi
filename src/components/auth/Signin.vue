@@ -34,16 +34,16 @@
             <vs-input
               block
               type="email"
-              label="Email Address"
+              placeholder="Email Address"
               v-model="signin.credential.email"
             />
 
             <vs-input
               block
               icon-after
-              class="mt-10"
+              class="mt-5"
               type="password"
-              label="Password"
+              placeholder="Password"
               :progress="getProgress"
               @keypress.enter="signinUser"
               v-model="signin.credential.password"
