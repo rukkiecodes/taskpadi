@@ -78,7 +78,7 @@ export default {
     getBanks: (state, response) => {
       console.log("getBanks: ", response)
       state.banks = []
-      state.banks.push(...response.banks)
+      state.banks.push(...response.data.banks)
     },
 
     getUserBanks: (state, response) => {
@@ -264,22 +264,13 @@ export default {
         })
     },
 
-    getBanks({ commit }) {
-      fetch(
-        process.env.NODE_ENV === "production"
-          ? "https://dev.trustpaddi.com/api/v1/banks"
-          : "/api/banks",
-        {
-          method: "GET",
-        }
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          commit("getBanks", response)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+    async getBanks ({ commit }) {
+      try {
+        let banks = await axios.get("https://trustpaddi.herokuapp.com/banks")
+        commit("getBanks", banks)
+      } catch (error) {
+        console.log(error)
+      }
     },
 
     getUserBanks({ commit }) {
