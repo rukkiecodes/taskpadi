@@ -87,33 +87,25 @@ export default {
     },
 
     addBankAccount: (state, response) => {
-      if (response.message == "The given data was invalid.") {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Oops!!!",
-          text: response.errors.bank_id[0],
-        })
-      }
-      if (response.success == true) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
-      if (response.success == false) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Oops!!!",
-          text: response.message,
-        })
-      }
+      console.log("addBankAccount: ", response)
+      // if (response.success == true) {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-university"></i>`,
+      //     border: "#46C93A",
+      //     position: "top-right",
+      //     title: "Yippee!!!",
+      //     text: response.message,
+      //   })
+      // }
+      // if (response.success == false) {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-exclamation-triangle"></i>`,
+      //     border: "rgb(255, 71, 87)",
+      //     position: "top-right",
+      //     title: "Oops!!!",
+      //     text: response.message,
+      //   })
+      // }
     },
 
     resolveBackAccount: (state, response) => {
@@ -279,39 +271,55 @@ export default {
       }
     },
 
-    addBankAccount({ commit, dispatch }) {
+    async addBankAccount({ commit, dispatch }) {
       let input = this.state.settings.addBankAccountCredential
+      let user = Vue.prototype.$cookies.get("PaddiData").user._id
       if (
         input.bank_id != "" &&
         input.account_no != "" &&
         input.account_name != ""
       ) {
         this.state.settings.addBankAccountLoading = true
-        let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch(
-          process.env.NODE_ENV === "production"
-            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/add-bank"
-            : "/api/user/add-bank",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(input),
-          }
-        )
-          .then((response) => response.json())
-          .then((response) => {
-            return dispatch("getUserBanks").then(() => {
-              commit("addBankAccount", response)
-              this.state.settings.addBankAccountLoading = false
-            })
-          })
-          .catch((error) => {
-            console.log(error)
+
+        try {
+          let bank = await axios.post(
+            "https://trustpaddi.herokuapp.com/banks/addBank",
+            {
+              user,
+              bankId: input.bank_id,
+              accountNumber: input.account_no,
+              accountName: input.account_name,
+            }
+          )
+
+          return dispatch("getUserBanks").then(() => {
+            commit("addBankAccount", bank)
             this.state.settings.addBankAccountLoading = false
           })
+        } catch (error) {
+          console.log(error)
+          this.state.settings.addBankAccountLoading = false
+        }
+        // fetch("https://trustpaddi.herokuapp.com/banks/addBank", {
+        //   method: "POST",
+        //   body: JSON.stringify({
+        //     user,
+        //     bankId: `${input.bank_id}`,
+        //     accountNumber: `${input.account_no}`,
+        //     accountName: `${input.account_name}`,
+        //   }),
+        // })
+        //   .then((response) => response.json())
+        //   .then((response) => {
+        //     return dispatch("getUserBanks").then(() => {
+        //       commit("addBankAccount", response)
+        //       this.state.settings.addBankAccountLoading = false
+        //     })
+        //   })
+        //   .catch((error) => {
+        //     console.log(error)
+        //     this.state.settings.addBankAccountLoading = false
+        //   })
       } else {
         this.state.settings.addBankAccountLoading = false
         Vue.prototype.$vs.notification({
