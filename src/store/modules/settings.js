@@ -76,24 +76,14 @@ export default {
     },
 
     getBanks: (state, response) => {
-      console.log("getBanks: ", response)
       state.banks = []
       state.banks.push(...response.data.banks)
     },
 
     getUserBanks: (state, response) => {
-      console.log("getUserBanks: ", response)
+      console.log("getUserBanks: ", response.data.bank)
       state.userBanks = []
-      state.userBanks.push(...response.banks)
-      if (response.success == true) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
+      state.userBanks.push(...response.data.bank)
     },
 
     addBankAccount: (state, response) => {
@@ -264,7 +254,7 @@ export default {
         })
     },
 
-    async getBanks ({ commit }) {
+    async getBanks({ commit }) {
       try {
         let banks = await axios.get("https://trustpaddi.herokuapp.com/banks")
         commit("getBanks", banks)
@@ -273,27 +263,20 @@ export default {
       }
     },
 
-    getUserBanks({ commit }) {
-      let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(
-        process.env.NODE_ENV === "production"
-          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/user-banks"
-          : "/api/user/user-banks",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          commit("getUserBanks", response)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+    async getUserBanks({ commit }) {
+      let user = Vue.prototype.$cookies.get("PaddiData").user._id
+
+      try {
+        let banks = await axios.post(
+          "https://trustpaddi.herokuapp.com/banks/userBanks",
+          {
+            user,
+          }
+        )
+        commit("getUserBanks", banks)
+      } catch (error) {
+        console.log(error)
+      }
     },
 
     addBankAccount({ commit, dispatch }) {

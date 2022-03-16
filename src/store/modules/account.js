@@ -32,8 +32,6 @@ export default {
       state.userData = {}
       state.userData = response.data.user
 
-      console.log("axios user data: ", response.data.user)
-
       state.credential = {
         firstname: state.userData.firstname,
         lastname: state.userData.lastname,
@@ -48,12 +46,9 @@ export default {
     getStates: (state, response) => {
       state.nigerianStates = []
       state.nigerianStates.push(...response.data.states)
-
-      console.log("states in nigeria: ", response)
     },
 
     updateProfile: (state, response) => {
-      console.log("updateProfile: ", response)
       if (response.data.success == true) {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-user"></i>`,
@@ -71,7 +66,6 @@ export default {
       let token = Vue.prototype.$cookies.get("PaddiData").token
       let email = Vue.prototype.$cookies.get("PaddiData").user.email
 
-      console.log("token: ", token)
       try {
         let user = await axios.post(
           "https://trustpaddi.herokuapp.com/auth/profile",

@@ -48,6 +48,10 @@ app.use("/banks", [
   require("./routes/banks/userBanks"),
 ])
 
+app.use("/ticket", [
+  require("./routes/supportTicket/createSupportTicket")
+])
+
 const PORT = process.env.PORT || 3000
 app.listen(
   PORT,
