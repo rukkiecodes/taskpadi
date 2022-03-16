@@ -12,7 +12,7 @@ router.post("/updateProfile", checkAuth, async (req, res) => {
       { email },
       { $set: { firstname, lastname, phone, country, state, lga, address } }
     )
-    res.status(200).json({
+    return res.status(200).json({
       message: "User found",
       success: true,
       user,

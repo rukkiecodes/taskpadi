@@ -4,38 +4,21 @@ const checkAuth = require("../../middleware/checkAuth")
 
 const Bank = require("../../models/Banks")
 
-router.post("/addBank", async (req, res) => {
-  const { user, bankId, accountNumber, accountName } = req.body
+router.post("/resolveBank", async (req, res) => {
+  const { user, bankId, accountNumber, accountName, resolve } = req.body
 
   try {
-    const findBank = await Bank.findOne(
+    const bank = await Bank.updateOne(
       {
-        $and: [{ bankId }, { accountNumber }, { accountName }],
+        $and: [{ bankId }, { accountNumber }, { accountName }, { user }],
       },
-      { user }
+      { $set: { resolve } }
     )
-
-    if (findBank) {
-      return res.status(200).json({
-        findBank,
-        success: false,
-        message: "Bank details already exists",
-      })
-    } else {
-      const newBank = Bank.create({
-        _id: new mongoose.Types.ObjectId(),
-        user,
-        bankId,
-        accountNumber,
-        accountName,
-      })
-
-      return res.status(201).json({
-        message: "Bank added successfully",
-        newBank,
-        success: true,
-      })
-    }
+    return res.status(200).json({
+      message: "Bank resolved",
+      success: true,
+      bank,
+    })
   } catch (error) {
     return res.status(401).json({
       error,

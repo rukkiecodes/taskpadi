@@ -8,12 +8,9 @@ router.post("/addBank", async (req, res) => {
   const { user, bankId, accountNumber, accountName } = req.body
 
   try {
-    const findBank = await Bank.findOne(
-      {
-        $and: [{ bankId }, { accountNumber }, { accountName }],
-      },
-      { user }
-    )
+    const findBank = await Bank.findOne({
+      $and: [{ bankId }, { accountNumber }, { accountName }, { user }],
+    })
 
     if (findBank) {
       return res.status(200).json({
