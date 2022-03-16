@@ -44,6 +44,7 @@ app.use("/banks", [
   require("./routes/banks/banks"),
   require("./routes/banks/addBankAccount"),
   require("./routes/banks/resolveBankAccount"),
+  require("./routes/banks/removeBankAccount"),
 ])
 
 const PORT = process.env.PORT || 3000

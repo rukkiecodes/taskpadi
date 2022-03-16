@@ -3,18 +3,15 @@ const checkAuth = require("../../middleware/checkAuth")
 
 const Bank = require("../../models/Banks")
 
-router.post("/resolveBank", async (req, res) => {
-  const { user, bankId, accountNumber, accountName, resolve } = req.body
+router.post("/removeBank", async (req, res) => {
+  const { bankId } = req.body
 
   try {
-    const bank = await Bank.updateOne(
-      {
-        $and: [{ bankId }, { accountNumber }, { accountName }, { user }],
-      },
-      { $set: { resolve } }
-    )
+    const bank = await Bank.deleteOne({
+      _id: bankId,
+    })
     return res.status(200).json({
-      message: "Bank resolved",
+      message: "Bank removed",
       success: true,
       bank,
     })
