@@ -37,8 +37,13 @@ app.use("/auth", [
   require("./routes/auth/updateProfile"),
   require("./routes/auth/changePassword"),
 ])
-app.use("/states", [require("./routes/states")])
-app.use("/banks", [require("./routes/banks/banks")])
+
+app.use("/states", require("./routes/states"))
+
+app.use("/banks", [
+  require("./routes/banks/banks"),
+  require("./routes/banks/addBankAccount"),
+])
 
 const PORT = process.env.PORT || 3000
 app.listen(
