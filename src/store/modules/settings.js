@@ -88,39 +88,52 @@ export default {
 
     addBankAccount: (state, response) => {
       console.log("addBankAccount: ", response)
-      // if (response.success == true) {
-      //   Vue.prototype.$vs.notification({
-      //     icon: `<i class="las la-university"></i>`,
-      //     border: "#46C93A",
-      //     position: "top-right",
-      //     title: "Yippee!!!",
-      //     text: response.message,
-      //   })
-      // }
-      // if (response.success == false) {
-      //   Vue.prototype.$vs.notification({
-      //     icon: `<i class="las la-exclamation-triangle"></i>`,
-      //     border: "rgb(255, 71, 87)",
-      //     position: "top-right",
-      //     title: "Oops!!!",
-      //     text: response.message,
-      //   })
-      // }
+      if (response.data.success == true) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.data.message,
+        })
+      }
+      if (response.data.success == false) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-exclamation-triangle"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Oops!!!",
+          text: response.data.message,
+        })
+      }
     },
 
     resolveBackAccount: (state, response) => {
       console.log("resolveBackAccount: ", response)
-      // state.resolvedAccount = Vue.prototype.$cookies.get("PaddiResolved")
-      // state.resolveBankAccountLoading = false
-      // if (response.message == "The given data was invalid.") {
-      //   Vue.prototype.$vs.notification({
-      //     icon: `<i class="las la-exclamation-triangle"></i>`,
-      //     border: "rgb(255, 71, 87)",
-      //     position: "top-right",
-      //     title: "Oops!!!",
-      //     text: response.errors.account_no[0],
-      //   })
-      // }
+      Vue.prototype.$cookies.set("PaddiResolved", response.data.bank)
+      state.resolvedAccount = Vue.prototype.$cookies.get("PaddiResolved")
+      if (response.data.success == true) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.data.message,
+        })
+      }
+      if (response.data.success == false) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.data.message,
+        })
+      }
+    },
+
+    removeBankAccount: (state, response) => {
+      console.log("removeBankAccount: ", response)
       // if (response.message == "The given data was invalid.") {
       //   Vue.prototype.$vs.notification({
       //     icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -131,6 +144,7 @@ export default {
       //   })
       // }
       // if (response.success == true) {
+      //   state.resolveBankAccountLoading = false
       //   Vue.prototype.$vs.notification({
       //     icon: `<i class="las la-university"></i>`,
       //     border: "#46C93A",
@@ -148,37 +162,6 @@ export default {
       //     text: response.message,
       //   })
       // }
-    },
-
-    removeBankAccount: (state, response) => {
-      if (response.message == "The given data was invalid.") {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-exclamation-triangle"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Oops!!!",
-          text: response.errors.bank_id[0],
-        })
-      }
-      if (response.success == true) {
-        state.resolveBankAccountLoading = false
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
-      if (response.success == false) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
     },
   },
 
@@ -300,26 +283,6 @@ export default {
           console.log(error)
           this.state.settings.addBankAccountLoading = false
         }
-        // fetch("https://trustpaddi.herokuapp.com/banks/addBank", {
-        //   method: "POST",
-        //   body: JSON.stringify({
-        //     user,
-        //     bankId: `${input.bank_id}`,
-        //     accountNumber: `${input.account_no}`,
-        //     accountName: `${input.account_name}`,
-        //   }),
-        // })
-        //   .then((response) => response.json())
-        //   .then((response) => {
-        //     return dispatch("getUserBanks").then(() => {
-        //       commit("addBankAccount", response)
-        //       this.state.settings.addBankAccountLoading = false
-        //     })
-        //   })
-        //   .catch((error) => {
-        //     console.log(error)
-        //     this.state.settings.addBankAccountLoading = false
-        //   })
       } else {
         this.state.settings.addBankAccountLoading = false
         Vue.prototype.$vs.notification({
@@ -332,41 +295,28 @@ export default {
       }
     },
 
-    resolveBackAccount({ commit }) {
+    async resolveBackAccount({ commit }) {
       let input = this.state.settings.resolveBankAccountCredential
-      let token = Vue.prototype.$cookies.get("PaddiData").access_token
+      let user = Vue.prototype.$cookies.get("PaddiData").user._id
+
       if (input.bank_id != "" && input.account_no != "") {
         this.state.settings.resolveBankAccountLoading = true
-        fetch(
-          process.env.NODE_ENV === "production"
-            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/resolve-account"
-            : "/api/user/resolve-account",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(input),
-          }
-        )
-          .then((response) => response.json())
-          .then((response) => {
-            commit("resolveBackAccount", response)
-            this.state.settings.resolveBankAccountLoading = false
-          })
-          .catch((error) => {
-            console.log(error)
-            this.state.settings.resolveBankAccountLoading = false
 
-            Vue.prototype.$vs.notification({
-              icon: `<i class="las la-exclamation-triangle"></i>`,
-              border: "rgb(255, 71, 87)",
-              position: "top-right",
-              title: "Oops!!!",
-              text: error,
-            })
-          })
+        try {
+          let bank = await axios.post(
+            "http://localhost:3000/banks/resolveBank",
+            {
+              user,
+              bankId: input.bank_id,
+              accountNumber: input.account_no,
+            }
+          )
+          commit("resolveBackAccount", bank)
+          this.state.settings.resolveBankAccountLoading = false
+        } catch (error) {
+          console.log(error)
+          this.state.settings.resolveBankAccountLoading = false
+        }
       } else {
         this.state.settings.resolveBankAccountLoading = false
         Vue.prototype.$vs.notification({
@@ -381,35 +331,35 @@ export default {
 
     removeBankAccount({ commit, dispatch }) {
       if (this.state.settings.removeBankAccountCredential.bank_id != "") {
-        console.log(this.state.settings.removeBankAccountCredential)
-        this.state.settings.removeBankAccountLoading = true
-        let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        fetch(
-          process.env.NODE_ENV === "production"
-            ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/remove-bank"
-            : "/api/user/remove-bank",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(
-              this.state.settings.removeBankAccountCredential
-            ),
-          }
-        )
-          .then((response) => response.json())
-          .then((response) => {
-            return dispatch("getUserBanks").then(() => {
-              commit("removeBankAccount", response)
-              this.state.settings.removeBankAccountLoading = false
-            })
-          })
-          .catch((error) => {
-            console.log(error)
-            this.state.settings.removeBankAccountLoading = false
-          })
+        // console.log(this.state.settings.removeBankAccountCredential)
+        // this.state.settings.removeBankAccountLoading = true
+        // let token = Vue.prototype.$cookies.get("PaddiData").access_token
+        // fetch(
+        //   process.env.NODE_ENV === "production"
+        //     ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/remove-bank"
+        //     : "/api/user/remove-bank",
+        //   {
+        //     method: "POST",
+        //     headers: {
+        //       Authorization: `Bearer ${token}`,
+        //       "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(
+        //       this.state.settings.removeBankAccountCredential
+        //     ),
+        //   }
+        // )
+        //   .then((response) => response.json())
+        //   .then((response) => {
+        //     return dispatch("getUserBanks").then(() => {
+        //       commit("removeBankAccount", response)
+        //       this.state.settings.removeBankAccountLoading = false
+        //     })
+        //   })
+        //   .catch((error) => {
+        //     console.log(error)
+        //     this.state.settings.removeBankAccountLoading = false
+        //   })
       } else {
         this.state.settings.removeBankAccountLoading = false
         Vue.prototype.$vs.notification({

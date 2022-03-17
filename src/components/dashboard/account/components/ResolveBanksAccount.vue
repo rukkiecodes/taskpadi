@@ -13,10 +13,10 @@
             label-placeholder="Bank id"
           >
             <vs-option
-              v-for="(bank, i) in settings.banks"
               :key="i"
+              :value="bank.code"
               :label="bank.abbreviation"
-              :value="bank.id"
+              v-for="(bank, i) in settings.banks"
             >
               {{ bank.abbreviation }}
             </vs-option>
@@ -34,7 +34,7 @@
             block
             readonly
             label-placeholder="Account name"
-            v-model="settings.resolvedAccount.account_name"
+            v-model="settings.resolvedAccount.accountName"
           />
         </v-col>
         <v-col cols="12">

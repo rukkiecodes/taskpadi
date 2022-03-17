@@ -15,10 +15,10 @@
             label-placeholder="Bank id"
           >
             <vs-option
-              v-for="bank in settings.banks"
               :key="bank.id"
-              :label="bank.abbreviation + ': ' + bank.code"
               :value="bank.code"
+              v-for="bank in settings.banks"
+              :label="bank.abbreviation + ': ' + bank.code"
             >
               {{ bank.abbreviation }}: {{ bank.code }}
             </vs-option>
