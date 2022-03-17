@@ -26,7 +26,8 @@ app.use(bodyParser.json({ limit: "50mb" }))
 
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"))
 
-app.use("/uploads", express.static("uploads"))
+app.use("/avatar", express.static("avatar"))
+app.use("/ticket", express.static("ticket"))
 
 // Routes
 app.use("/auth", [

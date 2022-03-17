@@ -2,7 +2,7 @@
   <v-container>
     <vs-button
       color="#6200EA"
-      class="px-4 mb-5"
+      class="px-4 mb-5 font-weight-bold"
       @click="customerSupport.customerDialog = true"
       >Submit ticket</vs-button
     >

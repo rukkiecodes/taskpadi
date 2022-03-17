@@ -1,6 +1,5 @@
 <template>
   <vs-dialog
-    blur
     width="400px"
     prevent-close
     v-model="customerSupport.customerDialog"
@@ -13,15 +12,15 @@
       <v-col cols="12" sm="6">
         <vs-input
           block
-          v-model="customerSupport.createTicketCredential.subject"
           placeholder="Subject"
+          v-model="customerSupport.createTicketCredential.subject"
         />
       </v-col>
       <v-col cols="12" sm="6">
         <vs-input
           block
-          v-model="customerSupport.createTicketCredential.department"
           placeholder="Department"
+          v-model="customerSupport.createTicketCredential.department"
         />
       </v-col>
       <v-col cols="12">
@@ -42,16 +41,16 @@
       <v-col cols="12">
         <v-file-input
           class="addImage"
-          style="display: none"
           @change="setImage"
+          style="display: none"
           background-color="#EFF0F6"
         ></v-file-input>
         <vs-input
+          block
+          readonly
           @click="clickOnFileChange"
           v-model="customerSupport.fileName"
-          readonly
-          block
-          placeholder="Add image **/Optional"
+          placeholder="Add image"
         />
       </v-col>
     </v-row>
@@ -60,8 +59,8 @@
       <vs-button
         block
         color="#7E2DEE"
-        :loading="customerSupport.createLoading"
         @click="createTicket"
+        :loading="customerSupport.createLoading"
         class="text-body-2 font-weight-bold text-capitalize"
       >
         Create support ticket

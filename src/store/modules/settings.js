@@ -338,35 +338,6 @@ export default {
           console.log(error)
           this.state.settings.removeBankAccountLoading = false
         }
-        // console.log(this.state.settings.removeBankAccountCredential)
-        // this.state.settings.removeBankAccountLoading = true
-        // let token = Vue.prototype.$cookies.get("PaddiData").access_token
-        // fetch(
-        //   process.env.NODE_ENV === "production"
-        //     ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/remove-bank"
-        //     : "/api/user/remove-bank",
-        //   {
-        //     method: "POST",
-        //     headers: {
-        //       Authorization: `Bearer ${token}`,
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(
-        //       this.state.settings.removeBankAccountCredential
-        //     ),
-        //   }
-        // )
-        //   .then((response) => response.json())
-        //   .then((response) => {
-        //     return dispatch("getUserBanks").then(() => {
-        //       commit("removeBankAccount", response)
-        //       this.state.settings.removeBankAccountLoading = false
-        //     })
-        //   })
-        //   .catch((error) => {
-        //     console.log(error)
-        //     this.state.settings.removeBankAccountLoading = false
-        //   })
       } else {
         this.state.settings.removeBankAccountLoading = false
         Vue.prototype.$vs.notification({

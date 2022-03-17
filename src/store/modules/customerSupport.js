@@ -150,7 +150,6 @@ export default {
 
         let myHeaders = new Headers()
         myHeaders.append("Accept", "multipart/form-data")
-        myHeaders.append("Authorization", `Bearer ${token}`)
 
         formData.append(
           "subject",
@@ -175,12 +174,7 @@ export default {
           body: formData,
         }
 
-        fetch(
-          process.env.NODE_ENV === "production"
-            ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/ticket`
-            : `/api/user/ticket`,
-          requestOptions
-        )
+        fetch("http://localhost:3000/ticket/createTicket", requestOptions)
           .then((response) => response.json())
           .then((response) => {
             commit("createTicket", response)
