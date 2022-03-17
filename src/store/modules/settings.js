@@ -134,34 +134,25 @@ export default {
 
     removeBankAccount: (state, response) => {
       console.log("removeBankAccount: ", response)
-      // if (response.message == "The given data was invalid.") {
-      //   Vue.prototype.$vs.notification({
-      //     icon: `<i class="las la-exclamation-triangle"></i>`,
-      //     border: "rgb(255, 71, 87)",
-      //     position: "top-right",
-      //     title: "Oops!!!",
-      //     text: response.errors.bank_id[0],
-      //   })
-      // }
-      // if (response.success == true) {
-      //   state.resolveBankAccountLoading = false
-      //   Vue.prototype.$vs.notification({
-      //     icon: `<i class="las la-university"></i>`,
-      //     border: "#46C93A",
-      //     position: "top-right",
-      //     title: "Yippee!!!",
-      //     text: response.message,
-      //   })
-      // }
-      // if (response.success == false) {
-      //   Vue.prototype.$vs.notification({
-      //     icon: `<i class="las la-university"></i>`,
-      //     border: "rgb(255, 71, 87)",
-      //     position: "top-right",
-      //     title: "Yippee!!!",
-      //     text: response.message,
-      //   })
-      // }
+      if (response.data.success == true) {
+        state.resolveBankAccountLoading = false
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "#46C93A",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.data.message,
+        })
+      }
+      if (response.data.success == false) {
+        Vue.prototype.$vs.notification({
+          icon: `<i class="las la-university"></i>`,
+          border: "rgb(255, 71, 87)",
+          position: "top-right",
+          title: "Yippee!!!",
+          text: response.data.message,
+        })
+      }
     },
   },
 
@@ -304,7 +295,7 @@ export default {
 
         try {
           let bank = await axios.post(
-            "http://localhost:3000/banks/resolveBank",
+            "https://trustpaddi.herokuapp.com/banks/resolveBank",
             {
               user,
               bankId: input.bank_id,
@@ -329,8 +320,24 @@ export default {
       }
     },
 
-    removeBankAccount({ commit, dispatch }) {
+    async removeBankAccount({ commit, dispatch }) {
       if (this.state.settings.removeBankAccountCredential.bank_id != "") {
+        try {
+          let bank = await axios.post(
+            "https://trustpaddi.herokuapp.com/banks/removeBank",
+            {
+              bankId: this.state.settings.removeBankAccountCredential.bank_id,
+            }
+          )
+
+          return dispatch("getUserBanks").then(() => {
+            commit("removeBankAccount", bank)
+            this.state.settings.removeBankAccountLoading = false
+          })
+        } catch (error) {
+          console.log(error)
+          this.state.settings.removeBankAccountLoading = false
+        }
         // console.log(this.state.settings.removeBankAccountCredential)
         // this.state.settings.removeBankAccountLoading = true
         // let token = Vue.prototype.$cookies.get("PaddiData").access_token

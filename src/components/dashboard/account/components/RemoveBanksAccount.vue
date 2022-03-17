@@ -5,11 +5,6 @@
     <v-card-text>
       <v-row justify="space-between" align="start">
         <v-col cols="12">
-          <!-- <vs-input
-            block
-            label-placeholder="Account number"
-            v-model="settings.removeBankAccountCredential.bank_id"
-          /> -->
           <vs-select
             block
             filter
@@ -19,12 +14,12 @@
             label-placeholder="Bank id"
           >
             <vs-option
-              v-for="(bank, i) in settings.userBanks"
               :key="i"
-              :label="bank.abbreviation + ': ' + bank.id"
-              :value="bank.id"
+              :value="bank._id"
+              :label="`${bank.accountNumber}: ${bank._id}`"
+              v-for="(bank, i) in settings.userBanks"
             >
-              {{ bank.accountNumber }}: {{ bank.id }}
+              {{ bank.accountNumber }}: {{ bank._id }}
             </vs-option>
           </vs-select>
         </v-col>
