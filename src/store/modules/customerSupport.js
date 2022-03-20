@@ -172,7 +172,10 @@ export default {
           body: formData,
         }
 
-        fetch("http://localhost:3000/ticket/createTicket", requestOptions)
+        fetch(
+          "https://trustpaddi.herokuapp.com/ticket/createTicket",
+          requestOptions
+        )
           .then((response) => response.json())
           .then((response) => {
             return dispatch("getTickets").then(() => {
@@ -212,7 +215,7 @@ export default {
     getTickets({ commit }) {
       let user = Vue.prototype.$cookies.get("PaddiData").user._id
       axios
-        .post("http://localhost:3000/ticket/getTicket", {
+        .post("https://trustpaddi.herokuapp.com/ticket/getTicket", {
           user,
         })
         .then((response) => {

@@ -79,6 +79,7 @@
       <vs-pagination
         square
         v-model="page"
+        color="#6200EA"
         :length="pageCount"
       />
     </div>
@@ -101,23 +102,26 @@ export default {
         align: "start",
         sortable: false,
       },
-      { text: "Subject", value: "subject" },
-      { text: "Date", value: "createdAt" },
-      { text: "Status", value: "status" },
-      { text: "Action", value: "action" },
+      { text: "Subject", value: "subject", sortable: false },
+      { text: "Date", value: "createdAt", sortable: false },
+      { text: "Status", value: "status", sortable: false },
+      { text: "Action", value: "action", sortable: false },
     ],
   }),
 
   mounted() {
     this.$nextTick(() => {
-      const border = document.querySelectorAll(
-        ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
-      )
-
-      if (border)
+      let border
+      let borderInterval = setInterval(() => {
+        border = document.querySelectorAll(
+          ".theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > td:not(.v-data-table__mobile-row), .theme--light.v-data-table > .v-data-table__wrapper > table > tbody > tr:not(:last-child) > th:not(.v-data-table__mobile-row)"
+        )
         border.forEach((el) => {
           el.style.border = "none"
         })
+      }, 10)
+
+      if (border) clearInterval(borderInterval)
     })
   },
 
