@@ -50,7 +50,8 @@ app.use("/banks", [
 ])
 
 app.use("/ticket", [
-  require("./routes/supportTicket/createSupportTicket")
+  require("./routes/supportTicket/createSupportTicket"),
+  require("./routes/supportTicket/getSupportTicket"),
 ])
 
 const PORT = process.env.PORT || 3000

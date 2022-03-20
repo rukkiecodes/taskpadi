@@ -1,4 +1,5 @@
 import Vue from "vue"
+import axios from "axios"
 
 export default {
   state: {
@@ -69,12 +70,13 @@ export default {
     },
 
     getTickets: (state, response) => {
-      state.tickets = []
-      let bankData = response.data
-      for (let i = 0; i < bankData.length; i++) {
-        state.tickets.push(bankData[i])
-      }
-      console.log("Tickets: ", state.tickets)
+      console.log("Tickets: ", response)
+      // state.tickets = []
+      // let bankData = response.data
+      // for (let i = 0; i < bankData.length; i++) {
+      //   state.tickets.push(bankData[i])
+      // }
+      // console.log("Tickets: ", state.tickets)
     },
 
     viewTicket: (state, ticket) => {
@@ -136,6 +138,7 @@ export default {
 
   actions: {
     createTicket({ commit }) {
+      let user = Vue.prototype.$cookies.get("PaddiData").user._id
       if (
         this.state.customerSupport.createTicketCredential.subject != "" &&
         this.state.customerSupport.createTicketCredential.description != "" &&
@@ -149,6 +152,7 @@ export default {
         let myHeaders = new Headers()
         myHeaders.append("Accept", "multipart/form-data")
 
+        formData.append("user", user)
         formData.append(
           "subject",
           this.state.customerSupport.createTicketCredential.subject
@@ -208,22 +212,14 @@ export default {
     },
 
     getTickets({ commit }) {
-      let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(
-        process.env.NODE_ENV === "production"
-          ? "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/tickets"
-          : "/api/user/tickets",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((response) => response.json())
+      let user = Vue.prototype.$cookies.get("PaddiData").user._id
+      axios
+        .post("http://localhost:3000/ticket/getTicket", {
+          user,
+        })
         .then((response) => {
-          commit("getTickets", response)
+          console.log("Tickets: ", response)
+          // commit("getTickets", response)
         })
         .catch((error) => {
           console.log(error)
