@@ -4,7 +4,7 @@ const SupportTicket = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   status: {
     type: String,
-    default: "Pending",
+    default: "pending",
   },
   subject: {
     type: String,

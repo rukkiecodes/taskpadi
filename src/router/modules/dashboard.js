@@ -68,6 +68,24 @@ export default {
       path: "support",
       name: "CustomerSupport",
       component: () => import("../../views/dashboard/CustomerSupport.vue"),
+      children: [
+        {
+          path: "",
+          name: "AllTickets",
+          component: () =>
+            import(
+              "../../components/dashboard/customerSupport/components/AllTickets.vue"
+            ),
+        },
+        {
+          path: ":_id",
+          name: "viewTicket",
+          component: () =>
+            import(
+              "../../components/dashboard/customerSupport/components/ViewTicket.vue"
+            ),
+        },
+      ],
     },
     {
       path: "account",

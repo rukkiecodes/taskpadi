@@ -1,98 +1,200 @@
 <template>
-  <vs-dialog
-    v-model="customerSupport.viewDialog"
-    :not-center="true"
-    width="400px"
-  >
-    <template #header>
-      <h4 class="not-margin">Response</h4>
-      <span class="not-margin text-caption"
-        >{{ customerSupport.viewTicket.name }} (support)</span
-      >
-    </template>
-
-    <v-row justify="space-between" align="start">
-      <v-col cols="12">
-        <vs-input
-          block
-          readonly
-          v-model="customerSupport.viewTicket.subject"
-          placeholder="Subject"
+  <v-row :class="rowClass" justify="start" align="start">
+    <v-col cols="12" sm="6" lg="4">
+      <v-card color="transparent" class="rounded-lg py-0" flat>
+        <v-img
+          contain
+          :key="i"
+          height="300"
+          max-height="400"
+          v-for="(ticket, i) in singleTicket"
+          :src="`http://localhost:3000/${ticket.file}`"
         />
-      </v-col>
-      <v-col cols="12" class="py-0">
+      </v-card>
+    </v-col>
+
+    <v-col v-for="(ticket, i) in singleTicket" :key="i" cols="12" sm="6" lg="8">
+      <!-- <v-card flat color="transparent">
+        <v-list color="transparent">
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title
+                class="text-h5 text-sm-h4 font-weight-bold text-capitalize"
+                >{{ ticket.subject }}</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-card> -->
+
+      <v-card flat color="transparent">
+        <!-- <v-card-title>
+          <span class="text-body-1 font-weight-medium">Department:</span>
+          <v-spacer />
+          <span class="text-body-1 font-weight-bold">{{
+            ticket.department
+          }}</span>
+        </v-card-title> -->
+
+        <!-- <v-card-text class="text-center text-sm-left">{{
+          ticket.description
+        }}</v-card-text> -->
+
+        <v-card flat :color="detailsCard" :dark="detailsCardMode">
+          <v-card-title
+            class="text-body-1 font-weight-medium"
+            :class="detailsCardTextClass"
+            >Ticket Details</v-card-title
+          >
+        </v-card>
+
         <v-divider />
-      </v-col>
-      <v-col cols="12">
-        <p
-          class="text-body-2 grey--text text--darken-2 font-weight-light"
-          v-text="customerSupport.viewTicket.description"
-        />
-      </v-col>
-      <v-col cols="12">
-        <v-file-input
-          class="addImage"
-          @change="setImage"
-          style="display: none"
-        ></v-file-input>
-        <vs-input
-          block
-          readonly
-          icon-after
-          placeholder="Reply"
-          @click="clickOnFileChange"
-          v-model="customerSupport.fileName"
-        >
-          <template #icon>
-            <i class="lar la-image"></i>
-          </template>
-        </vs-input>
-      </v-col>
-    </v-row>
 
-    <template #footer>
-      <vs-button
-        block
-        color="#7E2DEE"
-        :loading="customerSupport.createLoading"
-        @click="createTicket"
-        class="text-body-2 font-weight-bold text-capitalize"
-      >
-        Reply
-      </vs-button>
-    </template>
-  </vs-dialog>
+        <v-card flat class="text-center d-flex flex-column" color="transparent">
+          <v-card-title class="text-subtitle-1 font-weight-medium">
+            <span class="text-h6">{{ ticket.subject }}</span>
+
+            <v-spacer />
+
+            <v-chip
+              small
+              label
+              class="text-capitalize rounded-lg font-weight-bold"
+              :class="{
+                'orange lighten-5 orange--text text--accent-3':
+                  ticket.status == 'pending',
+                'teal lighten-5 teal--text text--darken-1':
+                  ticket.status == 'closed',
+              }"
+            >
+              {{ ticket.status }}
+            </v-chip>
+          </v-card-title>
+
+          <v-card-text class="text-center text-sm-left">
+            <v-row
+              no-gutters
+              align="center"
+              justify="space-between"
+              class="flex-column-reverse flex-sm-row"
+            >
+              <v-col cols="12" sm="6">
+                <p class="grey--text text--darken-4 mt-n2">
+                  <v-icon small color="amber">mdi-star-circle</v-icon>
+                  <span class="font-weight-bold">Department: </span>
+                  <span>{{ ticket.department }}</span>
+                </p>
+
+                <p class="grey--text text--darken-4 mt-2">
+                  <v-icon small color="amber">mdi-star-circle</v-icon>
+                  <span class="font-weight-bold">Description: </span>
+                  <span>{{ ticket.description }}</span>
+                </p>
+              </v-col>
+            </v-row>
+          </v-card-text>
+
+          <v-card-actions>
+            <vs-button
+              flat
+              active
+              color="#6200EA"
+              @click="customerSupport.closeTicketDialog = true"
+            >
+              Close ticket
+            </vs-button>
+            <vs-button color="#FF4757" flat> Delete ticket </vs-button>
+          </v-card-actions>
+        </v-card>
+      </v-card>
+    </v-col>
+    <CloseTicket />
+  </v-row>
 </template>
 
 <script>
 // @ts-nocheck
-import { mapActions, mapState } from "vuex"
+import { mapActions, mapGetters, mapState } from "vuex"
 export default {
-  data: () => ({
-    max: 191,
-    value: "",
-    fileName: "",
-    showImageDialoge: false,
-    rules: [(v) => v.length <= 255 || "Max 25 characters"],
-  }),
+  data: () => ({}),
+
+  components: {
+    CloseTicket: () => import("./CloseTicket.vue")
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      this.viewSingleTicket()
+    })
+  },
 
   methods: {
-    clickOnFileChange() {
-      document.querySelector(".addImage input[type='file']").click()
-    },
-
-    onFileChange(image) {
-      if (image) {
-        this.showImageDialoge = true
-        this.fileName = image.name
-      }
-    },
-
-    ...mapActions(["createTicket", "setImage"]),
+    ...mapActions(["viewSingleTicket"]),
   },
 
   computed: {
     ...mapState(["customerSupport"]),
+    ...mapGetters(["singleTicket"]),
+
+    rowClass() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "mb-16"
+        case "sm":
+          return "mb-0"
+        case "md":
+          return "mb-16"
+        case "lg":
+          return "mb-16"
+        case "xl":
+          return "mb-16"
+      }
+    },
+
+    detailsCard() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "deep-purple accent-4"
+        case "sm":
+          return "transparent"
+        case "md":
+          return "transparent"
+        case "lg":
+          return "transparent"
+        case "xl":
+          return "transparent"
+      }
+    },
+
+    detailsCardMode() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true
+        case "sm":
+          return false
+        case "md":
+          return false
+        case "lg":
+          return false
+        case "xl":
+          return false
+      }
+    },
+
+    detailsCardTextClass() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "d-flex justify-center"
+        case "sm":
+          return "d-flex justify-start"
+        case "md":
+          return "d-flex justify-start"
+        case "lg":
+          return "d-flex justify-start"
+        case "xl":
+          return "d-flex justify-start"
+      }
+    },
   },
 }
 </script>

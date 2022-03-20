@@ -1,5 +1,6 @@
 import Vue from "vue"
 import axios from "axios"
+import route from "../../router"
 
 export default {
   state: {
@@ -28,8 +29,6 @@ export default {
 
     viewDialog: false,
 
-    viewTicket: {},
-
     viewSingleTicketDialog: false,
 
     confirmDeleteDialog: false,
@@ -37,12 +36,19 @@ export default {
     selectedTicketToDelete: [],
 
     deleteLoading: false,
+
+    singleTicket: [],
+
+    closeTicketDialog: false,
+
+    closeTicketLoading: false,
   },
 
   getters: {
     ticketFilters: (state) => state.ticketFilters,
     tickets: (state) => state.tickets,
     selectedTicketToDelete: (state) => state.selectedTicketToDelete,
+    singleTicket: (state) => state.singleTicket,
   },
 
   mutations: {
@@ -72,19 +78,24 @@ export default {
     getTickets: (state, response) => {
       state.tickets = []
       state.tickets.push(...response.data.tickets)
-      console.log("Tickets: ", state.tickets)
     },
 
     viewTicket: (state, ticket) => {
-      state.viewDialog = true
-      state.viewTicket = ticket
+      console.log("ticket: ", ticket)
+      route.push(`/dashboard/support/${ticket._id}`)
     },
 
     viewSingleTicket: (state, response) => {
-      if (response.success) {
-        state.viewSingleTicketDialog = true
-        state.viewTicket = response.data
-      }
+      state.singleTicket = []
+      if (response.data.success)
+        state.singleTicket.push(...response.data.tickets)
+      console.log("viewSingleTicket: ", state.singleTicket)
+    },
+
+    closeTicket: (state, response) => {
+      state.closeTicketDialog = false
+      state.closeTicketLoading = false
+      console.log("closeTicket: ", response)
     },
 
     deleteSingleTicket: (state, ticket) => {
@@ -230,24 +241,38 @@ export default {
       commit("viewTicket", ticket)
     },
 
-    viewSingleTicket({ commit }, ticket) {
-      let id = ticket.unique_code
-      let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(
-        process.env.NODE_ENV === "production"
-          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/ticket/${id}`
-          : `/api/user/ticket/${id}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((response) => response.json())
+    viewSingleTicket({ commit }) {
+      let user = Vue.prototype.$cookies.get("PaddiData").user._id
+      let _id = route.currentRoute.params._id
+
+      axios
+        .post("http://localhost:3000/ticket/getSingleTicket", {
+          user,
+          _id,
+        })
         .then((response) => {
           commit("viewSingleTicket", response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+
+    closeTicket({ commit, dispatch }) {
+      let user = Vue.prototype.$cookies.get("PaddiData").user._id
+      let _id = route.currentRoute.params._id
+
+      this.state.customerSupport.closeTicketLoading = true
+
+      axios
+        .post("http://localhost:3000/ticket/closeTicket", {
+          user,
+          _id,
+        })
+        .then((response) => {
+          return dispatch("viewSingleTicket").then(() => {
+            commit("closeTicket", response)
+          })
         })
         .catch((error) => {
           console.log(error)

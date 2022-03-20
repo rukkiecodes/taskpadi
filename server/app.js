@@ -52,6 +52,8 @@ app.use("/banks", [
 app.use("/ticket", [
   require("./routes/supportTicket/createSupportTicket"),
   require("./routes/supportTicket/getSupportTicket"),
+  require("./routes/supportTicket/getSingleTicket"),
+  require("./routes/supportTicket/closeTicket"),
 ])
 
 const PORT = process.env.PORT || 3000

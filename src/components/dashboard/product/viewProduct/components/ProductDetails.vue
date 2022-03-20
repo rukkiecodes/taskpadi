@@ -15,7 +15,7 @@
 
     <v-card flat color="transparent">
       <v-card-title>
-        <span class="text-h6 font-weight-medium">Description;</span>
+        <span class="text-h6 font-weight-medium">Description:</span>
         <v-spacer />
         <span class="text-h4 font-weight-bold"
           >₦{{ product.selectedTransaction.initialPrice }}</span
@@ -64,20 +64,20 @@
         <v-card-text class="text-center text-sm-left">
           <v-row
             no-gutters
-            justify="space-between"
             align="center"
+            justify="space-between"
             class="flex-column-reverse flex-sm-row"
           >
             <v-col cols="12" sm="6">
               <p class="grey--text text--darken-4 mt-2">
-                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> Location : -->
+                <v-icon small color="amber">mdi-star-circle</v-icon> Location:
                 <span class="font-weight-bold"
                   >{{ product.selectedTransaction.seller.lga }},
                   {{ product.selectedTransaction.seller.country }}</span
                 >
               </p>
               <p class="grey--text text--darken-4 mt-n2">
-                <!-- <v-icon small color="amber">mdi-star-circle</v-icon> Category : -->
+                <v-icon small color="amber">mdi-star-circle</v-icon> Category:
                 <span class="font-weight-bold">{{
                   product.selectedTransaction.seller.type
                 }}</span>

@@ -7,7 +7,7 @@
             contain
             height="300"
             :src="product.selectedTransaction.image"
-          ></v-img>
+          />
         </v-card>
       </v-col>
     </v-row>

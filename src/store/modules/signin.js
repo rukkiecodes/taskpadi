@@ -16,7 +16,6 @@ export default {
   mutations: {
     signinUser: (state, response) => {
       state.loading = false
-      console.log("login user: ", response.data)
       Vue.prototype.$cookies.set("PaddiData", response.data)
       if (response.data.success == true) router.push("/dashboard/dashboard")
       else {

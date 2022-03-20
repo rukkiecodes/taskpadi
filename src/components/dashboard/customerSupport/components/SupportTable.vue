@@ -60,16 +60,14 @@
           class="text-capitalize font-weight-bold"
           :class="{
             'orange lighten-5 orange--text text--accent-3':
-              item.status == 'Pending',
-            'teal lighten-5 teal--text text--darken-1':
-              item.status == 'Successful',
-            'red lighten-5 red--text text--darken-1': item.status == 'Failed',
+              item.status == 'pending',
+            'teal lighten-5 teal--text text--darken-1': item.status == 'closed',
           }"
           >{{ item.status }}
         </v-chip>
       </template>
       <template v-slot:item.action="{ item }">
-        <vs-button icon shadow>
+        <vs-button @click="viewTicket(item)" icon shadow>
           <i class="lar la-eye"></i>
         </vs-button>
       </template>
