@@ -1,67 +1,47 @@
 <template>
-  <vs-dialog
-    not-center
-    width="400px"
+  <v-dialog
+    persistent
+    max-width="360"
     v-model="customerSupport.confirmDeleteDialog"
   >
-    <template #header>
-      <h4 class="not-margin">Confirm delete</h4>
-    </template>
+    <v-card>
+      <v-card-title class="text-h6 grey--text text--darken-4">
+        Confirm delete
+      </v-card-title>
 
-    <div class="con-content">
-      <p>Are you sure you want to delete this ticket?</p>
-    </div>
+      <v-card-text class="py-0">
+        Are you sure you want to delete this ticket?
+      </v-card-text>
 
-    <template #footer>
-      <div
-        class="d-flex justify-end"
-        v-for="(ticket, i) in selectedTicketToDelete"
-        :key="i"
-      >
-        <vs-button shadow @click="active = false"> Cancel </vs-button>
+      <v-card-actions>
+        <v-spacer />
+
+        <vs-button shadow @click="customerSupport.confirmDeleteDialog = false">
+          Cancel
+        </vs-button>
         <vs-button
-          danger
-          transparent
-          @click="confirmDelete(ticket)"
+          flat
+          active
+          color="#FF4757"
+          @click="confirmDeleteTicket"
           :loading="customerSupport.deleteLoading"
         >
-          Delete
+          Delete ticket
         </vs-button>
-      </div>
-    </template>
-  </vs-dialog>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
-// @ts-nocheck
-import { mapActions, mapGetters, mapState } from "vuex"
+import { mapActions, mapState } from "vuex"
 export default {
-  data: () => ({
-    max: 191,
-    value: "",
-    fileName: "",
-    showImageDialoge: false,
-    rules: [(v) => v.length <= 255 || "Max 25 characters"],
-  }),
-
   methods: {
-    clickOnFileChange() {
-      document.querySelector(".addImage input[type='file']").click()
-    },
-
-    onFileChange(image) {
-      if (image) {
-        this.showImageDialoge = true
-        this.fileName = image.name
-      }
-    },
-
-    ...mapActions(["createTicket", "setImage", "confirmDelete"]),
+    ...mapActions(["confirmDeleteTicket"]),
   },
 
   computed: {
     ...mapState(["customerSupport"]),
-    ...mapGetters(["selectedTicketToDelete"]),
   },
 }
 </script>

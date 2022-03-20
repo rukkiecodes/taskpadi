@@ -10,21 +10,17 @@
     >
     <SupportTable />
     <CreateTicket />
-    <ViewSingleTicket />
-    <ConfirmDelete />
   </v-container>
 </template>
 
 <script>
-import { mapGetters, mapState, mapActions } from "vuex"
+import { mapState, mapActions } from "vuex"
 import CreateTicket from "./CreateTicket.vue"
 import SupportTable from "./SupportTable.vue"
 export default {
   components: {
     CreateTicket,
     SupportTable,
-    ViewSingleTicket: () => import("./ViewSingleTicket.vue"),
-    ConfirmDelete: () => import("./ConfirmDelete.vue"),
   },
 
   mounted() {
@@ -39,7 +35,6 @@ export default {
 
   computed: {
     ...mapState(["customerSupport"]),
-    ...mapGetters(["tickets"]),
   },
 }
 </script>

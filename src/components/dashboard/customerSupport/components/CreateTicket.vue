@@ -85,14 +85,10 @@
 </template>
 
 <script>
-// @ts-nocheck
 import { mapActions, mapState } from "vuex"
 export default {
   data: () => ({
     max: 191,
-    value: "",
-    fileName: "",
-    showImageDialoge: false,
     rules: [(v) => v.length <= 255 || "Max 25 characters"],
   }),
 

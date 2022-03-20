@@ -1,8 +1,8 @@
 <template>
   <v-dialog
-    v-model="customerSupport.closeTicketDialog"
-    max-width="360"
     persistent
+    max-width="360"
+    v-model="customerSupport.closeTicketDialog"
   >
     <v-card>
       <v-card-title class="text-h6 grey--text text--darken-4">
@@ -10,7 +10,7 @@
       </v-card-title>
 
       <v-card-text class="py-0">
-        Are you sure you want to delete this ticket?
+        Are you sure you want to close this ticket?
       </v-card-text>
 
       <v-card-actions>

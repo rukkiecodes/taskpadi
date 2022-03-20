@@ -5,7 +5,6 @@ import route from "../../router"
 export default {
   state: {
     customerDialog: false,
-
     createLoading: false,
 
     search: "",
@@ -25,29 +24,18 @@ export default {
 
     tickets: [],
 
-    file: "",
-
-    viewDialog: false,
-
-    viewSingleTicketDialog: false,
-
     confirmDeleteDialog: false,
-
-    selectedTicketToDelete: [],
-
     deleteLoading: false,
 
     singleTicket: [],
 
     closeTicketDialog: false,
-
     closeTicketLoading: false,
   },
 
   getters: {
     ticketFilters: (state) => state.ticketFilters,
     tickets: (state) => state.tickets,
-    selectedTicketToDelete: (state) => state.selectedTicketToDelete,
     singleTicket: (state) => state.singleTicket,
   },
 
@@ -98,48 +86,10 @@ export default {
       console.log("closeTicket: ", response)
     },
 
-    deleteSingleTicket: (state, ticket) => {
-      console.log(ticket)
-      state.confirmDeleteDialog = true
-      state.selectedTicketToDelete = []
-      state.selectedTicketToDelete.push(ticket)
-    },
-
-    confirmDelete: (state, response) => {
-      if (response.success) {
-        state.confirmDeleteDialog = false
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-trash-alt"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
-    },
-
-    confirmDelete: (state, response) => {
-      if (response.success) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="lar la-check-circle"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
-    },
-
-    closeSingleTicket: (state, response) => {
-      if (response.success) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="lar la-check-circle"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.message,
-        })
-      }
+    confirmDeleteTicket: (state, response) => {
+      state.deleteLoading = false
+      state.confirmDeleteDialog = false
+      if (response.data.success == true) route.push("/dashboard/support")
     },
   },
 
@@ -246,7 +196,7 @@ export default {
       let _id = route.currentRoute.params._id
 
       axios
-        .post("http://localhost:3000/ticket/getSingleTicket", {
+        .post("https://trustpaddi.herokuapp.com/ticket/getSingleTicket", {
           user,
           _id,
         })
@@ -265,7 +215,7 @@ export default {
       this.state.customerSupport.closeTicketLoading = true
 
       axios
-        .post("http://localhost:3000/ticket/closeTicket", {
+        .post("https://trustpaddi.herokuapp.com/ticket/closeTicket", {
           user,
           _id,
         })
@@ -279,58 +229,20 @@ export default {
         })
     },
 
-    deleteSingleTicket({ commit }, ticket) {
-      commit("deleteSingleTicket", ticket)
-    },
+    confirmDeleteTicket({ commit, dispatch }, ticket) {
+      let user = Vue.prototype.$cookies.get("PaddiData").user._id
+      let _id = route.currentRoute.params._id
 
-    confirmDelete({ commit, dispatch }, ticket) {
       this.state.customerSupport.deleteLoading = true
-      let id = ticket.unique_code
-      let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(
-        process.env.NODE_ENV === "production"
-          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/ticket/${id}`
-          : `/api/user/ticket/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          return dispatch("getTickets").then(() => {
-            commit("confirmDelete", response)
-            this.state.customerSupport.deleteLoading = false
-          })
-        })
-        .catch((error) => {
-          console.log(error)
-          this.state.customerSupport.deleteLoading = false
-        })
-    },
 
-    closeSingleTicket({ commit, dispatch }, ticket) {
-      let id = ticket.unique_code
-      let token = Vue.prototype.$cookies.get("PaddiData").access_token
-      fetch(
-        process.env.NODE_ENV === "production"
-          ? `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/close-ticket/${id}`
-          : `/api/user/close-ticket/${id}`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((response) => response.json())
+      axios
+        .post("https://trustpaddi.herokuapp.com/ticket/deleteTicket", {
+          user,
+          _id,
+        })
         .then((response) => {
           return dispatch("getTickets").then(() => {
-            commit("closeSingleTicket", response)
+            commit("confirmDeleteTicket", response)
           })
         })
         .catch((error) => {

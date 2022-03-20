@@ -8,38 +8,14 @@
           height="300"
           max-height="400"
           v-for="(ticket, i) in singleTicket"
-          :src="`http://localhost:3000/${ticket.file}`"
+          :src="`https://trustpaddi.herokuapp.com/${ticket.file}`"
         />
       </v-card>
     </v-col>
 
     <v-col v-for="(ticket, i) in singleTicket" :key="i" cols="12" sm="6" lg="8">
-      <!-- <v-card flat color="transparent">
-        <v-list color="transparent">
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title
-                class="text-h5 text-sm-h4 font-weight-bold text-capitalize"
-                >{{ ticket.subject }}</v-list-item-title
-              >
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-card> -->
 
       <v-card flat color="transparent">
-        <!-- <v-card-title>
-          <span class="text-body-1 font-weight-medium">Department:</span>
-          <v-spacer />
-          <span class="text-body-1 font-weight-bold">{{
-            ticket.department
-          }}</span>
-        </v-card-title> -->
-
-        <!-- <v-card-text class="text-center text-sm-left">{{
-          ticket.description
-        }}</v-card-text> -->
-
         <v-card flat :color="detailsCard" :dark="detailsCardMode">
           <v-card-title
             class="text-body-1 font-weight-medium"
@@ -103,23 +79,28 @@
             >
               Close ticket
             </vs-button>
-            <vs-button color="#FF4757" flat> Delete ticket </vs-button>
+            <vs-button
+              flat
+              color="#FF4757"
+              @click="customerSupport.confirmDeleteDialog = true"
+            >
+              Delete ticket
+            </vs-button>
           </v-card-actions>
         </v-card>
       </v-card>
     </v-col>
     <CloseTicket />
+    <ConfirmDelete />
   </v-row>
 </template>
 
 <script>
-// @ts-nocheck
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
-  data: () => ({}),
-
   components: {
-    CloseTicket: () => import("./CloseTicket.vue")
+    CloseTicket: () => import("./CloseTicket.vue"),
+    ConfirmDelete: () => import("./ConfirmDelete.vue"),
   },
 
   mounted() {

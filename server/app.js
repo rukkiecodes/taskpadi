@@ -54,6 +54,7 @@ app.use("/ticket", [
   require("./routes/supportTicket/getSupportTicket"),
   require("./routes/supportTicket/getSingleTicket"),
   require("./routes/supportTicket/closeTicket"),
+  require("./routes/supportTicket/deleteTicket"),
 ])
 
 const PORT = process.env.PORT || 3000

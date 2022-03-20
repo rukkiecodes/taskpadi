@@ -89,8 +89,6 @@ import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
     page: 1,
-    max: 7,
-    page: 1,
     pageCount: 0,
     itemsPerPage: 10,
     headers: [
@@ -124,19 +122,11 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      "viewTicket",
-      "viewSingleTicket",
-      "deleteSingleTicket",
-      "closeSingleTicket",
-    ]),
+    ...mapActions(["viewTicket"]),
 
     sortSupport(item) {
-      if (item.title == "All") {
-        this.customerSupport.search = ""
-      } else {
-        this.customerSupport.search = item.title
-      }
+      if (item.title == "All") this.customerSupport.search = ""
+      else this.customerSupport.search = item.title
     },
   },
 
