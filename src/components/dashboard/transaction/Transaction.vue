@@ -1,94 +1,60 @@
 <template>
-  <v-container>
+  <v-container fluid class="pa-0 ma-0">
     <CreateTransaction class="mb-5" />
-
-    <v-tabs>
-      <vs-navbar
-        square
-        hide-scroll
-        color="#F8F8FB"
-        v-model="active"
-        center-collapsed
-        target-scroll="#hide-scroll-content"
+    <v-toolbar flat dense color="transparent">
+      <v-btn
+        depressed
+        color="transparent"
+        to="/dashboard/transactions/goods"
+        class="text-capitalize text-body-2"
+        ><span class="hidden-xs-only">Good/</span>Products</v-btn
       >
-        <template #left>
-          <vs-navbar-item
-            id="GoodAndProducts"
-            :active="active == 'GoodAndProducts'"
-            @click="
-              () => {
-                active = 'GoodAndProducts'
-                showGoodAndProduct = true
-                showCrypto = false
-                showServices = false
-              }
-            "
-          >
-            Good & Products
-          </vs-navbar-item>
-          <vs-navbar-item
-            :active="active == 'Crypto'"
-            id="Crypto"
-            @click="
-              () => {
-                active = 'Crypto'
-                showGoodAndProduct = false
-                showCrypto = true
-                showServices = false
-              }
-            "
-          >
-            Crypto
-          </vs-navbar-item>
-          <vs-navbar-item
-            :active="active == 'Services'"
-            id="Services"
-            @click="
-              () => {
-                active = 'Services'
-                showGoodAndProduct = false
-                showCrypto = false
-                showServices = true
-              }
-            "
-          >
-            Services
-          </vs-navbar-item>
+      <v-btn
+        depressed
+        color="transparent"
+        class="text-capitalize text-body-2"
+        to="/dashboard/transactions/crypto"
+        >Crypto</v-btn
+      >
+      <v-btn
+        depressed
+        color="transparent"
+        class="text-capitalize text-body-2"
+        to="/dashboard/transactions/services"
+        >Services</v-btn
+      >
 
-          <v-menu offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <vs-button
-                transparent
-                color="#616182"
-                class="text-body-2 font-weight-bold text-capitalize mt-2"
-                v-bind="attrs"
-                v-on="on"
-              >
-                <i style="font-size: 1.1rem" class="las la-filter"></i>
-                Filter
-              </vs-button>
-            </template>
-            <v-list dense class="py-0">
-              <v-list-item
-                dense
-                v-for="(item, index) in transactionFilters"
-                :key="index"
-                @click="checkList(item)"
-              >
-                <v-list-item-title
-                  class="text-body-2 grey--text text--darken-2 font-weight-light"
-                  >{{ item.title }}</v-list-item-title
-                >
-              </v-list-item>
-            </v-list>
-          </v-menu>
+      <v-menu offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <vs-button
+            v-on="on"
+            transparent
+            v-bind="attrs"
+            color="#616182"
+            class="text-body-2 font-weight-bold text-capitalize mt-2"
+          >
+            <i style="font-size: 1.1rem" class="las la-filter"></i>
+            Filter
+          </vs-button>
         </template>
-      </vs-navbar>
-    </v-tabs>
+        <v-list dense class="py-0">
+          <v-list-item
+            dense
+            :key="index"
+            @click="checkList(item)"
+            v-for="(item, index) in transactionFilters"
+          >
+            <v-list-item-title
+              class="text-body-2 grey--text text--darken-2 font-weight-light"
+              >{{ item.title }}</v-list-item-title
+            >
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-toolbar>
+    <router-view />
 
-    <v-fade-transition>
-      <GoodsAndProducts v-show="showGoodAndProduct" class="white mt-10" />
-    </v-fade-transition>
+    <!--
     <v-fade-transition>
       <Crypto v-show="showCrypto" class="white mt-16" />
     </v-fade-transition>
@@ -101,52 +67,49 @@
     <ConfirmDecline />
     <ConfirmConfirm />
     <ConfirmApprove />
-    <UpdateTransaction />
+    <UpdateTransaction /> -->
   </v-container>
 </template>
 
 <script>
-import GoodsAndProducts from "../transaction/goodsAndProducts/GoodsAndProducts.vue"
-import Crypto from "../transaction/crypto/Crypto.vue"
-import Services from "../transaction/services/Services.vue"
+// import Crypto from "../transaction/crypto/Crypto.vue"
+// import Services from "../transaction/services/Services.vue"
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
   data: () => ({
-    active: "GoodAndProducts",
-    showGoodAndProduct: true,
-    showCrypto: false,
-    showServices: false,
+    // active: "GoodAndProducts",
+    // showGoodAndProduct: true,
+    // showCrypto: false,
+    // showServices: false,
   }),
 
   components: {
-    GoodsAndProducts,
-    Crypto,
-    Services,
+    // GoodsAndProducts,
+    // Crypto,
+    // Services,
     CreateTransaction: () => import("./CreateTransaction.vue"),
-    UpdateTransaction: () => import("./UpdateTransaction.vue"),
-    ConfirmApprove: () => import("./ConfirmApprove.vue"),
-    ConfirmConfirm: () => import("./ConfirmConfirm.vue"),
-    ConfirmDecline: () => import("./ConfirmDecline.vue"),
-    ConfirmPop: () => import("./ConfirmPop.vue"),
-    ConfirmDelete: () => import("./ConfirmDelete.vue"),
+    // UpdateTransaction: () => import("./UpdateTransaction.vue"),
+    // ConfirmApprove: () => import("./ConfirmApprove.vue"),
+    // ConfirmConfirm: () => import("./ConfirmConfirm.vue"),
+    // ConfirmDecline: () => import("./ConfirmDecline.vue"),
+    // ConfirmPop: () => import("./ConfirmPop.vue"),
+    // ConfirmDelete: () => import("./ConfirmDelete.vue"),
   },
 
   mounted() {
     this.$nextTick(() => {
-      this.getTransactions()
-      this.active = "GoodAndProducts"
-      const tab = document.querySelector(".v-slide-group__content")
-
-      if (tab) {
-        tab.style.overflowX = "auto"
-        tab.style.overflowY = "hidden"
-      }
+      // this.getTransactions()
+      // this.active = "GoodAndProducts"
+      // const tab = document.querySelector(".v-slide-group__content")
+      // if (tab) {
+      //   tab.style.overflowX = "auto"
+      //   tab.style.overflowY = "hidden"
+      // }
     })
   },
 
   methods: {
-    ...mapActions(["getTransactions"]),
-
+    // ...mapActions(["getTransactions"]),
     checkList(item) {
       if (item.title == "All") {
         this.transaction.search = ""
@@ -164,8 +127,8 @@ export default {
 </script>
 
 <style>
-.v-slide-group__content::-webkit-scrollbar {
+/* .v-slide-group__content::-webkit-scrollbar {
   width: 0px;
   height: 0px;
-}
+} */
 </style>

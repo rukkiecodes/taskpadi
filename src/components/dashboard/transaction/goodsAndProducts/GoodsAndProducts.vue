@@ -2,7 +2,7 @@
   <vs-table class="white">
     <template #thead>
       <vs-tr class="white">
-        <vs-th class="white"> ID </vs-th>
+        <vs-th class="white"> IDs </vs-th>
         <vs-th class="white"> Phone number </vs-th>
         <vs-th class="white"> Type </vs-th>
         <vs-th class="white"> Price </vs-th>
