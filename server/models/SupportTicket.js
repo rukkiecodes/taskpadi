@@ -2,6 +2,10 @@ const mongoose = require("mongoose")
 
 const SupportTicket = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
+  status: {
+    type: String,
+    default: "Pending",
+  },
   subject: {
     type: String,
     required: true,

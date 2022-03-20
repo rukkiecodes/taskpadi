@@ -6,14 +6,13 @@ const SupportTicket = require("../../models/SupportTicket")
 router.post("/getTicket", async (req, res) => {
   const { user } = req.body
   try {
-    const ticket = await SupportTicket.find({ user })
-    res.status(200).json({
-      ticket,
-      success: true,
-      message: "Fetch tickets successfully",
-    })
-    // if (ticket) {
-    // }
+    const tickets = await SupportTicket.find({ user })
+    if (tickets.length)
+      res.status(200).json({
+        tickets,
+        success: true,
+        message: "Fetch tickets successfully",
+      })
   } catch (error) {
     return res.status(401).json({
       error,

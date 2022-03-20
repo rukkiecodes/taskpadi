@@ -30,13 +30,13 @@
       <v-col cols="12">
         <v-card flat color="transparent">
           <v-data-table
-            :search="refunds.search"
             :headers="header"
             :page.sync="page"
-            :items="transaction"
             hide-default-footer
-            :mobile-breakpoint="0"
             class="elevation-0"
+            :items="transaction"
+            :mobile-breakpoint="0"
+            :search="refunds.search"
             :items-per-page="itemsPerPage"
             @page-count="pageCount = $event"
           >

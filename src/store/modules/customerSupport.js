@@ -70,13 +70,9 @@ export default {
     },
 
     getTickets: (state, response) => {
-      console.log("Tickets: ", response)
-      // state.tickets = []
-      // let bankData = response.data
-      // for (let i = 0; i < bankData.length; i++) {
-      //   state.tickets.push(bankData[i])
-      // }
-      // console.log("Tickets: ", state.tickets)
+      state.tickets = []
+      state.tickets.push(...response.data.tickets)
+      console.log("Tickets: ", state.tickets)
     },
 
     viewTicket: (state, ticket) => {
@@ -137,7 +133,7 @@ export default {
   },
 
   actions: {
-    createTicket({ commit }) {
+    createTicket({ commit, dispatch }) {
       let user = Vue.prototype.$cookies.get("PaddiData").user._id
       if (
         this.state.customerSupport.createTicketCredential.subject != "" &&
@@ -179,8 +175,10 @@ export default {
         fetch("http://localhost:3000/ticket/createTicket", requestOptions)
           .then((response) => response.json())
           .then((response) => {
-            commit("createTicket", response)
-            this.state.customerSupport.createLoading = false
+            return dispatch("getTickets").then(() => {
+              commit("createTicket", response)
+              this.state.customerSupport.createLoading = false
+            })
           })
           .catch((error) => {
             console.log("Error: ", error)
@@ -218,8 +216,7 @@ export default {
           user,
         })
         .then((response) => {
-          console.log("Tickets: ", response)
-          // commit("getTickets", response)
+          commit("getTickets", response)
         })
         .catch((error) => {
           console.log(error)
