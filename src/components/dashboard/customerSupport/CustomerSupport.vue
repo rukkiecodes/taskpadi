@@ -1,6 +1,8 @@
 <template>
   <v-container>
     <vs-button
+      flat
+      active
       color="#6200EA"
       class="px-4 mb-5 font-weight-bold"
       @click="customerSupport.customerDialog = true"

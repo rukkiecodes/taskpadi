@@ -25,8 +25,6 @@ export default {
 
     file: "",
 
-    fileName: "",
-
     viewDialog: false,
 
     viewTicket: {},
@@ -206,7 +204,6 @@ export default {
     setImage({ commit }, file) {
       if (file) {
         this.state.customerSupport.createTicketCredential.file = file
-        this.state.customerSupport.fileName = file.name
       }
     },
 
