@@ -13,7 +13,7 @@
             <v-img
               contain
               height="300"
-              :src="`http://localhost:3000/${transaction.image}`"
+              :src="`https://trustpaddi.herokuapp.com/${transaction.image}`"
             ></v-img>
           </v-card-text>
         </v-card>
