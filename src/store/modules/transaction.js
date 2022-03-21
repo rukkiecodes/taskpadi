@@ -1,4 +1,5 @@
 import Vue from "vue"
+import axios from "axios"
 import router from "../../router"
 
 export default {
@@ -124,8 +125,8 @@ export default {
 
         getTransactions: (state, response) => {
             state.transactions = []
-            state.transactions.push(...response.data)
-            console.log("getTransactions: ", state.transactions)
+            state.transactions.push(...response.data.transaction)
+            console.log("get transactions: ", state.transactions)
         },
 
         viewTransactionDetails: (state, transaction) => {
@@ -367,13 +368,7 @@ export default {
 
     actions: {
         setTransactionImage({ commit }, image) {
-            this.state.transaction.imageName = ""
-            this.state.transaction.imageName = image.name
             this.state.transaction.createTransactionCredential.image = image
-            console.log(
-                "state: ",
-                this.state.transaction.createTransactionCredential.image
-            )
         },
 
         createTransaction({ commit, dispatch }) {
@@ -411,9 +406,9 @@ export default {
                 .then((response) => response.json())
                 .then((response) => {
                     this.state.transaction.createTransactionLoading = false
-                    commit("createTransaction", response)
-                        // return dispatch("getTransactions").then(() => {
-                        // })
+                    return dispatch("getTransactions").then(() => {
+                        commit("createTransaction", response)
+                    })
                 })
                 .catch((error) => {
                     console.log("Error: ", error)
@@ -429,28 +424,39 @@ export default {
         },
 
         getTransactions({ commit }) {
-            let token = Vue.prototype.$cookies.get("PaddiData").access_token
-            var options = {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json",
-                },
-            }
-
-            fetch(
-                    process.env.NODE_ENV === "production" ?
-                    "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/transactions" :
-                    "/api/user/transactions",
-                    options
-                )
-                .then((response) => response.json())
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            axios
+                .post("http://localhost:3000/transaction/getTransaction", {
+                    user,
+                })
                 .then((response) => {
                     commit("getTransactions", response)
                 })
                 .catch((error) => {
-                    console.log("Error: ", error)
+                    console.log(error)
                 })
+                // let token = Vue.prototype.$cookies.get("PaddiData").access_token
+                // var options = {
+                //     method: "GET",
+                //     headers: {
+                //         Authorization: `Bearer ${token}`,
+                //         "Content-Type": "application/json",
+                //     },
+                // }
+
+            // fetch(
+            //         process.env.NODE_ENV === "production" ?
+            //         "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/transactions" :
+            //         "/api/user/transactions",
+            //         options
+            //     )
+            //     .then((response) => response.json())
+            //     .then((response) => {
+            //         commit("getTransactions", response)
+            //     })
+            //     .catch((error) => {
+            //         console.log("Error: ", error)
+            //     })
         },
 
         viewTransactionDetails({ commit }, transaction) {

@@ -36,6 +36,7 @@
       :mobile-breakpoint="0"
       :items-per-page="itemsPerPage"
       :search="customerSupport.search"
+      @page-count="pageCount = $event"
     >
       <template v-slot:item._id="{ item }">
         <span class="grey--text text--darken-4 text-body-2 font-weight-light">{{
@@ -67,7 +68,7 @@
         </v-chip>
       </template>
       <template v-slot:item.action="{ item }">
-        <vs-button @click="viewTicket(item)" icon shadow>
+        <vs-button @click="viewTicket(item)" icon transparent color="#2A00A2">
           <i class="lar la-eye"></i>
         </vs-button>
       </template>

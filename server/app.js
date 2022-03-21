@@ -57,7 +57,10 @@ app.use("/ticket", [
     require("./routes/supportTicket/deleteTicket"),
 ])
 
-app.use("/transaction", [require("./routes/transaction/createTransaction")])
+app.use("/transaction", [
+    require("./routes/transaction/createTransaction"),
+    require("./routes/transaction/getTransactions"),
+])
 
 const PORT = process.env.PORT || 3000
 app.listen(

@@ -98,7 +98,7 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      // this.getTransactions()
+      this.getTransactions()
       // this.active = "GoodAndProducts"
       // const tab = document.querySelector(".v-slide-group__content")
       // if (tab) {
@@ -109,7 +109,7 @@ export default {
   },
 
   methods: {
-    // ...mapActions(["getTransactions"]),
+    ...mapActions(["getTransactions"]),
     checkList(item) {
       if (item.title == "All") {
         this.transaction.search = ""
