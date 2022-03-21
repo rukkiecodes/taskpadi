@@ -18,7 +18,9 @@
       :fullscreen="$vuetify.breakpoint.name == 'xs' ? true : false"
     >
       <v-card max-height="500">
-        <v-card-title> Create transaction </v-card-title>
+        <v-card-title class="text-h6 grey--text text--darken-3">
+          Create transaction
+        </v-card-title>
         <v-card-text>
           <v-row justify="space-between" align="start">
             <v-col cols="12" sm="6">

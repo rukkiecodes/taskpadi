@@ -15,11 +15,11 @@ connectDB()
 app.use(cors())
 
 app.use(
-  bodyParser.urlencoded({
-    true: false,
-    limit: "50mb",
-    extended: true,
-  })
+    bodyParser.urlencoded({
+        true: false,
+        limit: "50mb",
+        extended: true,
+    })
 )
 
 app.use(bodyParser.json({ limit: "50mb" }))
@@ -31,34 +31,36 @@ app.use("/ticket", express.static("ticket"))
 
 // Routes
 app.use("/auth", [
-  require("./routes/auth/signup"),
-  require("./routes/auth/signin"),
-  require("./routes/auth/avatar"),
-  require("./routes/auth/getProfile"),
-  require("./routes/auth/updateProfile"),
-  require("./routes/auth/changePassword"),
+    require("./routes/auth/signup"),
+    require("./routes/auth/signin"),
+    require("./routes/auth/avatar"),
+    require("./routes/auth/getProfile"),
+    require("./routes/auth/updateProfile"),
+    require("./routes/auth/changePassword"),
 ])
 
 app.use("/states", require("./routes/states"))
 
 app.use("/banks", [
-  require("./routes/banks/banks"),
-  require("./routes/banks/addBankAccount"),
-  require("./routes/banks/resolveBankAccount"),
-  require("./routes/banks/removeBankAccount"),
-  require("./routes/banks/userBanks"),
+    require("./routes/banks/banks"),
+    require("./routes/banks/addBankAccount"),
+    require("./routes/banks/resolveBankAccount"),
+    require("./routes/banks/removeBankAccount"),
+    require("./routes/banks/userBanks"),
 ])
 
 app.use("/ticket", [
-  require("./routes/supportTicket/createSupportTicket"),
-  require("./routes/supportTicket/getSupportTicket"),
-  require("./routes/supportTicket/getSingleTicket"),
-  require("./routes/supportTicket/closeTicket"),
-  require("./routes/supportTicket/deleteTicket"),
+    require("./routes/supportTicket/createSupportTicket"),
+    require("./routes/supportTicket/getSupportTicket"),
+    require("./routes/supportTicket/getSingleTicket"),
+    require("./routes/supportTicket/closeTicket"),
+    require("./routes/supportTicket/deleteTicket"),
 ])
+
+app.use("/transaction", [require("./routes/transaction/createTransaction")])
 
 const PORT = process.env.PORT || 3000
 app.listen(
-  PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on ${PORT}`)
+    PORT,
+    console.log(`Server running in ${process.env.NODE_ENV} mode on ${PORT}`)
 )

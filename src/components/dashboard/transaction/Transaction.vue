@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-0 ma-0">
+  <v-container fluid>
     <CreateTransaction class="mb-5" />
     <v-toolbar flat dense color="transparent">
       <v-btn
