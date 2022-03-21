@@ -1,6 +1,5 @@
 <template>
   <vs-dialog
-    blur
     not-center
     width="400px"
     prevent-close
@@ -21,11 +20,12 @@
         v-for="(transaction, i) in selectedTransactionToDecline"
       >
         <vs-button
+          transparent
           color="#6200EA"
           @click="confirmDecline(transaction)"
           :loading="transaction.declineTransactionLoading"
         >
-          Confirm
+          Decline
         </vs-button>
       </div>
     </template>

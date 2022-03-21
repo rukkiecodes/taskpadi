@@ -101,23 +101,23 @@
         <!-- <vs-button
           color="danger"
           class="text-capitalize mr-3"
-          @click="openDeleteTransactionDialog(transaction.selectedTransaction)"
+          @click="openDeleteTransactionDialog(transaction)"
           >Delete</vs-button
         >
         <vs-button
           flat
           color="#6200EA"
           class="text-capitalize mr-3"
-          @click="openPopTransactionDialog(transaction.selectedTransaction)"
+          @click="openPopTransactionDialog(transaction)"
           >Proof of payment</vs-button
-        >
+        >-->
         <vs-button
           flat
           color="#6200EA"
           class="text-capitalize mr-3"
-          @click="openDeclineTransactionDialog(transaction.selectedTransaction)"
+          @click="openDeclineTransactionDialog(transaction)"
           >Decline</vs-button
-        >-->
+        >
         <vs-button
           flat
           color="#6200EA"

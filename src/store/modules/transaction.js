@@ -259,23 +259,22 @@ export default {
 
         confirmDecline: (state, response) => {
             console.log(response)
-            if (response.success == true) {
+            if (response.data.success == true) {
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
                     position: "top-right",
                     title: "Yippee!!!",
-                    text: response.message,
+                    text: response.data.message,
                 })
             }
-            if (response.success == false) {
+            if (response.data.success == false) {
                 Vue.prototype.$vs.notification({
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
                     position: "top-right",
                     title: "Oops!!!",
-                    text: response.message,
+                    text: response.data.message,
                 })
             }
         },
@@ -558,7 +557,7 @@ export default {
             commit("openConfirmTransactionDialog", transaction)
         },
 
-        confirmApprove({ commit, dispatch }, transaction) {
+        confirmApprove({ commit, dispatch }) {
             this.state.transaction.approveTransactionLoading = true
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let _id = router.currentRoute.params._id
@@ -582,7 +581,7 @@ export default {
                 })
         },
 
-        confirmConfirm({ commit, dispatch }, transaction) {
+        confirmConfirm({ commit, dispatch }) {
             this.state.transaction.confirmTransactionLoading = true
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let _id = router.currentRoute.params._id
@@ -612,22 +611,17 @@ export default {
 
         confirmDecline({ commit, dispatch }, transaction) {
             this.state.transaction.declineTransactionLoading = true
-            let code = transaction.code
-            let token = Vue.prototype.$cookies.get("PaddiData").access_token
-            fetch(
-                    process.env.NODE_ENV === "production" ?
-                    `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/decline-transaction/${code}` :
-                    `/api/user/decline-transaction/${code}`, {
-                        method: "POST",
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                            "Content-Type": "application/json",
-                        },
-                    }
-                )
-                .then((response) => response.json())
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
+
+            axios
+                .post("http://localhost:3000/transaction/declineTransaction", {
+                    user,
+                    _id,
+                })
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
+                        dispatch("viewSingleTransaction")
                         commit("confirmDecline", response)
                         this.state.transaction.declineTransactionLoading = false
                         this.state.transaction.declineTransactionDialog = false
