@@ -60,6 +60,8 @@ app.use("/ticket", [
 app.use("/transaction", [
     require("./routes/transaction/createTransaction"),
     require("./routes/transaction/getTransactions"),
+    require("./routes/transaction/getSingleTransaction"),
+    require("./routes/transaction/updateTransaction"),
 ])
 
 const PORT = process.env.PORT || 3000

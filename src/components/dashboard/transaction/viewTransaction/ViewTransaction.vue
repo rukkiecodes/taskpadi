@@ -18,12 +18,14 @@ export default {
     ProductDetails
   },
 
-  created() {
-    this.setTransactionDetails()
+  mounted() {
+    this.$nextTick(() => {
+      this.viewSingleTransaction()
+    })
   },
 
   methods: {
-    ...mapActions(["setTransactionDetails"])
+    ...mapActions(["viewSingleTransaction"])
   },
 
   computed: {

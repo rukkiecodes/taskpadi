@@ -26,6 +26,10 @@ const Transaction = new mongoose.Schema({
         type: String,
         required: true,
     },
+    charge: {
+        type: String,
+        required: true,
+    },
     quantity: {
         type: Number,
         required: true,

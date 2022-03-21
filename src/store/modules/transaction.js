@@ -46,6 +46,8 @@ export default {
 
         transactions: [],
 
+        singleTransactions: [],
+
         viewDetailsDialoge: false,
 
         selectedTransaction: {},
@@ -92,6 +94,7 @@ export default {
         selectedTransactionToDecline: (state) => state.selectedTransactionToDecline,
         selectedTransactionToPop: (state) => state.selectedTransactionToPop,
         selectedTransactionToDelete: (state) => state.selectedTransactionToDelete,
+        singleTransactions: (state) => state.singleTransactions,
     },
 
     mutations: {
@@ -102,7 +105,6 @@ export default {
             if (response.success == true) {
                 state.createTransactionDialog = false
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
                     position: "top-right",
@@ -130,8 +132,12 @@ export default {
         },
 
         viewTransactionDetails: (state, transaction) => {
-            Vue.prototype.$cookies.set("view transaction details", transaction)
-            router.push("/dashboard/viewTransaction")
+            router.push(`/dashboard/${transaction._id}`)
+        },
+
+        viewSingleTransaction: (state, response) => {
+            state.singleTransactions = []
+            state.singleTransactions.push(...response.data.transaction)
         },
 
         setTransactionDetails: (state) => {
@@ -143,18 +149,15 @@ export default {
         openUpdateTransactionDialog: (state, transaction) => {
             console.log("update: ", transaction)
             state.selectedTransactionToUpdate = transaction
-            var number = transaction.recipientPhone
-            var arr = number.split("4")
-            arr.shift()
-            number = arr.join("4")
+
             state.updateTransactionCredential = {
                 recipient_name: transaction.recipientName,
-                recipient_email: transaction.buyerEmail,
-                recipient_phone: 0 + number,
-                transaction_type: transaction.type,
+                recipient_email: transaction.recipientEmail,
+                recipient_phone: transaction.recipientPhone,
+                transaction_type: transaction.transactionType,
                 price: transaction.price,
                 quantity: transaction.quantity,
-                role: "",
+                role: transaction.role,
                 description: transaction.description,
                 image: "",
                 duration: transaction.duration,
@@ -168,7 +171,6 @@ export default {
                 state.updateTransactionDialog = false
                 state.updateTransactionLoading = false
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
                     position: "top-right",
@@ -435,32 +437,27 @@ export default {
                 .catch((error) => {
                     console.log(error)
                 })
-                // let token = Vue.prototype.$cookies.get("PaddiData").access_token
-                // var options = {
-                //     method: "GET",
-                //     headers: {
-                //         Authorization: `Bearer ${token}`,
-                //         "Content-Type": "application/json",
-                //     },
-                // }
-
-            // fetch(
-            //         process.env.NODE_ENV === "production" ?
-            //         "https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/transactions" :
-            //         "/api/user/transactions",
-            //         options
-            //     )
-            //     .then((response) => response.json())
-            //     .then((response) => {
-            //         commit("getTransactions", response)
-            //     })
-            //     .catch((error) => {
-            //         console.log("Error: ", error)
-            //     })
         },
 
         viewTransactionDetails({ commit }, transaction) {
             commit("viewTransactionDetails", transaction)
+        },
+
+        viewSingleTransaction({ commit }) {
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
+
+            axios
+                .post("http://localhost:3000/transaction/getSingleTransaction", {
+                    user,
+                    _id,
+                })
+                .then((response) => {
+                    commit("viewSingleTransaction", response)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         },
 
         setTransactionDetails({ commit }) {
@@ -479,8 +476,8 @@ export default {
 
         updateTransaction({ commit, dispatch }) {
             let input = this.state.transaction.updateTransactionCredential
-            let code = this.state.transaction.selectedTransactionToUpdate.code
-            let token = Vue.prototype.$cookies.get("PaddiData").access_token
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
 
             if (
                 input.recipient_name != "" &&
@@ -499,36 +496,35 @@ export default {
 
                 let myHeaders = new Headers()
                 myHeaders.append("Accept", "multipart/form-data")
-                myHeaders.append("Authorization", `Bearer ${token}`)
 
-                formData.append("recipient_name", input.recipient_name)
-                formData.append("recipient_email", input.recipient_email)
-                formData.append("recipient_phone", input.recipient_phone)
-                formData.append("transaction_type", input.transaction_type)
+                formData.append("user", user)
+                formData.append("_id", _id)
+                formData.append("recipientName", input.recipient_name)
+                formData.append("recipientEmail", input.recipient_email)
+                formData.append("recipientPhone", input.recipient_phone)
+                formData.append("transactionType", input.transaction_type)
                 formData.append("price", input.price)
                 formData.append("quantity", input.quantity)
                 formData.append("role", input.role)
                 formData.append("description", input.description)
-                if (input.image) formData.append("image", input.image)
                 formData.append("duration", input.duration)
+                if (input.image) formData.append("image", input.image)
 
                 let requestOptions = {
                     method: "POST",
                     headers: myHeaders,
                     body: formData,
-                    redirect: "follow",
                 }
 
                 fetch(
-                        process.env.NODE_ENV === "production" ?
-                        `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/update-transaction/${code}` :
-                        `/api/user/update-transaction/${code}`,
+                        "http://localhost:3000/transaction/updateTransaction",
                         requestOptions
                     )
                     .then((response) => response.json())
                     .then((response) => {
                         return dispatch("getTransactions").then(() => {
                             this.state.transaction.updateTransactionLoading = false
+                            dispatch("viewSingleTransaction")
                             commit("updateTransaction", response)
                         })
                     })

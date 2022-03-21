@@ -2,30 +2,31 @@
   <v-col cols="12" sm="6" lg="8">
     <v-card flat color="transparent">
       <v-list color="transparent">
-        <v-list-item>
+        <v-list-item v-for="(transaction, i) in singleTransactions" :key="i">
           <v-list-item-content>
             <v-list-item-title
               class="text-h5 text-sm-h4 text-lg-h3 font-weight-bold text-capitalize"
-              >{{
-                transaction.selectedTransaction.recipientName
-              }}</v-list-item-title
+              >{{ transaction.recipientName }}</v-list-item-title
             >
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-card>
 
-    <v-card flat color="transparent">
+    <v-card
+      flat
+      :key="i"
+      color="transparent"
+      v-for="(transaction, i) in singleTransactions"
+    >
       <v-card-title>
         <span class="text-h6 font-weight-medium">Description:</span>
         <v-spacer />
-        <span class="text-h4 font-weight-bold"
-          >${{ transaction.selectedTransaction.price }}</span
-        >
+        <span class="text-h4 font-weight-bold">${{ transaction.price }}</span>
       </v-card-title>
 
       <v-card-text class="text-center text-sm-left">{{
-        transaction.selectedTransaction.description
+        transaction.description
       }}</v-card-text>
       <v-card
         class="d-flex justify-space-between align-center"
@@ -44,14 +45,14 @@
           class="text-capitalize rounded-lg font-weight-bold"
           :class="{
             'orange lighten-5 orange--text text--accent-3':
-              transaction.selectedTransaction.status == 'pending',
+              transaction.status == 'pending',
             'teal lighten-5 teal--text text--darken-1':
-              transaction.selectedTransaction.status == 'completed',
+              transaction.status == 'completed',
             'deep-purple lighten-5 deep-purple--text text--darken-1':
-              transaction.selectedTransaction.status == 'ongoing',
+              transaction.status == 'ongoing',
           }"
         >
-          {{ transaction.selectedTransaction.status }}
+          {{ transaction.status }}
         </v-chip>
       </v-card>
       <v-divider />
@@ -66,31 +67,28 @@
             <v-col cols="12" sm="6">
               <p class="grey--text text--darken-4 mt-n2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
-                Transaction code :
-                <span class="font-weight-bold">{{
-                  transaction.selectedTransaction.code
-                }}</span>
+                Transaction code:
+                <span class="font-weight-bold">{{ transaction._id }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
-                Location :
-                <span class="font-weight-bold">{{
-                  transaction.selectedTransaction.price
-                }}</span>
+                Price:
+                <span class="font-weight-bold">{{ transaction.price }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-n2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
-                Charge :
-                <span class="font-weight-bold">{{
-                  transaction.selectedTransaction.charge
-                }}</span>
+                Charge:
+                <span class="font-weight-bold">{{ transaction.charge }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-n2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
-                Duration :
-                <span class="font-weight-bold">{{
-                  transaction.selectedTransaction.duration
-                }}</span>
+                Duration:
+                <span class="font-weight-bold">{{ transaction.duration }}</span>
+              </p>
+              <p class="grey--text text--darken-4 mt-n2">
+                <v-icon small color="amber">mdi-star-circle</v-icon>
+                Quantity:
+                <span class="font-weight-bold">{{ transaction.quantity }}</span>
               </p>
             </v-col>
           </v-row>
@@ -100,7 +98,7 @@
       <v-card-text
         class="text-center text-sm-left d-flex flex-column flex-sm-row"
       >
-        <vs-button
+        <!-- <vs-button
           color="danger"
           class="text-capitalize mr-3"
           @click="openDeleteTransactionDialog(transaction.selectedTransaction)"
@@ -126,21 +124,19 @@
           class="text-capitalize mr-3"
           @click="openConfirmTransactionDialog(transaction.selectedTransaction)"
           >Confirm</vs-button
-        >
+        > -->
         <vs-button
           flat
           color="#6200EA"
           class="text-capitalize mr-3"
-          @click="
-            openApprovalTransactionDialog(transaction.selectedTransaction)
-          "
+          @click="openApprovalTransactionDialog(transaction)"
           >Approve</vs-button
         >
         <vs-button
           flat
           color="#6200EA"
           class="text-capitalize mr-3"
-          @click="openUpdateTransactionDialog(transaction.selectedTransaction)"
+          @click="openUpdateTransactionDialog(transaction)"
           >Edit</vs-button
         >
       </v-card-text>
@@ -155,7 +151,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapState, mapActions, mapGetters } from "vuex"
 export default {
   data: () => ({
     rating: 3.5,
@@ -184,6 +180,8 @@ export default {
 
   computed: {
     ...mapState(["transaction"]),
+
+    ...mapGetters(["singleTransactions"]),
 
     detailsCard() {
       switch (this.$vuetify.breakpoint.name) {
