@@ -292,7 +292,6 @@ export default {
             if (response.success == true) {
                 state.popTransactionDialog = false
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
                     position: "top-right",
@@ -302,7 +301,6 @@ export default {
             }
             if (response.success == false) {
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
                     position: "top-right",
@@ -332,35 +330,24 @@ export default {
 
         confirmDelete: (state, response) => {
             console.log(response)
-            if (response.success == true) {
-                state.popTransactionDialog = false
+            state.popTransactionDialog = false
+            if (response.data.success == true) {
+                router.push("/dashboard/transactions/goods")
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
                     position: "top-right",
                     title: "Yippee!!!",
-                    text: response.message,
+                    text: response.data.message,
                 })
             }
-            if (response.success == false) {
+            if (response.data.success == false) {
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
                     position: "top-right",
                     title: "Oops!!!",
-                    text: response.message,
-                })
-            }
-            if (response.message == "The given data was invalid.") {
-                Vue.prototype.$vs.notification({
-                    duration: "none",
-                    icon: `<i class="las la-exclamation-triangle"></i>`,
-                    border: "rgb(255, 71, 87)",
-                    position: "top-right",
-                    title: "Oops!!!",
-                    text: response.errors.pop[0],
+                    text: response.data.message,
                 })
             }
         },
@@ -644,36 +631,35 @@ export default {
 
         confirmPop({ commit, dispatch }, transaction) {
             const pop = this.state.transaction.pop
-            console.log(pop)
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
+
             if (pop != "") {
                 this.state.transaction.popTransactionLoading = true
-                let code = transaction.code
-                let token = Vue.prototype.$cookies.get("PaddiData").access_token
 
                 let formData = new FormData()
 
                 let myHeaders = new Headers()
                 myHeaders.append("Accept", "multipart/form-data")
-                myHeaders.append("Authorization", `Bearer ${token}`)
 
+                formData.append("user", user)
+                formData.append("_id", _id)
                 formData.append("pop", pop)
 
                 let requestOptions = {
                     method: "POST",
                     headers: myHeaders,
                     body: formData,
-                    redirect: "follow",
                 }
 
                 fetch(
-                        process.env.NODE_ENV === "production" ?
-                        `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/upload-pop/${code}` :
-                        `/api/user/upload-pop/${code}`,
+                        "http://localhost:3000/transaction/transactionProofOfPayment",
                         requestOptions
                     )
                     .then((response) => response.json())
                     .then((response) => {
                         return dispatch("getTransactions").then(() => {
+                            dispatch("viewSingleTransaction")
                             commit("confirmPop", response)
                             this.state.transaction.popTransactionDialog = false
                             this.state.transaction.popTransactionLoading = false
@@ -703,57 +689,26 @@ export default {
             this.state.transaction.deleteName = image.name
         },
 
-        confirmDelete({ commit, dispatch }, transaction) {
-            const pop = this.state.transaction.pop
-            console.log(pop)
-            if (pop != "") {
-                this.state.transaction.deleteTransactionLoading = true
-                let code = transaction.code
-                console.log(code)
-                let token = Vue.prototype.$cookies.get("PaddiData").access_token
+        confirmDelete({ commit, dispatch }) {
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
 
-                let formData = new FormData()
-
-                let myHeaders = new Headers()
-                myHeaders.append("Accept", "multipart/form-data")
-                myHeaders.append("Authorization", `Bearer ${token}`)
-
-                formData.append("pop", pop)
-
-                let requestOptions = {
-                    method: "DELETE",
-                    headers: myHeaders,
-                    body: formData,
-                    redirect: "follow",
-                }
-
-                fetch(
-                        process.env.NODE_ENV === "production" ?
-                        `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/transaction/${code}` :
-                        `/api/user/transaction/${code}`,
-                        requestOptions
-                    )
-                    .then((response) => response.json())
-                    .then((response) => {
-                        return dispatch("getTransactions").then(() => {
-                            commit("confirmDelete", response)
-                            this.state.transaction.deleteTransactionDialog = false
-                            this.state.transaction.deleteTransactionLoading = false
-                        })
-                    })
-                    .catch((error) => {
-                        console.log("Error: ", error)
+            axios
+                .post("http://localhost:3000/transaction/deleteTransaction", {
+                    user,
+                    _id,
+                })
+                .then((response) => {
+                    return dispatch("getTransactions").then(() => {
+                        commit("confirmDelete", response)
+                        this.state.transaction.deleteTransactionDialog = false
                         this.state.transaction.deleteTransactionLoading = false
                     })
-            } else {
-                Vue.prototype.$vs.notification({
-                    icon: `<i class="las la-exclamation-triangle"></i>`,
-                    border: "rgb(255, 71, 87)",
-                    position: "top-right",
-                    title: "Error!!!",
-                    text: `Please complete the form and try again`,
                 })
-            }
+                .catch((error) => {
+                    console.log("Error: ", error)
+                    this.state.transaction.deleteTransactionLoading = false
+                })
         },
     },
 }

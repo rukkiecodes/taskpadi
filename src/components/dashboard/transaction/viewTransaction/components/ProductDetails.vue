@@ -98,8 +98,10 @@
       <v-card-text
         class="text-center text-sm-left d-flex flex-column flex-sm-row"
       >
-        <!-- <vs-button
-          color="danger"
+        <vs-button
+          flat
+          active
+          danger
           class="text-capitalize mr-3"
           @click="openDeleteTransactionDialog(transaction)"
           >Delete</vs-button
@@ -110,7 +112,7 @@
           class="text-capitalize mr-3"
           @click="openPopTransactionDialog(transaction)"
           >Proof of payment</vs-button
-        >-->
+        >
         <vs-button
           flat
           color="#6200EA"

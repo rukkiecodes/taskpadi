@@ -1,6 +1,5 @@
 <template>
   <vs-dialog
-    blur
     not-center
     width="400px"
     prevent-close
@@ -11,20 +10,18 @@
     </template>
 
     <div class="con-content">
-      <p>Are you sure you want to pop this transaction?</p>
+      <p>Are you sure you want to proof of payment this transaction?</p>
     </div>
 
     <div>
-      <vs-input
-        block
-        @click="clickOnPOPFile"
-        v-model="transaction.popName"
-        placeholder="Proof of payment"
-      />
       <v-file-input
+        solo
+        flat
+        dense
+        hide-details
         @change="onPOPChange"
-        class="POPFile"
-        style="display: none"
+        background-color="#F4F7F8"
+        placeholder="Proof of mayment file"
       ></v-file-input>
     </div>
 
@@ -35,6 +32,7 @@
         v-for="(transaction, i) in selectedTransactionToPop"
       >
         <vs-button
+          transparent
           color="#6200EA"
           @click="confirmPop(transaction)"
           :loading="transaction.popTransactionLoading"
@@ -50,19 +48,7 @@
 // @ts-nocheck
 import { mapActions, mapGetters, mapState } from "vuex"
 export default {
-  data: () => ({
-    max: 191,
-    value: "",
-    fileName: "",
-    showImageDialoge: false,
-    rules: [(v) => v.length <= 255 || "Max 25 characters"],
-  }),
-
   methods: {
-    clickOnPOPFile() {
-      document.querySelector(".POPFile input[type='file']").click()
-    },
-
     ...mapActions(["confirmPop", "onPOPChange"]),
   },
 

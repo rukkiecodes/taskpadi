@@ -1,6 +1,5 @@
 <template>
   <vs-dialog
-    blur
     not-center
     width="400px"
     prevent-close
@@ -14,20 +13,6 @@
       <p>Are you sure you want to delete this transaction?</p>
     </div>
 
-    <div>
-      <vs-input
-        block
-        @click="clickOnPOPFile"
-        placeholder="Proof of payment"
-        v-model="transaction.deleteName"
-      />
-      <v-file-input
-        class="POPFile"
-        style="display: none"
-        @change="onDeleteChange"
-      ></v-file-input>
-    </div>
-
     <template #footer>
       <div
         :key="i"
@@ -36,6 +21,7 @@
       >
         <vs-button
           danger
+          transparent
           @click="confirmDelete(transaction)"
           :loading="transaction.deleteTransactionLoading"
         >

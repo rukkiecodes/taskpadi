@@ -65,6 +65,8 @@ app.use("/transaction", [
     require("./routes/transaction/approveTransaction"),
     require("./routes/transaction/confirmTransaction"),
     require("./routes/transaction/declineTransaction"),
+    require("./routes/transaction/transactionProofOfPayment"),
+    require("./routes/transaction/deleteTransaction"),
 ])
 
 const PORT = process.env.PORT || 3000
