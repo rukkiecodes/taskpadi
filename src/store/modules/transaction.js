@@ -199,24 +199,24 @@ export default {
         },
 
         confirmApprove: (state, response) => {
-            console.log(response)
-            if (response.success == true) {
+            console.log("confirmApprove: ", response)
+            if (response.data.success == true) {
                 Vue.prototype.$vs.notification({
                     duration: "none",
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
                     position: "top-right",
                     title: "Yippee!!!",
-                    text: response.message,
+                    text: response.data.message,
                 })
             }
-            if (response.success == false) {
+            if (response.data.success == false) {
                 Vue.prototype.$vs.notification({
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
                     position: "top-right",
                     title: "Oops!!!",
-                    text: response.message,
+                    text: response.data.message,
                 })
             }
         },
@@ -561,20 +561,14 @@ export default {
 
         confirmApprove({ commit, dispatch }, transaction) {
             this.state.transaction.approveTransactionLoading = true
-            let code = transaction.code
-            let token = Vue.prototype.$cookies.get("PaddiData").access_token
-            fetch(
-                    process.env.NODE_ENV === "production" ?
-                    `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/approve-transaction/${code}` :
-                    `/api/user/approve-transaction/${code}`, {
-                        method: "POST",
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                            "Content-Type": "application/json",
-                        },
-                    }
-                )
-                .then((response) => response.json())
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
+
+            axios
+                .post("http://localhost:3000/transaction/approveTransaction", {
+                    user,
+                    _id,
+                })
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
                         commit("confirmApprove", response)
@@ -586,6 +580,25 @@ export default {
                     console.log("Error: ", error)
                     this.state.transaction.approveTransactionLoading = false
                 })
+                // fetch(
+                //         process.env.NODE_ENV === "production" ?
+                //         `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/approve-transaction/${code}` :
+                //         `/api/user/approve-transaction/${code}`, {
+                //             method: "POST",
+                //             headers: {
+                //                 Authorization: `Bearer ${token}`,
+                //                 "Content-Type": "application/json",
+                //             },
+                //         }
+                //     )
+                //     .then((response) => response.json())
+                //     .then((response) => {
+
+            //     })
+            //     .catch((error) => {
+            //         console.log("Error: ", error)
+            //         this.state.transaction.approveTransactionLoading = false
+            //     })
         },
 
         confirmConfirm({ commit, dispatch }, transaction) {

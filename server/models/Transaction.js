@@ -6,6 +6,10 @@ const Transaction = new mongoose.Schema({
         type: String,
         default: "pending",
     },
+    approved: {
+        type: Boolean,
+        default: false,
+    },
     recipientName: {
         type: String,
         required: true,

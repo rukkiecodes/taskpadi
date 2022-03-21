@@ -1,6 +1,5 @@
 <template>
   <vs-dialog
-    blur
     not-center
     width="400px"
     prevent-close
@@ -11,7 +10,7 @@
     </template>
 
     <div class="con-content">
-      <p>Are you sure you want to approval this transaction?</p>
+      <p>Are you sure you want to approve this transaction?</p>
     </div>
 
     <template #footer>
@@ -21,6 +20,7 @@
         v-for="(transaction, i) in selectedTransactionToApprove"
       >
         <vs-button
+          transparent
           color="#6200EA"
           @click="confirmApprove(transaction)"
           :loading="transaction.approveTransactionLoading"
