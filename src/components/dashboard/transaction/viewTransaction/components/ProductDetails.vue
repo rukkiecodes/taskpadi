@@ -117,14 +117,14 @@
           class="text-capitalize mr-3"
           @click="openDeclineTransactionDialog(transaction.selectedTransaction)"
           >Decline</vs-button
-        >
+        >-->
         <vs-button
           flat
           color="#6200EA"
           class="text-capitalize mr-3"
-          @click="openConfirmTransactionDialog(transaction.selectedTransaction)"
+          @click="openConfirmTransactionDialog(transaction)"
           >Confirm</vs-button
-        > -->
+        >
         <vs-button
           flat
           color="#6200EA"

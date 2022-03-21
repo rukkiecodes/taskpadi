@@ -230,23 +230,22 @@ export default {
 
         confirmConfirm: (state, response) => {
             console.log(response)
-            if (response.success == true) {
+            if (response.data.success == true) {
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
                     position: "top-right",
                     title: "Yippee!!!",
-                    text: response.message,
+                    text: response.data.message,
                 })
             }
-            if (response.success == false) {
+            if (response.data.success == false) {
                 Vue.prototype.$vs.notification({
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
                     position: "top-right",
                     title: "Oops!!!",
-                    text: response.message,
+                    text: response.data.message,
                 })
             }
         },
@@ -571,6 +570,7 @@ export default {
                 })
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
+                        dispatch("viewSingleTransaction")
                         commit("confirmApprove", response)
                         this.state.transaction.approveTransactionLoading = false
                         this.state.transaction.approveTransactionDialog = false
@@ -580,45 +580,21 @@ export default {
                     console.log("Error: ", error)
                     this.state.transaction.approveTransactionLoading = false
                 })
-                // fetch(
-                //         process.env.NODE_ENV === "production" ?
-                //         `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/approve-transaction/${code}` :
-                //         `/api/user/approve-transaction/${code}`, {
-                //             method: "POST",
-                //             headers: {
-                //                 Authorization: `Bearer ${token}`,
-                //                 "Content-Type": "application/json",
-                //             },
-                //         }
-                //     )
-                //     .then((response) => response.json())
-                //     .then((response) => {
-
-            //     })
-            //     .catch((error) => {
-            //         console.log("Error: ", error)
-            //         this.state.transaction.approveTransactionLoading = false
-            //     })
         },
 
         confirmConfirm({ commit, dispatch }, transaction) {
             this.state.transaction.confirmTransactionLoading = true
-            let code = transaction.code
-            let token = Vue.prototype.$cookies.get("PaddiData").access_token
-            fetch(
-                    process.env.NODE_ENV === "production" ?
-                    `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/confirm-transaction/${code}` :
-                    `/api/user/confirm-transaction/${code}`, {
-                        method: "POST",
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                            "Content-Type": "application/json",
-                        },
-                    }
-                )
-                .then((response) => response.json())
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
+
+            axios
+                .post("http://localhost:3000/transaction/confirmTransaction", {
+                    user,
+                    _id,
+                })
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
+                        dispatch("viewSingleTransaction")
                         commit("confirmConfirm", response)
                         this.state.transaction.confirmTransactionLoading = false
                         this.state.transaction.confirmTransactionDialog = false

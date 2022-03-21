@@ -10,6 +10,10 @@ const Transaction = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    confirmed: {
+        type: Boolean,
+        default: false,
+    },
     recipientName: {
         type: String,
         required: true,
