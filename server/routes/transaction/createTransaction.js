@@ -20,6 +20,7 @@ router.post("/createTransaction", image, async(req, res) => {
     } = req.body
 
     let charge = (20 / 100) * price
+    let total = Number(charge) + Number(price)
     try {
         let transaction = await Transaction.create({
             _id: new mongoose.Types.ObjectId(),
@@ -34,6 +35,7 @@ router.post("/createTransaction", image, async(req, res) => {
             description,
             duration,
             charge,
+            total,
             image: req.file.path,
         })
         return res.status(201).json({

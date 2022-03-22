@@ -118,14 +118,14 @@
           <v-spacer />
           <div class="con-footer d-flex justify-end">
             <vs-button
-              shadow
+              dark
+              transparent
               @click="transaction.createTransactionDialog = false"
             >
               Cancel
             </vs-button>
             <vs-button
-              flat
-              active
+              transparent
               color="#6200EA"
               @click="createTransaction"
               :loading="transaction.createTransactionLoading"

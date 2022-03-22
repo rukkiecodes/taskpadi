@@ -47,9 +47,7 @@
             'orange lighten-5 orange--text text--accent-3':
               transaction.status == 'pending',
             'teal lighten-5 teal--text text--darken-1':
-              transaction.status == 'completed',
-            'deep-purple lighten-5 deep-purple--text text--darken-1':
-              transaction.status == 'ongoing',
+              transaction.status == 'approved',
           }"
         >
           {{ transaction.status }}
@@ -70,6 +68,16 @@
                 Transaction code:
                 <span class="font-weight-bold">{{ transaction._id }}</span>
               </p>
+              <p class="grey--text text--darken-4 mt-n2">
+                <v-icon small color="amber">mdi-star-circle</v-icon>
+                Duration:
+                <span class="font-weight-bold">{{ transaction.duration }}</span>
+              </p>
+              <p class="grey--text text--darken-4 mt-n2">
+                <v-icon small color="amber">mdi-star-circle</v-icon>
+                Quantity:
+                <span class="font-weight-bold">{{ transaction.quantity }}</span>
+              </p>
               <p class="grey--text text--darken-4 mt-2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
                 Price:
@@ -82,13 +90,8 @@
               </p>
               <p class="grey--text text--darken-4 mt-n2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
-                Duration:
-                <span class="font-weight-bold">{{ transaction.duration }}</span>
-              </p>
-              <p class="grey--text text--darken-4 mt-n2">
-                <v-icon small color="amber">mdi-star-circle</v-icon>
-                Quantity:
-                <span class="font-weight-bold">{{ transaction.quantity }}</span>
+                Total:
+                <span class="font-weight-bold">₦{{ transaction.total }}</span>
               </p>
             </v-col>
           </v-row>

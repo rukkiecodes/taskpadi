@@ -42,6 +42,10 @@ const Transaction = new mongoose.Schema({
         type: String,
         required: true,
     },
+    total: {
+        type: String,
+        required: true,
+    },
     quantity: {
         type: Number,
         required: true,

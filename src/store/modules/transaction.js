@@ -202,7 +202,6 @@ export default {
             console.log("confirmApprove: ", response)
             if (response.data.success == true) {
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
                     position: "top-right",
@@ -310,7 +309,6 @@ export default {
             }
             if (response.message == "The given data was invalid.") {
                 Vue.prototype.$vs.notification({
-                    duration: "none",
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
                     position: "top-right",

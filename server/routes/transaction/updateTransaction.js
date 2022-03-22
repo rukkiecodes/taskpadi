@@ -18,6 +18,10 @@ router.post("/updateTransaction", image, async(req, res) => {
         description,
         duration,
     } = req.body
+
+    let charge = (20 / 100) * price
+    let total = Number(charge) + Number(price)
+
     try {
         let transaction
         if (req.file) {
@@ -34,6 +38,8 @@ router.post("/updateTransaction", image, async(req, res) => {
                     role,
                     description,
                     duration,
+                    charge,
+                    total,
                     image: req.file.path,
                 },
             }).exec()
@@ -56,6 +62,8 @@ router.post("/updateTransaction", image, async(req, res) => {
                     role,
                     description,
                     duration,
+                    charge,
+                    total,
                 },
             }).exec()
             res.status(200).json({

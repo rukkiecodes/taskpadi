@@ -10,6 +10,7 @@ router.post("/approveTransaction", async(req, res) => {
             $and: [{ user }, { _id }],
         }, {
             $set: {
+                status: "approved",
                 approved: true,
             },
         }).exec()
