@@ -19,9 +19,7 @@ router.post("/createTransaction", image, async(req, res) => {
         duration,
     } = req.body
 
-    let subTotal = parseFloat(price)
-    let charge = subTotal + subTotal * 0.2
-
+    let charge = (20 / 100) * price
     try {
         let transaction = await Transaction.create({
             _id: new mongoose.Types.ObjectId(),

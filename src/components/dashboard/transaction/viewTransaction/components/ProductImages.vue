@@ -7,15 +7,13 @@
           :key="i"
           height="300"
           color="#F8F8FB"
+          max-height="400"
           v-for="(transaction, i) in singleTransactions"
         >
-          <v-card-text>
-            <v-img
-              contain
-              height="300"
-              :src="`https://trustpaddi.herokuapp.com/${transaction.image}`"
-            ></v-img>
-          </v-card-text>
+          <img
+            style="width: 100%"
+            :src="`https://trustpaddi.herokuapp.com/${transaction.image}`"
+          />
         </v-card>
       </v-col>
     </v-row>

@@ -22,7 +22,7 @@
       <v-card-title>
         <span class="text-h6 font-weight-medium">Description:</span>
         <v-spacer />
-        <span class="text-h4 font-weight-bold">${{ transaction.price }}</span>
+        <span class="text-h4 font-weight-bold">₦{{ transaction.price }}</span>
       </v-card-title>
 
       <v-card-text class="text-center text-sm-left">{{
@@ -73,12 +73,12 @@
               <p class="grey--text text--darken-4 mt-2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
                 Price:
-                <span class="font-weight-bold">{{ transaction.price }}</span>
+                <span class="font-weight-bold">₦{{ transaction.price }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-n2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
                 Charge:
-                <span class="font-weight-bold">{{ transaction.charge }}</span>
+                <span class="font-weight-bold">₦{{ transaction.charge }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-n2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
