@@ -14,7 +14,7 @@
         class="px-5"
         size="large"
         color="#6200EA"
-        to="/dashboard/dashboard"
+        @click="$router.go(-1)"
         >Go Back</vs-button
       >
     </div>

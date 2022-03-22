@@ -13,6 +13,11 @@ router.post("/getTransaction", async(req, res) => {
                 success: true,
                 message: "Fetch transaction successfully",
             })
+        else
+            res.status(200).json({
+                success: false,
+                message: "You have not created any transaction",
+            })
     } catch (error) {
         return res.status(401).json({
             error,

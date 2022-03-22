@@ -126,9 +126,17 @@ export default {
         },
 
         getTransactions: (state, response) => {
-            state.transactions = []
-            state.transactions.push(...response.data.transaction)
-            console.log("get transactions: ", state.transactions)
+            if (response.data.transaction.length) {
+                state.transactions = []
+                state.transactions.push(...response.data.transaction)
+                console.log(
+                    "get transactions: ",
+                    response,
+                    response.data.transaction.length
+                )
+            } else {
+                state.transactions = []
+            }
         },
 
         viewTransactionDetails: (state, transaction) => {
@@ -330,7 +338,9 @@ export default {
             console.log(response)
             state.popTransactionDialog = false
             if (response.data.success == true) {
-                router.push("/dashboard/transactions/goods")
+                location.replace(
+                    `${window.location.origin}/dashboard/transactions/goods`
+                )
                 Vue.prototype.$vs.notification({
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
@@ -385,7 +395,8 @@ export default {
             }
 
             fetch(
-                    "https://trustpaddi.herokuapp.com/transaction/createTransaction",
+                    "http://localhost:3000/transaction/createTransaction",
+                    // "https://trustpaddi.herokuapp.com/transaction/createTransaction",
                     requestOptions
                 )
                 .then((response) => response.json())
@@ -431,10 +442,12 @@ export default {
             let _id = router.currentRoute.params._id
 
             axios
-                .post("https://trustpaddi.herokuapp.com/transaction/getSingleTransaction", {
-                    user,
-                    _id,
-                })
+                .post(
+                    "https://trustpaddi.herokuapp.com/transaction/getSingleTransaction", {
+                        user,
+                        _id,
+                    }
+                )
                 .then((response) => {
                     commit("viewSingleTransaction", response)
                 })
@@ -548,10 +561,12 @@ export default {
             let _id = router.currentRoute.params._id
 
             axios
-                .post("https://trustpaddi.herokuapp.com/transaction/approveTransaction", {
-                    user,
-                    _id,
-                })
+                .post(
+                    "https://trustpaddi.herokuapp.com/transaction/approveTransaction", {
+                        user,
+                        _id,
+                    }
+                )
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
                         dispatch("viewSingleTransaction")
@@ -572,10 +587,12 @@ export default {
             let _id = router.currentRoute.params._id
 
             axios
-                .post("https://trustpaddi.herokuapp.com/transaction/confirmTransaction", {
-                    user,
-                    _id,
-                })
+                .post(
+                    "https://trustpaddi.herokuapp.com/transaction/confirmTransaction", {
+                        user,
+                        _id,
+                    }
+                )
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
                         dispatch("viewSingleTransaction")
@@ -600,10 +617,12 @@ export default {
             let _id = router.currentRoute.params._id
 
             axios
-                .post("https://trustpaddi.herokuapp.com/transaction/declineTransaction", {
-                    user,
-                    _id,
-                })
+                .post(
+                    "https://trustpaddi.herokuapp.com/transaction/declineTransaction", {
+                        user,
+                        _id,
+                    }
+                )
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
                         dispatch("viewSingleTransaction")
@@ -692,12 +711,11 @@ export default {
             let _id = router.currentRoute.params._id
 
             axios
-                .post(
-                    "https://trustpaddi.herokuapp.com/transaction/deleteTransaction", {
-                        user,
-                        _id,
-                    }
-                )
+                .post("http://localhost:3000/transaction/deleteTransaction", {
+                    // "https://trustpaddi.herokuapp.com/transaction/deleteTransaction", {
+                    user,
+                    _id,
+                })
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
                         commit("confirmDelete", response)
