@@ -11,6 +11,7 @@ router.post("/declineTransaction", async(req, res) => {
         }, {
             $set: {
                 declined: false,
+                status: "pending",
                 confirmed: true,
             },
         }).exec()
