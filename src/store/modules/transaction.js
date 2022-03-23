@@ -126,21 +126,14 @@ export default {
         },
 
         getTransactions: (state, response) => {
-            if (response.data.transaction.length) {
+            if (response.data.success == true) {
                 state.transactions = []
                 state.transactions.push(...response.data.transaction)
-                console.log(
-                    "get transactions: ",
-                    response,
-                    response.data.transaction.length
-                )
-            } else {
-                state.transactions = []
             }
         },
 
         viewTransactionDetails: (state, transaction) => {
-            router.push(`/dashboard/${transaction._id}`)
+            router.push(`/dashboard/transactions/${transaction._id}`)
         },
 
         viewSingleTransaction: (state, response) => {
@@ -395,8 +388,7 @@ export default {
             }
 
             fetch(
-                    "http://localhost:3000/transaction/createTransaction",
-                    // "https://trustpaddi.herokuapp.com/transaction/createTransaction",
+                    "https://trustpaddi.herokuapp.com/transaction/createTransaction",
                     requestOptions
                 )
                 .then((response) => response.json())
@@ -711,11 +703,12 @@ export default {
             let _id = router.currentRoute.params._id
 
             axios
-                .post("http://localhost:3000/transaction/deleteTransaction", {
-                    // "https://trustpaddi.herokuapp.com/transaction/deleteTransaction", {
-                    user,
-                    _id,
-                })
+                .post(
+                    "https://trustpaddi.herokuapp.com/transaction/deleteTransaction", {
+                        user,
+                        _id,
+                    }
+                )
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
                         commit("confirmDelete", response)

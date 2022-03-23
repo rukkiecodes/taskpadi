@@ -1,6 +1,6 @@
 <template>
-  <v-card flat color="transparent">
-    <v-card-text>
+  <v-card flat class="mx-0 px-0 px-lg-2" color="transparent">
+    <v-card-text class="mx-0 px-0 px-lg-2">
       <v-data-table
         :page.sync="page"
         :headers="headers"
@@ -65,9 +65,6 @@
         </template>
         <template v-slot:item.view="{ item }">
           <div class="d-flex">
-            <vs-button icon transparent class="mr-2" color="#1CC8EE">
-              <i class="las la-reply"></i>
-            </vs-button>
             <vs-button
               icon
               transparent

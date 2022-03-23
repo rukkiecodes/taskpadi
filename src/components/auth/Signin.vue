@@ -78,7 +78,9 @@
               </v-col>
               <v-col cols="12" md="4">
                 <vs-button
+                  flat
                   block
+                  active
                   color="#6E14EC"
                   @click="signinUser"
                   :loading="signin.loading"
@@ -89,7 +91,9 @@
               <v-col cols="12" md="8" class="text-lg-right">
                 <span class="text-body-2 text-md-caption text-lg-body-2 ml-2"
                   >Don't have an account?
-                  <router-link class="text-decoration-none font-weight-bold" to="/signup"
+                  <router-link
+                    class="text-decoration-none font-weight-bold"
+                    to="/signup"
                     >Sign Up</router-link
                   >
                 </span>
@@ -145,9 +149,9 @@ export default {
 
   beforeDestroy() {
     const html = document.querySelector("html")
-      html.style.overflowY = ""
+    html.style.overflowY = ""
   },
-  
+
   computed: {
     getProgress() {
       let progress = 0

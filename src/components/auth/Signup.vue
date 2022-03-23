@@ -64,9 +64,9 @@
             >
               <template #icon>
                 <i
-                  v-if="!hasVisiblePassword"
                   class="las la-eye"
                   style="font-size: 1.2rem"
+                  v-if="!hasVisiblePassword"
                 ></i>
                 <i
                   v-else
@@ -98,7 +98,9 @@
             <v-row class="mt-2 mb-5" justify="space-between" align="center">
               <v-col cols="12" md="4">
                 <vs-button
+                  flat
                   block
+                  active
                   color="#6E14EC"
                   @click="signupUser"
                   :loading="signup.loading"
@@ -108,7 +110,9 @@
               <v-col cols="12" md="8" class="text-lg-right">
                 <span class="text-body-2 text-md-caption text-lg-body-2 ml-2"
                   >Already have an account?
-                  <router-link class="text-decoration-none font-weight-bold" to="/"
+                  <router-link
+                    to="/"
+                    class="text-decoration-none font-weight-bold"
                     >Login</router-link
                   >
                 </span>
@@ -164,7 +168,7 @@ export default {
 
   beforeDestroy() {
     const html = document.querySelector("html")
-      html.style.overflowY = ""
+    html.style.overflowY = ""
   },
 
   computed: {

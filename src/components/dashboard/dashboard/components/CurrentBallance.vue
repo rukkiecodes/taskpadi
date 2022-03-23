@@ -1,26 +1,16 @@
 <template>
-  <v-card flat outlined min-height="150" class="rounded-lg currentBallance">
-    <img
-      class="cardImage"
-      src="../../../../assets/trust/currentBallance.png"
-      alt=""
-    />
-
+  <v-card
+    flat
+    color="#0096B7"
+    min-height="150"
+    class="rounded-lg currentBallance"
+  >
     <div class="content d-flex flex-column">
-      <span class="text-body-1 font-weight-bold grey--text text--darken-1"
+      <span class="text-body-1 font-weight-bold white--text"
         >Current Ballance</span
       >
-      <span class="text-h6 grey--text text--darken-1">₦ 1,200,000.90</span>
-      <span class="text-caption grey--text text--darken-1"
-        >Ledger Balance : ₦ 1,229</span
-      >
-      <vs-button
-        color="#F2EBFF"
-        class="contentButton ml-0 font-weight-bold"
-        size="small"
-      >
-        -13.34%
-      </vs-button>
+      <span class="text-h6 white--text">₦ 1,200,000.90</span>
+      <span class="text-caption white--text">Ledger Balance: ₦1,229</span>
     </div>
   </v-card>
 </template>
@@ -28,13 +18,6 @@
 <style scoped>
 .currentBallance {
   position: relative;
-}
-
-.currentBallance .cardImage {
-  position: absolute;
-  bottom: 0;
-  right: 10px;
-  width: 30%;
 }
 
 .currentBallance .content {

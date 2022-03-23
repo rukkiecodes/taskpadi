@@ -15,7 +15,7 @@ import ProductDetails from "./components/ProductDetails.vue"
 export default {
   components: {
     ProductImages,
-    ProductDetails
+    ProductDetails,
   },
 
   mounted() {
@@ -25,12 +25,12 @@ export default {
   },
 
   methods: {
-    ...mapActions(["viewSingleTransaction"])
+    ...mapActions(["viewSingleTransaction"]),
   },
 
   computed: {
     ...mapState(["transaction"]),
-    
+
     rowClass() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":

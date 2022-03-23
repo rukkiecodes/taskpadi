@@ -1,19 +1,33 @@
 <template>
   <div>
-    <vs-button
-      flat
-      active
-      color="#6200EA"
-      style="font-weight: bold"
-      @click="transaction.createTransactionDialog = true"
-    >
-      Create transaction</vs-button
-    >
+    <div class="d-flex">
+      <vs-button
+        icon
+        flat
+        active
+        color="#6200EA"
+        @click="$router.go(-1)"
+        v-show="$route.params._id"
+      >
+        <i class="las la-arrow-left"></i>
+      </vs-button>
+      <vs-button
+        flat
+        active
+        color="#6200EA"
+        style="font-weight: bold"
+        v-show="!$route.params._id"
+        @click="transaction.createTransactionDialog = true"
+      >
+        Create transaction</vs-button
+      >
+    </div>
 
     <vs-dialog
       scroll
       not-center
       width="500px"
+      prevent-close
       overflow-hidden
       v-model="transaction.createTransactionDialog"
     >
