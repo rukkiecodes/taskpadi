@@ -21,7 +21,14 @@ let fileFilter = (req, file, cb) => {
 
 // const storage =
 const avatar = multer({
-    storage,
+    storage: multer.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, "./avatar")
+        },
+        filename: (req, file, cb) => {
+            cb(null, new Date().toISOString() + file.originalname)
+        },
+    }),
     limits,
     fileFilter,
 }).single("avatar")

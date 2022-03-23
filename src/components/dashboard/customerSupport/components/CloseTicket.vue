@@ -1,27 +1,31 @@
 <template>
-  <v-dialog
-    persistent
-    max-width="360"
+  <vs-dialog
+    not-center
+    prevent-close
+    max-width="360px"
     v-model="customerSupport.closeTicketDialog"
   >
-    <v-card>
-      <v-card-title class="text-h6 grey--text text--darken-4">
-        Confirm close
-      </v-card-title>
+    <template #header>
+      <h4 class="not-margin">Confirm close</h4>
+    </template>
 
-      <v-card-text class="py-0">
-        Are you sure you want to close this ticket?
-      </v-card-text>
+    <div class="con-content">
+      <p>Are you sure you want to close this ticket?</p>
+    </div>
 
-      <v-card-actions>
+    <template #footer>
+      <v-card-actions class="con-footer d-flex py-0 my-0">
         <v-spacer />
 
-        <vs-button shadow @click="customerSupport.closeTicketDialog = false">
+        <vs-button
+          dark
+          transparent
+          @click="customerSupport.closeTicketDialog = false"
+        >
           Cancel
         </vs-button>
         <vs-button
-          flat
-          active
+          transparent
           color="#6200EA"
           @click="closeTicket"
           :loading="customerSupport.closeTicketLoading"
@@ -29,8 +33,8 @@
           Close ticket
         </vs-button>
       </v-card-actions>
-    </v-card>
-  </v-dialog>
+    </template>
+  </vs-dialog>
 </template>
 
 <script>

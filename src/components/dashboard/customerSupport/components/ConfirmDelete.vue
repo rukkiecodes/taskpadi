@@ -1,27 +1,30 @@
 <template>
-  <v-dialog
+  <vs-dialog
     persistent
-    max-width="360"
+    max-width="360px"
     v-model="customerSupport.confirmDeleteDialog"
   >
-    <v-card>
-      <v-card-title class="text-h6 grey--text text--darken-4">
-        Confirm delete
-      </v-card-title>
+    <template #header>
+      <h4 class="not-margin">Confirm delete</h4>
+    </template>
 
-      <v-card-text class="py-0">
-        Are you sure you want to delete this ticket?
-      </v-card-text>
+    <div class="con-content">
+      <p>Are you sure you want to delete this ticket?</p>
+    </div>
 
-      <v-card-actions>
+    <template #footer>
+      <v-card-actions class="con-footer d-flex py-0 my-0">
         <v-spacer />
 
-        <vs-button shadow @click="customerSupport.confirmDeleteDialog = false">
+        <vs-button
+          dark
+          transparent
+          @click="customerSupport.confirmDeleteDialog = false"
+        >
           Cancel
         </vs-button>
         <vs-button
-          flat
-          active
+          transparent
           color="#FF4757"
           @click="confirmDeleteTicket"
           :loading="customerSupport.deleteLoading"
@@ -29,8 +32,8 @@
           Delete ticket
         </vs-button>
       </v-card-actions>
-    </v-card>
-  </v-dialog>
+    </template>
+  </vs-dialog>
 </template>
 
 <script>

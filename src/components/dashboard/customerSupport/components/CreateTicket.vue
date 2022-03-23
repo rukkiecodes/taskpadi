@@ -1,87 +1,80 @@
 <template>
-  <v-dialog
-    persistent
-    max-width="400"
+  <vs-dialog
+    not-center
+    width="460px"
+    prevent-close
     v-model="customerSupport.customerDialog"
-    :fullscreen="$vuetify.breakpoint.name == 'xs' ? true : false"
   >
-    <v-card>
-      <v-card-title class="text-h6 grey--text text--darken-3">
-        Create support ticket
-      </v-card-title>
-      <v-card-text>
-        <v-row justify="space-between" align="start">
-          <v-col cols="12" sm="6">
-            <v-text-field
-              flat
-              solo
-              hide-details
-              label="Subject"
-              background-color="#F4F7F8"
-              v-model="customerSupport.createTicketCredential.subject"
-            />
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-text-field
-              flat
-              solo
-              hide-details
-              label="Department"
-              background-color="#F4F7F8"
-              v-model="customerSupport.createTicketCredential.department"
-            />
-          </v-col>
-          <v-col cols="12">
-            <v-textarea
-              flat
-              solo
-              counter
-              no-resize
-              full-width
-              hide-details
-              :rules="rules"
-              :maxlength="max"
-              placeholder="Description"
-              background-color="#F4F7F8"
-              v-model="customerSupport.createTicketCredential.description"
-            />
-          </v-col>
-          <v-col cols="12">
-            <v-file-input
-              solo
-              flat
-              hide-details
-              label="Add image"
-              @change="setImage"
-              truncate-length="15"
-              background-color="#F4F7F8"
-            ></v-file-input>
-          </v-col>
-        </v-row>
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn
-          text
-          color="grey darken-3"
-          class="text-capitalize font-weight-bold"
+    <template #header>
+      <h4 class="not-margin">Create support ticket</h4>
+    </template>
+
+    <div class="con-content">
+      <v-row justify="space-between" align="start">
+        <v-col cols="12" sm="6">
+          <vs-input
+            placeholder="Subject"
+            v-model="customerSupport.createTicketCredential.subject"
+          />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <vs-input
+            placeholder="Department"
+            v-model="customerSupport.createTicketCredential.department"
+          />
+        </v-col>
+        <v-col cols="12">
+          <v-textarea
+            flat
+            solo
+            counter
+            no-resize
+            full-width
+            hide-details
+            :rules="rules"
+            :maxlength="max"
+            class="rounded-lg"
+            placeholder="Description"
+            background-color="#F4F7F8"
+            v-model="customerSupport.createTicketCredential.description"
+          />
+        </v-col>
+        <v-col cols="12">
+          <v-file-input
+            solo
+            flat
+            hide-details
+            label="Add image"
+            class="rounded-lg"
+            @change="setImage"
+            truncate-length="15"
+            background-color="#F4F7F8"
+          />
+        </v-col>
+      </v-row>
+    </div>
+
+    <template #footer>
+      <v-card-actions class="con-footer d-flex py-0 my-0">
+        <v-spacer />
+        <vs-button
+          dark
+          transparent
           @click="customerSupport.customerDialog = false"
         >
           Close
-        </v-btn>
-        <v-btn
-          dark
-          depressed
-          color="#7E2DEE"
+        </vs-button>
+        <vs-button
+          transparent
+          color="#6200EA"
           @click="createTicket"
-          class="text-capitalize font-weight-bold"
           :loading="customerSupport.createLoading"
         >
-          Create ticket
-        </v-btn>
+          Submit ticket
+        </vs-button>
       </v-card-actions>
-    </v-card>
-  </v-dialog>
+    </template>
+  </vs-dialog>
 </template>
 
 <script>

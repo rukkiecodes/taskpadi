@@ -1,12 +1,12 @@
 const mongoose = require("mongoose")
 
-const SupportTicket = new mongoose.Schema({
+const Product = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     status: {
         type: String,
         default: "pending",
     },
-    subject: {
+    name: {
         type: String,
         required: true,
     },
@@ -14,11 +14,18 @@ const SupportTicket = new mongoose.Schema({
         type: String,
         required: true,
     },
-    department: {
+    quantity: {
         type: String,
         required: true,
     },
-    file: {
+    price: {
+        type: String,
+        required: true,
+    },
+    link: {
+        type: Array,
+    },
+    image: {
         type: String,
     },
     user: {
@@ -31,4 +38,4 @@ const SupportTicket = new mongoose.Schema({
     },
 }, { timestamps: true })
 
-module.exports = mongoose.model("SupportTicket", SupportTicket)
+module.exports = mongoose.model("Product", Product)

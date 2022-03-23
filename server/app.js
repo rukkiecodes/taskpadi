@@ -27,6 +27,7 @@ app.use(bodyParser.json({ limit: "50mb" }))
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"))
 
 app.use("/uploads", express.static("uploads"))
+app.use("/avatar", express.static("avatar"))
 
 // Routes
 app.use("/auth", [
@@ -66,6 +67,10 @@ app.use("/transaction", [
     require("./routes/transaction/declineTransaction"),
     require("./routes/transaction/transactionProofOfPayment"),
     require("./routes/transaction/deleteTransaction"),
+])
+
+app.use("/product", [
+    require("./routes/product/createProduct")
 ])
 
 const PORT = process.env.PORT || 3000
