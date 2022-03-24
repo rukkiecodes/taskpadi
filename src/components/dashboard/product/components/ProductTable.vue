@@ -66,7 +66,7 @@
               icon
               transparent
               color="#2A00A2"
-              @click="viewProductDetails(product)"
+              @click="viewProductDetails(item)"
             >
               <i class="lar la-eye"></i>
             </vs-button>

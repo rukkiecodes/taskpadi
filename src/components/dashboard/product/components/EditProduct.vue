@@ -23,22 +23,6 @@
           >
           </vs-input>
         </v-col>
-        <v-col cols="12">
-          <v-textarea
-            flat
-            solo
-            counter
-            no-resize
-            full-width
-            height="100"
-            :rules="rules"
-            :maxlength="max"
-            class="rounded-lg"
-            background-color="#F4F7F8"
-            placeholder="Product Description"
-            v-model="product.editProductCredential.description"
-          ></v-textarea>
-        </v-col>
         <v-col cols="12" sm="6">
           <vs-input
             block
@@ -56,18 +40,31 @@
           </vs-input>
         </v-col>
         <v-col cols="12">
+          <v-textarea
+            flat
+            solo
+            counter
+            no-resize
+            full-width
+            height="100"
+            :rules="rules"
+            :maxlength="max"
+            class="rounded-lg"
+            background-color="#F4F7F8"
+            placeholder="Product Description"
+            v-model="product.editProductCredential.description"
+          ></v-textarea>
+        </v-col>
+        <v-col cols="12">
           <v-file-input
-            @change="setEditProductImage"
-            class="realFileInput"
-            style="display: none"
-          ></v-file-input>
-          <vs-input
-            block
-            @click="clickOnInput"
+            solo
+            flat
+            dense
             placeholder="Image"
-            v-model="product.imageName"
-          >
-          </vs-input>
+            class="realFileInput"
+            background-color="#F4F7F8"
+            @change="setEditProductImage"
+          />
         </v-col>
       </v-row>
     </div>
@@ -79,9 +76,9 @@
           Cancel
         </vs-button>
         <vs-button
+          color="#6200EA"
           @click="editProduct"
           :loading="product.editProductLoading"
-          color="#6200EA"
         >
           Edit product</vs-button
         >

@@ -27,18 +27,22 @@ export default {
 
         products: [],
 
+        productMerchant: {},
+
         viewDetailsDialoge: false,
-        selectedTransaction: {},
 
         editProductDialog: false,
 
         editProductLoading: false,
 
         selectedProductToEdit: {},
+
+        singleProduct: [],
     },
 
     getters: {
         products: (state) => state.products,
+        singleProduct: (state) => state.singleProduct,
     },
 
     mutations: {
@@ -69,20 +73,23 @@ export default {
         getProducts: (state, response) => {
             state.products = []
             state.products.push(...response.data.product)
+            console.log(response.data)
+        },
+
+        getProductMerchant: (state, response) => {
+            state.productMerchant = {}
+            state.productMerchant = response.data
+            console.log("getProductMerchant: ", response.data)
+            console.log("getProductMerchant: ", state.productMerchant)
         },
 
         viewProductDetails: (state, product) => {
-            Vue.prototype.$cookies.set("view product details", product)
-            router.push("/dashboard/viewProducts")
-                // console.log("view transaction details: ", product)
-                // state.selectedTransaction = product
-                // state.viewDetailsDialoge = true
+            router.push(`/dashboard/product/${product._id}`)
         },
 
-        setProductDetails: (state) => {
-            state.selectedTransaction = Vue.prototype.$cookies.get(
-                "view product details"
-            )
+        viewSingleProduct: (state, response) => {
+            state.singleProduct = []
+            state.singleProduct.push(...response.data.product)
         },
 
         openEditProductDialog: (state, product) => {
@@ -94,7 +101,7 @@ export default {
                 name: product.name,
                 description: product.description,
                 quantity: product.quantity,
-                price: product.initialPrice,
+                price: product.price,
                 image: "",
             }
             state.editProductDialog = true
@@ -201,12 +208,40 @@ export default {
                 })
         },
 
-        viewProductDetails({ commit }, product) {
+        async getProductMerchant({ commit }) {
+            let _id = router.currentRoute.params._id
+
+            axios
+                .post("https://trustpaddi.herokuapp.com/product/getProductMerchant", {
+                    _id,
+                })
+                .then((response) => {
+                    commit("getProductMerchant", response)
+                })
+                .catch((error) => {
+                    console.log("Error: ", error)
+                })
+        },
+
+        viewProductDetails({ commit, dispatch }, product) {
             commit("viewProductDetails", product)
         },
 
-        setProductDetails({ commit }) {
-            commit("setProductDetails")
+        viewSingleProduct({ commit }) {
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
+
+            axios
+                .post("https://trustpaddi.herokuapp.com/product/getSingleProduct", {
+                    user,
+                    _id,
+                })
+                .then((response) => {
+                    commit("viewSingleProduct", response)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         },
 
         openEditProductDialog({ commit }, product) {

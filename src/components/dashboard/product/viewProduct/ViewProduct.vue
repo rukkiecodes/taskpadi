@@ -18,11 +18,11 @@ export default {
   },
 
   created() {
-    this.setProductDetails()
+    this.viewSingleProduct()
   },
 
   methods: {
-    ...mapActions(["setProductDetails"])
+    ...mapActions(["viewSingleProduct"])
   },
 
   computed: {

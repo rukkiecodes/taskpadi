@@ -28,6 +28,20 @@
               v-model="product.createProductCredential.name"
             />
           </v-col>
+          <v-col cols="12" sm="6">
+            <vs-input
+              block
+              placeholder="Price"
+              v-model="product.createProductCredential.price"
+            />
+          </v-col>
+          <v-col cols="12" sm="6">
+            <vs-input
+              block
+              placeholder="Quantity"
+              v-model="product.createProductCredential.quantity"
+            />
+          </v-col>
           <v-col cols="12">
             <v-textarea
               flat
@@ -44,24 +58,11 @@
               v-model="product.createProductCredential.description"
             />
           </v-col>
-          <v-col cols="12" sm="6">
-            <vs-input
-              block
-              placeholder="Price"
-              v-model="product.createProductCredential.price"
-            />
-          </v-col>
-          <v-col cols="12" sm="6">
-            <vs-input
-              block
-              placeholder="Quantity"
-              v-model="product.createProductCredential.quantity"
-            />
-          </v-col>
           <v-col cols="12">
             <v-file-input
               solo
               flat
+              dense
               placeholder="Image"
               class="realFileInput"
               @change="setProductImage"
@@ -74,7 +75,11 @@
       <template #footer>
         <v-spacer />
         <div class="con-footer d-flex justify-end">
-          <vs-button @click="product.createProductDialog = false" transparent dark>
+          <vs-button
+            @click="product.createProductDialog = false"
+            transparent
+            dark
+          >
             Cancel
           </vs-button>
           <vs-button

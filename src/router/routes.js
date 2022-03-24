@@ -1,14 +1,15 @@
+import dashboard from "./modules/dashboard"
 export default [{
-        path: "/",
-        name: "Signin",
-        component: () =>
-            import ("../views/auth/Signin.vue"),
-    },
-    {
         path: "/signup",
         name: "Signup",
         component: () =>
             import ("../views/auth/Signup.vue"),
+    },
+    {
+        path: "/",
+        name: "Signin",
+        component: () =>
+            import ("../views/auth/Signin.vue"),
     },
     {
         path: "/forgotPassword",
@@ -70,4 +71,5 @@ export default [{
         component: () =>
             import ("../views/transactions/ProviderServices.vue"),
     },
+    dashboard,
 ]

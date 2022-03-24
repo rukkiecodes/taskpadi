@@ -15,13 +15,13 @@ export default {
                 location: window.location.pathname,
             },
             {
-                icon: "las la-exchange-alt",
+                icon: "las la-shopping-bag",
                 title: "Product",
                 route: "/dashboard/product",
                 location: window.location.pathname,
             },
             {
-                icon: "las la-shopping-bag",
+                icon: "las la-shopping-cart",
                 title: "Orders",
                 route: "/dashboard/orders",
                 location: window.location.pathname,
