@@ -1,17 +1,17 @@
 <template>
   <div class="center">
     <vs-button
+      flat
+      active
       color="#6200EA"
-      style="font-weight: bold"
       @click="product.createProductDialog = true"
     >
       Add new product</vs-button
     >
 
     <vs-dialog
-      blur
       not-center
-      width="457px"
+      width="460px"
       prevent-close
       v-model="product.createProductDialog"
     >
@@ -26,8 +26,7 @@
               block
               placeholder="Product name"
               v-model="product.createProductCredential.name"
-            >
-            </vs-input>
+            />
           </v-col>
           <v-col cols="12">
             <v-textarea
@@ -43,37 +42,31 @@
               background-color="#F4F7F8"
               placeholder="Product Description"
               v-model="product.createProductCredential.description"
-            ></v-textarea>
+            />
           </v-col>
           <v-col cols="12" sm="6">
             <vs-input
               block
               placeholder="Price"
               v-model="product.createProductCredential.price"
-            >
-            </vs-input>
+            />
           </v-col>
           <v-col cols="12" sm="6">
             <vs-input
               block
               placeholder="Quantity"
               v-model="product.createProductCredential.quantity"
-            >
-            </vs-input>
+            />
           </v-col>
           <v-col cols="12">
             <v-file-input
-              @change="setProductImage"
-              class="realFileInput"
-              style="display: none"
-            ></v-file-input>
-            <vs-input
-              block
-              @click="clickProductInput"
+              solo
+              flat
               placeholder="Image"
-              v-model="product.imageName"
-            >
-            </vs-input>
+              class="realFileInput"
+              @change="setProductImage"
+              background-color="#F4F7F8"
+            />
           </v-col>
         </v-row>
       </div>
@@ -81,13 +74,14 @@
       <template #footer>
         <v-spacer />
         <div class="con-footer d-flex justify-end">
-          <vs-button @click="product.createProductDialog = false" transparent>
+          <vs-button @click="product.createProductDialog = false" transparent dark>
             Cancel
           </vs-button>
           <vs-button
+            transparent
+            color="#6200EA"
             @click="createProduct"
             :loading="product.createProductLoading"
-            color="#6200EA"
           >
             Add new product</vs-button
           >

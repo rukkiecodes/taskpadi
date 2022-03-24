@@ -70,7 +70,8 @@ app.use("/transaction", [
 ])
 
 app.use("/product", [
-    require("./routes/product/createProduct")
+    require("./routes/product/createProduct"),
+    require("./routes/product/getProducts"),
 ])
 
 const PORT = process.env.PORT || 3000

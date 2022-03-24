@@ -6,23 +6,23 @@ const checkAuth = require("../../middleware/checkAuth")
 const Product = require("../../models/Product")
 
 router.post("/createProduct", image, async(req, res) => {
-    const {
-        user,
-        name,
-        description,
-        quantity,
-        price,
-    } = req.body
+    const { user, name, description, quantity, price } = req.body
+    let _id = new mongoose.Types.ObjectId()
 
+    let charge = (20 / 100) * price
+    let total = Number(charge) + Number(price)
 
     try {
         let product = await Product.create({
-            _id: new mongoose.Types.ObjectId(),
+            _id,
             user,
             name,
             description,
             quantity,
             price,
+            charge,
+            total,
+            link: [user, _id],
             image: req.file.path,
         })
         return res.status(201).json({

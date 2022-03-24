@@ -22,6 +22,14 @@ const Product = new mongoose.Schema({
         type: String,
         required: true,
     },
+    charge: {
+        type: String,
+        required: true,
+    },
+    total: {
+        type: String,
+        required: true,
+    },
     link: {
         type: Array,
     },
