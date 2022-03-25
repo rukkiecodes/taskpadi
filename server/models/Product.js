@@ -33,11 +33,14 @@ const Product = new mongoose.Schema({
     link: {
         type: Array,
     },
+    paddiLink: {
+        type: String,
+    },
     image: {
         type: String,
     },
     merchant: {
-        type: Array
+        type: Array,
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

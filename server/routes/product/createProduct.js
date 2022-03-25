@@ -25,6 +25,7 @@ router.post("/createProduct", image, async(req, res) => {
             charge,
             total,
             link: [user, _id],
+            paddiLink: `https://trustpaddi-3edb0.web.app/dashboard/product/${_id}`,
             merchant: [merchant],
             image: req.file.path,
         })

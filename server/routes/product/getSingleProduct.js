@@ -4,10 +4,10 @@ const checkAuth = require("../../middleware/checkAuth")
 const Product = require("../../models/Product")
 
 router.post("/getSingleProduct", async(req, res) => {
-    const { user, _id } = req.body
+    const { _id } = req.body
     try {
         const product = await Product.find({
-            $and: [{ user }, { _id }],
+            _id,
         })
         if (product.length)
             res.status(200).json({
