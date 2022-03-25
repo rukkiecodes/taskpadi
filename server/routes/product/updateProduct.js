@@ -2,81 +2,59 @@ const router = require("express").Router()
 const { image } = require(".././../middleware/multer")
 const checkAuth = require("../../middleware/checkAuth")
 
-const Transaction = require("../../models/Transaction")
+const Product = require("../../models/Product")
 
 router.post("/updateProduct", image, async(req, res) => {
-    const {
-        user,
-        _id,
-        recipientName,
-        recipientEmail,
-        recipientPhone,
-        transactionType,
-        price,
-        quantity,
-        role,
-        description,
-        duration,
-    } = req.body
+    const { user, _id, name, description, quantity, price } = req.body
 
     let charge = (20 / 100) * price
     let total = Number(charge) + Number(price)
 
     try {
-        let transaction
+        let product
         if (req.file) {
-            transaction = await Transaction.updateOne({
+            product = await Product.updateOne({
                 $and: [{ user }, { _id }],
             }, {
                 $set: {
-                    recipientName,
-                    recipientEmail,
-                    recipientPhone,
-                    transactionType,
-                    price,
-                    quantity,
-                    role,
+                    name,
                     description,
-                    duration,
+                    quantity,
+                    price,
                     charge,
                     total,
                     image: req.file.path,
                 },
             }).exec()
             res.status(200).json({
-                transaction,
+                product,
                 success: true,
-                message: "Transaction successfully updated",
+                message: "Product successfully updated",
             })
         } else {
-            transaction = await Transaction.updateOne({
+            product = await Product.updateOne({
                 $and: [{ user }, { _id }],
             }, {
                 $set: {
-                    recipientName,
-                    recipientEmail,
-                    recipientPhone,
-                    transactionType,
-                    price,
-                    quantity,
-                    role,
+                    name,
                     description,
-                    duration,
+                    quantity,
+                    price,
                     charge,
                     total,
                 },
             }).exec()
             res.status(200).json({
-                transaction,
+                Product,
                 success: true,
-                message: "Transaction successfully updated",
+                message: "Product successfully updated",
             })
         }
     } catch (error) {
         return res.status(401).json({
             error,
             success: false,
-            message: "Error updating transactions",
+            message: "Error updating product",
         })
     }
 })

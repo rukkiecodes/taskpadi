@@ -232,15 +232,14 @@ export default {
 
         async editProduct({ commit, dispatch }) {
             let input = this.state.product.editProductCredential
-            let slug = this.state.product.selectedProductToEdit.slug
-            let token = Vue.prototype.$cookies.get("PaddiData").access_token
+            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let _id = router.currentRoute.params._id
 
             if (
                 input.name != "" &&
                 input.description != "" &&
                 input.quantity &&
-                input.price != "" &&
-                input.image != ""
+                input.price != ""
             ) {
                 this.state.product.editProductLoading = true
 
@@ -248,13 +247,14 @@ export default {
 
                 let myHeaders = new Headers()
                 myHeaders.append("Accept", "multipart/form-data")
-                myHeaders.append("Authorization", `Bearer ${token}`)
 
+                formData.append("user", user)
+                formData.append("_id", _id)
                 formData.append("name", input.name)
                 formData.append("description", input.description)
                 formData.append("quantity", input.quantity)
                 formData.append("price", input.price)
-                formData.append("image", input.image)
+                if (input.image) formData.append("image", input.image)
 
                 let requestOptions = {
                     method: "POST",
@@ -263,14 +263,12 @@ export default {
                 }
 
                 fetch(
-                        process.env.NODE_ENV === "production" ?
-                        `https://corsanywhere.herokuapp.com/https://dev.trustpaddi.com/api/v1/user/product/${slug}` :
-                        `/api/user/product/${slug}`,
+                        "https://trustpaddi.herokuapp.com/product/updateProduct",
                         requestOptions
                     )
                     .then((response) => response.json())
                     .then((response) => {
-                        return dispatch("getProducts").then(() => {
+                        return dispatch("viewSingleProduct").then(() => {
                             this.state.product.editProductLoading = false
                             commit("editProduct", response)
                         })

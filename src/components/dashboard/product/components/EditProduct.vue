@@ -1,9 +1,8 @@
 <template>
   <vs-dialog
-    blur
     scroll
     not-center
-    width="457px"
+    width="460px"
     prevent-close
     overflow-hidden
     class="editProduct"
@@ -77,6 +76,7 @@
         </vs-button>
         <vs-button
           color="#6200EA"
+          transparent
           @click="editProduct"
           :loading="product.editProductLoading"
         >
