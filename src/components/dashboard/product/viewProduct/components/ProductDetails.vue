@@ -15,15 +15,31 @@
       </v-card>
 
       <v-card flat color="transparent">
-        <v-card-title>
-          <span class="text-h6 font-weight-medium">Description:</span>
-          <v-spacer />
-          <span class="text-h4 font-weight-bold">₦{{ product.price }}</span>
-        </v-card-title>
-
-        <v-card-text class="text-center text-sm-left">{{
-          product.description
-        }}</v-card-text>
+        <v-card flat color="transparent">
+          <v-card-title class="text-body-1 pb-0">Description</v-card-title>
+          <v-card-text>
+            {{ product.description }}
+          </v-card-text>
+          <v-list dense class="px-0" color="transparent">
+            <v-list-item dense class="px-1">
+              <v-list-item-content class="ml-3">
+                <v-list-item-title
+                  ><span class="font-weight-bold">Price:</span> ₦{{
+                    product.total
+                  }}
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item dense class="px-1">
+              <v-list-item-content class="ml-3">
+                <v-list-item-title
+                  ><span class="font-weight-bold">Quantity:</span>
+                  {{ product.quantity }}
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-card>
         <v-card flat :color="detailsCard" :dark="detailsCardMode">
           <v-card-title
             class="text-body-1 font-weight-medium"
@@ -32,7 +48,13 @@
           >
         </v-card>
         <v-divider />
-        <v-card flat class="text-center d-flex flex-column" color="transparent">
+        <v-card
+          v-for="(merchant, i) in product.merchant"
+          :key="i"
+          flat
+          class="text-center d-flex flex-column"
+          color="transparent"
+        >
           <v-card-title class="text-subtitle-1 font-weight-medium">
             <vs-avatar>
               <img
@@ -62,22 +84,18 @@
             </v-chip>
           </v-card-title>
 
-          <v-card-text class="text-center text-sm-left">
-            <v-row
-              no-gutters
-              align="center"
-              justify="space-between"
-              class="flex-column-reverse flex-sm-row"
-            >
-              <v-col cols="12" sm="6">
-                <p class="grey--text text--darken-4 mt-2">
-                  <v-icon small color="amber">mdi-star-circle</v-icon> Location:
-                  <span class="font-weight-bold"
-                    >{{ merchant.lga }}, {{ merchant.country }}</span
-                  >
-                </p>
-              </v-col>
-            </v-row>
+          <v-card-text class="text-center text-sm-left px-0">
+            <v-list dense class="px-0" color="transparent">
+              <v-list-item dense class="px-1">
+                <v-list-item-content class="ml-3">
+                  <v-list-item-title
+                    ><span class="font-weight-bold">Location:</span>
+                    {{ merchant.lga }},
+                    {{ merchant.country }}
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
           </v-card-text>
         </v-card>
 
@@ -103,27 +121,14 @@ export default {
   data: () => ({
     rating: 3.5,
     value: 60,
-    merchant: {},
   }),
 
   components: {
     EditProduct: () => import("../../components/EditProduct.vue"),
   },
 
-  mounted() {
-    this.$nextTick(() => {
-      this.getProductMerchant()
-      let interval = setInterval(() => {
-        this.merchant = {}
-        this.merchant = this.product.productMerchant
-      }, 1000)
-
-      if (Object.keys(this.merchant).length) clearInterval(interval)
-    })
-  },
-
   methods: {
-    ...mapActions(["openEditProductDialog", "getProductMerchant"]),
+    ...mapActions(["openEditProductDialog"]),
   },
 
   computed: {

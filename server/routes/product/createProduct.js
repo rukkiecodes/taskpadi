@@ -4,6 +4,7 @@ const { image } = require(".././../middleware/multer")
 const checkAuth = require("../../middleware/checkAuth")
 
 const Product = require("../../models/Product")
+const User = require("../../models/User")
 
 router.post("/createProduct", image, async(req, res) => {
     const { user, name, description, quantity, price } = req.body
@@ -13,6 +14,7 @@ router.post("/createProduct", image, async(req, res) => {
     let total = Number(charge) + Number(price)
 
     try {
+        let merchant = await User.findOne({ user })
         let product = await Product.create({
             _id,
             user,
@@ -23,6 +25,7 @@ router.post("/createProduct", image, async(req, res) => {
             charge,
             total,
             link: [user, _id],
+            merchant: [merchant],
             image: req.file.path,
         })
         return res.status(201).json({

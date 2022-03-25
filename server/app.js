@@ -73,7 +73,7 @@ app.use("/product", [
     require("./routes/product/createProduct"),
     require("./routes/product/getProducts"),
     require("./routes/product/getSingleProduct"),
-    require("./routes/product/getProductMerchant"),
+    require("./routes/product/updateProduct"),
 ])
 
 const PORT = process.env.PORT || 3000

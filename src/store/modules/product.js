@@ -27,8 +27,6 @@ export default {
 
         products: [],
 
-        productMerchant: {},
-
         viewDetailsDialoge: false,
 
         editProductDialog: false,
@@ -74,13 +72,6 @@ export default {
             state.products = []
             state.products.push(...response.data.product)
             console.log(response.data)
-        },
-
-        getProductMerchant: (state, response) => {
-            state.productMerchant = {}
-            state.productMerchant = response.data
-            console.log("getProductMerchant: ", response.data)
-            console.log("getProductMerchant: ", state.productMerchant)
         },
 
         viewProductDetails: (state, product) => {
@@ -202,21 +193,6 @@ export default {
                 })
                 .then((response) => {
                     commit("getProducts", response)
-                })
-                .catch((error) => {
-                    console.log("Error: ", error)
-                })
-        },
-
-        async getProductMerchant({ commit }) {
-            let _id = router.currentRoute.params._id
-
-            axios
-                .post("https://trustpaddi.herokuapp.com/product/getProductMerchant", {
-                    _id,
-                })
-                .then((response) => {
-                    commit("getProductMerchant", response)
                 })
                 .catch((error) => {
                     console.log("Error: ", error)

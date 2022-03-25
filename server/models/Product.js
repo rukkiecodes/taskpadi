@@ -36,6 +36,9 @@ const Product = new mongoose.Schema({
     image: {
         type: String,
     },
+    merchant: {
+        type: Array
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
