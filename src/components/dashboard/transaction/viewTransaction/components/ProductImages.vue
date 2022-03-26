@@ -10,10 +10,7 @@
           max-height="400"
           v-for="(transaction, i) in singleTransactions"
         >
-          <img
-            style="width: 100%"
-            :src="`https://trustpaddi.herokuapp.com/${transaction.image}`"
-          />
+          <img style="width: 100%" :src="transaction.image" />
         </v-card>
       </v-col>
     </v-row>

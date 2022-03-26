@@ -96,6 +96,7 @@ export default {
     actions: {
         createTicket({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             if (
                 this.state.customerSupport.createTicketCredential.subject != "" &&
                 this.state.customerSupport.createTicketCredential.description != "" &&
@@ -110,6 +111,7 @@ export default {
                 myHeaders.append("Accept", "multipart/form-data")
 
                 formData.append("user", user)
+                formData.append("token", token)
                 formData.append(
                     "subject",
                     this.state.customerSupport.createTicketCredential.subject
@@ -175,9 +177,11 @@ export default {
 
         getTickets({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             axios
                 .post("https://trustpaddi.herokuapp.com/ticket/getTicket", {
                     user,
+                    token
                 })
                 .then((response) => {
                     commit("getTickets", response)
@@ -193,12 +197,14 @@ export default {
 
         viewSingleTicket({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = route.currentRoute.params._id
 
             axios
                 .post("https://trustpaddi.herokuapp.com/ticket/getSingleTicket", {
                     user,
                     _id,
+                    token
                 })
                 .then((response) => {
                     commit("viewSingleTicket", response)
@@ -210,6 +216,7 @@ export default {
 
         closeTicket({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = route.currentRoute.params._id
 
             this.state.customerSupport.closeTicketLoading = true
@@ -218,6 +225,7 @@ export default {
                 .post("https://trustpaddi.herokuapp.com/ticket/closeTicket", {
                     user,
                     _id,
+                    token
                 })
                 .then((response) => {
                     return dispatch("viewSingleTicket").then(() => {
@@ -231,6 +239,7 @@ export default {
 
         confirmDeleteTicket({ commit, dispatch }, ticket) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = route.currentRoute.params._id
 
             this.state.customerSupport.deleteLoading = true
@@ -239,6 +248,7 @@ export default {
                 .post("https://trustpaddi.herokuapp.com/ticket/deleteTicket", {
                     user,
                     _id,
+                    token
                 })
                 .then((response) => {
                     return dispatch("getTickets").then(() => {

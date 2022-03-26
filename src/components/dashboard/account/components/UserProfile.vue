@@ -18,7 +18,7 @@
             />
             <img
               v-else
-              :src="`https://trustpaddi.herokuapp.com/${account.userData.avatar}`"
+              :src="account.userData.avatar"
             />
           </vs-avatar>
         </template>

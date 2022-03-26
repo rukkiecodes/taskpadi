@@ -69,9 +69,9 @@
           <div class="d-flex flex-column align-start justify-center">
             <v-list
               dense
-              class="pa-0 ml-n10 mt-n5"
               color="transparent"
               v-if="navbarHeadingLogo"
+              class="pa-0 ml-n10 mt-n5"
             >
               <v-list-item dense class="py-0">
                 <v-avatar size="30" color="transparent" tile>

@@ -1,10 +1,11 @@
 const router = require("express").Router()
-const { image } = require(".././../middleware/multer")
+const cloudinary = require("../../middleware/cloud")
+const upload = require("../../middleware/multer")
 const checkAuth = require("../../middleware/checkAuth")
 
 const Transaction = require("../../models/Transaction")
 
-router.post("/updateTransaction", image, async(req, res) => {
+router.post("/updateTransaction", upload.single("image"), async(req, res) => {
     const {
         user,
         _id,
@@ -23,8 +24,15 @@ router.post("/updateTransaction", image, async(req, res) => {
     let total = Number(charge) + Number(price)
 
     try {
+        // Upload image to cloudinary
+
+        let result
+
         let transaction
         if (req.file) {
+            result = await cloudinary.uploader.upload(req.file.path, {
+                folder: process.env.CLOUDINARY_FOLDER,
+            })
             transaction = await Transaction.updateOne({
                 $and: [{ user }, { _id }],
             }, {
@@ -40,7 +48,7 @@ router.post("/updateTransaction", image, async(req, res) => {
                     duration,
                     charge,
                     total,
-                    image: req.file.path,
+                    image: result.secure_url,
                 },
             }).exec()
             res.status(200).json({

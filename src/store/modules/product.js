@@ -134,6 +134,7 @@ export default {
 
         async createProduct({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             this.state.product.createProductLoading = true
 
             let formData = new FormData()
@@ -142,6 +143,7 @@ export default {
             myHeaders.append("Accept", "multipart/form-data")
 
             formData.append("user", user)
+            formData.append("token", token)
             formData.append("name", this.state.product.createProductCredential.name)
             formData.append(
                 "description",
@@ -186,10 +188,12 @@ export default {
 
         async getProducts({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
 
             axios
                 .post("https://trustpaddi.herokuapp.com/product/getProducts", {
                     user,
+                    token,
                 })
                 .then((response) => {
                     commit("getProducts", response)

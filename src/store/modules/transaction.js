@@ -361,6 +361,7 @@ export default {
 
         createTransaction({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             this.state.transaction.createTransactionLoading = true
 
             var myHeaders = new Headers()
@@ -370,6 +371,7 @@ export default {
 
             let formData = new FormData()
             formData.append("user", user)
+            formData.append("token", token)
             formData.append("recipientName", input.recipient_name)
             formData.append("recipientEmail", input.recipient_email)
             formData.append("recipientPhone", input.recipient_phone)
@@ -413,9 +415,11 @@ export default {
 
         getTransactions({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             axios
                 .post("https://trustpaddi.herokuapp.com/transaction/getTransaction", {
                     user,
+                    token,
                 })
                 .then((response) => {
                     commit("getTransactions", response)
@@ -431,6 +435,7 @@ export default {
 
         viewSingleTransaction({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
             axios
@@ -438,6 +443,7 @@ export default {
                     "https://trustpaddi.herokuapp.com/transaction/getSingleTransaction", {
                         user,
                         _id,
+                        token,
                     }
                 )
                 .then((response) => {
@@ -550,6 +556,7 @@ export default {
         confirmApprove({ commit, dispatch }) {
             this.state.transaction.approveTransactionLoading = true
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
             axios
@@ -557,6 +564,7 @@ export default {
                     "https://trustpaddi.herokuapp.com/transaction/approveTransaction", {
                         user,
                         _id,
+                        token,
                     }
                 )
                 .then((response) => {
@@ -576,6 +584,7 @@ export default {
         confirmConfirm({ commit, dispatch }) {
             this.state.transaction.confirmTransactionLoading = true
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
             axios
@@ -583,6 +592,7 @@ export default {
                     "https://trustpaddi.herokuapp.com/transaction/confirmTransaction", {
                         user,
                         _id,
+                        token,
                     }
                 )
                 .then((response) => {
@@ -606,6 +616,7 @@ export default {
         confirmDecline({ commit, dispatch }, transaction) {
             this.state.transaction.declineTransactionLoading = true
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
             axios
@@ -613,6 +624,7 @@ export default {
                     "https://trustpaddi.herokuapp.com/transaction/declineTransaction", {
                         user,
                         _id,
+                        token,
                     }
                 )
                 .then((response) => {
@@ -641,6 +653,7 @@ export default {
         confirmPop({ commit, dispatch }, transaction) {
             const pop = this.state.transaction.pop
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
             if (pop != "") {
@@ -652,6 +665,7 @@ export default {
                 myHeaders.append("Accept", "multipart/form-data")
 
                 formData.append("user", user)
+                formData.append("token", token)
                 formData.append("_id", _id)
                 formData.append("pop", pop)
 
@@ -700,6 +714,7 @@ export default {
 
         confirmDelete({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
             axios
@@ -707,6 +722,7 @@ export default {
                     "https://trustpaddi.herokuapp.com/transaction/deleteTransaction", {
                         user,
                         _id,
+                        token,
                     }
                 )
                 .then((response) => {

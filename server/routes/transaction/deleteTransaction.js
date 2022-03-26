@@ -4,7 +4,7 @@ const checkAuth = require("../../middleware/checkAuth")
 
 const Transaction = require("../../models/Transaction")
 
-router.post("/deleteTransaction", async(req, res) => {
+router.post("/deleteTransaction", checkAuth, async(req, res) => {
     const { user, _id } = req.body
 
     const deleteTransaction = () => {

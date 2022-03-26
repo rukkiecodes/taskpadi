@@ -1,17 +1,22 @@
 const router = require("express").Router()
-const { pop } = require(".././../middleware/multer")
+const cloudinary = require("../../middleware/cloud")
+const upload = require("../../middleware/multer")
 const checkAuth = require("../../middleware/checkAuth")
 
 const Transaction = require("../../models/Transaction")
 
-router.post("/transactionProofOfPayment", pop, async(req, res) => {
+router.post("/transactionProofOfPayment", upload.single("pop"), async(req, res) => {
     const { user, _id } = req.body
     try {
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: process.env.CLOUDINARY_FOLDER,
+        })
+
         const transaction = await Transaction.updateOne({
             $and: [{ user }, { _id }],
         }, {
             $set: {
-                pop: req.file.path,
+                pop: result.secure_url,
             },
         }).exec()
         res.status(200).json({

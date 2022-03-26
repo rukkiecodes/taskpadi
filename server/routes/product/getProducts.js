@@ -1,10 +1,9 @@
 const router = require("express").Router()
-const { image } = require(".././../middleware/multer")
 const checkAuth = require("../../middleware/checkAuth")
 
 const Product = require("../../models/Product")
 
-router.post("/getProducts", image, async(req, res) => {
+router.post("/getProducts", checkAuth, async(req, res) => {
     const { user, _id } = req.body
     try {
         let product = await Product.find({ user })

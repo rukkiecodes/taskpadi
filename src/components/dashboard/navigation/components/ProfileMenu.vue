@@ -31,7 +31,7 @@
         >
           <img
             alt=""
-            :src="`https://trustpaddi.herokuapp.com/${account.userData.avatar}`"
+            :src="account.userData.avatar"
           />
         </vs-avatar>
 

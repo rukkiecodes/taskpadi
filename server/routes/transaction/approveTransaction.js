@@ -3,7 +3,7 @@ const checkAuth = require("../../middleware/checkAuth")
 
 const Transaction = require("../../models/Transaction")
 
-router.post("/approveTransaction", async(req, res) => {
+router.post("/approveTransaction", checkAuth, async(req, res) => {
     const { user, _id } = req.body
     try {
         const transaction = await Transaction.updateOne({

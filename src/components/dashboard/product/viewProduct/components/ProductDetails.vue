@@ -40,6 +40,7 @@
             </v-list-item>
           </v-list>
         </v-card>
+
         <v-card flat :color="detailsCard" :dark="detailsCardMode">
           <v-card-title
             class="text-body-1 font-weight-medium"
@@ -47,19 +48,19 @@
             >Merchant's Details</v-card-title
           >
         </v-card>
+
         <v-divider />
+
         <v-card
-          v-for="(merchant, i) in product.merchant"
-          :key="i"
           flat
-          class="text-center d-flex flex-column"
+          :key="i"
           color="transparent"
+          class="text-center d-flex flex-column"
+          v-for="(merchant, i) in product.merchant"
         >
           <v-card-title class="text-subtitle-1 font-weight-medium">
             <vs-avatar>
-              <img
-                :src="`https://trustpaddi.herokuapp.com/${merchant.avatar}`"
-              />
+              <img :src="merchant.avatar" />
             </vs-avatar>
             <span class="ml-4"
               >{{ merchant.firstname }} {{ merchant.lastname }}</span

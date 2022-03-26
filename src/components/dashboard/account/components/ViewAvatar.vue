@@ -5,7 +5,7 @@
         <img
           alt=""
           v-if="account.userData.avatar"
-          :src="`https://trustpaddi.herokuapp.com/${account.userData.avatar}`"
+          :src="account.userData.avatar"
         />
         <img v-else src="../../../../assets/trust/pl.png" alt="" />
       </div>

@@ -1,12 +1,13 @@
 const router = require("express").Router()
 const mongoose = require("mongoose")
-const { image } = require(".././../middleware/multer")
+const cloudinary = require("../../middleware/cloud")
+const upload = require("../../middleware/multer")
 const checkAuth = require("../../middleware/checkAuth")
 
 const Product = require("../../models/Product")
 const User = require("../../models/User")
 
-router.post("/createProduct", image, async(req, res) => {
+router.post("/createProduct", upload.single("image"), async(req, res) => {
     const { user, name, description, quantity, price } = req.body
     let _id = new mongoose.Types.ObjectId()
 
@@ -14,6 +15,11 @@ router.post("/createProduct", image, async(req, res) => {
     let total = Number(charge) + Number(price)
 
     try {
+        // Upload image to cloudinary
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: process.env.CLOUDINARY_FOLDER,
+        })
+
         let merchant = await User.findOne({ user })
         let product = await Product.create({
             _id,
@@ -25,9 +31,9 @@ router.post("/createProduct", image, async(req, res) => {
             charge,
             total,
             link: [user, _id],
-            paddiLink: `https://trustpaddi-3edb0.web.app/dashboard/product/${_id}`,
+            paddiLink: `https://paddiproduct.web.app/${_id}`,
             merchant: [merchant],
-            image: req.file.path,
+            image: result.secure_url,
         })
         return res.status(201).json({
             message: "Product successfully created",

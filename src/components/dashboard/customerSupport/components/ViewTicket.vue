@@ -7,14 +7,13 @@
           :key="i"
           height="300"
           max-height="400"
+          :src="ticket.file"
           v-for="(ticket, i) in singleTicket"
-          :src="`https://trustpaddi.herokuapp.com/${ticket.file}`"
         />
       </v-card>
     </v-col>
 
     <v-col v-for="(ticket, i) in singleTicket" :key="i" cols="12" sm="6" lg="8">
-
       <v-card flat color="transparent">
         <v-card flat :color="detailsCard" :dark="detailsCardMode">
           <v-card-title
@@ -73,7 +72,6 @@
           <v-card-actions>
             <vs-button
               flat
-              active
               color="#6200EA"
               @click="customerSupport.closeTicketDialog = true"
             >

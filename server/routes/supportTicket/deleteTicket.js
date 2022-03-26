@@ -4,7 +4,7 @@ const checkAuth = require("../../middleware/checkAuth")
 
 const SupportTicket = require("../../models/SupportTicket")
 
-router.post("/deleteTicket", async(req, res) => {
+router.post("/deleteTicket", checkAuth, async(req, res) => {
     const { user, _id } = req.body
 
     const deletedTicket = () => {

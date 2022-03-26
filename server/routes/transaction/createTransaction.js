@@ -1,11 +1,12 @@
 const router = require("express").Router()
 const mongoose = require("mongoose")
-const { image } = require(".././../middleware/multer")
+const cloudinary = require("../../middleware/cloud")
+const upload = require("../../middleware/multer")
 const checkAuth = require("../../middleware/checkAuth")
 
 const Transaction = require("../../models/Transaction")
 
-router.post("/createTransaction", image, async(req, res) => {
+router.post("/createTransaction", upload.single("image"), checkAuth, async(req, res) => {
     const {
         user,
         recipientName,
@@ -22,6 +23,11 @@ router.post("/createTransaction", image, async(req, res) => {
     let charge = (20 / 100) * price
     let total = Number(charge) + Number(price)
     try {
+        // Upload image to cloudinary
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: process.env.CLOUDINARY_FOLDER,
+        })
+
         let transaction = await Transaction.create({
             _id: new mongoose.Types.ObjectId(),
             user,
@@ -36,7 +42,7 @@ router.post("/createTransaction", image, async(req, res) => {
             duration,
             charge,
             total,
-            image: req.file.path,
+            image: result.secure_url,
         })
         return res.status(201).json({
             message: "Transaction successfully created",

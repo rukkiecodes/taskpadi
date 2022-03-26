@@ -12,7 +12,7 @@
         >
           <img
             style="width: 100%"
-            :src="`https://trustpaddi.herokuapp.com/${product.image}`"
+            :src="product.image"
           />
         </v-card>
       </v-col>
