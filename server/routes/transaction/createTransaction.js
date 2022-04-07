@@ -53,8 +53,8 @@ router.post("/createTransaction", upload.single("image"), checkAuth, async(req, 
             duration,
             charge,
             total,
+            image: result.secure_url,
             reference: data.data.reference,
-            image: 'result.secure_url',
         })
         res.status(201).json({
             message: "Transaction successfully created",
