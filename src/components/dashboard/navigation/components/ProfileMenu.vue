@@ -70,12 +70,6 @@ export default {
     menu: false,
   }),
 
-  mounted() {
-    this.$nextTick(() => {
-      console.log(this.account)
-    })
-  },
-
   computed: {
     ...mapState(["logout", "account"]),
   },

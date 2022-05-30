@@ -1,5 +1,6 @@
 import Vue from "vue"
 import axios from "axios"
+import router from "../../router/index"
 
 export default {
     state: {
@@ -29,6 +30,7 @@ export default {
 
     mutations: {
         getProfile: (state, response) => {
+            // console.log('getProfile: ', response)
             state.userData = {}
             state.userData = response.data.user
 
@@ -62,31 +64,29 @@ export default {
     },
 
     actions: {
-        async getProfile({ commit }) {
+        async getProfile ({ commit }) {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
 
-            try {
-                let user = await axios.post(
-                    "https://trustpaddi.herokuapp.com/auth/profile", {
-                        token,
-                        email,
-                    }
-                )
+            axios({
+                method: 'get',
+                url: `https://trustpaddi.herokuapp.com/auth/profile/${email}`,
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }).then(user => {
                 commit("getProfile", user)
-            } catch (error) {
-                console.log("error", error)
-            }
+            }).catch(err => console.log('email: ', err))
         },
 
-        async getStates({ commit }) {
+        async getStates ({ commit }) {
             const response = await axios.get(
                 "https://trustpaddi.herokuapp.com/states"
             )
             commit("getStates", response)
         },
 
-        async updateProfile({ commit, dispatch }) {
+        async updateProfile ({ commit, dispatch }) {
             this.state.account.saveLoading = true
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
@@ -95,16 +95,16 @@ export default {
             try {
                 let user = await axios.post(
                     "https://trustpaddi.herokuapp.com/auth/updateProfile", {
-                        email,
-                        token,
-                        firstname: input.firstname,
-                        lastname: input.lastname,
-                        phone: input.phone,
-                        country: input.country,
-                        state: input.state,
-                        lga: input.lga,
-                        address: input.address,
-                    }
+                    email,
+                    token,
+                    firstname: input.firstname,
+                    lastname: input.lastname,
+                    phone: input.phone,
+                    country: input.country,
+                    state: input.state,
+                    lga: input.lga,
+                    address: input.address,
+                }
                 )
                 return dispatch("getProfile").then(() => {
                     commit("updateProfile", user)
@@ -123,7 +123,7 @@ export default {
             }
         },
 
-        setImage({ commit, dispatch }, file) {
+        setImage ({ commit, dispatch }, file) {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
 

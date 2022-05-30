@@ -15,6 +15,7 @@ export default {
 
     mutations: {
         signinUser: (state, response) => {
+            console.log('login response: ', response)
             state.loading = false
             Vue.prototype.$cookies.set("PaddiData", response.data)
             if (response.data.success == true) router.push("/dashboard/dashboard")
@@ -32,7 +33,7 @@ export default {
     },
 
     actions: {
-        async signinUser({ commit }) {
+        async signinUser ({ commit }) {
             let emailRegEx = /\S+@\S+\.\S+/
             let input = this.state.signin.credential
 

@@ -161,13 +161,14 @@
 import { mapState, mapGetters, mapActions } from "vuex"
 import LogoutDialog from "../components/logoutDialog.vue"
 import ProfileMenu from "./components/ProfileMenu.vue"
+import Vue from "vue"
 export default {
   data: () => ({
     selectedItem: 1,
     drawer: true,
     searchPaddi: "",
     active: "",
-    fab: false,
+    fab: false
   }),
 
   components: {
@@ -177,6 +178,7 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
+      this.email = Vue.prototype.$cookies.get("PaddiData").user.email
       this.drawerVisibility()
       this.removeBorder()
 
@@ -202,6 +204,8 @@ export default {
         this.active = "Create paddi link"
         console.log(this.active)
       }
+
+
     })
   },
 
