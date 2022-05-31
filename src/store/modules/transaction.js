@@ -19,17 +19,17 @@ export default {
         createTransactionLoading: false,
 
         createTransactionCredential: {
-            recipient_name: "Amagboro",
-            recipient_email: "rukkiecodes@gmail.com",
-            recipient_phone: "08071657443",
-            product_name: "Nigeria",
-            transaction_type: "product",
-            price: "1000",
-            quantity: "1",
-            role: "seller",
-            description: "a shot description",
+            recipient_name: "",
+            recipient_email: "",
+            recipient_phone: "",
+            product_name: "",
+            transaction_type: "",
+            price: "",
+            quantity: "",
+            role: "",
+            description: "",
             image: "",
-            duration: "1",
+            duration: "",
         },
 
         updateTransactionCredential: {

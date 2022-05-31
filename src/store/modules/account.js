@@ -93,58 +93,57 @@ export default {
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
             let input = this.state.account.credential
 
-            try {
-                let user = await axios({
-                    method: 'post',
-                    url: "https://trustpaddi.herokuapp.com/auth/updateProfile",
-                    headers: { 'Authorization': `Bearer ${token}` },
-                    body: {
-                        email,
-                        firstname: input.firstname,
-                        lastname: input.lastname,
-                        phone: input.phone,
-                        country: input.country,
-                        state: input.state,
-                        lga: input.lga,
-                        address: input.address,
-                    }
-                })
-                return dispatch("getProfile")
-                    .then(() => {
-                        commit("updateProfile", user)
-                        this.state.account.saveLoading = false
-                    })
-                //     .then(user => {
-                //     commit("getProfile", user)
-                // }).catch(err => console.log('error: ', err))
-
-                // let user = await axios.post(
-                //     "https://trustpaddi.herokuapp.com/auth/updateProfile", {
-                //     email,
-                //     firstname: input.firstname,
-                //     lastname: input.lastname,
-                //     phone: input.phone,
-                //     country: input.country,
-                //     state: input.state,
-                //     lga: input.lga,
-                //     address: input.address,
-                // }
-                // )
-                // return dispatch("getProfile").then(() => {
-                //     commit("updateProfile", user)
-                //     this.state.account.saveLoading = false
-                // })
-            } catch (error) {
-                console.log("Error: ", error)
+            // try {
+            let user = await axios({
+                method: 'post',
+                url: "https://trustpaddi.herokuapp.com/auth/updateProfile",
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: {
+                    email,
+                    firstname: input.firstname,
+                    lastname: input.lastname,
+                    phone: input.phone,
+                    country: input.country,
+                    state: input.state,
+                    lga: input.lga,
+                    address: input.address,
+                }
+            })
+            return dispatch("getProfile").then(() => {
+                commit("updateProfile", user)
                 this.state.account.saveLoading = false
-                Vue.prototype.$vs.notification({
-                    icon: `<i class="las la-exclamation-triangle"></i>`,
-                    border: "rgb(255, 71, 87)",
-                    position: "top-right",
-                    title: "Error!!!",
-                    text: `Update in error. Check your details the try again.`,
-                })
-            }
+            })
+            //     .then(user => {
+            //     commit("getProfile", user)
+            // }).catch(err => console.log('error: ', err))
+
+            // let user = await axios.post(
+            //     "https://trustpaddi.herokuapp.com/auth/updateProfile", {
+            //     email,
+            //     firstname: input.firstname,
+            //     lastname: input.lastname,
+            //     phone: input.phone,
+            //     country: input.country,
+            //     state: input.state,
+            //     lga: input.lga,
+            //     address: input.address,
+            // }
+            // )
+            // return dispatch("getProfile").then(() => {
+            //     commit("updateProfile", user)
+            //     this.state.account.saveLoading = false
+            // })
+            // } catch (error) {
+            //     console.log("Error: ", error)
+            //     this.state.account.saveLoading = false
+            //     Vue.prototype.$vs.notification({
+            //         icon: `<i class="las la-exclamation-triangle"></i>`,
+            //         border: "rgb(255, 71, 87)",
+            //         position: "top-right",
+            //         title: "Error!!!",
+            //         text: `Update in error. Check your details the try again.`,
+            //     })
+            // }
         },
 
         setImage ({ commit, dispatch }, file) {
@@ -153,9 +152,9 @@ export default {
 
             let myHeaders = new Headers()
             myHeaders.append("Accept", "application/json")
+            myHeaders.append('Authorization', `Bearer ${token}`)
 
             let formdata = new FormData()
-            formdata.append("token", token)
             formdata.append("email", email)
             formdata.append("avatar", file)
 
