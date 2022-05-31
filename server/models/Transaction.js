@@ -68,6 +68,9 @@ const Transaction = new mongoose.Schema({
     pop: {
         type: String,
     },
+    reference: {
+        type: String
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
