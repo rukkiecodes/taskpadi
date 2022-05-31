@@ -126,13 +126,13 @@ export default {
     },
 
     actions: {
-        setProductImage({ commit }, image) {
+        setProductImage ({ commit }, image) {
             this.state.product.imageName = image.name
             this.state.product.createProductCredential.image = image
             console.log("state: ", this.state.product.createProductCredential.image)
         },
 
-        async createProduct({ commit, dispatch }) {
+        async createProduct ({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
             this.state.product.createProductLoading = true
@@ -163,9 +163,9 @@ export default {
             }
 
             fetch(
-                    "https://trustpaddi.herokuapp.com/product/createProduct",
-                    requestOptions
-                )
+                "https://trustpaddi.herokuapp.com/product/createProduct",
+                requestOptions
+            )
                 .then((response) => response.json())
                 .then((response) => {
                     return dispatch("getProducts").then(() => {
@@ -186,28 +186,27 @@ export default {
                 })
         },
 
-        async getProducts({ commit }) {
+        async getProducts ({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
 
-            axios
-                .post("https://trustpaddi.herokuapp.com/product/getProducts", {
-                    user,
-                    token,
-                })
-                .then((response) => {
-                    commit("getProducts", response)
-                })
-                .catch((error) => {
-                    console.log("Error: ", error)
-                })
+            await axios({
+                method: 'post',
+                url: 'https://trustpaddi.herokuapp.com/product/getProducts',
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: { user }
+            }).then(response => {
+                commit("getProducts", response)
+            }).catch(error => {
+                console.log("Error: ", error)
+            })
         },
 
-        viewProductDetails({ commit, dispatch }, product) {
+        viewProductDetails ({ commit, dispatch }, product) {
             commit("viewProductDetails", product)
         },
 
-        viewSingleProduct({ commit }) {
+        viewSingleProduct ({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let _id = router.currentRoute.params._id
 
@@ -224,17 +223,17 @@ export default {
                 })
         },
 
-        openEditProductDialog({ commit }, product) {
+        openEditProductDialog ({ commit }, product) {
             commit("openEditProductDialog", product)
         },
 
-        setEditProductImage({ commit }, image) {
+        setEditProductImage ({ commit }, image) {
             this.state.product.imageName = image.name
             this.state.product.editProductCredential.image = image
             console.log("state: ", image)
         },
 
-        async editProduct({ commit, dispatch }) {
+        async editProduct ({ commit, dispatch }) {
             let input = this.state.product.editProductCredential
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let _id = router.currentRoute.params._id
@@ -267,9 +266,9 @@ export default {
                 }
 
                 fetch(
-                        "https://trustpaddi.herokuapp.com/product/updateProduct",
-                        requestOptions
-                    )
+                    "https://trustpaddi.herokuapp.com/product/updateProduct",
+                    requestOptions
+                )
                     .then((response) => response.json())
                     .then((response) => {
                         return dispatch("viewSingleProduct").then(() => {
