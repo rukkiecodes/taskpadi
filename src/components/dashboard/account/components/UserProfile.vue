@@ -1,5 +1,5 @@
 <template>
-  <v-card flat width="500" class="mx-auto">
+  <v-card flat width="500" class="mx-auto" color="transparent">
     <v-card-text class="text-center mb-3">
       <v-file-input
         accept="image/*"

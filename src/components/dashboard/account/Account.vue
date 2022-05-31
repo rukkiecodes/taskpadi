@@ -1,13 +1,14 @@
 <template>
   <v-container class="account">
-    <v-card flat>
-      <v-toolbar flat color="white" dark dense>
+    <v-card flat color="transparent">
+      <v-toolbar flat color="transparent" dark dense>
         <v-toolbar-title class="grey--text text--darken-3 font-weight-bold"
           >My Account</v-toolbar-title
         >
       </v-toolbar>
       <v-tabs
         color="deep-purple accent-4"
+        background-color="transparent"
         :vertical="tabVertical"
         :centered="tabCentered"
         :right="tabRight"
@@ -19,7 +20,7 @@
           :key="i"
         >
           <span class="hidden-sm-and-down" v-text="tab.span" />
-          <!-- <v-icon class="hidden-md-and-up" v-text="tab.icon" /> -->
+          <v-icon class="hidden-md-and-up" v-text="tab.icon" />
         </v-tab>
 
         <v-tab-item class="mt-4 mt-sm-0">
@@ -56,6 +57,15 @@ export default {
     ViewAvatar: () => import("./components/ViewAvatar.vue"),
     UserProfile,
     Settings,
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      const bg = document.querySelectorAll('.theme--light.v-tabs-items')
+      bg.forEach(el => {
+        el.style.background = 'rgba(0,0,0,0)'
+      })
+    })
   },
 
   created() {

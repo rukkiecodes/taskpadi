@@ -19,16 +19,17 @@ export default {
         createTransactionLoading: false,
 
         createTransactionCredential: {
-            recipient_name: "",
-            recipient_email: "",
-            recipient_phone: "",
-            transaction_type: "",
-            price: "",
-            quantity: "",
-            role: "",
-            description: "",
+            recipient_name: "Amagboro",
+            recipient_email: "rukkiecodes@gmail.com",
+            recipient_phone: "08071657443",
+            product_name: "Nigeria",
+            transaction_type: "product",
+            price: "1000",
+            quantity: "1",
+            role: "seller",
+            description: "a shot description",
             image: "",
-            duration: "",
+            duration: "1",
         },
 
         updateTransactionCredential: {
@@ -129,6 +130,7 @@ export default {
             if (response.data.success == true) {
                 state.transactions = []
                 state.transactions.push(...response.data.transaction)
+                console.log("getTransactions: ", state.transactions)
             }
         },
 
@@ -355,26 +357,28 @@ export default {
     },
 
     actions: {
-        setTransactionImage({ commit }, image) {
+        setTransactionImage ({ commit }, image) {
             this.state.transaction.createTransactionCredential.image = image
         },
 
-        createTransaction({ commit, dispatch }) {
+        createTransaction ({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
             this.state.transaction.createTransactionLoading = true
 
-            var myHeaders = new Headers()
-            myHeaders.append("Accept", "multipart/form-data")
-
             let input = this.state.transaction.createTransactionCredential
+
+            let myHeaders = new Headers()
+            myHeaders.append("Accept", "multipart/form-data")
+            myHeaders.append('Authorization', `Bearer ${token}`)
 
             let formData = new FormData()
             formData.append("user", user)
-            formData.append("token", token)
+            formData.append("sellerId", user)
             formData.append("recipientName", input.recipient_name)
             formData.append("recipientEmail", input.recipient_email)
             formData.append("recipientPhone", input.recipient_phone)
+            formData.append("productName", input.product_name)
             formData.append("transactionType", input.transaction_type)
             formData.append("price", input.price)
             formData.append("quantity", input.quantity)
@@ -383,24 +387,24 @@ export default {
             formData.append("duration", input.duration)
             formData.append("image", input.image)
 
-            var requestOptions = {
+            let requestOptions = {
                 method: "POST",
                 headers: myHeaders,
                 body: formData,
             }
 
             fetch(
-                    "https://trustpaddi.herokuapp.com/transaction/createTransaction",
-                    requestOptions
-                )
-                .then((response) => response.json())
-                .then((response) => {
+                "https://trustpaddi.herokuapp.com/transaction/createTransaction",
+                requestOptions
+            )
+                .then(response => response.json())
+                .then(response => {
                     this.state.transaction.createTransactionLoading = false
                     return dispatch("getTransactions").then(() => {
                         commit("createTransaction", response)
                     })
                 })
-                .catch((error) => {
+                .catch(error => {
                     console.log("Error: ", error)
                     this.state.transaction.createTransactionLoading = false
                     Vue.prototype.$vs.notification({
@@ -413,27 +417,28 @@ export default {
                 })
         },
 
-        getTransactions({ commit }) {
-            let user = Vue.prototype.$cookies.get("PaddiData").user._id
+        async getTransactions ({ commit }) {
+            let user = Vue.prototype.$cookies.get("PaddiData").user
             let token = Vue.prototype.$cookies.get("PaddiData").token
-            axios
-                .post("https://trustpaddi.herokuapp.com/transaction/getTransaction", {
-                    user,
-                    token,
-                })
-                .then((response) => {
-                    commit("getTransactions", response)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+
+            console.log(user)
+
+            await axios({
+                method: 'post',
+                url: "https://trustpaddi.herokuapp.com/transaction/getTransaction",
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: { user: user?._id }
+            }).then(response => {
+                commit("getTransactions", response)
+                console.log("getTransactions: ", response.data)
+            }).catch(err => console.log('error: ', err))
         },
 
-        viewTransactionDetails({ commit }, transaction) {
+        viewTransactionDetails ({ commit }, transaction) {
             commit("viewTransactionDetails", transaction)
         },
 
-        viewSingleTransaction({ commit }) {
+        viewSingleTransaction ({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
@@ -441,10 +446,10 @@ export default {
             axios
                 .post(
                     "https://trustpaddi.herokuapp.com/transaction/getSingleTransaction", {
-                        user,
-                        _id,
-                        token,
-                    }
+                    user,
+                    _id,
+                    token,
+                }
                 )
                 .then((response) => {
                     commit("viewSingleTransaction", response)
@@ -454,21 +459,21 @@ export default {
                 })
         },
 
-        setTransactionDetails({ commit }) {
+        setTransactionDetails ({ commit }) {
             commit("setTransactionDetails")
         },
 
-        openUpdateTransactionDialog({ commit }, transaction) {
+        openUpdateTransactionDialog ({ commit }, transaction) {
             commit("openUpdateTransactionDialog", transaction)
         },
 
-        setUpdateTransactionImage({ commit }, image) {
+        setUpdateTransactionImage ({ commit }, image) {
             this.state.transaction.imageName = image.name
             this.state.transaction.updateTransactionCredential.image = image
             console.log("state: ", image)
         },
 
-        updateTransaction({ commit, dispatch }) {
+        updateTransaction ({ commit, dispatch }) {
             let input = this.state.transaction.updateTransactionCredential
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let _id = router.currentRoute.params._id
@@ -511,9 +516,9 @@ export default {
                 }
 
                 fetch(
-                        "https://trustpaddi.herokuapp.com/transaction/updateTransaction",
-                        requestOptions
-                    )
+                    "https://trustpaddi.herokuapp.com/transaction/updateTransaction",
+                    requestOptions
+                )
                     .then((response) => response.json())
                     .then((response) => {
                         return dispatch("getTransactions").then(() => {
@@ -545,15 +550,15 @@ export default {
             }
         },
 
-        openApprovalTransactionDialog({ commit }, transaction) {
+        openApprovalTransactionDialog ({ commit }, transaction) {
             commit("openApprovalTransactionDialog", transaction)
         },
 
-        openConfirmTransactionDialog({ commit }, transaction) {
+        openConfirmTransactionDialog ({ commit }, transaction) {
             commit("openConfirmTransactionDialog", transaction)
         },
 
-        confirmApprove({ commit, dispatch }) {
+        confirmApprove ({ commit, dispatch }) {
             this.state.transaction.approveTransactionLoading = true
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
@@ -562,10 +567,10 @@ export default {
             axios
                 .post(
                     "https://trustpaddi.herokuapp.com/transaction/approveTransaction", {
-                        user,
-                        _id,
-                        token,
-                    }
+                    user,
+                    _id,
+                    token,
+                }
                 )
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
@@ -581,7 +586,7 @@ export default {
                 })
         },
 
-        confirmConfirm({ commit, dispatch }) {
+        confirmConfirm ({ commit, dispatch }) {
             this.state.transaction.confirmTransactionLoading = true
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
@@ -590,10 +595,10 @@ export default {
             axios
                 .post(
                     "https://trustpaddi.herokuapp.com/transaction/confirmTransaction", {
-                        user,
-                        _id,
-                        token,
-                    }
+                    user,
+                    _id,
+                    token,
+                }
                 )
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
@@ -609,11 +614,11 @@ export default {
                 })
         },
 
-        openDeclineTransactionDialog({ commit }, transaction) {
+        openDeclineTransactionDialog ({ commit }, transaction) {
             commit("openDeclineTransactionDialog", transaction)
         },
 
-        confirmDecline({ commit, dispatch }, transaction) {
+        confirmDecline ({ commit, dispatch }, transaction) {
             this.state.transaction.declineTransactionLoading = true
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
@@ -622,10 +627,10 @@ export default {
             axios
                 .post(
                     "https://trustpaddi.herokuapp.com/transaction/declineTransaction", {
-                        user,
-                        _id,
-                        token,
-                    }
+                    user,
+                    _id,
+                    token,
+                }
                 )
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {
@@ -641,16 +646,16 @@ export default {
                 })
         },
 
-        openPopTransactionDialog({ commit }, transaction) {
+        openPopTransactionDialog ({ commit }, transaction) {
             commit("openPopTransactionDialog", transaction)
         },
 
-        onPOPChange({ commit }, image) {
+        onPOPChange ({ commit }, image) {
             this.state.transaction.pop = image
             this.state.transaction.popName = image.name
         },
 
-        confirmPop({ commit, dispatch }, transaction) {
+        confirmPop ({ commit, dispatch }, transaction) {
             const pop = this.state.transaction.pop
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
@@ -676,9 +681,9 @@ export default {
                 }
 
                 fetch(
-                        "https://trustpaddi.herokuapp.com/transaction/transactionProofOfPayment",
-                        requestOptions
-                    )
+                    "https://trustpaddi.herokuapp.com/transaction/transactionProofOfPayment",
+                    requestOptions
+                )
                     .then((response) => response.json())
                     .then((response) => {
                         return dispatch("getTransactions").then(() => {
@@ -703,16 +708,16 @@ export default {
             }
         },
 
-        openDeleteTransactionDialog({ commit }, transaction) {
+        openDeleteTransactionDialog ({ commit }, transaction) {
             commit("openDeleteTransactionDialog", transaction)
         },
 
-        onDeleteChange({ commit }, image) {
+        onDeleteChange ({ commit }, image) {
             this.state.transaction.delete = image
             this.state.transaction.deleteName = image.name
         },
 
-        confirmDelete({ commit, dispatch }) {
+        confirmDelete ({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
@@ -720,10 +725,10 @@ export default {
             axios
                 .post(
                     "https://trustpaddi.herokuapp.com/transaction/deleteTransaction", {
-                        user,
-                        _id,
-                        token,
-                    }
+                    user,
+                    _id,
+                    token,
+                }
                 )
                 .then((response) => {
                     return dispatch("getTransactions").then(() => {

@@ -15,7 +15,7 @@
           class="mr-2"
           @click="menu = !menu"
           badge-position="top-right"
-          v-show="!account.userData.avatar"
+          v-if="!account.userData.avatar"
         >
           <template #text>
             {{ account.userData.firstname }} {{ account.userData.lastname }}
@@ -27,7 +27,7 @@
           class="mr-2"
           @click="menu = !menu"
           badge-position="top-right"
-          v-show="account.userData.avatar"
+          v-else
         >
           <img
             alt=""

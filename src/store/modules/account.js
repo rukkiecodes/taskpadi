@@ -68,15 +68,16 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
 
-            axios({
+            console.log(token)
+            console.log(Vue.prototype.$cookies.get("PaddiData").user._id)
+
+            await axios({
                 method: 'get',
                 url: `https://trustpaddi.herokuapp.com/auth/profile/${email}`,
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
+                headers: { 'Authorization': `Bearer ${token}` }
             }).then(user => {
                 commit("getProfile", user)
-            }).catch(err => console.log('email: ', err))
+            }).catch(err => console.log('error: ', err))
         },
 
         async getStates ({ commit }) {
@@ -93,23 +94,46 @@ export default {
             let input = this.state.account.credential
 
             try {
-                let user = await axios.post(
-                    "https://trustpaddi.herokuapp.com/auth/updateProfile", {
-                    email,
-                    token,
-                    firstname: input.firstname,
-                    lastname: input.lastname,
-                    phone: input.phone,
-                    country: input.country,
-                    state: input.state,
-                    lga: input.lga,
-                    address: input.address,
-                }
-                )
-                return dispatch("getProfile").then(() => {
-                    commit("updateProfile", user)
-                    this.state.account.saveLoading = false
+                let user = await axios({
+                    method: 'post',
+                    url: "https://trustpaddi.herokuapp.com/auth/updateProfile",
+                    headers: { 'Authorization': `Bearer ${token}` },
+                    body: {
+                        email,
+                        firstname: input.firstname,
+                        lastname: input.lastname,
+                        phone: input.phone,
+                        country: input.country,
+                        state: input.state,
+                        lga: input.lga,
+                        address: input.address,
+                    }
                 })
+                return dispatch("getProfile")
+                    .then(() => {
+                        commit("updateProfile", user)
+                        this.state.account.saveLoading = false
+                    })
+                //     .then(user => {
+                //     commit("getProfile", user)
+                // }).catch(err => console.log('error: ', err))
+
+                // let user = await axios.post(
+                //     "https://trustpaddi.herokuapp.com/auth/updateProfile", {
+                //     email,
+                //     firstname: input.firstname,
+                //     lastname: input.lastname,
+                //     phone: input.phone,
+                //     country: input.country,
+                //     state: input.state,
+                //     lga: input.lga,
+                //     address: input.address,
+                // }
+                // )
+                // return dispatch("getProfile").then(() => {
+                //     commit("updateProfile", user)
+                //     this.state.account.saveLoading = false
+                // })
             } catch (error) {
                 console.log("Error: ", error)
                 this.state.account.saveLoading = false

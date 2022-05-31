@@ -59,6 +59,13 @@
             />
           </v-col>
           <v-col cols="12" sm="6">
+            <vs-input
+              block
+              placeholder="Product name"
+              v-model="transaction.createTransactionCredential.product_name"
+            />
+          </v-col>
+          <v-col cols="12" sm="6">
             <vs-select
               block
               placeholder="Transaction type"
@@ -109,6 +116,7 @@
               :rules="rules"
               :maxlength="max"
               background-color="#F4F7F8"
+              class="rounded-xl"
               placeholder="Product Description"
               v-model="transaction.createTransactionCredential.description"
             />
@@ -117,9 +125,10 @@
             <v-file-input
               solo
               flat
+              dense
               hide-details
               placeholder="image"
-              class="realFileInput"
+              class="realFileInput rounded-lg"
               background-color="#F4F7F8"
               @change="setTransactionImage"
             />
@@ -134,13 +143,14 @@
             <vs-button
               dark
               transparent
+              class="font-weight-bold grey--text text--darken-4"
               @click="transaction.createTransactionDialog = false"
             >
               Cancel
             </vs-button>
             <vs-button
-              transparent
               color="#6200EA"
+              class="font-weight-bold"
               @click="createTransaction"
               :loading="transaction.createTransactionLoading"
             >
