@@ -141,18 +141,12 @@ export default {
 
             let myHeaders = new Headers()
             myHeaders.append("Accept", "multipart/form-data")
+            myHeaders.append('Authorization', `Bearer ${token}`)
 
             formData.append("user", user)
-            formData.append("token", token)
             formData.append("name", this.state.product.createProductCredential.name)
-            formData.append(
-                "description",
-                this.state.product.createProductCredential.description
-            )
-            formData.append(
-                "quantity",
-                this.state.product.createProductCredential.quantity
-            )
+            formData.append("description", this.state.product.createProductCredential.description)
+            formData.append("quantity", this.state.product.createProductCredential.quantity)
             formData.append("price", this.state.product.createProductCredential.price)
             formData.append("image", this.state.product.createProductCredential.image)
 
