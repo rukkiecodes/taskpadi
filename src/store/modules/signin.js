@@ -70,5 +70,11 @@ export default {
                 })
             }
         },
+
+        login () {
+            let user = Vue.prototype.$cookies.isKey("PaddiData")
+
+            if (user) router.push("/dashboard/dashboard")
+        }
     },
 }
