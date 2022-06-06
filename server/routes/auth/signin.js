@@ -27,7 +27,7 @@ router.post("/signin", (req, res) => {
               },
               process.env.SESSION_SECRET,
               {
-                expiresIn: "1h",
+                expiresIn: "7d",
               }
             )
             return res.status(200).json({

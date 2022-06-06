@@ -43,6 +43,14 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    customer_code: {
+        type: Date,
+        default: Date.now,
+    },
+    isBankVerified: {
+      type: Boolean,
+      default: false
+    },
 }, { timestamps: true })
 
 module.exports = mongoose.model("User", UserSchema)

@@ -3,15 +3,22 @@ const checkAuth = require("../../middleware/checkAuth")
 
 const Product = require("../../models/Product")
 
-router.post("/getProducts", checkAuth, async(req, res) => {
-    const { user, _id } = req.body
+router.get("/getProducts/:user", checkAuth, async (req, res) => {
+    const user = req.params.user
+
     try {
         let product = await Product.find({ user })
-        return res.status(200).json({
-            message: "Products fetched successfully",
-            success: true,
-            product,
-        })
+        if (product.length)
+            return res.status(200).json({
+                message: "Products fetched successfully",
+                success: true,
+                product,
+            })
+        else
+            res.status(200).json({
+                success: false,
+                message: "You have not created any product",
+            })
     } catch (error) {
         return res.status(401).json({
             success: false,

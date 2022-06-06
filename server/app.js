@@ -1,14 +1,11 @@
+require("dotenv")
 const express = require("express")
-const dotenv = require("dotenv")
 const morgan = require("morgan")
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const connectDB = require("./config/db")
 
 const app = express()
-
-// Load config
-dotenv.config({ path: "./config/config.env" })
 
 connectDB()
 
@@ -36,7 +33,12 @@ app.use("/auth", [
     require("./routes/auth/changePassword"),
 ])
 
+app.use('user', [
+    require('./routes/user/wallet')
+])
+
 app.use("/states", require("./routes/states"))
+app.use("/banks", require("./routes/banks"))
 
 app.use("/banks", [
     require("./routes/banks/banks"),
@@ -64,6 +66,7 @@ app.use("/transaction", [
     require("./routes/transaction/declineTransaction"),
     require("./routes/transaction/transactionProofOfPayment"),
     require("./routes/transaction/deleteTransaction"),
+    require('./routes/transaction/webhook')
 ])
 
 app.use("/product", [
@@ -72,6 +75,19 @@ app.use("/product", [
     require("./routes/product/getSingleProduct"),
     require("./routes/product/updateProduct"),
 ])
+
+app.use("/order", [
+    require("./routes/order"),
+])
+
+// Error handling
+app.use((error, req, res, next) => {
+    const status = error.statusCode || 500
+    const message = error.message
+    const data = error.data
+    console.log(error)
+    res.status(status).json({ message: message, data: data })
+})
 
 const PORT = process.env.PORT || 8000
 app.listen(

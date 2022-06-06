@@ -3,11 +3,12 @@ const mongoose = require("mongoose")
 const bcrypt = require("bcrypt")
 
 const User = require("../../models/User")
+const Wallet = require("../../models/Wallet")
 
-router.post("/signup", async (req, res) => {
+router.post("/signup", async (req, res, next) => {
   //SUGNUP USER
-  const { firstname, lastname, email, password, referral_code } = req.body
   try {
+    const { firstname, lastname, email, password, referral_code } = req.body
     let user = await User.findOne({ email })
 
     if (user) {
@@ -32,7 +33,14 @@ router.post("/signup", async (req, res) => {
             referral_code,
             password: hash,
           }
-          user = User.create(newUser)
+          const wallet = new Wallet({
+            sellerId: newUser._id,
+            totalAmount: 0,
+            withdrawalAmount: 0,
+            trustAmount: 0
+          })
+           wallet.save()
+          user =  User.create(newUser)
 
           return res.status(201).json({
             message: "Auth successful",
@@ -43,10 +51,7 @@ router.post("/signup", async (req, res) => {
     }
   } catch (error) {
     console.error(error)
-    return res.status(401).json({
-      message: "Auth failed",
-      success: false,
-    })
+    next(error)
   }
 })
 

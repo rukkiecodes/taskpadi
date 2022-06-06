@@ -7,7 +7,7 @@ const checkAuth = require("../../middleware/checkAuth")
 const Product = require("../../models/Product")
 const User = require("../../models/User")
 
-router.post("/createProduct", upload.single("image"), async(req, res) => {
+router.post("/createProduct", upload.single("image"), checkAuth, async(req, res) => {
     const { user, name, description, quantity, price } = req.body
     let _id = new mongoose.Types.ObjectId()
 

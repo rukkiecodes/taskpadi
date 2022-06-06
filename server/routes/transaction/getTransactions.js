@@ -3,8 +3,8 @@ const checkAuth = require("../../middleware/checkAuth")
 
 const Transaction = require("../../models/Transaction")
 
-router.post("/getTransaction", checkAuth, async(req, res) => {
-    const { user } = req.body
+router.get("/getTransaction/:user", checkAuth, async (req, res) => {
+    const user = req.params.user
     try {
         const transaction = await Transaction.find({ user })
         if (transaction.length)

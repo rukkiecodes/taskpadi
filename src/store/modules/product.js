@@ -185,8 +185,9 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
 
             await axios({
-                method: 'post',
-                url: 'https://trustpaddi.herokuapp.com/product/getProducts',
+                method: 'get',
+                url: `http://localhost:3000/product/getProducts/${user}`,
+                // url: 'https://trustpaddi.herokuapp.com/product/getProducts',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: { user }
             }).then(response => {

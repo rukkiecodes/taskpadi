@@ -130,7 +130,6 @@ export default {
             if (response.data.success == true) {
                 state.transactions = []
                 state.transactions.push(...response.data.transaction)
-                console.log("getTransactions: ", state.transactions)
             }
         },
 
@@ -421,16 +420,14 @@ export default {
             let user = Vue.prototype.$cookies.get("PaddiData").user
             let token = Vue.prototype.$cookies.get("PaddiData").token
 
-            console.log(user)
-
             await axios({
-                method: 'post',
-                url: "https://trustpaddi.herokuapp.com/transaction/getTransaction",
+                method: 'get',
+                url: `http://localhost:3000/transaction/getTransaction/${user._id}`,
+                // url: `https://trustpaddi.herokuapp.com/transaction/getTransaction/${user._id}`,
                 headers: { 'Authorization': `Bearer ${token}` },
-                body: { user: user?._id }
+                body: { user: user._id }
             }).then(response => {
                 commit("getTransactions", response)
-                console.log("getTransactions: ", response.data)
             }).catch(err => console.log('error: ', err))
         },
 

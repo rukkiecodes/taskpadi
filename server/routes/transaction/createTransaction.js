@@ -1,20 +1,21 @@
 const router = require("express").Router()
-const axios = require('axios')
-const mongoose = require("mongoose")
 const cloudinary = require("../../middleware/cloud")
 const upload = require("../../middleware/multer")
+const mongoose = require("mongoose")
 const checkAuth = require("../../middleware/checkAuth")
 
 const Transaction = require("../../models/Transaction")
-const secret = process.env.PAYSTACK_SECRET_KEY
-axios.defaults.headers.common.Authorization = `Bearer ${secret}`
+const { sendPaymentlinkToRecipientEmail } = require('../../utils/mailjet')
+const { initPay } = require('../../paystack')
 
-router.post("/createTransaction", upload.single("image"), checkAuth, async(req, res) => {
-    const {
+router.post("/createTransaction", upload.single("image"), checkAuth, async(req, res, next) => {
+    let {
+        sellerId,
         user,
         recipientName,
         recipientEmail,
         recipientPhone,
+        productName,
         transactionType,
         price,
         quantity,
@@ -23,29 +24,41 @@ router.post("/createTransaction", upload.single("image"), checkAuth, async(req, 
         duration,
     } = req.body
 
+    if(!quantity) quantity = 1
+
     let charge = (20 / 100) * price
     let total = Number(charge) + Number(price)
+    total = total * quantity
     try {
+        
         // Upload image to cloudinary
         const result = await cloudinary.uploader.upload(req.file.path, {
             folder: process.env.CLOUDINARY_FOLDER,
         })
-        const payload = {
-            email: recipientEmail,
-            amount: total * 100,
-            callback_url: ''
-          }
-        const { data } = await axios.post(
-            'https://api.paystack.co/transaction/initialize',
-            payload
-          )
-        console.log(data.data.authorization_url)
+            
+        let _id = new mongoose.Types.ObjectId()
+        // Create payment with paystack
+        const metadata = {
+					paymentForm: 'Transaction',
+					txId: _id,
+					sellerId: sellerId,
+					role: role,
+					transactionType: transactionType
+        }
+        const data = await initPay(recipientEmail, total, '', metadata)
+
+        if(role === 'Seller') {
+            await sendPaymentlinkToRecipientEmail(recipientEmail, recipientName, productName, data.data.authorization_url)
+        }
+
         const transaction = await new Transaction({
+            _id,
             user,
             recipientName,
             recipientEmail,
             recipientPhone,
             transactionType,
+            productName,
             price,
             quantity,
             role,
@@ -56,6 +69,7 @@ router.post("/createTransaction", upload.single("image"), checkAuth, async(req, 
             image: result.secure_url,
             reference: data.data.reference,
         })
+        await transaction.save()
         res.status(201).json({
             message: "Transaction successfully created",
             success: true,
@@ -63,12 +77,7 @@ router.post("/createTransaction", upload.single("image"), checkAuth, async(req, 
             url: data.data.authorization_url
         })
     } catch (error) {
-        console.log(error)
-        res.status(401).json({
-            success: false,
-            message: "Error creating transaction. Please add an image",
-            error,
-        })
+        next(error)
     }
 })
 
