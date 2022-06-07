@@ -58,7 +58,7 @@
               'orange lighten-5 orange--text text--accent-3':
                 item.status == 'pending',
               'teal lighten-5 teal--text text--darken-1':
-                item.status == 'closed',
+                item.status == 'approved',
             }"
             >{{ item.status }}
           </v-chip>

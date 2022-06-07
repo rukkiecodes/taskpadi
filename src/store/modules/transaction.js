@@ -578,27 +578,6 @@ export default {
                 console.log("Error: ", error)
                 this.state.transaction.approveTransactionLoading = false
             })
-
-            // axios
-            //     .post(
-            //         "https://trustpaddi.herokuapp.com/transaction/approveTransaction", {
-            //         user,
-            //         _id,
-            //         token,
-            //     }
-            //     )
-            //     .then((response) => {
-            //         return dispatch("getTransactions").then(() => {
-            //             dispatch("viewSingleTransaction")
-            //             commit("confirmApprove", response)
-            //             this.state.transaction.approveTransactionLoading = false
-            //             this.state.transaction.approveTransactionDialog = false
-            //         })
-            //     })
-            //     .catch((error) => {
-            //         console.log("Error: ", error)
-            //         this.state.transaction.approveTransactionLoading = false
-            //     })
         },
 
         confirmConfirm ({ commit, dispatch }) {
@@ -607,26 +586,22 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
-            axios
-                .post(
-                    "https://trustpaddi.herokuapp.com/transaction/confirmTransaction", {
-                    user,
-                    _id,
-                    token,
-                }
-                )
-                .then((response) => {
-                    return dispatch("getTransactions").then(() => {
-                        dispatch("viewSingleTransaction")
-                        commit("confirmConfirm", response)
-                        this.state.transaction.confirmTransactionLoading = false
-                        this.state.transaction.confirmTransactionDialog = false
-                    })
-                })
-                .catch((error) => {
-                    console.log("Error: ", error)
+            axios({
+                method: "post",
+                url: "https://trustpaddi.herokuapp.com/transaction/confirmTransaction",
+                headers: { 'Authorization': `Bearer ${token}` },
+                data: { user, _id }
+            }).then((response) => {
+                return dispatch("getTransactions").then(() => {
+                    dispatch("viewSingleTransaction")
+                    commit("confirmConfirm", response)
                     this.state.transaction.confirmTransactionLoading = false
+                    this.state.transaction.confirmTransactionDialog = false
                 })
+            }).catch((error) => {
+                console.log("Error: ", error)
+                this.state.transaction.confirmTransactionLoading = false
+            })
         },
 
         openDeclineTransactionDialog ({ commit }, transaction) {

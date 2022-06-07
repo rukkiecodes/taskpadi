@@ -20,8 +20,8 @@
         v-for="(transaction, i) in selectedTransactionToConfirm"
       >
         <vs-button
-          transparent
           color="#6200EA"
+          class="font-weight-bold"
           @click="confirmConfirm(transaction)"
           :loading="transaction.confirmTransactionLoading"
         >
