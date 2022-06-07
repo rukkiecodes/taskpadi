@@ -332,9 +332,10 @@ export default {
             console.log(response)
             state.popTransactionDialog = false
             if (response.data.success == true) {
-                location.replace(
-                    `${window.location.origin}/dashboard/transactions/goods`
-                )
+                router.go(-1)
+                // location.replace(
+                //     `${window.location.origin}/dashboard/transactions/goods`
+                // )
                 Vue.prototype.$vs.notification({
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
@@ -706,25 +707,21 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
-            axios
-                .post(
-                    "https://trustpaddi.herokuapp.com/transaction/deleteTransaction", {
-                    user,
-                    _id,
-                    token,
-                }
-                )
-                .then((response) => {
-                    return dispatch("getTransactions").then(() => {
-                        commit("confirmDelete", response)
-                        this.state.transaction.deleteTransactionDialog = false
-                        this.state.transaction.deleteTransactionLoading = false
-                    })
-                })
-                .catch((error) => {
-                    console.log("Error: ", error)
+            axios({
+                method: "post",
+                url: "https://trustpaddi.herokuapp.com/transaction/deleteTransaction",
+                headers: { 'Authorization': `Bearer ${token}` },
+                data: { user, _id }
+            }).then((response) => {
+                return dispatch("getTransactions").then(() => {
+                    commit("confirmDelete", response)
+                    this.state.transaction.deleteTransactionDialog = false
                     this.state.transaction.deleteTransactionLoading = false
                 })
+            }).catch((error) => {
+                console.log("Error: ", error)
+                this.state.transaction.deleteTransactionLoading = false
+            })
         },
     },
 }

@@ -21,7 +21,7 @@
       >
         <vs-button
           danger
-          transparent
+          class="font-weight-bold"
           @click="confirmDelete(transaction)"
           :loading="transaction.deleteTransactionLoading"
         >
