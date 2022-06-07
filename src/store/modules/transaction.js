@@ -614,26 +614,22 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
-            axios
-                .post(
-                    "https://trustpaddi.herokuapp.com/transaction/declineTransaction", {
-                    user,
-                    _id,
-                    token,
-                }
-                )
-                .then((response) => {
-                    return dispatch("getTransactions").then(() => {
-                        dispatch("viewSingleTransaction")
-                        commit("confirmDecline", response)
-                        this.state.transaction.declineTransactionLoading = false
-                        this.state.transaction.declineTransactionDialog = false
-                    })
-                })
-                .catch((error) => {
-                    console.log("Error: ", error)
+            axios({
+                method: "post",
+                url: "https://trustpaddi.herokuapp.com/transaction/declineTransaction",
+                headers: { 'Authorization': `Bearer ${token}` },
+                data: { user, _id }
+            }).then((response) => {
+                return dispatch("getTransactions").then(() => {
+                    dispatch("viewSingleTransaction")
+                    commit("confirmDecline", response)
                     this.state.transaction.declineTransactionLoading = false
+                    this.state.transaction.declineTransactionDialog = false
                 })
+            }).catch((error) => {
+                console.log("Error: ", error)
+                this.state.transaction.declineTransactionLoading = false
+            })
         },
 
         openPopTransactionDialog ({ commit }, transaction) {
