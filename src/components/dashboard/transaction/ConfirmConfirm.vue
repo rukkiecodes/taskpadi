@@ -1,10 +1,5 @@
 <template>
-  <vs-dialog
-    not-center
-    width="400px"
-    prevent-close
-    v-model="transaction.confirmTransactionDialog"
-  >
+  <vs-dialog blur not-center width="400px" prevent-close v-model="transaction.confirmTransactionDialog">
     <template #header>
       <h4 class="not-margin">Confirm transaction</h4>
     </template>
@@ -14,17 +9,9 @@
     </div>
 
     <template #footer>
-      <div
-        :key="i"
-        class="d-flex justify-end"
-        v-for="(transaction, i) in selectedTransactionToConfirm"
-      >
-        <vs-button
-          color="#6200EA"
-          class="font-weight-bold"
-          @click="confirmConfirm(transaction)"
-          :loading="transaction.confirmTransactionLoading"
-        >
+      <div :key="i" class="d-flex justify-end" v-for="(transaction, i) in selectedTransactionToConfirm">
+        <vs-button color="#6200EA" class="font-weight-bold" @click="confirmConfirm(transaction)"
+          :loading="transaction.confirmTransactionLoading">
           Confirm
         </vs-button>
       </div>
@@ -45,11 +32,11 @@ export default {
   }),
 
   methods: {
-    clickOnFileChange() {
+    clickOnFileChange () {
       document.querySelector(".addImage input[type='file']").click()
     },
 
-    onFileChange(image) {
+    onFileChange (image) {
       if (image) {
         this.showImageDialoge = true
         this.fileName = image.name

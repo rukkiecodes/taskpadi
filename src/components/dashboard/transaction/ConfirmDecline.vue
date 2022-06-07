@@ -1,5 +1,5 @@
 <template>
-  <vs-dialog not-center width="400px" prevent-close v-model="transaction.declineTransactionDialog">
+  <vs-dialog not-center width="400px" prevent-close blur v-model="transaction.declineTransactionDialog">
     <template #header>
       <h4 class="not-margin">Decline transaction</h4>
     </template>

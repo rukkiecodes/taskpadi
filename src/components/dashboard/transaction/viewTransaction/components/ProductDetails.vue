@@ -4,21 +4,15 @@
       <v-list color="transparent">
         <v-list-item v-for="(transaction, i) in singleTransactions" :key="i">
           <v-list-item-content>
-            <v-list-item-title
-              class="text-h5 text-sm-h4 text-lg-h3 font-weight-bold text-capitalize"
-              >{{ transaction.recipientName }}</v-list-item-title
-            >
+            <v-list-item-title class="text-h5 text-sm-h4 text-lg-h3 font-weight-bold text-capitalize">{{
+                transaction.recipientName
+            }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-card>
 
-    <v-card
-      flat
-      :key="i"
-      color="transparent"
-      v-for="(transaction, i) in singleTransactions"
-    >
+    <v-card flat :key="i" color="transparent" v-for="(transaction, i) in singleTransactions">
       <v-card-title>
         <span class="text-h6 font-weight-medium">Description:</span>
         <v-spacer />
@@ -26,47 +20,28 @@
       </v-card-title>
 
       <v-card-text class="text-center text-sm-left">{{
-        transaction.description
+          transaction.description
       }}</v-card-text>
-      <v-card
-        class="d-flex justify-space-between align-center"
-        flat
-        :color="detailsCard"
-        :dark="detailsCardMode"
-      >
-        <v-card-title
-          class="text-body-1 font-weight-medium"
-          :class="detailsCardTextClass"
-          >Transaction Details</v-card-title
-        >
-        <v-chip
-          small
-          label
-          class="text-capitalize rounded-lg font-weight-bold"
-          :class="{
-            'orange lighten-5 orange--text text--accent-3':
-              transaction.status == 'pending',
-            'teal lighten-5 teal--text text--darken-1':
-              transaction.status == 'approved',
-          }"
-        >
+      <v-card class="d-flex justify-space-between align-center" flat :color="detailsCard" :dark="detailsCardMode">
+        <v-card-title class="text-body-1 font-weight-medium" :class="detailsCardTextClass">Transaction Details
+        </v-card-title>
+        <v-chip small label class="text-capitalize rounded-lg font-weight-bold" :class="{
+          'orange lighten-5 orange--text text--accent-3':
+            transaction.status == 'pending',
+          'teal lighten-5 teal--text text--darken-1':
+            transaction.status == 'approved',
+        }">
           {{ transaction.status }}
         </v-chip>
       </v-card>
       <v-divider />
       <v-card flat class="text-center d-flex flex-column" color="transparent">
         <v-card-text class="text-center text-sm-left">
-          <v-row
-            no-gutters
-            justify="space-between"
-            align="center"
-            class="flex-column-reverse flex-sm-row"
-          >
+          <v-row no-gutters justify="space-between" align="center" class="flex-column-reverse flex-sm-row">
             <v-col cols="12" sm="6">
-              <p class="grey--text text--darken-4 mt-n2">
+              <p class="grey--text text--darken-4 mt-n2 d-flex">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
-                Transaction code:
-                <span class="font-weight-bold">{{ transaction._id }}</span>
+                Transaction code: <span class="font-weight-bold">{{ transaction._id }}</span>
               </p>
               <p class="grey--text text--darken-4 mt-n2">
                 <v-icon small color="amber">mdi-star-circle</v-icon>
@@ -98,52 +73,19 @@
         </v-card-text>
       </v-card>
 
-      <v-card-text
-        class="text-center text-sm-left d-flex flex-column flex-sm-row"
-      >
-        <vs-button
-          flat
-          active
-          danger
-          class="text-capitalize mr-3"
-          @click="openDeleteTransactionDialog(transaction)"
-          >Delete</vs-button
-        >
-        <vs-button
-          flat
-          color="#6200EA"
-          class="text-capitalize mr-3"
-          @click="openPopTransactionDialog(transaction)"
-          >Proof of payment</vs-button
-        >
-        <vs-button
-          flat
-          color="#6200EA"
-          class="text-capitalize mr-3"
-          @click="openDeclineTransactionDialog(transaction)"
-          >Decline</vs-button
-        >
-        <vs-button
-          flat
-          color="#6200EA"
-          class="text-capitalize mr-3"
-          @click="openConfirmTransactionDialog(transaction)"
-          >Confirm</vs-button
-        >
-        <vs-button
-          flat
-          color="#6200EA"
-          class="text-capitalize mr-3"
-          @click="openApprovalTransactionDialog(transaction)"
-          >Approve</vs-button
-        >
-        <vs-button
-          flat
-          color="#6200EA"
-          class="text-capitalize mr-3"
-          @click="openUpdateTransactionDialog(transaction)"
-          >Edit</vs-button
-        >
+      <v-card-text class="text-center text-sm-left d-flex flex-column flex-sm-row">
+        <vs-button flat active danger class="text-capitalize mr-3" @click="openDeleteTransactionDialog(transaction)">
+          Delete</vs-button>
+        <vs-button flat color="#6200EA" class="text-capitalize mr-3" @click="openPopTransactionDialog(transaction)">
+          Proof of payment</vs-button>
+        <vs-button flat color="#6200EA" class="text-capitalize mr-3" @click="openDeclineTransactionDialog(transaction)">
+          Decline</vs-button>
+        <vs-button flat color="#6200EA" class="text-capitalize mr-3" @click="openConfirmTransactionDialog(transaction)">
+          Confirm</vs-button>
+        <vs-button flat color="#6200EA" class="text-capitalize mr-3"
+          @click="openApprovalTransactionDialog(transaction)">Approve</vs-button>
+        <vs-button flat color="#6200EA" class="text-capitalize mr-3" @click="openUpdateTransactionDialog(transaction)">
+          Edit</vs-button>
       </v-card-text>
     </v-card>
     <ConfirmDelete />
@@ -188,7 +130,7 @@ export default {
 
     ...mapGetters(["singleTransactions"]),
 
-    detailsCard() {
+    detailsCard () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "deep-purple accent-4"
@@ -202,7 +144,7 @@ export default {
           return "transparent"
       }
     },
-    detailsCardMode() {
+    detailsCardMode () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return true
@@ -216,7 +158,7 @@ export default {
           return false
       }
     },
-    detailsCardTextClass() {
+    detailsCardTextClass () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "d-flex justify-center"

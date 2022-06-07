@@ -333,9 +333,6 @@ export default {
             state.popTransactionDialog = false
             if (response.data.success == true) {
                 router.go(-1)
-                // location.replace(
-                //     `${window.location.origin}/dashboard/transactions/goods`
-                // )
                 Vue.prototype.$vs.notification({
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",

@@ -1,10 +1,5 @@
 <template>
-  <vs-dialog
-    not-center
-    width="400px"
-    prevent-close
-    v-model="transaction.deleteTransactionDialog"
-  >
+  <vs-dialog blur not-center width="400px" prevent-close v-model="transaction.deleteTransactionDialog">
     <template #header>
       <h4 class="not-margin">Delete transaction</h4>
     </template>
@@ -14,17 +9,9 @@
     </div>
 
     <template #footer>
-      <div
-        :key="i"
-        class="d-flex justify-end"
-        v-for="(transaction, i) in selectedTransactionToDelete"
-      >
-        <vs-button
-          danger
-          class="font-weight-bold"
-          @click="confirmDelete(transaction)"
-          :loading="transaction.deleteTransactionLoading"
-        >
+      <div :key="i" class="d-flex justify-end" v-for="(transaction, i) in selectedTransactionToDelete">
+        <vs-button danger class="font-weight-bold" @click="confirmDelete(transaction)"
+          :loading="transaction.deleteTransactionLoading">
           Delete
         </vs-button>
       </div>

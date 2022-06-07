@@ -1,5 +1,5 @@
 <template>
-  <vs-dialog not-center width="400px" prevent-close v-model="transaction.popTransactionDialog">
+  <vs-dialog blur not-center width="400px" prevent-close v-model="transaction.popTransactionDialog">
     <template #header>
       <h4 class="not-margin">Proof of payment</h4>
     </template>
