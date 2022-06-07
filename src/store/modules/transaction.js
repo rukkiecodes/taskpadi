@@ -422,8 +422,7 @@ export default {
 
             await axios({
                 method: 'get',
-                url: `http://localhost:3000/transaction/getTransaction/${user._id}`,
-                // url: `https://trustpaddi.herokuapp.com/transaction/getTransaction/${user._id}`,
+                url: `https://trustpaddi.herokuapp.com/transaction/getTransaction/${user._id}`,
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: { user: user._id }
             }).then(response => {
@@ -473,6 +472,7 @@ export default {
         updateTransaction ({ commit, dispatch }) {
             let input = this.state.transaction.updateTransactionCredential
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
             if (
@@ -492,6 +492,7 @@ export default {
 
                 let myHeaders = new Headers()
                 myHeaders.append("Accept", "multipart/form-data")
+                myHeaders.append('Authorization', `Bearer ${token}`)
 
                 formData.append("user", user)
                 formData.append("_id", _id)
@@ -561,26 +562,43 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
-            axios
-                .post(
-                    "https://trustpaddi.herokuapp.com/transaction/approveTransaction", {
-                    user,
-                    _id,
-                    token,
-                }
-                )
-                .then((response) => {
-                    return dispatch("getTransactions").then(() => {
-                        dispatch("viewSingleTransaction")
-                        commit("confirmApprove", response)
-                        this.state.transaction.approveTransactionLoading = false
-                        this.state.transaction.approveTransactionDialog = false
-                    })
-                })
-                .catch((error) => {
-                    console.log("Error: ", error)
+            axios({
+                method: "post",
+                url: "https://trustpaddi.herokuapp.com/transaction/approveTransaction",
+                headers: { 'Authorization': `Bearer ${token}` },
+                data: { user, _id }
+            }).then(response => {
+                return dispatch("getTransactions").then(() => {
+                    dispatch("viewSingleTransaction")
+                    commit("confirmApprove", response)
                     this.state.transaction.approveTransactionLoading = false
+                    this.state.transaction.approveTransactionDialog = false
                 })
+            }).catch(error => {
+                console.log("Error: ", error)
+                this.state.transaction.approveTransactionLoading = false
+            })
+
+            // axios
+            //     .post(
+            //         "https://trustpaddi.herokuapp.com/transaction/approveTransaction", {
+            //         user,
+            //         _id,
+            //         token,
+            //     }
+            //     )
+            //     .then((response) => {
+            //         return dispatch("getTransactions").then(() => {
+            //             dispatch("viewSingleTransaction")
+            //             commit("confirmApprove", response)
+            //             this.state.transaction.approveTransactionLoading = false
+            //             this.state.transaction.approveTransactionDialog = false
+            //         })
+            //     })
+            //     .catch((error) => {
+            //         console.log("Error: ", error)
+            //         this.state.transaction.approveTransactionLoading = false
+            //     })
         },
 
         confirmConfirm ({ commit, dispatch }) {

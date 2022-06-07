@@ -68,9 +68,6 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
 
-            console.log(token)
-            console.log(Vue.prototype.$cookies.get("PaddiData").user._id)
-
             await axios({
                 method: 'get',
                 url: `https://trustpaddi.herokuapp.com/auth/profile/${email}`,

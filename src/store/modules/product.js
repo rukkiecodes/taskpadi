@@ -186,8 +186,7 @@ export default {
 
             await axios({
                 method: 'get',
-                url: `http://localhost:3000/product/getProducts/${user}`,
-                // url: 'https://trustpaddi.herokuapp.com/product/getProducts',
+                url: `https://trustpaddi.herokuapp.com/product/getProducts/${user}`,
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: { user }
             }).then(response => {

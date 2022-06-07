@@ -110,13 +110,14 @@
           <vs-button
             dark
             transparent
+            class="font-weight-bold grey--text text--darken-4"
             @click="transaction.updateTransactionDialog = false"
           >
             Cancel
           </vs-button>
           <vs-button
-            transparent
             color="#6200EA"
+            class="font-weight-bold"
             @click="updateTransaction"
             :loading="transaction.updateTransactionLoading"
           >
