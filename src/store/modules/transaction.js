@@ -654,9 +654,9 @@ export default {
 
                 let myHeaders = new Headers()
                 myHeaders.append("Accept", "multipart/form-data")
+                myHeaders.append('Authorization', `Bearer ${token}`)
 
                 formData.append("user", user)
-                formData.append("token", token)
                 formData.append("_id", _id)
                 formData.append("pop", pop)
 
