@@ -669,8 +669,7 @@ export default {
                 fetch(
                     "https://trustpaddi.herokuapp.com/transaction/transactionProofOfPayment",
                     requestOptions
-                )
-                    .then((response) => response.json())
+                ).then((response) => response.json())
                     .then((response) => {
                         return dispatch("getTransactions").then(() => {
                             dispatch("viewSingleTransaction")
@@ -678,8 +677,7 @@ export default {
                             this.state.transaction.popTransactionDialog = false
                             this.state.transaction.popTransactionLoading = false
                         })
-                    })
-                    .catch((error) => {
+                    }).catch((error) => {
                         console.log("Error: ", error)
                         this.state.transaction.popTransactionLoading = false
                     })
