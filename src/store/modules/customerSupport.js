@@ -167,9 +167,7 @@ export default {
         },
 
         setImage ({ commit }, file) {
-            if (file) {
-                this.state.customerSupport.createTicketCredential.file = file
-            }
+            if (file) this.state.customerSupport.createTicketCredential.file = file
         },
 
         getTickets ({ commit }) {
