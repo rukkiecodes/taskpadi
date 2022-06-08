@@ -89,7 +89,7 @@ export default {
         confirmDeleteTicket: (state, response) => {
             state.deleteLoading = false
             state.confirmDeleteDialog = false
-            if (response.data.success == true) location.replace(`${location.origin}/dashboard/support`)
+            if (response.data.success == true) route.go(-1)
         },
     },
 
@@ -236,20 +236,18 @@ export default {
 
             this.state.customerSupport.deleteLoading = true
 
-            axios
-                .post("https://trustpaddi.herokuapp.com/ticket/deleteTicket", {
-                    user,
-                    _id,
-                    token
+            axios({
+                method: 'post',
+                url: "https://trustpaddi.herokuapp.com/ticket/deleteTicket",
+                headers: { 'Authorization': `Bearer ${token}` },
+                data: { user, _id }
+            }).then((response) => {
+                return dispatch("getTickets").then(() => {
+                    commit("confirmDeleteTicket", response)
                 })
-                .then((response) => {
-                    return dispatch("getTickets").then(() => {
-                        commit("confirmDeleteTicket", response)
-                    })
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+            }).catch((error) => {
+                console.log(error)
+            })
         },
     },
 }
