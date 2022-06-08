@@ -34,10 +34,10 @@
     <template #footer>
       <v-spacer />
       <div class="con-footer d-flex justify-end">
-        <vs-button transparent @click="product.editProductDialog = false">
+        <vs-button transparent class="font-weight-bold grey--text text--darken-4" @click="product.editProductDialog = false">
           Cancel
         </vs-button>
-        <vs-button color="#6200EA" transparent @click="editProduct" :loading="product.editProductLoading">
+        <vs-button color="#6200EA" class="font-weight-bold" @click="editProduct" :loading="product.editProductLoading">
           Edit product</vs-button>
       </div>
     </template>
@@ -56,7 +56,7 @@ export default {
   methods: {
     ...mapActions(["setEditProductImage", "editProduct"]),
 
-    clickOnInput() {
+    clickOnInput () {
       document.querySelector(".realFileInput [type='file']").click()
     },
   },

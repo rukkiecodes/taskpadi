@@ -201,7 +201,6 @@ export default {
         },
 
         async viewSingleProduct ({ commit }) {
-            let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
@@ -225,6 +224,7 @@ export default {
 
         async editProduct ({ commit, dispatch }) {
             let input = this.state.product.editProductCredential
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let _id = router.currentRoute.params._id
 
