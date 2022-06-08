@@ -1,13 +1,11 @@
 <template>
-  <vs-dialog not-center v-model="product.viewDetailsDialoge">
+  <vs-dialog not-center prevent-close blur v-model="product.viewDetailsDialoge">
     <template #header>
       <h4 class="not-margin">Product Details</h4>
       <p class="text-caption grey--text text--darken-1 font-weight-regular">
         Product id:
-        <span
-          class="blue--text text-body-2 font-weight-regular font-weight-bold"
-          >{{ product.selectedTransaction.slug }}</span
-        >
+        <span class="blue--text text-body-2 font-weight-regular font-weight-bold">{{ product.selectedTransaction.slug
+          }}</span>
       </p>
     </template>
 
@@ -40,31 +38,25 @@
           <v-list-item-content>
             <v-list-item-title>Sub Total</v-list-item-title>
           </v-list-item-content>
-          <v-list-item-action-text
-            >₦{{
-              product.selectedTransaction.initialPrice
-            }}</v-list-item-action-text
-          >
+          <v-list-item-action-text>₦{{
+            product.selectedTransaction.initialPrice
+            }}</v-list-item-action-text>
         </v-list-item>
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>Charges</v-list-item-title>
           </v-list-item-content>
-          <v-list-item-action-text
-            >₦{{
-              product.selectedTransaction.transactionCharge
-            }}</v-list-item-action-text
-          >
+          <v-list-item-action-text>₦{{
+            product.selectedTransaction.transactionCharge
+            }}</v-list-item-action-text>
         </v-list-item>
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>Total</v-list-item-title>
           </v-list-item-content>
-          <v-list-item-action-text
-            >₦{{
-              product.selectedTransaction.finalPrice
-            }}</v-list-item-action-text
-          >
+          <v-list-item-action-text>₦{{
+            product.selectedTransaction.finalPrice
+            }}</v-list-item-action-text>
         </v-list-item>
       </v-list>
       <!-- <vs-table class="mb-4 white">

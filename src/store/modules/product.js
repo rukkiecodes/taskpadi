@@ -200,21 +200,17 @@ export default {
             commit("viewProductDetails", product)
         },
 
-        viewSingleProduct ({ commit }) {
+        async viewSingleProduct ({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
+            let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
-            axios
-                .post("https://trustpaddi.herokuapp.com/product/getSingleProduct", {
-                    user,
-                    _id,
-                })
-                .then((response) => {
-                    commit("viewSingleProduct", response)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+            await axios({
+                method: 'get',
+                url: `https://trustpaddi.herokuapp.com/product/getSingleProduct/${_id}`,
+                headers: { 'Authorization': `Bearer ${token}` }
+            }).then((response) => commit("viewSingleProduct", response))
+                .catch((error) => console.log(error))
         },
 
         openEditProductDialog ({ commit }, product) {
@@ -244,6 +240,7 @@ export default {
 
                 let myHeaders = new Headers()
                 myHeaders.append("Accept", "multipart/form-data")
+                myHeaders.append('Authorization', `Bearer ${token}`)
 
                 formData.append("user", user)
                 formData.append("_id", _id)

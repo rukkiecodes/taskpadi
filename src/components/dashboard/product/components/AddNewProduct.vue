@@ -3,7 +3,7 @@
     <vs-button flat active color="#6200EA" class="font-weight-bold" @click="product.createProductDialog = true">
       Add new product</vs-button>
 
-    <vs-dialog not-center width="460px" prevent-close v-model="product.createProductDialog">
+    <vs-dialog not-center width="460px" prevent-close blur v-model="product.createProductDialog">
       <template #header>
         <h4 class="not-margin">Create transaction</h4>
       </template>
@@ -34,7 +34,8 @@
       <template #footer>
         <v-spacer />
         <div class="con-footer d-flex justify-end">
-          <vs-button @click="product.createProductDialog = false" class="font-weight-bold grey--text text--darken-4" transparent dark>
+          <vs-button @click="product.createProductDialog = false" class="font-weight-bold grey--text text--darken-4"
+            transparent dark>
             Cancel
           </vs-button>
           <vs-button class="font-weight-bold" color="#6200EA" @click="createProduct"
