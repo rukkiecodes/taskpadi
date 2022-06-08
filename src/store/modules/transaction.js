@@ -437,20 +437,15 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = router.currentRoute.params._id
 
-            axios
-                .post(
-                    "https://trustpaddi.herokuapp.com/transaction/getSingleTransaction", {
-                    user,
-                    _id,
-                    token,
-                }
-                )
-                .then((response) => {
-                    commit("viewSingleTransaction", response)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+            axios.post("https://trustpaddi.herokuapp.com/transaction/getSingleTransaction", {
+                user,
+                _id,
+                token,
+            }).then((response) => {
+                commit("viewSingleTransaction", response)
+            }).catch((error) => {
+                console.log(error)
+            })
         },
 
         setTransactionDetails ({ commit }) {

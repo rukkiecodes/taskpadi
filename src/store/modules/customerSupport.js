@@ -94,24 +94,24 @@ export default {
     },
 
     actions: {
-        createTicket({ commit, dispatch }) {
+        createTicket ({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
+
             if (
                 this.state.customerSupport.createTicketCredential.subject != "" &&
                 this.state.customerSupport.createTicketCredential.description != "" &&
                 this.state.customerSupport.createTicketCredential.department != ""
             ) {
                 this.state.customerSupport.createLoading = true
-                let token = Vue.prototype.$cookies.get("PaddiData").access_token
 
                 let formData = new FormData()
 
                 let myHeaders = new Headers()
                 myHeaders.append("Accept", "multipart/form-data")
+                myHeaders.append('Authorization', `Bearer ${token}`)
 
                 formData.append("user", user)
-                formData.append("token", token)
                 formData.append(
                     "subject",
                     this.state.customerSupport.createTicketCredential.subject
@@ -135,18 +135,15 @@ export default {
                     body: formData,
                 }
 
-                fetch(
-                        "https://trustpaddi.herokuapp.com/ticket/createTicket",
-                        requestOptions
-                    )
-                    .then((response) => response.json())
+                fetch("https://trustpaddi.herokuapp.com/ticket/createTicket",
+                    requestOptions
+                ).then((response) => response.json())
                     .then((response) => {
                         return dispatch("getTickets").then(() => {
                             commit("createTicket", response)
                             this.state.customerSupport.createLoading = false
                         })
-                    })
-                    .catch((error) => {
+                    }).catch((error) => {
                         console.log("Error: ", error)
                         this.state.customerSupport.createLoading = false
                         Vue.prototype.$vs.notification({
@@ -169,52 +166,49 @@ export default {
             }
         },
 
-        setImage({ commit }, file) {
+        setImage ({ commit }, file) {
             if (file) {
                 this.state.customerSupport.createTicketCredential.file = file
             }
         },
 
-        getTickets({ commit }) {
+        getTickets ({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
-            axios
-                .post("https://trustpaddi.herokuapp.com/ticket/getTicket", {
-                    user,
-                    token
-                })
-                .then((response) => {
-                    commit("getTickets", response)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+
+            axios({
+                method: 'get',
+                url: `https://trustpaddi.herokuapp.com/ticket/getTicket/${user}`,
+                headers: { 'Authorization': `Bearer ${token}` }
+            }).then((response) => {
+                commit("getTickets", response)
+            }).catch((error) => {
+                console.log(error)
+            })
         },
 
-        viewTicket({ commit }, ticket) {
+        viewTicket ({ commit }, ticket) {
             commit("viewTicket", ticket)
         },
 
-        viewSingleTicket({ commit }) {
+        viewSingleTicket ({ commit }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = route.currentRoute.params._id
 
-            axios
-                .post("https://trustpaddi.herokuapp.com/ticket/getSingleTicket", {
-                    user,
-                    _id,
-                    token
-                })
-                .then((response) => {
-                    commit("viewSingleTicket", response)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+            axios({
+                method: 'post',
+                url: "https://trustpaddi.herokuapp.com/ticket/getSingleTicket",
+                headers: { 'Authorization': `Bearer ${token}` },
+                data: { user, _id }
+            }).then((response) => {
+                commit("viewSingleTicket", response)
+            }).catch((error) => {
+                console.log(error)
+            })
         },
 
-        closeTicket({ commit, dispatch }) {
+        closeTicket ({ commit, dispatch }) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = route.currentRoute.params._id
@@ -237,7 +231,7 @@ export default {
                 })
         },
 
-        confirmDeleteTicket({ commit, dispatch }, ticket) {
+        confirmDeleteTicket ({ commit, dispatch }, ticket) {
             let user = Vue.prototype.$cookies.get("PaddiData").user._id
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let _id = route.currentRoute.params._id
