@@ -27,10 +27,11 @@
     <template #footer>
       <v-card-actions class="con-footer d-flex py-0 my-0">
         <v-spacer />
-        <vs-button dark transparent @click="customerSupport.customerDialog = false">
+        <vs-button dark transparent class="font-weight-bold grey--text text--darken-4" @click="customerSupport.customerDialog = false">
           Close
         </vs-button>
-        <vs-button transparent color="#6200EA" @click="createTicket" :loading="customerSupport.createLoading">
+        <vs-button color="#6200EA" class="font-weight-bold" @click="createTicket"
+          :loading="customerSupport.createLoading">
           Submit ticket
         </vs-button>
       </v-card-actions>

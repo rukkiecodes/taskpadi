@@ -1,26 +1,16 @@
 <template>
   <v-row :class="rowClass" justify="start" align="start">
     <v-col cols="12" sm="6" lg="4">
-      <v-card color="transparent" class="rounded-lg py-0" flat>
-        <v-img
-          contain
-          :key="i"
-          height="300"
-          max-height="400"
-          :src="ticket.file"
-          v-for="(ticket, i) in singleTicket"
-        />
+      <v-card flat height="300" color="#F8F8FB" max-height="400" v-for="(ticket, i) in singleTicket" :key="i">
+        <img style="width: 100%;" :src="ticket.file" />
       </v-card>
     </v-col>
 
     <v-col v-for="(ticket, i) in singleTicket" :key="i" cols="12" sm="6" lg="8">
       <v-card flat color="transparent">
         <v-card flat :color="detailsCard" :dark="detailsCardMode">
-          <v-card-title
-            class="text-body-1 font-weight-medium"
-            :class="detailsCardTextClass"
-            >Ticket Details</v-card-title
-          >
+          <v-card-title class="text-body-1 font-weight-medium" :class="detailsCardTextClass">Ticket Details
+          </v-card-title>
         </v-card>
 
         <v-divider />
@@ -31,28 +21,18 @@
 
             <v-spacer />
 
-            <v-chip
-              small
-              label
-              class="text-capitalize rounded-lg font-weight-bold"
-              :class="{
-                'orange lighten-5 orange--text text--accent-3':
-                  ticket.status == 'pending',
-                'teal lighten-5 teal--text text--darken-1':
-                  ticket.status == 'closed',
-              }"
-            >
+            <v-chip small label class="text-capitalize rounded-lg font-weight-bold" :class="{
+              'orange lighten-5 orange--text text--accent-3':
+                ticket.status == 'pending',
+              'teal lighten-5 teal--text text--darken-1':
+                ticket.status == 'closed',
+            }">
               {{ ticket.status }}
             </v-chip>
           </v-card-title>
 
           <v-card-text class="text-center text-sm-left">
-            <v-row
-              no-gutters
-              align="center"
-              justify="space-between"
-              class="flex-column-reverse flex-sm-row"
-            >
+            <v-row no-gutters align="center" justify="space-between" class="flex-column-reverse flex-sm-row">
               <v-col cols="12" sm="6">
                 <p class="grey--text text--darken-4 mt-n2">
                   <v-icon small color="amber">mdi-star-circle</v-icon>
@@ -70,19 +50,11 @@
           </v-card-text>
 
           <v-card-actions>
-            <vs-button
-              flat
-              color="#6200EA"
-              @click="customerSupport.closeTicketDialog = true"
-            >
-              Close ticket
-            </vs-button>
-            <vs-button
-              flat
-              color="#FF4757"
-              @click="customerSupport.confirmDeleteDialog = true"
-            >
+            <vs-button danger @click="customerSupport.confirmDeleteDialog = true">
               Delete ticket
+            </vs-button>
+            <vs-button flat color="#6200EA" @click="customerSupport.closeTicketDialog = true">
+              Close ticket
             </vs-button>
           </v-card-actions>
         </v-card>
@@ -101,7 +73,7 @@ export default {
     ConfirmDelete: () => import("./ConfirmDelete.vue"),
   },
 
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
       this.viewSingleTicket()
     })
@@ -115,7 +87,7 @@ export default {
     ...mapState(["customerSupport"]),
     ...mapGetters(["singleTicket"]),
 
-    rowClass() {
+    rowClass () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "mb-16"
@@ -130,7 +102,7 @@ export default {
       }
     },
 
-    detailsCard() {
+    detailsCard () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "deep-purple accent-4"
@@ -145,7 +117,7 @@ export default {
       }
     },
 
-    detailsCardMode() {
+    detailsCardMode () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return true
@@ -160,7 +132,7 @@ export default {
       }
     },
 
-    detailsCardTextClass() {
+    detailsCardTextClass () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return "d-flex justify-center"

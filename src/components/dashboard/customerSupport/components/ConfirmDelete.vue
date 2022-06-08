@@ -1,9 +1,5 @@
 <template>
-  <vs-dialog
-    persistent
-    max-width="360px"
-    v-model="customerSupport.confirmDeleteDialog"
-  >
+  <vs-dialog blur not-center prevent-close max-width="360px" v-model="customerSupport.confirmDeleteDialog">
     <template #header>
       <h4 class="not-margin">Confirm delete</h4>
     </template>
@@ -16,19 +12,11 @@
       <v-card-actions class="con-footer d-flex py-0 my-0">
         <v-spacer />
 
-        <vs-button
-          dark
-          transparent
-          @click="customerSupport.confirmDeleteDialog = false"
-        >
+        <vs-button class="font-weight-bold grey--text text--darken-4" dark transparent @click="customerSupport.confirmDeleteDialog = false">
           Cancel
         </vs-button>
-        <vs-button
-          transparent
-          color="#FF4757"
-          @click="confirmDeleteTicket"
-          :loading="customerSupport.deleteLoading"
-        >
+        <vs-button class="font-weight-bold" color="#FF4757" @click="confirmDeleteTicket"
+          :loading="customerSupport.deleteLoading">
           Delete ticket
         </vs-button>
       </v-card-actions>

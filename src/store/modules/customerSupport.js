@@ -215,20 +215,18 @@ export default {
 
             this.state.customerSupport.closeTicketLoading = true
 
-            axios
-                .post("https://trustpaddi.herokuapp.com/ticket/closeTicket", {
-                    user,
-                    _id,
-                    token
+            axios({
+                method: 'post',
+                url: "https://trustpaddi.herokuapp.com/ticket/closeTicket",
+                headers: { 'Authorization': `Bearer ${token}` },
+                data: { user, _id }
+            }).then((response) => {
+                return dispatch("viewSingleTicket").then(() => {
+                    commit("closeTicket", response)
                 })
-                .then((response) => {
-                    return dispatch("viewSingleTicket").then(() => {
-                        commit("closeTicket", response)
-                    })
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+            }).catch((error) => {
+                console.log(error)
+            })
         },
 
         confirmDeleteTicket ({ commit, dispatch }, ticket) {
