@@ -51,15 +51,16 @@ export default {
         },
 
         updateProfile: (state, response) => {
-            if (response.data.success == true) {
-                Vue.prototype.$vs.notification({
-                    icon: `<i class="las la-user"></i>`,
-                    border: "#46C93A",
-                    position: "top-right",
-                    title: "Yippee!!!",
-                    text: "Profile updated successfully",
-                })
-            }
+            console.log('updateProfile: ', response)
+            // if (response.data.success == true) {
+            //     Vue.prototype.$vs.notification({
+            //         icon: `<i class="las la-user"></i>`,
+            //         border: "#46C93A",
+            //         position: "top-right",
+            //         title: "Yippee!!!",
+            //         text: "Profile updated successfully",
+            //     })
+            // }
         },
     },
 
@@ -67,6 +68,8 @@ export default {
         async getProfile ({ commit }) {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
+
+            console.log(token)
 
             await axios({
                 method: 'get',
@@ -90,13 +93,11 @@ export default {
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
             let input = this.state.account.credential
 
-            // try {
             let user = await axios({
                 method: 'post',
-                url: "https://trustpaddi.herokuapp.com/auth/updateProfile",
+                url: `https://trustpaddi.herokuapp.com/auth/updateProfile/${email}`,
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: {
-                    email,
                     firstname: input.firstname,
                     lastname: input.lastname,
                     phone: input.phone,
@@ -110,37 +111,6 @@ export default {
                 commit("updateProfile", user)
                 this.state.account.saveLoading = false
             })
-            //     .then(user => {
-            //     commit("getProfile", user)
-            // }).catch(err => console.log('error: ', err))
-
-            // let user = await axios.post(
-            //     "https://trustpaddi.herokuapp.com/auth/updateProfile", {
-            //     email,
-            //     firstname: input.firstname,
-            //     lastname: input.lastname,
-            //     phone: input.phone,
-            //     country: input.country,
-            //     state: input.state,
-            //     lga: input.lga,
-            //     address: input.address,
-            // }
-            // )
-            // return dispatch("getProfile").then(() => {
-            //     commit("updateProfile", user)
-            //     this.state.account.saveLoading = false
-            // })
-            // } catch (error) {
-            //     console.log("Error: ", error)
-            //     this.state.account.saveLoading = false
-            //     Vue.prototype.$vs.notification({
-            //         icon: `<i class="las la-exclamation-triangle"></i>`,
-            //         border: "rgb(255, 71, 87)",
-            //         position: "top-right",
-            //         title: "Error!!!",
-            //         text: `Update in error. Check your details the try again.`,
-            //     })
-            // }
         },
 
         setImage ({ commit, dispatch }, file) {

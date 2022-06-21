@@ -12,8 +12,8 @@ export default {
 
     addBankAccountCredential: {
       bank_id: "",
-      account_no: "",
-      account_name: "",
+      account_no: "6553754101",
+      account_name: "Terry Amagboro",
     },
 
     resolveBankAccountCredential: {
@@ -157,12 +157,12 @@ export default {
   },
 
   actions: {
-    async changePassword({ commit }) {
+    async changePassword ({ commit }) {
       if (
         this.state.settings.credential.password != "" &&
         this.state.settings.credential.password_confirmation != "" &&
         this.state.settings.credential.password ===
-          this.state.settings.credential.password_confirmation
+        this.state.settings.credential.password_confirmation
       ) {
         this.state.settings.loading = true
         let token = Vue.prototype.$cookies.get("PaddiData").token
@@ -195,7 +195,7 @@ export default {
       }
     },
 
-    logoutOfAccount({ commit }) {
+    logoutOfAccount ({ commit }) {
       this.state.settings.logoutLoading = true
       let token = Vue.prototype.$cookies.get("PaddiData").access_token
       fetch(
@@ -220,7 +220,7 @@ export default {
         })
     },
 
-    async getBanks({ commit }) {
+    async getBanks ({ commit }) {
       try {
         let banks = await axios.get("https://trustpaddi.herokuapp.com/banks")
         commit("getBanks", banks)
@@ -229,25 +229,23 @@ export default {
       }
     },
 
-    async getUserBanks({ commit }) {
+    async getUserBanks ({ commit }) {
       let user = Vue.prototype.$cookies.get("PaddiData").user._id
+      let token = Vue.prototype.$cookies.get("PaddiData").token
 
-      try {
-        let banks = await axios.post(
-          "https://trustpaddi.herokuapp.com/banks/userBanks",
-          {
-            user,
-          }
-        )
-        commit("getUserBanks", banks)
-      } catch (error) {
-        console.log(error)
-      }
+      let banks = await axios({
+        method: 'get',
+        url: `https://trustpaddi.herokuapp.com/banks/userBanks/${user}`,
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+      commit("getUserBanks", banks)
     },
 
-    async addBankAccount({ commit, dispatch }) {
+    async addBankAccount ({ commit, dispatch }) {
       let input = this.state.settings.addBankAccountCredential
       let user = Vue.prototype.$cookies.get("PaddiData").user._id
+      let token = Vue.prototype.$cookies.get("PaddiData").token
+
       if (
         input.bank_id != "" &&
         input.account_no != "" &&
@@ -255,25 +253,23 @@ export default {
       ) {
         this.state.settings.addBankAccountLoading = true
 
-        try {
-          let bank = await axios.post(
-            "https://trustpaddi.herokuapp.com/banks/addBank",
-            {
-              user,
-              bankId: input.bank_id,
-              accountNumber: input.account_no,
-              accountName: input.account_name,
-            }
-          )
+        let bank = await axios({
+          method: 'post',
+          url: "https://trustpaddi.herokuapp.com/banks/addBank",
+          headers: { 'Authorization': `Bearer ${token}` },
+          body: {
+            user,
+            bankId: input.bank_id,
+            accountNumber: input.account_no,
+            accountName: input.account_name,
+          }
+        })
 
-          return dispatch("getUserBanks").then(() => {
-            commit("addBankAccount", bank)
-            this.state.settings.addBankAccountLoading = false
-          })
-        } catch (error) {
-          console.log(error)
+        return dispatch("getUserBanks").then(() => {
+          commit("addBankAccount", bank)
           this.state.settings.addBankAccountLoading = false
-        }
+        })
+
       } else {
         this.state.settings.addBankAccountLoading = false
         Vue.prototype.$vs.notification({
@@ -286,7 +282,7 @@ export default {
       }
     },
 
-    async resolveBackAccount({ commit }) {
+    async resolveBackAccount ({ commit }) {
       let input = this.state.settings.resolveBankAccountCredential
       let user = Vue.prototype.$cookies.get("PaddiData").user._id
 
@@ -320,7 +316,7 @@ export default {
       }
     },
 
-    async removeBankAccount({ commit, dispatch }) {
+    async removeBankAccount ({ commit, dispatch }) {
       if (this.state.settings.removeBankAccountCredential.bank_id != "") {
         try {
           let bank = await axios.post(
