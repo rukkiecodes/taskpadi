@@ -31,9 +31,6 @@
           </v-col>
           <v-col cols="12">
             <vs-input block placeholder="Quantity" v-model="orders.createOrderCredential.quantity" />
-            <!-- <vs-select block placeholder="Quantity" v-model="orders.createOrderCredential.quantity">
-              <vs-option label="Product" value="product"> Product </vs-option>
-            </vs-select> -->
           </v-col>
         </v-row>
       </div>
@@ -64,8 +61,14 @@ export default {
     rules: [(v) => v.length <= 180 || "Max 25 characters"],
   }),
 
+  mounted () {
+    this.$nextTick(() => {
+      this.getOrders()
+    })
+  },
+
   methods: {
-    ...mapActions(["setOrderImage", "createOrder"]),
+    ...mapActions(["createOrder", "getOrders"]),
   },
 
   computed: {

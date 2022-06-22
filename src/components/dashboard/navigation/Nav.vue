@@ -9,24 +9,14 @@
             <img src="../../../assets/paddi.png" />
           </v-avatar>
           <v-list-item-content>
-            <v-list-item-title
-              class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3"
-              >TrustPaddi</v-list-item-title
-            >
+            <v-list-item-title class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3">TrustPaddi
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
 
-      <vs-input
-        shadow
-        primary
-        icon-after
-        color="#6200EA"
-        autocomplete="off"
-        v-model="searchPaddi"
-        class="hidden-xs-only"
-        placeholder="Search..."
-      >
+      <vs-input shadow primary icon-after color="#6200EA" autocomplete="off" v-model="searchPaddi"
+        class="hidden-xs-only" placeholder="Search...">
         <template #icon>
           <i class="las la-search"></i>
         </template>
@@ -34,14 +24,8 @@
 
       <v-spacer />
 
-      <vs-button
-        dark
-        depressed
-        color="#6200EA"
-        to="/dashboard/createpaddilink"
-        class="text-capitalize text-body-2 font-weight-bold hidden-xs-only"
-        >Create paddi link</vs-button
-      >
+      <vs-button dark depressed color="#6200EA" to="/dashboard/createpaddilink"
+        class="text-capitalize text-body-2 font-weight-bold hidden-xs-only">Create paddi link</vs-button>
 
       <vs-avatar class="mx-5" badge-color="danger" badge-position="top-right">
         <i class="lar la-bell"></i>
@@ -51,75 +35,39 @@
       <ProfileMenu />
     </v-app-bar>
 
-    <v-navigation-drawer
-      app
-      :width="200"
-      v-model="drawer"
-      color="transparent"
-      style="z-index: 101"
-    >
-      <vs-sidebar
-        open
-        absolute
-        :square="true"
-        v-model="active"
-        style="width: 100%"
-      >
+    <v-navigation-drawer app :width="200" v-model="drawer" color="transparent" style="z-index: 101">
+      <vs-sidebar open absolute :square="true" v-model="active" style="width: 100%">
         <template #logo>
           <div class="d-flex flex-column align-start justify-center">
-            <v-list
-              dense
-              color="transparent"
-              v-if="navbarHeadingLogo"
-              class="pa-0 ml-n10 mt-n5"
-            >
+            <v-list dense color="transparent" v-if="navbarHeadingLogo" class="pa-0 ml-n10 mt-n5">
               <v-list-item dense class="py-0">
                 <v-avatar size="30" color="transparent" tile>
                   <img src="../../../assets/paddi.png" />
                 </v-avatar>
                 <v-list-item-content>
-                  <v-list-item-title
-                    class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3"
-                    >TrustPaddi</v-list-item-title
-                  >
+                  <v-list-item-title class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3">TrustPaddi
+                  </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
 
-            <v-list
-              dense
-              class="pa-0"
-              v-if="navbarHeadingProfile"
-              color="transparent"
-            >
+            <v-list dense class="pa-0" v-if="navbarHeadingProfile" color="transparent">
               <v-list-item dense class="py-0">
                 <vs-avatar size="35" color="transparent" tile>
-                  <img
-                    v-if="!account.userData.avatar"
-                    src="../../../assets/trust/pl.png"
-                  />
-                  <img v-else :src="`https://trustpaddi.herokuapp.com/${account.userData.avatar}`" />
+                  <img v-if="!account.userData.avatar" src="../../../assets/trust/pl.png" />
+                  <img v-else
+                    :src="account.userData.avatar" />
                 </vs-avatar>
                 <v-list-item-content>
-                  <v-list-item-title
-                    class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3"
-                    >{{
-                      account.userData.firstname || "User"
-                    }}</v-list-item-title
-                  >
+                  <v-list-item-title class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3">{{
+                    account.userData.firstname || "User"
+                    }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
 
-            <vs-input
-              shadow
-              primary
-              color="#6200EA"
-              autocomplete="off"
-              v-if="headingSearch"
-              v-model="searchPaddi"
-              placeholder="Search..."
-            >
+            <vs-input shadow primary color="#6200EA" autocomplete="off" v-if="headingSearch" v-model="searchPaddi"
+              placeholder="Search...">
               <template #icon>
                 <i class="las la-search"></i>
               </template>
@@ -127,12 +75,7 @@
           </div>
         </template>
 
-        <vs-sidebar-item
-          v-for="(route, i) in dashboardRoutes"
-          :key="i"
-          :id="route.title"
-          :to="route.route"
-        >
+        <vs-sidebar-item v-for="(route, i) in dashboardRoutes" :key="i" :id="route.title" :to="route.route">
           <template #icon>
             <i style="font-size: 1.3rem" :class="route.icon"></i>
           </template>

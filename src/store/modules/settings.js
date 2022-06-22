@@ -110,26 +110,26 @@ export default {
 
     resolveBackAccount: (state, response) => {
       console.log("resolveBackAccount: ", response)
-      Vue.prototype.$cookies.set("PaddiResolved", response.data.bank)
-      state.resolvedAccount = Vue.prototype.$cookies.get("PaddiResolved")
-      if (response.data.success == true) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "#46C93A",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.data.message,
-        })
-      }
-      if (response.data.success == false) {
-        Vue.prototype.$vs.notification({
-          icon: `<i class="las la-university"></i>`,
-          border: "rgb(255, 71, 87)",
-          position: "top-right",
-          title: "Yippee!!!",
-          text: response.data.message,
-        })
-      }
+      // Vue.prototype.$cookies.set("PaddiResolved", response.data.bank)
+      // state.resolvedAccount = Vue.prototype.$cookies.get("PaddiResolved")
+      // if (response.data.success == true) {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-university"></i>`,
+      //     border: "#46C93A",
+      //     position: "top-right",
+      //     title: "Yippee!!!",
+      //     text: response.data.message,
+      //   })
+      // }
+      // if (response.data.success == false) {
+      //   Vue.prototype.$vs.notification({
+      //     icon: `<i class="las la-university"></i>`,
+      //     border: "rgb(255, 71, 87)",
+      //     position: "top-right",
+      //     title: "Yippee!!!",
+      //     text: response.data.message,
+      //   })
+      // }
     },
 
     removeBankAccount: (state, response) => {
@@ -277,6 +277,7 @@ export default {
     },
 
     async resolveBackAccount ({ commit }) {
+      let token = Vue.prototype.$cookies.get("PaddiData").token
       let input = this.state.settings.resolveBankAccountCredential
       let user = Vue.prototype.$cookies.get("PaddiData").user._id
 
@@ -284,14 +285,11 @@ export default {
         this.state.settings.resolveBankAccountLoading = true
 
         try {
-          let bank = await axios.post(
-            "https://trustpaddi.herokuapp.com/banks/resolveBank",
-            {
-              user,
-              bankId: input.bank_id,
-              accountNumber: input.account_no,
-            }
-          )
+          let bank = axios({
+            url: `https://trustpaddi.herokuapp.com/banks/resolveBank/${user}/${input.bank_id}/${input.account_no}`,
+            method: 'post',
+            headers: { 'Authorization': `Bearer ${token}` }
+          })
           commit("resolveBackAccount", bank)
           this.state.settings.resolveBankAccountLoading = false
         } catch (error) {
@@ -311,14 +309,15 @@ export default {
     },
 
     async removeBankAccount ({ commit, dispatch }) {
+      let token = Vue.prototype.$cookies.get("PaddiData").token
+
       if (this.state.settings.removeBankAccountCredential.bank_id != "") {
         try {
-          let bank = await axios.post(
-            "https://trustpaddi.herokuapp.com/banks/removeBank",
-            {
-              bankId: this.state.settings.removeBankAccountCredential.bank_id,
-            }
-          )
+          let bank = axios({
+            method: 'post',
+            url: `https://trustpaddi.herokuapp.com/banks/removeBank/${this.state.settings.removeBankAccountCredential.bank_id}`,
+            headers: { 'Authorization': `Bearer ${token}` }
+          })
 
           return dispatch("getUserBanks").then(() => {
             commit("removeBankAccount", bank)

@@ -1,76 +1,41 @@
 <template>
   <v-card flat class="mx-0 px-0 px-lg-2" color="transparent">
     <v-card-text class="mx-0 px-0 px-lg-2">
-      <v-data-table
-        :page.sync="page"
-        :headers="headers"
-        class="elevation-0"
-        hide-default-footer
-        :items="transactions"
-        :mobile-breakpoint="0"
-        :search="transaction.search"
-        :items-per-page="itemsPerPage"
-        @page-count="pageCount = $event"
-      >
+      <v-data-table :page.sync="page" :headers="headers" class="elevation-0" hide-default-footer :items="transactions"
+        :mobile-breakpoint="0" :search="transaction.search" :items-per-page="itemsPerPage"
+        @page-count="pageCount = $event">
         <template v-slot:item._id="{ item }">
-          <span
-            class="grey--text text--darken-4 text-body-2 font-weight-light"
-            >{{ item._id }}</span
-          >
+          <span class="grey--text text--darken-4 text-body-2 font-weight-light">{{ item._id }}</span>
         </template>
         <template v-slot:item.recipientPhone="{ item }">
-          <span
-            class="grey--text text--darken-4 text-body-2 font-weight-light"
-            >{{ item.recipientPhone }}</span
-          >
+          <span class="grey--text text--darken-4 text-body-2 font-weight-light">{{ item.recipientPhone }}</span>
         </template>
         <template v-slot:item.role="{ item }">
-          <span
-            class="grey--text text--darken-4 text-body-2 font-weight-light"
-            >{{ item.role }}</span
-          >
+          <span class="grey--text text--darken-4 text-body-2 font-weight-light">{{ item.role }}</span>
         </template>
         <template v-slot:item.price="{ item }">
-          <span
-            class="grey--text text--darken-4 text-body-2 font-weight-light"
-            >{{ item.price }}</span
-          >
+          <span class="grey--text text--darken-4 text-body-2 font-weight-light">{{ item.price }}</span>
         </template>
         <template v-slot:item.duration="{ item }">
-          <span
-            class="grey--text text--darken-4 text-body-2 font-weight-light"
-            >{{ item.duration }}</span
-          >
+          <span class="grey--text text--darken-4 text-body-2 font-weight-light">{{ item.duration }}</span>
         </template>
         <template v-slot:item.createdAt="{ item }">
-          <span
-            class="grey--text text--darken-4 text-body-2 font-weight-light"
-            >{{ new Date(item.createdAt).toLocaleDateString() }}</span
-          >
+          <span class="grey--text text--darken-4 text-body-2 font-weight-light">{{ new
+              Date(item.createdAt).toLocaleDateString()
+          }}</span>
         </template>
         <template v-slot:item.status="{ item }">
-          <v-chip
-            dark
-            small
-            depressed
-            class="text-capitalize font-weight-bold"
-            :class="{
-              'orange lighten-5 orange--text text--accent-3':
-                item.status == 'pending',
-              'teal lighten-5 teal--text text--darken-1':
-                item.status == 'approved',
-            }"
-            >{{ item.status }}
+          <v-chip dark small depressed class="text-capitalize font-weight-bold" :class="{
+            'orange lighten-5 orange--text text--accent-3':
+              item.status == 'pending',
+            'teal lighten-5 teal--text text--darken-1':
+              item.status == 'approved',
+          }">{{ item.status }}
           </v-chip>
         </template>
         <template v-slot:item.view="{ item }">
           <div class="d-flex">
-            <vs-button
-              icon
-              transparent
-              color="#2A00A2"
-              @click="viewTransactionDetails(item)"
-            >
+            <vs-button icon transparent color="#2A00A2" @click="viewTransactionDetails(item)">
               <i class="lar la-eye"></i>
             </vs-button>
           </div>
@@ -79,12 +44,7 @@
     </v-card-text>
 
     <div div class="d-flex justify-end align-center pt-2 transparent">
-      <vs-pagination
-        square
-        v-model="page"
-        color="#6200EA"
-        :length="pageCount"
-      />
+      <vs-pagination square v-model="page" color="#6200EA" :length="pageCount" />
     </div>
   </v-card>
 </template>
@@ -96,7 +56,7 @@ export default {
   data: () => ({
     page: 1,
     pageCount: 0,
-    itemsPerPage: 8,
+    itemsPerPage: 10,
     headers: [
       {
         text: "Id",
@@ -114,7 +74,7 @@ export default {
     ],
   }),
 
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
       let border
       let borderInterval = setInterval(() => {

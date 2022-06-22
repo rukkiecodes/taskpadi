@@ -14,13 +14,24 @@ export default {
       sellerId: '6227ff95bf412c6e44b4aa34',
       quantity: '2'
     },
+
+    userOrders: [],
+
+    search: ''
   },
 
-  getters: {},
+  getters: {
+    userOrders: state => state.userOrders
+  },
 
   mutations: {
     getOrders: (state, response) => {
-      console.log("Orders: ", response)
+      state.userOrders = []
+      if (response.data.message == 'Orders found') {
+        state.userOrders.push(...response.data.data)
+
+        state.userOrders
+      }
     },
 
     createOrder: (state, response) => {
@@ -48,8 +59,6 @@ export default {
         })
     },
 
-    setOrderImage ({ commit }) { },
-
     createOrder ({ commit, dispatch }) {
       let token = Vue.prototype.$cookies.get("PaddiData").token
       this.state.orders.createOrderLoading = true
@@ -68,5 +77,17 @@ export default {
         this.state.orders.createOrderLoading = false
       })
     },
+
+    async getOrders ({ commit }) {
+      let token = Vue.prototype.$cookies.get("PaddiData").token
+      let userId = Vue.prototype.$cookies.get("PaddiData").user._id
+
+      let orders = await axios({
+        method: 'get',
+        url: `http://localhost:8000/order/get-user-orders/${userId}`,
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+      commit("getOrders", orders)
+    }
   },
 }
