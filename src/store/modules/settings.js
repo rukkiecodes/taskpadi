@@ -255,14 +255,8 @@ export default {
 
         let bank = await axios({
           method: 'post',
-          url: "https://trustpaddi.herokuapp.com/banks/addBank",
+          url: `https://trustpaddi.herokuapp.com/banks/addBank/${user}/${input.bank_id}/${input.account_no}/${input.account_name}`,
           headers: { 'Authorization': `Bearer ${token}` },
-          body: {
-            user,
-            bankId: input.bank_id,
-            accountNumber: input.account_no,
-            accountName: input.account_name,
-          }
         })
 
         return dispatch("getUserBanks").then(() => {
