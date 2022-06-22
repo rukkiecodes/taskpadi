@@ -52,7 +52,7 @@ export default {
 
     createOrder ({ commit, dispatch }) {
       let token = Vue.prototype.$cookies.get("PaddiData").token
-      // this.state.orders.createOrderLoading = true
+      this.state.orders.createOrderLoading = true
 
       let input = this.state.orders.createOrderCredential
 

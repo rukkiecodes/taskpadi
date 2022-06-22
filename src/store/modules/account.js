@@ -95,17 +95,8 @@ export default {
 
             let user = await axios({
                 method: 'post',
-                url: `https://trustpaddi.herokuapp.com/auth/updateProfile/${email}`,
-                headers: { 'Authorization': `Bearer ${token}` },
-                body: {
-                    firstname: input.firstname,
-                    lastname: input.lastname,
-                    phone: input.phone,
-                    country: input.country,
-                    state: input.state,
-                    lga: input.lga,
-                    address: input.address,
-                }
+                url: `https://trustpaddi.herokuapp.com/auth/updateProfile/${email}/${input.firstname}/${input.lastname}/${input.phone}/${input.country}/${input.state}/${input.lga}/${input.address}`,
+                headers: { 'Authorization': `Bearer ${token}` }
             })
             return dispatch("getProfile").then(() => {
                 commit("updateProfile", user)
