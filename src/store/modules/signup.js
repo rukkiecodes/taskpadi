@@ -24,7 +24,7 @@ export default {
   },
 
   actions: {
-    async signupUser({ commit }) {
+    async signupUser ({ commit }) {
       let emailRegEx = /\S+@\S+\.\S+/
 
       this.state.signup.loading = true
@@ -44,15 +44,11 @@ export default {
             email: input.email,
             password: input.password,
             referral_code: input.referral_code,
-          })
-          .then((user) => {
+          }).then((user) => {
             commit("signupUser", user)
             this.state.signup.loading = false
           })
-          .catch((error) => {
-            this.state.signup.loading = false
-            console.log("error signing up: ", error)
-          })
+          .catch((error) => this.state.signup.loading = false)
       } else {
         this.state.signup.loading = false
         Vue.prototype.$vs.notification({

@@ -102,7 +102,6 @@ export default {
         createTransaction: (state, response) => {
             state.createTransactionLoading = false
             state.createTransactionDialog = false
-            console.log("created transaction: ", response)
             if (response.success == true) {
                 state.createTransactionDialog = false
                 Vue.prototype.$vs.notification({
@@ -133,23 +132,19 @@ export default {
             }
         },
 
-        viewTransactionDetails: (state, transaction) => {
-            router.push(`/dashboard/transactions/${transaction._id}`)
-        },
+        viewTransactionDetails: (state, transaction) => router.push(`/dashboard/transactions/${transaction._id}`),
 
         viewSingleTransaction: (state, response) => {
             state.singleTransactions = []
             state.singleTransactions.push(...response.data.transaction)
         },
 
-        setTransactionDetails: (state) => {
+        setTransactionDetails: state =>
             state.selectedTransaction = Vue.prototype.$cookies.get(
                 "view transaction details"
-            )
-        },
+            ),
 
         openUpdateTransactionDialog: (state, transaction) => {
-            console.log("update: ", transaction)
             state.selectedTransactionToUpdate = transaction
 
             state.updateTransactionCredential = {
@@ -168,7 +163,6 @@ export default {
         },
 
         updateTransaction: (state, response) => {
-            console.log("response: ", response)
             if (response.success == true) {
                 state.updateTransactionDialog = false
                 state.updateTransactionLoading = false
@@ -194,15 +188,13 @@ export default {
         },
 
         openApprovalTransactionDialog: (state, transaction) => {
-            console.log(transaction)
             state.selectedTransactionToApprove = []
             state.selectedTransactionToApprove.push(transaction)
             state.approveTransactionDialog = true
         },
 
         confirmApprove: (state, response) => {
-            console.log("confirmApprove: ", response)
-            if (response.data.success == true) {
+            if (response.data.success == true)
                 Vue.prototype.$vs.notification({
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
@@ -210,8 +202,8 @@ export default {
                     title: "Yippee!!!",
                     text: response.data.message,
                 })
-            }
-            if (response.data.success == false) {
+
+            if (response.data.success == false)
                 Vue.prototype.$vs.notification({
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
@@ -219,19 +211,16 @@ export default {
                     title: "Oops!!!",
                     text: response.data.message,
                 })
-            }
         },
 
         openConfirmTransactionDialog: (state, transaction) => {
-            console.log(transaction)
             state.selectedTransactionToConfirm = []
             state.selectedTransactionToConfirm.push(transaction)
             state.confirmTransactionDialog = true
         },
 
         confirmConfirm: (state, response) => {
-            console.log(response)
-            if (response.data.success == true) {
+            if (response.data.success == true)
                 Vue.prototype.$vs.notification({
                     icon: `<i class="lar la-check-circle"></i>`,
                     border: "#46C93A",
@@ -239,8 +228,8 @@ export default {
                     title: "Yippee!!!",
                     text: response.data.message,
                 })
-            }
-            if (response.data.success == false) {
+
+            if (response.data.success == false)
                 Vue.prototype.$vs.notification({
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
@@ -248,18 +237,15 @@ export default {
                     title: "Oops!!!",
                     text: response.data.message,
                 })
-            }
         },
 
         openDeclineTransactionDialog: (state, transaction) => {
-            console.log(transaction)
             state.selectedTransactionToDecline = []
             state.selectedTransactionToDecline.push(transaction)
             state.declineTransactionDialog = true
         },
 
         confirmDecline: (state, response) => {
-            console.log(response)
             if (response.data.success == true) {
                 Vue.prototype.$vs.notification({
                     icon: `<i class="lar la-check-circle"></i>`,
@@ -281,7 +267,6 @@ export default {
         },
 
         openPopTransactionDialog: (state, transaction) => {
-            console.log("pop transaction: ", transaction)
             state.selectedTransactionToPop = []
             state.selectedTransactionToPop.push(transaction)
             state.pop = transaction.pop
@@ -289,7 +274,6 @@ export default {
         },
 
         confirmPop: (state, response) => {
-            console.log(response)
             if (response.success == true) {
                 state.popTransactionDialog = false
                 Vue.prototype.$vs.notification({
@@ -321,7 +305,6 @@ export default {
         },
 
         openDeleteTransactionDialog: (state, transaction) => {
-            console.log("delete transaction: ", transaction)
             state.selectedTransactionToDelete = []
             state.selectedTransactionToDelete.push(transaction)
             state.pop = transaction.pop
@@ -329,7 +312,6 @@ export default {
         },
 
         confirmDelete: (state, response) => {
-            console.log(response)
             state.popTransactionDialog = false
             if (response.data.success == true) {
                 router.go(-1)
@@ -402,7 +384,6 @@ export default {
                     })
                 })
                 .catch(error => {
-                    console.log("Error: ", error)
                     this.state.transaction.createTransactionLoading = false
                     Vue.prototype.$vs.notification({
                         icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -423,9 +404,7 @@ export default {
                 url: `https://trustpaddi.herokuapp.com/transaction/getTransaction/${user._id}`,
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: { user: user._id }
-            }).then(response => {
-                commit("getTransactions", response)
-            }).catch(err => console.log('error: ', err))
+            }).then(response => commit("getTransactions", response))
         },
 
         viewTransactionDetails ({ commit }, transaction) {
@@ -442,11 +421,7 @@ export default {
                 url: "https://trustpaddi.herokuapp.com/transaction/getSingleTransaction",
                 headers: { 'Authorization': `Bearer ${token}` },
                 data: { user, _id }
-            }).then((response) => {
-                commit("viewSingleTransaction", response)
-            }).catch((error) => {
-                console.log(error)
-            })
+            }).then(response => commit("viewSingleTransaction", response))
         },
 
         setTransactionDetails ({ commit }) {
@@ -460,7 +435,6 @@ export default {
         setUpdateTransactionImage ({ commit }, image) {
             this.state.transaction.imageName = image.name
             this.state.transaction.updateTransactionCredential.image = image
-            console.log("state: ", image)
         },
 
         updateTransaction ({ commit, dispatch }) {
@@ -511,16 +485,14 @@ export default {
                     "https://trustpaddi.herokuapp.com/transaction/updateTransaction",
                     requestOptions
                 )
-                    .then((response) => response.json())
-                    .then((response) => {
-                        return dispatch("getTransactions").then(() => {
+                    .then(response => response.json())
+                    .then(response =>
+                        dispatch("getTransactions").then(() => {
                             this.state.transaction.updateTransactionLoading = false
                             dispatch("viewSingleTransaction")
                             commit("updateTransaction", response)
                         })
-                    })
-                    .catch((error) => {
-                        console.log("Error: ", error)
+                    ).catch((error) => {
                         this.state.transaction.updateTransactionLoading = false
                         Vue.prototype.$vs.notification({
                             icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -561,17 +533,14 @@ export default {
                 url: "https://trustpaddi.herokuapp.com/transaction/approveTransaction",
                 headers: { 'Authorization': `Bearer ${token}` },
                 data: { user, _id }
-            }).then(response => {
-                return dispatch("getTransactions").then(() => {
+            }).then(response =>
+                dispatch("getTransactions").then(() => {
                     dispatch("viewSingleTransaction")
                     commit("confirmApprove", response)
                     this.state.transaction.approveTransactionLoading = false
                     this.state.transaction.approveTransactionDialog = false
                 })
-            }).catch(error => {
-                console.log("Error: ", error)
-                this.state.transaction.approveTransactionLoading = false
-            })
+            ).catch(() => this.state.transaction.approveTransactionLoading = false)
         },
 
         confirmConfirm ({ commit, dispatch }) {
@@ -585,17 +554,14 @@ export default {
                 url: "https://trustpaddi.herokuapp.com/transaction/confirmTransaction",
                 headers: { 'Authorization': `Bearer ${token}` },
                 data: { user, _id }
-            }).then((response) => {
-                return dispatch("getTransactions").then(() => {
+            }).then(response =>
+                dispatch("getTransactions").then(() => {
                     dispatch("viewSingleTransaction")
                     commit("confirmConfirm", response)
                     this.state.transaction.confirmTransactionLoading = false
                     this.state.transaction.confirmTransactionDialog = false
                 })
-            }).catch((error) => {
-                console.log("Error: ", error)
-                this.state.transaction.confirmTransactionLoading = false
-            })
+            ).catch(() => this.state.transaction.confirmTransactionLoading = false)
         },
 
         openDeclineTransactionDialog ({ commit }, transaction) {
@@ -613,17 +579,14 @@ export default {
                 url: "https://trustpaddi.herokuapp.com/transaction/declineTransaction",
                 headers: { 'Authorization': `Bearer ${token}` },
                 data: { user, _id }
-            }).then((response) => {
-                return dispatch("getTransactions").then(() => {
+            }).then(response =>
+                dispatch("getTransactions").then(() => {
                     dispatch("viewSingleTransaction")
                     commit("confirmDecline", response)
                     this.state.transaction.declineTransactionLoading = false
                     this.state.transaction.declineTransactionDialog = false
                 })
-            }).catch((error) => {
-                console.log("Error: ", error)
-                this.state.transaction.declineTransactionLoading = false
-            })
+            ).catch(() => this.state.transaction.declineTransactionLoading = false)
         },
 
         openPopTransactionDialog ({ commit }, transaction) {
@@ -664,17 +627,14 @@ export default {
                     "https://trustpaddi.herokuapp.com/transaction/transactionProofOfPayment",
                     requestOptions
                 ).then((response) => response.json())
-                    .then((response) => {
-                        return dispatch("getTransactions").then(() => {
+                    .then((response) =>
+                        dispatch("getTransactions").then(() => {
                             dispatch("viewSingleTransaction")
                             commit("confirmPop", response)
                             this.state.transaction.popTransactionDialog = false
                             this.state.transaction.popTransactionLoading = false
                         })
-                    }).catch((error) => {
-                        console.log("Error: ", error)
-                        this.state.transaction.popTransactionLoading = false
-                    })
+                    ).catch(() => this.state.transaction.popTransactionLoading = false)
             } else {
                 Vue.prototype.$vs.notification({
                     icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -705,16 +665,13 @@ export default {
                 url: "https://trustpaddi.herokuapp.com/transaction/deleteTransaction",
                 headers: { 'Authorization': `Bearer ${token}` },
                 data: { user, _id }
-            }).then((response) => {
-                return dispatch("getTransactions").then(() => {
+            }).then((response) =>
+                dispatch("getTransactions").then(() => {
                     commit("confirmDelete", response)
                     this.state.transaction.deleteTransactionDialog = false
                     this.state.transaction.deleteTransactionLoading = false
                 })
-            }).catch((error) => {
-                console.log("Error: ", error)
-                this.state.transaction.deleteTransactionLoading = false
-            })
+            ).catch(() => this.state.transaction.deleteTransactionLoading = false)
         },
     },
 }

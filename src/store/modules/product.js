@@ -45,7 +45,6 @@ export default {
 
     mutations: {
         createProduct: (state, response) => {
-            console.log(response)
             if (response.success == true) {
                 state.createProductDialog = false
                 Vue.prototype.$vs.notification({
@@ -71,7 +70,6 @@ export default {
         getProducts: (state, response) => {
             state.products = []
             state.products.push(...response.data.product)
-            console.log(response.data)
         },
 
         viewProductDetails: (state, product) => {
@@ -84,8 +82,6 @@ export default {
         },
 
         openEditProductDialog: (state, product) => {
-            console.log("update: ", product)
-
             state.selectedProductToEdit = product
 
             state.editProductCredential = {
@@ -99,7 +95,6 @@ export default {
         },
 
         editProduct: (state, response) => {
-            console.log(response)
             if (response.success == true) {
                 state.editProductDialog = false
                 state.editProductLoading = false
@@ -129,7 +124,6 @@ export default {
         setProductImage ({ commit }, image) {
             this.state.product.imageName = image.name
             this.state.product.createProductCredential.image = image
-            console.log("state: ", this.state.product.createProductCredential.image)
         },
 
         async createProduct ({ commit, dispatch }) {
@@ -168,7 +162,6 @@ export default {
                     })
                 })
                 .catch((error) => {
-                    console.log("Error: ", error)
                     this.state.product.createProductLoading = false
                     Vue.prototype.$vs.notification({
                         icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -189,11 +182,7 @@ export default {
                 url: `https://trustpaddi.herokuapp.com/product/getProducts/${user}`,
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: { user }
-            }).then(response => {
-                commit("getProducts", response)
-            }).catch(error => {
-                console.log("Error: ", error)
-            })
+            }).then(response => commit("getProducts", response))
         },
 
         viewProductDetails ({ commit, dispatch }, product) {
@@ -209,7 +198,6 @@ export default {
                 url: `https://trustpaddi.herokuapp.com/product/getSingleProduct/${_id}`,
                 headers: { 'Authorization': `Bearer ${token}` }
             }).then((response) => commit("viewSingleProduct", response))
-                .catch((error) => console.log(error))
         },
 
         openEditProductDialog ({ commit }, product) {
@@ -219,7 +207,6 @@ export default {
         setEditProductImage ({ commit }, image) {
             this.state.product.imageName = image.name
             this.state.product.editProductCredential.image = image
-            console.log("state: ", image)
         },
 
         async editProduct ({ commit, dispatch }) {
@@ -261,14 +248,13 @@ export default {
                     requestOptions
                 )
                     .then((response) => response.json())
-                    .then((response) => {
-                        return dispatch("viewSingleProduct").then(() => {
+                    .then((response) =>
+                        dispatch("viewSingleProduct").then(() => {
                             this.state.product.editProductLoading = false
                             commit("editProduct", response)
                         })
-                    })
+                    )
                     .catch((error) => {
-                        console.log("Error: ", error)
                         this.state.product.editProductLoading = false
                         Vue.prototype.$vs.notification({
                             icon: `<i class="las la-exclamation-triangle"></i>`,

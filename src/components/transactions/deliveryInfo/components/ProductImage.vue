@@ -27,7 +27,6 @@ export default {
   methods: {
     setDeliveryInfoProductImage(e) {
       this.deliveryInfo.deliveryInfoInputs.productImage.push(e)
-      console.log(this.deliveryInfo.deliveryInfoInputs.productImage)
     },
   },
   computed: {

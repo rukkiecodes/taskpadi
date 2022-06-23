@@ -52,8 +52,7 @@ export default {
       this.traderCrypto.traderCryptoInputs.duration = e;
     },
     setDurationWithClock() {
-      this.traderCrypto.traderCryptoInputs.duration = this.picker;
-      console.log(this.traderCrypto.traderCryptoInputs.duration);
+      this.traderCrypto.traderCryptoInputs.duration = this.picker
     },
   },
   computed: {

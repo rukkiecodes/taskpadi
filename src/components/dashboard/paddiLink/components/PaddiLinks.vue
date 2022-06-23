@@ -95,11 +95,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["editPaddiLink"]),
-
-    editItem(item) {
-      console.log(item)
-    }
+    ...mapActions(["editPaddiLink"])
   },
 
   computed: {

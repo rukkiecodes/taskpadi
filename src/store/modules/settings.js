@@ -49,7 +49,6 @@ export default {
 
   mutations: {
     changePassword: (state, response) => {
-      console.log("New password: ", response)
       if (response.data.success == true) {
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-unlock-alt"></i>`,
@@ -81,14 +80,12 @@ export default {
     },
 
     getUserBanks: (state, response) => {
-      console.log("getUserBanks: ", response.data.bank)
       state.userBanks = []
       state.userBanks.push(...response.data.bank)
     },
 
     addBankAccount: (state, response) => {
-      console.log("addBankAccount: ", response)
-      if (response.data.success == true) {
+      if (response.data.success == true)
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-university"></i>`,
           border: "#46C93A",
@@ -96,8 +93,7 @@ export default {
           title: "Yippee!!!",
           text: response.data.message,
         })
-      }
-      if (response.data.success == false) {
+      if (response.data.success == false)
         Vue.prototype.$vs.notification({
           icon: `<i class="las la-exclamation-triangle"></i>`,
           border: "rgb(255, 71, 87)",
@@ -105,11 +101,9 @@ export default {
           title: "Oops!!!",
           text: response.data.message,
         })
-      }
     },
 
     resolveBackAccount: (state, response) => {
-      console.log("resolveBackAccount: ", response)
       // Vue.prototype.$cookies.set("PaddiResolved", response.data.bank)
       // state.resolvedAccount = Vue.prototype.$cookies.get("PaddiResolved")
       // if (response.data.success == true) {
@@ -133,7 +127,6 @@ export default {
     },
 
     removeBankAccount: (state, response) => {
-      console.log("removeBankAccount: ", response)
       if (response.data.success == true) {
         state.resolveBankAccountLoading = false
         Vue.prototype.$vs.notification({
@@ -215,18 +208,14 @@ export default {
           commit("logoutOfAccount", response)
           this.state.settings.logoutLoading = false
         })
-        .catch((error) => {
-          this.state.settings.logoutLoading = false
-        })
+        .catch((error) => this.state.settings.logoutLoading = false)
     },
 
     async getBanks ({ commit }) {
       try {
         let banks = await axios.get("https://trustpaddi.herokuapp.com/banks")
         commit("getBanks", banks)
-      } catch (error) {
-        console.log(error)
-      }
+      } catch (error) { }
     },
 
     async getUserBanks ({ commit }) {
@@ -293,7 +282,6 @@ export default {
           commit("resolveBackAccount", bank)
           this.state.settings.resolveBankAccountLoading = false
         } catch (error) {
-          console.log(error)
           this.state.settings.resolveBankAccountLoading = false
         }
       } else {
@@ -324,7 +312,6 @@ export default {
             this.state.settings.removeBankAccountLoading = false
           })
         } catch (error) {
-          console.log(error)
           this.state.settings.removeBankAccountLoading = false
         }
       } else {

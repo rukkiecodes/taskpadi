@@ -25,12 +25,11 @@ export default {
     },
 
     getters: {
-        nigerianStates: (state) => state.nigerianStates,
+        nigerianStates: state => state.nigerianStates,
     },
 
     mutations: {
         getProfile: (state, response) => {
-            // console.log('getProfile: ', response)
             state.userData = {}
             state.userData = response.data.user
 
@@ -51,7 +50,6 @@ export default {
         },
 
         updateProfile: (state, response) => {
-            console.log('updateProfile: ', response)
             // if (response.data.success == true) {
             //     Vue.prototype.$vs.notification({
             //         icon: `<i class="las la-user"></i>`,
@@ -69,15 +67,11 @@ export default {
             let token = Vue.prototype.$cookies.get("PaddiData").token
             let email = Vue.prototype.$cookies.get("PaddiData").user.email
 
-            console.log(token)
-
             await axios({
                 method: 'get',
                 url: `https://trustpaddi.herokuapp.com/auth/profile/${email}`,
                 headers: { 'Authorization': `Bearer ${token}` }
-            }).then(user => {
-                commit("getProfile", user)
-            }).catch(err => console.log('error: ', err))
+            }).then(user => commit("getProfile", user))
         },
 
         async getStates ({ commit }) {
@@ -124,10 +118,7 @@ export default {
 
             fetch("https://trustpaddi.herokuapp.com/auth/avatar", requestOptions)
                 .then((response) => response.text())
-                .then((result) => {
-                    dispatch("getProfile")
-                })
-                .catch((error) => console.log("error", error))
+                .then((result) => dispatch("getProfile"))
         },
     },
 }

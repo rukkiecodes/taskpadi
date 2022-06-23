@@ -13,7 +13,6 @@ export default {
 
   mutations: {
     verifyMyAccount: (state, response) => {
-      console.log(response)
       if (response.data.message == "Email already verified") {
         Vue.prototype.$vs.notification({
           duration: 3000,
@@ -62,7 +61,6 @@ export default {
           commit("verifyMyAccount", response)
           this.state.verifyAccount.loading = false
         } catch (error) {
-          console.log(error)
           this.state.verifyAccount.loading = false
           Vue.prototype.$vs.notification({
             icon: `<i class="las la-exclamation-triangle"></i>`,

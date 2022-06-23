@@ -15,7 +15,6 @@ export default {
 
   mutations: {
     recoverUserPassword: (state, response) => {
-      console.log(response)
       if (response.status == 200) {
         state.loading = false
         Vue.prototype.$vs.notification({
@@ -50,7 +49,6 @@ export default {
           commit("recoverUserPassword", response)
           this.state.forgotPassword.loading = false
         } catch (error) {
-          console.log(error)
           this.state.forgotPassword.loading = false
           Vue.prototype.$vs.notification({
             icon: `<i class="las la-exclamation-triangle"></i>`,

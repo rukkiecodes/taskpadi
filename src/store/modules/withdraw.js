@@ -31,9 +31,6 @@ export default {
         .then((response) => {
           commit("getBanks", response)
         })
-        .catch((error) => {
-          console.log(error)
-        })
     },
   },
 }

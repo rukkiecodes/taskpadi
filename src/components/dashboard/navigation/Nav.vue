@@ -55,13 +55,12 @@
               <v-list-item dense class="py-0">
                 <vs-avatar size="35" color="transparent" tile>
                   <img v-if="!account.userData.avatar" src="../../../assets/trust/pl.png" />
-                  <img v-else
-                    :src="account.userData.avatar" />
+                  <img v-else :src="account.userData.avatar" />
                 </vs-avatar>
                 <v-list-item-content>
                   <v-list-item-title class="text-body-2 font-weight-bold ml-2 grey--text text--darken-3">{{
-                    account.userData.firstname || "User"
-                    }}</v-list-item-title>
+                      account.userData.firstname || "User"
+                  }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -119,7 +118,7 @@ export default {
     ProfileMenu,
   },
 
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
       this.email = Vue.prototype.$cookies.get("PaddiData").user.email
       this.drawerVisibility()
@@ -137,32 +136,27 @@ export default {
       arr2.shift()
       cutFullLocation = arr2.join("/")
 
-      function capitalizeFirstLetter(string) {
+      function capitalizeFirstLetter (string) {
         return string.charAt(0).toUpperCase() + string.slice(1)
       }
 
       this.active = capitalizeFirstLetter(cutFullLocation)
 
-      if (this.active == "Createpaddilink") {
-        this.active = "Create paddi link"
-        console.log(this.active)
-      }
-
-
+      if (this.active == "Createpaddilink") this.active = "Create paddi link"
     })
   },
 
   methods: {
-    setCurrentRoute() {
+    setCurrentRoute () {
       this.dashboardNavigation.currentRoute = window.location.pathname
     },
 
-    removeBorder() {
+    removeBorder () {
       const border = document.querySelector(".v-navigation-drawer__border")
       if (border) border.style.display = "none"
     },
 
-    drawerVisibility() {
+    drawerVisibility () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return (this.drawer = false)
@@ -182,7 +176,7 @@ export default {
     ...mapGetters(["dashboardRoutes"]),
     ...mapState(["dashboardNavigation", "logout", "account"]),
 
-    appbarHeadingLogo() {
+    appbarHeadingLogo () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return true
@@ -197,7 +191,7 @@ export default {
       }
     },
 
-    navbarHeadingLogo() {
+    navbarHeadingLogo () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return false
@@ -212,7 +206,7 @@ export default {
       }
     },
 
-    headingSearch() {
+    headingSearch () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return true
@@ -227,7 +221,7 @@ export default {
       }
     },
 
-    navbarHeadingProfile() {
+    navbarHeadingProfile () {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           return true

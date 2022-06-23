@@ -41,8 +41,7 @@ export default {
 
     mutations: {
         createTicket: (state, response) => {
-            console.log(response)
-            if (response.success == false) {
+            if (response.success == false)
                 Vue.prototype.$vs.notification({
                     icon: `<i class="las la-exclamation-triangle"></i>`,
                     border: "rgb(255, 71, 87)",
@@ -50,7 +49,6 @@ export default {
                     title: "Oops!!!",
                     text: response.message,
                 })
-            }
             if (response.success == true) {
                 state.customerDialog = false
                 Vue.prototype.$vs.notification({
@@ -68,22 +66,17 @@ export default {
             state.tickets.push(...response.data.tickets)
         },
 
-        viewTicket: (state, ticket) => {
-            console.log("ticket: ", ticket)
-            route.push(`/dashboard/support/${ticket._id}`)
-        },
+        viewTicket: (state, ticket) => route.push(`/dashboard/support/${ticket._id}`),
 
         viewSingleTicket: (state, response) => {
             state.singleTicket = []
             if (response.data.success)
                 state.singleTicket.push(...response.data.tickets)
-            console.log("viewSingleTicket: ", state.singleTicket)
         },
 
         closeTicket: (state, response) => {
             state.closeTicketDialog = false
             state.closeTicketLoading = false
-            console.log("closeTicket: ", response)
         },
 
         confirmDeleteTicket: (state, response) => {
@@ -138,13 +131,12 @@ export default {
                 fetch("https://trustpaddi.herokuapp.com/ticket/createTicket",
                     requestOptions
                 ).then((response) => response.json())
-                    .then((response) => {
-                        return dispatch("getTickets").then(() => {
+                    .then((response) =>
+                        dispatch("getTickets").then(() => {
                             commit("createTicket", response)
                             this.state.customerSupport.createLoading = false
                         })
-                    }).catch((error) => {
-                        console.log("Error: ", error)
+                    ).catch((error) => {
                         this.state.customerSupport.createLoading = false
                         Vue.prototype.$vs.notification({
                             icon: `<i class="las la-exclamation-triangle"></i>`,
@@ -178,11 +170,7 @@ export default {
                 method: 'get',
                 url: `https://trustpaddi.herokuapp.com/ticket/getTicket/${user}`,
                 headers: { 'Authorization': `Bearer ${token}` }
-            }).then((response) => {
-                commit("getTickets", response)
-            }).catch((error) => {
-                console.log(error)
-            })
+            }).then((response) => commit("getTickets", response))
         },
 
         viewTicket ({ commit }, ticket) {
@@ -199,11 +187,7 @@ export default {
                 url: "https://trustpaddi.herokuapp.com/ticket/getSingleTicket",
                 headers: { 'Authorization': `Bearer ${token}` },
                 data: { user, _id }
-            }).then((response) => {
-                commit("viewSingleTicket", response)
-            }).catch((error) => {
-                console.log(error)
-            })
+            }).then((response) => commit("viewSingleTicket", response))
         },
 
         closeTicket ({ commit, dispatch }) {
@@ -218,13 +202,9 @@ export default {
                 url: "https://trustpaddi.herokuapp.com/ticket/closeTicket",
                 headers: { 'Authorization': `Bearer ${token}` },
                 data: { user, _id }
-            }).then((response) => {
-                return dispatch("viewSingleTicket").then(() => {
-                    commit("closeTicket", response)
-                })
-            }).catch((error) => {
-                console.log(error)
-            })
+            }).then((response) =>
+                dispatch("viewSingleTicket").then(() => commit("closeTicket", response))
+            )
         },
 
         confirmDeleteTicket ({ commit, dispatch }, ticket) {
@@ -239,13 +219,11 @@ export default {
                 url: "https://trustpaddi.herokuapp.com/ticket/deleteTicket",
                 headers: { 'Authorization': `Bearer ${token}` },
                 data: { user, _id }
-            }).then((response) => {
-                return dispatch("getTickets").then(() => {
+            }).then((response) =>
+                dispatch("getTickets").then(() => {
                     commit("confirmDeleteTicket", response)
                 })
-            }).catch((error) => {
-                console.log(error)
-            })
+            )
         },
     },
 }

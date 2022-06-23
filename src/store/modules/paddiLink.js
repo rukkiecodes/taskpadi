@@ -43,7 +43,6 @@ export default {
       state.editMode = true
       state.editDialog = true
       state.paddiLinkInputs = link
-      console.log(link)
       return state
     },
   },

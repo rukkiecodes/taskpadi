@@ -76,6 +76,21 @@ export default {
         name: "Orders",
         component: () =>
             import("../../views/dashboard/Orders.vue"),
+        children: [
+            {
+                path: '',
+                name: 'OrdersList',
+                component: () => import('../../components/dashboard/orders/OrdersList.vue')
+            },
+            {
+                path: ':_id',
+                name: "ViewOrder",
+                component: () =>
+                    import(
+                        "../../components/dashboard/orders/viewOrder/ViewOrder.vue"
+                    ),
+            }
+        ]
     },
     {
         path: "store",
