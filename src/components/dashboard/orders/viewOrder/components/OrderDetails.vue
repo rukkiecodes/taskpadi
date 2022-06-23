@@ -22,8 +22,8 @@
             <v-list-item dense class="px-1">
               <v-list-item-content class="ml-3">
                 <v-list-item-title><span class="font-weight-bold">Price:</span> ₦{{
-                  order.total
-                  }}
+                    order.total
+                }}
                 </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
@@ -66,7 +66,7 @@
             </v-chip>
           </v-card-title>
 
-          <v-card-text class="text-center text-sm-left px-0">
+          <v-card-text class="text-left text-sm-left px-0">
             <v-list dense class="px-0" color="transparent">
               <v-list-item dense class="px-1">
                 <v-list-item-content class="ml-3">
@@ -99,46 +99,49 @@
         </v-card>
         <v-divider />
 
-        <v-card flat class="text-center d-flex flex-column" color="transparent">
-          <v-card-text class="text-center text-sm-left">
-            <v-row no-gutters justify="space-between" align="center" class="flex-column-reverse flex-sm-row">
-              <v-col cols="12" sm="6">
-                <p class="grey--text text--darken-4 mt-n2 d-flex">
-                  <v-icon small color="amber">mdi-star-circle</v-icon>
-                  Order code: <span class="font-weight-bold ml-2">{{ orders.order.order._id }}</span>
-                </p>
-                <p class="grey--text text--darken-4 mt-n2 d-flex">
-                  <v-icon small color="amber">mdi-star-circle</v-icon>
-                  Buyer email: <span class="font-weight-bold ml-2">{{ orders.order.order.buyerEmail }}</span>
-                </p>
-                <p class="grey--text text--darken-4 mt-n2 d-flex">
-                  <v-icon small color="amber">mdi-star-circle</v-icon>
-                  Buyer phone: <span class="font-weight-bold ml-2">{{ orders.order.order.buyerPhone }}</span>
-                </p>
-                <p class="grey--text text--darken-4 mt-n2">
-                  <v-icon small color="amber">mdi-star-circle</v-icon>
-                  Quantity:
-                  <span class="font-weight-bold ml-2">{{ orders.order.order.quantity }}</span>
-                </p>
-                <p class="grey--text text--darken-4 mt-2">
-                  <v-icon small color="amber">mdi-star-circle</v-icon>
-                  Price:
-                  <span class="font-weight-bold ml-2">₦{{ orders.order.order.price }}</span>
-                </p>
-                <p class="grey--text text--darken-4 mt-n2">
-                  <v-icon small color="amber">mdi-star-circle</v-icon>
-                  Charge:
-                  <span class="font-weight-bold ml-2">₦{{ orders.order.order.charge }}</span>
-                </p>
-                <p class="grey--text text--darken-4 mt-n2">
-                  <v-icon small color="amber">mdi-star-circle</v-icon>
-                  Total:
-                  <span class="font-weight-bold ml-2">₦{{ orders.order.order.totalCost }}</span>
-                </p>
-              </v-col>
-            </v-row>
+        <v-card flat class="d-flex flex-column" color="transparent">
+          <v-card-text class="text-sm-left">
+            <p class="grey--text text--darken-4 mt-n2 d-flex">
+              <v-icon small color="amber">mdi-star-circle</v-icon>
+              Order code: <span class="font-weight-bold ml-2">{{ orders.order.order._id }}</span>
+            </p>
+            <p class="grey--text text--darken-4 mt-n2 d-flex">
+              <v-icon small color="amber">mdi-star-circle</v-icon>
+              Buyer email: <span class="font-weight-bold ml-2">{{ orders.order.order.buyerEmail }}</span>
+            </p>
+            <p class="grey--text text--darken-4 mt-n2 d-flex">
+              <v-icon small color="amber">mdi-star-circle</v-icon>
+              Buyer phone: <span class="font-weight-bold ml-2">{{ orders.order.order.buyerPhone }}</span>
+            </p>
+            <p class="grey--text text--darken-4 mt-n2">
+              <v-icon small color="amber">mdi-star-circle</v-icon>
+              Quantity:
+              <span class="font-weight-bold ml-2">{{ orders.order.order.quantity }}</span>
+            </p>
+            <p class="grey--text text--darken-4 mt-2">
+              <v-icon small color="amber">mdi-star-circle</v-icon>
+              Price:
+              <span class="font-weight-bold ml-2">₦{{ orders.order.order.price }}</span>
+            </p>
+            <p class="grey--text text--darken-4 mt-n2">
+              <v-icon small color="amber">mdi-star-circle</v-icon>
+              Charge:
+              <span class="font-weight-bold ml-2">₦{{ orders.order.order.charge }}</span>
+            </p>
+            <p class="grey--text text--darken-4 mt-n2">
+              <v-icon small color="amber">mdi-star-circle</v-icon>
+              Total:
+              <span class="font-weight-bold ml-2">₦{{ orders.order.order.totalCost }}</span>
+            </p>
           </v-card-text>
         </v-card>
+
+        <v-card-text class="text-center text-sm-left d-flex flex-column flex-sm-row">
+          <vs-button @click="verifyOrder(orders.order.order.reference)" :loading="orders.verifyOrderLoading" flat
+            color="#6200EA" class="text-capitalize">
+            Verify order
+          </vs-button>
+        </v-card-text>
       </v-card>
     </div>
   </v-col>
@@ -148,7 +151,7 @@
 import { mapState, mapActions, mapGetters } from "vuex"
 export default {
   methods: {
-    ...mapActions([]),
+    ...mapActions(["verifyOrder"]),
   },
 
   computed: {
@@ -201,6 +204,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>
